@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tariffe — JUNA</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo"
+        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO JUNA medio.png"
+          alt="JUNA" class="logo-img" style="max-height: 48px; width: auto;"></a>
+      <nav class="nav-links">
+        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+        <a href="tariffe.html" class="nav-link">Tariffe</a>
+        <a href="contatti.html" class="nav-link">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top: 60px;">
+    <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
+      Le migliori offerte 
+      <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="Nuova Corrente" style="height: 40px; width: auto;">
+    </h2>
+    <p class="section-sub">In partnership con Nuova Corrente per garantirti il massimo risparmio</p>
+
+    <div class="results-list" id="results"></div>
+
+
+  </main>
+
+
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"
+          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO JUNA medio.png"
+            alt="JUNA" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
+        <p>Il tuo portale per risparmiare sulle bollette dell'energia elettrica con trasparenza e semplicità.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Chi Siamo</h4>
+          <a href="chi-siamo.html">Chi Siamo</a>
+          <a href="tariffe.html">Tariffe</a>
+          <a href="contatti.html">Contatti</a>
+        </div>
+        <div class="footer-col">
+          <h4>Servizi</h4>
+          <a href="tariffe.html">Confronta Offerte Luce</a>
+          <a href="tariffe.html">Soluzioni Sostenibili</a>
+
+        </div>
+        <div class="footer-col">
+          <h4>Legale</h4>
+
+          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 JUNA. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <script>
+    const offers = [
+      {
+        id: 'nc-energy-online',
+        esclusiva: true,
+        nome: 'Energy Online Luce',
+        fornitore: 'Nuova Corrente',
+        tipo: 'PUN + 0€ Spread',
+        bollettaMensile: 74.50,
+        bollettaAnnua: 894.00,
+        energiaMensile: 42.00,
+        risparmio: 195.00,
+        features: ['Nessuno Spread sul PUN', 'Bonus 66€ incluso', 'Quota fissa scontata', 'Energia 100% Green']
+      },
+      {
+        id: 'nc-gas-online',
+        esclusiva: true,
+        nome: 'Gas Online',
+        fornitore: 'Nuova Corrente',
+        tipo: 'PSV + 0.10€ Spread',
+        bollettaMensile: 88.00,
+        bollettaAnnua: 1056.00,
+        energiaMensile: 55.00,
+        risparmio: 160.00,
+        features: ['Prezzo indicizzato PSV', 'Bonus 66€ incluso', 'Sconto Fedeltà dal 4° mese', 'Attivazione Gratuita']
+      },
+      {
+        id: 'nc-dual-online',
+        esclusiva: true,
+        nome: 'Dual Online (Luce + Gas)',
+        fornitore: 'Nuova Corrente',
+        tipo: 'Prezzo Indicizzato',
+        bollettaMensile: 158.00,
+        bollettaAnnua: 1896.00,
+        energiaMensile: 98.00,
+        risparmio: 132.00,
+        features: ['Bonus Totale 132€', 'Gestione Unificata', 'Tutto Online', 'Zero Vincoli']
+      }
+    ];
+
+    const fmt = n => n.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    const resultsEl = document.getElementById('results');
+    resultsEl.innerHTML = offers.map(o => `
+    <article class="offer-card${o.esclusiva ? ' exclusive' : ''}">
+      <div class="offer-card-ribbon">${o.esclusiva ? '⭐ Offerta esclusiva' : 'Offerta fornitore'}</div>
+      <div class="offer-card-body">
+        <div class="offer-card-header">
+          <div>
+            <div class="offer-name-wrap"><span class="offer-name">${o.nome}</span><span class="offer-info" title="Dettagli">i</span></div>
+            <div class="offer-provider" style="display: flex; align-items: center; gap: 8px;">
+              <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="Nuova Corrente" style="height: 18px; width: auto;">
+              ${o.fornitore} · ${o.tipo}
+            </div>
+          </div>
+          <div class="offer-price-wrap">
+            <div class="offer-price">€${fmt(o.bollettaMensile)}<span class="offer-price-unit">/mese</span></div>
+            <div class="offer-price-detail">€${fmt(o.bollettaAnnua)}/anno</div>
+          </div>
+        </div>
+        ${o.risparmio > 0 ? `<div class="offer-saving">Risparmi €${fmt(o.risparmio)}/anno</div>` : ''}
+        <div class="offer-features">${o.features.map(f => `<span class="offer-tag">${f}</span>`).join('')}</div>
+        <button type="button" class="btn-cta" data-offer-id="${o.id}">🔥 Ti richiamiamo gratis</button>
+      </div>
+    </article>`).join('');
+
+    resultsEl.addEventListener('click', e => {
+      const btn = e.target.closest('[data-offer-id]');
+      if (!btn) return;
+      const o = offers.find(x => x.id === btn.dataset.offerId);
+      if (!o) return;
+      window.location.href = 'contatti.html?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
+    });
+  </script>
+
+<script src="cb.js"></script>
+</body>
+
+</html>
