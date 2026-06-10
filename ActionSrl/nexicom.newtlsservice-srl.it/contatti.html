@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contatti — NEW TLS SERVICE</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-hero {
+      background: #f8fafc;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 20px;
+    }
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 100px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .contact-info {
+      flex: 1.2;
+      min-width: 400px;
+    }
+    .contact-form-card {
+      flex: 1;
+      min-width: 400px;
+      background: #fff;
+      padding: 50px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border);
+    }
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+      color: var(--text-label);
+      font-weight: 500;
+    }
+    .contact-method img {
+      width: 24px;
+      filter: grayscale(1);
+      opacity: 0.6;
+    }
+    
+    /* Nuovi stili per il form */
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 15px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--border);
+      outline: none;
+      transition: all 0.2s;
+      background: #f8fafc;
+      font-family: inherit;
+      font-size: 16px;
+    }
+    .form-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-shadow);
+      background: #fff;
+    }
+    .form-input::placeholder {
+      color: var(--text-muted);
+    }
+    .consent-label {
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .consent-label:hover {
+      border-color: var(--accent-border);
+      background: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="NEW_TLS_SERVICE.png" alt="NEW TLS SERVICE" class="logo-img">
+       
+      </a>
+      <nav class="nav-links">
+        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+        <a href="tariffe.html" class="nav-link">Tariffe</a>
+        <a href="contatti.html" class="nav-link">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="contact-hero">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h1 class="serif-title" style="font-size: clamp(42px, 6vw, 72px); line-height: 1.1; color: var(--primary); margin: 0 0 40px;">Entriamo in contatto</h1>
+        <p style="font-size: 20px; line-height: 1.8; color: var(--text-secondary); max-width: 500px;">
+          Siamo qui per ascoltarti e trovare insieme la soluzione energetica più adatta alle tue necessità. Che tu sia un privato o un'impresa, il nostro team è pronto a darti tutto il supporto di cui hai bisogno.
+        </p>
+        
+        <div class="contact-method">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px;"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path></svg>
+          <a href="mailto:info@newtlsservice-srl.it" style="color: var(--primary); text-decoration: none; font-size: 18px; border-bottom: 1px solid var(--accent);">info@newtlsservice-srl.it</a>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+            <form id="leadForm" action="https://dbc2.datalia.it/api/lead" method="POST" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="fNome">Nome e Cognome *</label>
+                <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>
+                <div class="field-error" data-error-for="fNome"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="fTel">Telefono *</label>
+                <input class="form-input" id="fTel" name="telefono" type="tel" placeholder="333 1234567" required pattern="[0-9 +]{8,}">
+                <div class="field-error" data-error-for="fTel"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="fEmail">Email</label>
+                <input class="form-input" id="fEmail" name="email" type="email" placeholder="mario.rossi@email.it">
+                <div class="field-error" data-error-for="fEmail"></div>
+              </div>
+
+              <div class="form-group" style="margin-top: 28px;">
+                <label class="consent-label" style="margin-top:12px;">
+                  <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
+                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.html">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                </label>
+                <label class="consent-label">
+                  <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
+                  <span>Richiedo di essere ricontattato da NEW TLS SERVICE, tramite il partner commerciale NEXICOM, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas.</span>
+                </label>
+                <label class="consent-label" style="margin-top:12px;">
+                  <input type="checkbox" name="consenso_marketing" style="flex-shrink:0;margin-top:3px;">
+                  <span>Acconsento a ricevere comunicazioni promozionali da NEW TLS SERVICE tramite telefono, email, SMS e altri strumenti di comunicazione.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn-primary" id="btnSubmit" disabled style="width: 100%; padding: 17px; font-size: 16px; margin-top: 24px;">
+                Invia richiesta
+                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+
+            <div id="conferma" hidden style="text-align: center; padding: 32px 0; margin-top: 20px; background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: var(--r-md); color: #065F46;">
+              <div style="font-size: 56px; margin-bottom: 12px;">✅</div>
+              <strong style="font-size: 17px;">Richiesta inviata con successo!</strong>
+              <p style="margin: 8px 0 0; font-size: 14.5px;">Un nostro consulente ti contatterà.</p>
+            </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="NEW_TLS_SERVICE.png" alt="NEW TLS SERVICE" class="logo-img">
+          
+        </a>
+        <p>La tua energia quotidiana: trasparenza, convenienza e assistenza dedicata per un futuro più semplice.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Azienda</h4>
+          <a href="chi-siamo.html">Chi Siamo</a>
+          <a href="tariffe.html">Tariffe</a>
+          <a href="contatti.html">Contatti</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legale</h4>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NEW TLS SERVICE S.R.L.. Tutti i diritti riservati.<br>
+      Sede legale: Corso Europa 109, 80011 Acerra (NA) | P.IVA/C.F.: 10006591217 | REA: NA - 1074480 | Capitale Sociale &euro; 10.000,00 i.v. | PEC: <a href="mailto:info@newtlsservice-srl.it">info@newtlsservice-srl.it</a></p>
+    </div>
+  </footer>
+
+  <script src="lead-form.js"></script>
+
+<script src="cb.js"></script>
+</body>
+
+</html>

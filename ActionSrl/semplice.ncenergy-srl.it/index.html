@@ -1,11 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sito attivo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Energia per il tuo futuro</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<h1>Il sito &egrave; su.</h1>
+
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="NC_ENERGY.png" alt="NC ENERGY" class="logo-img">
+        
+      </a>
+      <nav class="nav-links">
+        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+        <a href="tariffe.html" class="nav-link">Tariffe</a>
+        <a href="contatti.html" class="nav-link">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-slider">
+      <div class="slide active">
+        <div class="slide-bg" style="background-image: url('energy.jpg');"></div>
+        <div class="slide-overlay"></div>
+      </div>
+      <div class="slide">
+        <div class="slide-bg" style="background-image: url('eco.jpg');"></div>
+        <div class="slide-overlay"></div>
+      </div>
+      <div class="slide">
+        <div class="slide-bg" style="background-image: url('turbine.jpg');"></div>
+        <div class="slide-overlay"></div>
+      </div>
+    </div>
+    
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1 id="slide-title">La tua energia quotidiana</h1>
+        <p id="slide-text">Dimentica il pensiero della bolletta. Trasparenza, convenienza e un servizio clienti sempre al tuo fianco per gestire la tua energia in totale semplicità.</p>
+
+        <div class="hero-actions">
+          <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
+          <a href="contatti.html" class="btn-secondary">Parla con noi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const title = document.getElementById('slide-title');
+    const text = document.getElementById('slide-text');
+    
+    const content = [
+      {
+        title: "La tua energia quotidiana",
+        text: "Dimentica il pensiero della bolletta. Trasparenza, convenienza e un servizio clienti sempre al tuo fianco per gestire la tua energia in totale semplicità."
+      },
+      {
+        title: "Calore e Pura Efficienza",
+        text: "Soluzioni per il gas studiate per garantirti il massimo comfort domestico con tariffe variabili e trasparenti, sempre allineate ai costi di mercato."
+      },
+      {
+        title: "Un Futuro Sostenibile",
+        text: "Scegli l'energia pulita. NC ENERGY ti accompagna verso un consumo più consapevole, riducendo l'impatto ambientale senza rinunciare al risparmio."
+      }
+    ];
+
+    let currentSlide = 0;
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+      
+      // Update text with a small fade effect
+      title.style.opacity = 0;
+      text.style.opacity = 0;
+      
+      setTimeout(() => {
+        title.textContent = content[currentSlide].title;
+        text.textContent = content[currentSlide].text;
+        title.style.opacity = 1;
+        text.style.opacity = 1;
+      }, 500);
+    }
+
+    // Initialize text transition styles
+    title.style.transition = "opacity 0.5s ease-in-out";
+    text.style.transition = "opacity 0.5s ease-in-out";
+
+    setInterval(nextSlide, 6000);
+  </script>
+
+  <section class="features-section">
+    <div style="max-width: 800px; margin: 0 auto 80px; text-align: center;">
+      <h2 class="section-title" style="font-size: 48px; margin-bottom: 20px;">L'energia come dovrebbe essere</h2>
+      <p class="section-sub" style="font-size: 20px;">Trasparenza, innovazione e supporto dedicato. Ecco cosa rende NC ENERGY diversa dagli altri fornitori.</p>
+    </div>
+    
+    <div class="features-container">
+      <div class="trust-card">
+        <img src="icon_light.png" alt="Luce" class="trust-mascot" />
+        <h4>Trasparenza Totale</h4>
+        <p>Ogni voce in bolletta è spiegata chiaramente. Nessun costo nascosto, solo l'energia che utilizzi al miglior prezzo di mercato.</p>
+      </div>
+      <div class="trust-card">
+        <img src="icon_support.png" alt="Supporto" class="trust-mascot" />
+        <h4>Supporto Umano</h4>
+        <p>Niente risponditori automatici. Quando ci chiami, parli subito con un consulente esperto pronto a risolvere ogni tuo dubbio.</p>
+      </div>
+      <div class="trust-card">
+        <img src="icon_gas.png" alt="Gas" class="trust-mascot" />
+        <h4>Efficienza Garantita</h4>
+        <p>Ottimizziamo le tue forniture per garantirti il massimo risparmio energetico, con processi digitali veloci e senza carta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works-section">
+    <div class="hiw-container">
+      <div class="hiw-header">
+        <h2 class="section-title">Cambiare operatore non è mai stato così facile</h2>
+        <p class="section-sub">Bastano solo 2 minuti</p>
+      </div>
+
+      <div class="hiw-steps">
+        <div class="hiw-step">
+          <div class="hiw-number">1</div>
+          <p>Scegli la tariffa che più si adatta alle tue esigenze</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">2</div>
+          <p>Tieni a portata di mano una bolletta e il tuo cellulare</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">3</div>
+          <p>Inserisci i tuoi dati e scegli il metodo di pagamento</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">4</div>
+          <p>Non dovrai fare più nulla, penseremo a tutto noi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trustpilot-section">
+    <div class="trustpilot-wrapper">
+      <div class="tp-container">
+        <div class="tp-stars">★★★★★</div>
+        <p class="tp-text">Valutato <strong>Eccellente</strong> su <span class="tp-star-logo">★</span> <span
+            class="tp-logo">Trustpilot</span></p>
+        <p class="tp-subtext">Oltre 5.000 clienti soddisfatti</p>
+      </div>
+      <div class="tp-reviews">
+        <div class="tp-review-card">
+          <div class="tp-review-stars">★★★★★</div>
+          <h5 class="tp-review-title">Finalmente chiarezza!</h5>
+          <p class="tp-review-body">Con NC ENERGY ho finalmente capito cosa pago in bolletta. Prezzi onesti e consulenti gentilissimi.</p>
+          <p class="tp-review-author">Marco R.</p>
+        </div>
+        <div class="tp-review-card">
+          <div class="tp-review-stars">★★★★★</div>
+          <h5 class="tp-review-title">Risparmio reale</h5>
+          <p class="tp-review-body">Passata da un mese, la prima bolletta è stata una sorpresa positiva. Servizio clienti impeccabile.</p>
+          <p class="tp-review-author">Giulia F.</p>
+        </div>
+        <div class="tp-review-card">
+          <div class="tp-review-stars">★★★★★</div>
+          <h5 class="tp-review-title">Zero attese</h5>
+          <p class="tp-review-body">Mi hanno risposto subito e risolto un dubbio sulla voltura in 5 minuti. Consigliatissimi!</p>
+          <p class="tp-review-author">Antonio L.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section" style="padding: 120px 20px; background: #ffffff; color: var(--text-dark);">
+    <div class="container"
+      style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+        <img src="38_GreenEnergy.jpg" alt="Futuro Energia"
+          style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 40px 80px rgba(0,0,0,0.15);">
+      </div>
+      <div style="flex: 1.2; min-width: 300px; text-align: left;">
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;">Innovazione al servizio del tuo risparmio</h2>
+        <p style="font-size: 18px; line-height: 1.8; color: var(--text-label); margin: 32px 0;">
+          In NC ENERGY utilizziamo le migliori tecnologie per monitorare il mercato energetico in tempo reale. Questo ci permette di offrirti tariffe sempre competitive, allineate al PUN e al PSV, senza margini di profitto gonfiati. La nostra missione è semplificare la tua vita energetica.
+        </p>
+        <a href="tariffe.html" class="btn-primary" style="display: inline-block;">Scopri le tariffe</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="NC_ENERGY.png" alt="NC ENERGY" class="logo-img">
+          
+        </a>
+        <p>La tua energia quotidiana: trasparenza, convenienza e assistenza dedicata per un futuro più semplice.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Azienda</h4>
+          <a href="chi-siamo.html">Chi Siamo</a>
+          <a href="tariffe.html">Tariffe</a>
+          <a href="contatti.html">Contatti</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legale</h4>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NC ENERGY S.R.L.. Tutti i diritti riservati.<br>
+      Sede legale: Via Florindo Ferro 49, 80027 Frattamaggiore (NA) | P.IVA/C.F.: 10703311216 | REA: NA - 1126038 | Capitale Sociale &euro; 10.000,00 i.v. | PEC: <a href="mailto:nc.energysrl@pec.it">nc.energysrl@pec.it</a></p>
+    </div>
+  </footer>
+
+<script src="cb.js"></script>
 </body>
+
 </html>

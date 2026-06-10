@@ -1,11 +1,305 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sito attivo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Energia per il tuo futuro</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<h1>Il sito &egrave; su.</h1>
+
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="NEW_TLS_SERVICE.png" alt="NEW TLS SERVICE" class="logo-img">
+        
+      </a>
+      <nav class="nav-links">
+        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+        <a href="tariffe.html" class="nav-link">Tariffe</a>
+        <a href="contatti.html" class="nav-link">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-slider">
+      <div class="slide active">
+        <div class="slide-bg" style="background-image: url('energy.jpg');"></div>
+        <div class="slide-overlay"></div>
+      </div>
+      <div class="slide">
+        <div class="slide-bg" style="background-image: url('eco.jpg');"></div>
+        <div class="slide-overlay"></div>
+      </div>
+      <div class="slide">
+        <div class="slide-bg" style="background-image: url('turbine.jpg');"></div>
+        <div class="slide-overlay"></div>
+      </div>
+    </div>
+    
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1 id="slide-title">La tua energia quotidiana</h1>
+        <p id="slide-text">Dimentica il pensiero della bolletta. Trasparenza, convenienza e un servizio clienti sempre al tuo fianco per gestire la tua energia in totale semplicità.</p>
+
+        <div class="hero-actions">
+          <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
+          <a href="contatti.html" class="btn-secondary">Parla con noi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const title = document.getElementById('slide-title');
+    const text = document.getElementById('slide-text');
+    
+    const content = [
+      {
+        title: "La tua energia quotidiana",
+        text: "Dimentica il pensiero della bolletta. Trasparenza, convenienza e un servizio clienti sempre al tuo fianco per gestire la tua energia in totale semplicità."
+      },
+      {
+        title: "Calore e Pura Efficienza",
+        text: "Soluzioni per il gas studiate per garantirti il massimo comfort domestico con tariffe variabili e trasparenti, sempre allineate ai costi di mercato."
+      },
+      {
+        title: "Un Futuro Sostenibile",
+        text: "Scegli l'energia pulita. NEW TLS SERVICE ti accompagna verso un consumo più consapevole, riducendo l'impatto ambientale senza rinunciare al risparmio."
+      }
+    ];
+
+    let currentSlide = 0;
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+      
+      // Update text with a small fade effect
+      title.style.opacity = 0;
+      text.style.opacity = 0;
+      
+      setTimeout(() => {
+        title.textContent = content[currentSlide].title;
+        text.textContent = content[currentSlide].text;
+        title.style.opacity = 1;
+        text.style.opacity = 1;
+      }, 500);
+    }
+
+    // Initialize text transition styles
+    title.style.transition = "opacity 0.5s ease-in-out";
+    text.style.transition = "opacity 0.5s ease-in-out";
+
+    setInterval(nextSlide, 6000);
+  </script>
+
+  <section class="features-section">
+    <div style="max-width: 800px; margin: 0 auto 80px; text-align: center;">
+      <h2 class="section-title" style="font-size: 48px; margin-bottom: 20px;">L'energia come dovrebbe essere</h2>
+      <p class="section-sub" style="font-size: 20px;">Trasparenza, innovazione e supporto dedicato. Ecco cosa rende NEW TLS SERVICE diversa dagli altri fornitori.</p>
+    </div>
+    
+    <div class="features-container">
+      <div class="trust-card">
+        <svg xmlns="http://www.w3.org/2000/svg" class="trust-mascot" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 80px; height: 80px; margin-bottom: 32px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        <h4>Trasparenza Totale</h4>
+        <p>Ogni voce in bolletta è spiegata chiaramente. Nessun costo nascosto, solo l'energia che utilizzi al miglior prezzo di mercato.</p>
+      </div>
+      <div class="trust-card">
+        <svg xmlns="http://www.w3.org/2000/svg" class="trust-mascot" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 80px; height: 80px; margin-bottom: 32px;"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path></svg>
+        <h4>Supporto Umano</h4>
+        <p>Niente risponditori automatici. Quando ci chiami, parli subito con un consulente esperto pronto a risolvere ogni tuo dubbio.</p>
+      </div>
+      <div class="trust-card">
+        <svg xmlns="http://www.w3.org/2000/svg" class="trust-mascot" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 80px; height: 80px; margin-bottom: 32px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+        <h4>Efficienza Garantita</h4>
+        <p>Ottimizziamo le tue forniture per garantirti il massimo risparmio energetico, con processi digitali veloci e senza carta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works-section">
+    <div class="hiw-container">
+      <div class="hiw-header">
+        <h2 class="section-title">Cambiare operatore non è mai stato così facile</h2>
+        <p class="section-sub">Bastano solo 2 minuti</p>
+      </div>
+
+      <div class="hiw-steps">
+        <div class="hiw-step">
+          <div class="hiw-number">1</div>
+          <p>Scegli la tariffa che più si adatta alle tue esigenze</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">2</div>
+          <p>Tieni a portata di mano una bolletta e il tuo cellulare</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">3</div>
+          <p>Inserisci i tuoi dati e scegli il metodo di pagamento</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">4</div>
+          <p>Non dovrai fare più nulla, penseremo a tutto noi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trustpilot-section">
+    <div class="trustpilot-wrapper">
+      <div class="tp-container">
+        <div class="tp-stars">★★★★★</div>
+        <p class="tp-text">Valutato <strong>Eccellente</strong> su <span class="tp-star-logo">★</span> <span
+            class="tp-logo">Trustpilot</span></p>
+        <p class="tp-subtext">Oltre 5.000 clienti soddisfatti</p>
+      </div>
+      <div class="tp-reviews">
+        <div class="tp-review-card">
+          <div class="tp-review-stars">★★★★★</div>
+          <h5 class="tp-review-title">Finalmente chiarezza!</h5>
+          <p class="tp-review-body">Con NEW TLS SERVICE ho finalmente capito cosa pago in bolletta. Prezzi onesti e consulenti gentilissimi.</p>
+          <p class="tp-review-author">Marco R.</p>
+        </div>
+        <div class="tp-review-card">
+          <div class="tp-review-stars">★★★★★</div>
+          <h5 class="tp-review-title">Risparmio reale</h5>
+          <p class="tp-review-body">Passata da un mese, la prima bolletta è stata una sorpresa positiva. Servizio clienti impeccabile.</p>
+          <p class="tp-review-author">Giulia F.</p>
+        </div>
+        <div class="tp-review-card">
+          <div class="tp-review-stars">★★★★★</div>
+          <h5 class="tp-review-title">Zero attese</h5>
+          <p class="tp-review-body">Mi hanno risposto subito e risolto un dubbio sulla voltura in 5 minuti. Consigliatissimi!</p>
+          <p class="tp-review-author">Antonio L.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section" style="background:var(--accent-bg);">
+    <div style="max-width:800px;margin:0 auto 60px;text-align:center;">
+      <h2 class="section-title" style="font-size:42px;margin-bottom:16px;">Offerte in evidenza</h2>
+      <p class="section-sub" style="font-size:20px;">Una selezione delle nostre offerte SOLO WEB Luce e Gas in collaborazione con Semplice Gas e Luce.</p>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;">
+        <article class="offer-card" style="border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;display:flex;flex-direction:column;">
+          <div class="offer-card-ribbon" style="background:var(--primary);color:#fff;padding:8px;text-align:center;font-weight:700;font-size:14px;">⚡ Luce</div>
+          <div class="offer-card-body" style="padding:36px;display:flex;flex-direction:column;flex:1;">
+            <div class="offer-card-header" style="margin-bottom:20px;">
+              <span class="offer-name" style="font-size:22px;font-weight:700;color:var(--text-dark);display:block;">Solo Web - Variabile PUN</span>
+              <span class="offer-provider" style="color:var(--text-secondary);margin-top:4px;font-size:14px;">Semplice Gas e Luce · Domestico</span>
+            </div>
+            <div class="offer-price-wrap" style="margin-bottom:20px;">
+              <div class="offer-price" style="font-size:28px;font-weight:800;color:var(--accent);line-height:1.2;">PUN + 0,055 €/kWh</div>
+              <div class="offer-price-detail" style="font-size:14px;color:var(--text-muted);margin-top:4px;">Corrispettivo annuo: 456 €/POD/anno*</div>
+            </div>
+            <p style="font-size:14px;color:var(--text-secondary);margin:0 0 20px;line-height:1.6;">Prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.</p>
+            <div class="offer-features" style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+<span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-weight:500;font-size:14px;"><span style="color:var(--accent);">✓</span> 1,00 € sconto bolletta via e-mail</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-weight:500;font-size:14px;"><span style="color:var(--accent);">✓</span> 1,00 € sconto addebito SDD</span>
+            </div>
+            <a href="tariffe.html" class="btn-primary" style="width:100%;margin-top:auto;text-align:center;box-sizing:border-box;">Scopri tutte le offerte</a>
+          </div>
+        </article>
+        <article class="offer-card" style="border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;display:flex;flex-direction:column;">
+          <div class="offer-card-ribbon" style="background:var(--secondary);color:#fff;padding:8px;text-align:center;font-weight:700;font-size:14px;">🔥 Gas</div>
+          <div class="offer-card-body" style="padding:36px;display:flex;flex-direction:column;flex:1;">
+            <div class="offer-card-header" style="margin-bottom:20px;">
+              <span class="offer-name" style="font-size:22px;font-weight:700;color:var(--text-dark);display:block;">Solo Web - Variabile PSV</span>
+              <span class="offer-provider" style="color:var(--text-secondary);margin-top:4px;font-size:14px;">Semplice Gas e Luce · Domestico</span>
+            </div>
+            <div class="offer-price-wrap" style="margin-bottom:20px;">
+              <div class="offer-price" style="font-size:28px;font-weight:800;color:var(--accent);line-height:1.2;">PSV + 0,45 €/Smc</div>
+              <div class="offer-price-detail" style="font-size:14px;color:var(--text-muted);margin-top:4px;">Corrispettivo annuo: 648 €/PDR/anno*</div>
+            </div>
+            <p style="font-size:14px;color:var(--text-secondary);margin:0 0 20px;line-height:1.6;">Prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.</p>
+            <div class="offer-features" style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+<span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-weight:500;font-size:14px;"><span style="color:var(--accent);">✓</span> 1,00 € sconto bolletta via e-mail</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-weight:500;font-size:14px;"><span style="color:var(--accent);">✓</span> 1,00 € sconto addebito SDD</span>
+            </div>
+            <a href="tariffe.html" class="btn-primary" style="width:100%;margin-top:auto;text-align:center;box-sizing:border-box;">Scopri tutte le offerte</a>
+          </div>
+        </article>
+        <article class="offer-card exclusive" style="border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;display:flex;flex-direction:column;">
+          <div class="offer-card-ribbon" style="background:var(--primary);color:#fff;padding:8px;text-align:center;font-weight:700;font-size:14px;">⚡ Luce · Logicard Casa</div>
+          <div class="offer-card-body" style="padding:36px;display:flex;flex-direction:column;flex:1;">
+            <div class="offer-card-header" style="margin-bottom:20px;">
+              <span class="offer-name" style="font-size:22px;font-weight:700;color:var(--text-dark);display:block;">Solo Web - AU PUN Logicard Casa</span>
+              <span class="offer-provider" style="color:var(--text-secondary);margin-top:4px;font-size:14px;">Semplice Gas e Luce · Domestico</span>
+            </div>
+            <div class="offer-price-wrap" style="margin-bottom:20px;">
+              <div class="offer-price" style="font-size:28px;font-weight:800;color:var(--accent);line-height:1.2;">PUN + 0,05 €/kWh</div>
+              <div class="offer-price-detail" style="font-size:14px;color:var(--text-muted);margin-top:4px;">Corrispettivo annuo: 456 €/POD/anno*</div>
+            </div>
+            <p style="font-size:14px;color:var(--text-secondary);margin:0 0 20px;line-height:1.6;">Altri usi indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno).</p>
+            <div class="offer-features" style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+<span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-weight:500;font-size:14px;"><span style="color:var(--accent);">✓</span> 1,00 € sconto bolletta via e-mail</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-weight:500;font-size:14px;"><span style="color:var(--accent);">✓</span> 1,00 € sconto addebito SDD</span>
+            </div>
+            <a href="tariffe.html" class="btn-primary" style="width:100%;margin-top:auto;text-align:center;box-sizing:border-box;">Scopri tutte le offerte</a>
+          </div>
+        </article>
+    </div>
+    <p style="max-width:1200px;margin:32px auto 0;padding:0 20px;font-size:13px;color:var(--text-muted);text-align:center;">* Corrispettivo annuo indicato per POD/PDR. Prezzi indicizzati agli indici di mercato PUN e PSV con spread fisso per 12 mesi.</p>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="tariffe.html" class="btn-primary" style="display:inline-block;">Vedi tutte le offerte</a>
+    </div>
+  </section>
+
+  <section class="info-section" style="padding: 120px 20px; background: #ffffff; color: var(--text-dark);">
+    <div class="container"
+      style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+        <img src="innovazione_risparmio.jpg" alt="Futuro Energia"
+          style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 40px 80px rgba(0,0,0,0.15);">
+      </div>
+      <div style="flex: 1.2; min-width: 300px; text-align: left;">
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;">Innovazione al servizio del tuo risparmio</h2>
+        <p style="font-size: 18px; line-height: 1.8; color: var(--text-label); margin: 32px 0;">
+          In NEW TLS SERVICE utilizziamo le migliori tecnologie per monitorare il mercato energetico in tempo reale. Questo ci permette di offrirti tariffe sempre competitive, allineate al PUN e al PSV, senza margini di profitto gonfiati. La nostra missione è semplificare la tua vita energetica.
+        </p>
+        <a href="tariffe.html" class="btn-primary" style="display: inline-block;">Scopri le tariffe</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="NEW_TLS_SERVICE.png" alt="NEW TLS SERVICE" class="logo-img">
+          
+        </a>
+        <p>La tua energia quotidiana: trasparenza, convenienza e assistenza dedicata per un futuro più semplice.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Azienda</h4>
+          <a href="chi-siamo.html">Chi Siamo</a>
+          <a href="tariffe.html">Tariffe</a>
+          <a href="contatti.html">Contatti</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legale</h4>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NEW TLS SERVICE S.R.L.. Tutti i diritti riservati.<br>
+      Sede legale: Corso Europa 109, 80011 Acerra (NA) | P.IVA/C.F.: 10006591217 | REA: NA - 1074480 | Capitale Sociale &euro; 10.000,00 i.v. | PEC: <a href="mailto:newtlsservice@pec.it">newtlsservice@pec.it</a></p>
+    </div>
+  </footer>
+
+<script src="cb.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tariffe — NC ENERGY</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="NC_ENERGY.png" alt="NC ENERGY" class="logo-img">
+
+      </a>
+      <nav class="nav-links">
+        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+        <a href="tariffe.html" class="nav-link">Tariffe</a>
+        <a href="contatti.html" class="nav-link">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero"
+    style="background: var(--grad-blue); color: #ffffff; padding: 100px 20px; height: auto; min-height: 300px; text-align: center; display: flex; align-items: center; justify-content: center;">
+    <div class="hero-wrapper" style="max-width: 800px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <h1 style="font-size: clamp(32px, 5vw, 56px); margin: 0 0 20px; max-width: 700px;">Le offerte in Partnership</h1>
+      <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Soluzioni trasparenti e convenienti in collaborazione ufficiale con Nexicom.</p>
+    </div>
+  </section>
+
+  <main class="container" style="max-width: 1200px; margin: 80px auto; padding: 0 20px;">
+
+    <div style="text-align: center; margin-bottom: 40px;">
+      <span style="font-size: 16px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Partner Ufficiale</span>
+      <div style="margin-top: 16px;">
+        <span style="display: inline-block; font-size: 32px; font-weight: 800; font-family: var(--font-h); color: var(--accent); letter-spacing: 1px;">Nexicom</span>
+      </div>
+    </div>
+
+    <div class="results-list" id="results"
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px;"></div>
+
+    <div style="margin-top: 100px; display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px;">
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 36px;">Risparmio reale con Nexicom</h2>
+        <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
+          NC ENERGY, in qualità di partner ufficiale Nexicom, offre tariffe trasparenti a prezzo fisso e indicizzato,
+          assicurandoti di pagare sempre il prezzo di mercato senza ricarichi ingiustificati.
+        </p>
+        <div style="display: flex; gap: 16px;">
+          <div class="tag"
+            style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
+            Luce 100% Green</div>
+          <div class="tag"
+            style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
+            Gas Zero Vincoli</div>
+        </div>
+      </div>
+      <div style="flex: 0.8; min-width: 300px;">
+        <img src="eco.jpg" alt="Risparmio"
+          style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 30px 60px rgba(0,0,0,0.1);">
+      </div>
+    </div>
+  </main>
+
+  <p class="price-disclaimer" id="price-disclaimer"
+    style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-size: 14px; color: var(--text-muted); text-align: center;">
+    * Stime basate su profilo medio. Importi soggetti a variazioni in base a consumo, zona e potenza. Dati aggiornati
+    secondo il portale ufficiale NC ENERGY.
+  </p>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="NC_ENERGY.png" alt="NC ENERGY" class="logo-img">
+
+        </a>
+        <p>Trasparenza, convenienza e assistenza dedicata per un futuro energetico più semplice.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Azienda</h4>
+          <a href="chi-siamo.html">Chi Siamo</a>
+          <a href="tariffe.html">Tariffe</a>
+          <a href="contatti.html">Contatti</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legale</h4>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NC ENERGY S.R.L.. Tutti i diritti riservati.<br>
+      Sede legale: Via Florindo Ferro 49, 80027 Frattamaggiore (NA) | P.IVA/C.F.: 10703311216 | REA: NA - 1126038 | Capitale Sociale &euro; 10.000,00 i.v. | PEC: <a href="mailto:nc.energysrl@pec.it">nc.energysrl@pec.it</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const offers = [
+      {
+            "id": "solo-web-variabile-pun",
+            "esclusiva": false,
+            "nome": "Solo Web - Variabile PUN",
+            "fornitore": "Nexicom",
+            "tipo": "Luce · Domestico",
+            "prezzo": "PUN + 0,055 €/kWh",
+            "corrispettivo": "456 €/POD/anno",
+            "descrizione": "Prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
+            "logicard": false,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-variabile-pun-logicard-casa",
+            "esclusiva": true,
+            "nome": "Solo Web - Variabile PUN Logicard Casa",
+            "fornitore": "Nexicom",
+            "tipo": "Luce · Domestico",
+            "prezzo": "PUN + 0,05 €/kWh",
+            "corrispettivo": "456 €/POD/anno",
+            "descrizione": "Indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
+            "logicard": true,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-variabile-au-pun",
+            "esclusiva": false,
+            "nome": "Solo Web - Variabile AU PUN",
+            "fornitore": "Nexicom",
+            "tipo": "Luce · Domestico",
+            "prezzo": "PUN + 0,055 €/kWh",
+            "corrispettivo": "456 €/POD/anno",
+            "descrizione": "Altri usi: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
+            "logicard": false,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-variabile-au-pun-logicard-casa",
+            "esclusiva": true,
+            "nome": "Solo Web - Variabile AU PUN Logicard Casa",
+            "fornitore": "Nexicom",
+            "tipo": "Luce · Domestico",
+            "prezzo": "PUN + 0,05 €/kWh",
+            "corrispettivo": "456 €/POD/anno",
+            "descrizione": "Altri usi indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
+            "logicard": true,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-gas-psv",
+            "esclusiva": false,
+            "nome": "Solo Web - Gas PSV",
+            "fornitore": "Nexicom",
+            "tipo": "Gas · Domestico",
+            "prezzo": "PSV + 0,45 €/Smc",
+            "corrispettivo": "648 €/PDR/anno",
+            "descrizione": "Prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
+            "logicard": false,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-variabile-gas-psv-logicard-casa",
+            "esclusiva": true,
+            "nome": "Solo Web - Variabile Gas PSV Logicard Casa",
+            "fornitore": "Nexicom",
+            "tipo": "Gas · Domestico",
+            "prezzo": "PSV + 0,42 €/Smc",
+            "corrispettivo": "648 €/PDR/anno",
+            "descrizione": "Indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
+            "logicard": true,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-gas-au-psv",
+            "esclusiva": false,
+            "nome": "Solo Web - Gas AU PSV",
+            "fornitore": "Nexicom",
+            "tipo": "Gas · Domestico",
+            "prezzo": "PSV + 0,45 €/Smc",
+            "corrispettivo": "648 €/PDR/anno",
+            "descrizione": "Altri usi: prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
+            "logicard": false,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-variabile-gas-au-psv-logicard-casa",
+            "esclusiva": true,
+            "nome": "Solo Web - Variabile Gas AU PSV Logicard Casa",
+            "fornitore": "Nexicom",
+            "tipo": "Gas · Domestico",
+            "prezzo": "PSV + 0,42 €/Smc",
+            "corrispettivo": "648 €/PDR/anno",
+            "descrizione": "Altri usi indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
+            "logicard": true,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-pun-condominio",
+            "esclusiva": false,
+            "nome": "Solo Web - PUN Condominio",
+            "fornitore": "Nexicom",
+            "tipo": "Luce · Condominio",
+            "prezzo": "PUN + 0,055 €/kWh",
+            "corrispettivo": "456 €/POD/anno",
+            "descrizione": "Per condomini: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
+            "logicard": false,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-variabile-pun-condominio-cs",
+            "esclusiva": true,
+            "nome": "Solo Web - Variabile PUN Condominio CS",
+            "fornitore": "Nexicom",
+            "tipo": "Luce · Condominio",
+            "prezzo": "PUN + 0,05 €/kWh",
+            "corrispettivo": "456 €/POD/anno",
+            "descrizione": "Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
+            "logicard": true,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-psv-condominio",
+            "esclusiva": false,
+            "nome": "Solo Web - PSV Condominio",
+            "fornitore": "Nexicom",
+            "tipo": "Gas · Condominio",
+            "prezzo": "PSV + 0,45 €/Smc",
+            "corrispettivo": "648 €/PDR/anno",
+            "descrizione": "Per condomini: prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
+            "logicard": false,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      },
+      {
+            "id": "solo-web-variabile-psv-condominio-cs",
+            "esclusiva": true,
+            "nome": "Solo Web - Variabile PSV Condominio CS",
+            "fornitore": "Nexicom",
+            "tipo": "Gas · Condominio",
+            "prezzo": "PSV + 0,42 €/Smc",
+            "corrispettivo": "648 €/PDR/anno",
+            "descrizione": "Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
+            "logicard": true,
+            "features": [
+                  "1,00 € sconto bolletta via e-mail",
+                  "1,00 € sconto addebito SDD"
+            ]
+      }
+];
+
+    const resultsEl = document.getElementById('results');
+    resultsEl.innerHTML = offers.map(o => `
+    <article class="offer-card${o.esclusiva ? ' exclusive' : ''}">
+      <div class="offer-card-ribbon">${o.logicard ? '⭐ Logicard Casa' : 'Offerta Standard'}</div>
+      <div class="offer-card-body" style="padding: 40px;">
+        <div class="offer-card-header" style="margin-bottom: 24px;">
+          <div>
+            <div class="offer-name-wrap"><span class="offer-name" style="font-size: 22px; font-weight: 700; font-family: var(--font-h);">${o.nome}</span></div>
+            <div class="offer-provider" style="color: var(--text-secondary); margin-top: 4px;">${o.fornitore} · ${o.tipo}</div>
+          </div>
+          <div class="offer-price-wrap" style="text-align: right;">
+            <div class="offer-price" style="font-size: 20px; font-weight: 700; color: var(--accent);">${o.prezzo}</div>
+            <div class="offer-price-detail" style="font-size: 14px; color: var(--text-muted);">${o.corrispettivo}</div>
+          </div>
+        </div>
+        <div class="offer-saving" style="background: #ecfdf5; color: #065f46; padding: 8px 16px; border-radius: 8px; font-weight: 600; margin-bottom: 24px; display: inline-block;">${o.logicard ? 'Con Logicard Casa' : 'Tariffa Ufficiale'}</div>
+        <p style="font-size: 15px; line-height: 1.6; color: var(--text-secondary); margin: 0 0 24px;">${o.descrizione}</p>
+        <div class="offer-features" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;">${o.features.map(f => `<span class="offer-tag" style="display: flex; align-items: center; gap: 8px; color: var(--text-label); font-weight: 500;"><span style="color: #10b981;">✓</span> ${f}</span>`).join('')}</div>
+        <button type="button" class="btn-primary" style="width: 100%; border: none; cursor: pointer;" data-offer-id="${o.id}">Attiva ora</button>
+      </div>
+    </article>`).join('');
+
+    resultsEl.addEventListener('click', e => {
+      const btn = e.target.closest('[data-offer-id]');
+      if (!btn) return;
+      const o = offers.find(x => x.id === btn.dataset.offerId);
+      if (!o) return;
+      window.location.href = 'contatti.html?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
+    });
+  </script>
+
+<script src="cb.js"></script>
+</body>
+
+</html>

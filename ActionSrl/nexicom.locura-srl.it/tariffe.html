@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Offerte Luce e Gas Green — Locura</title>
+  <meta name="description" content="Scegli la sostenibilità e la convenienza. Scopri le tariffe ecologiche di Locura per l'energia elettrica rinnovabile e il gas naturale a impatto neutro.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="locura.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
+      </a>
+      <nav class="nav-links">
+        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+        <a href="tariffe.html" class="nav-link">Offerte</a>
+        <a href="contatti.html" class="nav-link">Contatti</a>
+      </nav>
+      <div class="header-cta">
+        <a href="contatti.html" class="btn-primary">Ottieni un preventivo
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow eyebrow-light"><span class="dot"></span> Piani Tariffari 100% Sostenibili</span>
+      <h1>La tariffa ottimale, <span class="accent">senza sorprese</span></h1>
+      <p>Piani chiari per utenze domestiche e professionali. Tutte le tariffe sono garantite grazie alla nostra solida partnership energetica per offrirti la massima trasparenza contrattuale.</p>
+      
+      <div style="margin-top: 32px; display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2);">
+        <span style="font-size: 15px; font-weight: 600; color: #fff;">Locura è partner ufficiale di</span>
+        <span style="font-size: 17px; font-weight: 800; color: #fff; letter-spacing: 0.5px;">NEXICOM</span>
+      </div>
+    </div>
+    <div class="wave">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+        <path d="M0,32L120,26.7C240,21,480,11,720,13.3C960,16,1200,32,1320,40L1440,48L1440,70L0,70Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <main class="section" style="padding: 80px 0 40px;">
+    <div class="container">
+
+      <!-- Filtro -->
+      <div class="tab-bar" id="tab-bar">
+        <button class="tab-btn active" data-filter="all">Tutte le Offerte</button>
+        <button class="tab-btn" data-filter="luce-res">Luce</button>
+        <button class="tab-btn" data-filter="gas-res">Gas</button>
+      </div>
+
+      <!-- Griglia offerte -->
+      <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 32px;"></div>
+
+      <p style="font-size: 13.5px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.7;">
+        * Oltre ai corrispettivi sopra citati per le offerte Luce e Gas, verranno applicati i corrispettivi previsti dall'Autorità. I prezzi della componente energia e gas restano bloccati per i primi 3 anni (36 mesi). Il Bonus Bundle di 20€ viene riconosciuto in caso di attivazione congiunta Luce + Gas e ripartito in due quote. Locura opera come partner autorizzato per la transizione energetica.
+      </p>
+    </div>
+  </main>
+
+  <!-- Glossary -->
+  <section class="section glossary">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot"></span> Educazione Energetica</span>
+        <h2 class="section-title">Comprendere la <span class="underline">tua spesa</span></h2>
+        <p class="section-sub">Crediamo che la trasparenza sia alla base del risparmio. Ecco un riassunto dei termini per comprendere come viene strutturata la tua fattura mensile.</p>
+      </div>
+
+      <div class="glossary-grid">
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h4>Prezzo PUN (Luce)</h4>
+          <p>Il Prezzo Unico Nazionale definisce il costo all'ingrosso dell'energia elettrica in Italia. Cambia mensilmente garantendoti le tariffe aggiornate dei mercati fisici.</p>
+        </div>
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h4>Prezzo PSV (Gas)</h4>
+          <p>Il Punto di Scambio Virtuale rappresenta il prezzo all'ingrosso di riferimento del gas naturale per l'Italia, garantendo un aggancio diretto e leale alle dinamiche reali.</p>
+        </div>
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4>Spread di Canale</h4>
+          <p>La quota di gestione aggiunta al prezzo del mercato all'ingrosso. Nelle offerte PLACET, questa componente rimane bloccata a garanzia per 12 mesi.</p>
+        </div>
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg></div>
+          <h4>Domiciliazione (RID)</h4>
+          <p>La domiciliazione bancaria garantisce una tariffazione agevolata grazie alla digitalizzazione dei flussi, eliminando depositi cauzionali e l'uso inutile di carta stampata.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="locura-b.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
+        </a>
+        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Azienda</h4>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="tariffe.html">Offerte</a>
+        <a href="contatti.html">Contatti</a>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="tariffe.html">Luce Rinnovabile</a>
+        <a href="tariffe.html">Gas Compensato</a>
+        <a href="tariffe.html">Audit Digitale</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 <strong>LOCURA S.R.L.</strong> - Sede legale: Viale Giorgio Ribotta 11, 00144 Roma (RM) - P.IVA e C.F.: 17120841006 - R.E.A.: RM - 1697552 - Capitale Sociale &euro; 10.000,00 i.v. - PEC: <a href="mailto:locurasrl@casellapec.com">locurasrl@casellapec.com</a>. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <script>
+    const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+    const ICON_FLAME = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+    const ICON_LOCK = '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+
+    const offers = [
+      { id: 'offer-0', category: 'luce-res', kind: 'luce', tipo: 'Luce', top: true,
+        nome: 'Solo Web - Variabile PUN', sub: 'Domestico · Offerta Solo Web',
+        prezzoRid: 'PUN + 0,055', unita: '€/kWh', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 456 €/POD/anno',
+        features: ['Prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-1', category: 'luce-res', kind: 'luce', tipo: 'Luce · Logicard', top: false,
+        nome: 'Solo Web - Variabile PUN Logicard Casa', sub: 'Domestico · Con carta Logicard Casa',
+        prezzoRid: 'PUN + 0,05', unita: '€/kWh', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 456 €/POD/anno',
+        features: ['Indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-2', category: 'luce-res', kind: 'luce', tipo: 'Luce', top: false,
+        nome: 'Solo Web - Variabile AU PUN', sub: 'Domestico · Offerta Solo Web',
+        prezzoRid: 'PUN + 0,055', unita: '€/kWh', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 456 €/POD/anno',
+        features: ['Altri usi: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-3', category: 'luce-res', kind: 'luce', tipo: 'Luce · Logicard', top: false,
+        nome: 'Solo Web - Variabile AU PUN Logicard Casa', sub: 'Domestico · Con carta Logicard Casa',
+        prezzoRid: 'PUN + 0,05', unita: '€/kWh', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 456 €/POD/anno',
+        features: ['Altri usi indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-4', category: 'gas-res', kind: 'gas', tipo: 'Gas', top: false,
+        nome: 'Solo Web - Gas PSV', sub: 'Domestico · Offerta Solo Web',
+        prezzoRid: 'PSV + 0,45', unita: '€/Smc', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 648 €/PDR/anno',
+        features: ['Prezzo all\'ingrosso indicizzato all\'indice PSV Day Ahead, aggiornato mensilmente.', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-5', category: 'gas-res', kind: 'gas', tipo: 'Gas · Logicard', top: false,
+        nome: 'Solo Web - Variabile Gas PSV Logicard Casa', sub: 'Domestico · Con carta Logicard Casa',
+        prezzoRid: 'PSV + 0,42', unita: '€/Smc', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 648 €/PDR/anno',
+        features: ['Indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-6', category: 'gas-res', kind: 'gas', tipo: 'Gas', top: false,
+        nome: 'Solo Web - Gas AU PSV', sub: 'Domestico · Offerta Solo Web',
+        prezzoRid: 'PSV + 0,45', unita: '€/Smc', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 648 €/PDR/anno',
+        features: ['Altri usi: prezzo all\'ingrosso indicizzato all\'indice PSV Day Ahead, aggiornato mensilmente.', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-7', category: 'gas-res', kind: 'gas', tipo: 'Gas · Logicard', top: false,
+        nome: 'Solo Web - Variabile Gas AU PSV Logicard Casa', sub: 'Domestico · Con carta Logicard Casa',
+        prezzoRid: 'PSV + 0,42', unita: '€/Smc', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 648 €/PDR/anno',
+        features: ['Altri usi indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-8', category: 'luce-res', kind: 'luce', tipo: 'Luce', top: false,
+        nome: 'Solo Web - PUN Condominio', sub: 'Condominio · Offerta Solo Web',
+        prezzoRid: 'PUN + 0,055', unita: '€/kWh', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 456 €/POD/anno',
+        features: ['Per condomini: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-9', category: 'luce-res', kind: 'luce', tipo: 'Luce · Logicard', top: false,
+        nome: 'Solo Web - Variabile PUN Condominio CS', sub: 'Condominio · Con carta Logicard Casa',
+        prezzoRid: 'PUN + 0,05', unita: '€/kWh', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 456 €/POD/anno',
+        features: ['Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-10', category: 'gas-res', kind: 'gas', tipo: 'Gas', top: false,
+        nome: 'Solo Web - PSV Condominio', sub: 'Condominio · Offerta Solo Web',
+        prezzoRid: 'PSV + 0,45', unita: '€/Smc', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 648 €/PDR/anno',
+        features: ['Per condomini: prezzo all\'ingrosso indicizzato all\'indice PSV Day Ahead, aggiornato mensilmente.', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] },
+      { id: 'offer-11', category: 'gas-res', kind: 'gas', tipo: 'Gas · Logicard', top: false,
+        nome: 'Solo Web - Variabile PSV Condominio CS', sub: 'Condominio · Con carta Logicard Casa',
+        prezzoRid: 'PSV + 0,42', unita: '€/Smc', prezzoBoll: null,
+        note: 'Corrispettivo annuo: 648 €/PDR/anno',
+        features: ['Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).', '1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD'] }
+    ];
+
+    function renderCard(o) {
+      const isGas = o.kind === 'gas';
+      const styleVars = isGas
+        ? '--ribbon-color:#d97706; --ribbon-bg:#fef3c7; --ribbon-text:#b45309; --ribbon-border:#fde68a;'
+        : '';
+      return `
+      <article class="offer-card ${o.top ? 'featured' : ''}" data-category="${o.category}" style="${styleVars}">
+        <div class="offer-ribbon">
+          <span class="pill ${isGas ? 'warm' : ''}">
+            ${o.kind === 'luce' ? ICON_BOLT : ICON_FLAME}
+            <span>${o.tipo}</span>
+          </span>
+          ${o.top ? `<span class="lock">${ICON_LOCK} Spread bloccato</span>` : ''}
+        </div>
+        <div class="offer-card-body">
+          <h3 class="offer-name">${o.nome}</h3>
+          <p class="offer-type">${o.sub}</p>
+
+          <div class="price-block">
+            <div class="price-label">Prezzo componente · con RID</div>
+            <div class="price-main">${o.prezzoRid}<span style="font-size:14px; color:var(--muted); margin-left:4px; font-weight:600;">${o.unita}</span></div>
+            ${o.prezzoBoll
+              ? `<div class="price-alt">Bollettino postale: <b>${o.prezzoBoll}</b></div>`
+              : `<div class="price-locked">${ICON_CHECK} Tariffa PLACET, spread garantito 12 mesi</div>`}
+          </div>
+
+          <ul class="offer-features">
+            ${o.features.map(f => `<li>${ICON_CHECK}<span>${f}</span></li>`).join('')}
+          </ul>
+
+          <div class="offer-note">${o.note}</div>
+
+          <button class="btn-primary" data-offer="${o.id}" data-name="${o.nome}">Richiedi attivazione
+            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </article>`;
+    }
+
+    const grid = document.getElementById('offers-grid');
+
+    function applyFilter(filter) {
+      const filtered = filter === 'all' ? offers : offers.filter(o => o.category === filter);
+      grid.innerHTML = filtered.map(renderCard).join('');
+      grid.querySelectorAll('[data-offer]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.name;
+          window.location.href = 'contatti.html?offerta=' + encodeURIComponent(name) + '#contatto-form';
+        });
+      });
+    }
+
+    document.getElementById('tab-bar').addEventListener('click', e => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+
+    applyFilter('all');
+  </script>
+
+  <script src="cb.js"></script>
+</body>
+</html>
