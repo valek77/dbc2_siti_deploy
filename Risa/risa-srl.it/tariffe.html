@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Offerte Luce e Gas — Risa · Energia Comune</title>
+  <meta name="description" content="Tutte le offerte luce e gas di Energia Comune disponibili tramite Risa Contact. Tariffe per uso domestico con prezzi indicizzati al mercato e parametro fisso 12 mesi.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="risa_logo.png" alt="Risa Logo">
+      </a>
+      <nav class="nav-links">
+        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+        <a href="tariffe.html" class="nav-link">Offerte</a>
+        <a href="contatti.html" class="nav-link">Contatti</a>
+      </nav>
+      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="photo-bg" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="photo-overlay"></div>
+    <div class="inner">
+      <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Offerte Energia Comune</span>
+      <h1>Trova la tariffa <span class="hl">giusta per te</span></h1>
+      <p>Offerte luce e gas per uso domestico. Prezzi indicizzati al mercato con parametro fisso e condizioni economiche valide per 12 mesi.</p>
+    </div>
+  </section>
+
+  <!-- OFFERS -->
+  <section class="section">
+    <div class="container">
+
+      <div class="tab-bar" id="tab-bar">
+        <button class="tab-btn active" data-filter="all">Tutte le offerte</button>
+        <button class="tab-btn" data-filter="luce">⚡ Luce</button>
+        <button class="tab-btn" data-filter="gas">🔥 Gas</button>
+      </div>
+
+      <div class="offers-grid" id="offers-grid"></div>
+
+      <p style="font-size:13px; color:var(--muted-2); text-align:center; max-width:920px; margin:56px auto 0; line-height:1.7;">
+        * Prezzi IVA e imposte escluse. Le componenti energia sono indicizzate al PUN Index GME (luce) e al PSV (gas), maggiorate del parametro fisso indicato e, per la luce, delle perdite di rete. Ultimo valore disponibile (maggio 2026): PUN Index GME F1 0,107170 · F2 0,131440 · F3 0,120810 €/kWh; PSV 0,501752 €/Smc. Le condizioni contrattuali definitive sono quelle del contratto Energia Comune – Ecom S.p.A. Risa Contact S.r.l. è partner autorizzato.
+      </p>
+    </div>
+  </section>
+
+  <!-- GLOSSARIO -->
+  <section class="dark-section" style="padding: var(--section) 0;">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" style="color:var(--primary-light); justify-content:center;"><span class="dot" style="background:var(--primary-light);"></span> Capire il prezzo</span>
+        <h2 class="section-title" style="color:#fff; text-align:center;">Come funzionano<br><span style="color:var(--primary-light);">le tariffe</span></h2>
+        <p class="section-sub" style="margin:0 auto 56px; text-align:center;">Energia Comune offre tariffe indicizzate al mercato all'ingrosso. Il prezzo finale è dato dal prezzo di mercato (PUN per la luce, PSV per il gas) più un parametro fisso definito in contratto.</p>
+      </div>
+      <div class="glossary-grid">
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09 12.11A1 1 0 005 14h7l-1 8 8.91-10.11A1 1 0 0019 10h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h4>PUN (Luce)</h4>
+          <p>Prezzo Unico Nazionale: il costo dell'energia elettrica sul mercato all'ingrosso italiano (PUN Index GME), aggiornato ogni mese.</p>
+        </div>
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h4>PSV (Gas)</h4>
+          <p>Punto di Scambio Virtuale: il prezzo di riferimento del gas naturale sul mercato italiano, aggiornato mensilmente.</p>
+        </div>
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4>Parametro fisso (α)</h4>
+          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto e invariabile per tutta la durata dell'offerta (12 mesi).</p>
+        </div>
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg></div>
+          <h4>PLACET</h4>
+          <p>Prezzo Libero A Condizioni Equiparate di Tutela: un'offerta a condizioni contrattuali definite da ARERA, trasparenti e facilmente confrontabili.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align:center;">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom:16px;">Non sai quale offerta fa per te?</h2>
+      <p style="font-size:18px; color:var(--muted); max-width:560px; margin:0 auto 36px; line-height:1.7;">Contattaci: analizziamo la tua bolletta attuale e ti consigliamo la tariffa più adatta gratuitamente.</p>
+      <a href="contatti.html" class="btn-primary" style="font-size:17px; padding:16px 44px;">Consulenza gratuita →</a>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="risa_logo.png" alt="Risa Logo">
+        </a>
+        <p>Risa Contact S.r.l. — partner autorizzato Energia Comune.</p>
+      </div>
+      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
+      <div class="footer-col"><h4>Offerte</h4><a href="tariffe.html">Offerte Luce</a><a href="tariffe.html">Offerte Gas</a><a href="tariffe.html">PLACET</a></div>
+      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Risa Contact S.r.l. — P.IVA 09408801216. Tutti i diritti riservati.</span>
+      <span>Partner autorizzato Energia Comune — Ecom S.p.A.</span>
+    </div>
+  </footer>
+
+  <script>
+    const offers = [
+      { cat:'luce', ribbon:'luce-res', tag:'⚡ Luce', nome:'Luce Zero',
+        tipo:'Prezzo indicizzato PUN · 12 mesi · Uso domestico',
+        prezzo:'PUN + €0,033/kWh', sub:'Quota fissa €17,00/mese · 204 €/anno',
+        badge:'✨ Novità — senza costi nascosti',
+        feats:['Indicizzato al PUN Index GME (F1/F2/F3)','Parametro fisso €0,033/kWh','Perdite di rete incluse','Riservata alla Bassa Tensione domestica'],
+        note:'Condizioni valide 12 mesi. Attivabile entro il 30/06/2026.' },
+
+      { cat:'luce', ribbon:'luce-res', tag:'⚡ Luce', nome:'Tris Luce Green',
+        tipo:'Prezzo indicizzato PUN · 12 mesi · Uso domestico',
+        prezzo:'PUN + €0,0495/kWh', sub:'Quota fissa €38,15/mese · 457,80 €/anno',
+        badge:'🌿 Energia 100% verde',
+        feats:['Energia certificata da fonti rinnovabili (GO)','Sconto 15 € ogni 3 mesi di permanenza','Indicizzato al PUN Index GME','Perdite di rete incluse'],
+        note:'Condizioni valide 12 mesi. Attivabile entro il 30/06/2026.' },
+
+      { cat:'luce', ribbon:'luce-res', tag:'⚡ Luce', nome:'Family Luce Green',
+        tipo:'Prezzo indicizzato PUN · 12 mesi · Uso domestico',
+        prezzo:'PUN + €0,0495/kWh', sub:'Quota fissa €33,15/mese · 397,80 €/anno',
+        badge:'🌿 Energia 100% verde',
+        feats:['Servizio Stai Sereno LUCE incluso','Sconto Stai Sereno fino a 29,88 €/anno','Energia certificata GO da fonti rinnovabili','Indicizzato al PUN Index GME'],
+        note:'Condizioni valide 12 mesi. Attivabile entro il 30/06/2026.' },
+
+      { cat:'luce', ribbon:'luce-placet', tag:'⚡ Luce PLACET', nome:'Placet Luce',
+        tipo:'Offerta PLACET ARERA · 12 mesi · Uso domestico',
+        prezzo:'PUN + €0,050/kWh', sub:'Quota fissa €28,00/mese · 336 €/anno',
+        badge:'🔒 Condizioni regolate ARERA',
+        feats:['Offerta PLACET a prezzo variabile','Sconto 0,50 € a fattura con addebito SDD','Sconto 0,50 € a fattura con bolletta via email','Condizioni trasparenti ARERA'],
+        note:'Condizioni valide 12 mesi. Attivabile entro il 31/12/2026.' },
+
+      { cat:'gas', ribbon:'gas-res', tag:'🔥 Gas', nome:'Gas Zero',
+        tipo:'Prezzo variabile PSV · 12 mesi · Uso domestico',
+        prezzo:'PSV + €0,21/Smc', sub:'Quota fissa €17,00/mese · 204 €/anno',
+        badge:'✨ Novità — senza costi nascosti',
+        feats:['Indicizzato al PSV','Parametro fisso €0,21/Smc','Pagamento con SDD, carta o PagoPA','Bolletta digitale via email'],
+        note:'Riservata ai clienti domestici gas. Attivabile entro il 30/06/2026.' },
+
+      { cat:'gas', ribbon:'gas-res', tag:'🔥 Gas', nome:'Tris Gas',
+        tipo:'Prezzo indicizzato PSV · 12 mesi · Uso domestico',
+        prezzo:'PSV + €0,21/Smc', sub:'Quota fissa €38,15/mese · 457,80 €/anno',
+        badge:'🎁 Bonus fedeltà',
+        feats:['Indicizzato al PSV','Bonus fedeltà 15 € ogni 3 mesi','Parametro fisso €0,21/Smc','Nessun intervento tecnico'],
+        note:'Riservata ai clienti domestici gas. Attivabile entro il 30/06/2026.' },
+
+      { cat:'gas', ribbon:'gas-res', tag:'🔥 Gas', nome:'Family Gas',
+        tipo:'Prezzo indicizzato PSV · 12 mesi · Uso domestico',
+        prezzo:'PSV + €0,21/Smc', sub:'Quota fissa €33,15/mese · 397,80 €/anno',
+        badge:'🛟 Assistenza inclusa',
+        feats:['Servizio Stai Sereno GAS incluso','Sconto Stai Sereno fino a 29,88 €/anno','Indicizzato al PSV','Assistenza ai locali inclusa'],
+        note:'Riservata ai clienti domestici gas. Attivabile entro il 30/06/2026.' },
+
+      { cat:'gas', ribbon:'gas-placet', tag:'🔥 Gas PLACET', nome:'Placet Variabile Gas',
+        tipo:'Offerta PLACET · 12 mesi · Uso domestico',
+        prezzo:'PSV + €0,45/Smc', sub:'Quota fissa €28,00/mese · 336 €/anno',
+        badge:'🔒 Condizioni regolate ARERA',
+        feats:['Per consumi annui inferiori a 200.000 Smc','Sconto 0,50 € a fattura con addebito SDD','Sconto 0,50 € a fattura con bolletta via email','Condizioni trasparenti ARERA'],
+        note:'Condizioni valide 12 mesi. Attivabile entro il 31/12/2026.' }
+    ];
+
+    function card(o) {
+      return `<article class="offer-card" data-cat="${o.cat}">
+        <div class="offer-ribbon ${o.ribbon}">${o.tag}</div>
+        <div class="offer-body">
+          <div class="offer-name">${o.nome}</div>
+          <div class="offer-type">${o.tipo}</div>
+          <div class="offer-price-box">
+            <div class="offer-price-label">Prezzo energia</div>
+            <div class="offer-price">${o.prezzo}</div>
+            <div class="offer-price-alt">${o.sub}</div>
+          </div>
+          ${o.badge ? `<div class="offer-badge">${o.badge}</div>` : ''}
+          <ul class="offer-feats">${o.feats.map(f=>`<li>${f}</li>`).join('')}</ul>
+          <div class="offer-note">📋 ${o.note}</div>
+          <button class="offer-cta" data-name="${o.nome}">Richiedi informazioni</button>
+        </div>
+      </article>`;
+    }
+
+    const grid = document.getElementById('offers-grid');
+
+    function render(f) {
+      const list = f === 'all' ? offers : offers.filter(o => o.cat === f);
+      grid.innerHTML = list.map(card).join('');
+      grid.querySelectorAll('.offer-cta').forEach(b => b.addEventListener('click', () => {
+        window.location.href = 'contatti.html?offerta=' + encodeURIComponent(b.dataset.name) + '#form';
+      }));
+    }
+
+    document.getElementById('tab-bar').addEventListener('click', e => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render(btn.dataset.filter);
+    });
+
+    render('all');
+  </script>
+<script src="cb.js"></script>
+</body>
+</html>
