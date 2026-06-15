@@ -71,6 +71,8 @@ CSS;
 // Recapiti dall'API (con fallback ragionevoli se un campo manca).
 $emailSupporto = $email_supporto;
 $emailDpo = $email_dpo !== '' ? $email_dpo : $email_supporto;
+// Recapiti del Titolare mostrati inline nella sezione "Titolare del trattamento".
+$contattoTitolare = implode(' / ', array_filter([$emailSupporto, $pec]));
 
 include __DIR__ . '/header.php';
 ?>
@@ -87,23 +89,15 @@ include __DIR__ . '/header.php';
     <h2>TITOLARE DEL TRATTAMENTO</h2>
     <span class="section-subhead">Art. 13, par.1, lett. a</span>
     <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, il Titolare del trattamento è individuato nel soggetto giuridico che gestisce il sito web o la piattaforma digitale attraverso la quale vengono raccolti i dati personali (di seguito, il “Titolare”).</p>
+    <p>Nello specifico, il Titolare del trattamento è la società <strong><?= $company_name ?></strong>, con sede legale in <strong><?= $sede_legale ?></strong>, Codice Fiscale e Partita IVA <strong><?= $p_iva ?></strong><?php if ($contattoTitolare) { ?>, contattabile all’indirizzo e-mail/PEC <strong><?= $contattoTitolare ?></strong><?php } ?>.</p>
     <p>Il Titolare fornisce agli interessati le informazioni relative al trattamento dei dati personali effettuato nell’ambito dei servizi offerti online, inclusa la raccolta di richieste di informazioni, preventivi e proposte contrattuali relative a forniture di energia elettrica e gas naturale.</p>
     <p>I dati personali saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento potrà avvenire con strumenti manuali e automatizzati, nel rispetto delle disposizioni di cui all’art. 32 del GDPR e delle misure di sicurezza tecniche e organizzative adeguate.</p>
-    <p>Per qualsiasi informazione o per l’esercizio dei diritti è possibile contattare il Titolare ai seguenti recapiti:</p>
-    <ul>
-<?php if ($emailSupporto) { ?>      <li>Email: <?= $emailSupporto ?></li>
-<?php } ?>
-<?php if ($pec) { ?>      <li>PEC: <?= $pec ?></li>
-<?php } ?>
-    </ul>
 
     <h2>DATA PROTECTION OFFICER</h2>
     <span class="section-subhead">Art.13, par.1, lett. b</span>
-    <p>Il Titolare ha nominato un Responsabile della Protezione dei Dati (DPO), contattabile al seguente indirizzo:</p>
-    <ul>
-<?php if ($emailDpo) { ?>      <li><?= $emailDpo ?></li>
+    <p>Qualora previsto dalla normativa vigente, il Titolare potrà designare un Responsabile della Protezione dei Dati (RPD – DPO). I relativi dati di contatto saranno resi disponibili sul sito web o mediante specifica comunicazione all’interessato.</p>
+<?php if ($email_dpo) { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong><?= $email_dpo ?></strong>.</p>
 <?php } ?>
-    </ul>
 
     <h2>FINALITÀ SPECIFICHE DEL TRATTAMENTO DEI DATI PERSONALI</h2>
     <span class="section-subhead">Art. 13, par.1, lett. C</span>
