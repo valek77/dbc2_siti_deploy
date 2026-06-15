@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A deployment repository of **static lead-generation landing sites** (plain HTML/CSS/JS, no build step) for Italian energy/utility resellers. There is no framework, no `package.json`, and no test suite — files are served as-is. `ActionSrl/_build_brand.py` exists but is empty (0 bytes); ignore it.
 
+Some sites are being migrated to a **PHP vanilla** variant where company data (legal info, contacts, logo, brand) is fetched at runtime from the Datalia API instead of being hardcoded. Pilot site: `Risa/gowin-srl.it`. When the user asks to **"rendi dinamico il sito nella cartella XYZ"** (convert a static site to this PHP architecture), follow the step-by-step runbook in **`MIGRAZIONE-PHP.md`** at the repo root.
+
 ## Layout
 
 Sites are grouped by client company at the top level, and each site lives in a directory named after its deployed domain:
