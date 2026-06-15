@@ -152,6 +152,7 @@ $campi_noti = [
     'capitale_sociale',
     'telefono',
     'logo_url',
+    'logo2_url',
     'bpg_customer_id',
     'bpg_customer_name',
     'created_at',

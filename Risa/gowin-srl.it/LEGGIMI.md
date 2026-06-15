@@ -49,6 +49,7 @@ Ogni campo dell'API è una variabile, **già pronta** da stampare con `<?= ... ?
 | `$telefono`           | Numero di telefono                             |
 | `$capitale_sociale`   | Es. *10.000,00 € i.v.*                          |
 | `$logo_url`           | Indirizzo del logo                             |
+| `$logo2_url`          | Indirizzo del logo secondario/alternativo      |
 | `$SITO_WEB`           | Indirizzo del sito (dal file `.env`)           |
 | `$OPERATORE_ENERGETICO` | Operatore energetico (dal file `.env`)       |
 
