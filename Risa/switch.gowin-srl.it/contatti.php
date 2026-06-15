@@ -1,36 +1,26 @@
-<!doctype html>
-<html lang="it">
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$metaDescription = 'Contatta ' . $OPERATORE_ENERGETICO . ' per ricevere una consulenza gratuita sulle offerte di luce e gas. Siamo qui per aiutarti a scegliere la tariffa giusta.';
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contatti — BLUE ENERGY</title>
-  <meta name="description" content="Contatta BLUE ENERGY per ricevere una consulenza gratuita sulle offerte di luce e gas. Siamo qui per aiutarti a scegliere la tariffa giusta.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
+// Recapiti dall'API (con fallback ragionevoli se un campo manca).
+$emailContatto = $email_supporto !== '' ? $email_supporto : $pec;
+// href "tel:" con soli numeri e "+" (il valore mostrato resta quello dell'API).
+$telHref = preg_replace('/[^0-9+]/', '', html_entity_decode($telefono, ENT_QUOTES, 'UTF-8'));
 
-<body>
+$pageScripts = <<<'JS'
+  <script src="lead-form.js"></script>
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+JS;
 
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="Fluxo_logo.png" alt="BLUE ENERGY Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary">Richiedi preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+include __DIR__ . '/header.php';
+?>
 
   <section class="page-hero">
     <div class="container">
@@ -58,42 +48,45 @@
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
                 <div>
                   <div class="label">Sede Legale</div>
-                  <div class="meta">TEAM S.R.L.</div>
+                  <div class="meta"><?= $company_name ?></div>
                   <div style="font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 4px;">
-                    CORSO EUROPA 136<br>
-                    80017 - MELITO DI NAPOLI (NA)<br>
-                    P.IVA: 06853511217<br>
-                    C.F.: 06853511217<br>
-                    Vat Europeo: IT06853511217
-                  </div>
+<?php if ($sede_legale) { ?>                    <?= $sede_legale ?><br>
+<?php } ?><?php if ($p_iva) { ?>                    P.IVA: <?= $p_iva ?><br>
+                    C.F.: <?= $p_iva ?><br>
+                    Vat Europeo: IT<?= $p_iva ?>
+<?php } ?>                  </div>
                 </div>
               </div>
 
+<?php if ($telHref) { ?>
               <div class="contact-info-item">
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
                 <div>
                   <div class="label">Contatti Rapidi</div>
-                  <div class="meta">Telefono & WhatsApp</div>
-                  <a href="tel:+393294597880">+39 329 459 7880</a>
+                  <div class="meta">Telefono &amp; WhatsApp</div>
+                  <a href="tel:<?= $telHref ?>"><?= $telefono ?></a>
                 </div>
               </div>
+<?php } ?>
 
+<?php if ($emailContatto) { ?>
               <div class="contact-info-item">
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div>
                   <div class="label">Email</div>
-                   <div class="meta">Informazioni & Assistenza</div>
-                   <a href="mailto:team-srl@arubapec.it">team-srl@arubapec.it</a>
+                   <div class="meta">Informazioni &amp; Assistenza</div>
+                   <a href="mailto:<?= $emailContatto ?>"><?= $emailContatto ?></a>
                 </div>
               </div>
+<?php } ?>
             </div>
           </div>
 
           <div class="contact-card-cta" style="margin-top:24px;">
             <div class="label">Offerta del momento</div>
-            <div class="name">NEW BLUE ENERGY LUCE CASA</div>
+            <div class="name">NEW <?= $OPERATORE_ENERGETICO ?> LUCE CASA</div>
             <div class="price">PUN +€0,03<small> €/kWh</small></div>
-            <a class="see-all" href="tariffe.html" style="margin-top:15px;">Vedi tutte le offerte</a>
+            <a class="see-all" href="tariffe.php" style="margin-top:15px;">Vedi tutte le offerte</a>
           </div>
         </div>
 
@@ -124,15 +117,15 @@
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da BLUE ENERGY per ricevere una proposta commerciale relativa alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE_ENERGETICO ?> per ricevere una proposta commerciale relativa alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.html">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_marketing" style="flex-shrink:0;margin-top:3px;">
-                  <span>Acconsento a ricevere comunicazioni promozionali da BLUE ENERGY tramite telefono, email, SMS e altri strumenti di comunicazione.</span>
+                  <span>Acconsento a ricevere comunicazioni promozionali da <?= $OPERATORE_ENERGETICO ?> tramite telefono, email, SMS e altri strumenti di comunicazione.</span>
                 </label>
               </div>
 
@@ -154,47 +147,4 @@
     </div>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="Fluxo_logo.png" alt="BLUE ENERGY Logo">
-        </a>
-        <p>BLUE ENERGY: prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce</a>
-        <a href="tariffe.html">Gas</a>
-        <a href="tariffe.html">Offerte PLACET</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p style="margin-bottom: 8px;">Ragione Sociale: TEAM S.R.L. | P.IVA: 06853511217 | Vat Europeo: IT06853511217</p>
-      <p>&copy; 2026 BLUE ENERGY. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-  <script src="lead-form.js"></script>
-  <script>
-    // Reveal on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: .12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
-
-<script src="cb.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>
