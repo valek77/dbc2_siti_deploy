@@ -8,7 +8,7 @@
  * I dati societari (ragione sociale, sede, P.IVA, capitale, PEC) sono le
  * variabili globali popolate da _config.php a partire dalla risposta dell'API.
  */
-$logo = $logo_url !== '' ? $logo_url : 'logo.png';
+$logo = $logo2_url !== '' ? $logo2_url : 'logo.png';
 
 // Riga legale: includo solo le parti effettivamente presenti.
 $legalParts = [];
