@@ -38,6 +38,10 @@ $legalLine = implode(' &mdash; ', $legalParts);
       </a>
       <p style="margin-top: 20px;">La tua energia quotidiana: trasparenza, convenienza e assistenza dedicata per un
         futuro più semplice.</p>
+      <?php if ($OPERATORE_ENERGETICO) { ?>
+        <p style="margin-top: 12px; font-weight: 600;">Rivenditore autorizzato <?= $OPERATORE_ENERGETICO ?>. Prezzi
+          trasparenti, assistenza dedicata e attivazione senza stress.</p>
+      <?php } ?>
     </div>
     <div class="footer-links">
       <div class="footer-col">

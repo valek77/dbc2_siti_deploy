@@ -45,6 +45,8 @@ $API_BASE = isset($env['DBC2_API_BASE']) ? rtrim($env['DBC2_API_BASE'], '/') : '
 $TOKEN = isset($env['DBC2_TOKEN']) ? $env['DBC2_TOKEN'] : '';
 $COMPANY_ID = isset($env['COMPANY_ID']) ? $env['COMPANY_ID'] : '';
 $SITO_WEB = isset($env['SITO_WEB']) ? htmlspecialchars($env['SITO_WEB'], ENT_QUOTES, 'UTF-8') : '';
+// Operatore energetico di cui il sito è rivenditore (es. "Hera Comm").
+$OPERATORE_ENERGETICO = isset($env['OPERATORE_ENERGETICO']) ? htmlspecialchars($env['OPERATORE_ENERGETICO'], ENT_QUOTES, 'UTF-8') : '';
 
 // --- 2. Chiamata all'API --------------------------------------------------
 function fetch_company($apiBase, $token, $companyId)

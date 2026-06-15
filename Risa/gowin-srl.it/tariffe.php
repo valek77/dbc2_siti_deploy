@@ -4,14 +4,16 @@ $pageTitle = 'Tariffe';
 
 // Script specifico della pagina (catalogo offerte). Restano dati statici:
 // le offerte non fanno parte dell'anagrafica azienda gestita dall'API.
-$pageScripts = <<<'JS'
+// Il nome dell'operatore (dal .env) viene passato al JS come costante OPERATORE.
+$operatoreJs = json_encode(html_entity_decode($OPERATORE_ENERGETICO, ENT_QUOTES, 'UTF-8'));
+$pageScripts = "  <script>const OPERATORE = $operatoreJs;</script>\n" . <<<'JS'
   <script>
     const offers = [
       {
         id: 'active-luce-gas',
         esclusiva: true,
         nome: 'Più Controllo Special Active (Luce + Gas)',
-        fornitore: 'Hera Comm',
+        fornitore: OPERATORE,
         tipo: 'Prezzo Variabile',
         bollettaMensile: 98.40,
         bollettaAnnua: 1180.80,
@@ -22,7 +24,7 @@ $pageScripts = <<<'JS'
         id: 'active-luce',
         esclusiva: false,
         nome: 'Più Controllo Special Active Luce',
-        fornitore: 'Hera Comm',
+        fornitore: OPERATORE,
         tipo: 'Prezzo Variabile',
         bollettaMensile: 48.50,
         bollettaAnnua: 582.00,
@@ -33,7 +35,7 @@ $pageScripts = <<<'JS'
         id: 'active-gas',
         esclusiva: false,
         nome: 'Più Controllo Special Active Gas',
-        fornitore: 'Hera Comm',
+        fornitore: OPERATORE,
         tipo: 'Prezzo Variabile',
         bollettaMensile: 52.90,
         bollettaAnnua: 634.80,
@@ -44,7 +46,7 @@ $pageScripts = <<<'JS'
         id: 'special-flat',
         esclusiva: false,
         nome: 'Più Controllo Special Flat',
-        fornitore: 'Hera Comm',
+        fornitore: OPERATORE,
         tipo: 'Prezzo Fisso 12 mesi',
         bollettaMensile: 65.20,
         bollettaAnnua: 782.40,
@@ -92,8 +94,8 @@ include __DIR__ . '/header.php';
   <section class="hero"
     style="background: linear-gradient(rgba(214, 0, 110, 0.4), rgba(214, 0, 110, 0.6)), url('tariffe_hero.png') center/cover no-repeat; color: #ffffff; padding: 120px 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div class="hero-wrapper" style="max-width: 900px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte <span style="color: var(--accent);">Hera Comm</span></h1>
-      <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Scegli la trasparenza del prezzo all'ingrosso. Con Hera Comm hai energia 100% green e bonus esclusivi fino a 160€.</p>
+      <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte <span style="color: var(--accent);"><?= $OPERATORE_ENERGETICO ?></span></h1>
+      <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Scegli la trasparenza del prezzo all'ingrosso. Con <?= $OPERATORE_ENERGETICO ?> hai energia 100% green e bonus esclusivi fino a 160€.</p>
     </div>
   </section>
 
@@ -105,7 +107,7 @@ include __DIR__ . '/header.php';
       <div style="flex: 1; min-width: 300px;">
         <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 36px;">Trasparenza e Bonus</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          Passare a Hera Comm conviene: ricevi fino a 160€ di bonus in bolletta attivando Luce e Gas insieme. Gestisci tutto comodamente dall'App My Hera e monitora i tuoi consumi in tempo reale.
+          Passare a <?= $OPERATORE_ENERGETICO ?> conviene: ricevi fino a 160€ di bonus in bolletta attivando Luce e Gas insieme. Gestisci tutto comodamente dall'App My Hera e monitora i tuoi consumi in tempo reale.
         </p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <div class="tag"
@@ -120,7 +122,7 @@ include __DIR__ . '/header.php';
         </div>
       </div>
       <div style="flex: 0.8; min-width: 300px; display: flex; justify-content: center;">
-        <img src="hero_new.png" alt="Risparmio Hera Comm"
+        <img src="hero_new.png" alt="Risparmio <?= $OPERATORE_ENERGETICO ?>"
           style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(4, 8, 50, 0.08);">
       </div>
     </div>
@@ -128,7 +130,7 @@ include __DIR__ . '/header.php';
 
   <p class="price-disclaimer" id="price-disclaimer"
     style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-size: 14px; color: var(--text-muted); text-align: center;">
-    * I prezzi indicati si riferiscono alla componente energia (PUN) e materia prima gas (PSV) con l'aggiunta di un contributo al consumo fisso per 12 mesi. Dati aggiornati secondo il portale ufficiale Hera Comm.
+    * I prezzi indicati si riferiscono alla componente energia (PUN) e materia prima gas (PSV) con l'aggiunta di un contributo al consumo fisso per 12 mesi. Dati aggiornati secondo il portale ufficiale <?= $OPERATORE_ENERGETICO ?>.
   </p>
 
 <?php include __DIR__ . '/footer.php'; ?>
