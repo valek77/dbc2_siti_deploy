@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk -F/ '{print $1\"/\"$2}')",
+      "Bash(grep -iE \"readme|\\\\.md$|\\\\.json$|\\\\.yml$|\\\\.yaml$|deploy|\\\\.sh$|\\\\.bat$|\\\\.ps1$\")"
+    ]
+  }
+}
