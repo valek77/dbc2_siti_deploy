@@ -134,7 +134,7 @@ include __DIR__ . '/header.php';
           </div>
           <div class="stagger-content">
             <h4>Offerte Luce</h4>
-            <p>Tariffe variabili indicizzate al PUN e offerte PLACET con spread bloccato per 12 mesi. Per uso domestico e professionale. Massima trasparenza sui costi e zero interruzioni.</p>
+            <p>Tariffe variabili indicizzate al PUN e offerte SWITCH con spread bloccato per 12 mesi. Per uso domestico e professionale. Massima trasparenza sui costi e zero interruzioni.</p>
             <a href="tariffe.php" class="btn-ghost" style="margin-top:20px;">Vedi tariffe luce</a>
           </div>
         </article>
@@ -225,7 +225,7 @@ include __DIR__ . '/header.php';
             Non siamo un punto vendita anonimo: siamo consulenti energetici. Per ogni cliente troviamo la soluzione più conveniente, senza costi nascosti e senza sorprese in bolletta.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 24px;">
-            Con <?= $OPERATORE_ENERGETICO ?> puoi scegliere tra offerte a prezzo variabile indicizzato al mercato o offerte PLACET con spread fisso garantito per 12 mesi.
+            Con <?= $OPERATORE_ENERGETICO ?> puoi scegliere tra offerte a prezzo variabile indicizzato al mercato o offerte SWITCH con spread fisso garantito per 12 mesi.
           </p>
           <a href="chi-siamo.php" class="btn-ghost">Scopri di più su di noi</a>
         </div>
