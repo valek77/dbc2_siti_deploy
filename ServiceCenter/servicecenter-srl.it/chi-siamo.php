@@ -7,18 +7,17 @@ include __DIR__ . '/header.php';
   <section class="hero about-hero" style="background: var(--primary); color: #ffffff;">
     <div class="hero-wrapper" style="gap: 80px; align-items: center;">
       <div class="hero-content">
-        <h1 class="hero-title" style="color: #ffffff; text-shadow: none;">La nostra missione per un futuro sostenibile
+        <h1 class="hero-title" style="color: #ffffff; text-shadow: none;">La nostra missione: il tuo risparmio
         </h1>
         <p class="hero-p" style="color: rgba(255, 255, 255, 0.92);">
-          Siamo un team di esperti appassionati che lavorano ogni giorno per rendere l'energia più semplice, trasparente
-          e verde per tutti.
+          Siamo un team di esperti appassionati che lavorano ogni giorno per aiutarti a trovare le migliori offerte luce, gas e internet, rendendo il mercato semplice e trasparente.
         </p>
         <div class="hero-actions" style="margin-top: 40px;">
           <a href="tariffe.php" class="btn-primary">Scopri le nostre offerte</a>
         </div>
       </div>
       <div class="hero-image" style="flex: 0 0 35%; display: flex; justify-content: center;">
-        <img src="about_mission.png" alt="La nostra missione" class="hero-img"
+        <img src="office_team.png" alt="La nostra missione" class="hero-img"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
       </div>
     </div>
@@ -81,18 +80,16 @@ include __DIR__ . '/header.php';
   <section style="padding: 80px 20px; background: #fff;">
     <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px;">
-        <img src="company_origins.png" alt="<?= $brand ?>"
+        <img src="saving_money.png" alt="<?= $brand ?>"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
       </div>
       <div style="flex: 1.5; min-width: 300px;">
         <h2 class="section-title" style="text-align: left; margin-top: 0;">Come siamo nati</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-label); margin-bottom: 20px;">
-          <?= $brand ?> è nata nel 2000 per portare innovazione e sostenibilità nel mercato energetico. Sviluppiamo
-          impianti di produzione di energia da fonti rinnovabili con standard altissimi.
+          <?= $brand ?> è nata per portare trasparenza e convenienza nel mercato energetico e delle telecomunicazioni. Selezioniamo le migliori tariffe per offrirti sempre il massimo del risparmio.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-label);">
-          Oggi siamo orgogliosi di essere un punto di riferimento per cittadini e aziende che vogliono investire nella
-          transizione energetica.
+          Oggi siamo orgogliosi di essere un punto di riferimento per cittadini e aziende che vogliono ottimizzare i propri consumi in totale sicurezza e affidabilità.
         </p>
       </div>
     </div>

@@ -8,7 +8,7 @@
  * I dati societari (ragione sociale, sede, P.IVA, capitale, PEC) sono le
  * variabili globali popolate da _config.php a partire dalla risposta dell'API.
  */
-$logo = $logo2_url !== '' ? $logo2_url : 'logo.png';
+$logo = $logo_url !== '' ? $logo_url : 'logo.png';
 
 // Riga legale: includo solo le parti effettivamente presenti.
 $legalParts = [];
@@ -30,40 +30,40 @@ if ($pec) {
 $legalLine = implode(' &mdash; ', $legalParts);
 ?>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.php" class="logo" style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img
-            src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img"
-            style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <?php if ($OPERATORE_ENERGETICO) { ?>
-          <p>Rivenditore autorizzato <?= $OPERATORE_ENERGETICO ?>. Prezzi trasparenti, assistenza dedicata e attivazione
-            senza stress.</p>
-        <?php } ?>
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <a href="index.php" class="logo" style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img
+          src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img"></a>
+
+      <?php if ($OPERATORE_ENERGETICO) { ?>
+        <p>Rivenditore autorizzato <?= $OPERATORE_ENERGETICO ?>. Prezzi trasparenti, assistenza dedicata e attivazione
+          senza stress.</p>
+      <?php } ?>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Chi Siamo</h4>
+        <a href="chi-siamo.php">Chi Siamo</a>
+        <a href="tariffe.php">Tariffe</a>
+        <a href="contatti.php">Contatti</a>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.php">Chi Siamo</a>
-          <a href="tariffe.php">Tariffe</a>
-          <a href="contatti.php">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.php">Confronta Offerte Luce</a>
-          <a href="tariffe.php">Soluzioni Sostenibili</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.php">Privacy Policy</a>
-        </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="tariffe.php">Confronta Offerte Luce</a>
+        <a href="tariffe.php">Soluzioni Sostenibili</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
+        <a href="privacy-policy.php">Privacy Policy</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</p>
-    </div>
-  </footer>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</p>
+  </div>
+</footer>
 
 <?php if (!empty($pageScripts)) {
   echo $pageScripts;

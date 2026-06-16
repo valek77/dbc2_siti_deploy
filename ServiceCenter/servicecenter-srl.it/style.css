@@ -1,13 +1,13 @@
 :root {
-  --primary: #047857;
-  --secondary: #10b981;
-  --accent: #059669;
-  --accent-hover: #047857;
-  --accent-bg: rgba(5, 150, 105, .06);
-  --accent-border: rgba(5, 150, 105, .15);
-  --accent-shadow: rgba(5, 150, 105, .12);
-  --yellow: #facc15;
-  --yellow-hover: #eab308;
+  --primary: #2e3192;
+  --secondary: #b52885;
+  --accent: #00a79d;
+  --accent-hover: #008b82;
+  --accent-bg: rgba(0, 167, 157, .06);
+  --accent-border: rgba(0, 167, 157, .15);
+  --accent-shadow: rgba(0, 167, 157, .12);
+  --yellow: #7ac142;
+  --yellow-hover: #66a336;
   --text-dark: #1e293b;
   --text-secondary: #64748b;
   --text-muted: #94a3b8;
@@ -79,7 +79,7 @@ body {
 
 /* ─── Hero ─── */
 .hero {
-  background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+  background: linear-gradient(135deg, #2e3192 0%, #b52885 100%);
   color: #fff; padding: 56px 20px 80px; text-align: left;
   overflow: hidden;
 }
@@ -128,13 +128,13 @@ body {
 }
 
 .btn-primary {
-  background: var(--yellow); color: var(--text-dark);
-  box-shadow: 0 4px 12px rgba(250,204,21,0.3);
+  background: var(--yellow); color: #fff;
+  box-shadow: 0 4px 12px rgba(122,193,66,0.3);
 }
 
 .btn-primary:hover {
   background: var(--yellow-hover);
-  transform: translateY(-2px); box-shadow: 0 6px 16px rgba(250,204,21,0.4);
+  transform: translateY(-2px); box-shadow: 0 6px 16px rgba(122,193,66,0.4);
 }
 
 .btn-secondary {
@@ -345,7 +345,7 @@ body {
   font-weight: 900;
   font-family: var(--font-h);
   margin: 0 auto 24px;
-  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
+  box-shadow: 0 4px 15px rgba(122,193,66,0.4);
 }
 
 .hiw-step p {
@@ -392,7 +392,7 @@ body {
 }
 
 .offer-card-ribbon {
-  background: linear-gradient(135deg, #059669, #10b981); color: #fff;
+  background: linear-gradient(135deg, #00a79d, #7ac142); color: #fff;
   font-size: 11px; font-weight: 700; padding: 6px 14px; text-align: center;
 }
 
@@ -420,7 +420,7 @@ body {
   border: 2px solid var(--border); outline: none;
 }
 
-.input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(5, 150, 105, .18); }
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0, 167, 157, .18); }
 
 .form-group {
   margin-bottom: 20px;
@@ -454,10 +454,10 @@ body {
 
 .btn-cta, .btn-submit {
   border: none; background: var(--yellow);
-  color: var(--text-dark); font-weight: 800; cursor: pointer; width: 100%;
+  color: #fff; font-weight: 800; cursor: pointer; width: 100%;
 }
 
-.btn-cta:hover, .btn-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(250,204,21,0.3); background: var(--yellow-hover); }
+.btn-cta:hover, .btn-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(122,193,66,0.3); background: var(--yellow-hover); }
 
 .btn-submit { padding: 16px; border-radius: 14px; margin-top: 8px; }
 

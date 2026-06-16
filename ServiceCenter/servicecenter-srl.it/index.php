@@ -7,9 +7,8 @@ include __DIR__ . '/header.php';
   <section class="hero">
     <div class="hero-wrapper">
       <div class="hero-content">
-        <h1>Produciamo energia elettrica da fonti rinnovabili</h1>
-        <p>Progettazione, realizzazione, gestione e manutenzione di impianti di produzione di energia elettrica da fonti
-          eoliche, idroelettriche e solari.</p>
+        <h1>Il tuo partner per il risparmio su luce, gas e telefonia</h1>
+        <p>Confrontiamo per te le migliori tariffe di energia elettrica, gas e internet per garantirti il massimo risparmio e l'assistenza dedicata del nostro Service Center.</p>
 
         <div class="hero-actions">
           <a href="tariffe.php" class="btn-primary">Scopri di più</a>
@@ -18,7 +17,7 @@ include __DIR__ . '/header.php';
 
       </div>
       <div class="hero-image">
-        <img src="hero_clean_energy.png" alt="Energia Eolica" class="mascot-img" style="max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);" />
+        <img src="hero_customer_service.png" alt="Assistenza Clienti" class="mascot-img" style="max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);" />
       </div>
     </div>
   </section>
@@ -112,7 +111,7 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="energy_bill_savings.png" alt="Risparmio in bolletta"
+        <img src="saving_money.png" alt="Risparmio in bolletta"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
@@ -120,8 +119,7 @@ include __DIR__ . '/header.php';
           sorprese in
           bolletta</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Con <?= $brand ?> la trasparenza e l'efficienza sono al primo posto: progettazione e manutenzione di impianti
-          energetici a regola d'arte.
+          Con <?= $brand ?> la trasparenza e l'efficienza sono al primo posto: ti aiutiamo a scegliere la tariffa migliore per le tue esigenze, offrendoti un servizio di consulenza gratuito e senza impegno.
         </p>
         <a href="contatti.php" class="btn-primary" style="display: inline-block;">Scopri di più</a>
       </div>
@@ -132,15 +130,14 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap-reverse;">
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0;">Rendi la tua casa più sostenibile</h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0;">Trova la tariffa perfetta per la tua casa o azienda</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Taglia i costi e le emissioni di CO2 con le pompe di calore, i pannelli fotovoltaici e le wallbox.
-          Unisci risparmio economico e rispetto per l'ambiente con le nostre soluzioni innovative.
+          Ottimizza i tuoi consumi e riduci le spese con le migliori offerte sul mercato. Uniamo convenienza economica e assistenza continua per offrirti sempre la soluzione ideale.
         </p>
         <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Scopri le soluzioni</a>
       </div>
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="sustainable_home.png" alt="Casa Sostenibile"
+        <img src="office_team.png" alt="Il Nostro Team"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
       </div>
     </div>
