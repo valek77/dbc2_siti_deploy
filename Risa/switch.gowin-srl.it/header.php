@@ -20,7 +20,7 @@ if (!isset($brand)) {
 $siteBrand = $OPERATORE_ENERGETICO !== '' ? $OPERATORE_ENERGETICO : $brand;
 $pageTitle = isset($pageTitle) ? $pageTitle : $siteBrand;
 // Il logo dell'operatore è un asset statico del sito.
-$logo = 'Fluxo_logo.png';
+$logo = 'gr_logo.png';
 ?>
 <!doctype html>
 <html lang="it">
