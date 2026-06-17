@@ -276,17 +276,16 @@ include __DIR__ . '/header.php';
 
 <section class="contact-hero">
   <div class="hero-container">
-    <h1>Siamo al <span>tuo fianco</span></h1>
-    <p>Contattaci per ricevere assistenza sulle nostre offerte Luce e Gas o per richiedere un sopralluogo gratuito per
-      Caldaia, Clima e Fotovoltaico.</p>
+    <h1>Siamo a <span>tua disposizione</span></h1>
+    <p>Hai domande sulle nostre offerte luce e gas o vuoi informazioni sugli impianti di climatizzazione e fotovoltaico? Scrivici senza impegno.</p>
   </div>
 </section>
 
 <div class="floating-cards">
   <div class="f-card">
     <img src="icon_consultant.png" alt="Email">
-    <h3>Contattaci</h3>
-    <p>Il nostro team di esperti è pronto a rispondere a ogni tua domanda.
+    <h3>Scrivici o chiamaci</h3>
+    <p>Siamo operativi tutti i giorni lavorativi per darti le risposte che cerchi in tempo record.
       <?php if (!empty($email_supporto)) { ?> <br><strong><?= htmlspecialchars($email_supporto) ?></strong><?php } ?>
       <?php if (!empty($telefono)) { ?> <br><strong><?= htmlspecialchars($telefono) ?></strong><?php } ?>
     </p>
@@ -296,15 +295,14 @@ include __DIR__ . '/header.php';
 <section class="form-section">
   <div class="form-grid">
     <div class="form-text">
-      <h2 class="section-title">Inizia il tuo percorso con un nostro <span>esperto</span></h2>
+      <h2 class="section-title">Prenota la tua consulenza <span>gratuita</span></h2>
       <p>
-        Compila il modulo per essere ricontattato da un nostro consulente dedicato. Insieme troveremo la soluzione
-        migliore per rendere la tua casa più efficiente e sostenibile.
+        Inserisci i tuoi dati qui a fianco. Verrai richiamato in breve tempo da un professionista dedicato che ti illustrerà come tagliare le bollette in modo intelligente.
       </p>
       <ul class="features-list">
-        <li><span class="check-icon">✓</span> Sopralluogo gratuito per Caldaia e Clima</li>
-        <li><span class="check-icon">✓</span> Analisi personalizzata per Fotovoltaico</li>
-        <li><span class="check-icon">✓</span> Assistenza dedicata per Luce e Gas</li>
+        <li><span class="check-icon">✓</span> Analisi bolletta gratuita</li>
+        <li><span class="check-icon">✓</span> Consulenza su fotovoltaico</li>
+        <li><span class="check-icon">✓</span> Nessun impegno vincolante</li>
       </ul>
     </div>
 
