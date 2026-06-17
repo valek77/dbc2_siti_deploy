@@ -220,10 +220,10 @@ include __DIR__ . '/header.php';
     <div class="form-grid">
       <div class="form-text">
         <h2 class="section-title" style="text-align: left; font-size: 42px; margin-bottom: 32px;">Pianifica il tuo
-          futuro energetico</h2>
+          futuro digitale</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--accent); opacity: 0.8; margin-bottom: 32px;">
           Inserisci i tuoi dati per ricevere la chiamata di un nostro specialista. Non vogliamo solo proporti
-          un'offerta, ma studiare i tuoi bisogni per farti risparmiare nel tempo.
+          un'offerta, ma studiare i tuoi bisogni di connettività per farti risparmiare nel tempo.
         </p>
         <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 20px;">
           <li style="display: flex; align-items: center; gap: 16px; font-weight: 600; color: var(--accent);">
@@ -269,7 +269,7 @@ include __DIR__ . '/header.php';
               <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
               <span>Richiedo di essere ricontattato da <?= htmlspecialchars($OPERATORE_ENERGETICO) ?>, tramite il
                 partner commerciale <?= htmlspecialchars($brand) ?>, per ricevere informazioni e proposte commerciali
-                relative alla fornitura di energia elettrica e/o gas. *</span>
+                relative alla fornitura di servizi di telecomunicazione e utenze. *</span>
             </label>
 
             <label class="consent-label" style="margin-top:12px;">

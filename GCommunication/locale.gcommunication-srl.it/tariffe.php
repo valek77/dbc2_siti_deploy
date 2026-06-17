@@ -9,54 +9,51 @@ $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
   <script>
     const offers = [
       {
-        id: 'black-luce',
+        id: 'fibra-business',
         esclusiva: true,
-        nome: 'BLACK LUCE',
+        nome: 'FIBRA BUSINESS',
         fornitore: PROVIDER,
-        tipo: 'PUN + Spread 0,018',
-        bollettaMensile: 58.44,
-        bollettaAnnua: 701.28,
-        energiaMensile: 35.00,
-        risparmio: 90.00,
+        tipo: 'FTTH fino a 2.5 Gbps',
+        bollettaMensile: 29.90,
+        bollettaAnnua: 358.80,
+        risparmio: 50.00,
         features: [
-          'Spread: 0,018 €/kWh (incl. perdite)',
-          'Bonus Canone RAI: fino a 90€/anno',
-          'Sconto RID + Bollett@Online: -2€/mese',
+          'Velocità fino a 2.5 Gbps',
+          'Modem Wi-Fi 6 incluso',
+          'Chiamate illimitate incluse',
           'Consulente Dedicato incluso'
         ]
       },
       {
-        id: 'black-gas',
+        id: 'mobile-5g',
         esclusiva: true,
-        nome: 'BLACK GAS',
+        nome: 'MOBILE 5G',
         fornitore: PROVIDER,
-        tipo: 'PSV + Spread 0,13',
-        bollettaMensile: 58.91,
-        bollettaAnnua: 706.92,
-        energiaMensile: 38.00,
-        risparmio: 24.00,
+        tipo: 'Giga Illimitati',
+        bollettaMensile: 14.99,
+        bollettaAnnua: 179.88,
+        risparmio: 20.00,
         features: [
-          'Spread: 0,13 €/Smc',
-          'Sconto RID + Bollett@Online: -2€/mese',
-          'Consulente Dedicato incluso',
-          'Fatturazione Mensile'
+          'Giga Illimitati in 5G',
+          'Minuti e SMS illimitati',
+          'Zero costi di attivazione',
+          'Nessun vincolo contrattuale'
         ]
       },
       {
-        id: 'black-dual',
+        id: 'combo-aziendale',
         esclusiva: false,
-        nome: 'BLACK LUCE & GAS',
+        nome: 'COMBO AZIENDALE',
         fornitore: PROVIDER,
-        tipo: 'Combo Variabile',
-        bollettaMensile: 117.35,
-        bollettaAnnua: 1408.20,
-        energiaMensile: 73.00,
-        risparmio: 114.00,
+        tipo: 'Fibra + 2 SIM 5G',
+        bollettaMensile: 49.90,
+        bollettaAnnua: 598.80,
+        risparmio: 100.00,
         features: [
-          'Tutti i Bonus raddoppiati',
-          'Gestione Unica via App Lucy',
+          'Fibra FTTH + 2 SIM 5G incluse',
+          'Centralino Virtuale (Opzionale)',
           'Assistenza Prioritaria H24',
-          'Prezzo indicizzato PUN/PSV'
+          'Prezzo bloccato per 24 mesi'
         ]
       }
     ];
@@ -101,7 +98,7 @@ include __DIR__ . '/header.php';
 ?>
 
   <section class="hero"
-    style="background: linear-gradient(rgba(4, 8, 50, 0.7), rgba(4, 8, 50, 0.7)), url('tariffe_hero.png') center/cover no-repeat; color: #ffffff; padding: var(--section-padding) 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
+    style="background: linear-gradient(rgba(4, 8, 50, 0.7), rgba(4, 8, 50, 0.7)), url('hero_telecom.png') center/cover no-repeat; color: #ffffff; padding: var(--section-padding) 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div class="hero-wrapper"
       style="max-width: 900px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
       <div
@@ -124,24 +121,24 @@ include __DIR__ . '/header.php';
 
     <div style="margin-top: 120px; display: flex; align-items: center; gap: var(--gutter); flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 36px;">Ottimizza i tuoi consumi
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 36px;">Ottimizza le tue utenze
         </h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          <?= $brand ?> va oltre la fornitura energetica classica. Il nostro scopo è proteggerti dai costi eccessivi
-          attraverso consigli chiari e costanti. Avrai sempre una figura di riferimento a tua disposizione, eliminando
+          <?= $brand ?> va oltre la semplice fornitura di connettività. Il nostro scopo è proteggerti dai costi eccessivi
+          attraverso consigli chiari e costanti sulle tue utenze. Avrai sempre una figura di riferimento a tua disposizione, eliminando
           lo stress dei call center.
         </p>
         <div style="display: flex; gap: 16px;">
           <div class="tag"
             style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
-            Luce 100% Green</div>
+            Fibra Ultraveloce</div>
           <div class="tag"
             style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
-            Gas Zero Vincoli</div>
+            Mobile 5G</div>
         </div>
       </div>
       <div style="flex: 0.8; min-width: 300px; display: flex; justify-content: center;">
-        <img src="savings.png" alt="Risparmio"
+        <img src="services_telecom.png" alt="Risparmio Utenze"
           style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(4, 8, 50, 0.08);">
       </div>
     </div>
@@ -162,23 +159,22 @@ include __DIR__ . '/header.php';
           <li>Fatturazione: Mensile</li>
           <li>Durata: Tempo indeterminato</li>
           <li>Ripensamento: 14 giorni solari</li>
-          <li>Metodi: SDD, App Lucy, PayPal, Carte</li>
+          <li>Metodi: SDD, Area Clienti, PayPal, Carte</li>
         </ul>
       </div>
       <div>
         <h4 style="color: var(--accent); margin-bottom: 16px; font-weight: 700;">Bonus & Sconti</h4>
         <ul style="font-size: 15px; color: var(--text-secondary); padding-left: 20px; line-height: 1.8;">
-          <li>Sconto RIDotto: -1,00 €/mese</li>
-          <li>Sconto Bollett@Online: -1,00 €/mese</li>
-          <li>Bonus Assistenza: -1,50 €/mese (24m)</li>
-          <li>Canone RAI: Riaccredito fino a 90€</li>
+          <li>Sconto Domiciliazione: -2,00 €/mese</li>
+          <li>Sconto Fattura Elettronica: -1,00 €/mese</li>
+          <li>Bonus Fedeltà: -1,50 €/mese (dopo 12m)</li>
+          <li>Attivazione: Gratuita (promo online)</li>
         </ul>
       </div>
       <div>
         <h4 style="color: var(--accent); margin-bottom: 16px; font-weight: 700;">Altre Informazioni</h4>
         <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
-          Deposito Cauzionale richiesto solo senza domiciliazione (es. 40€ fino a 3kW). Cambio prodotto: 36€ + IVA.
-          Gestione morosità: 100€ + IVA.
+          Nessun costo di attivazione per le offerte con domiciliazione bancaria. Disattivazione anticipata secondo le normative vigenti Agcom.
         </p>
       </div>
     </div>
