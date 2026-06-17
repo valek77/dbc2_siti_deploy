@@ -16,15 +16,13 @@ include __DIR__ . '/header.php';
       style="padding: 80px 20px; background: var(--primary); margin: 60px 0; color: #ffffff;">
       <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 300px;">
-          <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Un'energia più pulita,
-            insieme</h2>
+          <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Siamo pronti ad aiutarti</h2>
           <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            Scegliere <?= $brand ?> significa sostenere l'ambiente. Ogni nostro kilowattora proviene al 100% da fonti
-            rinnovabili certificate.
+            Scegliere <?= $brand ?> significa ottimizzare le tue spese affidandoti a veri professionisti. Inviaci una richiesta per ricevere una consulenza senza impegno.
           </p>
         </div>
         <div style="flex: 0.8; min-width: 200px; display: flex; justify-content: center;">
-          <img src="hero_clean_energy.png" alt="Eco Energy"
+          <img src="consulting_business.png" alt="Consulenza"
             style="max-width: 300px; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
         </div>
       </div>
@@ -85,15 +83,13 @@ include __DIR__ . '/header.php';
       <div
         style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap-reverse;">
         <div style="flex: 0.8; min-width: 200px; display: flex; justify-content: center;">
-          <img src="company_origins.png" alt="Sostenibilità"
+          <img src="about_gcom.png" alt="Consulenza"
             style="max-width: 300px; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
         </div>
         <div style="flex: 1; min-width: 300px;">
-          <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">La nostra promessa verde
-          </h2>
+          <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Il nostro impegno verso di te</h2>
           <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            Non ci limitiamo a vendere energia, promuoviamo un cambiamento reale. Con le nostre soluzioni per il
-            fotovoltaico e la mobilità elettrica, rendiamo la tua vita più sostenibile e conveniente.
+            Non ci limitiamo a offrirti un contratto, costruiamo con te una partnership duratura. Analizziamo le tue necessità e selezioniamo sul mercato le migliori soluzioni per le tue utenze aziendali e domestiche.
           </p>
         </div>
       </div>

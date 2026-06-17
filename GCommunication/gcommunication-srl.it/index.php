@@ -7,18 +7,16 @@ include __DIR__ . '/header.php';
   <section class="hero">
     <div class="hero-wrapper">
       <div class="hero-content">
-        <h1>Produciamo energia elettrica da fonti rinnovabili</h1>
-        <p>Progettazione, realizzazione, gestione e manutenzione di impianti di produzione di energia elettrica da fonti
-          eoliche, idroelettriche e solari.</p>
+        <h1>Soluzioni avanzate per telecomunicazioni e utilities</h1>
+        <p>GCommunication offre consulenza specializzata, analisi dei costi e servizi su misura per ottimizzare le utenze domestiche e aziendali, garantendoti le migliori condizioni sul mercato.</p>
 
         <div class="hero-actions">
-          <a href="tariffe.php" class="btn-primary">Scopri di più</a>
-          <a href="contatti.php" class="btn-secondary">Contattaci</a>
+          <a href="tariffe.php" class="btn-primary">Le nostre offerte</a>
         </div>
 
       </div>
       <div class="hero-image">
-        <img src="hero_clean_energy.png" alt="Energia Eolica" class="mascot-img" style="max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);" />
+        <img src="hero_gcommunication.png" alt="Consulenza GCommunication" class="mascot-img" style="max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);" />
       </div>
     </div>
   </section>
@@ -49,8 +47,8 @@ include __DIR__ . '/header.php';
   <section class="how-it-works-section">
     <div class="hiw-container">
       <div class="hiw-header">
-        <h2 class="section-title">Cambiare operatore non è mai stato così facile</h2>
-        <p class="section-sub">Bastano solo 2 minuti</p>
+        <h2 class="section-title">Ottimizzare i costi non è mai stato così semplice</h2>
+        <p class="section-sub">Un processo chiaro in 4 passaggi</p>
       </div>
 
       <div class="hiw-steps">
@@ -112,18 +110,15 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="energy_bill_savings.png" alt="Risparmio in bolletta"
+        <img src="consulting_business.png" alt="Consulenza strategica"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; color: var(--text-dark);">Basta brutte
-          sorprese in
-          bolletta</h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0; color: var(--text-dark);">Ottimizza i costi con la giusta strategia</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Con <?= $brand ?> la trasparenza e l'efficienza sono al primo posto: progettazione e manutenzione di impianti
-          energetici a regola d'arte.
+          Con <?= $brand ?> hai un partner affidabile per l'analisi e la gestione dei contratti luce, gas e telecomunicazioni. Analizziamo le fatture e selezioniamo per te le migliori opportunità.
         </p>
-        <a href="contatti.php" class="btn-primary" style="display: inline-block;">Scopri di più</a>
+        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
       </div>
     </div>
   </section>
@@ -132,15 +127,14 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap-reverse;">
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0;">Rendi la tua casa più sostenibile</h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0;">Un supporto dedicato per te e il tuo business</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Taglia i costi e le emissioni di CO2 con le pompe di calore, i pannelli fotovoltaici e le wallbox.
-          Unisci risparmio economico e rispetto per l'ambiente con le nostre soluzioni innovative.
+          Che tu sia un'azienda in cerca di maggiore efficienza per le comunicazioni o un privato interessato al risparmio energetico, i nostri esperti sono sempre pronti a guidarti con serietà e trasparenza verso la soluzione migliore.
         </p>
-        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Scopri le soluzioni</a>
+        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
       </div>
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="sustainable_home.png" alt="Casa Sostenibile"
+        <img src="about_gcom.png" alt="Team GCommunication"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
       </div>
     </div>

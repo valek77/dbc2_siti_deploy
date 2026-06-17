@@ -1,11 +1,11 @@
 :root {
-  --primary: #047857;
-  --secondary: #10b981;
-  --accent: #059669;
-  --accent-hover: #047857;
-  --accent-bg: rgba(5, 150, 105, .06);
-  --accent-border: rgba(5, 150, 105, .15);
-  --accent-shadow: rgba(5, 150, 105, .12);
+  --primary: #003f7a;
+  --secondary: #005b9f;
+  --accent: #005b9f;
+  --accent-hover: #003f7a;
+  --accent-bg: rgba(0, 91, 159, .06);
+  --accent-border: rgba(0, 91, 159, .15);
+  --accent-shadow: rgba(0, 91, 159, .12);
   --yellow: #facc15;
   --yellow-hover: #eab308;
   --text-dark: #1e293b;
@@ -79,7 +79,7 @@ body {
 
 /* ─── Hero ─── */
 .hero {
-  background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+  background: linear-gradient(135deg, #002b5e 0%, #004b87 100%);
   color: #fff; padding: 56px 20px 80px; text-align: left;
   overflow: hidden;
 }
@@ -162,7 +162,7 @@ body {
 
 .trust-mascot {
   height: 90px; width: auto; margin-bottom: 20px;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
+  filter: hue-rotate(110deg) saturate(120%) drop-shadow(0 4px 10px rgba(0,0,0,0.1));
 }
 
 .trust-card h4 {
@@ -392,7 +392,7 @@ body {
 }
 
 .offer-card-ribbon {
-  background: linear-gradient(135deg, #059669, #10b981); color: #fff;
+  background: linear-gradient(135deg, #005b9f, #007bff); color: #fff;
   font-size: 11px; font-weight: 700; padding: 6px 14px; text-align: center;
 }
 
@@ -420,7 +420,7 @@ body {
   border: 2px solid var(--border); outline: none;
 }
 
-.input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(5, 150, 105, .18); }
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0, 91, 159, .18); }
 
 .form-group {
   margin-bottom: 20px;
@@ -489,8 +489,8 @@ body {
 
 /* ─── Footer ─── */
 .main-footer {
-  background: #ffffff;
-  border-top: 1px solid var(--border);
+  background: var(--primary);
+  border-top: none;
   padding: 60px 20px 20px;
   margin-top: 60px;
 }
@@ -514,7 +514,7 @@ body {
 }
 
 .footer-brand p {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   font-size: 16px;
   margin: 0;
@@ -528,14 +528,14 @@ body {
 
 .footer-col h4 {
   font-family: var(--font-h);
-  color: var(--text-dark);
+  color: #fff;
   font-size: 18px;
   margin: 0 0 20px;
 }
 
 .footer-col a {
   display: block;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   margin-bottom: 12px;
   font-size: 16px;
@@ -543,16 +543,16 @@ body {
 }
 
 .footer-col a:hover {
-  color: var(--accent);
+  color: var(--yellow);
 }
 
 .footer-bottom {
   max-width: 1100px;
   margin: 60px auto 0;
   padding-top: 24px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
 }
 
