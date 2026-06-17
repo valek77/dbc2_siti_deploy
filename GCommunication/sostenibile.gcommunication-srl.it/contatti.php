@@ -7,7 +7,7 @@ include __DIR__ . '/header.php';
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Contattaci</span>
-      <h1>Parliamo di <span class="accent">energia</span></h1>
+      <h1>Parliamo dei tuoi <span class="accent">servizi</span></h1>
       <p>Richiedi una consulenza gratuita: un nostro esperto ti contatterà.</p>
     </div>
     <div class="wave">
@@ -52,7 +52,7 @@ include __DIR__ . '/header.php';
                 </label>
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da <?= htmlspecialchars($OPERATORE_ENERGETICO) ?>, tramite il partner commerciale <?= htmlspecialchars($brand) ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= htmlspecialchars($OPERATORE_ENERGETICO) ?>, tramite il partner commerciale <?= htmlspecialchars($brand) ?>, per ricevere informazioni e proposte commerciali relative ai servizi di energia elettrica, gas e telecomunicazioni. *</span>
                 </label>
 
                 <label class="consent-label" style="margin-top:12px;">

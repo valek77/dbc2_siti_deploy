@@ -84,13 +84,13 @@ include __DIR__ . '/header.php';
 
     <p>Gentile Utente,</p>
     <p>La informiamo che, ai sensi dell’art. 16 del TFUE e dell’art. 8 della Carta dei diritti fondamentali dell’Unione Europea, ogni persona ha diritto alla protezione dei dati di carattere personale che la riguardano, a prescindere dalla nazionalità o residenza. I dati devono essere trattati secondo i principi di liceità, correttezza, trasparenza e minimizzazione, per finalità determinate e sulla base di un fondamento giuridico previsto dalla normativa vigente.</p>
-    <p>La presente informativa ha carattere generico ed esemplificativo ed è destinata ad essere utilizzata nell’ambito di servizi di informazione, comparazione e promozione di offerte nel settore dell’energia (luce e gas), anche mediante siti web, landing page e strumenti digitali di raccolta contatti.</p>
+    <p>La presente informativa ha carattere generico ed esemplificativo ed è destinata ad essere utilizzata nell’ambito di servizi di informazione, comparazione e promozione di offerte nel settore dei servizi di pubblica utilità (luce, gas e telecomunicazioni), anche mediante siti web, landing page e strumenti digitali di raccolta contatti.</p>
 
     <h2>TITOLARE DEL TRATTAMENTO</h2>
     <span class="section-subhead">Art. 13, par.1, lett. a</span>
     <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, il Titolare del trattamento è individuato nel soggetto giuridico che gestisce il sito web o la piattaforma digitale attraverso la quale vengono raccolti i dati personali (di seguito, il “Titolare”).</p>
     <p>Nello specifico, il Titolare del trattamento è la società <strong><?= $company_name ?></strong>, con sede legale in <strong><?= $sede_legale ?></strong>, Codice Fiscale e Partita IVA <strong><?= $p_iva ?></strong><?php if ($contattoTitolare) { ?>, contattabile all’indirizzo e-mail/PEC <strong><?= $contattoTitolare ?></strong><?php } ?>.</p>
-    <p>Il Titolare fornisce agli interessati le informazioni relative al trattamento dei dati personali effettuato nell’ambito dei servizi offerti online, inclusa la raccolta di richieste di informazioni, preventivi e proposte contrattuali relative a forniture di energia elettrica e gas naturale.</p>
+    <p>Il Titolare fornisce agli interessati le informazioni relative al trattamento dei dati personali effettuato nell’ambito dei servizi offerti online, inclusa la raccolta di richieste di informazioni, preventivi e proposte contrattuali relative a forniture di energia elettrica, gas naturale e servizi di telecomunicazione.</p>
     <p>I dati personali saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento potrà avvenire con strumenti manuali e automatizzati, nel rispetto delle disposizioni di cui all’art. 32 del GDPR e delle misure di sicurezza tecniche e organizzative adeguate.</p>
 
     <h2>DATA PROTECTION OFFICER</h2>
@@ -103,12 +103,12 @@ include __DIR__ . '/header.php';
     <span class="section-subhead">Art. 13, par.1, lett. C</span>
     <p>I dati personali forniti dall’Utente possono essere trattati per le seguenti finalità:</p>
     <ul>
-      <li><strong>Gestione delle richieste di informazioni e preventivi nel settore energia:</strong> consentire all’Utente di richiedere informazioni o ricevere proposte commerciali relative a forniture di energia elettrica e gas, nonché di essere ricontattato da operatori qualificati o partner commerciali per la presentazione di offerte contrattuali.</li>
+      <li><strong>Gestione delle richieste di informazioni e preventivi:</strong> consentire all’Utente di richiedere informazioni o ricevere proposte commerciali relative a forniture di energia elettrica, gas e telecomunicazioni, nonché di essere ricontattato da operatori qualificati o partner commerciali per la presentazione di offerte contrattuali.</li>
       <li><strong>Gestione dei contatti commerciali e precontrattuali:</strong> consentire il ricontatto telefonico o tramite strumenti elettronici da parte del Titolare o di soggetti partner autorizzati, esclusivamente previa acquisizione di un consenso valido, documentabile e verificabile, nel rispetto della normativa vigente in materia di telemarketing e tutela dei consumatori.</li>
-      <li><strong>Adempimento di obblighi normativi e regolatori nel settore energia:</strong> garantire il rispetto delle disposizioni previste dalla normativa nazionale e dalle misure introdotte per la tutela degli utenti nel mercato dell’energia, inclusi gli obblighi di trasparenza, correttezza commerciale e tracciabilità del consenso, anche in relazione alle disposizioni introdotte in materia di contrasto alle pratiche commerciali scorrette e al telemarketing aggressivo.</li>
+      <li><strong>Adempimento di obblighi normativi e regolatori:</strong> garantire il rispetto delle disposizioni previste dalla normativa nazionale e dalle misure introdotte per la tutela degli utenti nei mercati di riferimento, inclusi gli obblighi di trasparenza, correttezza commerciale e tracciabilità del consenso, anche in relazione alle disposizioni introdotte in materia di contrasto alle pratiche commerciali scorrette e al telemarketing aggressivo.</li>
       <li><strong>Sicurezza dei sistemi e prevenzione abusi:</strong> garantire il corretto funzionamento del sito, la sicurezza dei sistemi informatici, la prevenzione di utilizzi illeciti o fraudolenti e la tutela dei diritti del Titolare in sede giudiziaria.</li>
       <li><strong>Analisi delle esigenze energetiche dell’Utente:</strong> consentire all’Utente di fornire informazioni relative alla propria fornitura energetica, anche mediante caricamento volontario di documenti (es. bollette), al fine di ricevere proposte commerciali coerenti con il proprio profilo di consumo.</li>
-      <li><strong>Attività di marketing diretto:</strong> inviare comunicazioni promozionali e informative relative a servizi e offerte nel settore energia, mediante telefono, e-mail, SMS o altri strumenti di comunicazione elettronica, esclusivamente previo consenso espresso dell’interessato.</li>
+      <li><strong>Attività di marketing diretto:</strong> inviare comunicazioni promozionali e informative relative a servizi e offerte nei settori di competenza, mediante telefono, e-mail, SMS o altri strumenti di comunicazione elettronica, esclusivamente previo consenso espresso dell’interessato.</li>
     </ul>
 
     <h2>BASE GIURIDICA</h2>
@@ -116,7 +116,7 @@ include __DIR__ . '/header.php';
     <p>Il trattamento dei dati personali si fonda sulle seguenti basi giuridiche:</p>
     <ul>
       <li>esecuzione di misure precontrattuali adottate su richiesta dell’interessato, ai sensi dell’art. 6, par. 1, lett. b) del GDPR, per la gestione delle richieste di informazioni, preventivi e contatti commerciali;</li>
-      <li>adempimento di obblighi legali e regolatori, ai sensi dell’art. 6, par. 1, lett. c) del GDPR, con particolare riferimento agli obblighi previsti dalla normativa in materia di servizi energetici, tutela dei consumatori e trasparenza delle comunicazioni commerciali;</li>
+      <li>adempimento di obblighi legali e regolatori, ai sensi dell’art. 6, par. 1, lett. c) del GDPR, con particolare riferimento agli obblighi previsti dalla normativa in materia di servizi e forniture, tutela dei consumatori e trasparenza delle comunicazioni commerciali;</li>
       <li>legittimo interesse del Titolare, ai sensi dell’art. 6, par. 1, lett. f) del GDPR, per garantire la sicurezza dei sistemi, prevenire frodi e difendere i propri diritti;</li>
       <li>consenso libero, specifico, informato e inequivocabile dell’interessato, ai sensi dell’art. 6, par. 1, lett. a) del GDPR, per le attività di marketing e per il ricontatto commerciale mediante telefono o strumenti automatizzati.</li>
     </ul>
@@ -144,7 +144,7 @@ include __DIR__ . '/header.php';
     <h2>DESTINATARI DI DATI PERSONALI</h2>
     <span class="section-subhead">Art. 13, par.1, lett. e</span>
     <p>I dati personali non saranno diffusi.</p>
-    <p>I dati personali possono essere comunicati a soggetti terzi operanti nel settore dell’energia elettrica e del gas naturale, quali fornitori di servizi energetici, società partner o intermediari commerciali, esclusivamente per la gestione delle richieste di preventivo e la conclusione di eventuali contratti di fornitura.</p>
+    <p>I dati personali possono essere comunicati a soggetti terzi operanti nel settore dell’energia, del gas naturale e delle telecomunicazioni, quali fornitori di servizi, società partner o intermediari commerciali, esclusivamente per la gestione delle richieste di preventivo e la conclusione di eventuali contratti di fornitura.</p>
     <p>Tali soggetti trattano i dati in qualità di autonomi titolari o responsabili del trattamento, nel rispetto della normativa vigente.</p>
     <p>Il Titolare può inoltre comunicare i dati a fornitori di servizi tecnici e informatici necessari per il funzionamento del sito e la gestione delle comunicazioni.</p>
 
@@ -200,7 +200,7 @@ include __DIR__ . '/header.php';
 <?php } ?>
 
     <h2>AGGIORNAMENTI DELLA PRESENTE INFORMATIVA</h2>
-    <p>La presente informativa potrà essere soggetta a modifiche o aggiornamenti, anche in conseguenza di variazioni normative, evoluzioni tecnologiche o aggiornamenti delle policy aziendali nel settore dell’energia e della tutela dei consumatori.</p>
+    <p>La presente informativa potrà essere soggetta a modifiche o aggiornamenti, anche in conseguenza di variazioni normative, evoluzioni tecnologiche o aggiornamenti delle policy aziendali nel settore di riferimento e della tutela dei consumatori.</p>
     <p>Gli aggiornamenti saranno resi disponibili mediante pubblicazione sul sito web o tramite altri canali informativi appropriati.</p>
   </main>
 

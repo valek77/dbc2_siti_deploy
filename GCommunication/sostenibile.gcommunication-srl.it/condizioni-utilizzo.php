@@ -68,7 +68,7 @@ include __DIR__ . '/header.php';
     </div>
 
     <h2>Oggetto del servizio</h2>
-    <p><?= $brand ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi e informazioni relative a prodotti energetici. Le informazioni hanno natura informativa e orientativa.</p>
+    <p><?= $brand ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi e informazioni relative a prodotti e servizi energetici e di telecomunicazione. Le informazioni hanno natura informativa e orientativa.</p>
 
     <h2>Diritti e doveri dell’utente</h2>
     <p>L’utente si impegna a utilizzare il Sito in modo lecito, corretto e conforme alle presenti Condizioni Generali. In particolare, si impegna a non utilizzare il Sito per finalità illecite o fraudolente.</p>

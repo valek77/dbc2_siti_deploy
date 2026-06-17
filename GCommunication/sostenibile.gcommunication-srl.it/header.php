@@ -40,7 +40,7 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
       </a>
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.php" class="nav-link">Offerte</a>
+        <a href="tariffe.php" class="nav-link">Servizi</a>
         <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
       <div class="header-cta">
