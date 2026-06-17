@@ -1,19 +1,19 @@
 :root {
-  --primary: #5ec8d7; /* Sky blue/cyan from logo */
-  --secondary: #484849; /* Charcoal grey from logo */
-  --accent: #5ec8d7; /* Sky blue/cyan */
-  --accent-hover: #45b1c0;
-  --accent-bg: #f0fafb; /* Light cyan background */
-  --grad-yellow: linear-gradient(102deg, #8ef0fc 0%, #5ec8d7 60%); /* Cyan gradient for main CTAs */
-  --grad-magenta: linear-gradient(135deg, #5ec8d7 0%, #3ba5b5 100%); /* Cyan/Teal gradient */
-  --text-dark: #0A2540; /* Dark blue */
-  --text-secondary: #1E3A8A; /* Secondary blue */
+  --primary: #1e3a8a; /* Blue */
+  --secondary: #0f172a; /* Dark Blue */
+  --accent: #c0ff00; /* Acid Green */
+  --accent-hover: #a3e600; /* Darker Acid Green */
+  --accent-bg: #f7fee7; /* Light Acid Green */
+  --grad-yellow: linear-gradient(102deg, #d9ff42 0%, #c0ff00 100%); /* Acid Green gradient for CTAs */
+  --grad-magenta: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%); /* Blue gradient */
+  --text-dark: #0f172a; /* Dark blue */
+  --text-secondary: #1e40af; /* Secondary blue */
   --text-muted: #64748B; /* Slate blue */
-  --text-label: #1E3A8A; /* Blue label */
+  --text-label: #1e40af; /* Blue label */
   --border: #DEE2E6;
   --bg-page: #ffffff;
   --bg-cream: #F8F9FA;
-  --grad-blue: linear-gradient(135deg, #3fa8b7 0%, #1f6b76 100%); /* Cyan/Teal gradient */
+  --grad-blue: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); /* Blue gradient */
   --font-h: 'Outfit', sans-serif;
   --font-main: 'Outfit', sans-serif;
   --radius-lg: 10px; /* Action uses tighter corners for cards */
@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Header ─── */
 .main-header {
-  background: #fff;
+  background: var(--secondary); /* Dark Blue */
   border-bottom: 1px solid var(--border);
   padding: 15px 20px;
   position: sticky;
@@ -75,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link {
   text-decoration: none;
-  color: var(--text-dark);
+  color: #fff;
   font-weight: 600;
   font-size: 16px;
   transition: all 0.2s ease;

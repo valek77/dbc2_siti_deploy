@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Energia per il tuo futuro';
+$pageTitle = 'L\'energia di domani, oggi a casa tua';
 include __DIR__ . '/header.php';
 ?>
 
@@ -8,9 +8,9 @@ include __DIR__ . '/header.php';
     <div class="hero-overlay" style="background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);"></div>
     <div class="container">
       <div class="hero-content">
-        <span class="hero-tag">Energia per la casa</span>
-        <h1 id="hero-title">Cerchi le migliori offerte Gas e Luce per la tua casa?</h1>
-        <p id="hero-text">Attiva un nuovo contratto luce e gas e avrai la garanzia di un prezzo trasparente e un’assistenza multicanale sempre al tuo fianco.</p>
+        <span class="hero-tag">Energia Intelligente</span>
+        <h1 id="hero-title">L'energia di domani, oggi a casa tua.</h1>
+        <p id="hero-text">Scegli l'efficienza e la trasparenza per le tue utenze di luce e gas. Un servizio clienti sempre presente e tariffe pensate per farti risparmiare davvero.</p>
 
         <div class="hero-actions">
           <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
@@ -27,25 +27,25 @@ include __DIR__ . '/header.php';
 
   <section class="features-section" style="background: #fff; padding: 100px 20px;">
     <div style="max-width: 900px; margin: 0 auto 60px; text-align: center;">
-      <h2 class="section-title" style="font-size: 42px; margin-bottom: 20px; color: var(--text-dark);">I nostri Prodotti e Servizi per la tua Casa</h2>
-      <p class="section-sub" style="font-size: 18px; color: var(--text-secondary);">Ottimizza la tua energia. Controlla i tuoi consumi energetici e scopri come essere più efficiente con i nostri Prodotti e Servizi.</p>
+      <h2 class="section-title" style="font-size: 42px; margin-bottom: 20px; color: var(--text-dark);">Soluzioni intelligenti per la tua fornitura</h2>
+      <p class="section-sub" style="font-size: 18px; color: var(--text-secondary);">Siamo al tuo fianco per aiutarti a ottimizzare i consumi ed evitare sprechi.</p>
     </div>
 
     <div class="features-container">
       <div class="trust-card">
         <img src="icon_transparency.png" alt="Trasparenza" class="trust-mascot">
-        <h4>Trasparenza Energetica</h4>
-        <p>Tariffe luce e gas chiare e prive di sorprese. Paghi solo l'energia che consumi, con la massima trasparenza.</p>
+        <h4>Costi Chiari</h4>
+        <p>Nessuna voce nascosta. Le nostre bollette sono semplici da leggere e mostrano esattamente cosa stai pagando.</p>
       </div>
       <div class="trust-card">
         <img src="icon_consultant.png" alt="Consulente" class="trust-mascot">
-        <h4>Consulenza Dedicata</h4>
-        <p>Un esperto di energia sempre al tuo fianco per guidarti nella scelta delle migliori tariffe e soluzioni.</p>
+        <h4>Supporto Dedicato</h4>
+        <p>Il nostro team è sempre a disposizione per aiutarti a scegliere l'offerta più conveniente per le tue abitudini.</p>
       </div>
       <div class="trust-card">
         <img src="icon_audit.png" alt="Audit Energetico" class="trust-mascot">
-        <h4>Audit dei Consumi</h4>
-        <p>Analizziamo gratuitamente i tuoi consumi per eliminare gli sprechi e abbattere i costi in bolletta.</p>
+        <h4>Monitoraggio Consumi</h4>
+        <p>Ti forniamo gli strumenti per tenere d'occhio la tua spesa energetica in tempo reale.</p>
       </div>
     </div>
   </section>
@@ -53,26 +53,26 @@ include __DIR__ . '/header.php';
   <section class="how-it-works-section">
     <div class="hiw-container">
       <div class="hiw-header">
-        <h2 class="section-title">Passa a <?= $brand ?> in 4 semplici passi</h2>
-        <p class="section-sub">Attivare le nostre offerte è veloce e sicuro.</p>
+        <h2 class="section-title">Attiva il tuo contratto in 4 passaggi</h2>
+        <p class="section-sub">Passare a noi è un gioco da ragazzi, pensiamo a tutto noi.</p>
       </div>
 
       <div class="hiw-steps">
         <div class="hiw-step">
           <div class="hiw-number">1</div>
-          <p>Scegli l'offerta Luce o Gas più adatta alle tue necessità domestiche</p>
+          <p>Scegli la soluzione più adatta alle tue esigenze.</p>
         </div>
         <div class="hiw-step">
           <div class="hiw-number">2</div>
-          <p>Inserisci i tuoi dati e carica l'ultima bolletta per il passaggio rapido</p>
+          <p>Fornisci i tuoi dati e l'ultima bolletta.</p>
         </div>
         <div class="hiw-step">
           <div class="hiw-number">3</div>
-          <p>Il nostro team verificherà la richiesta e attiverà il nuovo servizio</p>
+          <p>Ci occupiamo noi di tutta la burocrazia per il passaggio.</p>
         </div>
         <div class="hiw-step">
           <div class="hiw-number">4</div>
-          <p>Goditi la tua nuova energia con assistenza multicanale sempre al tuo fianco</p>
+          <p>Inizia a risparmiare con la tua nuova fornitura.</p>
         </div>
       </div>
     </div>
@@ -81,22 +81,22 @@ include __DIR__ . '/header.php';
   <section class="efficiency-section" style="padding: 100px 20px; background: #fff; overflow: hidden;">
     <div class="container" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1.2; min-width: 400px;">
-        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brand ?> Fotovoltaico: <span style="color: var(--primary);">L'energia del sole</span></h2>
+        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brand ?> Fotovoltaico: <span style="color: var(--primary);">L'energia rinnovabile a casa tua</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          Scegli l'energia del sole: semplice, sostenibile e anche conveniente. Con le nostre soluzioni fotovoltaiche trasformi la tua casa in una centrale di energia pulita e autonoma.
+          Investire nell'energia solare significa proteggere l'ambiente e abbattere i costi in bolletta a lungo termine.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 40px;">
-          Il futuro dell'energia è nelle nostre mani. Progettiamo il tuo impianto per garantirti il massimo risparmio, riducendo drasticamente i costi in bolletta.
+          Proponiamo soluzioni su misura, progettando impianti fotovoltaici all'avanguardia per garantire la massima resa energetica.
         </p>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
           <div style="background: var(--bg-cream); padding: 24px; border-radius: 12px; border-left: 4px solid var(--primary);">
-            <h4 style="color: var(--text-dark); margin-bottom: 8px; font-weight: 700;">Tecnologia Top</h4>
-            <p style="font-size: 14px; color: var(--text-secondary);">Pannelli, Batterie, Pompe di calore e Caldaie di ultima generazione.</p>
+            <h4 style="color: var(--text-dark); margin-bottom: 8px; font-weight: 700;">Qualità Superiore</h4>
+            <p style="font-size: 14px; color: var(--text-secondary);">Utilizziamo solo pannelli ad alta efficienza e sistemi di accumulo di ultima generazione.</p>
           </div>
           <div style="background: var(--bg-cream); padding: 24px; border-radius: 12px; border-left: 4px solid var(--primary);">
-            <h4 style="color: var(--text-dark); margin-bottom: 8px; font-weight: 700;">Impatto Zero</h4>
-            <p style="font-size: 14px; color: var(--text-secondary);">Rateizzazione intelligente basata sul risparmio energetico reale.</p>
+            <h4 style="color: var(--text-dark); margin-bottom: 8px; font-weight: 700;">Chiavi in mano</h4>
+            <p style="font-size: 14px; color: var(--text-secondary);">Gestiamo tutto noi: dal sopralluogo iniziale all'installazione, fino alla manutenzione.</p>
           </div>
         </div>
       </div>
@@ -112,26 +112,26 @@ include __DIR__ . '/header.php';
         <div class="tp-stars">★★★★★</div>
         <p class="tp-text">Valutato <strong>Eccellente</strong> su <span class="tp-star-logo">★</span> <span
             class="tp-logo">Feedaty</span></p>
-        <p class="tp-subtext">La soddisfazione dei nostri clienti è la nostra priorità assoluta</p>
+        <p class="tp-subtext">Le opinioni di chi ha già scelto i nostri servizi</p>
       </div>
       <div class="tp-reviews">
         <div class="tp-review-card">
           <div class="tp-review-stars">★★★★★</div>
-          <h5 class="tp-review-title">Finalmente chiarezza!</h5>
-          <p class="tp-review-body">Con <?= $brand ?> ho finalmente capito cosa pago in bolletta. Prezzi onesti e consulenti gentilissimi.</p>
-          <p class="tp-review-author">Marco R.</p>
+          <h5 class="tp-review-title">Servizio fantastico!</h5>
+          <p class="tp-review-body">Mi hanno spiegato ogni dettaglio dell'offerta senza fretta. Bollette finalmente comprensibili e più basse.</p>
+          <p class="tp-review-author">Andrea P.</p>
         </div>
         <div class="tp-review-card">
           <div class="tp-review-stars">★★★★★</div>
-          <h5 class="tp-review-title">Risparmio reale</h5>
-          <p class="tp-review-body">Passata da un mese, la prima bolletta è stata una sorpresa positiva. Servizio clienti impeccabile.</p>
-          <p class="tp-review-author">Giulia F.</p>
+          <h5 class="tp-review-title">Molto soddisfatta</h5>
+          <p class="tp-review-body">Attivazione veloce e senza intoppi. Il servizio clienti ha risposto subito al mio primo dubbio.</p>
+          <p class="tp-review-author">Marta S.</p>
         </div>
         <div class="tp-review-card">
           <div class="tp-review-stars">★★★★★</div>
-          <h5 class="tp-review-title">Zero attese</h5>
-          <p class="tp-review-body">Mi hanno risposto subito e risolto un dubbio sulla voltura in 5 minuti. Consigliatissimi!</p>
-          <p class="tp-review-author">Antonio L.</p>
+          <h5 class="tp-review-title">Professionalità</h5>
+          <p class="tp-review-body">Consiglio a tutti. Finalmente ho trovato un fornitore che non nasconde costi extra.</p>
+          <p class="tp-review-author">Luca M.</p>
         </div>
       </div>
     </div>
@@ -145,9 +145,9 @@ include __DIR__ . '/header.php';
           style="max-width: 100%; height: auto; border-radius: 50% 70% 50% 50% / 50% 70% 50% 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 0;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brand ?> Clima: Comfort che dura <span style="color: var(--primary);">tutto l'anno</span></h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brand ?> Clima: Il comfort ideale in <span style="color: var(--primary);">ogni stagione</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 32px 0;">
-          Con i climatizzatori a pompa di calore riscaldi o raffresca la tua casa a seconda della stagione. Unisci efficienza e tecnologia per gestire il tuo riscaldamento direttamente dallo smartphone.
+          Vivi la tua casa al massimo del comfort grazie ai nostri climatizzatori di ultima generazione. Soluzioni ad alta efficienza per rinfrescare l'estate e scaldare l'inverno, ottimizzando i consumi.
         </p>
         <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Scopri le tariffe</a>
       </div>

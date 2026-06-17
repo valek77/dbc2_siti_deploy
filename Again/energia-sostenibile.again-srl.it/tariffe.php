@@ -66,7 +66,7 @@ include __DIR__ . '/header.php';
         <div class="feature-card reveal">
           <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h4>Spread</h4>
-          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto. Con le offerte PLACET è bloccata per 12 mesi.</p>
+          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto.</p>
         </div>
       </div>
     </div>
