@@ -11,7 +11,7 @@
           display: flex;
           justify-content: center;
           pointer-events: none;
-          font-family: 'Montserrat', sans-serif;
+          font-family: inherit;
           animation: slideUp 0.5s ease-out forwards;
         }
         @keyframes slideUp {
@@ -36,7 +36,7 @@
         .cookie-content strong {
           display: block;
           font-size: 17px;
-          color: #040832; /* var(--primary) */
+          color: #0B1220;
           margin-bottom: 8px;
           font-weight: 700;
         }
@@ -47,7 +47,7 @@
           margin: 0;
         }
         .cookie-content a {
-          color: #2D63ED;
+          color: #10B981;
           text-decoration: underline;
           font-weight: 600;
         }
@@ -69,17 +69,17 @@
           font-family: inherit;
         }
         .cookie-btn-primary {
-          background: #2D63ED; /* var(--accent) style */
+          background: #10B981;
           color: #fff;
-          box-shadow: 0 4px 12px rgba(45, 99, 237, 0.3);
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
         .cookie-btn-primary:hover {
-          background: #1e4bb8;
+          background: #047857;
           transform: translateY(-2px);
         }
         .cookie-btn-secondary {
           background: #f1f5f9;
-          color: #040832;
+          color: #0B1220;
         }
         .cookie-btn-secondary:hover {
           background: #e2e8f0;
@@ -114,7 +114,7 @@
           <div class="cookie-content">
             <strong>Utilizziamo i cookie per migliorare la tua esperienza sul sito. 🍪</strong>
             <p>Puoi accettare tutti i cookie e continuare la navigazione.<br>
-            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="privacy-policy.html">cookie policy</a>.</p>
+            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="privacy-policy.php">cookie policy</a>.</p>
           </div>
           <div class="cookie-actions">
             <button class="cookie-btn cookie-btn-primary" id="btn-accept-cookie">Accetta tutto</button>
