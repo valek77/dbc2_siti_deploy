@@ -6,10 +6,10 @@
   --accent-bg: #f0fafb; /* Light cyan background */
   --grad-yellow: linear-gradient(102deg, #8ef0fc 0%, #5ec8d7 60%); /* Cyan gradient for main CTAs */
   --grad-magenta: linear-gradient(135deg, #5ec8d7 0%, #3ba5b5 100%); /* Cyan/Teal gradient */
-  --text-dark: #212529;
-  --text-secondary: #4D4D4F;
-  --text-muted: #6C757D;
-  --text-label: #495057;
+  --text-dark: #0A2540; /* Dark blue */
+  --text-secondary: #1E3A8A; /* Secondary blue */
+  --text-muted: #64748B; /* Slate blue */
+  --text-label: #1E3A8A; /* Blue label */
   --border: #DEE2E6;
   --bg-page: #ffffff;
   --bg-cream: #F8F9FA;
