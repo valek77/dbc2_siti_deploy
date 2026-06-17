@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -f index.html chi-siamo.html tariffe.html contatti.html condizioni-utilizzo.html)",
+      "Bash(ls *.html)"
+    ]
+  }
+}
