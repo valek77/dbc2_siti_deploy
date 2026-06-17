@@ -1,5 +1,5 @@
 (function () {
-   const ENDPOINT_URL = 'https://dbc2.datalia.it/api/lead';
+  const ENDPOINT_URL = 'https://dbc2.datalia.it/api/lead';
 
   const form = document.getElementById('leadForm') || document.getElementById('contatto-form');
   if (!form) return;
@@ -61,13 +61,6 @@
   }
 
   form.addEventListener('submit', async e => {
-    const origin = window.location.origin;
-    let path = window.location.pathname;
-
-    path = path.split('/')[1];
-
-    const url = origin + '/' + path
-
     e.preventDefault();
     if (btnSubmit) {
       btnSubmit.textContent = 'Invio in corso...';
@@ -82,7 +75,7 @@
         email: emailValue || null,
         telefono: form.telefono.value.trim().replace(/\D/g, ''),
         ip: ip,
-        landing_page_url: url,
+        landing_page_url: window.location.origin,
         data_registrazione: new Date().toISOString(),
         consenso_0: !!(commercial && commercial.checked),
         consenso_1: !!(form.consenso_privacy && form.consenso_privacy.checked),
