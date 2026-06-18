@@ -22,10 +22,10 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title><?= e($pageTitle) ?> — <?= $brand ?></title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=<?= time() ?>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 <?php if (!empty($pageHead)) {
     echo $pageHead;
 } ?>
@@ -35,12 +35,18 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
 
   <header class="main-header">
     <div class="header-container">
-      <a href="index.php" class="logo" style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img
-          src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img" style="max-height: 48px; width: auto;"></a>
+      <a href="index.php" class="logo">
+        <img src="<?= $logo ?>" alt="<?= $brand ?>">
+      </a>
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.php" class="nav-link">Tariffe</a>
+        <a href="tariffe.php" class="nav-link">Servizi</a>
         <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
+      <div class="header-cta">
+        <a href="contatti.php" class="btn-primary">Richiedi preventivo
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
     </div>
   </header>

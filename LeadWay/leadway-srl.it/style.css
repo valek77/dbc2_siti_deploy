@@ -1,13 +1,13 @@
 :root {
-  --primary: #D3135A;
-  --secondary: #00A9E0;
-  --accent: #D3135A;
-  --accent-hover: #A50B44;
-  --accent-bg: rgba(211, 19, 90, .06);
-  --accent-border: rgba(211, 19, 90, .15);
-  --accent-shadow: rgba(211, 19, 90, .12);
-  --yellow: #FF7A00;
-  --yellow-hover: #E06A00;
+  --primary: #5A2D82;
+  --secondary: #333333;
+  --accent: #5A2D82;
+  --accent-hover: #401B61;
+  --accent-bg: rgba(90, 45, 130, .06);
+  --accent-border: rgba(90, 45, 130, .15);
+  --accent-shadow: rgba(90, 45, 130, .12);
+  --yellow: #facc15;
+  --yellow-hover: #eab308;
   --text-dark: #1e293b;
   --text-secondary: #64748b;
   --text-muted: #94a3b8;
@@ -79,7 +79,7 @@ body {
 
 /* ─── Hero ─── */
 .hero {
-  background: linear-gradient(135deg, #D3135A 0%, #FF7A00 100%);
+  background: linear-gradient(135deg, #333333 0%, #5A2D82 100%);
   color: #fff; padding: 56px 20px 80px; text-align: left;
   overflow: hidden;
 }

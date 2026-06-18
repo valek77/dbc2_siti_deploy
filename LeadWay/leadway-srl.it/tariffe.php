@@ -7,7 +7,7 @@ include __DIR__ . '/header.php';
   <main class="container" style="margin-top: 60px;">
     <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
       Le migliori offerte
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Enel_logo_2016.svg" alt="Enel" style="height: 40px; width: auto;">
+      <img src="https://www.enel.it/content/dam/enel-it/target/images/poke/Enel_logo_mobile.svg" alt="Enel" style="height: 40px; width: auto;">
     </h2>
     <p class="section-sub">In partnership con <?= $OPERATORE_ENERGETICO ?> per garantirti il massimo risparmio</p>
 
@@ -67,7 +67,7 @@ include __DIR__ . '/header.php';
           <div>
             <div class="offer-name-wrap"><span class="offer-name">${o.nome}</span><span class="offer-info" title="Dettagli">i</span></div>
             <div class="offer-provider" style="display: flex; align-items: center; gap: 8px;">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Enel_logo_2016.svg" alt="Enel" style="height: 18px; width: auto;">
+              <img src="https://www.enel.it/content/dam/enel-it/target/images/poke/Enel_logo_mobile.svg" alt="Enel" style="height: 18px; width: auto;">
               Enel · ${o.tipo}
             </div>
           </div>

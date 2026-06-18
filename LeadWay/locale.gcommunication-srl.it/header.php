@@ -23,9 +23,9 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title><?= e($pageTitle) ?> — <?= $brand ?></title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=<?= time() ?>">
+  <link rel="stylesheet" href="style.css">
 <?php if (!empty($pageHead)) {
     echo $pageHead;
 } ?>
@@ -35,8 +35,9 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
 
   <header class="main-header">
     <div class="header-container">
-      <a href="index.php" class="logo" style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img
-          src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img" style="max-height: 48px; width: auto;"></a>
+      <a href="index.php" class="logo">
+        <img src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img">
+      </a>
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
         <a href="tariffe.php" class="nav-link">Tariffe</a>
