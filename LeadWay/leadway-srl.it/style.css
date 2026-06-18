@@ -1,17 +1,19 @@
 :root {
   --primary: #5A2D82;
   --secondary: #333333;
-  --accent: #5A2D82;
-  --accent-hover: #401B61;
-  --accent-bg: rgba(90, 45, 130, .06);
-  --accent-border: rgba(90, 45, 130, .15);
-  --accent-shadow: rgba(90, 45, 130, .12);
+  --accent: #5B2C6F;
+  --accent-hover: #4A235A;
+  --accent-bg: rgba(91, 44, 111, .06);
+  --accent-border: rgba(91, 44, 111, .15);
+  --accent-shadow: rgba(91, 44, 111, .12);
   --yellow: #facc15;
   --yellow-hover: #eab308;
-  --text-dark: #1e293b;
-  --text-secondary: #64748b;
-  --text-muted: #94a3b8;
-  --text-label: #475569;
+  --grad-blue: linear-gradient(135deg, #facc15 0%, #eab308 100%);
+  --grad-yellow: linear-gradient(135deg, #5B2C6F 0%, #4A235A 100%);
+  --text-dark: #2A1135;
+  --text-secondary: #5B2C6F;
+  --text-muted: #334155;
+  --text-label: #2A1135;
   --border: #e2e8f0;
   --bg-page: #f8fafc;
   --font-h: 'Plus Jakarta Sans', system-ui, sans-serif;
