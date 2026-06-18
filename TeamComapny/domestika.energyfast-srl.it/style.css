@@ -12,9 +12,9 @@
   --primary-50: #EEF4FF;
   --primary-100: #DBE7FF;
 
-  --accent: #e31c19;
-  --accent-hi: #ff5c58;
-  --accent-deep: #b8100e;
+  --accent: #b2ff05;
+  --accent-hi: #ccff33;
+  --accent-deep: #88cc00;
 
   --ink: #0B1220;
   --ink-2: #1B2436;
@@ -38,9 +38,9 @@
   --secondary: #0A0E1A;
 
   --grad-primary: linear-gradient(135deg, #002F75 0%, #0057C8 55%, #1A7EE0 100%);
-  --grad-accent: linear-gradient(102deg, #ff5c58 0%, #e31c19 60%, #b8100e 100%);
+  --grad-accent: linear-gradient(102deg, #ccff33 0%, #b2ff05 60%, #88cc00 100%);
   --grad-aurora: radial-gradient(60% 80% at 20% 0%, rgba(0,87,200,.45) 0%, transparent 60%),
-                 radial-gradient(50% 60% at 90% 20%, rgba(227,28,25,.28) 0%, transparent 60%),
+                 radial-gradient(50% 60% at 90% 20%, rgba(178,255,5,.28) 0%, transparent 60%),
                  radial-gradient(70% 80% at 50% 100%, rgba(26,126,224,.35) 0%, transparent 60%),
                  linear-gradient(180deg, #001A47 0%, #002F75 60%, #0048A8 100%);
 
@@ -59,7 +59,7 @@
   --shadow-md: 0 10px 30px rgba(11,18,32,.08);
   --shadow-lg: 0 24px 60px rgba(11,18,32,.12);
   --shadow-glow: 0 18px 60px -10px rgba(0,87,200,.45);
-  --shadow-amber: 0 18px 40px -10px rgba(227,28,25,.55);
+  --shadow-amber: 0 18px 40px -10px rgba(178,255,5,.55);
 
   --gutter: 28px;
   --section: 120px;
@@ -120,7 +120,7 @@ img, svg { display: block; max-width: 100%; }
 .eyebrow .dot {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(227,28,25,.18);
+  box-shadow: 0 0 0 4px rgba(178,255,5,.18);
 }
 
 .divider-line {
@@ -135,7 +135,7 @@ img, svg { display: block; max-width: 100%; }
    ========================================================= */
 .main-header {
   position: sticky; top: 0; z-index: 1000;
-  background: rgba(255,255,255,.78);
+  background: rgba(11,18,32,.85);
   backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid var(--line);
   padding: 14px 24px;
@@ -160,7 +160,7 @@ img, svg { display: block; max-width: 100%; }
 .nav-link {
   position: relative;
   text-decoration: none;
-  color: var(--ink-2);
+  color: #ffffff;
   font-weight: 600;
   font-size: 15px;
   padding: 6px 2px;
@@ -171,7 +171,7 @@ img, svg { display: block; max-width: 100%; }
   height: 2px; background: var(--accent); border-radius: 2px;
   transition: right .25s var(--ease);
 }
-.nav-link:hover { color: var(--primary); }
+.nav-link:hover { color: var(--accent); }
 .nav-link:hover::after { right: 0; }
 
 .header-cta .btn-primary { padding: 11px 22px; font-size: 14px; }
@@ -198,7 +198,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 24px 50px -12px rgba(227,28,25,.65);
+  box-shadow: 0 24px 50px -12px rgba(178,255,5,.65);
 }
 .btn-primary::after {
   content: ''; position: absolute; inset: 0;
@@ -312,9 +312,9 @@ img, svg { display: block; max-width: 100%; }
   transition: all 0.3s ease;
 }
 .nav-dot.active {
-  background: #e31c19;
+  background: #b2ff05;
   transform: scale(1.3);
-  box-shadow: 0 0 15px rgba(227,28,25,0.6);
+  box-shadow: 0 0 15px rgba(178,255,5,0.6);
 }
   color: #fff;
   isolation: isolate;
@@ -329,7 +329,7 @@ img, svg { display: block; max-width: 100%; }
   position: absolute; inset: -20% -10% -10% -10%;
   background:
     radial-gradient(circle at 20% 30%, rgba(255,255,255,.08) 0, transparent 20%),
-    radial-gradient(circle at 75% 60%, rgba(227,28,25,.18) 0, transparent 25%),
+    radial-gradient(circle at 75% 60%, rgba(178,255,5,.18) 0, transparent 25%),
     radial-gradient(circle at 50% 100%, rgba(26,126,224,.4) 0, transparent 35%);
   filter: blur(40px);
   z-index: -1;
@@ -368,12 +368,12 @@ img, svg { display: block; max-width: 100%; }
 }
 .hero h1 .accent {
   position: relative;
-  background: linear-gradient(120deg, #ff5c58 0%, #e31c19 60%);
+  background: linear-gradient(120deg, #ccff33 0%, #b2ff05 60%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .hero h1 .accent::after {
   content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 8px;
-  background: rgba(227,28,25,.22); border-radius: 4px; z-index: -1;
+  background: rgba(178,255,5,.22); border-radius: 4px; z-index: -1;
 }
 
 .hero p.lede {
@@ -446,9 +446,9 @@ img, svg { display: block; max-width: 100%; }
 .bolt-orb {
   position: absolute; inset: 18% 18% 18% 18%;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(227,28,25,.55) 0%, rgba(227,28,25,.0) 60%),
+  background: radial-gradient(circle at 30% 30%, rgba(178,255,5,.55) 0%, rgba(178,255,5,.0) 60%),
               radial-gradient(circle at 70% 70%, rgba(26,126,224,.5) 0%, rgba(26,126,224,.0) 65%),
-              conic-gradient(from 220deg at 50% 50%, rgba(227,28,25,.25), rgba(0,87,200,.25), rgba(227,28,25,.25));
+              conic-gradient(from 220deg at 50% 50%, rgba(178,255,5,.25), rgba(0,87,200,.25), rgba(178,255,5,.25));
   filter: blur(6px);
   box-shadow: inset 0 0 80px rgba(255,255,255,.1), 0 30px 80px rgba(0,0,0,.35);
   animation: pulse 6s ease-in-out infinite;
@@ -616,7 +616,7 @@ img, svg { display: block; max-width: 100%; }
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 80% 0%, rgba(227,28,25,.18) 0%, transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(178,255,5,.18) 0%, transparent 30%),
     radial-gradient(circle at 0% 100%, rgba(255,255,255,.10) 0%, transparent 40%);
   pointer-events: none;
 }
@@ -639,7 +639,7 @@ img, svg { display: block; max-width: 100%; }
 .hiw-step:hover {
   transform: translateY(-8px);
   background: rgba(255,255,255,.10);
-  border-color: rgba(227,28,25,.5);
+  border-color: rgba(178,255,5,.5);
 }
 .hiw-num {
   display: inline-flex; align-items: center; justify-content: center;
@@ -650,7 +650,7 @@ img, svg { display: block; max-width: 100%; }
   font-family: var(--font-display);
   font-weight: 800; font-size: 18px;
   margin-bottom: 20px;
-  box-shadow: 0 12px 24px -8px rgba(227,28,25,.6);
+  box-shadow: 0 12px 24px -8px rgba(178,255,5,.6);
 }
 .hiw-step h5 {
   font-size: 17px; font-weight: 700; color: #fff;
@@ -791,7 +791,7 @@ img, svg { display: block; max-width: 100%; }
 .rv-panel::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(circle at 70% 110%, rgba(227,28,25,.3), transparent 55%);
+  background: radial-gradient(circle at 70% 110%, rgba(178,255,5,.3), transparent 55%);
   pointer-events: none;
 }
 .rv-panel > * { position: relative; z-index: 2; }
@@ -852,7 +852,7 @@ img, svg { display: block; max-width: 100%; }
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(227,28,25,.2), transparent 35%),
+    radial-gradient(circle at 20% 30%, rgba(178,255,5,.2), transparent 35%),
     radial-gradient(circle at 80% 70%, rgba(26,126,224,.4), transparent 40%);
   pointer-events: none;
 }
@@ -960,7 +960,7 @@ img, svg { display: block; max-width: 100%; }
   line-height: 1.02;
 }
 .page-hero h1 .accent {
-  background: linear-gradient(120deg, #ff5c58, #e31c19);
+  background: linear-gradient(120deg, #ccff33, #b2ff05);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .page-hero p {
@@ -1025,7 +1025,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .offer-card.featured {
   border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent), 0 18px 50px -12px rgba(227,28,25,.35);
+  box-shadow: 0 0 0 1px var(--accent), 0 18px 50px -12px rgba(178,255,5,.35);
 }
 .offer-card.featured::before {
   background: var(--grad-accent);
@@ -1225,7 +1225,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .contact-card-cta::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(circle at 80% 100%, rgba(227,28,25,.3), transparent 55%);
+  background: radial-gradient(circle at 80% 100%, rgba(178,255,5,.3), transparent 55%);
   pointer-events: none;
 }
 .contact-card-cta > * { position: relative; z-index: 2; }
@@ -1362,7 +1362,7 @@ img, svg { display: block; max-width: 100%; }
 .quote-banner::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(227,28,25,.25), transparent 50%);
+  background: radial-gradient(circle at 50% 0%, rgba(178,255,5,.25), transparent 50%);
 }
 .quote-banner > * { position: relative; z-index: 2; }
 .quote-banner .mark {
