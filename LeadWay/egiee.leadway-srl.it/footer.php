@@ -36,12 +36,7 @@ $legalLine = implode(' &mdash; ', $legalParts);
       <a href="index.php" class="logo">
         <img src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img" style="filter: brightness(0) invert(1);">
       </a>
-      <p style="margin-top: 20px;">La tua energia quotidiana: trasparenza, convenienza e assistenza dedicata per un
-        futuro più semplice.</p>
-      <?php if ($OPERATORE_ENERGETICO) { ?>
-        <p style="margin-top: 12px; font-weight: 600;">Rivenditore autorizzato <?= $OPERATORE_ENERGETICO ?>. Prezzi
-          trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      <?php } ?>
+      <p style="margin-top: 20px;">Le tue performance quotidiane: strategie data-driven, customer care dedicato e lead generation per una crescita continua.</p>
     </div>
     <div class="footer-links">
       <div class="footer-col">

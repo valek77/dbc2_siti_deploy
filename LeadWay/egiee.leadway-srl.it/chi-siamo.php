@@ -15,12 +15,12 @@ include __DIR__ . '/header.php';
   <section class="about-section" style="padding: 100px 20px; overflow: hidden;">
     <div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 400px;">
-        <h2 class="section-title" style="text-align: left; font-size: 42px; margin-bottom: 32px; color: var(--text-dark);">La tua energia, la nostra <span style="color: var(--primary);">passione</span></h2>
+        <h2 class="section-title" style="text-align: left; font-size: 42px; margin-bottom: 32px; color: var(--text-dark);">Le tue vendite, la nostra <span style="color: var(--primary);">passione</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          Lavoriamo ogni giorno per offrirti le migliori soluzioni energetiche per la tua casa, con un impegno costante verso la sostenibilità e l'innovazione tecnologica.
+          Lavoriamo ogni giorno per offrirti le migliori soluzioni di Business Process Outsourcing (BPO) per la tua azienda, con un impegno costante verso il raggiungimento dei tuoi KPI e l'innovazione tecnologica.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary);">
-          Dalla fornitura di Luce e Gas all'installazione di Caldaie e Climatizzatori di ultima generazione, siamo il tuo partner di fiducia per un futuro più efficiente e consapevole.
+          Dalla Lead Generation al Teleselling e al Customer Care, siamo il tuo partner strategico di fiducia per un futuro aziendale più efficiente, scalabile e profittevole.
         </p>
       </div>
       <div style="flex: 1; position: relative; height: 500px; min-width: 400px;">
@@ -33,20 +33,20 @@ include __DIR__ . '/header.php';
   <section style="background: var(--bg-cream); padding: 80px 20px; color: var(--text-dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
       <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">50k+</div>
-        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Famiglie Servite</p>
+        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">200+</div>
+        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Aziende Partner</p>
       </div>
       <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">100%</div>
-        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Energia Verde</p>
+        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">15k+</div>
+        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Lead Mensili</p>
       </div>
       <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">24h</div>
-        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Risposta Rapida</p>
+        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">24/7</div>
+        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Customer Care</p>
       </div>
       <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">-15%</div>
-        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Risparmio Medio</p>
+        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">+30%</div>
+        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Crescita Media ROI</p>
       </div>
     </div>
   </section>
@@ -58,18 +58,18 @@ include __DIR__ . '/header.php';
       <div class="features-container">
         <div class="trust-card" style="background: #fff;">
           <img src="icon_consultant.png" alt="Consulente" class="trust-mascot">
-          <h4>Consulente Dedicato</h4>
-          <p>Un professionista esperto, con nome e numero diretto, sempre al tuo fianco per ogni esigenza.</p>
+          <h4>Account Manager Dedicato</h4>
+          <p>Un professionista esperto sempre al tuo fianco per monitorare l'andamento delle tue campagne e dei processi esternalizzati.</p>
         </div>
         <div class="trust-card" style="background: #fff;">
           <img src="icon_audit.png" alt="Audit" class="trust-mascot">
-          <h4>Audit Energetico</h4>
-          <p>Utilizziamo tecnologie all'avanguardia per analizzare i tuoi consumi e proporti risparmi reali.</p>
+          <h4>Strategia Data-Driven</h4>
+          <p>Utilizziamo tecnologie e software all'avanguardia per analizzare i dati e proporti margini di miglioramento reali sulle vendite.</p>
         </div>
         <div class="trust-card" style="background: #fff;">
           <img src="icon_transparency.png" alt="Trasparenza" class="trust-mascot">
-          <h4>Trasparenza Totale</h4>
-          <p>Le nostre bollette sono semplici, chiare e prive di sorprese. Paghi solo quello che consumi.</p>
+          <h4>Trasparenza sui Risultati</h4>
+          <p>Report completi, chiari e prive di sorprese. Paghi in base alle performance e ai risultati effettivamente raggiunti.</p>
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@ include __DIR__ . '/header.php';
   <!-- Final Quote Section -->
   <section style="padding: 120px 20px; text-align: center; background: #fff;">
     <div style="max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 42px; color: var(--primary); line-height: 1.3; font-weight: 700; margin-bottom: 40px;">"Il nostro obiettivo non è vendere contratti, ma costruire relazioni durature basate sulla fiducia e sul risparmio concreto."</h2>
+      <h2 style="font-size: 42px; color: var(--primary); line-height: 1.3; font-weight: 700; margin-bottom: 40px;">"Il nostro obiettivo non è fornire semplici servizi, ma generare un valore duraturo e misurabile per i nostri partner commerciali."</h2>
       <p style="font-size: 20px; color: var(--primary); opacity: 0.6;">— Il Team <?= $brand ?></p>
     </div>
   </section>

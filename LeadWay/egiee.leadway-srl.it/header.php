@@ -42,7 +42,7 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
         <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
       <div class="header-cta">
-        <a href="contatti.php" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Area Clienti</a>
+        <a href="contatti.php" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Contattaci</a>
       </div>
     </div>
   </header>

@@ -277,8 +277,7 @@ include __DIR__ . '/header.php';
 <section class="contact-hero">
   <div class="hero-container">
     <h1>Siamo al <span>tuo fianco</span></h1>
-    <p>Contattaci per ricevere assistenza sulle nostre offerte Luce e Gas o per richiedere un sopralluogo gratuito per
-      Caldaia, Clima e Fotovoltaico.</p>
+    <p>Contattaci per ricevere informazioni sui nostri servizi di Lead Generation, Customer Care e Outsourcing BPO, oppure richiedi una consulenza strategica per il tuo business.</p>
   </div>
 </section>
 
@@ -296,15 +295,15 @@ include __DIR__ . '/header.php';
 <section class="form-section">
   <div class="form-grid">
     <div class="form-text">
-      <h2 class="section-title">Inizia il tuo percorso con un nostro <span>esperto</span></h2>
+      <h2 class="section-title">Inizia a crescere con un nostro <span>esperto</span></h2>
       <p>
         Compila il modulo per essere ricontattato da un nostro consulente dedicato. Insieme troveremo la soluzione
-        migliore per rendere la tua casa più efficiente e sostenibile.
+        migliore per ottimizzare i processi aziendali e incrementare le tue vendite.
       </p>
       <ul class="features-list">
-        <li><span class="check-icon">✓</span> Sopralluogo gratuito per Caldaia e Clima</li>
-        <li><span class="check-icon">✓</span> Analisi personalizzata per Fotovoltaico</li>
-        <li><span class="check-icon">✓</span> Assistenza dedicata per Luce e Gas</li>
+        <li><span class="check-icon">✓</span> Analisi gratuita del processo di vendita</li>
+        <li><span class="check-icon">✓</span> Preventivo personalizzato per servizi BPO</li>
+        <li><span class="check-icon">✓</span> Strategie di Lead Generation su misura</li>
       </ul>
     </div>
 
@@ -338,9 +337,8 @@ include __DIR__ . '/header.php';
 
           <label class="consent-label">
             <input type="checkbox" name="consenso_ricontatto" required>
-            <span>Richiedo di essere ricontattato da <?= htmlspecialchars($OPERATORE_ENERGETICO) ?>, tramite il partner
-              commerciale <?= htmlspecialchars($brand) ?>, per ricevere informazioni e proposte commerciali relative
-              alla fornitura di energia elettrica e/o gas. *</span>
+            <span>Richiedo di essere ricontattato da <?= htmlspecialchars($brand) ?> per ricevere informazioni e proposte commerciali relative
+              ai servizi di marketing, BPO e lead generation. *</span>
           </label>
 
           <label class="consent-label">

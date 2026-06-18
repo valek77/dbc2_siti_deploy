@@ -1,23 +1,23 @@
 :root {
-  --primary: #5ec8d7; /* Sky blue/cyan from logo */
-  --secondary: #484849; /* Charcoal grey from logo */
-  --accent: #5ec8d7; /* Sky blue/cyan */
-  --accent-hover: #45b1c0;
-  --accent-bg: #f0fafb; /* Light cyan background */
-  --grad-yellow: linear-gradient(102deg, #8ef0fc 0%, #5ec8d7 60%); /* Cyan gradient for main CTAs */
-  --grad-magenta: linear-gradient(135deg, #5ec8d7 0%, #3ba5b5 100%); /* Cyan/Teal gradient */
-  --text-dark: #0A2540; /* Dark blue */
-  --text-secondary: #1E3A8A; /* Secondary blue */
-  --text-muted: #64748B; /* Slate blue */
-  --text-label: #1E3A8A; /* Blue label */
+  --primary: #9D2480; /* Leadsway Magenta */
+  --secondary: #0F1118; /* Leadsway Dark Blue/Black */
+  --accent: #b52c95; /* Lighter Magenta for hover/accents */
+  --accent-hover: #801d67; /* Darker Magenta */
+  --accent-bg: #f9eff6; /* Very light magenta background */
+  --grad-yellow: linear-gradient(102deg, #b52c95 0%, #9D2480 100%); /* Magenta gradient */
+  --grad-magenta: linear-gradient(135deg, #9D2480 0%, #681855 100%); /* Deep Magenta gradient */
+  --text-dark: #0F1118; /* Dark blue/black */
+  --text-secondary: #2c3145; /* Lighter variant of secondary */
+  --text-muted: #64748B; /* Slate */
+  --text-label: #2c3145; 
   --border: #DEE2E6;
   --bg-page: #ffffff;
   --bg-cream: #F8F9FA;
-  --grad-blue: linear-gradient(135deg, #3fa8b7 0%, #1f6b76 100%); /* Cyan/Teal gradient */
+  --grad-blue: linear-gradient(135deg, #2c3145 0%, #0F1118 100%); /* Dark Blue gradient */
   --font-h: 'Outfit', sans-serif;
   --font-main: 'Outfit', sans-serif;
-  --radius-lg: 10px; /* Action uses tighter corners for cards */
-  --radius-pill: 36px; /* For buttons - matching Action's 36px */
+  --radius-lg: 10px; 
+  --radius-pill: 36px; 
   --gutter: 24px;
   --section-padding: 80px;
 }
