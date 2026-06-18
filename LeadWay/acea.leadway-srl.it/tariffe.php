@@ -9,52 +9,40 @@ $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
   <script>
     const offers = [
       {
-        id: 'fibra-business',
+        id: 'nc-luce-fisso',
         esclusiva: true,
-        nome: 'FIBRA BUSINESS',
+        nome: 'Luce Acea Fix',
         fornitore: PROVIDER,
-        tipo: 'FTTH fino a 2.5 Gbps',
-        bollettaMensile: 29.90,
-        bollettaAnnua: 358.80,
-        risparmio: 50.00,
-        features: [
-          'Velocità fino a 2.5 Gbps',
-          'Modem Wi-Fi 6 incluso',
-          'Chiamate illimitate incluse',
-          'Consulente Dedicato incluso'
-        ]
+        tipo: 'Prezzo bloccato 12 mesi',
+        bollettaMensile: 65.00,
+        bollettaAnnua: 780.00,
+        energiaMensile: 35.00,
+        risparmio: 150.00,
+        features: ['Prezzo bloccato 12 mesi', 'Energia 100% Green', 'Bolletta Web Inclusa']
       },
       {
-        id: 'mobile-5g',
+        id: 'nc-gas-fisso',
         esclusiva: true,
-        nome: 'MOBILE 5G',
+        nome: 'Gas Acea Fix',
         fornitore: PROVIDER,
-        tipo: 'Giga Illimitati',
-        bollettaMensile: 14.99,
-        bollettaAnnua: 179.88,
-        risparmio: 20.00,
-        features: [
-          'Giga Illimitati in 5G',
-          'Minuti e SMS illimitati',
-          'Zero costi di attivazione',
-          'Nessun vincolo contrattuale'
-        ]
+        tipo: 'Prezzo bloccato 12 mesi',
+        bollettaMensile: 85.00,
+        bollettaAnnua: 1020.00,
+        energiaMensile: 45.00,
+        risparmio: 140.00,
+        features: ['Prezzo bloccato 12 mesi', 'Gas compensazione CO2', 'Bolletta Web Inclusa']
       },
       {
-        id: 'combo-aziendale',
-        esclusiva: false,
-        nome: 'COMBO AZIENDALE',
+        id: 'nc-dual-fisso',
+        esclusiva: true,
+        nome: 'Luce e Gas Acea Fix',
         fornitore: PROVIDER,
-        tipo: 'Fibra + 2 SIM 5G',
-        bollettaMensile: 49.90,
-        bollettaAnnua: 598.80,
-        risparmio: 100.00,
-        features: [
-          'Fibra FTTH + 2 SIM 5G incluse',
-          'Centralino Virtuale (Opzionale)',
-          'Assistenza Prioritaria H24',
-          'Prezzo bloccato per 24 mesi'
-        ]
+        tipo: 'Prezzi bloccati 12 mesi',
+        bollettaMensile: 145.00,
+        bollettaAnnua: 1740.00,
+        energiaMensile: 80.00,
+        risparmio: 300.00,
+        features: ['Prezzi bloccati 12 mesi', 'Tutto Online', 'Bolletta Web Inclusa']
       }
     ];
 
@@ -66,7 +54,7 @@ $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
       <div class="offer-card-ribbon">${o.esclusiva ? '⭐ Più scelta' : 'Offerta Standard'}</div>
       <div class="offer-card-body" style="padding: 40px;">
         <div style="margin-bottom: 24px;">
-          <img src="logo-dark.png" alt="Logo ${o.fornitore}" style="height: 40px; margin-bottom: 20px;">
+          <img src="logo-acea-energia.png" alt="Logo ${o.fornitore}" style="height: 40px; margin-bottom: 20px;">
         </div>
         <div class="offer-card-header" style="margin-bottom: 24px; align-items: flex-start;">
           <div>
@@ -105,7 +93,7 @@ include __DIR__ . '/header.php';
         style="display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.1); padding: 8px 16px; border-radius: 100px; margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.2);">
         <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Official
           Partner</span>
-        <img src="logo-dark.png" alt="<?= $OPERATORE_ENERGETICO ?>" style="height: 24px; filter: brightness(0) invert(1);">
+        <img src="logo-acea-energia.png" alt="<?= $OPERATORE_ENERGETICO ?>" style="height: 24px; filter: brightness(0) invert(1);">
       </div>
       <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">L'energia che
         conviene con <?= $OPERATORE_ENERGETICO ?></h1>
