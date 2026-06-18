@@ -39,7 +39,7 @@
       
       <div style="margin-top: 32px; display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2);">
         <span style="font-size: 15px; font-weight: 600; color: #fff;">SERVICE COMMUNICATION è partner ufficiale di</span>
-        <span style="font-size: 18px; font-weight: 800; color: #fff; letter-spacing: 0.5px;">Semplice Gas e Luce</span>
+        <span style="font-size: 18px; font-weight: 800; color: #fff; letter-spacing: 0.5px;">Semplice Gas & Luce</span>
       </div>
     </div>
     <div class="wave">
@@ -160,61 +160,26 @@
     const ICON_LOCK = '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
     const offers = [
-      { id: 'semplice-offer-1', category: 'luce-res', kind: 'luce', tipo: 'Semplice Gas e Luce Luce', top: true, logicard: false,
+      { id: 'semplice-offer-1', category: 'luce-res', kind: 'luce', tipo: 'Semplice Gas & Luce Luce', top: true, logicard: false,
         nome: 'SOLO WEB - VARIABILE PUN', sub: 'Prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.',
         prezzoRid: 'PUN + 0,055', unita: '€/kWh', prezzoBoll: null,
         note: 'Corrispettivo: 456 €/POD/anno',
         features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Domestico'] },
-      { id: 'semplice-offer-2', category: 'luce-res', kind: 'luce', tipo: 'Semplice Gas e Luce Luce', top: true, logicard: false,
-        nome: 'SOLO WEB - AU PUN', sub: 'Altri usi: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.',
-        prezzoRid: 'PUN + 0,055', unita: '€/kWh', prezzoBoll: null,
-        note: 'Corrispettivo: 456 €/POD/anno',
-        features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Domestico'] },
-      { id: 'semplice-offer-3', category: 'luce-res', kind: 'luce', tipo: 'Semplice Gas e Luce Luce', top: true, logicard: true,
-        nome: 'SOLO WEB - AU PUN LOGICARD CASA', sub: 'Altri usi indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno).',
+      { id: 'semplice-offer-3', category: 'luce-res', kind: 'luce', tipo: 'Semplice Gas & Luce Luce', top: true, logicard: true,
+        nome: 'SOLO WEB - VARIABILE PUN LOGICARD CASA', sub: 'Indicizzata al PUN Index GME con carta Logicard Casa (contributo 168 €+IVA/anno).',
         prezzoRid: 'PUN + 0,05', unita: '€/kWh', prezzoBoll: null,
         note: 'Corrispettivo: 456 €/POD/anno',
         features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Domestico', 'Include carta Logicard Casa'] },
-      { id: 'semplice-offer-4', category: 'gas-res', kind: 'gas', tipo: 'Semplice Gas e Luce Gas', top: false, logicard: false,
+      { id: 'semplice-offer-4', category: 'gas-res', kind: 'gas', tipo: 'Semplice Gas & Luce Gas', top: false, logicard: false,
         nome: 'SOLO WEB - VARIABILE PSV', sub: 'Prezzo all\'ingrosso indicizzato all\'indice PSV Day Ahead, aggiornato mensilmente.',
         prezzoRid: 'PSV + 0,45', unita: '€/Smc', prezzoBoll: null,
         note: 'Corrispettivo: 648 €/PDR/anno',
         features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Domestico'] },
-      { id: 'semplice-offer-5', category: 'gas-res', kind: 'gas', tipo: 'Semplice Gas e Luce Gas', top: false, logicard: true,
+      { id: 'semplice-offer-5', category: 'gas-res', kind: 'gas', tipo: 'Semplice Gas & Luce Gas', top: false, logicard: true,
         nome: 'SOLO WEB - VARIABILE PSV LOGICARD CASA', sub: 'Indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno).',
         prezzoRid: 'PSV + 0,42', unita: '€/Smc', prezzoBoll: null,
         note: 'Corrispettivo: 648 €/PDR/anno',
-        features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Domestico', 'Include carta Logicard Casa'] },
-      { id: 'semplice-offer-6', category: 'gas-res', kind: 'gas', tipo: 'Semplice Gas e Luce Gas', top: false, logicard: false,
-        nome: 'SOLO WEB - VARIABILE AU PSV', sub: 'Altri usi: prezzo all\'ingrosso indicizzato all\'indice PSV Day Ahead, aggiornato mensilmente.',
-        prezzoRid: 'PSV + 0,45', unita: '€/Smc', prezzoBoll: null,
-        note: 'Corrispettivo: 648 €/PDR/anno',
-        features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Domestico'] },
-      { id: 'semplice-offer-7', category: 'gas-res', kind: 'gas', tipo: 'Semplice Gas e Luce Gas', top: false, logicard: true,
-        nome: 'SOLO WEB - VARIABILE AU PSV LOGICARD CASA', sub: 'Altri usi indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno).',
-        prezzoRid: 'PSV + 0,42', unita: '€/Smc', prezzoBoll: null,
-        note: 'Corrispettivo: 648 €/PDR/anno',
-        features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Domestico', 'Include carta Logicard Casa'] },
-      { id: 'semplice-offer-8', category: 'luce-res', kind: 'luce', tipo: 'Semplice Gas e Luce Luce', top: false, logicard: false,
-        nome: 'SOLO WEB - PUN CONDOMINIO', sub: 'Per condomini: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.',
-        prezzoRid: 'PUN + 0,055', unita: '€/kWh', prezzoBoll: null,
-        note: 'Corrispettivo: 456 €/POD/anno',
-        features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Condominio'] },
-      { id: 'semplice-offer-9', category: 'luce-res', kind: 'luce', tipo: 'Semplice Gas e Luce Luce', top: false, logicard: true,
-        nome: 'SOLO WEB - PUN CONDOMINIO CS', sub: 'Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno).',
-        prezzoRid: 'PUN + 0,05', unita: '€/kWh', prezzoBoll: null,
-        note: 'Corrispettivo: 456 €/POD/anno',
-        features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Condominio', 'Include carta Logicard Casa'] },
-      { id: 'semplice-offer-10', category: 'gas-res', kind: 'gas', tipo: 'Semplice Gas e Luce Gas', top: false, logicard: false,
-        nome: 'SOLO WEB - PSV CONDOMINIO', sub: 'Per condomini: prezzo all\'ingrosso indicizzato all\'indice PSV Day Ahead, aggiornato mensilmente.',
-        prezzoRid: 'PSV + 0,45', unita: '€/Smc', prezzoBoll: null,
-        note: 'Corrispettivo: 648 €/PDR/anno',
-        features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Condominio'] },
-      { id: 'semplice-offer-11', category: 'gas-res', kind: 'gas', tipo: 'Semplice Gas e Luce Gas', top: false, logicard: true,
-        nome: 'SOLO WEB - PSV CONDOMINIO CS', sub: 'Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno).',
-        prezzoRid: 'PSV + 0,42', unita: '€/Smc', prezzoBoll: null,
-        note: 'Corrispettivo: 648 €/PDR/anno',
-        features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Condominio', 'Include carta Logicard Casa'] },
+        features: ['1,00 € sconto bolletta via e-mail', '1,00 € sconto addebito SDD', 'Segmento Domestico', 'Include carta Logicard Casa'] }
     ];
 
     function renderCard(o) {

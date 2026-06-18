@@ -138,36 +138,6 @@
             ]
       },
       {
-            "id": "solo-web-variabile-au-pun",
-            "esclusiva": false,
-            "nome": "Solo Web - Variabile AU PUN",
-            "fornitore": "Nexicom",
-            "tipo": "Luce · Domestico",
-            "prezzo": "PUN + 0,055 €/kWh",
-            "corrispettivo": "456 €/POD/anno",
-            "descrizione": "Altri usi: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
-            "logicard": false,
-            "features": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ]
-      },
-      {
-            "id": "solo-web-variabile-au-pun-logicard-casa",
-            "esclusiva": true,
-            "nome": "Solo Web - Variabile AU PUN Logicard Casa",
-            "fornitore": "Nexicom",
-            "tipo": "Luce · Domestico",
-            "prezzo": "PUN + 0,05 €/kWh",
-            "corrispettivo": "456 €/POD/anno",
-            "descrizione": "Altri usi indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
-            "logicard": true,
-            "features": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ]
-      },
-      {
             "id": "solo-web-gas-psv",
             "esclusiva": false,
             "nome": "Solo Web - Gas PSV",
@@ -196,98 +166,8 @@
                   "1,00 € sconto bolletta via e-mail",
                   "1,00 € sconto addebito SDD"
             ]
-      },
-      {
-            "id": "solo-web-gas-au-psv",
-            "esclusiva": false,
-            "nome": "Solo Web - Gas AU PSV",
-            "fornitore": "Nexicom",
-            "tipo": "Gas · Domestico",
-            "prezzo": "PSV + 0,45 €/Smc",
-            "corrispettivo": "648 €/PDR/anno",
-            "descrizione": "Altri usi: prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
-            "logicard": false,
-            "features": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ]
-      },
-      {
-            "id": "solo-web-variabile-gas-au-psv-logicard-casa",
-            "esclusiva": true,
-            "nome": "Solo Web - Variabile Gas AU PSV Logicard Casa",
-            "fornitore": "Nexicom",
-            "tipo": "Gas · Domestico",
-            "prezzo": "PSV + 0,42 €/Smc",
-            "corrispettivo": "648 €/PDR/anno",
-            "descrizione": "Altri usi indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
-            "logicard": true,
-            "features": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ]
-      },
-      {
-            "id": "solo-web-pun-condominio",
-            "esclusiva": false,
-            "nome": "Solo Web - PUN Condominio",
-            "fornitore": "Nexicom",
-            "tipo": "Luce · Condominio",
-            "prezzo": "PUN + 0,055 €/kWh",
-            "corrispettivo": "456 €/POD/anno",
-            "descrizione": "Per condomini: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
-            "logicard": false,
-            "features": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ]
-      },
-      {
-            "id": "solo-web-variabile-pun-condominio-cs",
-            "esclusiva": true,
-            "nome": "Solo Web - Variabile PUN Condominio CS",
-            "fornitore": "Nexicom",
-            "tipo": "Luce · Condominio",
-            "prezzo": "PUN + 0,05 €/kWh",
-            "corrispettivo": "456 €/POD/anno",
-            "descrizione": "Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
-            "logicard": true,
-            "features": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ]
-      },
-      {
-            "id": "solo-web-psv-condominio",
-            "esclusiva": false,
-            "nome": "Solo Web - PSV Condominio",
-            "fornitore": "Nexicom",
-            "tipo": "Gas · Condominio",
-            "prezzo": "PSV + 0,45 €/Smc",
-            "corrispettivo": "648 €/PDR/anno",
-            "descrizione": "Per condomini: prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
-            "logicard": false,
-            "features": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ]
-      },
-      {
-            "id": "solo-web-variabile-psv-condominio-cs",
-            "esclusiva": true,
-            "nome": "Solo Web - Variabile PSV Condominio CS",
-            "fornitore": "Nexicom",
-            "tipo": "Gas · Condominio",
-            "prezzo": "PSV + 0,42 €/Smc",
-            "corrispettivo": "648 €/PDR/anno",
-            "descrizione": "Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
-            "logicard": true,
-            "features": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ]
       }
-];
+    ];
 
     const resultsEl = document.getElementById('results');
     resultsEl.innerHTML = offers.map(o => `

@@ -176,34 +176,6 @@
             "id": "off-02"
       },
       {
-            "nome": "Solo Web - Variabile AU PUN",
-            "tipo": "Luce",
-            "segmento": "Domestico",
-            "prezzo": "PUN + 0,055 €/kWh",
-            "corrispettivo_annuo": "456 €/POD/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Altri usi: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
-            "logicard": false,
-            "id": "off-03"
-      },
-      {
-            "nome": "Solo Web - Variabile AU PUN Logicard Casa",
-            "tipo": "Luce",
-            "segmento": "Domestico",
-            "prezzo": "PUN + 0,05 €/kWh",
-            "corrispettivo_annuo": "456 €/POD/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Altri usi indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
-            "logicard": true,
-            "id": "off-04"
-      },
-      {
             "nome": "Solo Web - Gas PSV",
             "tipo": "Gas",
             "segmento": "Domestico",
@@ -230,92 +202,8 @@
             "descrizione": "Indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
             "logicard": true,
             "id": "off-06"
-      },
-      {
-            "nome": "Solo Web - Gas AU PSV",
-            "tipo": "Gas",
-            "segmento": "Domestico",
-            "prezzo": "PSV + 0,45 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Altri usi: prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
-            "logicard": false,
-            "id": "off-07"
-      },
-      {
-            "nome": "Solo Web - Variabile Gas AU PSV Logicard Casa",
-            "tipo": "Gas",
-            "segmento": "Domestico",
-            "prezzo": "PSV + 0,42 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Altri usi indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
-            "logicard": true,
-            "id": "off-08"
-      },
-      {
-            "nome": "Solo Web - PUN Condominio",
-            "tipo": "Luce",
-            "segmento": "Condominio",
-            "prezzo": "PUN + 0,055 €/kWh",
-            "corrispettivo_annuo": "456 €/POD/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Per condomini: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
-            "logicard": false,
-            "id": "off-09"
-      },
-      {
-            "nome": "Solo Web - Variabile PUN Condominio CS",
-            "tipo": "Luce",
-            "segmento": "Condominio",
-            "prezzo": "PUN + 0,05 €/kWh",
-            "corrispettivo_annuo": "456 €/POD/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
-            "logicard": true,
-            "id": "off-10"
-      },
-      {
-            "nome": "Solo Web - PSV Condominio",
-            "tipo": "Gas",
-            "segmento": "Condominio",
-            "prezzo": "PSV + 0,45 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Per condomini: prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
-            "logicard": false,
-            "id": "off-11"
-      },
-      {
-            "nome": "Solo Web - Variabile PSV Condominio CS",
-            "tipo": "Gas",
-            "segmento": "Condominio",
-            "prezzo": "PSV + 0,42 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).",
-            "logicard": true,
-            "id": "off-12"
       }
-];
+    ];
 
     const resultsEl = document.getElementById('results');
     resultsEl.innerHTML = offers.map(o => {
