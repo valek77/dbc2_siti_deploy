@@ -1,18 +1,18 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Chi Siamo';
+$pageTitle = 'Chi Siamo - LeadWay';
 include __DIR__ . '/header.php';
 ?>
 
   <section class="hero" style="min-height: 500px;">
     <div class="hero-slides">
       <div class="hero-slide active">
-        <img src="hero_multi_3.png" class="hero-slide-bg" alt="Chi Siamo">
+        <img src="hero_multi_3.png" class="hero-slide-bg" alt="Chi Siamo - LeadWay">
         <div class="container">
           <div class="hero-content">
             <span class="eyebrow eyebrow-light"><span class="dot"></span> Chi siamo</span>
-            <h1>Utenze con <span class="accent">competenza</span></h1>
-            <p class="lede">Un team di consulenti al tuo fianco per semplificare il mercato dell'energia e delle telecomunicazioni. Vicini, trasparenti, sempre.</p>
+            <h1>LeadWay: <span class="accent">Generiamo Valore</span></h1>
+            <p class="lede">Un team di consulenti al tuo fianco per aiutarti a ottimizzare le risorse e generare nuovo valore. Vicini, trasparenti, sempre.</p>
           </div>
         </div>
       </div>

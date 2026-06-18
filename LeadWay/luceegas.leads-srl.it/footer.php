@@ -43,7 +43,7 @@ $legalLine = implode(' &mdash; ', $legalParts);
       <div class="footer-links">
         <div class="footer-col">
           <h4>Azienda</h4>
-          <a href="chi-siamo.php">Chi Siamo</a>
+          <a href="chi-siamo.php">Chi Siamo - LeadWay</a>
           <a href="tariffe.php">Servizi</a>
           <a href="contatti.php">Contatti</a>
         </div>

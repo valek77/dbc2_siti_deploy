@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Servizi di Telecomunicazioni e Utenze';
+$pageTitle = 'LeadWay - Genera Valore';
 include __DIR__ . '/header.php';
 ?>
 
@@ -13,8 +13,8 @@ include __DIR__ . '/header.php';
           <div class="container">
             <div class="hero-content">
               <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale <?= $brand ?></span>
-              <h1>Energia e Connessioni per il tuo <span class="accent">business</span>.</h1>
-              <p class="lede"><?= $brand ?> ti guida con offerte trasparenti per luce, gas, fibra e telefonia.</p>
+              <h1>Generiamo <span class="accent">valore</span> per il tuo business.</h1>
+              <p class="lede">LeadWay ti guida con strategie trasparenti per ottimizzare le tue utenze.</p>
               <div class="hero-actions">
                 <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
                 <a href="contatti.php" class="btn-secondary">Parla con noi</a>
@@ -27,7 +27,7 @@ include __DIR__ . '/header.php';
           <div class="container">
             <div class="hero-content">
               <span class="eyebrow eyebrow-light"><span class="dot"></span> Consulenza su misura</span>
-              <h1>Il tuo futuro è <span class="accent">connesso</span>.</h1>
+              <h1>Il tuo futuro genera <span class="accent">valore</span>.</h1>
               <p class="lede">Soluzioni innovative per l'efficientamento energetico e le comunicazioni della tua casa o azienda.</p>
               <div class="hero-actions">
                 <a href="tariffe.php" class="btn-primary">Vedi soluzioni</a>
@@ -40,7 +40,7 @@ include __DIR__ . '/header.php';
           <div class="container">
             <div class="hero-content">
               <span class="eyebrow eyebrow-light"><span class="dot"></span> Risparmio intelligente</span>
-              <h1>Gestisci le tue <span class="accent">utenze</span> con intelligenza.</h1>
+              <h1>Gestisci il tuo <span class="accent">business</span> con intelligenza.</h1>
               <p class="lede">Monitora i tuoi servizi luce, gas e telecomunicazioni per risparmiare concretamente ogni mese.</p>
               <div class="hero-actions">
                 <a href="contatti.php" class="btn-primary">Richiedi analisi gratuita</a>
@@ -82,8 +82,8 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Cosa offriamo</span>
-        <h2 class="section-title">Tre servizi, <span class="underline">una sola promessa</span></h2>
-        <p class="section-sub">Scegliamo per te la tariffa giusta e ti seguiamo dalla prima firma alla bolletta.</p>
+        <h2 class="section-title">Le nostre soluzioni, <span class="underline">una sola promessa</span></h2>
+        <p class="section-sub">Scegliamo per te la strategia giusta per farti generare valore fin dal primo giorno.</p>
       </div>
 
       <div class="features-staggered">
@@ -128,7 +128,7 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="section-head">
         <span class="eyebrow eyebrow-light"><span class="dot"></span> Come funziona</span>
-        <h2 class="section-title">Attivi la nuova fornitura <br>in <span class="accent">4 passi semplici</span></h2>
+        <h2 class="section-title">Inizia a generare valore <br>in <span class="accent">4 passi semplici</span></h2>
         <p class="section-sub">Cambiare fornitore con <?= $brand ?> è veloce e non richiede alcun intervento tecnico in casa.</p>
       </div>
 
@@ -179,7 +179,7 @@ include __DIR__ . '/header.php';
 
         <div class="reveal">
           <span class="eyebrow"><span class="dot"></span> Perché scegliere <?= $brand ?></span>
-          <h2 class="section-title" style="text-align:left;">Risparmio reale, <span class="accent">assistenza vera</span></h2>
+          <h2 class="section-title" style="text-align:left;">Valore reale, <span class="accent">consulenza vera</span></h2>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 18px;">
             Non siamo un punto vendita anonimo: siamo consulenti per i servizi. Per ogni cliente troviamo la soluzione di telecomunicazioni più conveniente, senza costi nascosti.
           </p>

@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Offerte Luce e Gas';
+$pageTitle = 'Servizi e Valore';
 include __DIR__ . '/header.php';
 ?>
 
@@ -23,10 +23,10 @@ include __DIR__ . '/header.php';
 
       <!-- Partner Banner -->
       <div style="background: linear-gradient(135deg, #10B981, #047857); padding: 30px; border-radius: var(--r-xl); margin-bottom: 40px; color: #fff; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; box-shadow: var(--shadow-md);">
-        <img src="https://www.energiasostenibilespa.it/logo.svg" alt="Energia Sostenibile S.p.A." style="height: 60px; filter: brightness(0) invert(1);">
-        <h2 style="margin: 0; font-size: 28px; font-weight: 800;">Offerte Luce in Partnership</h2>
-        <p style="margin: 0; font-size: 18px; max-width: 800px; opacity: 0.9;">In collaborazione con il nostro partner, ti proponiamo le migliori offerte luce per la casa e il business. Risparmio garantito, bolletta chiara e consulenza dedicata.</p>
-        <a href="https://www.energiasostenibilespa.it/offerte/luce" target="_blank" class="btn-primary" style="background: #fff; color: #047857; font-weight: 700; margin-top: 10px; padding: 12px 24px;">Scopri i dettagli sul sito del partner</a>
+        <img src="Luce.png" alt="Luce e Gas Italia" style="height: 60px; background-color: white; padding: 10px; border-radius: 8px; object-fit: contain;">
+        <h2 style="margin: 0; font-size: 28px; font-weight: 800;">Servizi e Valore in Partnership</h2>
+        <p style="margin: 0; font-size: 18px; max-width: 800px; opacity: 0.9;">In collaborazione con il nostro partner, ti proponiamo le migliori offerte luce e gas per la tua casa. Risparmio garantito, bolletta chiara e trasparenza.</p>
+        <a href="https://luceegasitalia.it/" target="_blank" class="btn-primary" style="background: #fff; color: #047857; font-weight: 700; margin-top: 10px; padding: 12px 24px;">Scopri i dettagli sul sito del partner</a>
       </div>
 
       <!-- Filtro -->
@@ -80,15 +80,15 @@ include __DIR__ . '/header.php';
 
     const offers = [
       { id: 'luce-casa', category: 'all', kind: 'luce', tipo: 'Luce Casa', top: false,
-        nome: 'LUCE CASA', sub: 'Per la tua casa · Energia Sostenibile S.p.A.',
-        prezzoRid: 'PUN + €0,03', unita: '€/kWh', prezzoBoll: null,
-        note: 'Costi commercializzazione: 144 €/anno',
-        features: ['Semplicità e trasparenza', 'Zero costi attivazione', 'Energia 100% rinnovabile'] },
-      { id: 'luce-business', category: 'all', kind: 'luce', tipo: 'Luce Business', top: true,
-        nome: 'LUCE BUSINESS', sub: 'Per la tua azienda · TOP',
-        prezzoRid: 'PUN + €0,02', unita: '€/kWh', prezzoBoll: null,
-        note: 'Costi commercializzazione: 144 €/anno',
-        features: ['Semplicità e trasparenza', 'Consulente dedicato', 'Supporto prioritario'] }
+        nome: 'OFFERTA LUCE CASA WEB', sub: 'Per la tua casa · Luce e Gas Italia',
+        prezzoRid: 'PUN + €0,011', unita: '€/kWh', prezzoBoll: null,
+        note: 'Costi commercializzazione: 120 €/anno',
+        features: ['Bolletta via email', 'Programma Porta un Amico', 'Dispacciamento ARERA'] },
+      { id: 'gas-casa', category: 'all', kind: 'gas', tipo: 'Gas Casa', top: true,
+        nome: 'OFFERTA GAS CASA WEB', sub: 'Per la tua casa · Luce e Gas Italia',
+        prezzoRid: 'PSV + €0,09', unita: '€/Smc', prezzoBoll: null,
+        note: 'Costi commercializzazione: 120 €/anno',
+        features: ['Bolletta via email', 'Programma Porta un Amico', 'Addebito diretto'] }
     ];
 
     function renderCard(o) {
@@ -106,6 +106,7 @@ include __DIR__ . '/header.php';
           ${o.top ? `<span class="lock">${ICON_LOCK} Spread bloccato</span>` : ''}
         </div>
         <div class="offer-card-body">
+          <img src="Luce.png" alt="Luce e Gas Italia" style="height: 40px; margin-bottom: 16px; object-fit: contain;">
           <h3 class="offer-name">${o.nome}</h3>
           <p class="offer-type">${o.sub}</p>
 

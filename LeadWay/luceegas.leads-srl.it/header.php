@@ -39,7 +39,7 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
         <img src="<?= $logo ?>" alt="<?= $brand ?>">
       </a>
       <nav class="nav-links">
-        <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
+        <a href="chi-siamo.php" class="nav-link">Chi Siamo - LeadWay</a>
         <a href="tariffe.php" class="nav-link">Servizi</a>
         <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
