@@ -1,58 +1,106 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Privacy Policy — AGAIN sistema</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="LOGO_again.png" alt="AGAIN sistema Logo">
-      </a>
-      <nav class="nav-links"><a href="chi-siamo.html" class="nav-link">Chi Siamo</a><a href="tariffe.html" class="nav-link">Offerte</a><a href="contatti.html" class="nav-link">Contatti</a></nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
-    </div>
-  </header>
-  <section class="dark-section" style="padding:80px 0; text-align:center;">
-    <div class="container">
-      <span class="eyebrow" style="color:var(--primary-light); justify-content:center; margin-bottom:16px;"><span class="dot" style="background:var(--primary-light);"></span> Legale</span>
-      <h1 style="color:#fff; font-size:clamp(36px,5vw,56px);">Privacy Policy</h1>
-      <p style="color:rgba(255,255,255,.7); margin:16px 0 0; font-size:17px;">Informativa ai sensi del Regolamento UE 2016/679 (GDPR)</p>
-    </div>
-  </section>
-  <div class="prose">
-    <p><strong>INFORMATIVA PER IL TRATTAMENTO DEI DATI PERSONALI</strong><br>
-    Ai sensi dell’art. 13 del Regolamento UE 2016/679</p>
-    <hr>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Privacy Policy';
+
+$pageHead = <<<'CSS'
+  <style>
+    .legal-content {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: var(--text-label);
+    }
+
+    .legal-content h1 {
+      color: var(--primary);
+      margin-bottom: 40px;
+      font-size: 32px;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .legal-content h2 {
+      color: var(--primary);
+      margin-top: 60px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .legal-content .section-subhead {
+      text-align: center;
+      font-weight: 800;
+      margin-bottom: 30px;
+      display: block;
+      color: var(--primary);
+    }
+
+    .legal-content p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .legal-content ul,
+    .legal-content ol {
+      margin-bottom: 20px;
+      padding-left: 30px;
+    }
+
+    .legal-content li {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .legal-content .separator {
+      text-align: center;
+      font-size: 24px;
+      margin: 40px 0;
+    }
+
+    .legal-content em {
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  </style>
+CSS;
+
+// Recapiti dall'API (con fallback ragionevoli se un campo manca).
+$emailSupporto = $email_supporto;
+$emailDpo = $email_dpo !== '' ? $email_dpo : $email_supporto;
+// Recapiti del Titolare mostrati inline nella sezione "Titolare del trattamento".
+$contattoTitolare = implode(' / ', array_filter([$emailSupporto, $pec]));
+
+include __DIR__ . '/header.php';
+?>
+
+  <main class="legal-content">
+    <h1>INFORMATIVA PER IL TRATTAMENTO DEI DATI PERSONALI</h1>
+    <em>Ai sensi dell’art. 13 del Regolamento UE 2016/679</em>
+    <div class="separator">***</div>
+
     <p>Gentile Utente,</p>
-
     <p>La informiamo che, ai sensi dell’art. 16 del TFUE e dell’art. 8 della Carta dei diritti fondamentali dell’Unione Europea, ogni persona ha diritto alla protezione dei dati di carattere personale che la riguardano, a prescindere dalla nazionalità o residenza. I dati devono essere trattati secondo i principi di liceità, correttezza, trasparenza e minimizzazione, per finalità determinate e sulla base di un fondamento giuridico previsto dalla normativa vigente.</p>
-
     <p>La presente informativa ha carattere generico ed esemplificativo ed è destinata ad essere utilizzata nell’ambito di servizi di informazione, comparazione e promozione di offerte nel settore dell’energia (luce e gas), anche mediante siti web, landing page e strumenti digitali di raccolta contatti.</p>
 
     <h2>TITOLARE DEL TRATTAMENTO</h2>
-    <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.1, lett. a</p>
-    <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, il Titolare del trattamento è <strong>AGAIN sistema</strong>, con sede in NAPOLI (NA) VIA PASQUALE FRUSTACI 10 CAP 80142, Partita IVA e Codice Fiscale 10627351215, REA: NA - 1120103 (di seguito, il “Titolare”).</p>
-
+    <span class="section-subhead">Art. 13, par.1, lett. a</span>
+    <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, il Titolare del trattamento è individuato nel soggetto giuridico che gestisce il sito web o la piattaforma digitale attraverso la quale vengono raccolti i dati personali (di seguito, il “Titolare”).</p>
+    <p>Nello specifico, il Titolare del trattamento è la società <strong><?= $company_name ?></strong>, con sede legale in <strong><?= $sede_legale ?></strong>, Codice Fiscale e Partita IVA <strong><?= $p_iva ?></strong><?php if ($contattoTitolare) { ?>, contattabile all’indirizzo e-mail/PEC <strong><?= $contattoTitolare ?></strong><?php } ?>.</p>
     <p>Il Titolare fornisce agli interessati le informazioni relative al trattamento dei dati personali effettuato nell’ambito dei servizi offerti online, inclusa la raccolta di richieste di informazioni, preventivi e proposte contrattuali relative a forniture di energia elettrica e gas naturale.</p>
-
     <p>I dati personali saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento potrà avvenire con strumenti manuali e automatizzati, nel rispetto delle disposizioni di cui all’art. 32 del GDPR e delle misure di sicurezza tecniche e organizzative adeguate.</p>
 
-    <p>Per qualsiasi informazione o per l’esercizio dei diritti è possibile contattare il Titolare ai seguenti recapiti:</p>
-    <ul>
-      <li>Email privacy: <a href="mailto:Privacy@Again.it">Privacy@Again.it</a></li>
-      <li>PEC: <a href="mailto:giclaf@pec.it">giclaf@pec.it</a></li>
-    </ul>
-
     <h2>DATA PROTECTION OFFICER</h2>
-    <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art.13, par.1, lett. b</p>
-    <p>Il Titolare ha nominato un Responsabile della Protezione dei Dati (DPO), contattabile al seguente indirizzo: <a href="mailto:dpo@Again.it">dpo@Again.it</a></p>
+    <span class="section-subhead">Art.13, par.1, lett. b</span>
+    <p>Qualora previsto dalla normativa vigente, il Titolare potrà designare un Responsabile della Protezione dei Dati (RPD – DPO). I relativi dati di contatto saranno resi disponibili sul sito web o mediante specifica comunicazione all’interessato.</p>
+<?php if ($email_dpo) { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong><?= $email_dpo ?></strong>.</p>
+<?php } ?>
 
     <h2>FINALITÀ SPECIFICHE DEL TRATTAMENTO DEI DATI PERSONALI</h2>
-    <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.1, lett. c</p>
+    <span class="section-subhead">Art. 13, par.1, lett. C</span>
     <p>I dati personali forniti dall’Utente possono essere trattati per le seguenti finalità:</p>
     <ul>
       <li><strong>Gestione delle richieste di informazioni e preventivi nel settore energia:</strong> consentire all’Utente di richiedere informazioni o ricevere proposte commerciali relative a forniture di energia elettrica e gas, nonché di essere ricontattato da operatori qualificati o partner commerciali per la presentazione di offerte contrattuali.</li>
@@ -64,7 +112,7 @@
     </ul>
 
     <h2>BASE GIURIDICA</h2>
-    <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.1, lett. d</p>
+    <span class="section-subhead">Art. 13, par.1, lett. d</span>
     <p>Il trattamento dei dati personali si fonda sulle seguenti basi giuridiche:</p>
     <ul>
       <li>esecuzione di misure precontrattuali adottate su richiesta dell’interessato, ai sensi dell’art. 6, par. 1, lett. b) del GDPR, per la gestione delle richieste di informazioni, preventivi e contatti commerciali;</li>
@@ -85,7 +133,7 @@
     </ul>
 
     <h2>MANCATA COMUNICAZIONE DEI DATI PERSONALI E CONSEGUENZE DEL RIFIUTO</h2>
-    <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.2, lett. e</p>
+    <span class="section-subhead">Art. 13, par.2, lett. E</span>
     <p>Il conferimento dei dati personali per le finalità di richiesta di informazioni, preventivi e contatti commerciali è necessario per consentire l’erogazione dei servizi richiesti dall’Utente.</p>
     <p>Il conferimento dei dati per finalità di marketing e contatto commerciale è facoltativo e subordinato al rilascio di uno specifico consenso. L’eventuale rifiuto non pregiudica la possibilità di ricevere informazioni di natura non promozionale.</p>
 
@@ -94,7 +142,7 @@
     <p>Il Titolare adotta misure tecniche e organizzative adeguate, tra cui: • sistemi di autenticazione e controllo degli accessi; • registrazione e tracciabilità delle operazioni sui dati; • sistemi di protezione contro accessi non autorizzati; • procedure di gestione delle richieste degli interessati; • sistemi di conservazione delle prove di consenso.</p>
 
     <h2>DESTINATARI DI DATI PERSONALI</h2>
-    <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.1, lett. e</p>
+    <span class="section-subhead">Art. 13, par.1, lett. e</span>
     <p>I dati personali non saranno diffusi.</p>
     <p>I dati personali possono essere comunicati a soggetti terzi operanti nel settore dell’energia elettrica e del gas naturale, quali fornitori di servizi energetici, società partner o intermediari commerciali, esclusivamente per la gestione delle richieste di preventivo e la conclusione di eventuali contratti di fornitura.</p>
     <p>Tali soggetti trattano i dati in qualità di autonomi titolari o responsabili del trattamento, nel rispetto della normativa vigente.</p>
@@ -105,14 +153,14 @@
     <p>Qualora si rendesse necessario trasferire dati verso Paesi terzi, il Titolare adotterà le garanzie previste dal GDPR, quali clausole contrattuali standard o decisioni di adeguatezza della Commissione Europea.</p>
 
     <h2>DURATA DEL TRATTAMENTO - PERIODO DI CONSERVAZIONE DEI DATI</h2>
-    <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.2, lett. a</p>
+    <span class="section-subhead">Art. 13, par.2, lett. a</span>
     <p>I dati personali sono conservati per il tempo strettamente necessario al conseguimento delle finalità per le quali sono raccolti e nel rispetto degli obblighi di legge.</p>
     <p>In particolare:</p>
     <ul>
-      <li>dati di contatto e richieste di preventivo: conservati per un periodo massimo di 12 mesi dalla raccolta;</li>
-      <li>dati relativi al consenso al marketing e al contatto commerciale: conservati fino alla revoca del consenso e comunque per un periodo non superiore a 24 mesi;</li>
-      <li>dati necessari per adempiere ad obblighi normativi o per la gestione di eventuali contenziosi: conservati per il periodo previsto dalla legge;</li>
-      <li>documenti caricati dall’Utente: conservati per il tempo necessario alla valutazione della richiesta e successivamente cancellati o anonimizzati.</li>
+      <li><strong>dati di contatto e richieste di preventivo:</strong> conservati per un periodo massimo di 12 mesi dalla raccolta;</li>
+      <li><strong>dati relativi al consenso al marketing e al contatto commerciale:</strong> conservati fino alla revoca del consenso e comunque per un periodo non superiore a 24 mesi;</li>
+      <li><strong>dati necessari per adempiere ad obblighi normativi o per la gestione di eventuali contenziosi:</strong> conservati per il periodo previsto dalla legge;</li>
+      <li><strong>documenti caricati dall’Utente:</strong> conservati per il tempo necessario alla valutazione della richiesta e successivamente cancellati o anonimizzati.</li>
     </ul>
     <p>Decorso il termine di conservazione, i dati saranno cancellati o resi anonimi.</p>
 
@@ -134,36 +182,26 @@
     <p>Qualora l’interessato sia iscritto al Registro Pubblico delle Opposizioni, il Titolare si impegna a verificare preventivamente tale iscrizione prima di effettuare comunicazioni telefoniche a fini commerciali.</p>
     <p>Le richieste relative all’esercizio dei diritti possono essere inviate ai seguenti recapiti:</p>
     <ul>
-      <li><a href="mailto:Privacy@Again.it">Privacy@Again.it</a></li>
-      <li><a href="mailto:dpo@Again.it">dpo@Again.it</a></li>
-      <li><a href="mailto:giclaf@pec.it">giclaf@pec.it</a></li>
+<?php if ($emailSupporto) { ?>      <li><?= $emailSupporto ?></li>
+<?php } ?>
+<?php if ($emailDpo && $emailDpo !== $emailSupporto) { ?>      <li><?= $emailDpo ?></li>
+<?php } ?>
+<?php if ($pec) { ?>      <li><?= $pec ?></li>
+<?php } ?>
     </ul>
 
     <h2>RECLAMO ALL’AUTORITÀ DI CONTROLLO</h2>
     <p>L’interessato ha il diritto di proporre reclamo all’Autorità Garante per la protezione dei dati personali, ai sensi dell’art. 77 del GDPR, qualora ritenga che il trattamento dei dati violi la normativa vigente.</p>
 
     <h2>REVOCA DEL CONSENSO</h2>
-    <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art.13, par.2, lett. d</p>
+    <span class="section-subhead">Art.13, par.2, lett. d</span>
     <p>L’interessato può revocare in qualsiasi momento il consenso prestato per finalità di marketing o contatto commerciale, senza pregiudicare la liceità del trattamento effettuato prima della revoca.</p>
-    <p>Per esercitare la revoca è possibile scrivere a <a href="mailto:Privacy@Again.it">Privacy@Again.it</a> o <a href="mailto:dpo@Again.it">dpo@Again.it</a>.</p>
+<?php if ($emailSupporto) { ?>    <p>Per esercitare la revoca è possibile scrivere a <?= $emailSupporto ?><?= ($emailDpo && $emailDpo !== $emailSupporto) ? ' o ' . $emailDpo : '' ?>.</p>
+<?php } ?>
 
     <h2>AGGIORNAMENTI DELLA PRESENTE INFORMATIVA</h2>
     <p>La presente informativa potrà essere soggetta a modifiche o aggiornamenti, anche in conseguenza di variazioni normative, evoluzioni tecnologiche o aggiornamenti delle policy aziendali nel settore dell’energia e della tutela dei consumatori.</p>
     <p>Gli aggiornamenti saranno resi disponibili mediante pubblicazione sul sito web o tramite altri canali informativi appropriati.</p>
-  </div>
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="LOGO_again.png" alt="AGAIN sistema Logo">
-        </a>
-        <p>Rivenditore autorizzato Semplice Luce e Gas.</p>
-      </div>
-      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
-      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni</a></div>
-    </div>
-    <div class="footer-bottom"><span>&copy; 2026 AGAIN sistema — P.IVA 10627351215. Tutti i diritti riservati.</span></div>
-  </footer>
-<script src="cb.js"></script>
-</body>
-</html>
+  </main>
+
+<?php include __DIR__ . '/footer.php'; ?>

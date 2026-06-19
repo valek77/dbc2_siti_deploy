@@ -1,28 +1,9 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AGAIN sistema — Offerte Luce e Gas · Semplice Luce e Gas</title>
-  <meta name="description" content="AGAIN sistema è il partner ufficiale Semplice Luce e Gas. Risparmia sulla bolletta con offerte chiare, prezzi indicizzati e consulenza gratuita.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- HEADER dark -->
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="LOGO_again.png" alt="AGAIN sistema Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Offerte Luce e Gas';
+$pageDesc = "$brand è il partner ufficiale $OPERATORE_ENERGETICO. Risparmia sulla bolletta con offerte chiare, prezzi indicizzati e consulenza gratuita.";
+include __DIR__ . '/header.php';
+?>
 
   <!-- HERO — foto elettrodotti al tramonto -->
   <section class="hero">
@@ -31,16 +12,16 @@
     <div class="hero-content">
       <div class="hero-eyebrow">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--primary-light)"><path d="M13 2L4.09 12.11A1 1 0 005 14h7l-1 8 8.91-10.11A1 1 0 0019 10h-7l1-8z"/></svg>
-        Partner ufficiale Semplice Luce e Gas
+        Partner ufficiale <?= $OPERATORE_ENERGETICO ?>
       </div>
       <h1>L'energia diventa <span class="hl">semplice</span>,<br>il risparmio diventa <span class="hl">reale</span></h1>
-      <p class="hero-sub">Soluzioni luce e gas su misura per la tua casa. Insieme a Semplice Luce e Gas, ti offriamo tariffe trasparenti, assistenza umana e tutta la chiarezza che meriti.</p>
+      <p class="hero-sub">Soluzioni luce e gas su misura per la tua casa. Insieme a <?= $OPERATORE_ENERGETICO ?>, ti offriamo tariffe trasparenti, assistenza umana e tutta la chiarezza che meriti.</p>
       <div class="hero-actions">
-        <a href="tariffe.html" class="btn-primary">
+        <a href="tariffe.php" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09 12.11A1 1 0 005 14h7l-1 8 8.91-10.11A1 1 0 0019 10h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           Vedi le offerte
         </a>
-        <a href="contatti.html" class="btn-outline">Parla con un consulente</a>
+        <a href="contatti.php" class="btn-outline">Parla con un consulente</a>
       </div>
     </div>
     <div class="hero-scroll">
@@ -53,12 +34,12 @@
   <div class="trust-bar">
     <div class="trust-bar-inner">
       <div class="trust-item"><div class="ico">🔒</div> Contratti certificati ARERA</div>
-      <div class="trust-item"><div class="ico">⚡</div> Fornitore Semplice Luce e Gas S.r.l.</div>
+      <div class="trust-item"><div class="ico">⚡</div> Fornitore <?= $OPERATORE_ENERGETICO ?></div>
       <div class="trust-item"><div class="ico">📞</div> Assistenza multicanale</div>
       <div class="trust-item"><div class="ico">🌿</div> Nessuna interruzione fornitura</div>
       <!-- Duplicati per loop infinito -->
       <div class="trust-item"><div class="ico">🔒</div> Contratti certificati ARERA</div>
-      <div class="trust-item"><div class="ico">⚡</div> Fornitore Semplice Luce e Gas S.r.l.</div>
+      <div class="trust-item"><div class="ico">⚡</div> Fornitore <?= $OPERATORE_ENERGETICO ?></div>
       <div class="trust-item"><div class="ico">📞</div> Assistenza multicanale</div>
       <div class="trust-item"><div class="ico">🌿</div> Nessuna interruzione fornitura</div>
     </div>
@@ -70,7 +51,7 @@
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> I nostri servizi</span>
         <h2 class="section-title">Tutto quello che ti serve<br>per <span class="hl">cambiare fornitore</span></h2>
-        <p class="section-sub">Siamo il volto umano dell'energia. Come partner ufficiale Semplice Luce e Gas, ti guidiamo nella scelta della tariffa migliore, gestiamo ogni pratica e restiamo al tuo fianco, sempre.</p>
+        <p class="section-sub">Siamo il volto umano dell'energia. Come partner ufficiale <?= $OPERATORE_ENERGETICO ?>, ti guidiamo nella scelta della tariffa migliore, gestiamo ogni pratica e restiamo al tuo fianco, sempre.</p>
       </div>
       <div class="feature-grid">
         <div class="feat-card">
@@ -97,7 +78,7 @@
     <div class="container">
       <div class="split">
         <div class="split-img">
-          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Casa confortevole con energia Semplice Luce e Gas" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Casa confortevole con energia <?= $OPERATORE_ENERGETICO ?>" loading="lazy">
           <div class="badge">
             <div class="label">Offerta Luce Casa</div>
             <div class="val">PUN +€0,05 <span class="unit">€/kWh</span></div>
@@ -107,7 +88,7 @@
           <span class="eyebrow"><span class="dot"></span> Perché sceglierci</span>
           <h2 class="section-title">Risparmio reale,<br><span class="hl">assistenza vera</span></h2>
           <div class="divider-line"></div>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 20px;">In AGAIN sistema non vendiamo solo contratti, costruiamo relazioni. Analizziamo i tuoi consumi reali per offrirti solo quello di cui hai bisogno, senza costi nascosti o clausole complicate.</p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 20px;">In <?= $brand ?> non vendiamo solo contratti, costruiamo relazioni. Analizziamo i tuoi consumi reali per offrirti solo quello di cui hai bisogno, senza costi nascosti o clausole complicate.</p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 36px;">Con le nostre linee FAMILY e SICURA, hai la certezza di un prezzo indicizzato al mercato e la tranquillità di un'assistenza casa sempre inclusa.</p>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:36px;">
             <div style="padding:18px; background:#fff; border-radius:14px; border-left:3px solid var(--primary); box-shadow:var(--shadow-sm);">
@@ -127,7 +108,7 @@
               <div style="font-size:13px; color:var(--muted);">Un consulente sempre disponibile per ogni dubbio.</div>
             </div>
           </div>
-          <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
+          <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
         </div>
       </div>
     </div>
@@ -150,7 +131,7 @@
         <div class="tl-step">
           <div class="tl-num">2</div>
           <h4>Contattaci</h4>
-          <p>Il nostro consulente ti guida passo dopo passo nella compilazione del contratto Semplice Luce e Gas.</p>
+          <p>Il nostro consulente ti guida passo dopo passo nella compilazione del contratto <?= $OPERATORE_ENERGETICO ?>.</p>
         </div>
         <div class="tl-step">
           <div class="tl-num">3</div>
@@ -186,11 +167,11 @@
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 20px;">Non sparisci dopo la firma. Il nostro team rimane a disposizione anche dopo l'attivazione, per qualsiasi dubbio sulla bolletta o sul contratto.</p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 36px;">Raggiungiamo i nostri clienti per telefono, email e WhatsApp: scegli tu il canale più comodo.</p>
-          <a href="chi-siamo.html" class="btn-primary" style="margin-right:16px;">Chi siamo</a>
-          <a href="contatti.html" style="font-family:var(--font-display); font-weight:700; color:var(--primary); text-decoration:none; font-size:16px;">Contattaci →</a>
+          <a href="chi-siamo.php" class="btn-primary" style="margin-right:16px;">Chi siamo</a>
+          <a href="contatti.php" style="font-family:var(--font-display); font-weight:700; color:var(--primary); text-decoration:none; font-size:16px;">Contattaci →</a>
         </div>
         <div class="split-img">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Team AGAIN sistema consulenti energetici" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Team <?= $brand ?> consulenti energetici" loading="lazy">
         </div>
       </div>
     </div>
@@ -232,45 +213,10 @@
       <h2 style="font-family:var(--font-display); font-size:clamp(36px,5vw,58px); font-weight:800; color:#fff; margin:0 0 20px; line-height:1.1;">Pronto a risparmiare<br>sulla bolletta?</h2>
       <p style="font-size:19px; color:rgba(255,255,255,.8); max-width:600px; margin:0 auto 40px; line-height:1.6;">Richiedi una consulenza senza impegno. Analizzeremo la tua ultima bolletta per mostrarti quanto puoi risparmiare con le nostre soluzioni.</p>
       <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-        <a href="tariffe.html" class="btn-primary" style="font-size:17px; padding:16px 44px;">Vedi tutte le offerte</a>
-        <a href="contatti.html" class="btn-outline" style="font-size:17px; padding:16px 44px;">Contattaci ora</a>
+        <a href="tariffe.php" class="btn-primary" style="font-size:17px; padding:16px 44px;">Vedi tutte le offerte</a>
+        <a href="contatti.php" class="btn-outline" style="font-size:17px; padding:16px 44px;">Contattaci ora</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="LOGO_again.png" alt="AGAIN sistema Logo">
-        </a>
-        <p>Rivenditore autorizzato Semplice Luce e Gas. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Offerte</h4>
-        <a href="tariffe.html">Luce Casa</a>
-        <a href="tariffe.html">Gas Casa</a>
-        <a href="tariffe.html">Linea SICURA</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 AGAIN sistema — P.IVA 10627351215. Tutti i diritti riservati.</span>
-      <span>Rivenditore autorizzato Semplice Luce &amp; Gas S.r.l. — P.IVA 07569201218</span>
-    </div>
-  </footer>
-
-<script src="cb.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

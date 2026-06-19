@@ -1,27 +1,9 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Chi Siamo — AGAIN sistema</title>
-  <meta name="description" content="AGAIN sistema è un team di consulenti energetici specializzati nelle offerte Semplice Luce e Gas. Scopri la nostra storia, i nostri valori e il nostro approccio.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="LOGO_again.png" alt="AGAIN sistema Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Chi Siamo';
+$pageDesc = "$brand è un team di consulenti energetici specializzati nelle offerte $OPERATORE_ENERGETICO. Scopri la nostra storia, i nostri valori e il nostro approccio.";
+include __DIR__ . '/header.php';
+?>
 
   <!-- HERO — foto città/grattacieli -->
   <section class="page-hero">
@@ -42,15 +24,15 @@
           <span class="eyebrow"><span class="dot"></span> La nostra missione</span>
           <h2 class="section-title">Mercato libero,<br><span class="hl">scelta libera</span></h2>
           <div class="divider-line"></div>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;">AGAIN sistema nasce dalla volontà di trasformare il rapporto tra le persone e la loro bolletta. Non siamo solo rivenditori autorizzati Semplice Luce e Gas: siamo consulenti che mettono la chiarezza e il risparmio al primo posto.</p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;"><?= $brand ?> nasce dalla volontà di trasformare il rapporto tra le persone e la loro bolletta. Non siamo solo rivenditori autorizzati <?= $OPERATORE_ENERGETICO ?>: siamo consulenti che mettono la chiarezza e il risparmio al primo posto.</p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 36px;">In un mercato spesso opaco, il nostro compito è decifrare ogni voce di spesa per te, guidandoti verso le soluzioni più adatte ai tuoi consumi reali, senza brutte sorprese.</p>
-          <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
+          <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
         </div>
         <div class="split-img">
-          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Team AGAIN sistema al lavoro" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Team <?= $brand ?> al lavoro" loading="lazy">
           <div class="badge">
             <div class="label">Partner ufficiale</div>
-            <div class="val">Semplice Luce e Gas</div>
+            <div class="val"><?= $OPERATORE_ENERGETICO ?></div>
           </div>
         </div>
       </div>
@@ -105,10 +87,10 @@
           <div class="divider-line"></div>
           <p style="font-size:17px; color:rgba(255,255,255,.75); line-height:1.75; margin:0 0 20px;">Ogni cliente ha una storia e dei consumi diversi. Per questo il nostro approccio inizia sempre da una consulenza personalizzata: analizziamo la tua situazione attuale e ti consigliamo solo ciò che ti serve davvero.</p>
           <p style="font-size:17px; color:rgba(255,255,255,.75); line-height:1.75; margin:0 0 36px;">Gestiamo noi ogni passaggio burocratico con il distributore locale, garantendoti un cambio fornitore fluido, veloce e senza alcuna interruzione del servizio.</p>
-          <a href="contatti.html" class="btn-primary">Parla con un consulente</a>
+          <a href="contatti.php" class="btn-primary">Parla con un consulente</a>
         </div>
         <div class="split-img" style="border-radius:var(--r-2xl); overflow:hidden; aspect-ratio:4/3;">
-          <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=80" alt="Consulente AGAIN sistema con cliente" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=80" alt="Consulente <?= $brand ?> con cliente" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
         </div>
       </div>
     </div>
@@ -119,7 +101,7 @@
     <div class="container" style="max-width:800px;">
       <div style="font-size:64px; color:var(--primary); line-height:1; margin-bottom:24px; font-family:var(--font-display);">"</div>
       <h2 style="font-size:clamp(24px,3.5vw,34px); color:var(--ink); font-weight:700; line-height:1.4; margin:0 0 32px;">Il nostro obiettivo non è chiudere un contratto, ma costruire una relazione di fiducia duratura con ogni cliente che si affida a noi.</h2>
-      <div style="font-family:var(--font-display); font-weight:700; color:var(--primary); font-size:16px;">— Il Team AGAIN sistema</div>
+      <div style="font-family:var(--font-display); font-weight:700; color:var(--primary); font-size:16px;">— Il Team <?= $brand ?></div>
     </div>
   </section>
 
@@ -130,27 +112,8 @@
     <div class="container" style="text-align:center; position:relative; z-index:2;">
       <h2 style="font-family:var(--font-display); font-size:clamp(30px,5vw,50px); font-weight:800; color:#fff; margin:0 0 20px;">Pronto a risparmiare?</h2>
       <p style="font-size:18px; color:rgba(255,255,255,.8); margin:0 auto 36px; max-width:520px; line-height:1.6;">Inizia con una consulenza gratuita. Analizziamo insieme la tua situazione senza impegno.</p>
-      <a href="contatti.html" class="btn-primary" style="font-size:17px; padding:16px 44px;">Contattaci ora →</a>
+      <a href="contatti.php" class="btn-primary" style="font-size:17px; padding:16px 44px;">Contattaci ora →</a>
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="LOGO_again.png" alt="AGAIN sistema Logo">
-        </a>
-        <p>Rivenditore autorizzato Semplice Luce e Gas. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
-      <div class="footer-col"><h4>Offerte</h4><a href="tariffe.html">Luce Casa</a><a href="tariffe.html">Gas Casa</a><a href="tariffe.html">Linea SICURA</a></div>
-      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni</a></div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 AGAIN sistema — P.IVA 10627351215. Tutti i diritti riservati.</span>
-      <span>Rivenditore autorizzato Semplice Luce &amp; Gas S.r.l.</span>
-    </div>
-  </footer>
-<script src="cb.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

@@ -1,37 +1,26 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Condizioni di Utilizzo — AGAIN sistema</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="LOGO_again.png" alt="AGAIN sistema Logo">
-      </a>
-      <nav class="nav-links"><a href="chi-siamo.html" class="nav-link">Chi Siamo</a><a href="tariffe.html" class="nav-link">Offerte</a><a href="contatti.html" class="nav-link">Contatti</a></nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Condizioni di Utilizzo';
+$ragioneSociale = $company_name !== '' ? $company_name : $brand;
+$emailSupporto = $email_supporto;
+include __DIR__ . '/header.php';
+?>
   <section class="dark-section" style="padding:80px 0; text-align:center;">
     <div class="container">
       <span class="eyebrow" style="color:var(--primary-light); justify-content:center; margin-bottom:16px;"><span class="dot" style="background:var(--primary-light);"></span> Legale</span>
       <h1 style="color:#fff; font-size:clamp(36px,5vw,56px);">Condizioni di Utilizzo</h1>
-      <p style="color:rgba(255,255,255,.7); margin:16px 0 0; font-size:17px;">Termini e condizioni del sito web AGAIN sistema</p>
+      <p style="color:rgba(255,255,255,.7); margin:16px 0 0; font-size:17px;">Termini e condizioni del sito web <?= $brand ?></p>
     </div>
   </section>
   <div class="prose">
     <h2>Condizioni di Utilizzo</h2>
-    <p>L’utilizzo del sito web www.again-sistema.it (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di AGAIN sistema, con sede in NAPOLI (NA) VIA PASQUALE FRUSTACI 10 CAP 80142, Partita IVA e Codice Fiscale 10627351215 (di seguito, la “Società”).</p>
+    <p>L’utilizzo del sito web <?= $SITO_WEB ?> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di <?= $ragioneSociale ?><?php if ($sede_legale) { ?>, con sede in <?= $sede_legale ?><?php } ?><?php if ($p_iva) { ?>, Partita IVA e Codice Fiscale <?= $p_iva ?><?php } ?> (di seguito, la “Società”).</p>
     
     <h2>Premesse</h2>
     <p>Le presenti Condizioni Generali disciplinano l’accesso, la navigazione e l’utilizzo del Sito, nonché dei servizi informativi, di comparazione, analisi, assistenza digitale e richiesta di preventivo eventualmente resi disponibili attraverso il Sito. La Società si riserva il diritto di modificare, aggiornare o integrare in qualsiasi momento le presenti Condizioni Generali, per esigenze operative, tecniche, commerciali o per adeguamento normativo. Le modifiche avranno efficacia dalla data di pubblicazione sul Sito.</p>
     
     <h2>Oggetto del servizio</h2>
-    <p>AGAIN sistema è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi, condizioni economiche e informazioni relative a prodotti e servizi propri o di soggetti terzi, anche mediante l’impiego di strumenti algoritmici, motori di calcolo, sistemi software avanzati e modelli linguistici di supporto all’interazione (LLM). Le informazioni, le simulazioni, i risultati di comparazione e gli eventuali contenuti generati o rielaborati tramite strumenti automatizzati hanno natura informativa e orientativa, salvo diverso accordo scritto o diversa specifica indicazione presente sul Sito. Per determinate categorie di prodotti o servizi, il Sito può consentire l’inoltro di richieste verso partner commerciali, operatori, intermediari. In tali ipotesi, il relativo servizio potrà essere disciplinato da condizioni specifiche, da documentazione dedicata e da informative privacy rese dai rispettivi titolari del trattamento.</p>
+    <p><?= $brand ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi, condizioni economiche e informazioni relative a prodotti e servizi propri o di soggetti terzi, anche mediante l’impiego di strumenti algoritmici, motori di calcolo, sistemi software avanzati e modelli linguistici di supporto all’interazione (LLM). Le informazioni, le simulazioni, i risultati di comparazione e gli eventuali contenuti generati o rielaborati tramite strumenti automatizzati hanno natura informativa e orientativa, salvo diverso accordo scritto o diversa specifica indicazione presente sul Sito. Per determinate categorie di prodotti o servizi, il Sito può consentire l’inoltro di richieste verso partner commerciali, operatori, intermediari. In tali ipotesi, il relativo servizio potrà essere disciplinato da condizioni specifiche, da documentazione dedicata e da informative privacy rese dai rispettivi titolari del trattamento.</p>
     
     <h2>Registrazione, area riservata e servizi continuativi</h2>
     <p>L’accesso ad alcune funzionalità del Sito può richiedere la registrazione dell’utente e la creazione di un’area riservata, ad esclusione delle categorie (Energia e Telefonia). L’utente si impegna pertanto a fornire dati completi, corretti e aggiornati, nonché a custodire con diligenza le proprie credenziali di accesso. Laddove previsto, la registrazione potrà consentire la memorizzazione delle richieste effettuate, la gestione dei preventivi, la ricezione di aggiornamenti relativi alle comparazioni richieste, nonché l’accesso a servizi di supporto connessi all’utilizzo della piattaforma nello specifico settore. L’utente potrà richiedere la disattivazione del proprio account o l’interruzione dei servizi collegati all’area riservata secondo le modalità indicate sul Sito o scrivendo agli indirizzi di contatto della Società.</p>
@@ -53,16 +42,14 @@
     <p>Salvo i casi di dolo o colpa grave, la Società non potrà essere ritenuta responsabile per danni diretti o indiretti derivanti dall’uso o dal mancato uso del Sito, dall’affidamento riposto sulle informazioni in esso contenute, da interruzioni del servizio, errori tecnici, malfunzionamenti, indisponibilità dei sistemi di terzi o inesattezze imputabili a dati forniti da partner, operatori o utenti. La Società non assume alcuna responsabilità in relazione alla conclusione di contratti tra l’utente e soggetti terzi eventualmente presenti o raggiungibili tramite il Sito, salvo che ciò non sia espressamente previsto da specifica documentazione contrattuale.</p>
     
     <h2>Proprietà intellettuale e industriale</h2>
-    <p>Il Sito, la sua struttura, il software, i contenuti, i database, i testi, i layout, le grafiche, i marchi, i segni distintivi, le immagini, i flussi conversazionali, i modelli organizzativi e ogni altro elemento presente o reso disponibile attraverso il Sito sono di proprietà della Società AGAIN sistema o dei rispettivi titolari dei diritti e sono protetti dalla normativa vigente in materia di proprietà intellettuale e industriale. È fatto divieto di copiare, estrarre, riprodurre, distribuire, modificare, decompilare, disassemblare, tradurre, adattare o utilizzare in qualsiasi forma il Sito o parte dei suoi contenuti per finalità diverse dall’uso personale e legittimo consentito.</p>
+    <p>Il Sito, la sua struttura, il software, i contenuti, i database, i testi, i layout, le grafiche, i marchi, i segni distintivi, le immagini, i flussi conversazionali, i modelli organizzativi e ogni altro elemento presente o reso disponibile attraverso il Sito sono di proprietà della Società <?= $ragioneSociale ?> o dei rispettivi titolari dei diritti e sono protetti dalla normativa vigente in materia di proprietà intellettuale e industriale. È fatto divieto di copiare, estrarre, riprodurre, distribuire, modificare, decompilare, disassemblare, tradurre, adattare o utilizzare in qualsiasi forma il Sito o parte dei suoi contenuti per finalità diverse dall’uso personale e legittimo consentito.</p>
     
     <h2>Comunicazioni</h2>
     <p>Per comunicazioni, segnalazioni o richieste di assistenza, l’utente potrà utilizzare i recapiti indicati nella sezione contatti del Sito. Ai fini redazionali, nel presente testo sono richiamati i seguenti indirizzi da confermare o aggiornare prima della pubblicazione definitiva:</p>
     <ul>
-      <li><a href="mailto:support@Again.it">support@Again.it</a></li>
-      <li><a href="mailto:Privacy@Again.it">Privacy@Again.it</a></li>
-      <li><a href="mailto:servizioclienti@Again.it">servizioclienti@Again.it</a></li>
-      <li><a href="mailto:giclaf@pec.it">giclaf@pec.it</a></li>
-    </ul>
+<?php if ($emailSupporto) { ?>      <li><a href="mailto:<?= $emailSupporto ?>"><?= $emailSupporto ?></a></li>
+<?php } ?><?php if ($pec) { ?>      <li><a href="mailto:<?= $pec ?>"><?= $pec ?></a></li>
+<?php } ?>    </ul>
     <p>In caso di reclami relativi a specifici servizi o prodotti, ad esclusione delle categorie (Energia e Telefonia), la Società potrà indirizzare l’utente verso il partner competente o che eroga il servizio richiesto.</p>
     
     <h2>Legge applicabile e foro competente</h2>
@@ -72,24 +59,9 @@
     <p>La Società può adottare un proprio Modello di Organizzazione, Gestione e Controllo ai sensi del D. Lgs. 8 giugno 2001, n. 231, nonché un proprio Codice Etico, quali strumenti di presidio organizzativo e prevenzione dei rischi. Qualora attivati, i canali per l’invio di segnalazioni all’Organismo di Vigilanza o ad altra funzione interna competente saranno indicati sul Sito o nei documenti societari ufficiali. Le segnalazioni saranno trattate con criteri di riservatezza nei limiti previsti dalla normativa applicabile.</p>
     
     <h2>Trattamento dei dati personali</h2>
-    <p>Rif: <a href="privacy-policy.html">Informativa Privacy</a></p>
+    <p>Rif: <a href="privacy-policy.php">Informativa Privacy</a></p>
     
     <h2>Clausole finali</h2>
     <p>Qualora una o più clausole delle presenti Condizioni Generali dovessero risultare nulle, invalide o inefficaci, la restante parte manterrà piena validità ed efficacia. Le presenti Condizioni Generali sono redatte in lingua italiana e costituiscono la disciplina generale di utilizzo del Sito, salvo eventuali condizioni particolari applicabili a specifici servizi, iniziative o aree della piattaforma.</p>
   </div>
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="LOGO_again.png" alt="AGAIN sistema Logo">
-        </a>
-        <p>Rivenditore autorizzato Semplice Luce e Gas.</p>
-      </div>
-      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
-      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni</a></div>
-    </div>
-    <div class="footer-bottom"><span>&copy; 2026 AGAIN sistema — P.IVA 10627351215. Tutti i diritti riservati.</span></div>
-  </footer>
-<script src="cb.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>
