@@ -3,350 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FENIX COMMUNICATION - Formazione per un Futuro Migliore</title>
-  <!-- Google Fonts Poppins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- FontAwesome per le icone -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sito in arrivo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: #fff;
+      text-align: center;
+      padding: 24px;
+    }
+    .wrap { max-width: 560px; }
+    h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+    p { font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
+    .dot {
+      display: inline-block;
+      width: 10px; height: 10px;
+      margin: 28px 4px 0;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.5;
+      animation: pulse 1.4s infinite ease-in-out;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulse { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1); } }
+  </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-container">
-      <a href="#" class="logo-container">
-        <!-- Logo vettoriale caricato -->
-        <img src="FENIX_COMMUNICATION.png" alt="FENIX COMMUNICATION Logo" class="logo-img">
-      </a>
-
-      <!-- Hamburger Menu Mobile -->
-      <button class="mobile-nav-toggle" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="nav-menu">
-        <ul class="nav-list">
-          <li><a href="chi-siamo.html" class="nav-item">CHI SIAMO</a></li>
-          <li><a href="tariffe.html" class="nav-item">TARIFFE</a></li>
-          <li><a href="contatti.html" class="nav-item">CONTATTI</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <a href="#" class="btn-customer-area">AREA CLIENTI</a>
-      </div>
+  <div class="wrap">
+    <h1>Stiamo arrivando</h1>
+    <p>Il nostro sito &egrave; in fase di aggiornamento. Torneremo online a breve.</p>
+    <div>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
     </div>
-  </header>
-
-  <main>
-    <!-- Sezione A: Hero Section -->
-    <section class="hero-section">
-      <div class="hero-bg-container">
-        <div class="hero-slide active" style="background-image: url('slide1.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('slide2.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('slide3.jpg');"></div>
-      </div>
-      
-      <div class="hero-container">
-        <div class="hero-card">
-          <span class="hero-tag">AFFIDABILITÀ E TRASPARENZA</span>
-          <h1 class="hero-title">Al servizio di tutti i nostri Clienti</h1>
-          <p class="hero-desc">FENIX COMMUNICATION è al tuo fianco per offrirti corsi di formazione efficienti e trasparenti. Gestisci il tuo percorso di studi in totale semplicità e inizia con prezzi chiari e su misura per te.</p>
-          <a href="#" class="btn-hero">CONOSCIAMOCI MEGLIO</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sezione B: I Nostri Prodotti -->
-    <section class="products-section">
-      <div class="section-container">
-        <h2 class="section-title">I NOSTRI CORSI</h2>
-        <div class="products-grid">
-          <!-- Card Prodotto 1: Luce -->
-          <div class="product-card electricity">
-            <div class="card-image-bg" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1470&auto=format&fit=crop');"></div>
-            <div class="product-card-overlay"></div>
-            <div class="product-card-content">
-              <div class="product-icon-wrap">
-                <i class="fa-solid fa-lightbulb"></i>
-              </div>
-              <h3 class="product-name">CORSO DI COMUNICAZIONE</h3>
-              <p class="product-description">Soluzioni di formazione studiate per ottimizzare le tue competenze di casa e azienda con tariffe trasparenti e convenienti.</p>
-              <a href="#" class="btn-product-more">SCOPRI DI PIÙ</a>
-            </div>
-          </div>
-
-          <!-- Card Prodotto 2: Gas -->
-          <div class="product-card gas">
-            <div class="card-image-bg" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1472&auto=format&fit=crop');"></div>
-            <div class="product-card-overlay"></div>
-            <div class="product-card-content">
-              <div class="product-icon-wrap">
-                <i class="fa-solid fa-fire-flame-simple"></i>
-              </div>
-              <h3 class="product-name">CORSO DI VENDITA</h3>
-              <p class="product-description">Il massimo livello di preparazione con corsi mirati o variabili sempre in linea con i costi reali di mercato.</p>
-              <a href="#" class="btn-product-more">SCOPRI DI PIÙ</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sezione C: I Nostri Servizi -->
-    <section class="services-section">
-      <div class="section-container">
-        <h2 class="section-title">I NOSTRI SERVIZI</h2>
-        <div class="services-grid">
-          <!-- Card Servizio 1 -->
-          <div class="service-card">
-            <div class="service-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1470&auto=format&fit=crop');"></div>
-            <div class="service-body">
-              <h3 class="service-card-title">Docenti sempre a tua disposizione</h3>
-              <p class="service-card-text">Parla direttamente con i nostri esperti per gestire la tua fornitura in modo semplice e veloce, senza lunghe attese telefoniche.</p>
-              <a href="#" class="btn-service-action">SCOPRI DI PIÙ</a>
-            </div>
-          </div>
-
-          <!-- Card Servizio 2 -->
-          <div class="service-card">
-            <div class="service-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1470&auto=format&fit=crop');"></div>
-            <div class="service-body">
-              <h3 class="service-card-title">Accedi alle videolezioni</h3>
-              <p class="service-card-text">Invia l'autolettura del tuo contatore gas in pochi click per ricevere iscrizioni sempre allineate ai tuoi consumi effettivi.</p>
-              <a href="#" class="btn-service-action">SCOPRI DI PIÙ</a>
-            </div>
-          </div>
-
-          <!-- Card Servizio 3 -->
-          <div class="service-card">
-            <div class="service-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1470&auto=format&fit=crop');"></div>
-            <div class="service-body">
-              <h3 class="service-card-title">Le risposte alle domande frequenti</h3>
-              <p class="service-card-text">Consulta le nostre guide rapide per trovare risposte immediate su volture, subentri e letture delle iscrizioni.</p>
-              <a href="#" class="btn-service-action">SCOPRI DI PIÙ</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sezione D: Info Strip -->
-    <section class="info-strip-section">
-      <div class="section-container info-strip-grid">
-        <div class="info-strip-col">
-          <div class="info-strip-icon">
-            <i class="fa-regular fa-envelope"></i>
-          </div>
-          <div class="info-strip-content">
-            <h3 class="info-strip-title">E-MAIL</h3>
-            <p class="info-strip-text">info@fenixcommunication-srl.it</p>
-            <a href="mailto:info@fenixcommunication-srl.it" class="btn-info-strip">SCRIVICI SUBITO</a>
-          </div>
-        </div>
-
-        <div class="info-strip-col border-left">
-          <div class="info-strip-icon">
-            <i class="fa-solid fa-phone"></i>
-          </div>
-          <div class="info-strip-content">
-            <h3 class="info-strip-title">CONTATTACI</h3>
-            <p class="info-strip-text">Numero Verde <strong>800 183 503</strong> / Mob. <strong>02 407 012 30</strong></p>
-            <p class="info-strip-hours">Lun-Ven 9:00-13:00 e 14:00-18:00</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sezione E: App Promo Section -->
-    <section class="app-promo-section">
-      <div class="section-container">
-        <div class="app-promo-card">
-          <div class="app-promo-grid">
-            <!-- Mockup Smartphone -->
-            <div class="app-promo-left">
-              <div class="phone-mockup">
-                <div class="phone-speaker"></div>
-                <div class="phone-screen">
-                  <div class="app-header">
-                    <span class="app-brand"><i class="fa-solid fa-bolt"></i> FENIX COMMUNICATION App</span>
-                  </div>
-                  <div class="app-body">
-                    <div class="app-card-usage">
-                      <span class="app-card-title">Consumi Mese</span>
-                      <div class="chart-placeholder">
-                        <div class="bar bar1" style="height: 40%"></div>
-                        <div class="bar bar2" style="height: 65%"></div>
-                        <div class="bar bar3" style="height: 50%"></div>
-                        <div class="bar bar4" style="height: 85%"></div>
-                      </div>
-                      <span class="app-usage-value">180 kWh</span>
-                    </div>
-                    <div class="app-quick-links">
-                      <div class="app-link-item"><i class="fa-solid fa-file-invoice-dollar"></i><span>Fatture</span></div>
-                      <div class="app-link-item"><i class="fa-solid fa-gauge-high"></i><span>Autolettura</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Descrizione e Store Badges -->
-            <div class="app-promo-right">
-              <span class="app-tag">L'ENERGIA SUL TUO SMARTPHONE</span>
-              <h2 class="app-title">Le tue forniture sempre in tasca</h2>
-              <p class="app-desc">Scarica l'applicazione ufficiale di FENIX COMMUNICATION. Gestisci le tue iscrizioni, monitora i tuoi progressi e invia le letture direttamente dallo smartphone.</p>
-              <ul class="app-features-list">
-                <li><i class="fa-solid fa-check"></i> Visualizza e paga le iscrizioni in un click</li>
-                <li><i class="fa-solid fa-check"></i> Comunica l'autolettura in pochi secondi</li>
-                <li><i class="fa-solid fa-check"></i> Ricevi notifiche personalizzate e assistenza rapida</li>
-              </ul>
-              <div class="app-badges">
-                <a href="#" class="app-badge"><i class="fa-brands fa-apple"></i> <span>App Store</span></a>
-                <a href="#" class="app-badge"><i class="fa-brands fa-google-play"></i> <span>Google Play</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sezione F: Utility Strip & ARERA -->
-    <section class="utility-arera-section">
-      <div class="section-container">
-        <div class="utility-grid">
-          <a href="#" class="utility-card">
-            <div class="utility-card-content">
-              <span class="utility-card-text">Offerta Servizio Tutela della Vulnerabilità Gas</span>
-              <i class="fa-solid fa-chevron-right"></i>
-            </div>
-          </a>
-          <a href="#" class="utility-card">
-            <div class="utility-card-content">
-              <span class="utility-card-text">Modulo Reclami e Informazioni Generiche</span>
-              <i class="fa-solid fa-chevron-right"></i>
-            </div>
-          </a>
-          <a href="#" class="utility-card">
-            <div class="utility-card-content">
-              <span class="utility-card-text">Evoluzione dei Mercati al Dettaglio</span>
-              <i class="fa-solid fa-chevron-right"></i>
-            </div>
-          </a>
-        </div>
-
-        <!-- ARERA Banner -->
-        <div class="arera-banner">
-          <div class="arera-logo-placeholder">ARERA</div>
-          <div class="arera-text">
-            <h4>Portale Offerte dell'Autorità di Regolazione</h4>
-            <p>Confronta le tariffe formative sul portale indipendente istituito dall'Autorità di Regolazione per Formazione Reti e Ambiente (ARERA).</p>
-          </div>
-          <a href="#" class="btn-arera">CONFRONTA OFFERTE</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <!-- Upper Footer -->
-    <div class="upper-footer">
-      <div class="section-container footer-grid">
-        <div class="footer-col brand-col">
-          <div class="footer-logo">
-            <img src="FENIX_COMMUNICATION.png" alt="FENIX COMMUNICATION Logo" class="footer-logo-img">
-          </div>
-          <p class="brand-desc">FENIX COMMUNICATION - Soluzioni formative all'avanguardia, trasparenti e professionali per studenti e aziende.</p>
-          <div class="social-links">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-col-title">OFFERTE</h4>
-          <ul class="footer-links-list">
-            <li><a href="tariffe.html">Corsi Base</a></li>
-            <li><a href="tariffe.html">Corsi Avanzati</a></li>
-            <li><a href="tariffe.html">Corsi per Aziende</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-col-title">AZIENDA</h4>
-          <ul class="footer-links-list">
-            <li><a href="chi-siamo.html">Chi Siamo</a></li>
-            <li><a href="tariffe.html">Tariffe</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-col-title">LEGALE</h4>
-          <ul class="footer-links-list">
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="condizioni-utilizzo.html">Condizioni Generali</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Lower Footer -->
-    <div class="lower-footer">
-      <div class="section-container lower-footer-container">
-        <p class="company-credentials">&copy; 2026 FENIX COMMUNICATION S.R.L. - Sede Legale: Via Giovanni Amendola 22, 81055 Santa Maria Capua Vetere (CE) - P.IVA e C.F.: 04697460618 - R.E.A.: CE - 347847 - Capitale Sociale &euro; 10.000,00 i.v. - PEC: fenixcommunicationsrl@pec.it</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Widget Flottante Sticky -->
-  <div class="floating-widget">
-    <a href="contatti.html" class="sticky-contact-btn">
-      <i class="fa-solid fa-phone"></i>
-      <span>CONTATTACI</span>
-    </a>
   </div>
-
-  <script>
-    // Effetto sticky all'header in base allo scroll
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('.site-header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-    // Toggle navigazione mobile (Hamburger)
-    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    mobileNavToggle.addEventListener('click', () => {
-      mobileNavToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    // Hero Slider
-    const slides = document.querySelectorAll('.hero-slide');
-    let currentSlide = 0;
-    
-    function nextSlide() {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }
-    
-    if (slides.length > 1) {
-      setInterval(nextSlide, 5000); // Cambia slide ogni 5 secondi
-    }
-  </script>
 </body>
 </html>

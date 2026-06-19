@@ -1,220 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Perfect Mood - L'Energia per il tuo comfort</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sito in arrivo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: #fff;
+      text-align: center;
+      padding: 24px;
+    }
+    .wrap { max-width: 560px; }
+    h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+    p { font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
+    .dot {
+      display: inline-block;
+      width: 10px; height: 10px;
+      margin: 28px 4px 0;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.5;
+      animation: pulse 1.4s infinite ease-in-out;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulse { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1); } }
+  </style>
 </head>
-
 <body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="perfect_mood.png" alt="Perfect Mood - Energia" class="logo-img">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Servizi & Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <a href="contatti.html" class="btn-header">Richiedi Consulenza</a>
+  <div class="wrap">
+    <h1>Stiamo arrivando</h1>
+    <p>Il nostro sito &egrave; in fase di aggiornamento. Torneremo online a breve.</p>
+    <div>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
     </div>
-  </header>
-
-  <main>
-    <!-- HERO ASIMMETRICA -->
-    <section class="hero-split">
-      <div class="hero-text-side">
-        <div class="pill-badge">L'innovazione nell'energia</div>
-        <h1>Entra nel tuo<br><span class="text-gradient">Perfect Mood.</span></h1>
-        <p>Soluzioni energetiche, efficientamento e consulenza per aziende e privati. Elimina lo stress delle utenze, ottimizza i consumi e abbraccia la transizione sostenibile.</p>
-        <div class="hero-actions">
-          <a href="tariffe.html" class="btn-primary">Scopri le Soluzioni</a>
-        </div>
-      </div>
-      <div class="hero-visual-side">
-        <div class="visual-wrapper" id="hero-mini-slider">
-          <!-- Slide Images -->
-          <img src="slide_1.jpg" alt="Sede Corporate" class="hero-img hero-slide active">
-          <img src="slide_2.jpg" alt="Energia Sostenibile" class="hero-img hero-slide">
-          <img src="slide_3.jpg" alt="Smart City" class="hero-img hero-slide">
-          
-          <div class="floating-card">
-            <span class="card-icon">⚡</span>
-            <div class="card-data">
-              <strong>Fino al 30%</strong>
-              <span>Risparmio Energetico</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MARQUEE SCORREVOLE -->
-    <div class="marquee-section">
-      <div class="marquee-content">
-        <span>TRANSIZIONE ENERGETICA</span> <span>•</span>
-        <span>EFFICIENZA AZIENDALE</span> <span>•</span>
-        <span>FORNITURE GREEN</span> <span>•</span>
-        <span>CONSULENZA SU MISURA</span> <span>•</span>
-        <span>TRANSIZIONE ENERGETICA</span> <span>•</span>
-        <span>EFFICIENZA AZIENDALE</span> <span>•</span>
-        <span>FORNITURE GREEN</span> <span>•</span>
-        <span>CONSULENZA SU MISURA</span>
-      </div>
-    </div>
-
-    <!-- BENTO GRID FEATURES -->
-    <section class="bento-section">
-      <div class="section-header">
-        <h2>Un ecosistema energetico pensato per te</h2>
-        <p>Approccio B2B e B2C per guidarti verso il massimo del risparmio.</p>
-      </div>
-      
-      <div class="bento-grid">
-        <div class="bento-item bento-large">
-          <div class="bento-content">
-            <h3>Consulenza Aziendale Avanzata</h3>
-            <p>Analizziamo i consumi della tua azienda per proporti piani di efficientamento energetico capaci di tagliare drasticamente i costi fissi e migliorare le performance ambientali.</p>
-            <a href="contatti.html" class="bento-link">Parla con un esperto &rarr;</a>
-          </div>
-          <img src="slide_1.jpg" alt="Consulenza B2B" class="bento-bg">
-        </div>
-        
-        <div class="bento-item bento-small dark-bento">
-          <div class="bento-content">
-            <span class="icon-big">🌱</span>
-            <h3>Energia 100% Green</h3>
-            <p>Forniture da fonti rinnovabili certificate. Riduci l'impatto e investi nel futuro.</p>
-          </div>
-        </div>
-        
-        <div class="bento-item bento-small light-bento">
-          <div class="bento-content">
-            <span class="icon-big">💡</span>
-            <h3>Tariffe Residenziali</h3>
-            <p>Luce e Gas senza sorprese. Bollette chiare e supporto umano sempre presente.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- OFFERTE IN EVIDENZA NEXICOM -->
-    <section class="bento-section" style="padding-top:0;">
-      <div class="section-header">
-        <h2>Le offerte Nexicom in evidenza</h2>
-        <p>Una selezione delle nostre tariffe Luce e Gas in partnership con Nexicom.</p>
-      </div>
-      <div class="results-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:1200px;margin:0 auto;">
-        <article class="offer-card">
-          <div class="offer-card-ribbon">Offerta Solo Web</div>
-          <div class="offer-card-body" style="padding:32px;">
-            <div class="offer-card-header" style="margin-bottom:20px;">
-              <div>
-                <div class="offer-name-wrap"><span class="offer-name" style="font-size:20px;font-weight:700;font-family:var(--font-h);">Solo Web - Variabile PUN</span></div>
-                <div class="offer-provider" style="color:var(--text-secondary);margin-top:4px;">Nexicom &middot; Luce &middot; Domestico</div>
-              </div>
-              <div class="offer-price-wrap" style="text-align:right;">
-                <div class="offer-price" style="font-size:20px;font-weight:700;color:var(--accent);">PUN + 0,055 €/kWh</div>
-                <div class="offer-price-detail" style="font-size:13px;color:var(--text-muted);">456 €/POD/anno</div>
-              </div>
-            </div>
-            <div class="offer-features" style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;"><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> Prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> 1,00 € sconto bolletta via e-mail</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> 1,00 € sconto addebito SDD</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> Corrispettivo: 456 €/POD/anno</span></div>
-            <a href="tariffe.html" class="btn-primary" style="display:block;text-align:center;text-decoration:none;">Scopri tutte le offerte</a>
-          </div>
-        </article>
-        <article class="offer-card">
-          <div class="offer-card-ribbon">Offerta Solo Web</div>
-          <div class="offer-card-body" style="padding:32px;">
-            <div class="offer-card-header" style="margin-bottom:20px;">
-              <div>
-                <div class="offer-name-wrap"><span class="offer-name" style="font-size:20px;font-weight:700;font-family:var(--font-h);">Solo Web - Gas PSV</span></div>
-                <div class="offer-provider" style="color:var(--text-secondary);margin-top:4px;">Nexicom &middot; Gas &middot; Domestico</div>
-              </div>
-              <div class="offer-price-wrap" style="text-align:right;">
-                <div class="offer-price" style="font-size:20px;font-weight:700;color:var(--accent);">PSV + 0,45 €/Smc</div>
-                <div class="offer-price-detail" style="font-size:13px;color:var(--text-muted);">648 €/PDR/anno</div>
-              </div>
-            </div>
-            <div class="offer-features" style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;"><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> Prezzo all&#x27;ingrosso indicizzato all&#x27;indice PSV Day Ahead, aggiornato mensilmente.</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> 1,00 € sconto bolletta via e-mail</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> 1,00 € sconto addebito SDD</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> Corrispettivo: 648 €/PDR/anno</span></div>
-            <a href="tariffe.html" class="btn-primary" style="display:block;text-align:center;text-decoration:none;">Scopri tutte le offerte</a>
-          </div>
-        </article>
-        <article class="offer-card exclusive">
-          <div class="offer-card-ribbon">&#11088; Con Logicard Casa</div>
-          <div class="offer-card-body" style="padding:32px;">
-            <div class="offer-card-header" style="margin-bottom:20px;">
-              <div>
-                <div class="offer-name-wrap"><span class="offer-name" style="font-size:20px;font-weight:700;font-family:var(--font-h);">Solo Web - Variabile PUN Logicard Casa</span></div>
-                <div class="offer-provider" style="color:var(--text-secondary);margin-top:4px;">Nexicom &middot; Luce &middot; Domestico</div>
-              </div>
-              <div class="offer-price-wrap" style="text-align:right;">
-                <div class="offer-price" style="font-size:20px;font-weight:700;color:var(--accent);">PUN + 0,05 €/kWh</div>
-                <div class="offer-price-detail" style="font-size:13px;color:var(--text-muted);">456 €/POD/anno</div>
-              </div>
-            </div>
-            <div class="offer-features" style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;"><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> Indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> 1,00 € sconto bolletta via e-mail</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> 1,00 € sconto addebito SDD</span><span class="offer-tag" style="display:flex;align-items:center;gap:8px;color:var(--text-label);font-weight:500;"><span style="color:#10b981;">&#10003;</span> Corrispettivo: 456 €/POD/anno</span></div>
-            <a href="tariffe.html" class="btn-primary" style="display:block;text-align:center;text-decoration:none;">Scopri tutte le offerte</a>
-          </div>
-        </article>
-      </div>
-      <div style="text-align:center;margin-top:40px;">
-        <a href="tariffe.html" class="btn-primary">Vedi tutte le offerte</a>
-      </div>
-    </section>
-
-    <!-- TEXT IMMERSIVO -->
-    <section class="immersive-text-section">
-      <div class="immersive-container">
-        <h2>Nessun intermediario. Nessun call center infinito.<br>Solo l'energia che serve per farti trovare il tuo <span class="highlight">Perfect Mood</span>.</h2>
-      </div>
-    </section>
-  </main>
-
-  <footer class="modern-footer">
-    <div class="footer-huge-text">PERFECT MOOD</div>
-    <div class="footer-container">
-      <div class="footer-brand">
-        <img src="perfect_mood.png" alt="Perfect Mood" class="footer-logo">
-        <p>Eleviamo l'esperienza energetica con soluzioni su misura per un futuro sostenibile.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Esplora</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Servizi</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Termini e Condizioni</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 PERFECT MOOD S.R.L.. Tutti i diritti riservati.<br>
-      Sede legale: Vico V Marco Rocco 47, 80026 Casoria (NA) | P.IVA/C.F.: 09836261215 | REA: NA - 1061639 | Capitale Sociale &euro; 10.000,00 i.v. | PEC: <a href="mailto:perfectmoods.r.l@pec.it">perfectmoods.r.l@pec.it</a></p>
-    </div>
-  </footer>
-
-  <script src="cb.js"></script>
-  <script>
-    // Mini Slider Logic
-    const miniSlides = document.querySelectorAll('.hero-slide');
-    let currentMini = 0;
-    setInterval(() => {
-      miniSlides[currentMini].classList.remove('active');
-      currentMini = (currentMini + 1) % miniSlides.length;
-      miniSlides[currentMini].classList.add('active');
-    }, 4000);
-  </script>
+  </div>
 </body>
 </html>
