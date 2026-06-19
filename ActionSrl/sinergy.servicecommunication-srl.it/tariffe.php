@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Luce e Gas';
-$pageDescription = 'Scopri tutte le offerte ' . $OPERATORE_ENERGETICO . ' disponibili tramite ' . $brand . ': tariffe luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
+$pageDescription = 'Scopri le offerte ' . $OPERATORE_ENERGETICO . ' disponibili tramite ' . $brand . ': FAMILY LUCE TLS e FAMILY GAS TLS per uso domestico, con prezzi chiari e spread fisso trasparente.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -13,7 +13,7 @@ include __DIR__ . '/header.php';
         <span style="color: #fff; font-weight: 600; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase;">Partner Ufficiale</span>
       </div>
       <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
-      <p>Offerte per uso domestico e professionale. Tutti i prezzi sono indicizzati al mercato con spread fisso e contributo di attivazione di €30,00, scontato con permanenza minima di 6 mesi.</p>
+      <p>Offerte per uso domestico. Prezzi indicizzati al mercato (PUN per la luce, PSV per il gas) con spread fisso bloccato per 12 mesi dalla data di attivazione. Richiesta entro il 30/06/2026.</p>
     </div>
     <div class="wave">
       <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
@@ -28,17 +28,15 @@ include __DIR__ . '/header.php';
       <!-- Filtro -->
       <div class="tab-bar" id="tab-bar">
         <button class="tab-btn active" data-filter="all">Tutte</button>
-        <button class="tab-btn" data-filter="luce-res">Luce Residenziale</button>
-        <button class="tab-btn" data-filter="luce-placet">Luce PLACET</button>
-        <button class="tab-btn" data-filter="gas-res">Gas Residenziale</button>
-        <button class="tab-btn" data-filter="gas-placet">Gas PLACET</button>
+        <button class="tab-btn" data-filter="luce">Luce</button>
+        <button class="tab-btn" data-filter="gas">Gas</button>
       </div>
 
       <!-- Griglia offerte -->
       <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;"></div>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
-        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato per permanenza minima di 6 mesi. Offerte soggette a condizioni contrattuali <?= $OPERATORE_ENERGETICO ?>. <?= $brand ?> è rivenditore indipendente autorizzato.
+        * I prezzi indicati si riferiscono alla sola componente di vendita: PUN_INDEX_GME (luce) e PSV (gas) con l'aggiunta dello spread fisso indicato, valido per 12 mesi dalla data di attivazione. Al corrispettivo per il consumo si aggiunge il corrispettivo annuo fisso indicato in ciascuna offerta, oltre alle spese per il trasporto, la gestione del contatore e gli oneri di sistema. Offerte riservate a clienti domestici, richiesta entro il 30/06/2026, soggette alle condizioni contrattuali <?= $OPERATORE_ENERGETICO ?>. <?= $brand ?> è rivenditore indipendente autorizzato.
       </p>
     </div>
   </main>
@@ -66,12 +64,12 @@ include __DIR__ . '/header.php';
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h4>Spread</h4>
-          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto. Con PLACET è bloccata per 12 mesi.</p>
+          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto e bloccata per 12 mesi dalla data di attivazione.</p>
         </div>
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg></div>
-          <h4>RID vs Bollettino</h4>
-          <p>Con domiciliazione bancaria (RID) hai lo spread più basso. Con bollettino si applica uno spread maggiorato.</p>
+          <h4>Corrispettivo annuo</h4>
+          <p>Quota fissa e invariabile per tutta la durata dell'offerta, indipendente dai consumi, che si aggiunge al corrispettivo per il consumo.</p>
         </div>
       </div>
     </div>
@@ -84,26 +82,16 @@ include __DIR__ . '/header.php';
     const ICON_LOCK = '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
     const offers = [
-      { id: 'prima-casa-luce', category: 'luce-res', kind: 'luce', tipo: 'Luce Residenziale', top: true,
-        nome: 'PRIMA CASA LUCE', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'PUN + €0,025', unita: '€/kWh', prezzoBoll: 'PUN + €0,035/kWh',
-        note: 'Costi fissi: €11,00/mese. Spread bloccato per 12 mesi.',
-        features: ['Indicizzato al PUN mensile', 'Spread bloccato 12 mesi', 'Perdite di rete incluse', 'Nessun intervento tecnico'] },
-      { id: 'prima-casa-gas', category: 'gas-res', kind: 'gas', tipo: 'Gas Residenziale', top: true,
-        nome: 'PRIMA CASA GAS', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'PSV + €0,25', unita: '€/Smc', prezzoBoll: 'PSV + €0,30/Smc',
-        note: 'Costi fissi: €11,00/mese. Include componente CCR.',
-        features: ['Indicizzato al PSV mensile', 'Componente CCR inclusa', 'Attivazione rapida', 'Zero burocrazia'] },
-      { id: 'domestika-placet-luce-casa', category: 'luce-placet', kind: 'luce', tipo: 'Luce PLACET', top: false,
-        nome: 'DOMESTIKA PLACET LUCE CASA', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'PUN + €0,030', unita: '€/kWh', prezzoBoll: null,
-        note: 'Costi fissi: €10,00/mese. Condizioni PLACET.',
-        features: ['Indicizzato al PUN mensile', 'Costi fissi: 120€/anno', 'Condizioni equiparate tutela', 'Trasparenza totale'] },
-      { id: 'domestika-placet-gas-casa', category: 'gas-placet', kind: 'gas', tipo: 'Gas PLACET', top: false,
-        nome: 'DOMESTIKA PLACET GAS CASA', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'TTF + €0,200', unita: '€/Smc', prezzoBoll: null,
-        note: 'Costi fissi: €10,00/mese. Indice PFOR (TTF).',
-        features: ['Indicizzato al TTF mensile', 'Costi fissi: 120€/anno', 'Prezzi trasparenti', 'Gestione semplificata'] }
+      { id: 'family-luce-tls', category: 'luce', kind: 'luce', tipo: 'Luce', top: true,
+        nome: 'FAMILY LUCE TLS', sub: 'Prezzo Variabile · Uso domestico · Bassa Tensione',
+        prezzoRid: 'PUN + €0,055', unita: '€/kWh', prezzoBoll: null,
+        note: 'Corrispettivo annuo: €624,00/POD. Spread fisso 0,055 €/kWh su F1, F2 e F3, perdite di rete incluse. Codice offerta: 025867ESVFL04XX000000426TLSEDPUN.',
+        features: ['Indicizzato al PUN_INDEX_GME mensile', 'Spread fisso 0,055 €/kWh per 12 mesi', 'Stesso prezzo su F1, F2 e F3', 'Perdite di rete incluse', 'Riservata a utenze domestiche BT'] },
+      { id: 'family-gas-tls', category: 'gas', kind: 'gas', tipo: 'Gas', top: true,
+        nome: 'FAMILY GAS TLS', sub: 'Prezzo Variabile · Uso domestico',
+        prezzoRid: 'PSV + €0,600', unita: '€/Smc', prezzoBoll: null,
+        note: 'Corrispettivo annuo: €696,00/PdR. Spread fisso (M) 0,600 €/Smc per 12 mesi. Codice offerta: 025867GSVML04XX00000426APSVGDTLS.',
+        features: ['Indicizzato al PSV mensile', 'Spread fisso 0,600 €/Smc per 12 mesi', 'Corrispettivo annuo €696,00', 'Riservata a utenze domestiche'] }
     ];
 
     function renderCard(o) {
@@ -129,7 +117,7 @@ include __DIR__ . '/header.php';
           <p class="offer-type">${o.sub}</p>
 
           <div class="price-block">
-            <div class="price-label">Prezzo energia · con RID</div>
+            <div class="price-label">Corrispettivo per il consumo</div>
             <div class="price-main">${o.prezzoRid}<span style="font-size:14px; color:var(--muted); margin-left:4px; font-weight:600;">${o.unita}</span></div>
             ${o.prezzoBoll
               ? `<div class="price-alt">Bollettino: <b>${o.prezzoBoll}</b></div>`

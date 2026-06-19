@@ -150,7 +150,7 @@ include __DIR__ . '/header.php';
             <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </div>
           <h4>Offerte Luce</h4>
-          <p>Tariffe variabili indicizzate al PUN e offerte PLACET con spread bloccato per 12 mesi. Per uso domestico e professionale.</p>
+          <p>Tariffa FAMILY LUCE TLS a prezzo variabile indicizzato al PUN, con spread fisso bloccato per 12 mesi. Riservata alle utenze domestiche.</p>
         </article>
 
         <article class="feature-card reveal">
@@ -158,7 +158,7 @@ include __DIR__ . '/header.php';
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </div>
           <h4>Offerte Gas</h4>
-          <p>Forniture gas con prezzo ancorato al PSV. Soluzioni per casa, lavoro e imprese, con attivazione rapida e senza interventi tecnici.</p>
+          <p>Tariffa FAMILY GAS TLS con prezzo ancorato al PSV e spread fisso per 12 mesi. Per le utenze domestiche, con attivazione rapida e senza interventi tecnici.</p>
         </article>
 
         <article class="feature-card reveal">
@@ -217,7 +217,7 @@ include __DIR__ . '/header.php';
             Non siamo un punto vendita anonimo: siamo consulenti energetici. Per ogni cliente troviamo la soluzione più conveniente, senza costi nascosti e senza sorprese in bolletta.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0;">
-            Con <?= $OPERATORE_ENERGETICO ?> puoi scegliere tra offerte a prezzo variabile indicizzato al mercato o offerte PLACET con spread fisso garantito per 12 mesi.
+            Con <?= $OPERATORE_ENERGETICO ?> scegli offerte a prezzo variabile indicizzato al mercato, FAMILY LUCE TLS e FAMILY GAS TLS, con spread fisso garantito per 12 mesi.
           </p>
 
         </div>
@@ -272,7 +272,7 @@ include __DIR__ . '/header.php';
             <div class="quote">"</div>
             <div class="stars">★★★★★</div>
             <h5>Finalmente competenti</h5>
-            <p>Mi hanno spiegato bene le differenze tra RID e bollettino e mi hanno aiutato a scegliere la tariffa più adatta.</p>
+            <p>Mi hanno spiegato bene come funziona lo spread sul PUN e mi hanno aiutato a scegliere la tariffa più adatta.</p>
             <div class="author">
               <div class="avatar">RT</div>
               <div>

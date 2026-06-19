@@ -77,9 +77,9 @@ include __DIR__ . '/header.php';
 
           <div class="contact-card-cta">
             <div class="label">Offerta del momento</div>
-            <div class="name">PRIMA CASA LUCE</div>
-            <div class="price">PUN +€0,025<small> €/kWh</small></div>
-            <div class="note">con domiciliazione bancaria (RID)</div>
+            <div class="name">FAMILY LUCE TLS</div>
+            <div class="price">PUN +€0,055<small> €/kWh</small></div>
+            <div class="note">spread fisso bloccato per 12 mesi</div>
             <a class="see-all" href="tariffe.php">Vedi tutte le offerte
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
