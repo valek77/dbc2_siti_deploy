@@ -29,20 +29,20 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
 } ?>
 </head>
 
-<body>
+<body style="margin: 0;">
 
-  <header class="main-header">
-    <div class="header-container">
+  <header class="main-header" style="top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #E4E4E7;">
+    <div class="header-container" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;">
       <a href="index.php" class="logo">
-        <img src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img">
+        <img src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img" style="height: 40px; width: auto;">
       </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.php" class="nav-link">Tariffe</a>
-        <a href="contatti.php" class="nav-link">Contatti</a>
+      <nav class="nav-links" style="display: flex; gap: 32px;">
+        <a href="tariffe.php" class="nav-link" style="font-weight: 600; color: #18181B; text-decoration: none;">Offerte Luce e Gas</a>
+        <a href="chi-siamo.php" class="nav-link" style="font-weight: 600; color: #18181B; text-decoration: none;">Chi Siamo</a>
+        <a href="contatti.php" class="nav-link" style="font-weight: 600; color: #18181B; text-decoration: none;">Contatti</a>
       </nav>
       <div class="header-cta">
-        <a href="contatti.php" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Area Clienti</a>
+        <a href="tariffe.php" class="btn-primary" style="padding: 10px 24px; font-size: 14px; background: var(--primary); color: #fff; border-radius: 99px; text-decoration: none; font-weight: 600;">Scopri tariffe</a>
       </div>
     </div>
   </header>

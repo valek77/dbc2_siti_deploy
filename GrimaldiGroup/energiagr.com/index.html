@@ -9,260 +9,243 @@
 </head>
 <body>
 
-  <!-- HEADER dark -->
-  <header class="main-header">
+  <!-- ENGIE-LIKE HEADER -->
+  <div style="background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); padding: 8px 24px; display: none;">
+    <!-- Hide on mobile via CSS usually, but we'll leave it simple here -->
+  </div>
+  <div class="top-bar" style="background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); padding: 8px 24px;">
+    <div style="max-width: var(--maxw); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <div style="display: flex; gap: 20px;">
+        <a href="index.html" style="color: var(--primary); font-weight: 700; text-decoration: none;">Casa</a>
+        <a href="#" style="color: inherit; text-decoration: none; transition: color 0.2s;">Business ed Enti</a>
+        <a href="chi-siamo.html" style="color: inherit; text-decoration: none; transition: color 0.2s;">Gruppo GR</a>
+      </div>
+      <div style="display: flex; gap: 20px;">
+        <a href="contatti.html" style="color: inherit; text-decoration: none; transition: color 0.2s;">Contatti</a>
+        <a href="#" style="color: inherit; text-decoration: none; transition: color 0.2s;">Area Clienti</a>
+      </div>
+    </div>
+  </div>
+  <header class="main-header" style="top: 0;">
     <div class="header-inner">
       <a href="index.html" class="logo">
         <img src="gr_logo.png" alt="GR Contact Logo">
       </a>
       <nav class="nav-links">
+        <a href="tariffe.html" class="nav-link">Offerte Luce e Gas</a>
+        <a href="chi-siamo.html" class="nav-link">Servizi</a>
         <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
       </nav>
       <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
     </div>
   </header>
 
-  <!-- HERO — foto elettrodotti al tramonto -->
-  <section class="hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80');"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--primary-light)"><path d="M13 2L4.09 12.11A1 1 0 005 14h7l-1 8 8.91-10.11A1 1 0 0019 10h-7l1-8z"/></svg>
-        Partner ufficiale Switch Luce Gas
+  <!-- HERO - ENGIE STYLE -->
+  <section class="section" style="padding-top: 60px; padding-bottom: 60px; background: var(--bg-soft);">
+    <div class="container">
+      <div class="split" style="gap: 40px; align-items: center;">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Switch Luce Gas</span>
+          <h1 style="font-size: clamp(40px, 5vw, 56px); margin-bottom: 24px; line-height: 1.1; font-family: var(--font-display); font-weight: 800; color: var(--ink);">
+            L'energia giusta per la tua casa,<br><span style="color: var(--primary);">senza sorprese.</span>
+          </h1>
+          <p style="font-size: 18px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; max-width: 500px;">Scopri le nostre offerte a prezzo fisso e indicizzato. Trasparenza, convenienza e un'assistenza sempre al tuo fianco.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
+            <a href="contatti.html" class="btn-outline" style="border: 2px solid var(--primary); color: var(--primary);">Ti chiamiamo noi</a>
+          </div>
+        </div>
+        <div class="split-img" style="border-radius: 20px 80px 20px 20px; box-shadow: var(--shadow-lg);">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Casa confortevole con energia Switch Luce Gas">
+        </div>
       </div>
-      <h1>Energia che <span class="hl">risparmia</span>,<br>assistenza che <span class="hl">resta</span></h1>
-      <p class="hero-sub">Offerte luce e gas per casa e lavoro con prezzi indicizzati al mercato. Zero burocrazia, zero interruzioni, zero sorprese in bolletta.</p>
-      <div class="hero-actions">
-        <a href="tariffe.html" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09 12.11A1 1 0 005 14h7l-1 8 8.91-10.11A1 1 0 0019 10h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          Vedi le offerte
-        </a>
-        <a href="contatti.html" class="btn-outline">Parla con un consulente</a>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <div class="scroll-dot"></div>
-      Scorri
     </div>
   </section>
 
-  <!-- TRUST BAR -->
-  <div class="trust-bar">
-    <div class="trust-bar-inner">
-      <div class="trust-item"><div class="ico">🔒</div> Contratti certificati ARERA</div>
-      <div class="trust-item"><div class="ico">⚡</div> Fornitore Switch Luce Gas S.r.l.</div>
-      <div class="trust-item"><div class="ico">📞</div> Assistenza multicanale</div>
-      <div class="trust-item"><div class="ico">🌿</div> Nessuna interruzione fornitura</div>
+  <!-- OFFERTE GRID -->
+  <section class="section" style="padding: 80px 0;">
+    <div class="container">
+      <div class="section-head" style="margin-bottom: 48px; text-align: left;">
+        <h2 class="section-title">Le nostre offerte in evidenza</h2>
+        <p class="section-sub" style="margin: 0; max-width: 600px;">Scegli l'offerta più adatta alle tue abitudini di consumo. Soluzioni flessibili o a prezzo bloccato, pensate per farti risparmiare.</p>
+      </div>
+      <div class="offers-grid">
+        <div class="offer-card">
+          <div class="offer-ribbon luce-res">Offerta Luce</div>
+          <div class="offer-body">
+            <div class="offer-name">Luce Variabile Relax</div>
+            <div class="offer-type">Prezzo all'ingrosso + spread minimo</div>
+            <div class="offer-price-box">
+              <div class="offer-price-label">PUN + Contributo al consumo</div>
+              <div class="offer-price">€ 0,03<span style="font-size: 16px;">/kWh</span></div>
+              <div class="offer-price-alt">Costo fisso mensile: 10€</div>
+            </div>
+            <ul class="offer-feats">
+              <li>Energia indicizzata al PUN</li>
+              <li>Nessun costo di attivazione</li>
+              <li>Assistenza dedicata in Italia</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <a href="tariffe.html" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px;">Scopri l'offerta</a>
+            </div>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-ribbon gas-res">Offerta Gas</div>
+          <div class="offer-body">
+            <div class="offer-name">Gas Variabile Relax</div>
+            <div class="offer-type">Prezzo all'ingrosso + spread minimo</div>
+            <div class="offer-price-box">
+              <div class="offer-price-label">PSV + Contributo al consumo</div>
+              <div class="offer-price">€ 0,10<span style="font-size: 16px;">/Smc</span></div>
+              <div class="offer-price-alt">Costo fisso mensile: 10€</div>
+            </div>
+            <ul class="offer-feats">
+              <li>Materia prima indicizzata al PSV</li>
+              <li>Attivazione rapida online</li>
+              <li>Zero burocrazia per il passaggio</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <a href="tariffe.html" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px; background: var(--coral);">Scopri l'offerta</a>
+            </div>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-ribbon luce-placet" style="background: var(--primary-deeper);">Offerta Sicura</div>
+          <div class="offer-body">
+            <div class="offer-name">PLACET Fissa 12 Mesi</div>
+            <div class="offer-type">Luce o Gas a condizioni regolate</div>
+            <div class="offer-price-box">
+              <div class="offer-price-label">Spread bloccato per 12 mesi</div>
+              <div class="offer-price">Zero Soprese</div>
+              <div class="offer-price-alt">Condizioni equiparate alla tutela</div>
+            </div>
+            <ul class="offer-feats">
+              <li>Condizioni contrattuali ARERA</li>
+              <li>Spread fisso e trasparente</li>
+              <li>Sicurezza garantita per 12 mesi</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <a href="tariffe.html" class="btn-outline" style="width: 100%; justify-content: center; padding: 12px; color: var(--ink); border-color: var(--line);">Vedi i dettagli</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- COSA OFFRIAMO -->
-  <section class="section">
+  <!-- SERVIZI E SOLUZIONI -->
+  <section class="section" style="background: var(--bg-soft); padding: 100px 0;">
+    <div class="container">
+      <div class="split reverse" style="gap: 80px; align-items: center;">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Efficienza Energetica</span>
+          <h2 class="section-title">Soluzioni per aziende<br>ed <span class="hl">Enti Pubblici</span></h2>
+          <div class="divider-line"></div>
+          <p style="font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 24px;">Non solo case. Offriamo consulenza personalizzata e soluzioni di efficienza energetica per imprese di ogni dimensione. Dalla riduzione dei consumi all'ottimizzazione degli impianti.</p>
+          <ul class="offer-feats" style="margin-bottom: 40px;">
+            <li>Analisi gratuita dei consumi aziendali e audit energetico</li>
+            <li>Proposte di decarbonizzazione personalizzate</li>
+            <li>Gestione documentale e supporto per pratiche agevolate</li>
+          </ul>
+          <a href="contatti.html" class="btn-primary">Richiedi una consulenza</a>
+        </div>
+        <div class="split-img" style="border-radius: 20px; box-shadow: var(--shadow-md);">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Soluzioni energetiche per aziende ed enti">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOSTENIBILITA E CERTIFICAZIONI -->
+  <section class="section" style="padding: 100px 0;">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow"><span class="dot"></span> I nostri servizi</span>
-        <h2 class="section-title">Tutto quello che ti serve<br>per <span class="hl">cambiare fornitore</span></h2>
-        <p class="section-sub">Siamo rivenditori autorizzati Switch Luce Gas. Ti aiutiamo a scegliere, attiviamo il contratto e restiamo al tuo fianco anche dopo.</p>
+        <span class="eyebrow"><span class="dot"></span> Il nostro impegno</span>
+        <h2 class="section-title">Un fornitore affidabile,<br>un'energia per il <span class="ul">futuro</span></h2>
       </div>
       <div class="feature-grid">
-        <div class="feat-card">
-          <div class="ico">⚡</div>
-          <h4>Offerte Luce</h4>
-          <p>Tariffe variabili indicizzate al PUN e tariffe PLACET con spread bloccato 12 mesi per uso domestico e professionale.</p>
+        <div class="feat-card" style="text-align: center; padding: 48px 32px;">
+          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">🌿</div>
+          <h4>Transizione Sostenibile</h4>
+          <p style="margin-top: 12px;">Lavoriamo costantemente per offrire opzioni energetiche che riducano l'impatto ambientale e aiutino le famiglie a consumare meglio, con maggiore consapevolezza.</p>
         </div>
-        <div class="feat-card">
-          <div class="ico">🔥</div>
-          <h4>Offerte Gas</h4>
-          <p>Forniture gas ancorate al PSV. Soluzioni per casa, lavoro e imprese con attivazione rapida e nessun intervento tecnico.</p>
+        <div class="feat-card" style="text-align: center; padding: 48px 32px;">
+          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">🛡️</div>
+          <h4>Certificazione e Sicurezza</h4>
+          <p style="margin-top: 12px;">Tutte le nostre offerte PLACET e i contratti sono rigorosamente conformi alle direttive ARERA per garantirti la massima trasparenza e tutela del consumatore.</p>
         </div>
-        <div class="feat-card">
-          <div class="ico">🤝</div>
-          <h4>Consulenza Gratuita</h4>
-          <p>Analizziamo la tua bolletta attuale e ti proponiamo la soluzione più conveniente in base ai tuoi consumi reali.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPLIT — foto living room -->
-  <section class="section" style="background: var(--bg-soft); padding-top: var(--section); padding-bottom: var(--section);">
-    <div class="container">
-      <div class="split">
-        <div class="split-img">
-          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Casa confortevole con energia Switch Luce Gas" loading="lazy">
-          <div class="badge">
-            <div class="label">Offerta Luce Casa</div>
-            <div class="val">PUN +€0,03 <span class="unit">€/kWh</span></div>
-          </div>
-        </div>
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Perché sceglierci</span>
-          <h2 class="section-title">Risparmio reale,<br><span class="hl">assistenza vera</span></h2>
-          <div class="divider-line"></div>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 20px;">Non siamo solo un punto vendita. Siamo un team di consulenti che lavora per trovare la soluzione più conveniente per ogni cliente, senza costi nascosti e senza sorprese in bolletta.</p>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 36px;">Con Switch Luce Gas puoi scegliere tra offerte variabili indicizzate o offerte PLACET con spread fisso garantito per 12 mesi.</p>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:36px;">
-            <div style="padding:18px; background:#fff; border-radius:14px; border-left:3px solid var(--primary); box-shadow:var(--shadow-sm);">
-              <div style="font-family:var(--font-display); font-weight:700; color:var(--ink); margin-bottom:6px; font-size:15px;">Prezzi Trasparenti</div>
-              <div style="font-size:13px; color:var(--muted);">Spread fissi e chiari, nessuna componente nascosta.</div>
-            </div>
-            <div style="padding:18px; background:#fff; border-radius:14px; border-left:3px solid var(--coral); box-shadow:var(--shadow-sm);">
-              <div style="font-family:var(--font-display); font-weight:700; color:var(--ink); margin-bottom:6px; font-size:15px;">Zero Burocrazia</div>
-              <div style="font-size:13px; color:var(--muted);">Gestiamo noi il passaggio dal tuo attuale fornitore.</div>
-            </div>
-            <div style="padding:18px; background:#fff; border-radius:14px; border-left:3px solid var(--primary); box-shadow:var(--shadow-sm);">
-              <div style="font-family:var(--font-display); font-weight:700; color:var(--ink); margin-bottom:6px; font-size:15px;">Attivazione Rapida</div>
-              <div style="font-size:13px; color:var(--muted);">Il contratto si attiva in pochi giorni lavorativi.</div>
-            </div>
-            <div style="padding:18px; background:#fff; border-radius:14px; border-left:3px solid var(--coral); box-shadow:var(--shadow-sm);">
-              <div style="font-family:var(--font-display); font-weight:700; color:var(--ink); margin-bottom:6px; font-size:15px;">Supporto Dedicato</div>
-              <div style="font-size:13px; color:var(--muted);">Un consulente sempre disponibile per ogni dubbio.</div>
-            </div>
-          </div>
-          <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
+        <div class="feat-card" style="text-align: center; padding: 48px 32px;">
+          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">👥</div>
+          <h4>Assistenza di Qualità</h4>
+          <p style="margin-top: 12px;">Un team dedicato sempre pronto a rispondere. Nessun call center estero o code infinite, solo consulenti esperti e reali a tua completa disposizione.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COME FUNZIONA — dark section con timeline -->
-  <section class="dark-section" style="padding: var(--section) 0;">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow"><span class="dot"></span> Processo semplice</span>
-        <h2 class="section-title" style="color:#fff;">Attivare è semplice:<br><span style="color:var(--primary-light);">4 passi e sei dentro</span></h2>
-        <p class="section-sub" style="margin:0 auto 64px;">Cambiare fornitore non richiede tecnici, non interrompe la fornitura e non costa nulla — solo 30€ di contributo attivazione (scontato con 6 mesi di permanenza).</p>
-      </div>
-      <div class="timeline">
-        <div class="tl-step">
-          <div class="tl-num">1</div>
-          <h4>Scegli l'offerta</h4>
-          <p>Luce o gas, residenziale o professionale, variabile o PLACET: trovi l'offerta giusta tra le nostre.</p>
-        </div>
-        <div class="tl-step">
-          <div class="tl-num">2</div>
-          <h4>Contattaci</h4>
-          <p>Il nostro consulente ti guida passo dopo passo nella compilazione del contratto Switch Luce Gas.</p>
-        </div>
-        <div class="tl-step">
-          <div class="tl-num">3</div>
-          <h4>Carica la bolletta</h4>
-          <p>Pensiamo noi a tutta la documentazione e al coordinamento con il distributore locale.</p>
-        </div>
-        <div class="tl-step">
-          <div class="tl-num">4</div>
-          <h4>Fornitura attiva</h4>
-          <p>Nessuna interruzione, nessun tecnico a casa. La nuova tariffa parte in automatico.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <div class="stat-strip">
-    <div class="stat-grid">
-      <div class="stat-item"><div class="n">5.000+</div><div class="l">Contratti attivati</div></div>
-      <div class="stat-item"><div class="n">24h</div><div class="l">Risposta garantita</div></div>
-      <div class="stat-item"><div class="n">8</div><div class="l">Offerte disponibili</div></div>
-      <div class="stat-item"><div class="n">€0</div><div class="l">Costo consulenza</div></div>
-    </div>
-  </div>
-
-  <!-- SPLIT — foto consulente/ufficio (reverse) -->
-  <section class="section">
-    <div class="container">
-      <div class="split reverse">
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Il nostro team</span>
-          <h2 class="section-title">Consulenti<br><span class="hl">sempre al tuo fianco</span></h2>
-          <div class="divider-line"></div>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 20px;">Non sparisci dopo la firma. Il nostro team rimane a disposizione anche dopo l'attivazione, per qualsiasi dubbio sulla bolletta o sul contratto.</p>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 36px;">Raggiungiamo i nostri clienti per telefono, email e WhatsApp: scegli tu il canale più comodo.</p>
-          <a href="chi-siamo.html" class="btn-primary" style="margin-right:16px;">Chi siamo</a>
-          <a href="contatti.html" style="font-family:var(--font-display); font-weight:700; color:var(--primary); text-decoration:none; font-size:16px;">Contattaci →</a>
-        </div>
-        <div class="split-img">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Team GR Contact consulenti energetici" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RECENSIONI -->
-  <section class="section" style="background:var(--bg-soft);">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow"><span class="dot"></span> Cosa dicono i clienti</span>
-        <h2 class="section-title">La loro soddisfazione<br>è la nostra <span class="ul">presentazione</span></h2>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card featured-review">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote" style="font-size:17px; font-style:italic;">"Ho cambiato fornitore in meno di una settimana. Il consulente mi ha seguito dall'inizio alla fine. Prima bolletta: risparmiato il 15% rispetto a prima."</p>
-          <div class="review-name">Simone B. — Roma</div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Finalmente qualcuno che mi ha spiegato cosa significa PUN e spread. Adesso so esattamente cosa pago e perché."</p>
-          <div class="review-name">Laura M. — Milano</div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Zero problemi con il passaggio, nessun giorno senza corrente. Assistenza impeccabile, rispondono subito su WhatsApp."</p>
-          <div class="review-name">Roberto T. — Napoli</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINALE — foto pannelli solari -->
-  <section class="photo-section" style="padding: var(--section) 0;">
-    <div class="photo-bg" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=80');"></div>
+  <!-- SPAZIO CLIENTI (APP/PORTAL PROMO) -->
+  <section class="photo-section" style="padding: 100px 0;">
+    <div class="photo-bg" style="background-image: url('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1600&q=80');"></div>
     <div class="photo-overlay"></div>
-    <div class="container" style="text-align:center;">
-      <span class="eyebrow" style="color:var(--primary-light); justify-content:center; margin-bottom:20px;"><span class="dot" style="background:var(--primary-light);"></span> Inizia oggi</span>
-      <h2 style="font-family:var(--font-display); font-size:clamp(36px,5vw,58px); font-weight:800; color:#fff; margin:0 0 20px; line-height:1.1;">Pronto a risparmiare<br>sulla bolletta?</h2>
-      <p style="font-size:19px; color:rgba(255,255,255,.8); max-width:600px; margin:0 auto 40px; line-height:1.6;">Consulenza gratuita. Ti contatteremo entro 24 ore per trovare insieme l'offerta migliore per te.</p>
-      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-        <a href="tariffe.html" class="btn-primary" style="font-size:17px; padding:16px 44px;">Vedi tutte le offerte</a>
-        <a href="contatti.html" class="btn-outline" style="font-size:17px; padding:16px 44px;">Contattaci ora</a>
+    <div class="container">
+      <div class="split" style="gap: 60px; align-items: center;">
+        <div>
+          <span class="eyebrow" style="color: var(--primary-light);"><span class="dot" style="background: var(--primary-light);"></span> Area Personale</span>
+          <h2 style="font-size: clamp(36px, 4vw, 52px); font-family: var(--font-display); font-weight: 800; color: #fff; margin-bottom: 24px; line-height: 1.1;">Hai già un contratto con noi?</h2>
+          <p style="font-size: 19px; color: rgba(255,255,255,.8); margin-bottom: 40px; line-height: 1.6;">Accedi allo Spazio Clienti per monitorare i tuoi consumi, pagare le bollette e gestire la tua fornitura in pochi clic, dove e quando vuoi.</p>
+          <div style="display: flex; gap: 16px;">
+            <a href="#" class="btn-primary" style="background: #fff; color: var(--primary-deeper);">Accedi all'Area Personale</a>
+          </div>
+        </div>
+        <div style="background: rgba(255,255,255,.08); backdrop-filter: blur(12px); padding: 48px; border-radius: var(--r-xl); border: 1px solid rgba(255,255,255,.15); color: #fff; box-shadow: var(--shadow-lg);">
+          <div style="font-size: 32px; margin-bottom: 16px;">📱</div>
+          <h3 style="font-family: var(--font-display); font-size: 26px; margin-bottom: 16px;">Scarica l'App (Prossimamente)</h3>
+          <p style="font-size: 16px; color: rgba(255,255,255,.7); margin-bottom: 32px; line-height: 1.6;">Porta la tua energia sempre con te. Stiamo lavorando a una nuova applicazione mobile per semplificarti ancora di più la vita e la gestione delle tue utenze.</p>
+          <div style="display: flex; gap: 16px;">
+            <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,.4); border-radius: 8px; font-weight: 600; cursor: not-allowed; opacity: 0.7;">App Store</div>
+            <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,.4); border-radius: 8px; font-weight: 600; cursor: not-allowed; opacity: 0.7;">Google Play</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="gr_logo.png" alt="GR Contact Logo">
-        </a>
-        <p>Rivenditore autorizzato Switch Luce Gas. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
+  <!-- MEGA FOOTER -->
+  <footer class="main-footer" style="background: var(--dark-bg); color: #fff; padding: 100px 0 40px;">
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: 60px;">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: 28px; display: inline-block;">
+            <img src="gr_logo.png" alt="GR Contact Logo" style="filter: brightness(0) invert(1); height: 48px;">
+          </a>
+          <p style="color: rgba(255,255,255,.6); font-size: 15px; line-height: 1.7; max-width: 320px;">Siamo partner autorizzato Switch Luce Gas. La nostra missione è fornire energia a prezzi chiari, supportata da consulenti reali e disponibili per garantirti sempre la massima trasparenza.</p>
+        </div>
+        <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
+          <h4 style="font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff;">Offerte e Servizi</h4>
+          <a href="tariffe.html" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Offerte Luce e Gas</a>
+          <a href="tariffe.html" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Offerte PLACET</a>
+          <a href="chi-siamo.html" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Consulenza Aziendale</a>
+          <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Efficienza Energetica</a>
+        </div>
+        <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
+          <h4 style="font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff;">Supporto Clienti</h4>
+          <a href="contatti.html" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Contattaci</a>
+          <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Area Personale</a>
+          <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Domande Frequenti (FAQ)</a>
+          <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Guida alla Bolletta</a>
+        </div>
+        <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
+          <h4 style="font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff;">GR Contact</h4>
+          <a href="chi-siamo.html" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Chi Siamo</a>
+          <a href="privacy-policy.html" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Privacy Policy</a>
+          <a href="condizioni-utilizzo.html" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Condizioni di Utilizzo</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
+      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 16px;">
+        <span>&copy; 2026 GR Contact. Tutti i diritti riservati.</span>
+        <span>Rivenditore autorizzato Switch Luce &amp; Gas S.r.l.</span>
       </div>
-      <div class="footer-col">
-        <h4>Offerte</h4>
-        <a href="tariffe.html">Luce Residenziale</a>
-        <a href="tariffe.html">Gas Residenziale</a>
-        <a href="tariffe.html">Offerte PLACET</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 GR Contact. Tutti i diritti riservati.</span>
-      <span>Rivenditore autorizzato Switch Luce &amp; Gas S.r.l.</span>
     </div>
   </footer>
 

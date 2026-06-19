@@ -4,82 +4,63 @@ $pageTitle = 'Chi Siamo';
 include __DIR__ . '/header.php';
 ?>
 
-  <!-- Hero Section -->
-  <section class="hero" style="background: linear-gradient(rgba(94, 200, 215, 0.4), rgba(94, 200, 215, 0.6)), url('about_landscape.jpg') center/cover no-repeat; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;">
-    <div style="max-width: 900px; padding: 20px;">
-      <h1 style="color: #ffffff; font-size: clamp(48px, 8vw, 84px); margin: 0; font-weight: 800;">La nostra <span style="color: var(--accent);">passione</span></h1>
+  <section class="hero-page" style="background: #FAFAFA; padding: 120px 24px 80px; text-align: center;">
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+      <span class="eyebrow" style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; display: inline-block;">
+        La nostra missione
+      </span>
+      <h1 style="font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 800; color: #18181B; margin-bottom: 24px;">
+        Un riferimento vero.<br>Non un robot.
+      </h1>
+      <p style="font-size: 19px; color: #71717A; margin-bottom: 0; line-height: 1.6;">
+        Siamo il tuo fornitore di fiducia per l'energia. Crediamo nella trasparenza totale e nel valore del supporto umano.
+      </p>
     </div>
   </section>
 
-  <!-- Mission Section with Semicircle Image -->
-  <section class="about-section" style="padding: 100px 20px; overflow: hidden;">
-    <div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
-      <div style="flex: 1; min-width: 400px;">
-        <h2 class="section-title" style="text-align: left; font-size: 42px; margin-bottom: 32px; color: var(--text-dark);">La tua energia, la nostra <span style="color: var(--primary);">passione</span></h2>
-        <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          Lavoriamo ogni giorno per offrirti le migliori soluzioni energetiche per la tua casa, con un impegno costante verso la sostenibilità e l'innovazione tecnologica.
-        </p>
-        <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary);">
-          Dalla fornitura di Luce e Gas all'installazione di Caldaie e Climatizzatori di ultima generazione, siamo il tuo partner di fiducia per un futuro più efficiente e consapevole.
-        </p>
-      </div>
-      <div style="flex: 1; position: relative; height: 500px; min-width: 400px;">
-        <img src="team_new.jpg" alt="Il Team <?= $brand ?>" class="hero-image-mask" style="border-radius: 300px 0 0 300px; box-shadow: -20px 20px 40px rgba(0,0,0,0.1);">
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Ribbon (Eni Style) -->
-  <section style="background: var(--bg-cream); padding: 80px 20px; color: var(--text-dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
-      <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">50k+</div>
-        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Famiglie Servite</p>
-      </div>
-      <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">100%</div>
-        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Energia Verde</p>
-      </div>
-      <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">24h</div>
-        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Risposta Rapida</p>
-      </div>
-      <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">-15%</div>
-        <p style="font-size: 16px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Risparmio Medio</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Values Grid -->
-  <section class="about-section" style="padding: 120px 20px; background: var(--bg-cream);">
-    <div style="max-width: 1280px; margin: 0 auto;">
-      <h2 class="section-title" style="margin-bottom: 80px;">I nostri valori e il nostro impegno</h2>
-      <div class="features-container">
-        <div class="trust-card" style="background: #fff;">
-          <img src="icon_consultant.png" alt="Consulente" class="trust-mascot">
-          <h4>Consulente Dedicato</h4>
-          <p>Un professionista esperto, con nome e numero diretto, sempre al tuo fianco per ogni esigenza.</p>
+  <section class="section" style="padding: 100px 0;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <div class="split" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 80px; align-items: center;">
+        <div>
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
         </div>
-        <div class="trust-card" style="background: #fff;">
-          <img src="icon_audit.png" alt="Audit" class="trust-mascot">
-          <h4>Audit Energetico</h4>
-          <p>Utilizziamo tecnologie all'avanguardia per analizzare i tuoi consumi e proporti risparmi reali.</p>
-        </div>
-        <div class="trust-card" style="background: #fff;">
-          <img src="icon_transparency.png" alt="Trasparenza" class="trust-mascot">
-          <h4>Trasparenza Totale</h4>
-          <p>Le nostre bollette sono semplici, chiare e prive di sorprese. Paghi solo quello che consumi.</p>
+        <div>
+          <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 24px; line-height: 1.2;">Capisci cosa firmi.<br>Capisci cosa paghi.</h2>
+          <div style="width: 48px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px;"></div>
+          <p style="font-size: 17px; color: #71717A; line-height: 1.7; margin-bottom: 24px;">
+            Nel mercato dell'energia c'è molta confusione. Noi abbiamo deciso di fare il contrario: semplificare tutto. Prezzi, bolletta e componenti diventano finalmente leggibili.
+          </p>
+          <p style="font-size: 17px; color: #71717A; line-height: 1.7; margin-bottom: 32px;">
+            Inoltre, non ti abbandoniamo dopo la firma. Il tuo EnergyTeller ti spiega l'offerta, i costi e le condizioni prima di farti scegliere, e resta a tua disposizione per qualsiasi dubbio futuro.
+          </p>
+          <a href="contatti.php" class="btn-primary" style="background: var(--primary); color: #fff; padding: 14px 32px; border-radius: 99px; text-decoration: none; font-weight: 600; display: inline-block;">Parla con noi</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Final Quote Section -->
-  <section style="padding: 120px 20px; text-align: center; background: #fff;">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 42px; color: var(--primary); line-height: 1.3; font-weight: 700; margin-bottom: 40px;">"Il nostro obiettivo non è vendere contratti, ma costruire relazioni durature basate sulla fiducia e sul risparmio concreto."</h2>
-      <p style="font-size: 20px; color: var(--primary); opacity: 0.6;">— Il Team <?= $brand ?></p>
+  <section class="section" style="background: #FAFAFA; padding: 100px 0;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <div class="section-head" style="text-align: center; margin-bottom: 64px;">
+        <h2 style="font-size: 36px; font-weight: 800; line-height: 1.2;">I nostri valori</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+        <div style="background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #E4E4E7; text-align: center;">
+          <div style="font-size: 40px; margin-bottom: 20px;">💡</div>
+          <h4 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">Trasparenza</h4>
+          <p style="color: #71717A; line-height: 1.6;">Nessun costo nascosto. Quello che vedi è quello che paghi, con spread chiari sui prezzi all'ingrosso.</p>
+        </div>
+        <div style="background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #E4E4E7; text-align: center;">
+          <div style="font-size: 40px; margin-bottom: 20px;">🤝</div>
+          <h4 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">Supporto Umano</h4>
+          <p style="color: #71717A; line-height: 1.6;">L'EnergyTeller è una persona vera, non un call center robotizzato, pronta a rispondere a tutte le tue domande.</p>
+        </div>
+        <div style="background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #E4E4E7; text-align: center;">
+          <div style="font-size: 40px; margin-bottom: 20px;">⚡</div>
+          <h4 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">Semplicità</h4>
+          <p style="color: #71717A; line-height: 1.6;">Semplifichiamo il mondo dell'energia, dall'attivazione rapida online alla bolletta chiara da leggere.</p>
+        </div>
+      </div>
     </div>
   </section>
 

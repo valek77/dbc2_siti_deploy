@@ -29,8 +29,18 @@ $emailSupporto = $email_supporto;
 include __DIR__ . '/header.php';
 ?>
 
-  <main class="legal-content">
-    <h1>Condizioni di Utilizzo</h1>
+  <section class="hero-page" style="background: #FAFAFA; padding: 120px 24px 60px; text-align: center;">
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+      <span class="eyebrow" style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; display: inline-block;">
+        Note Legali
+      </span>
+      <h1 style="font-size: clamp(32px, 4vw, 48px); line-height: 1.1; font-weight: 800; color: #18181B; margin-bottom: 24px;">
+        Condizioni di Utilizzo
+      </h1>
+    </div>
+  </section>
+
+  <main class="legal-content" style="padding-top: 40px; border-top: none;">
 
     L’utilizzo del sito web <?= $SITO_WEB ?> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti
     condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di
