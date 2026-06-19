@@ -40,16 +40,44 @@ $env_file = load_env(__DIR__ . '/.env');
  * Helper fondamentale: Cerca prima nelle variabili di sistema (Apache/Ubuntu)
  * e se non le trova guarda nel file .env
  */
+/**
+ * Ripulisce il valore di una variabile: toglie spazi ai bordi e un'eventuale
+ * coppia di virgolette (singole o doppie) che alcuni parser FPM non rimuovono.
+ */
+function clean_env_value($value)
+{
+    $value = trim($value);
+    if (strlen($value) >= 2) {
+        $first = $value[0];
+        $last = $value[strlen($value) - 1];
+        if (($first === '"' && $last === '"') || ($first === "'" && $last === "'")) {
+            $value = substr($value, 1, -1);
+        }
+    }
+    return trim($value);
+}
+
 function get_env_var($key, $fallback_array)
 {
+    // getenv(): mod_php con envvars (export) o FPM con env[...]
     $sys_var = getenv($key);
     if ($sys_var !== false && $sys_var !== '') {
-        log_debug("Variabile ospitata nel SISTEMA: $key");
-        return $sys_var;
+        log_debug("Variabile ospitata nel SISTEMA (getenv): $key");
+        return clean_env_value($sys_var);
+    }
+    // $_SERVER: SetEnv/PassEnv nel VirtualHost (mod_env), tipico con FPM
+    if (isset($_SERVER[$key]) && $_SERVER[$key] !== '') {
+        log_debug("Variabile ospitata nel SISTEMA (\$_SERVER): $key");
+        return clean_env_value($_SERVER[$key]);
+    }
+    // $_ENV: dipende da variables_order in php.ini
+    if (isset($_ENV[$key]) && $_ENV[$key] !== '') {
+        log_debug("Variabile ospitata nel SISTEMA (\$_ENV): $key");
+        return clean_env_value($_ENV[$key]);
     }
     if (isset($fallback_array[$key]) && $fallback_array[$key] !== '') {
         log_debug("Variabile ospitata nel file .ENV: $key");
-        return $fallback_array[$key];
+        return clean_env_value($fallback_array[$key]);
     }
     log_debug("ATTENZIONE: Variabile NON trovata: $key");
     return '';
