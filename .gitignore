@@ -1,6 +1,5 @@
 # File di configurazione con segreti (token API): mai su git.
-.env
-**/.env
+
 
 # Cache locale dei dati azienda scaricati dall'API.
 .company-cache.json
