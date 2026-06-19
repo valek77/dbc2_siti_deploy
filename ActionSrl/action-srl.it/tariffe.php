@@ -1,6 +1,23 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Tariffe ' . $OPERATORE_ENERGETICO;
+
+$pageHead = <<<'CSS'
+  <style>
+    /* Tariffe: due colonne fisse (riga 1 = domestiche, riga 2 = business) */
+    .results-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--gutter);
+    }
+    @media (max-width: 768px) {
+      .results-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+CSS;
+
 include __DIR__ . '/header.php';
 ?>
 
@@ -13,8 +30,7 @@ include __DIR__ . '/header.php';
   </section>
 
   <main class="container" style="max-width: 1280px; margin: var(--section-padding) auto; padding: 0 20px;">
-    <div class="results-list" id="results"
-      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--gutter);"></div>
+    <div class="results-list" id="results"></div>
 
     <div style="margin-top: 120px; display: flex; align-items: center; gap: var(--gutter); flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px;">
