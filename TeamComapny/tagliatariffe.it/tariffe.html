@@ -19,7 +19,7 @@
         <a href="tariffe.html" class="nav-link">Offerte</a>
         <a href="contatti.html" class="nav-link">Contatti</a>
       </nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
+      <a href="tariffe.html" class="btn-header">Scopri tariffe</a>
     </div>
   </header>
 
@@ -28,7 +28,10 @@
     <div class="photo-bg" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80');"></div>
     <div class="photo-overlay"></div>
     <div class="inner">
-      <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Offerte Semplice Gas &amp; Luce S.p.A.</span>
+      <span class="eyebrow" style="color:var(--primary-light); display: inline-flex; align-items: center; gap: 10px;">
+        <span class="dot" style="background:var(--primary-light);"></span> Partner
+        <img src="semplice.png?v=1" alt="Semplice Gas e Luce" style="height: 38px; background: white; padding: 4px 8px; border-radius: 6px; object-fit: contain;">
+      </span>
       <h1>Trova la tariffa <span class="hl">giusta per te</span></h1>
       <p>Offerte per uso domestico e professionale. Prezzi indicizzati al mercato con spread fisso. Contributo di attivazione €30,00 (scontato con 6 mesi di permanenza).</p>
     </div>
@@ -90,7 +93,7 @@
     <div class="container">
       <h2 class="section-title" style="margin-bottom:16px;">Scegli la trasparenza</h2>
       <p style="font-size:18px; color:var(--muted); max-width:560px; margin:0 auto 36px; line-height:1.7;">Nessun vincolo di durata e nessun costo di recesso. Passa a Semplice Gas &amp; Luce S.p.A. con Sansan.</p>
-      <a href="contatti.html" class="btn-primary" style="font-size:17px; padding:16px 44px;">Parla con un esperto →</a>
+      <a href="tariffe.html" class="btn-primary" style="font-size:17px; padding:16px 44px;">Scopri tariffe</a>
     </div>
   </section>
 
@@ -135,6 +138,7 @@
       return `<article class="offer-card" data-cat="${o.cat}">
         <div class="offer-ribbon ${o.ribbon}">${o.tag}${o.top ? ' · Vantaggiosa' : ''}</div>
         <div class="offer-body">
+          <img src="semplice.png?v=1" alt="Semplice Gas e Luce" style="height: 30px; margin-bottom: 12px; object-fit: contain;">
           <div style="font-size:12px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px;">Semplice Gas &amp; Luce S.p.A.</div>
           <div class="offer-name">${o.nome}</div>
           <div class="offer-type">${o.tipo}</div>
