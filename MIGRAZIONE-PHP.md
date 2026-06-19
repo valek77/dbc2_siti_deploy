@@ -15,11 +15,13 @@ Comando d'innesco: l'utente dirà *"Rendi dinamico il sito nella cartella XYZ"*.
 Servono dati che NON sono nel repo:
 
 - **`COMPANY_ID`** dell'azienda (numero) — indispensabile per la chiamata API.
-- **`SITO_WEB`** (dominio senza http, es. `www.gowin-srl.it`) — di norma = nome cartella.
+- **`SITO_WEB`** (dominio senza http, es. `gowin-srl.it`) — di norma = nome cartella.
 - **`OPERATORE_ENERGETICO`** di cui il sito è rivenditore (es. `Hera Comm`).
-- Il **token API** (`DBC2_TOKEN`): si mette nel `.env` **oppure** in una variabile di
-  sistema (env Apache/PHP-FPM, vedi §1.1). **Mai** scriverlo in un file versionato né
-  stamparlo. Per il token segreto è consigliata la variabile di sistema.
+
+Questi 3 valori finiscono nel `.env` (committabile). Il **token** (`DBC2_TOKEN`) e
+l'**indirizzo API** (`DBC2_API_BASE`) **non** si chiedono per il `.env`: vanno
+nell'ambiente di sistema del server (vedi §1.1).
+
 
 ## 1. Infrastruttura PHP (copiare dal pilota)
 
@@ -27,30 +29,33 @@ Copiare nella cartella del sito, adattando dove serve:
 
 | File | Note |
 |------|------|
-| `_config.php`   | Cuore: legge `.env`, chiama l'API, fa cache, espone le variabili. Di norma **identico** al pilota. |
-| `header.php`    | Testata + menu condivisi. Logo da `$logo_url` (fallback `logo.png`). |
-| `footer.php`    | Footer + riga legale costruita dalle variabili API. |
-| `.env.example`  | Template versionato (senza segreti). |
+| `_config.php`        | Cuore: legge le variabili, chiama l'API, fa cache, espone le variabili. **Copia verbatim** dal pilota. |
+| `header.php`         | Testata + menu condivisi. Logo da `$logo_url` (fallback logo del sito). Riprodurre il markup/CSS del sito da convertire. |
+| `footer.php`         | Footer + riga legale costruita dalle variabili API. Riprodurre il markup/CSS del sito. |
+| `privacy-policy.php` | **NON convertire**: copiare il file dal pilota (vedi §3). |
 
-Poi creare il **`.env`** reale (NON versionato) con i valori del punto 0:
+Poi creare il **`.env`** — contiene **solo 3 valori NON segreti ed è committabile** (niente token):
 
 ```
-DBC2_API_BASE=https://dbc2.datalia.it/api
-DBC2_TOKEN=<token segreto>
 COMPANY_ID=<numero>
-SITO_WEB=www.esempio.it
+SITO_WEB=esempio.it
 OPERATORE_ENERGETICO=<operatore>
 ```
 
-Il `.gitignore` di root già ignora `**/.env` e `**/.company-cache.json` — verificare, non
-serve aggiungere nulla.
+> Il **token** (`DBC2_TOKEN`) e l'**indirizzo API** (`DBC2_API_BASE`) **non** stanno nel `.env`
+> né nel repo: vanno nell'**ambiente di sistema** del server (vedi §1.1). Così il `.env` resta
+> privo di segreti e può essere versionato.
+
+Il `.gitignore` di root ignora `**/.company-cache.json`. Non serve ignorare il `.env`
+(non contiene segreti).
 
 ### 1.1 Da dove `_config.php` legge le variabili
 
 `_config.php` (via `get_env_var()`) cerca ogni variabile **prima nell'ambiente di sistema**,
 poi nel `.env` come fallback. L'ordine è: `getenv()` → `$_SERVER` → `$_ENV` → `.env`. Ogni
-valore viene ripulito da spazi e virgolette di troppo da `clean_env_value()`. Quindi puoi
-mettere le variabili (in particolare il **token segreto**) in uno di questi posti:
+valore viene ripulito da spazi e virgolette di troppo da `clean_env_value()`. Il **token
+segreto** (`DBC2_TOKEN`) e l'**indirizzo API** (`DBC2_API_BASE`) vanno messi qui,
+nell'ambiente di sistema:
 
 - **PHP-FPM** (SAPI `fpm-fcgi`) — nel pool, es. `/etc/php/8.4/fpm/pool.d/www.conf`:
   ```ini
@@ -89,7 +94,13 @@ Un campo mancante è stringa vuota `""`: gatare l'output con `<?php if ($x) { ?>
 
 ## 3. Convertire ogni pagina `.html` → `.php`
 
-Per ciascuna pagina (`index`, `chi-siamo`, `tariffe`, `contatti`, `privacy-policy`,
+> ⚠️ **`privacy-policy` NON si converte mai.** Copiare `privacy-policy.php` dal pilota
+> (`Risa/gowin-srl.it/privacy-policy.php`) ed eliminare la `privacy-policy.html` del sito.
+> Il file del pilota porta con sé il proprio markup/CSS (via `$pageHead`) e include
+> `header.php`/`footer.php`, quindi rende identico su qualsiasi sito senza adattamenti;
+> i dati legali (Titolare, sede, P.IVA, PEC, email) arrivano già dalle variabili API.
+
+Per ciascuna **altra** pagina (`index`, `chi-siamo`, `tariffe`, `contatti`,
 `condizioni-utilizzo`, ed eventuale `revoke`):
 
 1. **Rinominare** `.html` → `.php`.
@@ -158,4 +169,4 @@ Le custom properties di palette (`--primary`, `--accent`, …) restano in `style
 ## 7. Aggiornare la guida utente
 
 Copiare/adattare `LEGGIMI.md` nella cartella del sito (istruzioni per l'utente finale:
-configurazione `.env`, campi disponibili, avvio server di test).
+`.env` a 3 valori, token/API base in ambiente di sistema, campi disponibili, avvio server di test).
