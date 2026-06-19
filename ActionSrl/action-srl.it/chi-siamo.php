@@ -1,31 +1,10 @@
-<!doctype html>
-<html lang="it">
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Chi Siamo';
+include __DIR__ . '/header.php';
+?>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Chi Siamo — Action</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Action" class="logo-img">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Area Clienti</a>
-      </div>
-    </div>
-  </header>  <!-- Hero Section -->
+  <!-- Hero Section -->
   <section class="hero" style="background: linear-gradient(rgba(94, 200, 215, 0.4), rgba(94, 200, 215, 0.6)), url('about_landscape.jpg') center/cover no-repeat; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;">
     <div style="max-width: 900px; padding: 20px;">
       <h1 style="color: #ffffff; font-size: clamp(48px, 8vw, 84px); margin: 0; font-weight: 800;">La nostra <span style="color: var(--accent);">passione</span></h1>
@@ -45,7 +24,7 @@
         </p>
       </div>
       <div style="flex: 1; position: relative; height: 500px; min-width: 400px;">
-        <img src="team_new.jpg" alt="Il Team Action" class="hero-image-mask" style="border-radius: 300px 0 0 300px; box-shadow: -20px 20px 40px rgba(0,0,0,0.1);">
+        <img src="team_new.jpg" alt="Il Team <?= $brand ?>" class="hero-image-mask" style="border-radius: 300px 0 0 300px; box-shadow: -20px 20px 40px rgba(0,0,0,0.1);">
       </div>
     </div>
   </section>
@@ -100,47 +79,8 @@
   <section style="padding: 120px 20px; text-align: center; background: #fff;">
     <div style="max-width: 900px; margin: 0 auto;">
       <h2 style="font-size: 42px; color: var(--primary); line-height: 1.3; font-weight: 700; margin-bottom: 40px;">"Il nostro obiettivo non è vendere contratti, ma costruire relazioni durature basate sulla fiducia e sul risparmio concreto."</h2>
-      <p style="font-size: 20px; color: var(--primary); opacity: 0.6;">— Il Team Action</p>
+      <p style="font-size: 20px; color: var(--primary); opacity: 0.6;">— Il Team <?= $brand ?></p>
     </div>
   </section>
 
-  <footer class="main-footer" style="background: var(--secondary); margin-top: 100px; padding-top: 100px;">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="logo_white.png" alt="Action" class="logo-img">
-        </a>
-        <p style="margin-top: 20px;">La tua energia quotidiana: trasparenza, convenienza e assistenza dedicata per un futuro più semplice.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-        <div class="footer-col">
-          <h4>Dati Societari</h4>
-          <span style="font-size:13px;opacity:.75;">ACTION S.R.L.</span>
-          <span style="font-size:13px;opacity:.75;">Via Florindo Ferro 49, CAP 80027</span>
-          <span style="font-size:13px;opacity:.75;">Frattamaggiore (NA)</span>
-          <span style="font-size:13px;opacity:.75;">P.IVA / C.F.: 08722181214</span>
-          <span style="font-size:13px;opacity:.75;">REA: NA-979877</span>
-          <span style="font-size:13px;opacity:.75;">PEC: action.srls@pec.it</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom" style="border-color: rgba(255,255,255,0.1);">
-      <p>&copy; 2026 ACTION S.R.L. &mdash; Sede Legale: Via Florindo Ferro 49, 80027 Frattamaggiore (NA) &mdash; P.IVA e C.F.: 08722181214 &mdash; R.E.A.: NA-979877 &mdash; Capitale Sociale &euro; 45.000,00 i.v. &mdash; PEC: action.srls@pec.it. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

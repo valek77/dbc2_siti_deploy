@@ -1,12 +1,8 @@
-<!doctype html>
-<html lang="it">
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Privacy Policy';
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Privacy Policy — Action</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+$pageHead = <<<'CSS'
   <style>
     .legal-content {
       padding: 80px 20px;
@@ -70,25 +66,16 @@
       margin-bottom: 10px;
     }
   </style>
-</head>
+CSS;
 
-<body>
+// Recapiti dall'API (con fallback ragionevoli se un campo manca).
+$emailSupporto = $email_supporto;
+$emailDpo = $email_dpo !== '' ? $email_dpo : $email_supporto;
+// Recapiti del Titolare mostrati inline nella sezione "Titolare del trattamento".
+$contattoTitolare = implode(' / ', array_filter([$emailSupporto, $pec]));
 
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Action" class="logo-img">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Area Clienti</a>
-      </div>
-    </div>
-  </header>
+include __DIR__ . '/header.php';
+?>
 
   <main class="legal-content">
     <h1>INFORMATIVA PER IL TRATTAMENTO DEI DATI PERSONALI</h1>
@@ -101,21 +88,16 @@
 
     <h2>TITOLARE DEL TRATTAMENTO</h2>
     <span class="section-subhead">Art. 13, par.1, lett. a</span>
-    <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, il Titolare del trattamento è <strong>Action S.r.l</strong>, con sede legale in <strong>Via Florindo Ferro 49, CAP 80027 Frattamaggiore (NA)</strong>, Partita IVA e Codice Fiscale <strong>08722181214</strong>, iscritto al Registro delle Imprese di Napoli con REA <strong>NA-979877</strong> (di seguito, il “Titolare”).</p>
+    <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, il Titolare del trattamento è individuato nel soggetto giuridico che gestisce il sito web o la piattaforma digitale attraverso la quale vengono raccolti i dati personali (di seguito, il “Titolare”).</p>
+    <p>Nello specifico, il Titolare del trattamento è la società <strong><?= $company_name ?></strong>, con sede legale in <strong><?= $sede_legale ?></strong>, Codice Fiscale e Partita IVA <strong><?= $p_iva ?></strong><?php if ($contattoTitolare) { ?>, contattabile all’indirizzo e-mail/PEC <strong><?= $contattoTitolare ?></strong><?php } ?>.</p>
     <p>Il Titolare fornisce agli interessati le informazioni relative al trattamento dei dati personali effettuato nell’ambito dei servizi offerti online, inclusa la raccolta di richieste di informazioni, preventivi e proposte contrattuali relative a forniture di energia elettrica e gas naturale.</p>
     <p>I dati personali saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento potrà avvenire con strumenti manuali e automatizzati, nel rispetto delle disposizioni di cui all’art. 32 del GDPR e delle misure di sicurezza tecniche e organizzative adeguate.</p>
-    <p>Per qualsiasi informazione o per l’esercizio dei diritti è possibile contattare il Titolare ai seguenti recapiti:</p>
-    <ul>
-      <li>Email privacy: <a href="mailto:privacy@action-srl.it">privacy@action-srl.it</a></li>
-      <li>PEC: <a href="mailto:action.srls@pec.it">action.srls@pec.it</a></li>
-    </ul>
 
     <h2>DATA PROTECTION OFFICER</h2>
     <span class="section-subhead">Art.13, par.1, lett. b</span>
-    <p>Il Titolare ha nominato un Responsabile della Protezione dei Dati (DPO), contattabile al seguente indirizzo:</p>
-    <ul>
-      <li><a href="mailto:dpo@action-srl.it">dpo@action-srl.it</a></li>
-    </ul>
+    <p>Qualora previsto dalla normativa vigente, il Titolare potrà designare un Responsabile della Protezione dei Dati (RPD – DPO). I relativi dati di contatto saranno resi disponibili sul sito web o mediante specifica comunicazione all’interessato.</p>
+<?php if ($email_dpo) { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong><?= $email_dpo ?></strong>.</p>
+<?php } ?>
 
     <h2>FINALITÀ SPECIFICHE DEL TRATTAMENTO DEI DATI PERSONALI</h2>
     <span class="section-subhead">Art. 13, par.1, lett. C</span>
@@ -200,9 +182,12 @@
     <p>Qualora l’interessato sia iscritto al Registro Pubblico delle Opposizioni, il Titolare si impegna a verificare preventivamente tale iscrizione prima di effettuare comunicazioni telefoniche a fini commerciali.</p>
     <p>Le richieste relative all’esercizio dei diritti possono essere inviate ai seguenti recapiti:</p>
     <ul>
-      <li><a href="mailto:privacy@action-srl.it">privacy@action-srl.it</a></li>
-      <li><a href="mailto:dpo@action-srl.it">dpo@action-srl.it</a></li>
-      <li><a href="mailto:action.srls@pec.it">action.srls@pec.it</a></li>
+<?php if ($emailSupporto) { ?>      <li><?= $emailSupporto ?></li>
+<?php } ?>
+<?php if ($emailDpo && $emailDpo !== $emailSupporto) { ?>      <li><?= $emailDpo ?></li>
+<?php } ?>
+<?php if ($pec) { ?>      <li><?= $pec ?></li>
+<?php } ?>
     </ul>
 
     <h2>RECLAMO ALL’AUTORITÀ DI CONTROLLO</h2>
@@ -211,50 +196,12 @@
     <h2>REVOCA DEL CONSENSO</h2>
     <span class="section-subhead">Art.13, par.2, lett. d</span>
     <p>L’interessato può revocare in qualsiasi momento il consenso prestato per finalità di marketing o contatto commerciale, senza pregiudicare la liceità del trattamento effettuato prima della revoca.</p>
-    <p>Per esercitare la revoca è possibile scrivere a <a href="mailto:privacy@action-srl.it">privacy@action-srl.it</a>.</p>
+<?php if ($emailSupporto) { ?>    <p>Per esercitare la revoca è possibile scrivere a <?= $emailSupporto ?><?= ($emailDpo && $emailDpo !== $emailSupporto) ? ' o ' . $emailDpo : '' ?>.</p>
+<?php } ?>
 
     <h2>AGGIORNAMENTI DELLA PRESENTE INFORMATIVA</h2>
     <p>La presente informativa potrà essere soggetta a modifiche o aggiornamenti, anche in conseguenza di variazioni normative, evoluzioni tecnologiche o aggiornamenti delle policy aziendali nel settore dell’energia e della tutela dei consumatori.</p>
     <p>Gli aggiornamenti saranno resi disponibili mediante pubblicazione sul sito web o tramite altri canali informativi appropriati.</p>
   </main>
 
-  <footer class="main-footer" style="background: var(--secondary); margin-top: 100px; padding-top: 100px;">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="logo_white.png" alt="Action" class="logo-img">
-        </a>
-        <p style="margin-top: 20px;">La tua energia quotidiana: trasparenza, convenienza e assistenza dedicata per un futuro più semplice.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-        <div class="footer-col">
-          <h4>Dati Societari</h4>
-          <span style="font-size:13px;opacity:.75;">ACTION S.R.L.</span>
-          <span style="font-size:13px;opacity:.75;">Via Florindo Ferro 49, CAP 80027</span>
-          <span style="font-size:13px;opacity:.75;">Frattamaggiore (NA)</span>
-          <span style="font-size:13px;opacity:.75;">P.IVA / C.F.: 08722181214</span>
-          <span style="font-size:13px;opacity:.75;">REA: NA-979877</span>
-          <span style="font-size:13px;opacity:.75;">PEC: action.srls@pec.it</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom" style="border-color: rgba(255,255,255,0.1);">
-      <p>&copy; 2026 ACTION S.R.L. &mdash; Sede Legale: Via Florindo Ferro 49, 80027 Frattamaggiore (NA) &mdash; P.IVA e C.F.: 08722181214 &mdash; R.E.A.: NA-979877 &mdash; Capitale Sociale &euro; 45.000,00 i.v. &mdash; PEC: action.srls@pec.it. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

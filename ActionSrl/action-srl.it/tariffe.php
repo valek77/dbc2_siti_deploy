@@ -1,36 +1,13 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Tariffe Illumia — Risparmio e Trasparenza</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Action" class="logo-img">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Area Clienti</a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Tariffe ' . $OPERATORE_ENERGETICO;
+include __DIR__ . '/header.php';
+?>
 
   <section class="hero"
     style="background: linear-gradient(rgba(94, 200, 215, 0.4), rgba(94, 200, 215, 0.6)), url('tariffe_hero.jpg') center/cover no-repeat; color: #ffffff; padding: 120px 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div class="hero-wrapper" style="max-width: 900px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte <span style="color: var(--accent);">Illumia</span></h1>
+      <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte <span style="color: var(--accent);"><?= $OPERATORE_ENERGETICO ?></span></h1>
       <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Tre vantaggi, un'unica offerta: Luce e gas in un'unica soluzione, Prezzo Fisso per 3 anni e Bonus incluso.</p>
     </div>
   </section>
@@ -43,7 +20,7 @@
       <div style="flex: 1; min-width: 300px;">
         <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 36px;">Energia Lunghissima Luce e Gas</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          Passare a Illumia conviene: il prezzo di energia e gas resta uguale per 3 anni, riparandoti dai rincari del mercato. Inoltre, ricevi 20€ di bonus in bolletta attivando Luce e Gas insieme.
+          Passare a <?= $OPERATORE_ENERGETICO ?> conviene: il prezzo di energia e gas resta uguale per 3 anni, riparandoti dai rincari del mercato. Inoltre, ricevi 20€ di bonus in bolletta attivando Luce e Gas insieme.
         </p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;">
           <div class="tag"
@@ -56,10 +33,10 @@
             style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
             Luce e Gas in un'unica soluzione</div>
         </div>
-        <img src="illumia_logo.png" alt="Illumia Logo" style="max-width: 200px; height: auto;">
+        <img src="illumia_logo.png" alt="<?= $OPERATORE_ENERGETICO ?> Logo" style="max-width: 200px; height: auto;">
       </div>
       <div style="flex: 0.8; min-width: 300px; display: flex; justify-content: center;">
-        <img src="hero_new.jpg" alt="Risparmio Illumia"
+        <img src="hero_new.jpg" alt="Risparmio <?= $OPERATORE_ENERGETICO ?>"
           style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(4, 8, 50, 0.08);">
       </div>
     </div>
@@ -67,44 +44,8 @@
 
   <p class="price-disclaimer" id="price-disclaimer"
     style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-size: 14px; color: var(--text-muted); text-align: center;">
-    * I prezzi indicati si riferiscono alla componente energia e materia prima gas fissi per 36 mesi. Dati aggiornati secondo l'offerta ufficiale "Energia Lunghissima Luce e Gas" di Illumia.
+    * I prezzi indicati si riferiscono alla componente energia e materia prima gas fissi per 36 mesi. Dati aggiornati secondo l'offerta ufficiale "Energia Lunghissima Luce e Gas" di <?= $OPERATORE_ENERGETICO ?>.
   </p>
-
-  <footer class="main-footer" style="background: var(--secondary); margin-top: 100px; padding-top: 100px;">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <div class="logo">
-          <img src="logo_white.png" alt="Action" class="logo-img">
-        </div>
-        <p style="margin-top: 20px;">Trasparenza, convenienza e assistenza dedicata per un futuro energetico più semplice in partnership con Illumia.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-        <div class="footer-col">
-          <h4>Dati Societari</h4>
-          <span style="font-size:13px;opacity:.75;">ACTION S.R.L.</span>
-          <span style="font-size:13px;opacity:.75;">Via Florindo Ferro 49, CAP 80027</span>
-          <span style="font-size:13px;opacity:.75;">Frattamaggiore (NA)</span>
-          <span style="font-size:13px;opacity:.75;">P.IVA / C.F.: 08722181214</span>
-          <span style="font-size:13px;opacity:.75;">REA: NA-979877</span>
-          <span style="font-size:13px;opacity:.75;">PEC: action.srls@pec.it</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom" style="border-color: rgba(255,255,255,0.1);">
-      <p>&copy; 2026 ACTION S.R.L. &mdash; Sede Legale: Via Florindo Ferro 49, 80027 Frattamaggiore (NA) &mdash; P.IVA e C.F.: 08722181214 &mdash; R.E.A.: NA-979877 &mdash; Capitale Sociale &euro; 45.000,00 i.v. &mdash; PEC: action.srls@pec.it. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
 
   <script>
     const offers = [
@@ -112,7 +53,7 @@
         id: 'illumia-luce-gas',
         esclusiva: true,
         nome: 'Energia Lunghissima (Luce + Gas)',
-        fornitore: 'Illumia',
+        fornitore: '<?= $OPERATORE_ENERGETICO ?>',
         tipo: 'Prezzo Fisso 3 anni',
         bollettaMensile: 95.00,
         bollettaAnnua: 1140.00,
@@ -123,7 +64,7 @@
         id: 'illumia-luce',
         esclusiva: false,
         nome: 'Energia Lunghissima Luce',
-        fornitore: 'Illumia',
+        fornitore: '<?= $OPERATORE_ENERGETICO ?>',
         tipo: 'Prezzo Fisso 3 anni',
         bollettaMensile: 45.00,
         bollettaAnnua: 540.00,
@@ -134,7 +75,7 @@
         id: 'illumia-gas',
         esclusiva: false,
         nome: 'Energia Lunghissima Gas',
-        fornitore: 'Illumia',
+        fornitore: '<?= $OPERATORE_ENERGETICO ?>',
         tipo: 'Prezzo Fisso 3 anni',
         bollettaMensile: 50.00,
         bollettaAnnua: 600.00,
@@ -162,7 +103,7 @@
         </div>
         ${o.risparmio > 0 ? `<div class="offer-saving" style="background: #FFF9E6; color: #B28900; padding: 8px 16px; border-radius: 8px; font-weight: 600; margin-bottom: 24px; display: inline-block; font-size: 14px;">Bonus in Bolletta: ${o.risparmio}€</div>` : ''}
         <div class="offer-features" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;">${o.features.map(f => `<span class="offer-tag" style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-weight: 500; font-size: 14px;"><span style="color: var(--primary);">✓</span> ${f}</span>`).join('')}</div>
-        <button type="button" class="btn-primary" style="width: 100%;" data-offer-id="${o.id}">Attiva con Illumia</button>
+        <button type="button" class="btn-primary" style="width: 100%;" data-offer-id="${o.id}">Attiva con <?= $OPERATORE_ENERGETICO ?></button>
       </div>
     </article>`).join('');
 
@@ -171,11 +112,8 @@
       if (!btn) return;
       const o = offers.find(x => x.id === btn.dataset.offerId);
       if (!o) return;
-      window.location.href = 'contatti.html?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
+      window.location.href = 'contatti.php?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
     });
   </script>
 
-<script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

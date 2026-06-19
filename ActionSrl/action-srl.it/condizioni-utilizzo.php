@@ -1,12 +1,8 @@
-<!doctype html>
-<html lang="it">
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Condizioni di Utilizzo';
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Condizioni di Utilizzo — Action</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+$pageHead = <<<'CSS'
   <style>
     .legal-content {
       padding: 80px 20px;
@@ -25,32 +21,21 @@
       line-height: 1.3;
     }
   </style>
-</head>
+CSS;
 
-<body>
+$ragioneSociale = $company_name !== '' ? $company_name : $brand;
+$emailSupporto = $email_supporto;
 
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Action" class="logo-img">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Area Clienti</a>
-      </div>
-    </div>
-  </header>
+include __DIR__ . '/header.php';
+?>
 
   <main class="legal-content">
     <h1>Condizioni di Utilizzo</h1>
 
-    L’utilizzo del sito web <a href="https://action-srl.it"><strong>www.action-srl.it</strong></a> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti
+    L’utilizzo del sito web <?= $SITO_WEB ?> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti
     condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di
-    Action S.r.l., con sede in Via Florindo Ferro 49, CAP 80027, Frattamaggiore (NA), Partita IVA 08722181214 (di seguito, la “Società”).
+    <?= $ragioneSociale ?><?php if ($sede_legale) { ?>, con sede in <?= $sede_legale ?><?php } ?><?php if ($p_iva) { ?>, Partita IVA e Codice Fiscale
+    <?= $p_iva ?><?php } ?> (di seguito, la “Società”).
     <ol>
       <li><strong> Premesse</strong></li>
     </ol>
@@ -64,7 +49,7 @@
     <ol start="2">
       <li><strong> Oggetto del servizio</strong></li>
     </ol>
-    Action è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte,
+    <?= $brand ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte,
     preventivi, condizioni economiche e informazioni relative a prodotti e servizi propri o di soggetti terzi, anche
     mediante l’impiego di strumenti algoritmici, motori di calcolo, sistemi software avanzati e modelli linguistici di
     supporto all’interazione (LLM).
@@ -128,7 +113,7 @@
     </ol>
     Il Sito, la sua struttura, il software, i contenuti, i database, i testi, i layout, le grafiche, i marchi, i segni
     distintivi, le immagini, i flussi conversazionali, i modelli organizzativi e ogni altro elemento presente o reso
-    disponibile attraverso il Sito sono di proprietà della Società Action S.r.l. o dei rispettivi titolari dei diritti
+    disponibile attraverso il Sito sono di proprietà della Società <?= $ragioneSociale ?> o dei rispettivi titolari dei diritti
     e sono protetti dalla normativa vigente in materia di proprietà intellettuale e industriale.
 
     È fatto divieto di copiare, estrarre, riprodurre, distribuire, modificare, decompilare, disassemblare, tradurre,
@@ -138,13 +123,12 @@
       <li><strong> Comunicazioni</strong></li>
     </ol>
     Per comunicazioni, segnalazioni o richieste di assistenza, l’utente potrà utilizzare i recapiti indicati nella
-    sezione contatti del Sito. Ai fini redazionali, nel presente testo sono richiamati i seguenti indirizzi da
-    confermare o aggiornare prima della pubblicazione definitiva:
+    sezione contatti del Sito. Ai fini redazionali, nel presente testo sono richiamati i seguenti indirizzi:
     <ul>
-      <li><a href="mailto:support@action-srl.it">support@action-srl.it</a></li>
-      <li><a href="mailto:privacy@action-srl.it">privacy@action-srl.it</a></li>
-      <li><a href="mailto:servizioclienti@action-srl.it">servizioclienti@action-srl.it</a></li>
-      <li><a href="mailto:info@action-srl.it">info@action-srl.it</a></li>
+<?php if ($emailSupporto) { ?>      <li><a href="mailto:<?= $emailSupporto ?>"><?= $emailSupporto ?></a></li>
+<?php } ?>
+<?php if ($pec) { ?>      <li><a href="mailto:<?= $pec ?>"><?= $pec ?></a></li>
+<?php } ?>
     </ul>
     In caso di reclami relativi a specifici servizi o prodotti, ad esclusione delle categorie (Energia e Telefonia) ,la
     Società potrà indirizzare l’utente verso il partner competente o che eroga il servizio richiesto.
@@ -167,7 +151,7 @@
     <ol start="11">
       <li><strong> Trattamento dei dati personali</strong></li>
     </ol>
-    Rif: <a href="privacy-policy.html">Informativa Privacy</a>
+    Rif: <a href="privacy-policy.php">Informativa Privacy</a>
     <ol start="12">
       <li><strong> Clausole finali</strong></li>
     </ol>
@@ -179,43 +163,4 @@
     piattaforma.
   </main>
 
-  <footer class="main-footer" style="background: var(--secondary); margin-top: 100px; padding-top: 100px;">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="logo_white.png" alt="Action" class="logo-img">
-        </a>
-        <p style="margin-top: 20px;">La tua energia quotidiana: trasparenza, convenienza e assistenza dedicata per un futuro più semplice.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-        <div class="footer-col">
-          <h4>Dati Societari</h4>
-          <span style="font-size:13px;opacity:.75;">ACTION S.R.L.</span>
-          <span style="font-size:13px;opacity:.75;">Via Florindo Ferro 49, CAP 80027</span>
-          <span style="font-size:13px;opacity:.75;">Frattamaggiore (NA)</span>
-          <span style="font-size:13px;opacity:.75;">P.IVA / C.F.: 08722181214</span>
-          <span style="font-size:13px;opacity:.75;">REA: NA-979877</span>
-          <span style="font-size:13px;opacity:.75;">PEC: action.srls@pec.it</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom" style="border-color: rgba(255,255,255,0.1);">
-      <p>&copy; 2026 ACTION S.R.L. &mdash; Sede Legale: Via Florindo Ferro 49, 80027 Frattamaggiore (NA) &mdash; P.IVA e C.F.: 08722181214 &mdash; R.E.A.: NA-979877 &mdash; Capitale Sociale &euro; 45.000,00 i.v. &mdash; PEC: action.srls@pec.it. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>
