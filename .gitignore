@@ -4,3 +4,4 @@
 # Cache locale dei dati azienda scaricati dall'API.
 .company-cache.json
 **/.company-cache.json
+.claude/

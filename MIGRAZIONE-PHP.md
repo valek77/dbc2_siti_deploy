@@ -17,8 +17,9 @@ Servono dati che NON sono nel repo:
 - **`COMPANY_ID`** dell'azienda (numero) — indispensabile per la chiamata API.
 - **`SITO_WEB`** (dominio senza http, es. `www.gowin-srl.it`) — di norma = nome cartella.
 - **`OPERATORE_ENERGETICO`** di cui il sito è rivenditore (es. `Hera Comm`).
-- Il **token API** (`DBC2_TOKEN`) lo inserisce l'utente nel `.env`; **mai** scriverlo in
-  un file versionato né stamparlo.
+- Il **token API** (`DBC2_TOKEN`): si mette nel `.env` **oppure** in una variabile di
+  sistema (env Apache/PHP-FPM, vedi §1.1). **Mai** scriverlo in un file versionato né
+  stamparlo. Per il token segreto è consigliata la variabile di sistema.
 
 ## 1. Infrastruttura PHP (copiare dal pilota)
 
@@ -43,6 +44,32 @@ OPERATORE_ENERGETICO=<operatore>
 
 Il `.gitignore` di root già ignora `**/.env` e `**/.company-cache.json` — verificare, non
 serve aggiungere nulla.
+
+### 1.1 Da dove `_config.php` legge le variabili
+
+`_config.php` (via `get_env_var()`) cerca ogni variabile **prima nell'ambiente di sistema**,
+poi nel `.env` come fallback. L'ordine è: `getenv()` → `$_SERVER` → `$_ENV` → `.env`. Ogni
+valore viene ripulito da spazi e virgolette di troppo da `clean_env_value()`. Quindi puoi
+mettere le variabili (in particolare il **token segreto**) in uno di questi posti:
+
+- **PHP-FPM** (SAPI `fpm-fcgi`) — nel pool, es. `/etc/php/8.4/fpm/pool.d/www.conf`:
+  ```ini
+  env[DBC2_API_BASE] = "https://dbc2.datalia.it/api"
+  env[DBC2_TOKEN] = "2|xxxxxxxx..."
+  ```
+  poi `sudo systemctl restart php8.4-fpm`.
+- **Apache mod_php** — in `/etc/apache2/envvars` con `export DBC2_TOKEN=...` (poi
+  `systemctl restart apache2`, non `reload`), oppure `SetEnv DBC2_TOKEN "..."` nel VirtualHost.
+
+> ⚠️ **Virgolette obbligatorie** nel pool FPM (e in genere nei file INI) se il valore contiene
+> caratteri riservati come `|`, `&`, `~`, `!`, `(`, `)`, `{`, `}`, `^`, `"`. I token Sanctum
+> hanno la forma `<id>|<random>`: **senza** virgolette il `|` tronca il valore (PHP riceve solo
+> l'`<id>`) → API `401 Unauthenticated`. `clean_env_value()` toglie eventuali virgolette
+> residue, ma il `|` va comunque protetto a monte con le virgolette.
+
+Diagnosi rapida del `401`: con `DEBUG_MODE = true` in `_config.php` i log mostrano la fonte di
+ogni variabile (`Variabile dal SISTEMA (getenv): ...`) e l'`HTTP Code` della chiamata. Per
+verificare il token in isolamento: `curl -i -H "Authorization: Bearer <token>" <API_BASE>/companies/<id>`.
 
 ## 2. Variabili disponibili nelle pagine
 
@@ -125,6 +152,8 @@ Le custom properties di palette (`--primary`, `--accent`, …) restano in `style
 - I dati API sono in cache 1h in `.company-cache.json`; per forzare il refresh, **cancellare**
   quel file e ricaricare.
 - Controllare che footer, privacy e condizioni mostrino i dati corretti dell'azienda.
+- In **produzione** lasciare `DEBUG_MODE = false` in `_config.php` (i `[DEBUG]` espongono i
+  nomi delle variabili ai visitatori). Metterlo `true` solo per diagnosi temporanea.
 
 ## 7. Aggiornare la guida utente
 

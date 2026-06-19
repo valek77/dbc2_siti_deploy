@@ -1,8 +1,12 @@
 <?php
 /**
- * _config.php — cuore del sito.
+ * _config.php — cuore del sito (dati azienda da API Datalia).
  *
- * 1. Legge il file .env (token, company_id, api base, sito_web).
+ * 1. Legge le variabili di configurazione da DUE possibili fonti, in ordine:
+ *      a) variabili di sistema (env Apache/PHP-FPM, SetEnv, ecc.)
+ *      b) file .env locale (NON versionato)
+ *    I valori sono sempre ripuliti da spazi e virgolette accidentali
+ *    (vedi clean_env_value).
  * 2. Scarica i dati dell'azienda dall'API protetta da token bearer.
  * 3. Tiene una copia in cache su file (.company-cache.json): se l'API non
  *    risponde, il sito continua a funzionare con l'ultima copia valida.
@@ -15,13 +19,32 @@
  *      e('testo') -> rende sicuro un testo per l'HTML (per valori NON già puliti)
  *
  * Il token resta SEMPRE lato server: il browser riceve solo HTML già pronto.
+ *
+ * DOVE METTERE LE VARIABILI (DBC2_API_BASE, DBC2_TOKEN, COMPANY_ID,
+ * SITO_WEB, OPERATORE_ENERGETICO) — a scelta:
+ *   - Variabili di sistema (consigliato per il token segreto):
+ *       PHP-FPM:  env[DBC2_TOKEN] = "2|xxxxx"  in /etc/php/X.Y/fpm/pool.d/www.conf
+ *                 ATTENZIONE: le VIRGOLETTE sono obbligatorie se il valore
+ *                 contiene caratteri riservati INI ( |  &  ~  !  ( )  { }  " ^ ),
+ *                 altrimenti il valore viene troncato. Poi: restart php-fpm.
+ *       Apache mod_php: "export DBC2_TOKEN=..." in /etc/apache2/envvars + restart
+ *                 apache2; oppure SetEnv DBC2_TOKEN "..." nel VirtualHost.
+ *   - File .env locale (NON versionato), una riga per variabile: CHIAVE=valore
  */
 
-// --- Impostazioni cache ---------------------------------------------------
+// --- Impostazioni cache e debug ------------------------------------------
 define('CACHE_FILE', __DIR__ . '/.company-cache.json');
 define('CACHE_TTL', 3600); // secondi (1 ora) prima di richiamare l'API
+define('DEBUG_MODE', false); // METTERE true SOLO per diagnosi: stampa i [DEBUG] in pagina
 
-// --- 1. Lettura del file .env --------------------------------------------
+function log_debug($msg)
+{
+    if (DEBUG_MODE) {
+        echo "[DEBUG] " . htmlspecialchars($msg) . "<br>\n";
+    }
+}
+
+// --- 1. Lettura variabili (sistema + .env) -------------------------------
 function load_env($path)
 {
     $vars = [];
@@ -39,22 +62,71 @@ function load_env($path)
     return $vars;
 }
 
-$env = load_env(__DIR__ . '/.env');
+/**
+ * Ripulisce il valore di una variabile: toglie spazi ai bordi e un'eventuale
+ * coppia di virgolette (singole o doppie) che alcuni parser (es. PHP-FPM) non
+ * rimuovono. Senza questo, un token tipo "2|abc" letto con le virgolette
+ * incluse fallirebbe l'autenticazione.
+ */
+function clean_env_value($value)
+{
+    $value = trim((string) $value);
+    if (strlen($value) >= 2) {
+        $first = $value[0];
+        $last = $value[strlen($value) - 1];
+        if (($first === '"' && $last === '"') || ($first === "'" && $last === "'")) {
+            $value = substr($value, 1, -1);
+        }
+    }
+    return trim($value);
+}
 
-$API_BASE = isset($env['DBC2_API_BASE']) ? rtrim($env['DBC2_API_BASE'], '/') : '';
-$TOKEN = isset($env['DBC2_TOKEN']) ? $env['DBC2_TOKEN'] : '';
-$COMPANY_ID = isset($env['COMPANY_ID']) ? $env['COMPANY_ID'] : '';
-$SITO_WEB = isset($env['SITO_WEB']) ? htmlspecialchars($env['SITO_WEB'], ENT_QUOTES, 'UTF-8') : '';
+/**
+ * Cerca una variabile prima nell'ambiente di sistema (getenv / $_SERVER /
+ * $_ENV — copre mod_php con envvars, PHP-FPM con env[], SetEnv nel VirtualHost)
+ * e, se non la trova, nel file .env. Il valore restituito è sempre ripulito.
+ */
+function get_env_var($key, $fallback_array)
+{
+    $sys = getenv($key);
+    if ($sys !== false && $sys !== '') {
+        log_debug("Variabile dal SISTEMA (getenv): $key");
+        return clean_env_value($sys);
+    }
+    if (isset($_SERVER[$key]) && $_SERVER[$key] !== '') {
+        log_debug("Variabile dal SISTEMA (\$_SERVER): $key");
+        return clean_env_value($_SERVER[$key]);
+    }
+    if (isset($_ENV[$key]) && $_ENV[$key] !== '') {
+        log_debug("Variabile dal SISTEMA (\$_ENV): $key");
+        return clean_env_value($_ENV[$key]);
+    }
+    if (isset($fallback_array[$key]) && $fallback_array[$key] !== '') {
+        log_debug("Variabile dal file .ENV: $key");
+        return clean_env_value($fallback_array[$key]);
+    }
+    log_debug("ATTENZIONE: variabile NON trovata: $key");
+    return '';
+}
+
+$env_file = load_env(__DIR__ . '/.env');
+
+$API_BASE = rtrim(get_env_var('DBC2_API_BASE', $env_file), '/');
+$TOKEN = get_env_var('DBC2_TOKEN', $env_file);
+$COMPANY_ID = get_env_var('COMPANY_ID', $env_file);
+$SITO_WEB = htmlspecialchars(get_env_var('SITO_WEB', $env_file), ENT_QUOTES, 'UTF-8');
 // Operatore energetico di cui il sito è rivenditore (es. "Hera Comm").
-$OPERATORE_ENERGETICO = isset($env['OPERATORE_ENERGETICO']) ? htmlspecialchars($env['OPERATORE_ENERGETICO'], ENT_QUOTES, 'UTF-8') : '';
+$OPERATORE_ENERGETICO = htmlspecialchars(get_env_var('OPERATORE_ENERGETICO', $env_file), ENT_QUOTES, 'UTF-8');
 
 // --- 2. Chiamata all'API --------------------------------------------------
 function fetch_company($apiBase, $token, $companyId)
 {
     if ($apiBase === '' || $token === '' || $companyId === '') {
+        log_debug("Errore API: parametri di configurazione incompleti.");
         return null; // configurazione incompleta
     }
     $url = $apiBase . '/companies/' . rawurlencode($companyId);
+    log_debug("Chiamata API verso: " . $url);
 
     // Metodo preferito: cURL (presente sulla maggior parte degli hosting)
     if (function_exists('curl_init')) {
@@ -69,17 +141,25 @@ function fetch_company($apiBase, $token, $companyId)
         ]);
         $body = curl_exec($ch);
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if (curl_errno($ch)) {
+            log_debug("Errore cURL: " . curl_error($ch));
+        }
         curl_close($ch);
+        log_debug("Risposta API HTTP Code: " . $code);
         if ($body !== false && $code >= 200 && $code < 300) {
             $data = json_decode($body, true);
             if (is_array($data)) {
                 return $data;
             }
+            log_debug("Errore API: il body restituito non è un JSON valido.");
+        } else {
+            log_debug("Errore API: risposta fallita o non autorizzata. Body: " . substr((string) $body, 0, 200));
         }
         return null;
     }
 
     // Fallback: file_get_contents con stream context
+    log_debug("cURL non disponibile, uso file_get_contents...");
     $context = stream_context_create([
         'http' => [
             'method' => 'GET',
@@ -91,7 +171,7 @@ function fetch_company($apiBase, $token, $companyId)
     $body = @file_get_contents($url, false, $context);
     if ($body !== false) {
         $data = json_decode($body, true);
-        if (is_array($data) && isset($data['id'])) {
+        if (is_array($data)) {
             return $data;
         }
     }
@@ -105,6 +185,7 @@ function load_company($apiBase, $token, $companyId)
 
     // Cache valida e recente: usala senza chiamare l'API.
     if ($cacheFresh) {
+        log_debug("Cache valida: caricamento da file.");
         $cached = json_decode((string) @file_get_contents(CACHE_FILE), true);
         if (is_array($cached)) {
             return $cached;
@@ -112,14 +193,17 @@ function load_company($apiBase, $token, $companyId)
     }
 
     // Cache assente o scaduta: prova a richiamare l'API.
+    log_debug("Cache assente o scaduta. Tento il recupero dall'API...");
     $fresh = fetch_company($apiBase, $token, $companyId);
     if ($fresh !== null) {
+        log_debug("API OK. Aggiorno la cache.");
         @file_put_contents(CACHE_FILE, json_encode($fresh, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         return $fresh;
     }
 
     // API non raggiungibile: usa l'ultima copia salvata, anche se "vecchia".
     if (is_file(CACHE_FILE)) {
+        log_debug("API fallita: uso la cache scaduta come fallback.");
         $stale = json_decode((string) @file_get_contents(CACHE_FILE), true);
         if (is_array($stale)) {
             return $stale;
@@ -127,6 +211,7 @@ function load_company($apiBase, $token, $companyId)
     }
 
     // Nessun dato disponibile: array vuoto (le pagine mostreranno i default).
+    log_debug("CRITICO: nessun dato da API né da cache. Restituisco array vuoto.");
     return [];
 }
 
@@ -135,8 +220,6 @@ $company = load_company($API_BASE, $TOKEN, $COMPANY_ID);
 // --- 4. Ogni campo dell'API diventa una variabile globale GIÀ PULITA ------
 // Così nelle pagine puoi usare direttamente $p_iva, $company_name, $pec, ...
 // senza scrivere e($...): i valori vengono già resi sicuri per l'HTML qui.
-// I campi noti sono SEMPRE definiti (stringa vuota se mancanti), così non
-// compaiono "avvisi di variabile non definita".
 $campi_noti = [
     'id',
     'company_name',
