@@ -1,31 +1,8 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Action — Energia per il tuo futuro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Action" class="logo-img">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Area Clienti</a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Energia per il tuo futuro';
+include __DIR__ . '/header.php';
+?>
 
   <section class="hero" id="hero" style="background-image: url('hero_main.jpg');">
     <div class="hero-overlay" style="background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);"></div>
@@ -36,8 +13,8 @@
         <p id="hero-text">Attiva un nuovo contratto luce e gas e avrai la garanzia di un prezzo trasparente e un’assistenza multicanale sempre al tuo fianco.</p>
 
         <div class="hero-actions">
-          <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
-          <a href="contatti.html" class="btn-secondary">Parla con noi</a>
+          <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
+          <a href="contatti.php" class="btn-secondary">Parla con noi</a>
         </div>
       </div>
     </div>
@@ -53,7 +30,7 @@
       <h2 class="section-title" style="font-size: 42px; margin-bottom: 20px; color: var(--text-dark);">I nostri Prodotti e Servizi per la tua Casa</h2>
       <p class="section-sub" style="font-size: 18px; color: var(--text-secondary);">Ottimizza la tua energia. Controlla i tuoi consumi energetici e scopri come essere più efficiente con i nostri Prodotti e Servizi.</p>
     </div>
-    
+
     <div class="features-container">
       <div class="trust-card">
         <img src="icon_transparency.png" alt="Trasparenza" class="trust-mascot">
@@ -76,7 +53,7 @@
   <section class="how-it-works-section">
     <div class="hiw-container">
       <div class="hiw-header">
-        <h2 class="section-title">Passa ad Action in 4 semplici passi</h2>
+        <h2 class="section-title">Passa a <?= $brand ?> in 4 semplici passi</h2>
         <p class="section-sub">Attivare le nostre offerte è veloce e sicuro.</p>
       </div>
 
@@ -104,14 +81,14 @@
   <section class="efficiency-section" style="padding: 100px 20px; background: #fff; overflow: hidden;">
     <div class="container" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1.2; min-width: 400px;">
-        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);">Action Fotovoltaico: <span style="color: var(--primary);">L'energia del sole</span></h2>
+        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brand ?> Fotovoltaico: <span style="color: var(--primary);">L'energia del sole</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
           Scegli l'energia del sole: semplice, sostenibile e anche conveniente. Con le nostre soluzioni fotovoltaiche trasformi la tua casa in una centrale di energia pulita e autonoma.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 40px;">
           Il futuro dell'energia è nelle nostre mani. Progettiamo il tuo impianto per garantirti il massimo risparmio, riducendo drasticamente i costi in bolletta.
         </p>
-        
+
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
           <div style="background: var(--bg-cream); padding: 24px; border-radius: 12px; border-left: 4px solid var(--primary);">
             <h4 style="color: var(--text-dark); margin-bottom: 8px; font-weight: 700;">Tecnologia Top</h4>
@@ -141,7 +118,7 @@
         <div class="tp-review-card">
           <div class="tp-review-stars">★★★★★</div>
           <h5 class="tp-review-title">Finalmente chiarezza!</h5>
-          <p class="tp-review-body">Con Action ho finalmente capito cosa pago in bolletta. Prezzi onesti e consulenti gentilissimi.</p>
+          <p class="tp-review-body">Con <?= $brand ?> ho finalmente capito cosa pago in bolletta. Prezzi onesti e consulenti gentilissimi.</p>
           <p class="tp-review-author">Marco R.</p>
         </div>
         <div class="tp-review-card">
@@ -164,56 +141,17 @@
     <div class="container"
       style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="team_new.jpg" alt="Il Team Action"
+        <img src="team_new.jpg" alt="Il Team <?= $brand ?>"
           style="max-width: 100%; height: auto; border-radius: 50% 70% 50% 50% / 50% 70% 50% 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 0;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;">Action Clima: Comfort che dura <span style="color: var(--primary);">tutto l'anno</span></h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brand ?> Clima: Comfort che dura <span style="color: var(--primary);">tutto l'anno</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 32px 0;">
           Con i climatizzatori a pompa di calore riscaldi o raffresca la tua casa a seconda della stagione. Unisci efficienza e tecnologia per gestire il tuo riscaldamento direttamente dallo smartphone.
         </p>
-        <a href="tariffe.html" class="btn-primary" style="display: inline-block;">Scopri le tariffe</a>
+        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Scopri le tariffe</a>
       </div>
     </div>
   </section>
 
-  <footer class="main-footer" style="background: var(--secondary); margin-top: 0; padding-top: 100px;">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="logo_white.png" alt="Action" class="logo-img">
-        </a>
-        <p style="margin-top: 20px;">La tua energia quotidiana: trasparenza, convenienza e assistenza dedicata per un futuro più semplice.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-        <div class="footer-col">
-          <h4>Dati Societari</h4>
-          <span style="font-size:13px;opacity:.75;">ACTION S.R.L.</span>
-          <span style="font-size:13px;opacity:.75;">Via Florindo Ferro 49, CAP 80027</span>
-          <span style="font-size:13px;opacity:.75;">Frattamaggiore (NA)</span>
-          <span style="font-size:13px;opacity:.75;">P.IVA / C.F.: 08722181214</span>
-          <span style="font-size:13px;opacity:.75;">REA: NA-979877</span>
-          <span style="font-size:13px;opacity:.75;">PEC: action.srls@pec.it</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom" style="border-color: rgba(255,255,255,0.1);">
-      <p>&copy; 2026 ACTION S.R.L. &mdash; Sede Legale: Via Florindo Ferro 49, 80027 Frattamaggiore (NA) &mdash; P.IVA e C.F.: 08722181214 &mdash; R.E.A.: NA-979877 &mdash; Capitale Sociale &euro; 45.000,00 i.v. &mdash; PEC: action.srls@pec.it. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>
