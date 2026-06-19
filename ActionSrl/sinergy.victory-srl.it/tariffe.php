@@ -33,7 +33,7 @@ include __DIR__ . '/header.php';
       </div>
 
       <!-- Griglia offerte -->
-      <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;"></div>
+      <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 360px)); justify-content: center; gap: 24px;"></div>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
         * I prezzi indicati si riferiscono alla sola componente di vendita: PUN_INDEX_GME (luce) e PSV (gas) con l'aggiunta dello spread fisso indicato, valido per 12 mesi dalla data di attivazione. Al corrispettivo per il consumo si aggiunge il corrispettivo annuo fisso indicato in ciascuna offerta, oltre alle spese per il trasporto, la gestione del contatore e gli oneri di sistema. Offerte riservate a clienti domestici, richiesta entro il 30/06/2026, soggette alle condizioni contrattuali <?= $OPERATORE_ENERGETICO ?>. <?= $brand ?> è rivenditore indipendente autorizzato.
