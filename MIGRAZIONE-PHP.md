@@ -27,10 +27,24 @@ Copiare nella cartella del sito, adattando dove serve:
 
 | File | Note |
 |------|------|
-| `_config.php`   | Cuore: legge `.env`, chiama l'API, fa cache, espone le variabili. Di norma **identico** al pilota. |
+| `_config.php`   | **Stub di 3 righe** (vedi sotto), uguale per ogni sito. La logica vera è centralizzata in `_shared/config.php` alla root del repo. |
 | `header.php`    | Testata + menu condivisi. Logo da `$logo_url` (fallback `logo.png`). |
 | `footer.php`    | Footer + riga legale costruita dalle variabili API. |
 | `.env.example`  | Template versionato (senza segreti). |
+
+> **Cuore condiviso.** La logica di `_config.php` (lettura `.env`, chiamata API, cache,
+> esposizione variabili) vive in **un solo file**: `_shared/config.php` nella root del repo
+> (fuori da ogni docroot, non servibile via web). Ogni sito ha solo questo stub `_config.php`,
+> **identico** per tutti, che cattura la cartella del sito e include il file condiviso:
+> ```php
+> <?php
+> $SITE_DIR = __DIR__;
+> require dirname(__DIR__, 2) . '/_shared/config.php';
+> ```
+> `$SITE_DIR` fa sì che `.env` e `.company-cache.json` restino **nella cartella del sito**.
+> Non usare un symlink al posto dello stub: PHP risolve `__DIR__` al path reale del target e
+> perderebbe la cartella del sito. Lo stub presuppone che il sito sia a 2 livelli sotto la
+> root del repo (`Cliente/dominio/`), com'è per tutti i siti attuali.
 
 Poi creare il **`.env`** reale (NON versionato) con i valori del punto 0:
 
