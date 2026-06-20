@@ -1,12 +1,7 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Condizioni di Utilizzo — Locura</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Condizioni di Utilizzo';
+$pageHead = <<<'CSS'
   <style>
     .privacy-content h2 {
       font-size: 1.25em;
@@ -45,23 +40,9 @@
       margin-bottom: 8px;
     }
   </style>
-</head>
-<body>
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="locura.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary" style="padding:10px 24px;font-size:14px;">Richiedi un preventivo</a>
-      </div>
-    </div>
-  </header>
+CSS;
+include __DIR__ . '/header.php';
+?>
 
   <section style="background: var(--grad-aurora); padding:80px 20px; text-align:center; color: #fff; position: relative;">
     <h1 style="color:#fff; font-size:clamp(32px,5vw,52px); margin:0; font-weight:800; letter-spacing: -0.02em;">Condizioni di Utilizzo</h1>
@@ -71,7 +52,7 @@
   <main class="privacy-content" style="max-width: 860px; margin: 80px auto 100px; padding: 0 24px; line-height: 1.8; color: var(--muted); font-size: 16.5px;">
 
     <div class="intro-box">
-      <p style="margin: 0;">L’utilizzo del sito web <strong>www.locurasrl.com</strong> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di <strong>Locura S.r.l.</strong>, con sede in ROMA (RM) VIALE GIORGIO RIBOTTA 11 CAP 00144, Partita IVA 17120841006 (di seguito, la “Società”).</p>
+      <p style="margin: 0;">L’utilizzo del sito web <strong><?= $LANDING_PAGE['url'] ?></strong> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di <strong><?= $COMPANY['company_name'] ?></strong>, con sede in <?= $COMPANY['sede_legale'] ?>, Partita IVA <?= $COMPANY['p_iva'] ?> (di seguito, la “Società”).</p>
     </div>
 
     <h2>Premesse</h2>
@@ -100,7 +81,7 @@
     <p>Salvo i casi di dolo o colpa grave, la Società non potrà essere ritenuta responsabile per danni diretti o indiretti derivanti dall’uso o dal mancato uso del Sito, dall’affidamento riposto sulle informazioni in esso contenute, da interruzioni del servizio, errori tecnici, malfunzionamenti, indisponibilità dei sistemi di terzi o inesattezze imputabili a dati forniti da partner, operatori o utenti. La Società non assume alcuna responsabilità in relazione alla conclusione di contratti tra l’utente e soggetti terzi eventualmente presenti o raggiungibili tramite il Sito, salvo che ciò non sia espressamente previsto da specifica documentazione contrattuale.</p>
 
     <h2>Proprietà intellettuale e industriale</h2>
-    <p>Il Sito, la sua struttura, il software, i contenuti, i database, i testi, i layout, le grafiche, i marchi, i segni distintivi, le immagini, i flussi conversazionali, i modelli organizzativi e ogni altro elemento presente o reso disponibile attraverso il Sito sono di proprietà della Società <strong>Locura S.r.l.</strong> o dei rispettivi titolari dei diritti e sono protetti dalla normativa vigente in materia di proprietà intellettuale e industriale. È fatto divieto di copiare, estrarre, riprodurre, distribuire, modificare, decompilare, disassemblare, tradurre, adattare o utilizzare in qualsiasi forma il Sito o parte dei suoi contenuti per finalità diverse dall’uso personale e legittimo consentito.</p>
+    <p>Il Sito, la sua struttura, il software, i contenuti, i database, i testi, i layout, le grafiche, i marchi, i segni distintivi, le immagini, i flussi conversazionali, i modelli organizzativi e ogni altro elemento presente o reso disponibile attraverso il Sito sono di proprietà della Società <strong><?= $COMPANY['company_name'] ?></strong> o dei rispettivi titolari dei diritti e sono protetti dalla normativa vigente in materia di proprietà intellettuale e industriale. È fatto divieto di copiare, estrarre, riprodurre, distribuire, modificare, decompilare, disassemblare, tradurre, adattare o utilizzare in qualsiasi forma il Sito o parte dei suoi contenuti per finalità diverse dall’uso personale e legittimo consentito.</p>
 
     <h2>Comunicazioni</h2>
     <p>Per comunicazioni, segnalazioni o richieste di assistenza, l’utente potrà utilizzare i recapiti indicati nella sezione contatti del Sito. Ai fini redazionali, si richiamano i seguenti indirizzi:</p>
@@ -119,7 +100,7 @@
     <p>La Società può adottare un proprio Modello di Organizzazione, Gestione e Controllo ai sensi del D. Lgs. 8 giugno 2001, n. 231, nonché un proprio Codice Etico, quali strumenti di presidio organizzativo e prevenzione dei rischi. Qualora attivati, i canali per l’invio di segnalazioni all’Organismo di Vigilanza o ad altra funzione interna competente saranno indicati sul Sito o nei documenti societari ufficiali. Le segnalazioni saranno trattate con criteri di riservatezza nei limiti previsti dalla normativa applicabile.</p>
 
     <h2>Trattamento dei dati personali</h2>
-    <p>Rif: <a href="privacy-policy.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Informativa Privacy</a></p>
+    <p>Rif: <a href="privacy-policy.php" style="color: var(--primary); font-weight: 600; text-decoration: none;">Informativa Privacy</a></p>
 
     <h2>Clausole finali</h2>
     <p>Qualora una o più clausole delle presenti Condizioni Generali dovessero risultare nulle, invalide o inefficaci, la restante parte manterrà piena validità ed efficacia. Le presenti Condizioni Generali sono redatte in lingua italiana e costituiscono la disciplina generale di utilizzo del Sito, salvo eventualiorcondizioni particolari applicabili a specifici servizi, iniziative o aree della piattaforma.</p>
@@ -127,36 +108,4 @@
     <p style="margin-top: 48px; font-size: 14px; color: var(--text-muted);">Ultimo aggiornamento: Maggio 2026</p>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="locura-b.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-        </a>
-        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce Rinnovabile</a>
-        <a href="tariffe.html">Gas Compensato</a>
-        <a href="tariffe.html">Audit Digitale</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>LOCURA S.R.L.</strong> - Sede legale: Viale Giorgio Ribotta 11, 00144 Roma (RM) - P.IVA e C.F.: 17120841006 - R.E.A.: RM - 1697552 - Capitale Sociale &euro; 10.000,00 i.v. - PEC: <a href="mailto:locurasrl@casellapec.com">locurasrl@casellapec.com</a>. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-<script src="cb.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

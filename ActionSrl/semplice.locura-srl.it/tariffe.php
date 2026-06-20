@@ -1,35 +1,9 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Offerte Luce e Gas Green — Locura</title>
-  <meta name="description" content="Scegli la sostenibilità e la convenienza. Scopri le tariffe ecologiche di Locura per l'energia elettrica rinnovabile e il gas naturale a impatto neutro.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="locura.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary">Ottieni un preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Offerte Luce e Gas Green';
+$pageDescription = 'Scegli la sostenibilità e la convenienza. Scopri le tariffe ecologiche di Locura per l\'energia elettrica rinnovabile e il gas naturale a impatto neutro.';
+include __DIR__ . '/header.php';
+?>
 
   <!-- Page hero -->
   <section class="page-hero">
@@ -39,8 +13,8 @@
       <p>Piani chiari per utenze domestiche e professionali. Tutte le tariffe sono garantite grazie alla nostra solida partnership energetica per offrirti la massima trasparenza contrattuale.</p>
       
       <div style="margin-top: 32px; display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2);">
-        <span style="font-size: 15px; font-weight: 600; color: #fff;">Locura è partner ufficiale di</span>
-        <span style="font-size: 17px; font-weight: 800; color: #fff; letter-spacing: 0.5px;">SEMPLICE GAS & LUCE</span>
+        <span style="font-size: 15px; font-weight: 600; color: #fff;"><?= $brandName ?> è partner ufficiale di</span>
+        <span style="font-size: 17px; font-weight: 800; color: #fff; letter-spacing: 0.5px; text-transform: uppercase;"><?= $OPERATORE['nome_marketing'] ?></span>
       </div>
     </div>
     <div class="wave">
@@ -103,37 +77,8 @@
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="locura-b.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-        </a>
-        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce Rinnovabile</a>
-        <a href="tariffe.html">Gas Compensato</a>
-        <a href="tariffe.html">Audit Digitale</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>LOCURA S.R.L.</strong> - Sede legale: Viale Giorgio Ribotta 11, 00144 Roma (RM) - P.IVA e C.F.: 17120841006 - R.E.A.: RM - 1697552 - Capitale Sociale &euro; 10.000,00 i.v. - PEC: <a href="mailto:locurasrl@casellapec.com">locurasrl@casellapec.com</a>. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script>
     const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     const ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
@@ -210,7 +155,7 @@
       grid.querySelectorAll('[data-offer]').forEach(btn => {
         btn.addEventListener('click', () => {
           const name = btn.dataset.name;
-          window.location.href = 'contatti.html?offerta=' + encodeURIComponent(name) + '#contatto-form';
+          window.location.href = 'contatti.php?offerta=' + encodeURIComponent(name) + '#contatto-form';
         });
       });
     }
@@ -225,7 +170,6 @@
 
     applyFilter('all');
   </script>
-
-  <script src="cb.js"></script>
-</body>
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>

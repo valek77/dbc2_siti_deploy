@@ -3,23 +3,42 @@
 Procedura per convertire un sito **HTML statico** di questo repo nell'architettura
 **PHP vanilla con dati azienda da API** (nessun framework, nessun build step).
 
-Sito di riferimento (pilota, già convertito): **`Risa/gowin-srl.it`**. In caso di dubbio,
-copiare il pattern da lì. Confrontare sempre il sito da convertire con il pilota.
+I dati (landing page, operatore energetico, azienda) sono letti a runtime dalla
+**API NUOVA** Datalia `GET /landing-pages/{LANDING_PAGE_ID}`, esposta dal cuore
+condiviso `_shared/config.php`. Vedi la guida completa alle variabili in
+**`_shared/LEGGIMI.md`**.
+
+Sito di riferimento (pilota, già convertito sull'API nuova):
+**`ActionSrl/semplice.locura-srl.it`**. In caso di dubbio, copiare il pattern da lì.
 
 Comando d'innesco: l'utente dirà *"Rendi dinamico il sito nella cartella XYZ"*.
+
+> **API vecchia (DEPRECATA).** Esiste ancora la variante `GET /companies/{COMPANY_ID}`
+> con le variabili "piatte" (`$p_iva`, `$company_name`, …) e `$brand`. È mantenuta
+> attiva per i siti già in produzione ma **NON va usata per i nuovi**: usare sempre
+> `LANDING_PAGE_ID`. Dettagli sulla compatibilità in `_shared/LEGGIMI.md`.
 
 ---
 
 ## 0. Prima di iniziare — chiedere all'utente
 
-Servono dati che NON sono nel repo:
+Serve un solo dato che NON è nel repo:
 
-- **`COMPANY_ID`** dell'azienda (numero) — indispensabile per la chiamata API.
-- **`SITO_WEB`** (dominio senza http, es. `www.gowin-srl.it`) — di norma = nome cartella.
-- **`OPERATORE_ENERGETICO`** di cui il sito è rivenditore (es. `Hera Comm`).
-- Il **token API** (`DBC2_TOKEN`): si mette nel `.env` **oppure** in una variabile di
-  sistema (env Apache/PHP-FPM, vedi §1.1). **Mai** scriverlo in un file versionato né
-  stamparlo. Per il token segreto è consigliata la variabile di sistema.
+- **`LANDING_PAGE_ID`** della landing (numero) — indispensabile per la chiamata API.
+  Da esso l'API restituisce TUTTO il resto: landing page, operatore energetico e
+  azienda (ragione sociale, P.IVA, sede, PEC, logo, URL del sito, ecc.).
+
+Il **token API** (`DBC2_TOKEN`) e l'`DBC2_API_BASE` di norma **non** stanno nel `.env`:
+arrivano dall'ambiente di sistema del server (PHP-FPM `env[]` / Apache `SetEnv`),
+condivisi da tutti i siti del tenant (vedi §1.1). **Mai** scrivere il token in un file
+versionato né stamparlo.
+
+Decisioni editoriali/legali da concordare con l'utente (incidono sul footer e sulle
+pagine legali — vedi §3):
+- i campi che l'API **non fornisce** (es. R.E.A., capitale sociale se assente)
+  spariscono, oppure restano statici come fallback?
+- i contatti (telefono/email) si mostrano **solo se presenti** in API o si tiene un
+  valore statico?
 
 ## 1. Infrastruttura PHP (copiare dal pilota)
 
@@ -27,44 +46,44 @@ Copiare nella cartella del sito, adattando dove serve:
 
 | File | Note |
 |------|------|
-| `_config.php`   | **Stub di 3 righe** (vedi sotto), uguale per ogni sito. La logica vera è centralizzata in `_shared/config.php` alla root del repo. |
-| `header.php`    | Testata + menu condivisi. Logo da `$logo_url` (fallback `logo.png`). |
-| `footer.php`    | Footer + riga legale costruita dalle variabili API. |
-| `.env.example`  | Template versionato (senza segreti). |
+| `_config.php` | **Stub di 2 righe** (vedi sotto), uguale per ogni sito. La logica vera è in `_shared/config.php`. |
+| `header.php`  | Testata + menu. Brand e logo da `$LANDING_PAGE`/`$COMPANY`. Imposta `$brandName`. |
+| `footer.php`  | Footer + riga legale costruita SOLO dai campi presenti in `$COMPANY`. |
 
-> **Cuore condiviso.** La logica di `_config.php` (lettura `.env`, chiamata API, cache,
-> esposizione variabili) vive in **un solo file**: `_shared/config.php` nella root del repo
-> (fuori da ogni docroot, non servibile via web). Ogni sito ha solo questo stub `_config.php`,
-> **identico** per tutti, che cattura la cartella del sito e include il file condiviso:
+> **Cuore condiviso.** La logica (lettura `.env`, scelta API, chiamata, cache,
+> esposizione variabili) vive in **un solo file**: `_shared/config.php` alla root del
+> repo (fuori da ogni docroot). Ogni sito ha solo questo stub `_config.php`, **identico**
+> per tutti, che cattura la cartella del sito e include il file condiviso:
 > ```php
 > <?php
 > $SITE_DIR = __DIR__;
 > require dirname(__DIR__, 2) . '/_shared/config.php';
 > ```
-> `$SITE_DIR` fa sì che `.env` e `.company-cache.json` restino **nella cartella del sito**.
-> Non usare un symlink al posto dello stub: PHP risolve `__DIR__` al path reale del target e
-> perderebbe la cartella del sito. Lo stub presuppone che il sito sia a 2 livelli sotto la
-> root del repo (`Cliente/dominio/`), com'è per tutti i siti attuali.
+> `$SITE_DIR` fa sì che `.env` e `.company-cache.json` restino **nella cartella del
+> sito**. Non usare un symlink al posto dello stub: PHP risolve `__DIR__` al path reale
+> del target e perderebbe la cartella del sito. Lo stub presuppone il sito a 2 livelli
+> sotto la root (`Cliente/dominio/`), com'è per tutti i siti attuali.
 
-Poi creare il **`.env`** reale (NON versionato) con i valori del punto 0:
+Poi creare il **`.env`** del sito:
 
 ```
-DBC2_API_BASE=https://dbc2.datalia.it/api
-DBC2_TOKEN=<token segreto>
-COMPANY_ID=<numero>
-SITO_WEB=www.esempio.it
-OPERATORE_ENERGETICO=<operatore>
+LANDING_PAGE_ID=<numero>
 ```
 
-Il `.gitignore` di root già ignora `**/.env` e `**/.company-cache.json` — verificare, non
-serve aggiungere nulla.
+Tutto qui: `DBC2_API_BASE` e `DBC2_TOKEN` (segreto) arrivano dall'ambiente di sistema.
+Con l'API nuova **non servono** `SITO_WEB` né `OPERATORE_ENERGETICO`: l'URL del sito e
+i dati dell'operatore arrivano dall'API. Esempi pronti: `_shared/.env.example.api-nuova`
+(e `_shared/.env.example.api-vecchia` per la variante deprecata).
+
+> ⚠️ Il `.gitignore` di root ignora `**/.company-cache.json` ma **NON** `.env`: i `.env`
+> di questo repo sono versionati (non contengono il token, che sta nell'ambiente). Il
+> `.env` con solo `LANDING_PAGE_ID` può quindi essere committato senza segreti.
 
 ### 1.1 Da dove `_config.php` legge le variabili
 
-`_config.php` (via `get_env_var()`) cerca ogni variabile **prima nell'ambiente di sistema**,
-poi nel `.env` come fallback. L'ordine è: `getenv()` → `$_SERVER` → `$_ENV` → `.env`. Ogni
-valore viene ripulito da spazi e virgolette di troppo da `clean_env_value()`. Quindi puoi
-mettere le variabili (in particolare il **token segreto**) in uno di questi posti:
+`get_env_var()` cerca ogni variabile **prima nell'ambiente di sistema**, poi nel `.env`.
+Ordine: `getenv()` → `$_SERVER` → `$_ENV` → `.env`. Ogni valore è ripulito da spazi e
+virgolette di troppo (`clean_env_value()`). Quindi metti il **token segreto** in uno di:
 
 - **PHP-FPM** (SAPI `fpm-fcgi`) — nel pool, es. `/etc/php/8.4/fpm/pool.d/www.conf`:
   ```ini
@@ -72,34 +91,46 @@ mettere le variabili (in particolare il **token segreto**) in uno di questi post
   env[DBC2_TOKEN] = "2|xxxxxxxx..."
   ```
   poi `sudo systemctl restart php8.4-fpm`.
-- **Apache mod_php** — in `/etc/apache2/envvars` con `export DBC2_TOKEN=...` (poi
-  `systemctl restart apache2`, non `reload`), oppure `SetEnv DBC2_TOKEN "..."` nel VirtualHost.
+- **Apache mod_php** — `/etc/apache2/envvars` con `export DBC2_TOKEN=...` (poi
+  `systemctl restart apache2`), oppure `SetEnv DBC2_TOKEN "..."` nel VirtualHost.
 
-> ⚠️ **Virgolette obbligatorie** nel pool FPM (e in genere nei file INI) se il valore contiene
-> caratteri riservati come `|`, `&`, `~`, `!`, `(`, `)`, `{`, `}`, `^`, `"`. I token Sanctum
-> hanno la forma `<id>|<random>`: **senza** virgolette il `|` tronca il valore (PHP riceve solo
-> l'`<id>`) → API `401 Unauthenticated`. `clean_env_value()` toglie eventuali virgolette
-> residue, ma il `|` va comunque protetto a monte con le virgolette.
+> ⚠️ **Virgolette obbligatorie** nel pool FPM (e nei file INI) se il valore contiene
+> caratteri riservati come `|`, `&`, `~`, `!`, `(`, `)`, `{`, `}`, `^`, `"`. I token
+> Sanctum hanno forma `<id>|<random>`: **senza** virgolette il `|` tronca il valore →
+> API `401 Unauthenticated`.
 
-Diagnosi rapida del `401`: con `DEBUG_MODE = true` in `_config.php` i log mostrano la fonte di
-ogni variabile (`Variabile dal SISTEMA (getenv): ...`) e l'`HTTP Code` della chiamata. Per
-verificare il token in isolamento: `curl -i -H "Authorization: Bearer <token>" <API_BASE>/companies/<id>`.
+Diagnosi rapida del `401`: con `DEBUG_MODE = true` in `_shared/config.php` i log mostrano
+la fonte di ogni variabile e l'`HTTP Code`, oltre a **quale API** viene usata. Per
+verificare il token in isolamento:
+`curl -i -H "Authorization: Bearer <token>" <API_BASE>/landing-pages/<id>`.
 
 ## 2. Variabili disponibili nelle pagine
 
-Ogni campo dell'API è una variabile globale **già resa sicura per l'HTML** (stampare con
-`<?= $var ?>`, senza `e()`). Campi noti (in `_config.php`, `$campi_noti`):
+Con `LANDING_PAGE_ID` impostato, `_shared/config.php` popola **tre array associativi**,
+con valori **già resi sicuri per l'HTML** (stampare con `<?= ... ?>`, **senza** `e()`):
 
-`id`, `company_name`, `nome_commerciale`, `parent_id`, `azienda_madre`, `p_iva`,
-`sede_legale`, `sede_operativa`, `pec`, `email_dpo`, `email_supporto`,
-`capitale_sociale`, `telefono`, `logo_url`, `logo2_url`, `bpg_customer_id`,
-`bpg_customer_name`, `created_at`, `updated_at`.
+- **`$LANDING_PAGE`** — landing page. Chiavi: `id, url, titolo, nome_portale,
+  operatore_energetico_id, company_id, p_iva, sede_legale, sede_operativa, pec,
+  privacy_version, mostra_consenso_0, mostra_consenso_1, mostra_consenso_2, logo_url,
+  logo2_url, created_at, updated_at`.
+- **`$OPERATORE`** — operatore energetico. Chiavi: `id, nome_marketing, nome_legale,
+  indirizzo, partita_iva, logo_url, logo2_url, created_at, updated_at`.
+- **`$COMPANY`** — azienda titolare. Chiavi: `id, company_name, nome_commerciale,
+  parent_id, azienda_madre, p_iva, sede_legale, sede_operativa, pec, email_dpo,
+  email_supporto, capitale_sociale, telefono, bpg_customer_id, bpg_customer_name,
+  logo_url, logo2_url, created_at, updated_at`.
 
-Dal `.env`: `$SITO_WEB`, `$OPERATORE_ENERGETICO`. Derivata: `$brand` (= nome commerciale
-se presente, altrimenti ragione sociale). Helper: `c('chiave', $default)` valore grezzo,
-`e($testo)` per rendere sicuro un valore NON già pulito.
+Inoltre: **`$brandName`** è impostato da `header.php` (= `$LANDING_PAGE['nome_portale']`,
+con fallback alla ragione sociale) ed è disponibile nel corpo pagina dopo l'include.
+Helper: **`e($testo)`** per rendere sicuro un valore NON già pulito (es. i `$pageTitle`
+impostati a mano).
 
-Un campo mancante è stringa vuota `""`: gatare l'output con `<?php if ($x) { ?>…<?php } ?>`.
+Un campo mancante è **stringa vuota `""`**: gatare l'output con
+`<?php if ($COMPANY['telefono'] !== '') { ?>…<?php } ?>`. Gli array hanno SEMPRE tutte
+le chiavi, anche quando vuote, quindi non si incontrano mai variabili indefinite.
+
+> I `mostra_consenso_0/1/2` di `$LANDING_PAGE` indicano quali consensi mostrare nel form
+> (vedi §4). Sono già stringhe: `'1'` = mostra, `''` = nascondi (un `if (...)` funziona).
 
 ## 3. Convertire ogni pagina `.html` → `.php`
 
@@ -107,52 +138,80 @@ Per ciascuna pagina (`index`, `chi-siamo`, `tariffe`, `contatti`, `privacy-polic
 `condizioni-utilizzo`, ed eventuale `revoke`):
 
 1. **Rinominare** `.html` → `.php`.
-2. **Sostituire** l'`<head>`, l'`<header>` e il `<footer>` hardcoded con gli include.
-   Schema in testa al file:
+2. **Sostituire** la testata hardcoded (da `<!doctype html>` fino a `</header>`) con il
+   preambolo + include. Schema in testa al file:
    ```php
    <?php
    require __DIR__ . '/_config.php';
-   $pageTitle = 'Chi Siamo';                       // titolo scheda browser
-   $pageHead   = <<<'CSS' … CSS;                    // facoltativo: <style> della pagina
-   $pageScripts = '<script src="lead-form.js"></script>'; // facoltativo: solo dove serve
+   $pageTitle = 'Chi Siamo';                 // solo la parte specifica: header.php aggiunge " — <brand>"
+   $pageDescription = '...';                  // facoltativo: <meta name="description">
+   $pageHead = <<<'CSS'                        // facoltativo: <style> della pagina (verbatim)
+   <style> … </style>
+   CSS;
    include __DIR__ . '/header.php';
    ?>
    … contenuto della pagina …
-   <?php include __DIR__ . '/footer.php'; ?>
    ```
-3. **Aggiornare i link interni** da `.html` → `.php` (nav, footer, pulsanti, link consenso).
-4. **Sostituire i dati hardcoded con le variabili API**:
+3. **Sostituire** il footer hardcoded (da `<footer …>` fino a `</html>`, incluso il
+   `<script src="cb.js">`) con l'include. Se la pagina ha uno `<script>` proprio, passarlo
+   via `$pageScripts` (footer.php lo emette e poi aggiunge `cb.js`):
+   ```php
+   <?php
+   $pageScripts = <<<'HTML'
+   <script> … script specifico della pagina … </script>
+   HTML;
+   include __DIR__ . '/footer.php';
+   ?>
+   ```
+   Se non c'è script di pagina: `<?php include __DIR__ . '/footer.php'; ?>`.
+4. **Aggiornare i link interni** da `.html` → `.php` (nav, footer, pulsanti, link consenso,
+   e anche dentro gli script inline, comprese le forme `contatti.html?offerta=…#…`).
+5. **Sostituire i dati hardcoded con le variabili API**:
    | Dato hardcoded nel sito statico | Variabile |
    |---|---|
-   | ragione sociale / nome brand | `$brand` (o `$company_name` per il Titolare legale) |
-   | P.IVA / Codice Fiscale | `$p_iva` |
-   | sede legale | `$sede_legale` |
-   | PEC | `$pec` |
-   | email assistenza/contatto | `$email_supporto` |
-   | email DPO | `$email_dpo` |
-   | telefono | `$telefono` |
-   | capitale sociale | `$capitale_sociale` |
-   | logo | `$logo_url` (fallback `logo.png`) |
-   | operatore energetico | `$OPERATORE_ENERGETICO` |
-   | URL del sito nei testi legali | `$SITO_WEB` |
+   | brand visualizzato (testata/footer) | `$brandName` (= `$LANDING_PAGE['nome_portale']`) |
+   | ragione sociale / Titolare legale | `$COMPANY['company_name']` |
+   | P.IVA / Codice Fiscale | `$COMPANY['p_iva']` |
+   | sede legale | `$COMPANY['sede_legale']` |
+   | PEC | `$COMPANY['pec']` |
+   | email assistenza/contatto | `$COMPANY['email_supporto']` (gatare) |
+   | email DPO | `$COMPANY['email_dpo']` (gatare) |
+   | telefono | `$COMPANY['telefono']` (gatare) |
+   | capitale sociale | `$COMPANY['capitale_sociale']` (gatare) |
+   | logo testata | `$LANDING_PAGE['logo_url']` (fallback immagine locale) |
+   | logo footer (sfondo scuro) | `$LANDING_PAGE['logo2_url']` (fallback immagine locale) |
+   | operatore energetico — nome legale (consensi/testi legali) | `$OPERATORE['nome_legale']` |
+   | operatore energetico — nome marketing (claim/badge) | `$OPERATORE['nome_marketing']` |
+   | URL del sito nei testi legali | `$LANDING_PAGE['url']` |
 
    I dati legali (footer, privacy, condizioni) NON vanno più scritti a mano: arrivano
-   dall'API. Vedi `footer.php`, `privacy-policy.php`, `condizioni-utilizzo.php` del pilota.
+   dall'API. Costruire la riga legale del footer **solo dai campi presenti** (gatare ogni
+   pezzo con `if ($COMPANY['x'] !== '')`), come in `footer.php` del pilota — così i campi
+   non forniti dall'API (es. R.E.A.) semplicemente non compaiono.
+
+   > **Attenzione (scelte da concordare).** Alcuni dati delle pagine legali NON sono
+   > modellati dall'API (es. email di servizio `privacy@`, `dpo@` nella privacy policy):
+   > di norma si lasciano **statici** come testo editoriale. I contatti telefono/email del
+   > sito si **gatano** sui campi `$COMPANY` e compaiono solo quando l'API li valorizza.
 
 ## 4. Form contatti — contratto DOM invariato
 
-`contatti.php` include `lead-form.js`. Il form NON va ridisegnato: rispettare il contratto
-(vedi `CLAUDE.md` › "Key shared behavior"):
+`contatti.php` include `lead-form.js` (passarlo via `$pageScripts`). Il form NON va
+ridisegnato: rispettare il contratto (vedi `CLAUDE.md` › "Key shared behavior"):
 - `action="https://dbc2.datalia.it/api/lead"`, `method="POST"`.
 - ID campi: `fNome` / `fTel` / `fEmail`; submit `btnSubmit`; conferma `#conferma`.
 - `name`: `nome`, `telefono`, `email`.
 - consensi: `consenso_privacy` (obbligatorio) + `consenso_ricontatto` (o `consenso_commerciale`)
   + `consenso_marketing` (facoltativo).
-- Nei testi dei consensi usare `<?= $OPERATORE_ENERGETICO ?>` e `<?= $brand ?>`.
+- Nei testi dei consensi usare `<?= $OPERATORE['nome_legale'] ?>` (operatore),
+  `<?= $COMPANY['company_name'] ?>` (partner commerciale) e `<?= $brandName ?>`.
+- Facoltativo: gatare la visibilità dei consensi con
+  `$LANDING_PAGE['mostra_consenso_0|1|2']`.
 
 `lead-form.js` si copia invariato. `cb.js` si copia ma **il colore accento è hardcoded**:
-sostituire i valori esadecimali del brand (nel pilota gowin: `#D6006E` e l'hover `#A50055`)
-con i colori del nuovo sito.
+allineare i valori esadecimali del fallback (gradiente del pulsante "Accetta" e relative
+`box-shadow`) ai colori del brand del sito (in `style.css`, `--primary` / `--accent`), e
+aggiornare il link `privacy-policy.html` → `.php` al suo interno.
 
 ## 5. Asset
 
@@ -161,15 +220,17 @@ Le custom properties di palette (`--primary`, `--accent`, …) restano in `style
 
 ## 6. Verifica
 
-- `php -l <file>.php` su ogni pagina (nessun errore di sintassi).
-- `php -S localhost:8000` dalla cartella del sito → aprire `index.php`.
-- I dati API sono in cache 1h in `.company-cache.json`; per forzare il refresh, **cancellare**
-  quel file e ricaricare.
-- Controllare che footer, privacy e condizioni mostrino i dati corretti dell'azienda.
-- In **produzione** lasciare `DEBUG_MODE = false` in `_config.php` (i `[DEBUG]` espongono i
-  nomi delle variabili ai visitatori). Metterlo `true` solo per diagnosi temporanea.
+- `php -l <file>.php` su ogni pagina (e su `header.php`/`footer.php`): nessun errore.
+- Render reale **senza token**: creare a mano `.company-cache.json` nella cartella del sito
+  con il JSON della risposta `/landing-pages/{id}` (la cache "fresca" evita la chiamata di
+  rete), poi `php <pagina>.php` da CLI o `php -S localhost:8000` e aprire `index.php`.
+- Controllare l'output reso: nessun `Warning`/`Notice` PHP; footer, privacy e condizioni
+  mostrano i dati corretti dell'azienda; nessun link `.html` interno residuo; nessun dato
+  legale hardcoded rimasto nelle pagine.
+- In **produzione** lasciare `DEBUG_MODE = false` in `_shared/config.php`. I dati API sono
+  in cache 1h in `.company-cache.json`; per forzare il refresh, **cancellare** quel file.
 
-## 7. Aggiornare la guida utente
+## 7. Guida utente
 
-Copiare/adattare `LEGGIMI.md` nella cartella del sito (istruzioni per l'utente finale:
-configurazione `.env`, campi disponibili, avvio server di test).
+Non serve più copiare un `LEGGIMI.md` nella cartella del sito: la guida unica (configurazione
+`.env`, variabili disponibili, avvio server di test) è centralizzata in **`_shared/LEGGIMI.md`**.

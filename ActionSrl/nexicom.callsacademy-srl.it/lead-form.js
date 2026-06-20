@@ -77,8 +77,8 @@
         ip: ip,
         landing_page_url: window.location.origin,
         data_registrazione: new Date().toISOString(),
-        consenso_0: !!(commercial && commercial.checked),
-        consenso_1: !!(form.consenso_privacy && form.consenso_privacy.checked),
+        consenso_0: !!(form.consenso_privacy && form.consenso_privacy.checked),
+        consenso_1: !!(commercial && commercial.checked),
         consenso_2: !!(form.consenso_marketing && form.consenso_marketing.checked)
       };
 

@@ -1,13 +1,8 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Privacy Policy — Locura</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
-  <style>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Privacy Policy';
+$pageHead = <<<'CSS'
+<style>
     .privacy-content h2 {
       font-size: 1.25em;
       border-bottom: 1.5px solid var(--line);
@@ -47,23 +42,9 @@
       text-align: justify;
     }
   </style>
-</head>
-<body>
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="locura.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary" style="padding:10px 24px;font-size:14px;">Richiedi un preventivo</a>
-      </div>
-    </div>
-  </header>
+CSS;
+include __DIR__ . '/header.php';
+?>
 
   <section style="background: var(--grad-aurora); padding:80px 20px; text-align:center; color: #fff; position: relative;">
     <h1 style="color:#fff; font-size:clamp(32px,5vw,52px); margin:0; font-weight:800; letter-spacing: -0.02em;">Privacy Policy</h1>
@@ -77,12 +58,12 @@
 
     <h2>TITOLARE DEL TRATTAMENTO</h2>
     <span class="law-ref">Art. 13, par.1, lett. a</span>
-    <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, <strong>Locura S.r.l.</strong>, con sede legale in ROMA (RM) VIALE GIORGIO RIBOTTA 11 CAP 00144, Partita IVA 17120841006, e-mail <a href="mailto:privacy@locura-srl.it" style="color: var(--primary); font-weight:600;">privacy@locura-srl.it</a>, in qualità di Titolare del trattamento, Le rilascia le informazioni relative al trattamento che verrà effettuato, di seguito analiticamente descritto, in relazione ai Suoi dati personali, nonché ai diritti che potrà in qualsiasi momento esercitare. La seguente privacy policy ha lo scopo di illustrare le modalità di trattamento e le categorie di dati personali riguardanti i soggetti interessati (“Utenti”) che navigano sul sito web: <a href="https://www.locurasrl.com" style="color: var(--primary); font-weight:600;">www.locurasrl.com</a> (di seguito, il “Sito”).</p>
+    <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, <strong><?= $COMPANY['company_name'] ?></strong>, con sede legale in <?= $COMPANY['sede_legale'] ?>, Partita IVA <?= $COMPANY['p_iva'] ?>, e-mail <a href="mailto:privacy@locura-srl.it" style="color: var(--primary); font-weight:600;">privacy@locura-srl.it</a>, in qualità di Titolare del trattamento, Le rilascia le informazioni relative al trattamento che verrà effettuato, di seguito analiticamente descritto, in relazione ai Suoi dati personali, nonché ai diritti che potrà in qualsiasi momento esercitare. La seguente privacy policy ha lo scopo di illustrare le modalità di trattamento e le categorie di dati personali riguardanti i soggetti interessati (“Utenti”) che navigano sul sito web: <a href="<?= $LANDING_PAGE['url'] ?>" style="color: var(--primary); font-weight:600;"><?= $LANDING_PAGE['url'] ?></a> (di seguito, il “Sito”).</p>
     <p>I Suoi dati saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento sarà svolto in forma automatizzata e/o manuale, nel rispetto di quanto previsto dall’art. 32 del GDPR 2016/679, ad opera di soggetti appositamente incaricati e in ottemperanza a quanto previsto dall’art. 29 GDPR 2016/679.</p>
 
     <h2>DATA PROTECTION OFFICER</h2>
     <span class="law-ref">Art. 13, par.1, lett. b</span>
-    <p>Le rendiamo noti, inoltre, i dati di contatto del Responsabile della Protezione Dati (RPD – DPO), contattabile al seguente indirizzo e-mail: <a href="mailto:dpo@locura-srl.it" style="color: var(--primary); font-weight:600;">dpo@locura-srl.it</a>, PEC: <a href="mailto:locurasrl@casellapec.com" style="color: var(--primary); font-weight:600;">locurasrl@casellapec.com</a>.</p>
+    <p>Le rendiamo noti, inoltre, i dati di contatto del Responsabile della Protezione Dati (RPD – DPO), contattabile al seguente indirizzo e-mail: <a href="mailto:dpo@locura-srl.it" style="color: var(--primary); font-weight:600;">dpo@locura-srl.it</a>, PEC: <a href="mailto:<?= $COMPANY['pec'] ?>" style="color: var(--primary); font-weight:600;"><?= $COMPANY['pec'] ?></a>.</p>
 
     <h2>FINALITÀ SPECIFICHE DEL TRATTAMENTO DEI DATI PERSONALI</h2>
     <span class="law-ref">Art. 13, par.1, lett. c</span>
@@ -193,9 +174,9 @@
         <li><strong>Diritto alla portabilità dei dati</strong> <em>ex</em> art. 20 — Qualora il trattamento sia effettuato con mezzi automatizzati, ha garantito il diritto alla portabilità dei dati personali che La riguardano, qualora il trattamento si basi sul consenso o su un contratto, nonché la trasmissione diretta degli stessi ad altro titolare, ove tecnicamente fattibile.</li>
         <li><strong>Diritto di opposizione</strong> <em>ex</em> art. 21 — Ha diritto di opporsi in qualsiasi momento, per motivi connessi alla sua situazione particolare, al trattamento di dati personali che Lo riguardano. Ha inoltre il diritto di opporsi in qualsiasi momento al trattamento dei propri dati per finalità di marketing diretto. Qualora l’interessato sia iscritto al Registro Pubblico delle Opposizioni, il Titolare si impegna a verificare preventivamente tale iscrizione prima di effettuare comunicazioni telefoniche a fini commerciali.</li>
     </ul>
-    <p>Le richieste per l’esercizio dei suindicati diritti vanno rivolte direttamente all’indirizzo <a href="mailto:privacy@locura-srl.it" style="color: var(--primary); font-weight:600;">privacy@locura-srl.it</a> oppure a <a href="mailto:dpo@locura-srl.it" style="color: var(--primary); font-weight:600;">dpo@locura-srl.it</a> o <a href="mailto:locurasrl@casellapec.com" style="color: var(--primary); font-weight:600;">locurasrl@casellapec.com</a>.</p>
-    <p>Le richieste possono essere inoltrate senza alcuna limitazione oraria. Locura S.r.l. avrà cura di agevolare l’esercizio dei diritti dell’interessato ai sensi degli articoli da 15 a 22 GDPR, fornendogli tutte le informazioni relative all’azione intrapresa senza ingiustificato ritardo e, comunque, al più tardi entro un mese dal ricevimento della richiesta stessa. Tale termine può essere prorogato di due mesi, se necessario, tenuto conto della complessità e del numero delle richieste (Locura S.r.l. informerà comunque l’interessato di tale proroga e dei motivi del ritardo, entro un mese dal ricevimento della richiesta).</p>
-    <p>Qualora Locura S.r.l. decidesse di non ottemperare alla richiesta dell’interessato, informerà lo stesso senza ritardo, ed al più tardi entro un mese dal ricevimento della stessa, dei motivi dell’inottemperanza e della possibilità di proporre reclamo ad un’Autorità di controllo e di proporre ricorso giurisdizionale.</p>
+    <p>Le richieste per l’esercizio dei suindicati diritti vanno rivolte direttamente all’indirizzo <a href="mailto:privacy@locura-srl.it" style="color: var(--primary); font-weight:600;">privacy@locura-srl.it</a> oppure a <a href="mailto:dpo@locura-srl.it" style="color: var(--primary); font-weight:600;">dpo@locura-srl.it</a> o <a href="mailto:<?= $COMPANY['pec'] ?>" style="color: var(--primary); font-weight:600;"><?= $COMPANY['pec'] ?></a>.</p>
+    <p>Le richieste possono essere inoltrate senza alcuna limitazione oraria. <?= $COMPANY['company_name'] ?> avrà cura di agevolare l’esercizio dei diritti dell’interessato ai sensi degli articoli da 15 a 22 GDPR, fornendogli tutte le informazioni relative all’azione intrapresa senza ingiustificato ritardo e, comunque, al più tardi entro un mese dal ricevimento della richiesta stessa. Tale termine può essere prorogato di due mesi, se necessario, tenuto conto della complessità e del numero delle richieste (<?= $COMPANY['company_name'] ?> informerà comunque l’interessato di tale proroga e dei motivi del ritardo, entro un mese dal ricevimento della richiesta).</p>
+    <p>Qualora <?= $COMPANY['company_name'] ?> decidesse di non ottemperare alla richiesta dell’interessato, informerà lo stesso senza ritardo, ed al più tardi entro un mese dal ricevimento della stessa, dei motivi dell’inottemperanza e della possibilità di proporre reclamo ad un’Autorità di controllo e di proporre ricorso giurisdizionale.</p>
 
     <h2>RECLAMO ALL’AUTORITÀ DI CONTROLLO</h2>
     <p>La informiamo, inoltre, che può proporre <strong>reclamo</strong> motivato al Garante per la Protezione dei Dati Personali:</p>
@@ -217,36 +198,4 @@
     <p style="margin-top: 48px; font-size: 14px; color: var(--text-muted);">Ultimo aggiornamento: Maggio 2026</p>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="locura-b.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-        </a>
-        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce Rinnovabile</a>
-        <a href="tariffe.html">Gas Compensato</a>
-        <a href="tariffe.html">Audit Digitale</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>LOCURA S.R.L.</strong> - Sede legale: Viale Giorgio Ribotta 11, 00144 Roma (RM) - P.IVA e C.F.: 17120841006 - R.E.A.: RM - 1697552 - Capitale Sociale &euro; 10.000,00 i.v. - PEC: <a href="mailto:locurasrl@casellapec.com">locurasrl@casellapec.com</a>. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-<script src="cb.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

@@ -24,9 +24,12 @@
       const el = document.getElementById(id);
       return !el || !validators[id](el.value);
     });
+    // I consensi possono essere nascosti dalla landing (mostra_consenso_*): un
+    // consenso ASSENTE nel DOM non è obbligatorio; se PRESENTE deve essere spuntato.
     const commercial = getCommercialConsent();
-    const consensiOk = commercial && commercial.checked && form.consenso_privacy && form.consenso_privacy.checked;
-    btnSubmit.disabled = !(allFieldsOk && consensiOk);
+    const commercialOk = !commercial || commercial.checked;
+    const privacyOk = !form.consenso_privacy || form.consenso_privacy.checked;
+    btnSubmit.disabled = !(allFieldsOk && commercialOk && privacyOk);
   }
 
   const telField = document.getElementById('fTel');
@@ -77,8 +80,8 @@
         ip: ip,
         landing_page_url: window.location.origin,
         data_registrazione: new Date().toISOString(),
-        consenso_0: !!(commercial && commercial.checked),
-        consenso_1: !!(form.consenso_privacy && form.consenso_privacy.checked),
+        consenso_0: !!(form.consenso_privacy && form.consenso_privacy.checked),
+        consenso_1: !!(commercial && commercial.checked),
         consenso_2: !!(form.consenso_marketing && form.consenso_marketing.checked)
       };
 

@@ -1,35 +1,9 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contatti — Locura</title>
-  <meta name="description" content="Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="locura.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary">Ottieni un preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+include __DIR__ . '/header.php';
+?>
 
   <section class="page-hero">
     <div class="container">
@@ -53,24 +27,29 @@
             <h3 style="font-size: 20px; margin: 0 0 24px; color: var(--ink);">Canali di contatto</h3>
             <div class="contact-info-list">
 
+<?php if ($COMPANY['telefono'] !== '') { ?>
               <div class="contact-info-item">
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
                 <div>
                   <div class="label">Telefono Diretto</div>
                    <div class="meta">Lunedì - Venerdì 9:00 - 18:00</div>
-                   <a href="tel:00000">00000</a>
+                   <a href="tel:<?= $COMPANY['telefono'] ?>"><?= $COMPANY['telefono'] ?></a>
                 </div>
               </div>
+<?php } ?>
 
+<?php if ($COMPANY['email_supporto'] !== '') { ?>
               <div class="contact-info-item">
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div>
                   <div class="label">Email Ufficiale</div>
                    <div class="meta">Risposta rapida</div>
-                   <a href="mailto:info@locura-srl.it">info@locura-srl.it</a>
+                   <a href="mailto:<?= $COMPANY['email_supporto'] ?>"><?= $COMPANY['email_supporto'] ?></a>
                 </div>
               </div>
+<?php } ?>
 
+<?php if ($COMPANY['telefono'] !== '') { ?>
               <div class="contact-info-item">
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
                 <div>
@@ -79,6 +58,7 @@
                    <a href="https://wa.me/00000">Invia messaggio chat</a>
                 </div>
               </div>
+<?php } ?>
 
               <div class="contact-info-item">
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -95,7 +75,7 @@
             <div class="name">GREEN ECO LUCE CASA</div>
             <div class="price">PUN +€0,030<small> €/kWh</small></div>
             <div class="note">con domiciliazione e bolletta digitale</div>
-            <a class="see-all" href="tariffe.html">Confronta le tariffe
+            <a class="see-all" href="tariffe.php">Confronta le tariffe
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
@@ -125,21 +105,28 @@
                 <div class="field-error" data-error-for="fEmail"></div>
               </div>
 
+<?php /* Consensi: mostrati solo se abilitati nella landing dall'API.
+         mostra_consenso_0 = privacy, _1 = commerciale (ricontatto), _2 = marketing. */ ?>
+<?php if ($LANDING_PAGE['mostra_consenso_0'] !== '') { ?>
               <label class="consent-label" style="margin-top:12px;">
                 <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.html">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
               </label>
+<?php } ?>
 
               <div class="form-group" style="margin-top: 28px;">
+<?php if ($LANDING_PAGE['mostra_consenso_1'] !== '') { ?>
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da Semplice Gas & Luce S.p.A., tramite il partner commerciale Locura Srl , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?> , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
-                
+<?php } ?>
+<?php if ($LANDING_PAGE['mostra_consenso_2'] !== '') { ?>
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_marketing" style="flex-shrink:0;margin-top:3px;">
-                  <span>Acconsento a ricevere comunicazioni promozionali da Locura tramite telefono, email, SMS e altri strumenti di comunicazione.</span>
+                  <span>Acconsento a ricevere comunicazioni promozionali da <?= $brandName ?> tramite telefono, email, SMS e altri strumenti di comunicazione.</span>
                 </label>
+<?php } ?>
               </div>
 
               <div class="form-note" style="font-size: 12.5px; color: var(--muted); margin-top: 16px; line-height: 1.4;">
@@ -164,38 +151,9 @@
     </div>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="locura-b.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-        </a>
-        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce Rinnovabile</a>
-        <a href="tariffe.html">Gas Compensato</a>
-        <a href="tariffe.html">Audit Digitale</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>LOCURA S.R.L.</strong> - Sede legale: Viale Giorgio Ribotta 11, 00144 Roma (RM) - P.IVA e C.F.: 17120841006 - R.E.A.: RM - 1697552 - Capitale Sociale &euro; 10.000,00 i.v. - PEC: <a href="mailto:info@locura-srl.it">info@locura-srl.it</a>. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-  <script src="lead-form.js"></script>
-  <script src="cb.js"></script>
-</body>
-</html>
+<?php
+$pageScripts = <<<'HTML'
+<script src="lead-form.js"></script>
+HTML;
+include __DIR__ . '/footer.php';
+?>

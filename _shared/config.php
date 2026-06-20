@@ -337,6 +337,7 @@ $campi_noti = [
 $LANDING_PAGE_FIELDS = [
     'id',
     'url',
+    'titolo',
     'nome_portale',
     'operatore_energetico_id',
     'company_id',

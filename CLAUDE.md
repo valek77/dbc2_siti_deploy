@@ -37,7 +37,7 @@ These two scripts are copied (not shared) into every site, so changes to logic m
   - Field IDs: `fNome`, `fTel`, `fEmail`; submit button `btnSubmit`; confirmation element `conferma`.
   - Input `name`s: `nome`, `telefono`, `email`.
   - Consent checkboxes: `consenso_privacy` (required) + a "commercial" consent that may be named `consenso_ricontatto` **or** `consenso_commerciale` (the script accepts either) + optional `consenso_marketing`.
-  - Payload maps these to `consenso_0` (commercial), `consenso_1` (privacy), `consenso_2` (marketing), plus `nome_cognome`, `email`, `telefono` (digits only), `ip` (from ipify), `landing_page_url`, `data_registrazione`.
+  - Payload maps these to `consenso_0` (privacy), `consenso_1` (commercial), `consenso_2` (marketing), plus `nome_cognome`, `email`, `telefono` (digits only), `ip` (from ipify), `landing_page_url`, `data_registrazione`. In the new landing API these indices match the `landing_page.mostra_consenso_0/1/2` flags (0=privacy, 1=commercial, 2=marketing).
   - Reads `?offerta=` from the URL to prefill the message / show a banner.
 - **`cb.js`** — self-injecting cookie-consent banner gated on `localStorage.cookieConsent`. Its accent color is hardcoded per site (search the inline `#hexcolor` values when rebranding).
 

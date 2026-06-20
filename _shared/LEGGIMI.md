@@ -69,7 +69,7 @@ $COMPANY['company_name']        // azienda intestataria
 ```
 
 Chiavi disponibili:
-- **`$LANDING_PAGE`**: `id, url, nome_portale, operatore_energetico_id, company_id,
+- **`$LANDING_PAGE`**: `id, url, titolo, nome_portale, operatore_energetico_id, company_id,
   p_iva, sede_legale, sede_operativa, pec, privacy_version, mostra_consenso_0,
   mostra_consenso_1, mostra_consenso_2, logo_url, logo2_url, created_at, updated_at`
 - **`$OPERATORE`**: `id, nome_marketing, nome_legale, indirizzo, partita_iva,
