@@ -32,6 +32,18 @@ if ($COMPANY['pec'] !== '') {
     $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
 }
 $legalLine = implode(' - ', $legalParts);
+
+// Dati dell'OPERATORE ENERGETICO (fornitore di cui il sito è partner/rivenditore).
+// Solo i campi presenti nell'API; il nome va nel prefisso, i dettagli a seguire.
+$operatoreNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
+$operatoreDettagli = [];
+if ($OPERATORE['indirizzo'] !== '') {
+    $operatoreDettagli[] = 'Sede: ' . $OPERATORE['indirizzo'];
+}
+if ($OPERATORE['partita_iva'] !== '') {
+    $operatoreDettagli[] = 'P.IVA: ' . $OPERATORE['partita_iva'];
+}
+$operatoreDettagliLine = implode(' - ', $operatoreDettagli);
 ?>
 
   <footer class="main-footer">
@@ -62,6 +74,9 @@ $legalLine = implode(' - ', $legalParts);
     </div>
     <div class="footer-bottom">
       <p>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</p>
+<?php if ($operatoreNome !== '') { ?>
+      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8;">Offerte commercializzate in qualità di partner autorizzato di <strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
+<?php } ?>
     </div>
   </footer>
 
