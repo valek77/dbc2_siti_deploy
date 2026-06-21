@@ -92,8 +92,6 @@ $responsabileData = implode(', ', $resp);
     <h2>Art. 10 — Durata, risoluzione ed effetti</h2>
     <p>Il Titolare può sospendere o risolvere il rapporto con effetto immediato in caso di violazione della Policy o di provvedimenti dell'Autorità. Alla cessazione il Responsabile interrompe l'uso della pagina e del marchio e gestisce i dati secondo la nomina art. 28. La pagina sarà chiusa al termine del rapporto di collaborazione.</p>
 
-    <p class="doc-sign">Il Titolare ______________________ Il Responsabile ______________________ Data __________</p>
-
   </main>
 
 <?php include __DIR__ . '/footer.php'; ?>

@@ -69,16 +69,6 @@ include __DIR__ . '/header.php';
               </div>
             </div>
           </div>
-
-          <div class="contact-card-cta">
-            <div class="label">Offerta in evidenza</div>
-            <div class="name">GREEN ECO LUCE CASA</div>
-            <div class="price">PUN +€0,030<small> €/kWh</small></div>
-            <div class="note">con domiciliazione e bolletta digitale</div>
-            <a class="see-all" href="tariffe.php">Confronta le tariffe
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
         </div>
 
         <div id="contatto-form">
