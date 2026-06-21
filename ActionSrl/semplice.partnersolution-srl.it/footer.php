@@ -74,9 +74,9 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
     </div>
     <div class="footer-bottom">
 <?php if ($operatoreNome !== '') { ?>
-      <p>Offerte commercializzate in qualità di partner autorizzato di <strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
+      <p style="font-size: 15px;">Offerte commercializzate in qualità di partner autorizzato di <strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
 <?php } ?>
-      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8;">&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</p>
+      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8;"><?php if ($COMPANY['logo2_url'] !== '') { ?><img src="<?= $COMPANY['logo_url'] ?>" alt="<?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?>" style="height: 16px; width: auto; vertical-align: middle; margin-right: 8px;"><?php } ?>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</p>
     </div>
   </footer>
 
