@@ -73,10 +73,10 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</p>
 <?php if ($operatoreNome !== '') { ?>
-      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8;">Offerte commercializzate in qualità di partner autorizzato di <strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
+      <p>Offerte commercializzate in qualità di partner autorizzato di <strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
 <?php } ?>
+      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8;">&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</p>
     </div>
   </footer>
 

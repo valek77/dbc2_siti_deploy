@@ -1,111 +1,85 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Condizioni di Utilizzo';
+$pageTitle = 'Informativa sul Trattamento dei Dati Personali';
+$pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) per la landing page di Semplice Gas & Luce S.p.A.';
 $pageHead = <<<'CSS'
-  <style>
-    .privacy-content h2 {
-      font-size: 1.25em;
-      border-bottom: 1.5px solid var(--line);
-      padding-bottom: 10px;
-      margin-top: 48px;
-      text-transform: uppercase;
-      color: var(--ink);
-      letter-spacing: 0.02em;
-    }
-    .privacy-content p {
-      margin-bottom: 20px;
-      text-align: justify;
-    }
-    .privacy-content ul {
-      margin-bottom: 24px;
-      padding-left: 20px;
-    }
-    .privacy-content li {
-      margin-bottom: 10px;
-    }
-    .intro-box {
-      background-color: var(--bg-soft);
-      padding: 28px;
-      border-radius: var(--r-sm);
-      border: 1px solid var(--line);
-      margin-bottom: 40px;
-    }
-    .contact-list {
-      list-style-type: none;
-      padding-left: 0;
-      font-weight: 700;
-      color: var(--primary-700);
-    }
-    .contact-list li {
-      margin-bottom: 8px;
-    }
-  </style>
+<style>
+  .policy-doc { max-width: 820px; margin: 70px auto 110px; padding: 0 24px; }
+  .policy-doc .doc-title {
+    text-align: center; font-size: clamp(22px, 4vw, 30px); font-weight: 800;
+    text-transform: uppercase; letter-spacing: -0.01em; color: var(--ink, #0f172a); margin: 0;
+  }
+  .policy-doc .doc-subtitle {
+    text-align: center; font-style: italic; font-size: 15px; color: var(--muted, #475569); margin: 12px 0 0;
+  }
+  .policy-doc .doc-rule { border: 0; border-top: 2px solid var(--primary, #1e40af); margin: 20px 0 40px; }
+  .policy-doc h2 {
+    color: var(--primary, #1e40af); font-size: 17px; font-weight: 700; margin: 34px 0 12px; letter-spacing: 0.01em;
+  }
+  .policy-doc p { font-size: 15px; line-height: 1.75; text-align: justify; margin: 0 0 14px; color: var(--ink-2, #374151); }
+  .policy-doc ol, .policy-doc ul { font-size: 15px; line-height: 1.75; color: var(--ink-2, #374151); margin: 0 0 14px; padding-left: 24px; }
+  .policy-doc li { margin-bottom: 12px; text-align: justify; }
+  .policy-doc a { color: var(--primary, #1e40af); font-weight: 600; }
+</style>
 CSS;
 include __DIR__ . '/header.php';
 ?>
 
-  <section style="background: var(--grad-aurora); padding:80px 20px; text-align:center; color: #fff; position: relative;">
-    <h1 style="color:#fff; font-size:clamp(32px,5vw,52px); margin:0; font-weight:800; letter-spacing: -0.02em;">Condizioni di Utilizzo</h1>
-    <p style="color:rgba(255,255,255,0.8); margin:16px 0 0; font-size:17px;">Termini e condizioni generali del sito web Locura</p>
-  </section>
+  <main class="policy-doc">
 
-  <main class="privacy-content" style="max-width: 860px; margin: 80px auto 100px; padding: 0 24px; line-height: 1.8; color: var(--muted); font-size: 16.5px;">
+    <h1 class="doc-title">Informativa sul Trattamento dei Dati Personali</h1>
+    <p class="doc-subtitle">(artt. 13 GDPR 2016/679)</p>
+    <hr class="doc-rule">
 
-    <div class="intro-box">
-      <p style="margin: 0;">L’utilizzo del sito web <strong><?= $LANDING_PAGE['url'] ?></strong> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di <strong><?= $COMPANY['company_name'] ?></strong>, con sede in <?= $COMPANY['sede_legale'] ?>, Partita IVA <?= $COMPANY['p_iva'] ?> (di seguito, la “Società”).</p>
-    </div>
+    <h2>Titolare del trattamento</h2>
+    <p>Il Titolare del trattamento è <strong>Semplice Gas &amp; Luce S.p.A.</strong>, con sede legale in Via San Quintino 3, 10121 Torino (TO), C.F./P.IVA e n. Registro Imprese 11796930011, REA TO-1241415, e-mail partner@semplicegaseluce.it, PEC semplicegaseluce@pec.it, in persona del legale rapp.te p.t..</p>
 
-    <h2>Premesse</h2>
-    <p>Le presenti Condizioni Generali disciplinano l’accesso, la navigazione e l’utilizzo del Sito, nonché dei servizi informativi, di comparazione, analisi, assistenza digitale e richiesta di preventivo eventualmente resi disponibili attraverso il Sito. La Società si riserva il diritto di modificare, aggiornare o integrare in qualsiasi momento le presenti Condizioni Generali, per esigenze operative, tecniche, commerciali o per adeguamento normativo. Le modifiche avranno efficacia dalla data di pubblicazione sul Sito.</p>
+    <h2>Responsabile della protezione dei dati (DPO)</h2>
+    <p>Il DPO è contattabile alla casella e-mail <a href="mailto:dpo@semplicegaseluce.it"><strong>dpo@semplicegaseluce.it</strong></a>.</p>
 
-    <h2>Oggetto del servizio</h2>
-    <p>Locura è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi, condizioni economiche e informazioni relative a prodotti e servizi propri o di soggetti terzi, anche mediante l’impiego di strumenti algoritmici, motori di calcolo, sistemi software avanzati e modelli linguenziali di supporto all’interazione (LLM). Le informazioni, le simulazioni, i risultati di comparazione e gli eventuali contenuti generati o rielaborati tramite strumenti automatizzati hanno natura informativa e orientativa, salvo diverso accordo scritto o diversa specifica indicazione presente sul Sito. Per determinate categorie di prodotti o servizi, il Sito può consentire l’inoltro di richieste verso partner commerciali, operatori, intermediari. In tali ipotesi, il relativo servizio potrà essere disciplinato da condizioni specifiche, da documentazione dedicata e da informative privacy rese dai rispettivi titolari del trattamento.</p>
+    <h2>Dati personali trattati</h2>
+    <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: nome, cognome, numero di telefono e indirizzo e-mail.</p>
 
-    <h2>Registrazione, area riservata e servizi continuativi</h2>
-    <p>L’accesso ad alcune funzionalità del Sito può richiedere la registrazione dell’utente e la creazione di un’area riservata, ad esclusione delle categorie (Energia e Telefonia). L’utente si impegna pertanto a fornire dati completi, corretti e aggiornati, nonché a custodire con diligenza le proprie credenziali di accesso. Laddove previsto, la registrazione potrà consentire la memorizzazione delle richieste effettuate, la gestione dei preventivi, la ricezione di aggiornamenti relativi alle comparazioni richieste, nonché l’accesso a servizi di supporto connessi all’utilizzo della piattaforma nello specifico settore. L’utente potrà richiedere la disattivazione del proprio account o l’interruzione dei servizi collegati all’area riservata secondo le modalità indicate sul Sito o scrivendo agli indirizzi di contatto della Società.</p>
+    <h2>Finalità del trattamento e base giuridica</h2>
+    <p>I dati sono trattati esclusivamente per le seguenti finalità connesse alla pagina:</p>
+    <ol>
+      <li><strong>Riscontro alla tua richiesta di informazioni</strong> inoltrata tramite il form e conseguente contatto telefonico, entro il termine di 30 giorni dall'inoltro della richiesta, per illustrarti i prodotti di fornitura di energia elettrica e gas oggetto del tuo interesse. Base giuridica: esecuzione di misure precontrattuali adottate su tua richiesta (art. 6, par. 1, lett. b, GDPR).</li>
+      <li><strong>Gestione e tracciabilità della richiesta</strong> e conservazione del log di presa visione della presente informativa, al fine di dimostrare la liceità del contatto ai sensi dell'art. 51, comma 8-bis, del Codice del Consumo. Base giuridica: legittimo interesse del Titolare a documentare la conformità e a tutelarsi (art. 6, par. 1, lett. f, GDPR) e adempimento di obblighi di legge (lett. c). I dati di tracciabilità della richiesta saranno conservati per il periodo di validità del contratto e per i 10 anni successivi allo scioglimento del rapporto contrattuale, quale criterio di validità dello stesso.</li>
+      <li><strong>Sicurezza e log di accesso.</strong> Raccolta dei dati di navigazione e dei log tecnici dei naviganti (a titolo esemplificativo: indirizzo IP, data e ora di accesso, pagine visitate, tipo di browser e di dispositivo) per garantire la sicurezza della pagina e dei sistemi, prevenire abusi, usi fraudolenti o accessi non autorizzati e assicurare la corretta erogazione del servizio. Base giuridica: legittimo interesse del Titolare alla sicurezza delle reti e dei sistemi informativi (art. 6, par. 1, lett. f, GDPR; cfr. considerando 49).</li>
+    </ol>
 
-    <h2>Disponibilità del Sito</h2>
-    <p>La Società adotta misure ragionevoli per assicurare la continuità e il corretto funzionamento del Sito, ma non garantisce che il servizio sia sempre disponibile, privo di errori, interruzioni o ritardi. Potranno verificarsi sospensioni temporanee dovute a manutenzione, aggiornamenti, interventi tecnici, cause di forza maggiore o fatti imputabili a terzi. La Società si riserva il diritto di sospendere, limitare o interrompere in tutto o in parte il funzionamento del Sito, anche senza preavviso, ove necessario.</p>
+    <h2>Modalità del contatto e disciplina di settore (Decreto Bollette)</h2>
+    <p>La chiamata avviene da numerazione identificabile, entro 30 giorni dall'inoltro della richiesta al Titolare. Ciò è coerente con il nuovo art. 51, comma 8-bis, del Codice del Consumo (introdotto dalla L. 49/2026, c.d. Decreto Bollette), che consente il contatto telefonico per i prodotti di energia elettrica e gas quando il consumatore ne abbia fatto richiesta direttamente al professionista tramite le sue interfacce informatiche.</p>
 
-    <h2>Diritti e doveri dell’utente</h2>
-    <p>L’utente si impegna a utilizzare il Sito in modo lecito, corretto e conforme alle presenti Condizioni Generali, alla normativa vigente e ai principi di buona fede. In particolare, l'utente si impegna a:</p>
+    <h2>Destinatari dei dati</h2>
+    <p>I dati sono trattati, per conto del Titolare, dalle società di teleselling nominate Responsabili del trattamento ai sensi dell'art. 28 GDPR, che gestiscono la pagina, la raccolta delle richieste, il contatto telefonico e l'eventuale contrattualizzazione, nonché da eventuali sub-responsabili (incluso il fornitore di hosting). L'elenco aggiornato dei responsabili e sub-responsabili è disponibile presso il Titolare e richiedibile al DPO. I dati possono essere comunicati a terzi solo per adempiere a obblighi di legge.</p>
+
+    <h2>Periodo di conservazione</h2>
+    <p>I dati raccolti tramite la pagina sono cancellati entro 30 giorni dall'inoltro della richiesta, in assenza di conclusione del contratto. Qualora a seguito del contatto si concluda un contratto di fornitura, i dati confluiscono nel rapporto contrattuale e sono trattati secondo l'informativa relativa al rapporto di fornitura del Titolare, con i tempi di conservazione previsti dalla normativa di settore.</p>
+
+    <h2>Trasferimenti extra-UE</h2>
+    <p>Non sono previsti trasferimenti dei dati verso Paesi terzi. Ove l'infrastruttura di hosting comportasse trasferimenti extra-UE, saranno adottate adeguate garanzie ai sensi del Capo V del GDPR.</p>
+
+    <h2>Natura del conferimento</h2>
+    <p>Il conferimento dei dati indicati è necessario per dar seguito alla tua richiesta; il mancato conferimento impedisce di riscontrarla e di ricontattarti.</p>
+
+    <h2>Processo decisionale automatizzato</h2>
+    <p>Non è effettuato alcun processo decisionale automatizzato, inclusa la profilazione, di cui all'art. 22 GDPR.</p>
+
+    <h2>Diritti dell'interessato</h2>
+    <p>Puoi esercitare in qualsiasi momento, scrivendo a <a href="mailto:dpo@semplicegaseluce.it">dpo@semplicegaseluce.it</a>, i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
     <ul>
-      <li>non utilizzare il Sito per finalità illecite, fraudolente o lesive di diritti altrui;</li>
-      <li>non inserire dati falsi, incompleti o riferiti a terzi senza adeguato titolo;</li>
-      <li>non compromettere, aggirare o tentare di aggirare le misure di sicurezza del Sito;</li>
-      <li>non copiare, riprodurre, rivendere, sfruttare commercialmente o mettere a disposizione di terzi il Sito o parti di esso senza preventiva autorizzazione scritta della Società.</li>
+      <li>accesso ai dati personali (art. 15 GDPR);</li>
+      <li>rettifica dei dati inesatti o incompleti (art. 16 GDPR);</li>
+      <li>cancellazione dei dati e diritto all'oblio (art. 17 GDPR);</li>
+      <li>limitazione del trattamento (art. 18 GDPR);</li>
+      <li>notifica delle rettifiche, cancellazioni o limitazioni ai destinatari dei dati (art. 19 GDPR);</li>
+      <li>portabilità dei dati (art. 20 GDPR);</li>
+      <li>opposizione al trattamento, in particolare a quello fondato sul legittimo interesse del Titolare, inclusi i log di sicurezza (art. 21 GDPR);</li>
+      <li>non essere sottoposto a una decisione automatizzata, inclusa la profilazione (art. 22 GDPR), fermo restando che il Titolare non effettua tali trattamenti.</li>
     </ul>
-    <p>L’utente è l’unico responsabile delle attività effettuate tramite il proprio account e delle informazioni trasmesse attraverso il Sito.</p>
+    <p>Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (art. 77 GDPR) e di ricorrere all'autorità giudiziaria.</p>
 
-    <h2>Limitazioni di responsabilità</h2>
-    <p>Salvo i casi di dolo o colpa grave, la Società non potrà essere ritenuta responsabile per danni diretti o indiretti derivanti dall’uso o dal mancato uso del Sito, dall’affidamento riposto sulle informazioni in esso contenute, da interruzioni del servizio, errori tecnici, malfunzionamenti, indisponibilità dei sistemi di terzi o inesattezze imputabili a dati forniti da partner, operatori o utenti. La Società non assume alcuna responsabilità in relazione alla conclusione di contratti tra l’utente e soggetti terzi eventualmente presenti o raggiungibili tramite il Sito, salvo che ciò non sia espressamente previsto da specifica documentazione contrattuale.</p>
-
-    <h2>Proprietà intellettuale e industriale</h2>
-    <p>Il Sito, la sua struttura, il software, i contenuti, i database, i testi, i layout, le grafiche, i marchi, i segni distintivi, le immagini, i flussi conversazionali, i modelli organizzativi e ogni altro elemento presente o reso disponibile attraverso il Sito sono di proprietà della Società <strong><?= $COMPANY['company_name'] ?></strong> o dei rispettivi titolari dei diritti e sono protetti dalla normativa vigente in materia di proprietà intellettuale e industriale. È fatto divieto di copiare, estrarre, riprodurre, distribuire, modificare, decompilare, disassemblare, tradurre, adattare o utilizzare in qualsiasi forma il Sito o parte dei suoi contenuti per finalità diverse dall’uso personale e legittimo consentito.</p>
-
-    <h2>Comunicazioni</h2>
-    <p>Per comunicazioni, segnalazioni o richieste di assistenza, l’utente potrà utilizzare i recapiti indicati nella sezione contatti del Sito. Ai fini redazionali, si richiamano i seguenti indirizzi:</p>
-    <ul class="contact-list">
-      <li><a href="mailto:support@locura-srl.it">support@locura-srl.it</a></li>
-      <li><a href="mailto:privacy@locura-srl.it">privacy@locura-srl.it</a></li>
-      <li><a href="mailto:servizioclienti@locura-srl.it">servizioclienti@locura-srl.it</a></li>
-      <li><a href="mailto:info@locura-srl.it">info@locura-srl.it</a></li>
-    </ul>
-    <p>In caso di reclami relativi a specifici servizi o prodotti, ad esclusione delle categorie (Energia e Telefonia), la Società potrà indirizzare l’utente verso il partner competente o che eroga il servizio richiesto.</p>
-
-    <h2>Legge applicabile e foro competente</h2>
-    <p>Le presenti Condizioni Generali sono regolate dalla legge italiana. Per ogni controversia relativa alla validità, interpretazione, esecuzione o cessazione delle presenti Condizioni Generali sarà competente il foro individuato ai sensi della normativa applicabile, incluso, ove ne ricorrano i presupposti, il foro del consumatore previsto dal Codice del Consumo.</p>
-
-    <h2>Modello organizzativo e Codice Etico</h2>
-    <p>La Società può adottare un proprio Modello di Organizzazione, Gestione e Controllo ai sensi del D. Lgs. 8 giugno 2001, n. 231, nonché un proprio Codice Etico, quali strumenti di presidio organizzativo e prevenzione dei rischi. Qualora attivati, i canali per l’invio di segnalazioni all’Organismo di Vigilanza o ad altra funzione interna competente saranno indicati sul Sito o nei documenti societari ufficiali. Le segnalazioni saranno trattate con criteri di riservatezza nei limiti previsti dalla normativa applicabile.</p>
-
-    <h2>Trattamento dei dati personali</h2>
-    <p>Rif: <a href="privacy-policy.php" style="color: var(--primary); font-weight: 600; text-decoration: none;">Informativa Privacy</a></p>
-
-    <h2>Clausole finali</h2>
-    <p>Qualora una o più clausole delle presenti Condizioni Generali dovessero risultare nulle, invalide o inefficaci, la restante parte manterrà piena validità ed efficacia. Le presenti Condizioni Generali sono redatte in lingua italiana e costituiscono la disciplina generale di utilizzo del Sito, salvo eventualiorcondizioni particolari applicabili a specifici servizi, iniziative o aree della piattaforma.</p>
-
-    <p style="margin-top: 48px; font-size: 14px; color: var(--text-muted);">Ultimo aggiornamento: Maggio 2026</p>
   </main>
 
 <?php include __DIR__ . '/footer.php'; ?>
