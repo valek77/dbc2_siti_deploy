@@ -24,9 +24,12 @@
       const el = document.getElementById(id);
       return !el || !validators[id](el.value);
     });
+    // I consensi possono essere nascosti dalla landing (mostra_consenso_*): un
+    // consenso ASSENTE nel DOM non è obbligatorio; se PRESENTE deve essere spuntato.
     const commercial = getCommercialConsent();
-    const consensiOk = commercial && commercial.checked && form.consenso_privacy && form.consenso_privacy.checked;
-    btnSubmit.disabled = !(allFieldsOk && consensiOk);
+    const commercialOk = !commercial || commercial.checked;
+    const privacyOk = !form.consenso_privacy || form.consenso_privacy.checked;
+    btnSubmit.disabled = !(allFieldsOk && commercialOk && privacyOk);
   }
 
   const telField = document.getElementById('fTel');

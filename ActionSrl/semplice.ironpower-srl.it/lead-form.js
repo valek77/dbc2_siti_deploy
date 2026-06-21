@@ -24,9 +24,12 @@
       const el = document.getElementById(id);
       return !el || !validators[id](el.value);
     });
+    // I consensi possono essere nascosti dalla landing (mostra_consenso_*): un
+    // consenso ASSENTE nel DOM non è obbligatorio; se PRESENTE deve essere spuntato.
     const commercial = getCommercialConsent();
-    const consensiOk = commercial && commercial.checked && form.consenso_privacy && form.consenso_privacy.checked;
-    btnSubmit.disabled = !(allFieldsOk && consensiOk);
+    const commercialOk = !commercial || commercial.checked;
+    const privacyOk = !form.consenso_privacy || form.consenso_privacy.checked;
+    btnSubmit.disabled = !(allFieldsOk && commercialOk && privacyOk);
   }
 
   const telField = document.getElementById('fTel');
@@ -110,7 +113,7 @@
       msgField.value = "Sono interessato all'offerta: " + offer;
     } else {
       const infoMsg = document.createElement('div');
-      infoMsg.style.cssText = 'background: rgba(94, 200, 215, 0.1); color: var(--secondary-charcoal); padding: 12px 18px; border-radius: var(--radius-md); font-weight: 600; margin-bottom: 20px; font-size: 14.5px; border-left: 3px solid var(--primary-cyan);';
+      infoMsg.style.cssText = 'background:#eef2ff;color:#1e3a8a;padding:12px;border-radius:8px;font-weight:600;margin-bottom:16px;font-size:14px;';
       infoMsg.textContent = 'Richiesta per: ' + offer;
       form.prepend(infoMsg);
     }

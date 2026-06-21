@@ -47,7 +47,7 @@
           margin: 0;
         }
         .cookie-content a {
-          color: var(--primary, #0d9488);
+          color: var(--primary, #1e40af);
           text-decoration: underline;
           font-weight: 600;
         }
@@ -69,13 +69,13 @@
           font-family: inherit;
         }
         .cookie-btn-primary {
-          background: var(--grad-accent, linear-gradient(102deg, #34d399 0%, #10b981 60%, #059669 100%));
+          background: var(--grad-accent, linear-gradient(102deg, #1e40af 0%, #1e3a8a 60%, #172554 100%));
           color: #fff;
-          box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+          box-shadow: 0 4px 14px rgba(30, 64, 175, 0.3);
         }
         .cookie-btn-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+          box-shadow: 0 8px 20px rgba(30, 64, 175, 0.4);
         }
         .cookie-btn-secondary {
           background: var(--bg-soft, #f5f5f4);
@@ -113,7 +113,7 @@
         <div class="cookie-banner-container">
           <div class="cookie-content">
             <strong>Informativa sui Cookie 🍪</strong>
-            <p>Utilizziamo i cookie tecnici per garantirti la migliore esperienza di navigazione. Maggiori dettagli nella nostra <a href="privacy-policy.html">Informativa Privacy</a>.</p>
+            <p>Utilizziamo i cookie tecnici per garantirti la migliore esperienza di navigazione. Maggiori dettagli nella nostra <a href="privacy-policy.php">Informativa Privacy</a>.</p>
           </div>
           <div class="cookie-actions">
             <button class="cookie-btn cookie-btn-primary" id="btn-accept-cookie">Accetta tutto</button>

@@ -11,8 +11,8 @@
           display: flex;
           justify-content: center;
           pointer-events: none;
-          font-family: inherit;
-          animation: slideUp 0.5s ease-out forwards;
+          font-family: var(--font-body), sans-serif;
+          animation: slideUp 0.5s cubic-bezier(.16,1,.3,1) forwards;
         }
         @keyframes slideUp {
           from { transform: translateY(100%); }
@@ -20,34 +20,34 @@
         }
         .cookie-banner-container {
           background: #ffffff;
-          box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
-          padding: 32px 40px;
+          box-shadow: 0 -10px 48px rgba(9, 13, 22, 0.12);
+          padding: 28px 40px;
           width: 100%;
           display: flex;
           flex-direction: row;
           align-items: center;
           gap: 40px;
           pointer-events: auto;
-          border-top: 1px solid rgba(0,0,0,0.05);
+          border-top: 1px solid var(--line, #e2e8f0);
         }
         .cookie-content {
           flex: 1;
         }
         .cookie-content strong {
           display: block;
-          font-size: 17px;
-          color: #0f172a;
-          margin-bottom: 8px;
+          font-size: 16px;
+          color: var(--ink, #0f172a);
+          margin-bottom: 6px;
           font-weight: 700;
         }
         .cookie-content p {
-          font-size: 14.5px;
+          font-size: 14px;
           line-height: 1.6;
-          color: #4a5568;
+          color: var(--muted, #64748b);
           margin: 0;
         }
         .cookie-content a {
-          color: #2563eb;
+          color: var(--primary, #1e40af);
           text-decoration: underline;
           font-weight: 600;
         }
@@ -58,38 +58,38 @@
           min-width: 220px;
         }
         .cookie-btn {
-          padding: 14px 24px;
-          border-radius: 12px;
-          font-size: 14px;
+          padding: 12px 24px;
+          border-radius: var(--r-pill, 9999px);
+          font-size: 13.5px;
           font-weight: 700;
           cursor: pointer;
           text-align: center;
-          transition: all 0.2s ease;
+          transition: all 0.25s cubic-bezier(.16,1,.3,1);
           border: none;
           font-family: inherit;
         }
         .cookie-btn-primary {
-          background: #2563eb;
+          background: var(--grad-accent, linear-gradient(102deg, #1e40af 0%, #1e3a8a 60%, #172554 100%));
           color: #fff;
-          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+          box-shadow: 0 4px 14px rgba(30, 64, 175, 0.3);
         }
         .cookie-btn-primary:hover {
-          background: #1e40af;
           transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(30, 64, 175, 0.4);
         }
         .cookie-btn-secondary {
-          background: #f1f5f9;
-          color: #0f172a;
+          background: var(--bg-soft, #f5f5f4);
+          color: var(--ink, #0f172a);
         }
         .cookie-btn-secondary:hover {
-          background: #e2e8f0;
+          background: var(--line, #e2e8f0);
           transform: translateY(-2px);
         }
         @media (max-width: 768px) {
           .cookie-banner-container {
             flex-direction: column;
             align-items: stretch;
-            gap: 24px;
+            gap: 20px;
             padding: 24px;
           }
           .cookie-actions {
@@ -112,9 +112,8 @@
       wrapper.innerHTML = `
         <div class="cookie-banner-container">
           <div class="cookie-content">
-            <strong>Utilizziamo i cookie per migliorare la tua esperienza sul sito. 🍪</strong>
-            <p>Puoi accettare tutti i cookie e continuare la navigazione.<br>
-            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="privacy-policy.html">cookie policy</a>.</p>
+            <strong>Informativa sui Cookie 🍪</strong>
+            <p>Utilizziamo i cookie tecnici per garantirti la migliore esperienza di navigazione. Maggiori dettagli nella nostra <a href="privacy-policy.php">Informativa Privacy</a>.</p>
           </div>
           <div class="cookie-actions">
             <button class="cookie-btn cookie-btn-primary" id="btn-accept-cookie">Accetta tutto</button>
