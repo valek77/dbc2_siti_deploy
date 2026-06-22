@@ -272,11 +272,6 @@ include __DIR__ . '/header.php';
                 relative alla fornitura di servizi di telecomunicazione e utenze. *</span>
             </label>
 
-            <label class="consent-label" style="margin-top:12px;">
-              <input type="checkbox" name="consenso_marketing" style="flex-shrink:0;margin-top:3px;">
-              <span>Acconsento a ricevere comunicazioni promozionali da <?= htmlspecialchars($brand) ?> tramite
-                telefono, email, SMS e altri strumenti di comunicazione.</span>
-            </label>
           </div>
 
           <button type="submit" class="btn-primary" id="btnSubmit" disabled

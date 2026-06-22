@@ -341,11 +341,6 @@ include __DIR__ . '/header.php';
               ai servizi di marketing, BPO e lead generation. *</span>
           </label>
 
-          <label class="consent-label">
-            <input type="checkbox" name="consenso_marketing">
-            <span>Acconsento a ricevere comunicazioni promozionali da <?= htmlspecialchars($brand) ?> tramite telefono,
-              email, SMS e altri strumenti di comunicazione.</span>
-          </label>
         </div>
 
         <button type="submit" class="btn-primary" id="btnSubmit" disabled>

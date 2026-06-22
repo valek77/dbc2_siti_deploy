@@ -104,10 +104,6 @@ include __DIR__ . '/header.php';
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
                   <span>Richiedo di essere ricontattato da <?= $OPERATORE_ENERGETICO ?>, tramite il partner commerciale <?= $brand ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
-                <label class="consent-label" style="margin-top:12px;">
-                  <input type="checkbox" name="consenso_marketing" style="flex-shrink:0;margin-top:3px;">
-                  <span>Acconsento a ricevere comunicazioni promozionali da <?= $brand ?> tramite telefono, email, SMS e altri strumenti di comunicazione.</span>
-                </label>
               </div>
 
               <button type="submit" class="btn-primary" id="btnSubmit" disabled style="width: 100%; padding: 17px; font-size: 16px; margin-top: 24px;">
