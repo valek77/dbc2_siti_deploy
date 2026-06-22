@@ -1,35 +1,10 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Locura — Transizione Energetica e Risparmio Intelligente</title>
-  <meta name="description" content="Locura ti guida verso una transizione energetica intelligente. Scopri soluzioni luce e gas 100% green, ottimizzazione dei consumi e tariffe trasparenti per la tua casa o impresa.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="locura.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary">Ottieni un preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+// Homepage: NON imposto $pageTitle, così header.php usa il "titolo" della landing
+// dall'API ($LANDING_PAGE['titolo']).
+$pageDescription = 'Locura ti guida verso una transizione energetica intelligente. Scopri soluzioni luce e gas 100% green, ottimizzazione dei consumi e tariffe trasparenti per la tua casa o impresa.';
+include __DIR__ . '/header.php';
+?>
 
   <!-- ===== Hero ===== -->
   <section class="hero">
@@ -41,7 +16,7 @@
           <span class="eyebrow eyebrow-light"><span class="dot"></span> Concessionario Nazionale per l'Efficienza Energetica</span>
           <h1>La tua transizione verso un'energia <span class="accent">efficiente</span>.</h1>
           <p class="lede">Locura progetta soluzioni integrate di fornitura Luce e Gas per utenze domestiche e industriali. Uniamo tariffe certificate 100% da fonti rinnovabili, digitalizzazione dei processi e sistemi di monitoraggio energetico per massimizzare il risparmio economico e azzerare l'impronta di carbonio.</p>
-          
+
           <!-- Widget Calcolatore Rapido Integrato -->
           <div class="hero-calculator">
             <div class="calc-input-group">
@@ -55,21 +30,21 @@
               <span>Risparmio Annuo Stimato:</span> <strong id="hero-saving-val">€0</strong> <small>/ anno</small>
             </div>
           </div>
- 
+
           <div class="hero-actions">
-            <a href="tariffe.html" class="btn-primary">Confronta i piani
+            <a href="tariffe.php" class="btn-primary">Confronta i piani
               <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="contatti.html" class="btn-secondary">Parla con un energy specialist</a>
+            <a href="contatti.php" class="btn-secondary">Parla con un energy specialist</a>
           </div>
-          
+
           <div class="hero-stats">
             <div class="stat"><div class="n">100%</div><div class="l">Fonti Rinnovabili Tracciate</div></div>
             <div class="stat"><div class="n">12.000+</div><div class="l">Punti di Prelievo Gestiti</div></div>
             <div class="stat"><div class="n">-22%</div><div class="l">Contrazione Media dei Costi</div></div>
           </div>
         </div>
-        
+
         <div class="hero-graphic-container">
           <div class="hero-glow-back"></div>
           <div class="hero-video-frame">
@@ -103,15 +78,15 @@
     </div>
   </section>
 
-  <!-- ===== Cosa offriamo (Nexicom) ===== -->
+  <!-- ===== Cosa offriamo ===== -->
   <section class="section features illumia-section">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Piani di Approvvigionamento</span>
         <h2 class="section-title">Scegli l'offerta energetica adatta al tuo profilo</h2>
         <p class="section-sub">Tariffe trasparenti allineate agli indici di mercato all'ingrosso PUN e PSV. Soluzioni strutturate per garantire flessibilità operativa e la totale assenza di costi nascosti.</p>
-        
-        <!-- Nexicom Toggle Selector -->
+
+        <!-- Toggle Selector -->
         <div class="illumia-tabs">
           <button class="illumia-tab active" data-target="casa">Per la tua Casa</button>
           <button class="illumia-tab" data-target="business">Per la tua Impresa</button>
@@ -124,17 +99,17 @@
         <article class="illumia-card border-luce card-bento-2x">
           <div class="illumia-card-left">
             <div class="illumia-badge badge-luce">⚡ LUCE DOMESTICO</div>
-            <h3>Solo Web - Variabile PUN</h3>
+            <h3>Luce PUN Index GME Domestico 386</h3>
             <p class="illumia-sub">Domestico · Prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.</p>
-            
+
             <div class="illumia-price-container">
               <span class="illumia-price-prefix">PUN +</span>
               <div class="illumia-price-val">0,055 <span class="illumia-price-unit">€/kWh</span></div>
             </div>
-            
-            <a href="contatti.html?offerta=Solo Web - Variabile PUN#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Attiva Ora</a>
+
+            <a href="contatti.php?offerta=NEX_EE_PUN_DOM_386#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Attiva Ora</a>
           </div>
-          
+
           <div class="illumia-card-right">
             <ul class="illumia-details">
               <li><span class="checkmark">✓</span> Prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.</li>
@@ -142,7 +117,7 @@
               <li><span class="checkmark">✓</span> 1,00 € sconto addebito SDD</li>
               <li><span class="checkmark">✓</span> <b>Corrispettivo annuo:</b> 456 €/POD/anno</li>
             </ul>
-            
+
             <!-- CO2 Calculator Widget -->
             <div class="co2-calculator">
               <h4>Impatto CO₂ Stimato</h4>
@@ -162,22 +137,22 @@
         <article class="illumia-card border-gas card-bento-1x">
           <div class="illumia-badge badge-gas">🔥 GAS DOMESTICO</div>
           <div class="illumia-card-body">
-            <h3>Solo Web - Gas PSV</h3>
+            <h3>Gas PSV Domestico 386</h3>
             <p class="illumia-sub">Domestico · Prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.</p>
-            
+
             <div class="illumia-price-container">
               <span class="illumia-price-prefix">PSV +</span>
               <div class="illumia-price-val">0,45 <span class="illumia-price-unit">€/Smc</span></div>
             </div>
-            
+
             <ul class="illumia-details" style="margin-bottom: 28px;">
               <li><span class="checkmark">✓</span> Prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.</li>
               <li><span class="checkmark">✓</span> 1,00 € sconto bolletta via e-mail</li>
               <li><span class="checkmark">✓</span> 1,00 € sconto addebito SDD</li>
               <li><span class="checkmark">✓</span> <b>Corrispettivo annuo:</b> 648 €/PDR/anno</li>
             </ul>
-            
-            <a href="contatti.html?offerta=Solo Web - Gas PSV#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Attiva Ora</a>
+
+            <a href="contatti.php?offerta=NX_GAS_PSV_DOM_386#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Attiva Ora</a>
           </div>
         </article>
 
@@ -185,17 +160,17 @@
         <article class="illumia-card border-combo featured-combo card-bento-3x">
           <div class="illumia-card-left">
             <div class="illumia-badge badge-combo">⚡ LUCE DOMESTICO · LOGICARD</div>
-            <h3>Solo Web - Variabile PUN Logicard Casa</h3>
+            <h3>Luce PUN Index GME Domestico CS 386</h3>
             <p class="illumia-sub">Domestico · Indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).</p>
-            
+
             <div class="illumia-price-container">
               <span class="illumia-price-prefix">PUN +</span>
               <div class="illumia-price-val">0,05 <span class="illumia-price-unit">€/kWh</span></div>
             </div>
-            
-            <a href="contatti.html?offerta=Solo Web - Variabile PUN Logicard Casa#contatto-form" class="btn-illumia btn-combo" style="margin-top: 24px;">Attiva Combo</a>
+
+            <a href="contatti.php?offerta=NEX_EE_PUN_DOM_CS386#contatto-form" class="btn-illumia btn-combo" style="margin-top: 24px;">Attiva Combo</a>
           </div>
-          
+
           <div class="illumia-card-right">
             <ul class="illumia-details">
               <li><span class="checkmark">✓</span> Indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).</li>
@@ -213,17 +188,17 @@
         <article class="illumia-card border-luce card-bento-2x">
           <div class="illumia-card-left">
             <div class="illumia-badge badge-luce">⚡ LUCE DOMESTICO</div>
-            <h3>Solo Web - Variabile PUN</h3>
+            <h3>Luce PUN Index GME Domestico 386</h3>
             <p class="illumia-sub">Domestico · prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.</p>
-            
+
             <div class="illumia-price-container">
               <span class="illumia-price-prefix">PUN +</span>
               <div class="illumia-price-val">0,055 <span class="illumia-price-unit">€/kWh</span></div>
             </div>
-            
-            <a href="contatti.html?offerta=Solo Web - Variabile PUN#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Richiedi Preventivo</a>
+
+            <a href="contatti.php?offerta=NEX_EE_PUN_DOM_386#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Richiedi Preventivo</a>
           </div>
-          
+
           <div class="illumia-card-right">
             <ul class="illumia-details">
               <li><span class="checkmark">✓</span> prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.</li>
@@ -231,7 +206,7 @@
               <li><span class="checkmark">✓</span> 1,00 € sconto addebito SDD</li>
               <li><span class="checkmark">✓</span> <b>Corrispettivo annuo:</b> 456 €/POD/anno</li>
             </ul>
-            
+
             <!-- CO2 Calculator Widget Business -->
             <div class="co2-calculator">
               <h4>Impatto CO₂ Impresa</h4>
@@ -251,22 +226,22 @@
         <article class="illumia-card border-gas card-bento-1x">
           <div class="illumia-badge badge-gas">🔥 GAS DOMESTICO</div>
           <div class="illumia-card-body">
-            <h3>Solo Web - Gas PSV</h3>
+            <h3>Gas PSV Domestico 386</h3>
             <p class="illumia-sub">Domestico · prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.</p>
-            
+
             <div class="illumia-price-container">
               <span class="illumia-price-prefix">PSV +</span>
               <div class="illumia-price-val">0,45 <span class="illumia-price-unit">€/Smc</span></div>
             </div>
-            
+
             <ul class="illumia-details" style="margin-bottom: 28px;">
               <li><span class="checkmark">✓</span> prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.</li>
               <li><span class="checkmark">✓</span> 1,00 € sconto bolletta via e-mail</li>
               <li><span class="checkmark">✓</span> 1,00 € sconto addebito SDD</li>
               <li><span class="checkmark">✓</span> <b>Corrispettivo annuo:</b> 648 €/PDR/anno</li>
             </ul>
-            
-            <a href="contatti.html?offerta=Solo Web - Gas PSV#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Richiedi Preventivo</a>
+
+            <a href="contatti.php?offerta=NX_GAS_PSV_DOM_386#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Richiedi Preventivo</a>
           </div>
         </article>
 
@@ -274,17 +249,17 @@
         <article class="illumia-card border-combo featured-combo card-bento-3x">
           <div class="illumia-card-left">
             <div class="illumia-badge badge-combo">⚡ GAS DOMESTICO · LOGICARD</div>
-            <h3>Solo Web - Variabile Gas PSV Logicard Casa</h3>
+            <h3>Gas PSV Domestico CS 386</h3>
             <p class="illumia-sub">Domestico · con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).</p>
-            
+
             <div class="illumia-price-container">
               <span class="illumia-price-prefix">PSV +</span>
               <div class="illumia-price-val">0,42 <span class="illumia-price-unit">€/Smc</span></div>
             </div>
-            
-            <a href="contatti.html?offerta=Solo Web - Variabile Gas PSV Logicard Casa#contatto-form" class="btn-illumia btn-combo" style="margin-top: 24px;">Attiva Combo</a>
+
+            <a href="contatti.php?offerta=NX_GAS_PSV_DOM_CS386#contatto-form" class="btn-illumia btn-combo" style="margin-top: 24px;">Attiva Combo</a>
           </div>
-          
+
           <div class="illumia-card-right">
             <ul class="illumia-details">
               <li><span class="checkmark">✓</span> con carta Logicard Casa (contributo 168 €+IVA/anno in 12 rate).</li>
@@ -343,9 +318,9 @@
         Locura opera come partner strategico per l'efficienza energetica. Evitiamo logiche commerciali standardizzate: ogni profilo viene analizzato singolarmente per proporre tariffe realmente calibrate sul fabbisogno energetico specifico del cliente.
       </p>
       <p style="font-size:16.5px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
-        Grazie all'accesso directo ai mercati all'ingrosso, le nostre formule tariffarie si basano sulla trasparenza assoluta degli indici PUN e PSV, garantendo l'assenza di sovrapprezzi arbitrari e offrendo spread stabili e vantaggiosi.
+        Grazie all'accesso diretto ai mercati all'ingrosso, le nostre formule tariffarie si basano sulla trasparenza assoluta degli indici PUN e PSV, garantendo l'assenza di sovrapprezzi arbitrari e offrendo spread stabili e vantaggiosi.
       </p>
-      <a href="tariffe.html" class="btn-primary" style="align-self: flex-start; padding: 14px 28px;">Scopri i nostri piani tariffari</a>
+      <a href="tariffe.php" class="btn-primary" style="align-self: flex-start; padding: 14px 28px;">Scopri i nostri piani tariffari</a>
     </div>
     <div class="split-block-image reveal">
       <img src="split_home.jpg" alt="Smart energy home with electric vehicle charging station">
@@ -365,7 +340,7 @@
         <li style="margin-bottom:12px; display:flex; gap:10px; align-items:center; font-size:15px; color:#ffffff;"><span style="color:var(--accent); font-weight:bold;">✓</span> Rilevamento e rifasamento delle perdite di energia reattiva</li>
         <li style="margin-bottom:12px; display:flex; gap:10px; align-items:center; font-size:15px; color:#ffffff;"><span style="color:var(--accent); font-weight:bold;">✓</span> Reporting mensile dettagliato con indicazione degli indicatori KPI energetici</li>
       </ul>
-      <a href="contatti.html" class="btn-secondary" style="align-self: flex-start; padding: 14px 28px; background:#ffffff; color:var(--primary); font-weight: 700;">Richiedi un audit gratuito</a>
+      <a href="contatti.php" class="btn-secondary" style="align-self: flex-start; padding: 14px 28px; background:#ffffff; color:var(--primary); font-weight: 700;">Richiedi un audit gratuito</a>
     </div>
     <div class="split-block-image reveal">
       <img src="feature_consulenza.jpg" alt="Tablet showing modern energy monitoring dashboard charts">
@@ -383,7 +358,7 @@
       <p style="font-size:16.5px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
         Lavoriamo ogni giorno per semplificare la burocrazia del mercato energetico e garantire che ogni kilowattora consumato provenga da fonti sostenibili certificate.
       </p>
-      <a href="chi-siamo.html" class="btn-primary" style="align-self: flex-start; padding: 14px 28px;">Scopri la nostra storia</a>
+      <a href="chi-siamo.php" class="btn-primary" style="align-self: flex-start; padding: 14px 28px;">Scopri la nostra storia</a>
     </div>
     <div class="split-block-image reveal">
       <img src="chi_siamo_team.jpg" alt="Collaborative team at Locura working on clean energy technologies">
@@ -454,45 +429,16 @@
       <h2>Pronto a ridurre i consumi e a far bene all'ambiente?</h2>
       <p>Richiedi oggi un'analisi energetica gratuita senza impegno. Un nostro esperto ti contatterà entro 24 ore.</p>
       <div class="actions">
-        <a href="tariffe.html" class="btn-primary">Vedi tutte le offerte
+        <a href="tariffe.php" class="btn-primary">Vedi tutte le offerte
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="contatti.html" class="btn-secondary">Contattaci subito</a>
+        <a href="contatti.php" class="btn-secondary">Contattaci subito</a>
       </div>
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="locura-b.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-        </a>
-        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce Rinnovabile</a>
-        <a href="tariffe.html">Gas Compensato</a>
-        <a href="tariffe.html">Audit Digitale</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>LOCURA S.R.L.</strong> - Sede legale: Viale Giorgio Ribotta 11, 00144 Roma (RM) - P.IVA e C.F.: 17120841006 - R.E.A.: RM - 1697552 - Capitale Sociale &euro; 10.000,00 i.v. - PEC: <a href="mailto:locurasrl@casellapec.com">locurasrl@casellapec.com</a>. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script>
     // Reveal on scroll
     const io = new IntersectionObserver((entries) => {
@@ -500,7 +446,7 @@
     }, { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Nexicom Tab Switcher
+    // Tab Switcher
     document.querySelectorAll('.illumia-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.illumia-tab').forEach(t => t.classList.remove('active'));
@@ -527,12 +473,12 @@
         const inputVal = parseFloat(document.getElementById('hero-bill').value);
         const resultDiv = document.getElementById('hero-calc-result');
         const savingVal = document.getElementById('hero-saving-val');
-        
+
         if (isNaN(inputVal) || inputVal <= 0) {
           alert('Per favore, inserisci un importo valido.');
           return;
         }
-        
+
         // Calculate saving (e.g. 22% of annual spend)
         const saving = Math.round(inputVal * 12 * 0.22);
         savingVal.textContent = '€' + saving;
@@ -564,7 +510,6 @@
       });
     }
   </script>
-
-  <script src="cb.js"></script>
-</body>
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>

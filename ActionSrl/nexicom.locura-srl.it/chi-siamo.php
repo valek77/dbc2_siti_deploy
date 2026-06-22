@@ -1,35 +1,9 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Chi Siamo — Locura</title>
-  <meta name="description" content="Locura è un team di consulenti e specialisti della transizione ecologica ed energetica. Scopri i nostri valori e la nostra visione.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="locura.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary">Ottieni un preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Chi Siamo';
+$pageDescription = 'Locura è un team di consulenti e specialisti della transizione ecologica ed energetica. Scopri i nostri valori e la nostra visione.';
+include __DIR__ . '/header.php';
+?>
 
   <section class="page-hero">
     <div class="container">
@@ -129,7 +103,7 @@
       <p style="font-size:16.5px; color:rgba(255,255,255,0.85); line-height:1.75; margin: 0 0 32px;">
         Successivamente eseguiamo lo switch digitale coordinandoci con il distributore locale. Non dovrai fare altro che attendere l'attivazione della fornitura verde, senza interruzioni di servizio o passaggi tecnici complessi in casa.
       </p>
-      <a href="contatti.html" class="btn-secondary" style="align-self: flex-start; padding: 14px 28px; background:#ffffff; color:var(--primary); font-weight:700;">
+      <a href="contatti.php" class="btn-secondary" style="align-self: flex-start; padding: 14px 28px; background:#ffffff; color:var(--primary); font-weight:700;">
         Richiedi un'analisi gratuita
         <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -146,37 +120,4 @@
     <p class="by">— Il Team Locura</p>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="locura-b.png" alt="Locura Logo" style="max-height: 45px; width: auto;">
-        </a>
-        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce Rinnovabile</a>
-        <a href="tariffe.html">Gas Compensato</a>
-        <a href="tariffe.html">Audit Digitale</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>LOCURA S.R.L.</strong> - Sede legale: Viale Giorgio Ribotta 11, 00144 Roma (RM) - P.IVA e C.F.: 17120841006 - R.E.A.: RM - 1697552 - Capitale Sociale &euro; 10.000,00 i.v. - PEC: <a href="mailto:locurasrl@casellapec.com">locurasrl@casellapec.com</a>. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-  <script src="cb.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>
