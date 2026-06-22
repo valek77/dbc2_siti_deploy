@@ -11,77 +11,57 @@ $pageScripts = "  <script>const OPERATORE = $operatoreJs;</script>\n" . <<<'JS'
     const offers = [
       // --- OFFERTE LUCE ---
       {
-        id: 'luce-zero',
-        esclusiva: true,
-        nome: 'Luce Zero Domestico',
+        id: 'family-luce-green',
+        esclusiva: false,
+        nome: 'Family Luce Green',
         fornitore: OPERATORE,
-        tipo: 'Prezzo Indicizzato',
+        tipo: 'Mercato Libero · Prezzo Indicizzato',
         categoria: 'luce',
+        codice: '028056ESVFL02XX00FAMILYLUCEGREEN',
         bollettaMensile: 0.00,
         bollettaAnnua: 0.00,
         risparmio: 0.00,
-        features: ['Luce: PUN + 0,033000 €/kWh', 'Perdite di rete incluse', 'Commercializzazione: 17,00 €/mese (204€/anno)', 'Valida per utenze domestiche Bassa Tensione']
+        features: ['Energia elettrica - Utenze domestiche Bassa Tensione', 'F1/F2/F3 = PUN Index GME + 0,049500 €/kWh (perdite di rete incluse)', 'Corrispettivo annuo: 397,80 €/POD/anno', 'Energia 100% green da fonti rinnovabili (GO)', 'Richiesta entro il 30/06/2026']
       },
       {
         id: 'tris-luce-green',
         esclusiva: false,
         nome: 'Tris Luce Green',
         fornitore: OPERATORE,
-        tipo: 'Prezzo Indicizzato',
+        tipo: 'Mercato Libero · Prezzo Indicizzato',
         categoria: 'luce',
-        bollettaMensile: 0.00,
-        bollettaAnnua: 0.00,
-        risparmio: 60.00, // 15€ ogni 3 mesi (15 * 4 = 60€/anno)
-        features: ['Luce: PUN + 0,049500 €/kWh', 'Commercializzazione: 38,15 €/mese (457,80€/anno)', 'Bonus fedeltà: 15€ ogni 3 mesi di permanenza', 'Energia 100% Green da fonti rinnovabili (GO)']
-      },
-      {
-        id: 'family-luce-green',
-        esclusiva: false,
-        nome: 'Family Luce Green',
-        fornitore: OPERATORE,
-        tipo: 'Prezzo Indicizzato',
-        categoria: 'luce',
+        codice: '028056ESVFL02XX0000TRISLUCEGREEN',
         bollettaMensile: 0.00,
         bollettaAnnua: 0.00,
         risparmio: 0.00,
-        features: ['Luce: PUN + 0,049500 €/kWh', 'Commercializzazione: 33,15 €/mese (397,80€/anno)', 'Servizio Assistenza "Stai Sereno" incluso', 'Sconto in bolletta pari al costo dell\'assistenza']
+        features: ['Energia elettrica - Utenze domestiche Bassa Tensione', 'F1/F2/F3 = PUN Index GME + 0,049500 €/kWh (perdite di rete incluse)', 'Corrispettivo annuo: 457,80 €/POD/anno', 'Energia 100% green da fonti rinnovabili (GO)', 'Richiesta entro il 30/06/2026']
       },
       // --- OFFERTE GAS ---
       {
-        id: 'gas-zero',
+        id: 'family-gas',
         esclusiva: false,
-        nome: 'Gas Zero Domestico',
+        nome: 'Family Gas',
         fornitore: OPERATORE,
-        tipo: 'Prezzo Indicizzato',
+        tipo: 'Mercato Libero · Prezzo Indicizzato',
         categoria: 'gas',
+        codice: '028056GSVML02XX00000000FAMILYGAS',
         bollettaMensile: 0.00,
         bollettaAnnua: 0.00,
         risparmio: 0.00,
-        features: ['Gas: PSV + 0,210000 €/Smc', 'Commercializzazione: 17,00 €/mese (204€/anno)', 'Solo addebito SDD e bolletta web', 'Nessun costo nascosto']
+        features: ['Gas naturale - Utenze domestiche', 'M = PSV + 0,210000 €/Smc', 'Corrispettivo annuo: 397,80 €/PdR/anno', 'Richiesta entro il 30/06/2026']
       },
       {
         id: 'tris-gas',
         esclusiva: false,
         nome: 'Tris Gas',
         fornitore: OPERATORE,
-        tipo: 'Prezzo Indicizzato',
+        tipo: 'Mercato Libero · Prezzo Indicizzato',
         categoria: 'gas',
-        bollettaMensile: 0.00,
-        bollettaAnnua: 0.00,
-        risparmio: 60.00, // 15€ ogni 3 mesi
-        features: ['Gas: PSV + 0,210000 €/Smc', 'Commercializzazione: 38,15 €/mese (457,80€/anno)', 'Bonus fedeltà: 15€ ogni 3 mesi di permanenza', 'Più rimani, più risparmi']
-      },
-      {
-        id: 'family-gas',
-        esclusiva: false,
-        nome: 'Family Gas',
-        fornitore: OPERATORE,
-        tipo: 'Prezzo Indicizzato',
-        categoria: 'gas',
+        codice: '028056GSVML02XX0000000000TRISGAS',
         bollettaMensile: 0.00,
         bollettaAnnua: 0.00,
         risparmio: 0.00,
-        features: ['Gas: PSV + 0,210000 €/Smc', 'Commercializzazione: 33,15 €/mese (397,80€/anno)', 'Servizio Assistenza Casa incluso', 'Sconto in bolletta pari al costo assistenza']
+        features: ['Gas naturale - Utenze domestiche', 'M = PSV + 0,210000 €/Smc', 'Corrispettivo annuo: 457,80 €/PdR/anno', 'Richiesta entro il 30/06/2026']
       }
     ];
 
@@ -103,6 +83,7 @@ $pageScripts = "  <script>const OPERATORE = $operatoreJs;</script>\n" . <<<'JS'
             <div>
               <div class="offer-name-wrap"><span class="offer-name" style="font-size: 24px; font-weight: 700; color: var(--text-dark);">${o.nome}</span></div>
               <div class="offer-provider" style="color: var(--text-secondary); margin-top: 4px; font-size: 14px;">${o.fornitore} · ${o.tipo}</div>
+              ${o.codice ? `<div class="offer-code" style="color: var(--text-muted); margin-top: 4px; font-size: 11px; letter-spacing: 0.3px;">Cod. offerta: ${o.codice}</div>` : ''}
             </div>
             <div class="offer-price-wrap" style="text-align: right;">
               <div class="offer-price" style="font-size: 18px; font-weight: 700; color: var(--primary);">Prezzo Ingrosso</div>
@@ -148,8 +129,8 @@ include __DIR__ . '/header.php';
     <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte Luce e
       Gas <span style="color: var(--accent);"><?= $OPERATORE_ENERGETICO ?></span></h1>
     <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Scegli la trasparenza dei
-      prezzi all'ingrosso. Con <?= $OPERATORE_ENERGETICO ?> hai energia certificata 100% green, bonus fedeltà e nessuna
-      sorpresa in bolletta.</p>
+      prezzi all'ingrosso. Con <?= $OPERATORE_ENERGETICO ?> hai energia elettrica certificata 100% green, parametri fissi
+      garantiti per 12 mesi e nessuna sorpresa in bolletta.</p>
   </div>
 </section>
 
@@ -174,9 +155,9 @@ include __DIR__ . '/header.php';
       <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 36px;">Trasparenza e Servizi Dedicati
       </h2>
       <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-        Passare a <?= $OPERATORE_ENERGETICO ?> conviene: gestisci le tue utenze domestiche in modo chiaro. Ricevi bonus
-        di permanenza progressivi ogni 3 mesi, azzeri i costi aggiuntivi con le opzioni Zero e metti al sicuro i tuoi
-        impianti con l'assistenza dedicata "Stai Sereno".
+        Passare a <?= $OPERATORE_ENERGETICO ?> conviene: gestisci le tue utenze domestiche in modo chiaro, con prezzi
+        indicizzati al mercato all'ingrosso (PUN Index GME per la luce, PSV per il gas), parametri fissi garantiti per 12
+        mesi ed energia elettrica 100% green certificata da Garanzia d'Origine.
       </p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
         <div class="tag"
@@ -184,7 +165,7 @@ include __DIR__ . '/header.php';
           Prezzo di Mercato (PUN/PSV)</div>
         <div class="tag"
           style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
-          Bonus Fedeltà 15€</div>
+          Parametri fissi 12 mesi</div>
         <div class="tag"
           style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
           Energia 100% Verde (GO)</div>
