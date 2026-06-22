@@ -37,6 +37,19 @@ include __DIR__ . '/header.php';
     <h2>Responsabile della protezione dei dati (DPO)</h2>
     <p>Il DPO è contattabile alla casella e-mail <a href="mailto:dpo@nexicom.it"><strong>dpo@nexicom.it</strong></a>.</p>
 
+<?php
+// Identificazione della società che gestisce la landing (partner commerciale / Responsabile ex art. 28),
+// con i dati azienda dall'API ($COMPANY). Costruisco solo le parti effettivamente presenti.
+$cParts = [];
+if ($COMPANY['sede_legale'] !== '') { $cParts[] = 'con sede legale in ' . $COMPANY['sede_legale']; }
+if ($COMPANY['p_iva'] !== '')       { $cParts[] = 'C.F./P.IVA ' . $COMPANY['p_iva']; }
+if ($COMPANY['pec'] !== '')         { $cParts[] = 'PEC <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>'; }
+$cLine = $cParts ? ', ' . implode(', ', $cParts) : '';
+$cName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'la società partner';
+?>
+    <h2>Gestore della pagina e Responsabile del trattamento</h2>
+    <p>La presente landing page è gestita da <strong><?= $cName ?></strong><?= $cLine ?>, in qualità di partner commerciale del Titolare. Tale società tratta i dati per conto del Titolare quale Responsabile del trattamento ai sensi dell'art. 28 GDPR, limitatamente alla gestione della pagina, alla raccolta delle richieste e al contatto.</p>
+
     <h2>Dati personali trattati</h2>
     <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: nome, cognome, numero di telefono e indirizzo e-mail … (eventuali ulteriori campi).</p>
 
