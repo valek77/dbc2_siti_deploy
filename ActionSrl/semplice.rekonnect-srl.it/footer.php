@@ -1,6 +1,6 @@
 <?php
 /**
- * footer.php — piè di pagina comune a tutte le pagine (semplice.locura-srl.it).
+ * footer.php — piè di pagina comune a tutte le pagine (nexicom.locura-srl.it).
  *
  * Dati legali 100% da API NUOVA: la riga legale è costruita SOLO dai campi
  * presenti nell'azienda titolare ($COMPANY). Niente dati hardcoded: i campi che
@@ -76,7 +76,7 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
 <?php if ($operatoreNome !== '') { ?>
       <p style="font-size: 15px;">Offerte commercializzate in qualità di partner autorizzato di <strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
 <?php } ?>
-      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8;"><?php if ($COMPANY['logo2_url'] !== '') { ?><img src="<?= $COMPANY['logo_url'] ?>" alt="<?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?>" style="height: 16px; width: auto; vertical-align: middle; margin-right: 8px;"><?php } ?>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</p>
+      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"><?php if ($COMPANY['logo2_url'] !== '') { ?><img src="<?= $COMPANY['logo2_url'] ?>" alt="<?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?>" style="height: 56px; width: auto; margin-right: 8px;"><?php } ?><span>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</span></p>
     </div>
   </footer>
 
