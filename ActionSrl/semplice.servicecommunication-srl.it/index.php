@@ -427,7 +427,7 @@ include __DIR__ . '/header.php';
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Inizia oggi la transizione</span>
       <h2>Pronto a ridurre i consumi e a far bene all'ambiente?</h2>
-      <p>Richiedi oggi un'analisi energetica gratuita senza impegno. Un nostro esperto ti contatterà entro 24 ore.</p>
+      <p>Richiedi oggi un'analisi energetica gratuita senza impegno. Un nostro esperto ti contatterà al più presto.</p>
       <div class="actions">
         <a href="tariffe.php" class="btn-primary">Vedi tutte le offerte
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

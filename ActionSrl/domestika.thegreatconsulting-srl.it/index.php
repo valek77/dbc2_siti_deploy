@@ -291,7 +291,7 @@ include __DIR__ . '/header.php';
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Pronto a partire?</span>
       <h2>Bolletta più bassa, energia più chiara.</h2>
-      <p>Richiedi una consulenza gratuita. Ti contattiamo entro 24 ore lavorative per trovare insieme la tariffa giusta per te.</p>
+      <p>Richiedi una consulenza gratuita. Ti contattiamo al più presto per trovare insieme la tariffa giusta per te.</p>
       <div class="actions">
         <a href="tariffe.php" class="btn-primary">Vedi tutte le offerte
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

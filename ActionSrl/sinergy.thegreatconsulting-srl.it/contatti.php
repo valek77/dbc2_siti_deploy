@@ -14,7 +14,7 @@ include __DIR__ . '/header.php';
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Contattaci</span>
       <h1>Parliamo di <span class="accent">energia</span></h1>
-      <p>Richiedi una consulenza gratuita: un nostro esperto ti contatterà entro 24 ore lavorative per analizzare la tua bolletta e proporti l'offerta più adatta.</p>
+      <p>Richiedi una consulenza gratuita: un nostro esperto al più presto per analizzare la tua bolletta e proporti l'offerta più adatta.</p>
     </div>
     <div class="wave">
       <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
@@ -89,7 +89,7 @@ include __DIR__ . '/header.php';
         <div id="contatto-form">
           <div class="contact-form">
             <h3>Richiedi una consulenza gratuita</h3>
-            <p class="sub">Compila il form e un nostro consulente ti ricontatterà entro 24 ore lavorative.</p>
+            <p class="sub">Compila il form e un nostro consulente ti ricontatterà al più presto.</p>
 
             <form id="leadForm" action="https://dbc2.datalia.it/api/lead" method="POST" novalidate>
               <div class="form-group">

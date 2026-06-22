@@ -9,7 +9,7 @@ include __DIR__ . '/header.php';
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Consulenza Gratuita</span>
       <h1>Parliamo del tuo <span class="accent">risparmio</span></h1>
-      <p>Richiedi un'analisi energetica senza impegno. Un nostro energy manager ti contatterà entro 24 ore lavorative per identificare l'opzione ideale in base al tuo profilo di consumo.</p>
+      <p>Richiedi un'analisi energetica senza impegno. Un nostro energy manager al più presto per identificare l'opzione ideale in base al tuo profilo di consumo.</p>
     </div>
     <div class="wave">
       <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
@@ -131,7 +131,7 @@ include __DIR__ . '/header.php';
             <div id="conferma" hidden style="text-align: center; padding: 32px; margin-top: 20px; background: var(--primary-50); border: 1px solid var(--primary-100); border-radius: var(--r-sm); color: var(--primary-600);">
               <div style="font-size: 52px; margin-bottom: 12px;">✅</div>
               <strong style="font-size: 17px;">Richiesta inviata correttamente!</strong>
-              <p style="margin: 8px 0 0; font-size: 14px; line-height:1.5;">Un consulente energetico prenderà in carico la tua pratica ed effettuerà il ricontatto entro 24 ore.</p>
+              <p style="margin: 8px 0 0; font-size: 14px; line-height:1.5;">Un consulente energetico prenderà in carico la tua pratica ed effettuerà il ricontatto al più presto.</p>
             </div>
           </div>
         </div>
