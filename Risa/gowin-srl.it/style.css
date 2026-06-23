@@ -1,31 +1,23 @@
 :root {
-  /* Nuovi colori estratti dal logo GOWIN */
-  --primary: #B594C5;          /* Viola chiaro / Lilla del logo */
-  --secondary: #606062;        /* Grigio scuro della freccia centrale */
-  --accent: #7A7A7A;           /* Grigio medio del testo GOWIN */
-  --accent-hover: #4A4A4A;
-  
-  /* Gradienti ricalibrati sul nuovo schema */
-  --grad-yellow: linear-gradient(102deg, #D4C2DC 0%, #B594C5 60%); /* Sostituisce il vecchio gradiente giallo con una sfumatura lilla morbida */
-  --grad-magenta: linear-gradient(135deg, #B594C5 0%, #8A6A9A 100%); /* Sostituisce il magenta con un gradiente viola aziendale */
-  
-  /* Testi e UI adattati per garantire il contrasto */
-  --text-dark: #202022;        /* Variato leggermente per matchare il sottotono grigio del logo */
-  --text-secondary: #606062;   /* Coerente con il grigio scuro del logo */
-  --text-muted: #7A7A7A;      /* Coerente con il grigio del testo inferiore */
-  --text-label: #4E4E50;
-  --border: #E2E2E4;
+  --primary: #5ec8d7; /* Sky blue/cyan from logo */
+  --secondary: #484849; /* Charcoal grey from logo */
+  --accent: #5ec8d7; /* Sky blue/cyan */
+  --accent-hover: #45b1c0;
+  --accent-bg: #f0fafb; /* Light cyan background */
+  --grad-yellow: linear-gradient(102deg, #8ef0fc 0%, #5ec8d7 60%); /* Cyan gradient for main CTAs */
+  --grad-magenta: linear-gradient(135deg, #5ec8d7 0%, #3ba5b5 100%); /* Cyan/Teal gradient */
+  --text-dark: #212529;
+  --text-secondary: #4D4D4F;
+  --text-muted: #6C757D;
+  --text-label: #495057;
+  --border: #DEE2E6;
   --bg-page: #ffffff;
-  --bg-cream: #F5F5F7;         /* Una tonalità di grigio/crema molto chiara e fredda, adatta al nuovo brand */
-  
-  /* Il gradiente blu può essere mantenuto come fallback terziario o rimosso se non utilizzato */
-  --grad-blue: linear-gradient(135deg, #4A5568 0%, #2D3748 100%); 
-  
-  /* Tipografia e Layout (Invariati) */
+  --bg-cream: #F8F9FA;
+  --grad-blue: linear-gradient(135deg, #3fa8b7 0%, #1f6b76 100%); /* Cyan/Teal gradient */
   --font-h: 'Outfit', sans-serif;
   --font-main: 'Outfit', sans-serif;
-  --radius-lg: 10px;
-  --radius-pill: 36px;
+  --radius-lg: 10px; /* Action uses tighter corners for cards */
+  --radius-pill: 36px; /* For buttons - matching Action's 36px */
   --gutter: 24px;
   --section-padding: 80px;
 }
@@ -127,8 +119,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-tag {
   display: inline-block;
-  background: var(--primary); /* Magenta */
-  color: #fff;
+  background: var(--primary); /* Cyan */
+  color: var(--text-dark); /* Improved contrast */
   padding: 8px 16px;
   border-radius: 4px;
   font-weight: 700;
@@ -188,7 +180,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(244, 218, 72, 0.3);
+  box-shadow: 0 10px 20px rgba(94, 200, 215, 0.3);
 }
 
 .btn-secondary {
@@ -207,7 +199,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary:hover {
   background: var(--primary);
-  color: #fff;
+  color: var(--text-dark);
 }
 
 .features-section {
@@ -362,7 +354,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── How it works ─── */
 .how-it-works-section {
   padding: var(--section-padding) 20px;
-  background: #B594C5;
+  background: var(--secondary); /* Charcoal grey */
   color: #ffffff;
 }
 
@@ -408,8 +400,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hiw-number {
-  background: var(--accent);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--secondary);
   width: 50px;
   height: 50px;
   border-radius: 12px;
