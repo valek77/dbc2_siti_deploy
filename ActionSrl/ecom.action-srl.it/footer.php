@@ -1,78 +1,89 @@
 <?php
 /**
- * footer.php — piè di pagina comune a tutte le pagine.
+ * footer.php — piè di pagina comune a tutte le pagine (nexicom.locura-srl.it).
+ *
+ * Dati legali 100% da API NUOVA: la riga legale è costruita SOLO dai campi
+ * presenti nell'azienda titolare ($COMPANY). Niente dati hardcoded: i campi che
+ * l'API non fornisce (es. R.E.A.) semplicemente non compaiono.
+ *
+ * Prima dell'include ogni pagina può impostare:
+ *   $pageScripts -> HTML <script> specifici della pagina (facoltativo)
  */
-$logo = $logo2_url !== '' ? $logo2_url : 'logo_white.png';
+$brandName = isset($brandName) ? $brandName
+    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Locura');
+// Logo footer (sfondo scuro): logo2 dall'API se presente, altrimenti l'immagine locale.
+$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'locura-b.png';
 
-// Riga legale: includo solo le parti effettivamente presenti.
+// Riga legale: includo solo le parti effettivamente presenti nell'API.
 $legalParts = [];
-if ($company_name) {
-  $legalParts[] = $company_name;
+if ($COMPANY['company_name'] !== '') {
+    $legalParts[] = '<strong>' . $COMPANY['company_name'] . '</strong>';
 }
-if ($sede_legale) {
-  $legalParts[] = 'Sede Legale: ' . $sede_legale;
+if ($COMPANY['sede_legale'] !== '') {
+    $legalParts[] = 'Sede legale: ' . $COMPANY['sede_legale'];
 }
-if ($p_iva) {
-  $legalParts[] = 'P.IVA e C.F.: ' . $p_iva;
+if ($COMPANY['p_iva'] !== '') {
+    $legalParts[] = 'P.IVA e C.F.: ' . $COMPANY['p_iva'];
 }
-if ($capitale_sociale) {
-  $legalParts[] = 'Capitale Sociale ' . $capitale_sociale;
+if ($COMPANY['capitale_sociale'] !== '') {
+    $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale'];
 }
-if ($pec) {
-  $legalParts[] = 'PEC: ' . $pec;
+if ($COMPANY['pec'] !== '') {
+    $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
 }
-$legalLine = implode(' &mdash; ', $legalParts);
+$legalLine = implode(' - ', $legalParts);
+
+// Dati dell'OPERATORE ENERGETICO (fornitore di cui il sito è partner/rivenditore).
+// Solo i campi presenti nell'API; il nome va nel prefisso, i dettagli a seguire.
+$operatoreNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
+$operatoreDettagli = [];
+if ($OPERATORE['indirizzo'] !== '') {
+    $operatoreDettagli[] = 'Sede: ' . $OPERATORE['indirizzo'];
+}
+if ($OPERATORE['partita_iva'] !== '') {
+    $operatoreDettagli[] = 'P.IVA: ' . $OPERATORE['partita_iva'];
+}
+$operatoreDettagliLine = implode(' - ', $operatoreDettagli);
 ?>
 
-<footer class="main-footer" style="background: #111; color: #fff; padding: 80px 0 40px;">
-  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-    <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: 60px;">
-      
-      <div class="footer-brand" style="grid-column: span 2;">
-        <a href="index.php" class="logo" style="margin-bottom: 28px; display: inline-block;">
-          <img src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img" style="height: 48px; filter: brightness(0) invert(1);">
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.php" class="logo">
+          <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo" style="max-height: 45px; width: auto;">
         </a>
-        <div style="color: rgba(255,255,255,.6); font-size: 15px; line-height: 1.7; max-width: 320px;">
-          Siamo partner autorizzato 
-          <img src="https://www.energiacomune.com/img/ecom_logo-2048x270.png" style="height: 18px; vertical-align: middle; margin: 0 4px;" alt="Energia Comune">. 
-          La nostra missione è fornire energia a prezzi chiari, supportata da consulenti reali e disponibili per garantirti sempre la massima trasparenza.
-        </div>
+        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
       </div>
-
-      <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 12px; color: #fff;">Offerte e Servizi</h4>
-        <a href="tariffe.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Offerte Luce e Gas</a>
-        <a href="tariffe.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Offerte PLACET</a>
-        <a href="chi-siamo.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Consulenza Aziendale</a>
-        <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Efficienza Energetica</a>
+      <div class="footer-col">
+        <h4>Azienda</h4>
+        <a href="chi-siamo.php">Chi siamo</a>
+        <a href="tariffe.php">Offerte</a>
+        <a href="contatti.php">Contatti</a>
       </div>
-
-      <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 12px; color: #fff;">Supporto Clienti</h4>
-        <a href="contatti.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Contattaci</a>
-        <?php if ($telefono) { ?> <a href="tel:<?= $telefono ?>" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Tel: <?= $telefono ?></a> <?php } ?>
-        <?php if ($email_supporto) { ?> <a href="mailto:<?= $email_supporto ?>" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Email: <?= $email_supporto ?></a> <?php } ?>
-        <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">FAQ</a>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="tariffe.php">Luce Rinnovabile</a>
+        <a href="tariffe.php">Gas Compensato</a>
+        <a href="tariffe.php">Audit Digitale</a>
       </div>
-
-      <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 12px; color: #fff;">Legale</h4>
-        <a href="chi-siamo.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Chi Siamo</a>
-        <a href="privacy-policy.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Privacy Policy</a>
-        <a href="condizioni-utilizzo.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none;">Condizioni di Utilizzo</a>
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <a href="privacy-policy.php">Privacy Policy</a>
+        <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
       </div>
-
     </div>
-    
-    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 16px;">
-      <p style="margin: 0;">&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati. <span style="margin-left: 8px;"><a href="privacy-policy.php" style="color: inherit; text-decoration: underline;">Privacy Policy</a> &middot; <a href="condizioni-utilizzo.php" style="color: inherit; text-decoration: underline;">Condizioni di Utilizzo</a></span></p>
+    <div class="footer-bottom">
+<?php if ($operatoreNome !== '') { ?>
+      <p style="font-size: 15px;">Offerte commercializzate in qualità di partner autorizzato di <strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
+<?php } ?>
+      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"><?php if ($COMPANY['logo2_url'] !== '') { ?><img src="<?= $COMPANY['logo2_url'] ?>" alt="<?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?>" style="height: 56px; width: auto; margin-right: 8px;"><?php } ?><span>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</span></p>
     </div>
-  </div>
-</footer>
+  </footer>
 
 <?php if (!empty($pageScripts)) {
-  echo $pageScripts;
+    echo $pageScripts;
 } ?>
 <script src="cb.js"></script>
 </body>
+
 </html>

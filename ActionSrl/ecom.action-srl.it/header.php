@@ -1,19 +1,25 @@
 <?php
 /**
- * header.php — testata comune a tutte le pagine.
+ * header.php — testata comune a tutte le pagine (semplice.locura-srl.it).
  *
- * Prima di includerlo, ogni pagina può impostare:
- *   $pageTitle  -> titolo specifico della pagina (obbligatorio)
- *   $pageHead   -> HTML extra da inserire nel <head> (es. <style>) (facoltativo)
+ * Sito DINAMICO su API NUOVA (/landing-pages): brand e logo arrivano dagli array
+ * $LANDING_PAGE / $COMPANY popolati da _shared/config.php. I valori degli array
+ * sono GIÀ resi sicuri per l'HTML (stampare con <?= ... ?>, senza e()).
  *
- * Richiede che _config.php sia già stato incluso (fornisce $brand, le
- * variabili globali dei campi azienda e gli helper c()/e()).
+ * Prima dell'include ogni pagina può impostare:
+ *   $pageTitle        -> titolo specifico (facoltativo; default = brand)
+ *   $pageDescription  -> meta description (facoltativo)
+ *   $pageHead         -> HTML extra nel <head>, es. <style> (facoltativo)
  */
-if (!isset($brand)) {
+if (!isset($LANDING_PAGE)) {
     require __DIR__ . '/_config.php';
 }
-$pageTitle = isset($pageTitle) ? $pageTitle : $brand;
-$logo = $logo_url !== '' ? $logo_url : 'logo.png';
+// Nome da mostrare: nome portale della landing, con fallback alla ragione sociale.
+$brandName = $LANDING_PAGE['titolo'] !== ''
+    ? $LANDING_PAGE['titolo']
+    : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Locura');
+// Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
+$logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'locura.png';
 ?>
 <!doctype html>
 <html lang="it">
@@ -21,28 +27,42 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title><?= e($pageTitle) ?> — <?= $brand ?></title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title><?php
+    if (isset($pageTitle) && $pageTitle !== '') {
+        echo e($pageTitle) . ' — ' . $brandName;        // pagine interne: "Titolo pagina — Brand"
+    } elseif ($LANDING_PAGE['titolo'] !== '') {
+        echo $LANDING_PAGE['titolo'];                     // homepage: titolo della landing (già pulito per HTML)
+    } else {
+        echo $brandName;
+    }
+?></title>
+<?php if (!empty($pageDescription)) { ?>
+  <meta name="description" content="<?= e($pageDescription) ?>">
+<?php } ?>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
 <?php if (!empty($pageHead)) {
     echo $pageHead;
 } ?>
 </head>
 
-<body style="margin: 0;">
+<body>
 
-  <header class="main-header" style="top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #E4E4E7;">
-    <div class="header-container" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;">
+  <header class="main-header">
+    <div class="header-container">
       <a href="index.php" class="logo">
-        <img src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img" style="height: 40px; width: auto;">
+        <img src="<?= $logoHeader ?>" alt="<?= $brandName ?> Logo" style="max-height: 45px; width: auto;">
       </a>
-      <nav class="nav-links" style="display: flex; gap: 32px;">
-        <a href="tariffe.php" class="nav-link" style="font-weight: 600; color: #18181B; text-decoration: none;">Offerte Luce e Gas</a>
-        <a href="chi-siamo.php" class="nav-link" style="font-weight: 600; color: #18181B; text-decoration: none;">Chi Siamo</a>
-        <a href="contatti.php" class="nav-link" style="font-weight: 600; color: #18181B; text-decoration: none;">Contatti</a>
+      <nav class="nav-links">
+        <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
+        <a href="tariffe.php" class="nav-link">Offerte</a>
+        <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
       <div class="header-cta">
-        <a href="tariffe.php" class="btn-primary" style="padding: 10px 24px; font-size: 14px; background: var(--primary); color: #fff; border-radius: 99px; text-decoration: none; font-weight: 600;">Scopri tariffe</a>
+        <a href="contatti.php" class="btn-primary">Ottieni un preventivo
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </header>

@@ -75,7 +75,7 @@ include __DIR__ . '/header.php';
           <div class="offer-ribbon" style="background: #18181B; color: #fff; padding: 12px 20px; font-weight: 700; font-size: 12px; text-transform: uppercase;">Business</div>
           <div class="offer-body" style="padding: 32px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 24px; font-weight: 800; margin-bottom: 8px;">Soluzioni Business</div>
-            <img src="https://www.energiacomune.com/img/ecom_logo-2048x270.png" alt="Energia Comune" style="height: 20px; margin-bottom: 24px; filter: brightness(0);">
+            <img src="https://www.energiacomune.com/img/ecom_logo-2048x270.png" alt="Energia Comune" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
             <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
               <div style="font-size: 11px; text-transform: uppercase; color: #A1A1AA; font-weight: 600; margin-bottom: 8px;">Consulenza personalizzata</div>
               <div style="font-size: 28px; font-weight: 800; color: #18181B;">Su misura</div>
