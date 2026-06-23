@@ -450,20 +450,5 @@ function e($text)
 
 // Nome da mostrare: commerciale se presente, altrimenti ragione sociale.
 // Uso le globali già pulite, così anche $brand è sicuro per l'output HTML.
-
-$nome_commerciale = $COMPANY['nome_commerciale'];
-$company_name  = $COMPANY['company_name'];
-$sede_legale = $COMPANY['sede_legale'];
-$sede_operativa = $COMPANY['sede_operativa'];
-$pec = $COMPANY['pec'];
-$email_dpo = $COMPANY['email_dpo'];
-$email_supporto = $COMPANY['email_supporto'];
-$p_iva = $COMPANY['p_iva'];
-$telefono = $COMPANY['telefono'];
-$logo_url = $COMPANY['logo_url'];
-$logo2_url = $COMPANY['logo2_url'];
-$capitale_sociale = $COMPANY['capitale_sociale'];
-
 $brand = $nome_commerciale !== '' ? $nome_commerciale
     : ($company_name !== '' ? $company_name : 'La nostra azienda');
-
