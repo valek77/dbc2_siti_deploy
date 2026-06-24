@@ -239,7 +239,7 @@ include __DIR__ . '/header.php';
       </div>
 
       <div class="form-container">
-        <form id="leadForm" action="https://dbc2.datalia.it/api/lead" method="POST" novalidate>
+        <form id="leadForm" method="POST" novalidate>
           <div class="form-group">
             <label class="form-label" for="fNome">Nome e Cognome *</label>
             <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>

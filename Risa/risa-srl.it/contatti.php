@@ -63,7 +63,7 @@ $offertaSelezionata = isset($_GET['offerta']) ? $_GET['offerta'] : '';
 
         <div style="background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #E4E4E7; box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
           <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 24px;" id="contatto-form">Richiesta Contatto</h3>
-          <form id="leadForm" action="https://dbc2.datalia.it/api/lead" method="POST" novalidate>
+          <form id="leadForm" method="POST" novalidate>
             <div style="margin-bottom: 20px;">
               <label for="fNome" style="display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #18181B;">Nome e Cognome *</label>
               <input type="text" id="fNome" name="nome" required style="width: 100%; padding: 14px; border: 1px solid #E4E4E7; border-radius: 12px; font-family: inherit; font-size: 16px;">
