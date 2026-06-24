@@ -76,7 +76,7 @@ include __DIR__ . '/header.php';
             <h3>Richiedi l'analisi gratuita</h3>
             <p class="sub">Compila i campi sottostanti per essere ricontattato da un energy manager dedicato.</p>
 
-            <form id="leadForm" action="https://dbc2.datalia.it/api/lead" method="POST" novalidate>
+            <form id="leadForm" method="POST" novalidate>
               <div class="form-group">
                 <label class="form-label" for="fNome">Nome e Cognome *</label>
                 <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>

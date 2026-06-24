@@ -249,7 +249,8 @@ Per ciascuna pagina (`index`, `chi-siamo`, `tariffe`, `contatti`, `privacy-polic
 
 `contatti.php` include `lead-form.js` (passarlo via `$pageScripts`). Il form NON va
 ridisegnato: rispettare il contratto (vedi `CLAUDE.md` › "Key shared behavior"):
-- `action="https://dbc2.datalia.it/api/lead"`, `method="POST"`.
+- `method="POST"` (NON serve l'attributo `action`: l'invio è gestito interamente da
+  `lead-form.js` con `e.preventDefault()` + `fetch()`, l'`action` HTML nativo non viene mai usato).
 - ID campi: `fNome` / `fTel` / `fEmail`; submit `btnSubmit`; conferma `#conferma`.
 - `name`: `nome`, `telefono`, `email`.
 - consensi: `consenso_privacy` (obbligatorio) + `consenso_ricontatto` (o `consenso_commerciale`)

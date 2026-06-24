@@ -28,6 +28,11 @@ class Audit
         'pec', 'email_dpo', 'email_supporto', 'capitale_sociale', 'telefono',
         'logo_url', 'logo2_url',
     ];
+    // Variabili dell'API vecchia usate nei TESTI (tipicamente il consenso): in un
+    // sito API-nuova $OPERATORE_ENERGETICO stampa VUOTO e $brand ripiega sul
+    // generico "La nostra azienda" -> consenso/brand rotto a video (ERROR, non WARN
+    // come le piatte, perché il danno è visibile in pagina e legalmente rilevante).
+    const OLD_API_VARS = ['OPERATORE_ENERGETICO', 'brand'];
 
     private $root;
     private $opts;
@@ -395,15 +400,29 @@ class Audit
             return;
         }
         $re = '/\$(' . implode('|', array_map('preg_quote', self::FLAT_VARS)) . ')\b/';
+        // \b dopo "brand" NON matcha $brandName (d->N senza confine di parola):
+        // così si intercetta solo l'uso del vecchio $brand, non i nuovi $brandName.
+        $reOld = '/\$(' . implode('|', array_map('preg_quote', self::OLD_API_VARS)) . ')\b/';
         foreach (array_merge($s['pages'], ['header.php', 'footer.php']) as $page) {
             $abs = $s['abs'] . '/' . $page;
             if (!is_file($abs) || !preg_match('/\.php$/', $page)) {
                 continue;
             }
-            if (preg_match_all($re, $this->read($abs), $m)) {
+            $content = $this->read($abs);
+            if (preg_match_all($re, $content, $m)) {
                 $vars = array_values(array_unique($m[1]));
                 $this->add($s['dir'], 'F', 'WARN', 'F-flatvar',
                     "Variabili piatte API-vecchia in sito API-nuova (stampano vuoto): \$" . implode(', $', $vars) . ".", $page);
+            }
+            // CRITICO: residuo API-vecchia nei testi (consenso). $OPERATORE_ENERGETICO
+            // -> vuoto, $brand -> "La nostra azienda". Vanno sostituite con i dati
+            // dell'API nuova: $OPERATORE['nome_marketing'] e $COMPANY['company_name'].
+            if (preg_match_all($reOld, $content, $m)) {
+                $vars = array_values(array_unique($m[1]));
+                $this->add($s['dir'], 'F', 'ERROR', 'F-oldvar',
+                    "Variabili API-vecchia in sito API-nuova (\$" . implode(', $', $vars)
+                    . "): \$OPERATORE_ENERGETICO stampa vuoto, \$brand ripiega su \"La nostra azienda\". "
+                    . "Usare \$OPERATORE['nome_marketing'] e \$COMPANY['company_name'].", $page);
             }
         }
     }
