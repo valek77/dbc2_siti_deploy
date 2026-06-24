@@ -88,7 +88,7 @@ $offertaSelezionata = isset($_GET['offerta']) ? $_GET['offerta'] : '';
               </label>
               <label style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer;">
                 <input type="checkbox" name="consenso_ricontatto" required style="margin-top: 4px;">
-                <span style="font-size: 13px; color: #71717A; line-height: 1.5;">Richiedo di essere ricontattato da <?= htmlspecialchars($OPERATORE_ENERGETICO) ?>, tramite il partner commerciale <?= htmlspecialchars($brand) ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                <span style="font-size: 13px; color: #71717A; line-height: 1.5;">Richiedo di essere ricontattato da <?= $OPERATORE['nome_marketing'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
               </label>
             </div>
             <button type="submit" id="btnSubmit" disabled class="btn-primary" style="width: 100%; background: var(--primary); color: #fff; padding: 16px; border: none; border-radius: 99px; font-weight: 700; font-size: 16px; cursor: pointer; transition: opacity 0.2s;">Invia Richiesta</button>
