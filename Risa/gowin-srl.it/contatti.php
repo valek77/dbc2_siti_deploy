@@ -29,32 +29,32 @@ $offertaSelezionata = isset($_GET['offerta']) ? $_GET['offerta'] : '';
           <p style="color: #71717A; margin-bottom: 32px; line-height: 1.6;">Se hai dubbi sulla tua fornitura o vuoi semplicemente maggiori informazioni sulle nostre offerte, i nostri consulenti sono a tua disposizione.</p>
           
           <div style="display: flex; flex-direction: column; gap: 24px;">
-            <?php if ($telefono) { ?>
+            <?php if ($COMPANY['telefono']) { ?>
             <div style="display: flex; align-items: flex-start; gap: 16px;">
               <div style="background: #FAFAFA; padding: 12px; border-radius: 50%; color: var(--primary);">📞</div>
               <div>
                 <div style="font-weight: 700; color: #18181B; margin-bottom: 4px;">Telefono</div>
-                <a href="tel:<?= $telefono ?>" style="color: #71717A; text-decoration: none;"><?= $telefono ?></a>
+                <a href="tel:<?= $COMPANY['telefono'] ?>" style="color: #71717A; text-decoration: none;"><?= $COMPANY['telefono'] ?></a>
               </div>
             </div>
             <?php } ?>
 
-            <?php if ($email_supporto) { ?>
+            <?php if ($COMPANY['email_supporto']) { ?>
             <div style="display: flex; align-items: flex-start; gap: 16px;">
               <div style="background: #FAFAFA; padding: 12px; border-radius: 50%; color: var(--primary);">✉️</div>
               <div>
                 <div style="font-weight: 700; color: #18181B; margin-bottom: 4px;">Email</div>
-                <a href="mailto:<?= $email_supporto ?>" style="color: #71717A; text-decoration: none;"><?= $email_supporto ?></a>
+                <a href="mailto:<?= $COMPANY['email_supporto'] ?>" style="color: #71717A; text-decoration: none;"><?= $COMPANY['email_supporto'] ?></a>
               </div>
             </div>
             <?php } ?>
 
-            <?php if ($sede_legale) { ?>
+            <?php if ($COMPANY['sede_legale']) { ?>
             <div style="display: flex; align-items: flex-start; gap: 16px;">
               <div style="background: #FAFAFA; padding: 12px; border-radius: 50%; color: var(--primary);">📍</div>
               <div>
                 <div style="font-weight: 700; color: #18181B; margin-bottom: 4px;">Sede</div>
-                <div style="color: #71717A;"><?= $sede_legale ?></div>
+                <div style="color: #71717A;"><?= $COMPANY['sede_legale'] ?></div>
               </div>
             </div>
             <?php } ?>
