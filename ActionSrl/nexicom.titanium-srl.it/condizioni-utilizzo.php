@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Informativa sul Trattamento dei Dati Personali';
-$pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) per la landing page di Nexicom S.p.A.';
+$pageTitle = 'Policy di Utilizzo della Landing Page';
+$pageDescription = 'Policy di utilizzo della landing page unica del Titolare Nexicom S.p.A. — conformità Decreto Bollette e art. 51 del Codice del Consumo.';
 $pageHead = <<<'CSS'
 <style>
   .policy-doc { max-width: 820px; margin: 70px auto 110px; padding: 0 24px; }
@@ -17,68 +17,80 @@ $pageHead = <<<'CSS'
     color: var(--primary, #0d9488); font-size: 17px; font-weight: 700; margin: 34px 0 12px; letter-spacing: 0.01em;
   }
   .policy-doc p { font-size: 15px; line-height: 1.75; text-align: justify; margin: 0 0 14px; color: var(--ink-2, #374151); }
-  .policy-doc ol, .policy-doc ul { font-size: 15px; line-height: 1.75; color: var(--ink-2, #374151); margin: 0 0 14px; padding-left: 24px; }
-  .policy-doc li { margin-bottom: 12px; text-align: justify; }
   .policy-doc a { color: var(--primary, #0d9488); font-weight: 600; }
+  .policy-doc .doc-sign {
+    margin-top: 56px; padding-top: 24px; border-top: 1px dashed var(--line, #e2e8f0);
+    font-size: 15px; color: var(--ink-2, #374151); text-align: left; letter-spacing: 0.01em;
+  }
 </style>
 CSS;
 include __DIR__ . '/header.php';
+
+// MODIFICA 2: i dati del «Responsabile» sono quelli della company (dall'API).
+$resp = [];
+if ($COMPANY['company_name'] !== '') {
+    $resp[] = '<strong>' . $COMPANY['company_name'] . '</strong>';
+}
+if ($COMPANY['sede_legale'] !== '') {
+    $resp[] = 'con sede legale in ' . $COMPANY['sede_legale'];
+}
+if ($COMPANY['p_iva'] !== '') {
+    $resp[] = 'C.F./P.IVA ' . $COMPANY['p_iva'];
+}
+if ($COMPANY['pec'] !== '') {
+    $resp[] = 'PEC ' . $COMPANY['pec'];
+}
+$responsabileData = implode(', ', $resp);
 ?>
 
   <main class="policy-doc">
 
-    <h1 class="doc-title">Informativa sul Trattamento dei Dati Personali</h1>
-    <p class="doc-subtitle">(artt. 13 GDPR 2016/679)</p>
+    <h1 class="doc-title">Policy di Utilizzo della Landing Page</h1>
+    <p class="doc-subtitle">Regole d'uso della landing page unica del Titolare — conformità Decreto Bollette e art. 51 Codice del Consumo</p>
     <hr class="doc-rule">
 
-    <h2>Titolare del trattamento</h2>
-    <p>Il Titolare del trattamento è <strong>Nexicom S.p.A.</strong>, con sede legale in Via Volturno 5, 20900 Monza (MB), C.F./P.IVA e n. Registro Imprese 10555170967, REA MB - 2773097, e-mail partner@nexicom.it, PEC nexicomspa@pec.nexicom.it, in persona del legale rapp.te p.t..</p>
+    <h2>Premesse</h2>
+    <p>(A) La landing page unica <a href="<?= $LANDING_PAGE['url'] ?>"><?= $LANDING_PAGE['url'] ?></a> è di proprietà di <strong>Nexicom S.p.A.</strong>, con sede legale in Via Volturno 5, 20900 Monza (MB), C.F./P.IVA e n. Registro Imprese 10555170967, REA MB - 2773097, e-mail partner@nexicom.it, PEC nexicomspa@pec.nexicom.it, in persona del legale rapp.te p.t. (il «Titolare»), ed è gestita dalla società di teleselling nominata Responsabile ex art. 28 GDPR<?= $responsabileData !== '' ? ', ' . $responsabileData : '' ?> (il «Responsabile») e dai sub-partner commerciali autorizzate.</p>
+    <p>(B) La presente Policy regola l'uso della pagina in conformità al nuovo art. 51, commi 8-bis e seguenti, del Codice del Consumo (L. 49/2026, Decreto Bollette), che vieta le sollecitazioni telefoniche per energia elettrica e gas salvo richiesta del consumatore effettuata tramite le interfacce informatiche del professionista.</p>
 
-    <h2>Responsabile della protezione dei dati (DPO)</h2>
-    <p>Il DPO è contattabile alla casella e-mail <a href="mailto:dpo@nexicom.it"><strong>dpo@nexicom.it</strong></a>.</p>
+    <h2>Art. 1 — Oggetto</h2>
+    <p>La Policy definisce le regole vincolanti d'uso della landing page unica del Titolare da parte del Responsabile e dei sub-partner commerciali.</p>
 
-    <h2>Dati personali trattati</h2>
-    <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: nome, cognome, numero di telefono e indirizzo e-mail.</p>
+    <h2>Art. 2 — Proprietà e landing page unica</h2>
+    <p>La pagina è di proprietà del Titolare; il Responsabile e tutti i sub-partner commerciali la utilizzano in via esclusiva.</p>
+    <p>È vietato l'uso di pagine, form, domini o canali di raccolta diversi dalla landing page unica.</p>
 
-    <h2>Finalità del trattamento e base giuridica</h2>
-    <p>I dati sono trattati esclusivamente per le seguenti finalità connesse alla pagina:</p>
-    <ol>
-      <li><strong>Riscontro alla tua richiesta di informazioni</strong> inoltrata tramite il form e conseguente contatto telefonico, entro il termine di 30 giorni dall'inoltro della richiesta, per illustrarti i prodotti di fornitura di energia elettrica e gas oggetto del tuo interesse. Base giuridica: esecuzione di misure precontrattuali adottate su tua richiesta (art. 6, par. 1, lett. b, GDPR).</li>
-      <li><strong>Gestione e tracciabilità della richiesta</strong> e conservazione del log di presa visione della presente informativa, al fine di dimostrare la liceità del contatto ai sensi dell'art. 51, comma 8-bis, del Codice del Consumo. Base giuridica: legittimo interesse del Titolare a documentare la conformità e a tutelarsi (art. 6, par. 1, lett. f, GDPR) e adempimento di obblighi di legge (lett. c). I dati di tracciabilità della richiesta saranno conservati per il periodo di validità del contratto e per i 10 anni successivi allo scioglimento del rapporto contrattuale, quale criterio di validità dello stesso.</li>
-      <li><strong>Sicurezza e log di accesso.</strong> Raccolta dei dati di navigazione e dei log tecnici dei naviganti (a titolo esemplificativo: indirizzo IP, data e ora di accesso, pagine visitate, tipo di browser e di dispositivo) per garantire la sicurezza della pagina e dei sistemi, prevenire abusi, usi fraudolenti o accessi non autorizzati e assicurare la corretta erogazione del servizio. Base giuridica: legittimo interesse del Titolare alla sicurezza delle reti e dei sistemi informativi (art. 6, par. 1, lett. f, GDPR; cfr. considerando 49).</li>
-    </ol>
+    <h2>Art. 3 — Presupposto della chiamata (Decreto Bollette)</h2>
+    <p>La chiamata è effettuata solo verso chi ha inoltrato la richiesta tramite la pagina, entro 30 giorni dall'inoltro, e unicamente per i prodotti richiesti.</p>
+    <p>Decorsi 30 giorni senza conclusione del contratto, il lead è cancellato.</p>
+    <p>La chiamata avviene da numerazione identificabile; l'operatore si qualifica e richiama la richiesta effettuata dall'interessato.</p>
 
-    <h2>Modalità del contatto e disciplina di settore (Decreto Bollette)</h2>
-    <p>La chiamata avviene da numerazione identificabile, entro 30 giorni dall'inoltro della richiesta al Titolare. Ciò è coerente con il nuovo art. 51, comma 8-bis, del Codice del Consumo (introdotto dalla L. 49/2026, c.d. Decreto Bollette), che consente il contatto telefonico per i prodotti di energia elettrica e gas quando il consumatore ne abbia fatto richiesta direttamente al professionista tramite le sue interfacce informatiche.</p>
+    <h2>Art. 4 — Esclusione dei flag di consenso</h2>
+    <p>Il form non contiene alcuna casella di consenso (marketing, profilazione, cessione a terzi).</p>
+    <p>L'unica spunta ammessa è la <strong>presa visione dell'informativa</strong>, obbligatoria e di natura non negoziale. Da flaggare prima dell'inoltro dei dati tramite il form.</p>
+    <p>Il consenso marketing non costituisce e non deve essere presentato come base della chiamata: la chiamata si fonda esclusivamente sulla richiesta dell'interessato.</p>
 
-    <h2>Destinatari dei dati</h2>
-    <p>I dati sono trattati, per conto del Titolare, dalle società di teleselling nominate Responsabili del trattamento ai sensi dell'art. 28 GDPR, che gestiscono la pagina, la raccolta delle richieste, il contatto telefonico e l'eventuale contrattualizzazione, nonché da eventuali sub-responsabili (incluso il fornitore di hosting). L'elenco aggiornato dei responsabili e sub-responsabili è disponibile presso il Titolare e richiedibile al DPO. I dati possono essere comunicati a terzi solo per adempiere a obblighi di legge.</p>
+    <h2>Art. 5 — Conservazione del log di presa visione</h2>
+    <p>È conservato il log del flag di presa visione dell'informativa per ciascuna richiesta: data e ora, indirizzo IP, versione dell'informativa visualizzata.</p>
+    <p>Il log è conservato per il tempo utile a dimostrare l'adempimento informativo e la liceità del contatto e comunque non oltre 10 anni; è messo a disposizione del Titolare su richiesta.</p>
 
-    <h2>Periodo di conservazione</h2>
-    <p>I dati raccolti tramite la pagina sono cancellati entro 30 giorni dall'inoltro della richiesta, in assenza di conclusione del contratto. Qualora a seguito del contatto si concluda un contratto di fornitura, i dati confluiscono nel rapporto contrattuale e sono trattati secondo l'informativa relativa al rapporto di fornitura del Titolare, con i tempi di conservazione previsti dalla normativa di settore.</p>
+    <h2>Art. 6 — Contrattualizzazione</h2>
+    <p>In caso di adesione, il Responsabile carica i dati nei sistemi del Titolare e cura gli adempimenti del contratto a distanza: conferma dell'offerta su supporto durevole e perfezionamento mediante accettazione scritta (art. 51, comma 6, Cod. Cons.) e informativa sul diritto di recesso di 14 giorni (artt. 52 ss. Cod. Cons.).</p>
 
-    <h2>Trasferimenti extra-UE</h2>
-    <p>Non sono previsti trasferimenti dei dati verso Paesi terzi. Ove l'infrastruttura di hosting comportasse trasferimenti extra-UE, saranno adottate adeguate garanzie ai sensi del Capo V del GDPR.</p>
+    <h2>Art. 7 — Uso del marchio</h2>
+    <p>Il Responsabile del trattamento ed i sub-responsabili (teleselling e sub-partner commerciali) inseriscono il marchio della Titolare nella landing page in modo da permettere un immediato riconoscimento dei prodotti offerti. Il Logo societario o i marchi saranno trasmessi via pec con separata comunicazione.</p>
+    <p>Il marchio del Titolare è utilizzato esclusivamente sulla landing page unica e su nessun altro canale o supporto; l'uso è gratuito, non esclusivo, non trasferibile e revocabile.</p>
+    <p>In caso di cessazione o revoca, il marchio è immediatamente rimosso e ne cessa ogni utilizzo.</p>
 
-    <h2>Natura del conferimento</h2>
-    <p>Il conferimento dei dati indicati è necessario per dar seguito alla tua richiesta; il mancato conferimento impedisce di riscontrarla e di ricontattarti.</p>
+    <h2>Art. 8 — Tracciabilità, prove e audit</h2>
+    <p>Il Responsabile conserva l'evidenza di ciascuna richiesta (form, log di presa visione, esito del contatto) per assolvere l'onere della prova della liceità del contatto, e la mette a disposizione del Titolare.</p>
+    <p>Il Titolare può effettuare audit e richiedere reportistica periodica.</p>
 
-    <h2>Processo decisionale automatizzato</h2>
-    <p>Non è effettuato alcun processo decisionale automatizzato, inclusa la profilazione, di cui all'art. 22 GDPR.</p>
+    <h2>Art. 9 — Divieti</h2>
+    <p>È vietato: chiamare chi non ha fatto richiesta; usare il consenso marketing come base della chiamata; effettuare cross-selling o proporre prodotti/fornitori diversi; utilizzare liste o dati non provenienti dalla pagina; inserire caselle di consenso nel form; cedere la pagina o il dominio a terzi.</p>
 
-    <h2>Diritti dell'interessato</h2>
-    <p>Puoi esercitare in qualsiasi momento, scrivendo a <a href="mailto:dpo@nexicom.it">dpo@nexicom.it</a>, i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
-    <ul>
-      <li>accesso ai dati personali (art. 15 GDPR);</li>
-      <li>rettifica dei dati inesatti o incompleti (art. 16 GDPR);</li>
-      <li>cancellazione dei dati e diritto all'oblio (art. 17 GDPR);</li>
-      <li>limitazione del trattamento (art. 18 GDPR);</li>
-      <li>notifica delle rettifiche, cancellazioni o limitazioni ai destinatari dei dati (art. 19 GDPR);</li>
-      <li>portabilità dei dati (art. 20 GDPR);</li>
-      <li>opposizione al trattamento, in particolare a quello fondato sul legittimo interesse del Titolare, inclusi i log di sicurezza (art. 21 GDPR);</li>
-      <li>non essere sottoposto a una decisione automatizzata, inclusa la profilazione (art. 22 GDPR), fermo restando che il Titolare non effettua tali trattamenti.</li>
-    </ul>
-    <p>Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (art. 77 GDPR) e di ricorrere all'autorità giudiziaria.</p>
+    <h2>Art. 10 — Durata, risoluzione ed effetti</h2>
+    <p>Il Titolare può sospendere o risolvere il rapporto con effetto immediato in caso di violazione della Policy o di provvedimenti dell'Autorità. Alla cessazione il Responsabile interrompe l'uso della pagina e del marchio e gestisce i dati secondo la nomina art. 28. La pagina sarà chiusa al termine del rapporto di collaborazione.</p>
 
   </main>
 
