@@ -22,7 +22,7 @@ include __DIR__ . '/header.php';
     <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
       <div class="split" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 80px; align-items: center;">
         <div>
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+          <img src="about_landscape.jpg" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
         </div>
         <div>
           <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 24px; line-height: 1.2;">Capisci cosa firmi.<br>Capisci cosa paghi.</h2>

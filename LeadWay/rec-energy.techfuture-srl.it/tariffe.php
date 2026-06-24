@@ -182,7 +182,7 @@ include __DIR__ . '/header.php';
           <a href="contatti.php?offerta=Business" class="btn-outline" style="border: 2px solid #18181B; color: #18181B; padding: 14px 32px; border-radius: 99px; text-decoration: none; font-weight: 700; display: inline-block;">Parla con un consulente</a>
         </div>
         <div style="flex: 1; min-width: 300px;">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+          <img src="team_new.jpg" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
         </div>
       </div>
     </div>

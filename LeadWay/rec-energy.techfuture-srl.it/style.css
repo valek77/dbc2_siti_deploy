@@ -1,11 +1,12 @@
 :root {
-  --primary: #5ec8d7; /* Sky blue/cyan from logo */
+  --primary: #ea5139; /* Warm coral from logo gradient */
+  --primary-light: #FED7AA; /* Light coral for accents */
   --secondary: #484849; /* Charcoal grey from logo */
-  --accent: #5ec8d7; /* Sky blue/cyan */
-  --accent-hover: #45b1c0;
-  --accent-bg: #f0fafb; /* Light cyan background */
-  --grad-yellow: linear-gradient(102deg, #8ef0fc 0%, #5ec8d7 60%); /* Cyan gradient for main CTAs */
-  --grad-magenta: linear-gradient(135deg, #5ec8d7 0%, #3ba5b5 100%); /* Cyan/Teal gradient */
+  --accent: #ac03f9; /* Vivid purple from logo gradient */
+  --accent-hover: #8a02c9;
+  --accent-bg: #faf0ff; /* Light purple background */
+  --grad-yellow: linear-gradient(102deg, #ea5139 0%, #ac03f9 100%); /* Logo gradient for main CTAs */
+  --grad-magenta: linear-gradient(135deg, #ea5139 0%, #ac03f9 100%); /* Logo gradient */
   --text-dark: #212529;
   --text-secondary: #4D4D4F;
   --text-muted: #6C757D;
@@ -13,7 +14,7 @@
   --border: #DEE2E6;
   --bg-page: #ffffff;
   --bg-cream: #F8F9FA;
-  --grad-blue: linear-gradient(135deg, #3fa8b7 0%, #1f6b76 100%); /* Cyan/Teal gradient */
+  --grad-blue: linear-gradient(135deg, #ea5139 0%, #ac03f9 100%); /* Logo gradient */
   --font-h: 'Outfit', sans-serif;
   --font-main: 'Outfit', sans-serif;
   --radius-lg: 10px; /* Action uses tighter corners for cards */
@@ -180,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(94, 200, 215, 0.3);
+  box-shadow: 0 10px 20px rgba(172, 3, 249, 0.25);
 }
 
 .btn-secondary {
@@ -487,14 +488,14 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid var(--border); outline: none;
 }
 
-.input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(5, 150, 105, .18); }
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(172, 3, 249, .15); }
 
 .btn-cta, .btn-submit {
   border: none; background: var(--grad-yellow);
   color: var(--text-dark); font-weight: 800; cursor: pointer; width: 100%;
 }
 
-.btn-cta:hover, .btn-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(241, 151, 17, 0.3); filter: brightness(1.1); }
+.btn-cta:hover, .btn-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(234, 81, 57, 0.3); filter: brightness(1.1); }
 
 .btn-submit { padding: 16px; border-radius: 14px; margin-top: 8px; }
 
