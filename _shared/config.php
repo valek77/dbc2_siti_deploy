@@ -62,82 +62,16 @@ if (!isset($SITE_DIR)) {
     $SITE_DIR = __DIR__;
 }
 
+// Funzioni condivise (lettura .env + chiamate API): definite UNA sola volta in
+// _shared/dbc2_lib.php e riusate sia dal runtime dei siti sia dal tool di audit.
+require_once __DIR__ . '/dbc2_lib.php';
+
 // --- Impostazioni cache e debug ------------------------------------------
 define('CACHE_FILE', $SITE_DIR . '/.company-cache.json');
 define('CACHE_TTL', 3600); // secondi (1 ora) prima di richiamare l'API
 define('DEBUG_MODE', false); // METTERE true SOLO per diagnosi: stampa i [DEBUG] in pagina
 
-function log_debug($msg)
-{
-    if (DEBUG_MODE) {
-        echo "[DEBUG] " . htmlspecialchars($msg) . "<br>\n";
-    }
-}
-
 // --- 1. Lettura variabili (sistema + .env) -------------------------------
-function load_env($path)
-{
-    $vars = [];
-    if (!is_file($path)) {
-        return $vars;
-    }
-    foreach (file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
-        $line = trim($line);
-        if ($line === '' || $line[0] === '#' || strpos($line, '=') === false) {
-            continue; // riga vuota o commento
-        }
-        list($key, $value) = explode('=', $line, 2);
-        $vars[trim($key)] = trim($value);
-    }
-    return $vars;
-}
-
-/**
- * Ripulisce il valore di una variabile: toglie spazi ai bordi e un'eventuale
- * coppia di virgolette (singole o doppie) che alcuni parser (es. PHP-FPM) non
- * rimuovono. Senza questo, un token tipo "2|abc" letto con le virgolette
- * incluse fallirebbe l'autenticazione.
- */
-function clean_env_value($value)
-{
-    $value = trim((string) $value);
-    if (strlen($value) >= 2) {
-        $first = $value[0];
-        $last = $value[strlen($value) - 1];
-        if (($first === '"' && $last === '"') || ($first === "'" && $last === "'")) {
-            $value = substr($value, 1, -1);
-        }
-    }
-    return trim($value);
-}
-
-/**
- * Cerca una variabile prima nell'ambiente di sistema (getenv / $_SERVER /
- * $_ENV — copre mod_php con envvars, PHP-FPM con env[], SetEnv nel VirtualHost)
- * e, se non la trova, nel file .env. Il valore restituito è sempre ripulito.
- */
-function get_env_var($key, $fallback_array)
-{
-    $sys = getenv($key);
-    if ($sys !== false && $sys !== '') {
-        log_debug("Variabile dal SISTEMA (getenv): $key");
-        return clean_env_value($sys);
-    }
-    if (isset($_SERVER[$key]) && $_SERVER[$key] !== '') {
-        log_debug("Variabile dal SISTEMA (\$_SERVER): $key");
-        return clean_env_value($_SERVER[$key]);
-    }
-    if (isset($_ENV[$key]) && $_ENV[$key] !== '') {
-        log_debug("Variabile dal SISTEMA (\$_ENV): $key");
-        return clean_env_value($_ENV[$key]);
-    }
-    if (isset($fallback_array[$key]) && $fallback_array[$key] !== '') {
-        log_debug("Variabile dal file .ENV: $key");
-        return clean_env_value($fallback_array[$key]);
-    }
-    log_debug("ATTENZIONE: variabile NON trovata: $key");
-    return '';
-}
 
 $env_file = load_env($SITE_DIR . '/.env');
 
@@ -151,93 +85,8 @@ $SITO_WEB = htmlspecialchars(get_env_var('SITO_WEB', $env_file), ENT_QUOTES, 'UT
 $OPERATORE_ENERGETICO = htmlspecialchars(get_env_var('OPERATORE_ENERGETICO', $env_file), ENT_QUOTES, 'UTF-8');
 
 // --- 2. Chiamata all'API --------------------------------------------------
-
-/**
- * GET autenticata (Bearer) verso $url; restituisce l'array decodificato dal JSON
- * oppure null in caso di errore. Logica HTTP CONDIVISA fra l'API vecchia
- * (/companies) e quella nuova (/landing-pages).
- */
-function dbc2_api_get($url, $token)
-{
-    log_debug("Chiamata API verso: " . $url);
-
-    // Metodo preferito: cURL (presente sulla maggior parte degli hosting)
-    if (function_exists('curl_init')) {
-        $ch = curl_init($url);
-        curl_setopt_array($ch, [
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_TIMEOUT => 5,
-            CURLOPT_HTTPHEADER => [
-                'Authorization: Bearer ' . $token,
-                'Accept: application/json',
-            ],
-        ]);
-        $body = curl_exec($ch);
-        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        if (curl_errno($ch)) {
-            log_debug("Errore cURL: " . curl_error($ch));
-        }
-        curl_close($ch);
-        log_debug("Risposta API HTTP Code: " . $code);
-        if ($body !== false && $code >= 200 && $code < 300) {
-            $data = json_decode($body, true);
-            if (is_array($data)) {
-                return $data;
-            }
-            log_debug("Errore API: il body restituito non è un JSON valido.");
-        } else {
-            log_debug("Errore API: risposta fallita o non autorizzata. Body: " . substr((string) $body, 0, 200));
-        }
-        return null;
-    }
-
-    // Fallback: file_get_contents con stream context
-    log_debug("cURL non disponibile, uso file_get_contents...");
-    $context = stream_context_create([
-        'http' => [
-            'method' => 'GET',
-            'header' => "Authorization: Bearer {$token}\r\nAccept: application/json\r\n",
-            'timeout' => 5,
-            'ignore_errors' => true,
-        ],
-    ]);
-    $body = @file_get_contents($url, false, $context);
-    if ($body !== false) {
-        $data = json_decode($body, true);
-        if (is_array($data)) {
-            return $data;
-        }
-    }
-    return null;
-}
-
-/**
- * API VECCHIA (DEPRECATA, ma ANCORA ATTIVA): GET /companies/{COMPANY_ID}.
- * Restituisce l'oggetto azienda "piatto" oppure null. Usata quando nel .env
- * NON è presente LANDING_PAGE_ID.
- */
-function fetch_company($apiBase, $token, $companyId)
-{
-    if ($apiBase === '' || $token === '' || $companyId === '') {
-        log_debug("Errore API: parametri di configurazione incompleti.");
-        return null; // configurazione incompleta
-    }
-    return dbc2_api_get($apiBase . '/companies/' . rawurlencode($companyId), $token);
-}
-
-/**
- * API NUOVA: GET /landing-pages/{LANDING_PAGE_ID}.
- * Restituisce la risposta annidata { landing_page, operatore_energetico,
- * company } oppure null. Usata quando nel .env è presente LANDING_PAGE_ID.
- */
-function fetch_landing($apiBase, $token, $landingId)
-{
-    if ($apiBase === '' || $token === '' || $landingId === '') {
-        log_debug("Errore API: parametri di configurazione incompleti.");
-        return null; // configurazione incompleta
-    }
-    return dbc2_api_get($apiBase . '/landing-pages/' . rawurlencode($landingId), $token);
-}
+// Le funzioni HTTP (dbc2_api_get, fetch_company, fetch_landing) vivono ora in
+// _shared/dbc2_lib.php (incluso sopra). Qui resta lo strato di cache su file.
 
 // --- 3. Cache su file con fallback ---------------------------------------
 
@@ -313,84 +162,11 @@ if ($LANDING_PAGE_ID !== '') {
 // Liste delle chiavi note di ciascun blocco. Garantiscono che gli array siano
 // SEMPRE presenti con TUTTE le chiavi (valori vuoti) anche quando l'API che li
 // popolerebbe non è quella in uso.
-$campi_noti = [
-    'id',
-    'company_name',
-    'nome_commerciale',
-    'parent_id',
-    'azienda_madre',
-    'p_iva',
-    'sede_legale',
-    'sede_operativa',
-    'pec',
-    'email_dpo',
-    'email_supporto',
-    'capitale_sociale',
-    'telefono',
-    'logo_url',
-    'logo2_url',
-    'bpg_customer_id',
-    'bpg_customer_name',
-    'created_at',
-    'updated_at',
-]; // chiavi del blocco "company" (e delle variabili piatte)
-$LANDING_PAGE_FIELDS = [
-    'id',
-    'url',
-    'titolo',
-    'nome_portale',
-    'operatore_energetico_id',
-    'company_id',
-    'p_iva',
-    'sede_legale',
-    'sede_operativa',
-    'pec',
-    'privacy_version',
-    'mostra_consenso_0',
-    'mostra_consenso_1',
-    'mostra_consenso_2',
-    'logo_url',
-    'logo2_url',
-    'created_at',
-    'updated_at',
-];
-$OPERATORE_FIELDS = [
-    'id',
-    'nome_marketing',
-    'nome_legale',
-    'indirizzo',
-    'partita_iva',
-    'logo_url',
-    'logo2_url',
-    'created_at',
-    'updated_at',
-];
+$campi_noti = dbc2_campi_noti();              // chiavi del blocco "company" (e variabili piatte)
+$LANDING_PAGE_FIELDS = dbc2_landing_fields(); // chiavi del blocco "landing_page" (API nuova)
+$OPERATORE_FIELDS = dbc2_operatore_fields();  // chiavi del blocco "operatore_energetico"
 
-/**
- * Costruisce un array associativo con TUTTE le $fields (default '') sovrascritte
- * dai valori di $source, GIÀ resi sicuri per l'HTML (stessa logica dei piatti:
- * null -> ''; scalare -> htmlspecialchars; non scalare -> invariato). Eventuali
- * chiavi extra presenti in $source (campi futuri dell'API) vengono incluse.
- */
-function dbc2_build_assoc(array $fields, $source)
-{
-    $out = [];
-    foreach ($fields as $f) {
-        $out[$f] = '';
-    }
-    if (is_array($source)) {
-        foreach ($source as $k => $v) {
-            if ($v === null) {
-                $out[$k] = '';
-            } elseif (is_scalar($v)) {
-                $out[$k] = htmlspecialchars((string) $v, ENT_QUOTES, 'UTF-8');
-            } else {
-                $out[$k] = $v;
-            }
-        }
-    }
-    return $out;
-}
+// dbc2_build_assoc() è definita in _shared/dbc2_lib.php (inclusa sopra).
 
 // Rilevo la FORMA del payload (robusto anche con cache di forma diversa):
 //   nuova   -> risposta annidata { landing_page, operatore_energetico, company }

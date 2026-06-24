@@ -63,14 +63,14 @@ $offertaSelezionata = isset($_GET['offerta']) ? $_GET['offerta'] : '';
 
         <div style="background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #E4E4E7; box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
           <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 24px;" id="contatto-form">Richiesta Contatto</h3>
-          <form id="contactForm">
+          <form id="leadForm" action="https://dbc2.datalia.it/api/lead" method="POST" novalidate>
             <div style="margin-bottom: 20px;">
-              <label for="nome" style="display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #18181B;">Nome e Cognome *</label>
-              <input type="text" id="nome" name="nome" required style="width: 100%; padding: 14px; border: 1px solid #E4E4E7; border-radius: 12px; font-family: inherit; font-size: 16px;">
+              <label for="fNome" style="display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #18181B;">Nome e Cognome *</label>
+              <input type="text" id="fNome" name="nome" required style="width: 100%; padding: 14px; border: 1px solid #E4E4E7; border-radius: 12px; font-family: inherit; font-size: 16px;">
             </div>
             <div style="margin-bottom: 20px;">
-              <label for="telefono" style="display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #18181B;">Telefono *</label>
-              <input type="tel" id="telefono" name="telefono" required style="width: 100%; padding: 14px; border: 1px solid #E4E4E7; border-radius: 12px; font-family: inherit; font-size: 16px;">
+              <label for="fTel" style="display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #18181B;">Telefono *</label>
+              <input type="tel" id="fTel" name="telefono" required style="width: 100%; padding: 14px; border: 1px solid #E4E4E7; border-radius: 12px; font-family: inherit; font-size: 16px;">
             </div>
             <div style="margin-bottom: 20px;">
               <label for="servizio" style="display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #18181B;">Servizio di interesse</label>
@@ -91,9 +91,9 @@ $offertaSelezionata = isset($_GET['offerta']) ? $_GET['offerta'] : '';
                 <span style="font-size: 13px; color: #71717A; line-height: 1.5;">Richiedo di essere ricontattato da <?= htmlspecialchars($OPERATORE_ENERGETICO) ?>, tramite il partner commerciale <?= htmlspecialchars($brand) ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
               </label>
             </div>
-            <button type="submit" class="btn-primary" style="width: 100%; background: var(--primary); color: #fff; padding: 16px; border: none; border-radius: 99px; font-weight: 700; font-size: 16px; cursor: pointer; transition: opacity 0.2s;">Invia Richiesta</button>
+            <button type="submit" id="btnSubmit" disabled class="btn-primary" style="width: 100%; background: var(--primary); color: #fff; padding: 16px; border: none; border-radius: 99px; font-weight: 700; font-size: 16px; cursor: pointer; transition: opacity 0.2s;">Invia Richiesta</button>
           </form>
-          <div id="formSuccess" style="display: none; margin-top: 24px; padding: 16px; background: #D1FAE5; color: #065F46; border-radius: 12px; font-weight: 600; text-align: center;">
+          <div id="conferma" hidden style="margin-top: 24px; padding: 16px; background: #D1FAE5; color: #065F46; border-radius: 12px; font-weight: 600; text-align: center;">
             Richiesta inviata! Un nostro EnergyTeller ti contatterà al più presto.
           </div>
         </div>

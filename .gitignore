@@ -5,3 +5,12 @@
 .company-cache.json
 **/.company-cache.json
 .claude/
+
+# Cache e report del tool di audit (_shared/audit.php).
+_shared/.audit-api-cache.json
+_shared/audit-report.json
+_shared/audit-report.html
+
+# .env condiviso SOLO per il tool di audit: può contenere il TOKEN -> mai su git.
+# (I .env per-sito restano versionati: contengono solo LANDING_PAGE_ID/COMPANY_ID.)
+_shared/.env
