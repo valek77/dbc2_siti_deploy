@@ -281,7 +281,57 @@ Le custom properties di palette (`--primary`, `--accent`, …) restano in `style
 - In **produzione** lasciare `DEBUG_MODE = false` in `_shared/config.php`. I dati API sono
   in cache 1h in `.company-cache.json`; per forzare il refresh, **cancellare** quel file.
 
-## 7. Guida utente
+## 7. Conversione da API vecchia a nuova (Scenario B)
+
+Quando il sito è **già PHP sull'API vecchia** (`/companies/{COMPANY_ID}`, variabili piatte),
+l'infrastruttura PHP esiste già: **non si rinomina nulla e non si rifà la grafica**. Si
+cambiano solo il `.env` e i **riferimenti alle variabili**. Delta rispetto allo statico→PHP:
+
+1. **`.env`** — rimuovere `COMPANY_ID`, `SITO_WEB`, `OPERATORE_ENERGETICO`; lasciare solo:
+   ```
+   LANDING_PAGE_ID=<numero>
+   ```
+   `DBC2_TOKEN`/`DBC2_API_BASE` restano nell'ambiente di sistema (vedi §1.1). Valorizzare
+   `LANDING_PAGE_ID` è ciò che fa passare `_shared/config.php` all'API nuova
+   (`_shared/config.php:300`): nessuna modifica al cuore condiviso.
+
+2. **Mappatura variabili piatte → array** — applicare in tutte le pagine, in `header.php` e
+   `footer.php`:
+   | API vecchia (piatta) | API nuova |
+   |---|---|
+   | `$brand` | `$brandName` (= `$LANDING_PAGE['nome_portale']`) |
+   | `$company_name` | `$COMPANY['company_name']` |
+   | `$p_iva` | `$COMPANY['p_iva']` |
+   | `$sede_legale` | `$COMPANY['sede_legale']` |
+   | `$pec` | `$COMPANY['pec']` |
+   | `$email_supporto` | `$COMPANY['email_supporto']` |
+   | `$email_dpo` | `$COMPANY['email_dpo']` |
+   | `$telefono` | `$COMPANY['telefono']` |
+   | `$capitale_sociale` | `$COMPANY['capitale_sociale']` |
+   | `$logo_url` / `$logo2_url` | `$LANDING_PAGE['logo_url']` / `['logo2_url']` |
+   | `OPERATORE_ENERGETICO` (da `.env`) | `$OPERATORE['nome_legale']` / `$OPERATORE['nome_marketing']` |
+   | `SITO_WEB` (da `.env`) | `$LANDING_PAGE['url']` |
+
+   Le piatte restano comunque definite (vuote) con l'API nuova, quindi un riferimento
+   dimenticato non genera errori ma **stampa vuoto**: per questo la scansione del punto 5 è
+   indispensabile.
+
+3. **`header.php` / `footer.php`** — allineare al pilota API-nuova: `$brandName` da
+   `$LANDING_PAGE['nome_portale']` (fallback alla ragione sociale), riga legale del footer
+   costruita gatando i campi `$COMPANY` (`if ($COMPANY['x'] !== '')`), come in §3.
+
+4. **Form e consensi** (`contatti.php`) — i testi consenso che usavano `$brand` o il valore
+   `OPERATORE_ENERGETICO` del `.env` passano a `$OPERATORE['nome_legale']` (operatore),
+   `$COMPANY['company_name']` (partner commerciale) e `$brandName`. Opzionale: gating della
+   visibilità con `$LANDING_PAGE['mostra_consenso_0|1|2']` (non disponibile sull'API vecchia).
+   Il contratto DOM del form e `lead-form.js` restano invariati (§4).
+
+5. **Scan finale** — stessa checklist del §3.5: Grep sull'intera cartella per ogni variabile
+   piatta (`$brand`, `$company_name`, `$p_iva`, `$pec`, `$telefono`, …) e per ogni valore
+   hardcoded residuo; **cancellare** la vecchia `.company-cache.json` (ha la forma "piatta")
+   per forzare il refresh sulla risposta annidata nuova; poi verificare come al §6.
+
+## 8. Guida utente
 
 Non serve più copiare un `LEGGIMI.md` nella cartella del sito: la guida unica (configurazione
 `.env`, variabili disponibili, avvio server di test) è centralizzata in **`_shared/LEGGIMI.md`**.
