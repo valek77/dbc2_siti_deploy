@@ -449,6 +449,14 @@ class Audit
             'garanteprivacy.it', 'gpdp.it', 'arera.it', 'agcm.it',
             'mercatoelettrico.org',
         ];
+        // Deroghe allo standard: domini "ufficiali" di un brand/fornitore che NON
+        // sono contaminazione quando il sito appartiene a quel brand. Es. il
+        // fornitore "Semplice" usa il dominio semplicegaseluce.it (email titolare,
+        // sito partner): legittimo sui siti del brand "semplice", non altrove.
+        // Mappa dominio => token-brand atteso nel nome della cartella. Estendibile.
+        static $brandDomains = [
+            'semplicegaseluce.it' => 'semplice',
+        ];
         // ruoli "titolare/DPO": email legittimamente sul dominio del titolare
         $controllerRole = '/^(privacy|dpo|rpd|garante|protezione[._-]?dati)$/i';
 
@@ -484,6 +492,12 @@ class Audit
                         $skip = true;
                         break;
                     }
+                }
+                // deroga brand: dominio ufficiale del fornitore (es.
+                // semplicegaseluce.it) legittimo se il sito è di quel brand.
+                if (!$skip && isset($brandDomains[$dn])
+                    && strpos(strtolower($s['domain']), $brandDomains[$dn]) !== false) {
+                    $skip = true;
                 }
                 // dominio-brand del sito: se un'etichetta del dominio (senza TLD)
                 // compare nel nome della cartella (es. 'nexicom' in
