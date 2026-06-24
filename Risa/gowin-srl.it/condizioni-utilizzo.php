@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Policy di Utilizzo della Landing Page';
-$pageDescription = 'Policy di utilizzo della landing page unica del Titolare Semplice Gas & Luce S.p.A. — conformità Decreto Bollette e art. 51 del Codice del Consumo.';
+$pageDescription = 'Policy di utilizzo della landing page unica del Titolare ' . $OPERATORE['nome_legale'] . ' — conformità Decreto Bollette e art. 51 del Codice del Consumo.';
 $pageHead = <<<'CSS'
   <style>
     .legal-content {

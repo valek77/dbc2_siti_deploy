@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Policy di Utilizzo della Landing Page';
-$pageDescription = 'Policy di utilizzo della landing page unica del Titolare Semplice Gas & Luce S.p.A. — conformità Decreto Bollette e art. 51 del Codice del Consumo.';
+$pageDescription = 'Policy di utilizzo della landing page unica del Titolare ' . $OPERATORE['nome_legale'] . ' — conformità Decreto Bollette e art. 51 del Codice del Consumo.';
 $pageHead = <<<'CSS'
   <style>
     .legal-content {
@@ -92,13 +92,13 @@ $responsabileData = implode(', ', $resp);
     <div class="separator">***</div>
 
     <p>Gentile Utente,</p>
-    <p>Con la presente informativa, resa in ottemperanza all’art. 13 del Regolamento Europeo n. 679/2016 GDPR, Ecom S.p.A. Le fornisce dettagliate informazioni riguardo al trattamento dei Suoi dati personali, affinché conosca quali dati raccogliamo su di Lei, le ragioni per cui usiamo e condividiamo tali dati, quanto a lungo li conserviamo, quali sono i Suoi diritti e come può esercitarli.</p>
+    <p>Con la presente informativa, resa in ottemperanza all’art. 13 del Regolamento Europeo n. 679/2016 GDPR, <?= $OPERATORE['nome_legale'] ?> Le fornisce dettagliate informazioni riguardo al trattamento dei Suoi dati personali, affinché conosca quali dati raccogliamo su di Lei, le ragioni per cui usiamo e condividiamo tali dati, quanto a lungo li conserviamo, quali sono i Suoi diritti e come può esercitarli.</p>
     <p>La presente informativa è destinata ad essere utilizzata nell’ambito dei servizi di informazione e promozione di offerte nel settore dell’energia (luce e gas), mediante canali digitali e moduli di raccolta contatti.</p>
 
     <h2>TITOLARE DEL TRATTAMENTO</h2>
     <span class="section-subhead">Art. 13, par. 1, lett. a</span>
-    <p>Il Titolare del trattamento è <strong>Ecom S.p.A.</strong>, P.IVA: 08000190721, con sede legale in Via Circonvallazione Sud Bari, Km 810 – 70019 Triggiano (Ba), PEC: <a href="mailto:ecomspa@pec.it">ecomspa@pec.it</a> (di seguito anche “Titolare” o “Energia Comune”).</p>
-    <p>Il Titolare potrà essere contattato al Aegean indirizzo e-mail: <a href="mailto:privacy@energiacomune.com">privacy@energiacomune.com</a>.</p>
+    <p>Il Titolare del trattamento è <strong><?= $OPERATORE['nome_legale'] ?></strong>, P.IVA: <?= $OPERATORE['partita_iva'] ?>, con sede legale in <?= $OPERATORE['indirizzo'] ?>, PEC: <a href="mailto:ecomspa@pec.it">ecomspa@pec.it</a> (di seguito anche “Titolare” o “<?= $OPERATORE['nome_marketing'] ?>”).</p>
+    <p>Il Titolare potrà essere contattato al seguente indirizzo e-mail: <a href="mailto:privacy@energiacomune.com">privacy@energiacomune.com</a>.</p>
     <p>I dati personali saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza, con supporti cartacei e attraverso l'ausilio di mezzi informatici, unicamente con operazioni strettamente indispensabili in rapporto alle finalità indicate. I Suoi dati non saranno trattati con processi che comportano decisioni automatizzate.</p>
 
     <h2>DATA PROTECTION OFFICER</h2>
@@ -109,7 +109,7 @@ $responsabileData = implode(', ', $resp);
     <span class="section-subhead">Art. 13, par. 1, lett. c</span>
     <p>Il Titolare tratterà i Dati Personali per le seguenti finalità:</p>
     <ul>
-      <li><strong>Ricontatto da parte di un Operatore (Finalità Precontrattuale):</strong> attività necessarie e connesse al fine di dar seguito alla Sua richiesta di contatto telefonico e di informazioni precontrattuali, da parte di un Operatore del Partner Commerciale della Società <em>Risa contact srl</em>, nominato Responsabile del Trattamento dei dati personali ex Art. 28 del Regolamento Europeo n. 679/2016 GDPR. Tale finalità sarà perseguita entro 7 giorni dalla raccolta della richiesta di contatto.</li>
+      <li><strong>Ricontatto da parte di un Operatore (Finalità Precontrattuale):</strong> attività necessarie e connesse al fine di dar seguito alla Sua richiesta di contatto telefonico e di informazioni precontrattuali, da parte di un Operatore del Partner Commerciale della Società <em><?= $responsabileData ?></em>, nominato Responsabile del Trattamento dei dati personali ex Art. 28 del Regolamento Europeo n. 679/2016 GDPR. Tale finalità sarà perseguita entro 7 giorni dalla raccolta della richiesta di contatto.</li>
       <li><strong>Svolgimento di attività di marketing diretto:</strong> previo Suo espresso e specifico consenso, il Titolare tratterà i Suoi Dati Personali per lo svolgimento di attività di marketing relative a prodotti e servizi del Titolare, anche successivamente al ricontatto effettuato entro i 7 giorni. Tali attività comprendono l’invio di comunicazioni mediante strumenti tradizionali di contatto (es. chiamata con operatore), attraverso social, nonché mediante modalità automatizzate (es. posta elettronica, sms, ecc.).</li>
     </ul>
 
@@ -122,7 +122,7 @@ $responsabileData = implode(', ', $resp);
     </ul>
 
     <h2>NATURA E CATEGORIA DEI DATI PERSONALI TRATTATI</h2>
-    <p>Nei limiti delle finalità descritte, il Titolare treats le seguenti categorie di dati personali da Lei forniti:</p>
+    <p>Nei limiti delle finalità descritte, il Titolare tratta le seguenti categorie di dati personali da Lei forniti:</p>
     <ul>
       <li><strong>Dati identificativi:</strong> ad esempio il nome.</li>
       <li><strong>Dati di contatto:</strong> ad esempio numeri di telefono, indirizzo e-mail.</li>
@@ -136,7 +136,7 @@ $responsabileData = implode(', ', $resp);
 
     <h2>DESTINATARI DEI DATI PERSONALI</h2>
     <span class="section-subhead">Art. 13, par. 1, lett. e</span>
-    <p>I Suoi Dati potranno essere comunicati e conosciuti da dipendenti autorizzati al trattamento e/o da società o professionisti di cui il Titolare si avvale ai primi dell'esecuzione di specifici servizi (es. fornitori di servizi IT, consulenti professionali, partner commerciali, tra cui la società <em>Risa contact srl</em> in qualità di Responsabile del trattamento).</p>
+    <p>I Suoi Dati potranno essere comunicati e conosciuti da dipendenti autorizzati al trattamento e/o da società o professionisti di cui il Titolare si avvale ai primi dell'esecuzione di specifici servizi (es. fornitori di servizi IT, consulenti professionali, partner commerciali, tra cui la società <em><?= $COMPANY['company_name'] ?></em> in qualità di Responsabile del trattamento).</p>
     <p>Inoltre, ove necessario, i Dati potranno essere comunicati a soggetti che tratteranno i dati in qualità di Titolari autonomi, come le Autorità e/o soggetti a cui sia riconosciuta la facoltà di accedere da norme di legge o dell'Unione. L’elenco completo dei Responsabili del trattamento può essere richiesto scrivendo a: <a href="mailto:privacy@energiacomune.com">privacy@energiacomune.com</a>.</p>
 
     <h2>TRASFERIMENTO DEI DATI VERSO PAESI TERZI</h2>
@@ -146,7 +146,7 @@ $responsabileData = implode(', ', $resp);
     <span class="section-subhead">Art. 13, par. 2, lett. a</span>
     <p>I Suoi Dati saranno trattati solo per il tempo necessario per le finalità sopra menzionate, come segue:</p>
     <ul>
-      <li><strong>Dati per la richiesta di ricontatto:</strong> trattati fino al momento del ricontatto da parte di un Operatore del Partner Commerciale (Società Risa contact srl), e comunque <strong>non oltre i 7 giorni</strong> dal momento della richiesta, a seguito del quale il Titolare, salvo Sua volontà contraria, provvederà alla loro cancellazione.</li>
+      <li><strong>Dati per la richiesta di ricontatto:</strong> trattati fino al momento del ricontatto da parte di un Operatore del Partner Commerciale (Società <?= $COMPANY['company_name'] ?>), e comunque <strong>non oltre i 7 giorni</strong> dal momento della richiesta, a seguito del quale il Titolare, salvo Sua volontà contraria, provvederà alla loro cancellazione.</li>
       <li><strong>Dati per attività di marketing:</strong> trattati fino alla revoca del Suo consenso e, comunque, <strong>non oltre 24 mesi</strong> dall’acquisizione dello stesso. In seguito alla revoca, il Titolare cesserà il trattamento e non conserverà ulteriormente i dati acquisiti per tale finalità. In assenza di revoca, a seguito della cessazione del rapporto contrattuale, il Titolare Le ricorderà periodicamente i consensi prestati e la facoltà di revocarli.</li>
     </ul>
 

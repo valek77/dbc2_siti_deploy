@@ -37,7 +37,7 @@ include __DIR__ . '/header.php';
           <div class="offer-ribbon" style="background: linear-gradient(90deg, var(--primary), var(--accent)); color: #fff; padding: 12px 20px; font-weight: 700; font-size: 12px; text-transform: uppercase;">Offerta Luce</div>
           <div class="offer-body" style="padding: 32px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Luce Zero</div>
-            <img src="https://www.energiacomune.com/img/ecom_logo-2048x270.png" alt="Energia Comune" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
+            <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
             <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
               <div style="font-size: 11px; text-transform: uppercase; color: #A1A1AA; font-weight: 600; margin-bottom: 8px;">PUN + Contributo al consumo</div>
               <div style="font-size: 28px; font-weight: 800; color: var(--primary);">€ 0,033<span style="font-size: 16px; color: #71717A;">/kWh</span></div>
@@ -56,7 +56,7 @@ include __DIR__ . '/header.php';
           <div class="offer-ribbon" style="background: linear-gradient(90deg, #F59E0B, #D97706); color: #fff; padding: 12px 20px; font-weight: 700; font-size: 12px; text-transform: uppercase;">Offerta Gas</div>
           <div class="offer-body" style="padding: 32px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Gas Zero</div>
-            <img src="https://www.energiacomune.com/img/ecom_logo-2048x270.png" alt="Energia Comune" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
+            <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
             <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
               <div style="font-size: 11px; text-transform: uppercase; color: #A1A1AA; font-weight: 600; margin-bottom: 8px;">PSV + Contributo al consumo</div>
               <div style="font-size: 28px; font-weight: 800; color: #D97706;">€ 0,210<span style="font-size: 16px; color: #71717A;">/Smc</span></div>
@@ -75,7 +75,7 @@ include __DIR__ . '/header.php';
           <div class="offer-ribbon" style="background: #18181B; color: #fff; padding: 12px 20px; font-weight: 700; font-size: 12px; text-transform: uppercase;">Business</div>
           <div class="offer-body" style="padding: 32px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 24px; font-weight: 800; margin-bottom: 8px;">Soluzioni Business</div>
-            <img src="https://www.energiacomune.com/img/ecom_logo-2048x270.png" alt="Energia Comune" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
+            <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
             <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
               <div style="font-size: 11px; text-transform: uppercase; color: #A1A1AA; font-weight: 600; margin-bottom: 8px;">Consulenza personalizzata</div>
               <div style="font-size: 28px; font-weight: 800; color: #18181B;">Su misura</div>
