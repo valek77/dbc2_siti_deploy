@@ -20,6 +20,17 @@ class Report
         return ['ERROR' => 0, 'WARN' => 1, 'INFO' => 2][$s] ?? 3;
     }
 
+    /** Normalizza un livello accettando abbreviazioni: ERR/E, WARN/W, INFO/I. */
+    public static function normSev($s)
+    {
+        $map = [
+            'E' => 'ERROR', 'ERR' => 'ERROR', 'ERROR' => 'ERROR',
+            'W' => 'WARN', 'WARN' => 'WARN', 'WARNING' => 'WARN',
+            'I' => 'INFO', 'INFO' => 'INFO',
+        ];
+        return $map[strtoupper(trim((string) $s))] ?? 'INFO';
+    }
+
     public function counts()
     {
         $c = ['ERROR' => 0, 'WARN' => 0, 'INFO' => 0];
@@ -35,7 +46,7 @@ class Report
             return $useColor ? "\033[{$code}m{$txt}\033[0m" : $txt;
         };
         $sevCol = ['ERROR' => '1;31', 'WARN' => '1;33', 'INFO' => '0;36'];
-        $minRank = self::sevRank($min);
+        $minRank = self::sevRank(self::normSev($min));
 
         // Raggruppa per sito (filtrando per severità minima di visualizzazione)
         $bySite = [];
@@ -109,25 +120,38 @@ class Report
             . '.f:last-child{border-bottom:0}'
             . '.b{color:#fff;border-radius:4px;font-size:11px;font-weight:700;padding:2px 7px;flex-shrink:0}'
             . '.cat{color:#64748b;font-size:12px;flex-shrink:0}.loc{color:#94a3b8;font-size:12px}'
-            . '.tot span{display:inline-block;margin-right:16px;font-weight:700}'
+            . '.flts{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}'
+            . '.flt{cursor:pointer;border:0;border-radius:999px;padding:5px 13px;font:inherit;font-weight:700;'
+            . 'font-size:13px;background:#1e293b;color:#cbd5e1}'
+            . '.flt.on{outline:2px solid #fff}'
             . '</style></head><body>';
         $h .= '<header><h1>Audit siti DBC2</h1><div class="sub">Siti: '
             . $e($this->meta['sites']) . ' &middot; Canonico: ' . $e($this->meta['canon_source'])
             . ' &middot; ' . $e($this->meta['generated_at'] ?? '') . '</div>'
-            . '<div class="sub tot"><span style="color:#fca5a5">' . $c['ERROR'] . ' ERROR</span>'
-            . '<span style="color:#fcd34d">' . $c['WARN'] . ' WARN</span>'
-            . '<span style="color:#67e8f9">' . $c['INFO'] . ' INFO</span></div></header><div class="wrap">';
+            . '<div class="flts">'
+            . '<button class="flt on" data-sev="ALL" onclick="flt(\'ALL\')">Tutti (' . ($c['ERROR'] + $c['WARN'] + $c['INFO']) . ')</button>'
+            . '<button class="flt" data-sev="ERROR" onclick="flt(\'ERROR\')" style="background:#dc2626;color:#fff">ERROR ' . $c['ERROR'] . '</button>'
+            . '<button class="flt" data-sev="WARN" onclick="flt(\'WARN\')" style="background:#d97706;color:#fff">WARN ' . $c['WARN'] . '</button>'
+            . '<button class="flt" data-sev="INFO" onclick="flt(\'INFO\')" style="background:#0891b2;color:#fff">INFO ' . $c['INFO'] . '</button>'
+            . '</div></header><div class="wrap">';
         foreach ($bySite as $site => $items) {
             usort($items, fn($a, $b) => self::sevRank($a['sev']) <=> self::sevRank($b['sev']));
             $h .= '<div class="site"><h2>' . $e($site) . '</h2>';
             foreach ($items as $f) {
-                $h .= '<div class="f"><span class="b" style="background:' . $badge[$f['sev']] . '">' . $f['sev'] . '</span>'
+                $h .= '<div class="f" data-sev="' . $f['sev'] . '"><span class="b" style="background:' . $badge[$f['sev']] . '">' . $f['sev'] . '</span>'
                     . '<span class="cat">' . $e($f['cat'] . '/' . $f['code']) . '</span>'
                     . '<span>' . $e($f['msg']) . ' <span class="loc">' . ($f['file'] ? $e($f['file']) : '') . '</span></span></div>';
             }
             $h .= '</div>';
         }
-        $h .= '</div></body></html>';
+        $h .= '</div><script>'
+            . 'function flt(s){'
+            . 'document.querySelectorAll(".flt").forEach(b=>b.classList.toggle("on",b.dataset.sev===s));'
+            . 'document.querySelectorAll(".site").forEach(site=>{let any=false;'
+            . 'site.querySelectorAll(".f").forEach(f=>{var show=s==="ALL"||f.dataset.sev===s;'
+            . 'f.style.display=show?"":"none";if(show)any=true;});'
+            . 'site.style.display=any?"":"none";});}'
+            . '</script></body></html>';
         return $h;
     }
 }
