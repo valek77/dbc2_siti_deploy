@@ -16,11 +16,54 @@ Comando d'innesco: l'utente dirà *"Rendi dinamico il sito nella cartella XYZ"*.
 > **API vecchia (DEPRECATA).** Esiste ancora la variante `GET /companies/{COMPANY_ID}`
 > con le variabili "piatte" (`$p_iva`, `$company_name`, …) e `$brand`. È mantenuta
 > attiva per i siti già in produzione ma **NON va usata per i nuovi**: usare sempre
-> `LANDING_PAGE_ID`. Dettagli sulla compatibilità in `_shared/LEGGIMI.md`.
+> `LANDING_PAGE_ID`. Un sito già scritto su questa API va **convertito** all'API nuova:
+> non si riparte da zero, si segue il **§7 — Conversione da API vecchia a nuova**.
+> Dettagli sulla compatibilità in `_shared/LEGGIMI.md`.
 
 ---
 
-## 0. Prima di iniziare — chiedere all'utente
+## Principio guida (vale per entrambi gli scenari)
+
+Due regole non negoziabili, da rispettare in ogni conversione:
+
+1. **Non si tocca la grafica.** Si analizza il sito **così com'è** e si lascia intatto:
+   stesso markup, stesso `style.css`, stessi inline-style, stesse immagini/asset, stesso
+   layout. La conversione è **solo** infrastruttura PHP + sostituzione di testi. Nessun
+   ridisegno, nessun ritocco estetico non richiesto.
+2. **Si sostituisce ogni testo statico che ha una variabile API.** Lo scopo della
+   conversione è che i dati di landing, operatore energetico e azienda non restino scritti
+   a mano ma arrivino a runtime dall'API. La sostituzione vale per **qualunque occorrenza in
+   qualunque punto** (testata, footer, corpo pagina, pagine legali, testi dei consensi,
+   script inline), non solo per la riga legale del footer. Quello che l'API **non** modella
+   resta statico come testo editoriale (vedi §3 e §0).
+
+---
+
+## 0. Prima di iniziare
+
+### 0.1 Triage — che tipo di sito è?
+
+Lo stesso comando d'innesco copre **due scenari d'ingresso** diversi: prima di toccare nulla,
+capire in quale ci si trova.
+
+- **Scenario A — sito HTML statico.** File `.html`, dati azienda **hardcoded** nel markup,
+  nessun `_config.php` / `.env`. → Percorso completo statico→PHP: segui **§1–§6**.
+- **Scenario B — sito già PHP sull'API vecchia.** Già convertito in passato sull'endpoint
+  deprecato `GET /companies/{COMPANY_ID}`. → **Non** ri-convertire da zero: vai al
+  **§7 — Conversione da API vecchia a nuova** (e usa le §1.1/§2/§4 come riferimento).
+
+Come riconoscere lo **Scenario B** in pratica (basta un indizio):
+- `.env` contiene `COMPANY_ID` (e tipicamente `SITO_WEB`, `OPERATORE_ENERGETICO`) e **non**
+  `LANDING_PAGE_ID`;
+- le pagine usano le variabili **piatte** (`$company_name`, `$p_iva`, `$pec`, `$brand`, …)
+  invece dei tre array `$LANDING_PAGE`/`$OPERATORE`/`$COMPANY`;
+- riferimenti all'endpoint `/companies/`.
+
+> `_shared/config.php` sceglie l'API vecchia **esattamente quando** `LANDING_PAGE_ID` è vuoto
+> e `COMPANY_ID` è valorizzato (`_shared/config.php:300`). Valorizzare `LANDING_PAGE_ID` nel
+> `.env` è quindi ciò che fa passare il sito all'API nuova.
+
+### 0.2 Dato da chiedere all'utente (entrambi gli scenari)
 
 Serve un solo dato che NON è nel repo:
 
@@ -166,7 +209,9 @@ Per ciascuna pagina (`index`, `chi-siamo`, `tariffe`, `contatti`, `privacy-polic
    Se non c'è script di pagina: `<?php include __DIR__ . '/footer.php'; ?>`.
 4. **Aggiornare i link interni** da `.html` → `.php` (nav, footer, pulsanti, link consenso,
    e anche dentro gli script inline, comprese le forme `contatti.html?offerta=…#…`).
-5. **Sostituire i dati hardcoded con le variabili API**:
+5. **Sostituire i dati hardcoded con le variabili API** (scansione esaustiva). Non basta
+   sistemare il footer: per ogni dato sotto, **cercare ogni occorrenza nel sito** (Grep
+   sull'intera cartella, vedi nota in fondo) e sostituirla con la variabile corrispondente.
    | Dato hardcoded nel sito statico | Variabile |
    |---|---|
    | brand visualizzato (testata/footer) | `$brandName` (= `$LANDING_PAGE['nome_portale']`) |
@@ -188,6 +233,12 @@ Per ciascuna pagina (`index`, `chi-siamo`, `tariffe`, `contatti`, `privacy-polic
    dall'API. Costruire la riga legale del footer **solo dai campi presenti** (gatare ogni
    pezzo con `if ($COMPANY['x'] !== '')`), come in `footer.php` del pilota — così i campi
    non forniti dall'API (es. R.E.A.) semplicemente non compaiono.
+
+   **Metodo di scansione.** Prima di considerare chiusa una pagina, fare Grep sull'intera
+   cartella del sito per ciascun **valore noto** ancora presente nel sito statico (la vecchia
+   ragione sociale, la vecchia P.IVA, la vecchia PEC, il vecchio telefono, il vecchio nome
+   operatore, il vecchio URL): non deve restare **nessuna occorrenza hardcoded** (si ricollega
+   al controllo finale del §6).
 
    > **Attenzione (scelte da concordare).** Alcuni dati delle pagine legali NON sono
    > modellati dall'API (es. email di servizio `privacy@`, `dpo@` nella privacy policy):
