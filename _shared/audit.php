@@ -9,6 +9,7 @@
  *   php _shared/audit.php --only=A,B,C          # solo alcune categorie
  *   php _shared/audit.php --min=WARN            # nasconde gli INFO a console
  *   php _shared/audit.php --lint                # aggiunge php -l (più lento)
+ *   php _shared/audit.php --spell               # spell-check ortografico (hunspell)
  *   php _shared/audit.php --refresh             # ignora la cache API locale
  *   php _shared/audit.php --json=report.json --html=report.html
  *
@@ -31,7 +32,7 @@ $root = dirname(__DIR__);
 // --- Parsing argomenti ---------------------------------------------------
 $opts = [
     'site' => null, 'client' => null, 'only' => [],
-    'refresh' => false, 'lint' => false, 'render' => false,
+    'refresh' => false, 'lint' => false, 'render' => false, 'spell' => false,
     'no-color' => false, 'json' => null, 'html' => null, 'min' => 'INFO',
 ];
 foreach (array_slice($argv, 1) as $arg) {

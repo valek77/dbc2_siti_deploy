@@ -33,6 +33,17 @@ class Audit
     // generico "La nostra azienda" -> consenso/brand rotto a video (ERROR, non WARN
     // come le piatte, perché il danno è visibile in pagina e legalmente rilevante).
     const OLD_API_VARS = ['OPERATORE_ENERGETICO', 'brand'];
+    // Termini di settore/web legittimi ma spesso assenti dal dizionario it_IT
+    // generico (anglicismi, sigle, gergo energia): non sono refusi. La whitelist
+    // viene completata a runtime coi nomi azienda/operatore del canonico.
+    const SPELL_WHITELIST = [
+        'srl', 'srls', 'spa', 'sas', 'snc', 'sapa', 'scarl',
+        'email', 'e-mail', 'online', 'newsletter', 'marketing', 'partner',
+        'privacy', 'cookie', 'cookies', 'web', 'website', 'internet', 'browser',
+        'form', 'login', 'link', 'click', 'smart', 'green', 'power', 'energy',
+        'gas', 'kwh', 'smc', 'iban', 'whatsapp', 'spid', 'pec', 'pdf',
+        'landing', 'page', 'url', 'app', 'fax', 'mail', 'dpo', 'rpd',
+    ];
 
     private $root;
     private $opts;
@@ -43,6 +54,9 @@ class Audit
     private $scope = [];      // set dir in scope (per emettere solo quelli filtrati)
     private $findings = [];
     private $fileCache = [];
+    private $spellAvail = null;  // null=non ancora sondato, true/false=esito
+    private $spellBin;           // binario hunspell (env HUNSPELL_BIN o 'hunspell')
+    private $spellLang;          // dizionario (env HUNSPELL_LANG o 'it_IT')
 
     public function __construct($root, array $opts, Canonical $canon)
     {
@@ -167,11 +181,15 @@ class Audit
             $this->checkLinksAssets($s);
             $this->checkFormContract($s);
             $this->checkContentSanity($s);
+            $this->checkOwnDomain($s);
             $this->checkPhpResiduals($s);
             $this->checkPhpLint($s);
             $this->checkLandingUrl($s, $canon);
             $this->checkLegal($s, $canon);
             $this->checkConsent($s, $canon);
+            if ($this->opts['spell']) {
+                $this->checkSpelling($s, $canon);
+            }
         }
         $this->crossDuplicateLanding();
         $this->crossScriptDrift();
@@ -388,6 +406,246 @@ class Audit
                 if (!in_array(mb_strtolower($m[1], 'UTF-8'), $redupl, true)) {
                     $this->add($s['dir'], 'R', 'INFO', 'R-dup', "Parola ripetuta: '{$m[1]} {$m[1]}'.", $page);
                 }
+            }
+        }
+    }
+
+    /**
+     * Domini estranei nei TESTI il cui dominio non è quello del sito
+     * (cartella/SITO_WEB) né una terza parte nota. Sintomo tipico di un blocco
+     * (es. legale) copiato da un altro sito — vedi "www.paragono.it" finito in
+     * sceltaenergia.it. Autosufficiente: non richiede dati canonici.
+     *
+     * Per ridurre i falsi positivi si guardano solo i segnali di "identità":
+     *   - domini "X.tld" citati nel testo visibile (auto-referenze tipo
+     *     "www.X.it" o "X.it è una piattaforma…"); gli indirizzi email vengono
+     *     prima rimossi dal testo per non rileggerli qui;
+     *   - domini delle email di CONTATTO, esclusi i ruoli privacy/DPO che
+     *     puntano legittimamente al dominio del titolare del trattamento.
+     * Gli host nei link/asset (es. logo dell'operatore via <img src>) NON sono
+     * considerati. Provider email/PEC, social e autorità sono in allowlist.
+     */
+    private function checkOwnDomain($s)
+    {
+        // domini leciti: cartella + SITO_WEB dichiarato
+        $own = [$s['domainNorm'] => true];
+        if ($s['sito_web'] !== '') {
+            $own[audit_domain_norm($s['sito_web'])] = true;
+        }
+        // terze parti note: mai segnalate (match esatto o sottodominio)
+        static $infra = [
+            // infrastruttura / font / CDN / API / immagini
+            'googleapis.com', 'gstatic.com', 'google.com', 'youtube.com',
+            'w3.org', 'schema.org', 'datalia.it', 'ipify.org', 'unsplash.com',
+            // social
+            'facebook.com', 'instagram.com', 'linkedin.com', 'whatsapp.com',
+            'twitter.com', 'x.com', 'tiktok.com',
+            // provider email / PEC
+            'arubapec.it', 'pec.it', 'aruba.it', 'pec.aruba.it', 'legalmail.it',
+            'sicurezzapostale.it', 'postacert.it', 'register.it', 'namirial.it',
+            'email.it', 'libero.it', 'gmail.com', 'hotmail.com', 'outlook.com',
+            'yahoo.com', 'yahoo.it',
+            // autorità / enti (il Garante usa garanteprivacy.it e gpdp.it; GME)
+            'garanteprivacy.it', 'gpdp.it', 'arera.it', 'agcm.it',
+            'mercatoelettrico.org',
+        ];
+        // ruoli "titolare/DPO": email legittimamente sul dominio del titolare
+        $controllerRole = '/^(privacy|dpo|rpd|garante|protezione[._-]?dati)$/i';
+
+        $foreign = []; // domNorm => [page => true]
+        foreach ($s['pages'] as $page) {
+            $raw  = $this->read($s['abs'] . '/' . $page);
+            $cand = [];
+
+            // 1) email di contatto (esclusi i ruoli privacy/DPO del titolare)
+            foreach (audit_extract_emails($raw) as $e) {
+                $at = explode('@', $e, 2);
+                if (count($at) !== 2 || preg_match($controllerRole, $at[0])) {
+                    continue;
+                }
+                $cand[] = $at[1];
+            }
+            // 2) domini "X.tld" nel testo visibile, dopo aver tolto le email
+            $text = preg_replace('/\S+@\S+/', ' ', audit_html_to_text($raw));
+            if (preg_match_all('/\b(?:www\.)?([a-z0-9][a-z0-9\-]*\.(?:it|com|eu|net|org))\b/i', $text, $m)) {
+                foreach ($m[1] as $d) {
+                    $cand[] = $d;
+                }
+            }
+
+            foreach ($cand as $d) {
+                $dn = audit_domain_norm($d);
+                if ($dn === '' || isset($own[$dn])) {
+                    continue;
+                }
+                $skip = false;
+                foreach ($infra as $w) {
+                    if ($dn === $w || substr($dn, -strlen($w) - 1) === '.' . $w) {
+                        $skip = true;
+                        break;
+                    }
+                }
+                // dominio-brand del sito: se un'etichetta del dominio (senza TLD)
+                // compare nel nome della cartella (es. 'nexicom' in
+                // 'nexicom.ncenergy-srl.it'), non è una contaminazione.
+                if (!$skip) {
+                    $labels = explode('.', $dn);
+                    array_pop($labels); // via il TLD
+                    $folder = strtolower($s['domain']);
+                    foreach ($labels as $lab) {
+                        if (strlen($lab) >= 4 && strpos($folder, $lab) !== false) {
+                            $skip = true;
+                            break;
+                        }
+                    }
+                }
+                if (!$skip) {
+                    $foreign[$dn][$page] = true;
+                }
+            }
+        }
+
+        foreach ($foreign as $dn => $pages) {
+            $this->add($s['dir'], 'R', 'WARN', 'R-dominio-estraneo',
+                "Dominio estraneo '$dn' citato nei testi (atteso '" . $s['domainNorm']
+                . "'): possibile contenuto copiato da un altro sito.",
+                implode(', ', array_keys($pages)));
+        }
+    }
+
+    /* ===================== R. SPELL-CHECK (opt-in, hunspell) ===================== */
+
+    /**
+     * Sonda hunspell UNA volta sola. Vero se il binario risponde e il dizionario
+     * (`it_IT` di default) è risolvibile. Se manca, lo segnala su STDERR e
+     * disabilita il check per il resto della run (nessun finding fasullo).
+     * Override via ambiente: HUNSPELL_BIN (path al binario), HUNSPELL_LANG.
+     */
+    private function spellReady()
+    {
+        if ($this->spellAvail !== null) {
+            return $this->spellAvail;
+        }
+        $this->spellBin  = getenv('HUNSPELL_BIN') ?: 'hunspell';
+        $this->spellLang = getenv('HUNSPELL_LANG') ?: 'it_IT';
+        $probe = $this->runSpell("prova parola\n");
+        $this->spellAvail = ($probe !== null);
+        if (!$this->spellAvail) {
+            fwrite(STDERR,
+                "[--spell] hunspell/dizionario '{$this->spellLang}' non disponibile: "
+                . "spell-check saltato. Vedi _shared/LEGGIMI_AUDIT.md (sezione Spell-check).\n");
+        }
+        return $this->spellAvail;
+    }
+
+    /**
+     * Esegue `hunspell -d <lang> -l` passando $text su stdin e restituisce
+     * l'output grezzo (una parola sconosciuta per riga, con ripetizioni), oppure
+     * null se il processo non parte o esce con errore (binario/dizionario assenti).
+     */
+    private function runSpell($text)
+    {
+        $cmd = escapeshellarg($this->spellBin) . ' -d ' . escapeshellarg($this->spellLang) . ' -l';
+        $desc = [0 => ['pipe', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']];
+        $p = @proc_open($cmd, $desc, $pipes);
+        if (!is_resource($p)) {
+            return null;
+        }
+        fwrite($pipes[0], $text);
+        fclose($pipes[0]);
+        $out = stream_get_contents($pipes[1]);
+        $err = stream_get_contents($pipes[2]);
+        fclose($pipes[1]);
+        fclose($pipes[2]);
+        $code = proc_close($p);
+        // hunspell -l esce 0 anche con molte parole errate; un codice != 0 con
+        // stderr non vuoto = binario o dizionario mancante.
+        if ($code !== 0 && trim((string) $out) === '' && trim((string) $err) !== '') {
+            return null;
+        }
+        return (string) $out;
+    }
+
+    /**
+     * Insieme di parole (minuscole) da NON segnalare: nomi azienda/operatore del
+     * canonico (spezzati in token), etichette del dominio del sito e i termini di
+     * settore/web della whitelist statica.
+     */
+    private function spellWhitelist($s, $canon)
+    {
+        $w = [];
+        $addName = function ($str) use (&$w) {
+            $str = audit_strip_company_suffix((string) $str); // toglie srl/spa, minuscolo, no punteggiatura
+            foreach (preg_split('/\s+/u', $str) as $tok) {
+                if ($tok !== '' && mb_strlen($tok, 'UTF-8') >= 3) {
+                    $w[$tok] = true;
+                }
+            }
+        };
+        foreach ([
+            $canon['company']['company_name'] ?? '',
+            $canon['company']['nome_commerciale'] ?? '',
+            $canon['operatore']['nome_legale'] ?? '',
+            $canon['operatore']['nome_marketing'] ?? '',
+        ] as $name) {
+            $addName($name);
+        }
+        // etichette del dominio della cartella, spezzate anche sui trattini
+        // (es. 'gowin-srl.it' -> 'gowin', 'srl'): il brand nel dominio non è refuso.
+        foreach (preg_split('/[.\-]+/', $s['domainNorm']) as $lab) {
+            if (mb_strlen($lab, 'UTF-8') >= 3) {
+                $w[mb_strtolower($lab, 'UTF-8')] = true;
+            }
+        }
+        foreach (self::SPELL_WHITELIST as $t) {
+            $w[$t] = true;
+        }
+        return $w;
+    }
+
+    /**
+     * Spell-check ortografico delle pagine (categoria R, severità INFO: è un
+     * supporto alla revisione, può avere falsi positivi su nomi propri/brand).
+     * Filtra parole < 4 lettere, con cifre, tutte maiuscole (acronimi) e quelle
+     * in whitelist; aggrega per pagina le parole distinte non riconosciute.
+     */
+    private function checkSpelling($s, $canon)
+    {
+        if (!$this->spellReady()) {
+            return;
+        }
+        $white = $this->spellWhitelist($s, $canon);
+        foreach ($s['pages'] as $page) {
+            $raw  = $this->read($s['abs'] . '/' . $page);
+            $text = audit_html_to_text(preg_replace('/<\?.*?\?>/s', ' ', $raw));
+            if ($text === '') {
+                continue;
+            }
+            $out = $this->runSpell($text . "\n");
+            if ($out === null) {
+                return; // hunspell sparito a metà run: smetto
+            }
+            $bad = [];
+            foreach (preg_split('/\R+/', trim($out)) as $word) {
+                $word = trim($word);
+                if ($word === '' || mb_strlen($word, 'UTF-8') < 4) {
+                    continue;
+                }
+                if (preg_match('/\d/', $word) || preg_match('/^\p{Lu}+$/u', $word)) {
+                    continue; // numeri o acronimi/sigle tutte maiuscole
+                }
+                $lw = mb_strtolower($word, 'UTF-8');
+                if (isset($white[$lw])) {
+                    continue;
+                }
+                $bad[$lw] = true;
+            }
+            if ($bad) {
+                $list = array_slice(array_keys($bad), 0, 15);
+                $more = count($bad) > 15 ? ' …(+' . (count($bad) - 15) . ')' : '';
+                $this->add($s['dir'], 'R', 'INFO', 'R-spell',
+                    "Parole non nel dizionario {$this->spellLang} (possibili refusi, verifica manuale): "
+                    . implode(', ', $list) . $more . '.', $page);
             }
         }
     }

@@ -75,14 +75,25 @@ pre-commit o in una GitHub Action.
 2. **Diff col canonico** (`B-*`, `C-*`): ogni dato legale diverso dall'API è un errore.
 3. **Validatori di formato** (`B-piva-bad`): check digit della partita IVA, ecc.
 4. **Placeholder / mojibake / parole doppie** (`R-placeholder`, `R-mojibake`, `R-dup`).
-5. **Link/asset** (`D-*`): esistenza su disco; (HTTP esterno: estensione futura).
+5. **Dominio estraneo** (`R-dominio-estraneo`): un dominio `X.tld` citato nei
+   testi (auto-referenza tipo "www.X.it" o email di contatto) diverso dal dominio
+   del sito e non in allowlist — sintomo di un blocco copiato da un altro sito
+   (es. "www.paragono.it" finito in `sceltaenergia.it`). Autosufficiente (non usa
+   il canonico). Esclude provider email/PEC, social, autorità e le email
+   privacy/DPO del titolare; l'allowlist (`$infra` in `Audit.php`) è estendibile.
+6. **Link/asset** (`D-*`): esistenza su disco; (HTTP esterno: estensione futura).
 
-> **Spell-check ortografico (hunspell):** non incluso di default (richiede il
-> binario `hunspell -d it_IT`, assente su questa macchina). La rilevazione refusi
-> si basa oggi su consenso-fra-copie + formato + placeholder, che per questo repo
-> (alta duplicazione) ha segnale molto alto. Per aggiungerlo in futuro: estrarre
-> il testo con `audit_html_to_text()` e passarlo a hunspell con whitelist seminata
-> dai nomi azienda/operatore del canonico.
+> **Spell-check ortografico (hunspell):** opt-in con `--spell` (off di default).
+> Estrae il testo con `audit_html_to_text()` e lo passa a `hunspell -d it_IT -l`,
+> con whitelist seminata dai nomi azienda/operatore del canonico + dominio del
+> sito + termini di settore/web (`SPELL_WHITELIST`). Emette `R-spell` a livello
+> INFO (nomi propri/brand → possibili falsi positivi). Richiede hunspell + il
+> dizionario `it_IT` installati; se assenti il flag stampa un avviso su STDERR e
+> salta il check. Binario/lingua sovrascrivibili con `HUNSPELL_BIN`/`HUNSPELL_LANG`
+> (e `DICPATH` per la cartella dei dizionari). Istruzioni d'installazione per
+> Windows e macOS: `_shared/LEGGIMI_AUDIT.md`. La rilevazione refusi "senza
+> dizionario" (consenso-fra-copie + formato + placeholder) resta sempre attiva e
+> per questo repo (alta duplicazione) ha segnale molto alto.
 
 ## Architettura
 
