@@ -1,3 +1,29 @@
+<?php 
+
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+include __DIR__ . '/header.php';
+
+if ($COMPANY['company_name'] !== '') {
+    $resp[] = '<strong>' . $COMPANY['company_name'] . '</strong>';
+}
+if ($COMPANY['sede_legale'] !== '') {
+    $resp[] = 'con sede legale in ' . $COMPANY['sede_legale'];
+}
+if ($COMPANY['p_iva'] !== '') {
+    $resp[] = 'C.F./P.IVA ' . $COMPANY['p_iva'];
+}
+if ($COMPANY['pec'] !== '') {
+  $resp[] = 'PEC <strong><a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a></strong>';
+}
+
+$responsabileData = implode(', ', $resp);
+
+
+
+?>
+
 <!doctype html>
 <html lang="it">
 <head>
@@ -7,15 +33,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Sansan Logo">
-      </a>
-      <nav class="nav-links"><a href="chi-siamo.html" class="nav-link">Chi Siamo</a><a href="tariffe.html" class="nav-link">Offerte</a><a href="contatti.html" class="nav-link">Contatti</a></nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
-    </div>
-  </header>
+
   <section class="dark-section" style="padding:80px 0; text-align:center;">
     <div class="container">
       <span class="eyebrow" style="color:var(--primary-light); justify-content:center; margin-bottom:16px;"><span class="dot" style="background:var(--primary-light);"></span> Legale</span>
@@ -30,13 +48,14 @@
 
     <h2>TITOLARE DEL TRATTAMENTO</h2>
     <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.1, lett. a</p>
-    <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, <strong>SANSAN SRL</strong>, con sede legale Via Agostino Stellato snc 81054 , San Prisco (CE), Partita IVA e Codice Fiscale 04915580619, REA 84035, PEC <a href="mailto:sansansrl@pec.it">sansansrl@pec.it</a>, e-mail <a href="mailto:privacy@sansansrl.it">privacy@sansansrl.it</a>, in qualità di Titolare del trattamento, Le rilascia le informazioni relative al trattamento che verrà effettuato, di seguito analiticamente descritto, in relazione ai Suoi dati personali, nonché ai diritti che potrà in qualsiasi momento esercitare. La seguente privacy policy ha lo scopo di illustrare le modalità di trattamento e le categorie di dati personali riguardanti i soggetti interessati ("Utenti") che navigano sul sito web: <a href="https://www.tagliatariffe.it">www.tagliatariffe.it</a> (di seguito, il "Sito").</p>
+    <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, <?= $responsabileData ?>, in qualità di Titolare del trattamento, Le rilascia le informazioni relative al trattamento che verrà effettuato, di seguito analiticamente descritto, in relazione ai Suoi dati personali, nonché ai diritti che potrà in qualsiasi momento esercitare. La seguente privacy policy ha lo scopo di illustrare le modalità di trattamento e le categorie di dati personali riguardanti i soggetti interessati ("Utenti") che navigano sul sito web: <a href="<?= $LANDING_PAGE['url'] ?>"><?= $LANDING_PAGE['url'] ?></a> (di seguito, il "Sito").</p>
     <p>I Suoi dati saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento sarà svolto in forma automatizzata e/o manuale, nel rispetto di quanto previsto dall'art. 32 del GDPR 2016/679, ad opera di soggetti appositamente incaricati e in ottemperanza a quanto previsto dall'art. 29 GDPR 2016/679.</p>
 
     <h2>DATA PROTECTION OFFICER</h2>
     <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.1, lett. b</p>
-    <p>Le rendiamo noti, inoltre, i dati di contatto del Responsabile della Protezione Dati (RPD – DPO), contattabile alla PEC: <a href="mailto:sansansrl@pec.it">sansansrl@pec.it</a> o all'indirizzo e-mail: <a href="mailto:dpo@sansansrl.it">dpo@sansansrl.it</a>.</p>
-
+    <p>Qualora previsto dalla normativa vigente, il Titolare potrà designare un Responsabile della Protezione dei Dati (RPD – DPO). I relativi dati di contatto saranno resi disponibili sul sito web o mediante specifica comunicazione all’interessato.</p>
+<?php if ($COMPANY['email_dpo']) { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong> <a href="mailto:<?= $COMPANY['email_dpo'] ?>"><?= $COMPANY['email_dpo'] ?></a></strong>.</p>
+<?php } ?>
     <h2>FINALITÀ SPECIFICHE DEL TRATTAMENTO DEI DATI PERSONALI</h2>
     <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.1, lett. c</p>
     <p>I dati personali da Lei forniti sono necessari per le seguenti specifiche finalità:</p>
@@ -133,7 +152,7 @@
       <li><strong>Diritto alla portabilità dei dati</strong> <em>ex</em> art. 20 — Qualora il trattamento sia effettuato con mezzi automatizzati, ha garantito il diritto alla portabilità dei dati personali che La riguardano, qualora il trattamento si basi sul consenso o su un contratto, nonché la trasmissione diretta degli stessi ad altro titolare, ove tecnicamente fattibile.</li>
       <li><strong>Diritto di opposizione</strong> <em>ex</em> art. 21 — Ha diritto di opporsi in qualsiasi momento, per motivi connessi alla sua situazione particolare, al trattamento di dati personali che Lo riguardano. Ha inoltre il diritto di opporsi in qualsiasi momento al trattamento dei propri dati per finalità di marketing diretto. Qualora l'interessato sia iscritto al Registro Pubblico delle Opposizioni, il Titolare si impegna a verificare preventivamente tale iscrizione prima di effettuare comunicazioni telefoniche a fini commerciali.</li>
     </ul>
-    <p>Le richieste per l'esercizio dei suindicati diritti vanno rivolte direttamente all'indirizzo PEC <a href="mailto:sansansrl@pec.it">sansansrl@pec.it</a> o all'indirizzo e-mail: <a href="mailto:privacy@sansansrl.it">privacy@sansansrl.it</a>.</p>
+    <p>Le richieste per l'esercizio dei suindicati diritti vanno rivolte direttamente all'indirizzo PEC <a href="mailto:<?= $COMPANY['pec'] ?>"><?= $COMPANY['pec'] ?></a>
     <p>Le richieste possono essere inoltrate senza alcuna limitazione oraria. SANSAN SRL avrà cura di agevolare l'esercizio dei diritti dell'interessato ai sensi degli articoli da 15 a 22 GDPR, fornendogli tutte le informazioni relative all'azione intrapresa senza ingiustificato ritardo e, comunque, al più tardi entro un mese dal ricevimento della richiesta stessa. Tale termine può essere prorogato di due mesi, se necessario, tenuto conto della complessità e del numero delle richieste.</p>
     <p>Qualora SANSAN SRL decidesse di non ottemperare alla richiesta dell'interessato, informerà lo stesso senza ritardo, ed al più tardi entro un mese dal ricevimento della stessa, dei motivi dell'inottemperanza e della possibilità di proporre reclamo ad un'Autorità di controllo e di proporre ricorso giurisdizionale.</p>
 
@@ -147,7 +166,7 @@
 
     <h2>REVOCA DEL CONSENSO</h2>
     <p style="font-size:.85em; font-style:italic; color:var(--muted-2); margin-bottom:10px;">Art. 13, par.2, lett. d</p>
-    <p>Le comunichiamo, altresì, che ha il diritto di revocare, in qualsiasi momento, il consenso relativo alle finalità di cui sopra ai punti <strong>e)</strong> ed <strong>f)</strong>, con la stessa facilità con cui è stato accordato. Le richieste per l'esercizio della revoca del consenso vanno rivolte a <a href="mailto:sansansrl@pec.it">sansansrl@pec.it</a> o all'indirizzo e-mail: <a href="mailto:privacy@sansansrl.it">privacy@sansansrl.it</a>.</p>
+    <p>Le comunichiamo, altresì, che ha il diritto di revocare, in qualsiasi momento, il consenso relativo alle finalità di cui sopra ai punti <strong>e)</strong> ed <strong>f)</strong>, con la stessa facilità con cui è stato accordato. Le richieste per l'esercizio della revoca del consenso vanno rivolte a <a href="mailto:<?= $COMPANY['pec'] ?>"><?= $COMPANY['pec'] ?></a>.</p>
     <p>Resteranno fermi i trattamenti effettuati prima della suddetta revoca.</p>
 
     <h2>AGGIORNAMENTI DELLA PRESENTE INFORMATIVA</h2>
@@ -155,19 +174,12 @@
 
     <p style="margin-top:48px; font-size:14px; color:var(--muted-2);">Ultimo aggiornamento: Maggio 2026</p>
   </div>
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="logo.png" alt="Sansan Logo">
-        </a>
-        <p>Rivenditore autorizzato Semplice Gas &amp; Luce S.p.A.</p>
-      </div>
-      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
-      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni</a></div>
-    </div>
-    <div class="footer-bottom"><span>&copy; 2026 SANSAN SRL — P.IVA 04915580619. Tutti i diritti riservati.</span></div>
-  </footer>
+
 <script src="cb.js"></script>
 </body>
 </html>
+<?php 
+
+include __DIR__ . '/footer.php';
+
+?>

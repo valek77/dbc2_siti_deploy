@@ -1,27 +1,21 @@
+<?php 
+
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+include __DIR__ . '/header.php';
+?>
+
 <!doctype html>
 <html lang="it">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Contatti — Sansan</title>
-  <meta name="description" content="Contatta Sansan per una consulenza gratuita sulle offerte Semplice Gas &amp; Luce S.p.A. Rispondiamo entro 24 ore lavorative.">
+  <meta name="description" content="Contatta Sansan per una consulenza gratuita sulle offerte <?=$OPERATORE["nome_legale"] ?> Rispondiamo entro 24 ore lavorative.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Sansan Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <a href="tariffe.html" class="btn-header">Scopri tariffe</a>
-    </div>
-  </header>
 
   <!-- HERO -->
   <section class="page-hero">
@@ -42,12 +36,12 @@
         <div class="contact-sidebar">
           <!-- Promo card aggiornata -->
           <div class="offer-promo-card">
-            <div style="font-size:11px; color:rgba(255,255,255,.7); font-weight:700; text-transform:uppercase; margin-bottom:4px;">Semplice Gas &amp; Luce S.p.A.</div>
+            <div style="font-size:11px; color:rgba(255,255,255,.7); font-weight:700; text-transform:uppercase; margin-bottom:4px;"><?=$OPERATORE["nome_legale"] ?></div>
             <div class="tag">Offerta consigliata</div>
             <div class="name">SE EE PUN DOM SICURA</div>
             <div class="price">PUN +€0,05<small> €/kWh</small></div>
             <div class="note">con assistenza casa inclusa</div>
-            <a href="tariffe.html" class="link">
+            <a href="tariffe.php" class="link">
               Vedi tutte le offerte
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -81,11 +75,11 @@
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.html" style="color: var(--primary); font-weight: 600; text-decoration: underline;">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php" style="color: var(--primary); font-weight: 600; text-decoration: underline;">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da Semplice Gas &amp; Luce S.p.A., tramite il partner commerciale SanSan Srl , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?=$OPERATORE["nome_legale"] ?>, tramite il partner commerciale <?=$COMPANY["company_name"] ?> , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
               </div>
 
@@ -105,26 +99,13 @@
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="logo.png" alt="Sansan Logo">
-        </a>
-        <p>Rivenditore autorizzato Semplice Gas &amp; Luce S.p.A. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
-      <div class="footer-col"><h4>Offerte</h4><a href="tariffe.html">Luce Casa</a><a href="tariffe.html">Gas Casa</a><a href="tariffe.html">Linea SICURA</a></div>
-      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni</a></div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 SAN.SAN. S.R.L.S. — P.IVA 04915580619. Tutti i diritti riservati.</span>
-      <span>Rivenditore autorizzato Semplice Gas &amp; Luce S.p.A.</span>
-    </div>
-  </footer>
-
 
   <script src="lead-form.js"></script>
 <script src="cb.js"></script>
 </body>
 </html>
+<?php 
+
+include __DIR__ . '/footer.php';
+
+?>

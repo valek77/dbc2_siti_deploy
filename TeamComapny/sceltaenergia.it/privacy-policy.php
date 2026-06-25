@@ -2,6 +2,9 @@
 require __DIR__ . '/_config.php';
 $pageTitle = 'Privacy';
 include __DIR__ . '/header.php';
+
+
+
 ?>
 
 <!doctype html>
