@@ -1,10 +1,17 @@
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+include __DIR__ . '/header.php';
+?>
+
 <!doctype html>
 <html lang="it">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Chi Siamo — JUNA</title>
+  <title>Chi Siamo— <?=$COMPANY["nome_commerciale"] ?></title>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet">
@@ -12,19 +19,6 @@
 </head>
 
 <body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-          alt="JUNA" class="logo-img" style="max-height: 48px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
 
   <section class="hero about-hero" style="background: var(--primary); color: #ffffff;">
     <div class="hero-wrapper" style="gap: 80px; align-items: center;">
@@ -36,7 +30,7 @@
           e verde per tutti.
         </p>
         <div class="hero-actions" style="margin-top: 40px;">
-          <a href="tariffe.html" class="btn-primary">Scopri le nostre offerte</a>
+          <a href="tariffe.php" class="btn-primary">Scopri le nostre offerte</a>
         </div>
       </div>
       <div class="hero-image" style="flex: 0 0 35%; display: flex; justify-content: center;">
@@ -103,13 +97,13 @@
   <section style="padding: 80px 20px; background: #fff;">
     <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px;">
-        <img src="company_origins.png" alt="JUNA"
+        <img src="company_origins.png" alt="<?=$COMPANY["nome_commerciale"] ?>"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
       </div>
       <div style="flex: 1.5; min-width: 300px;">
         <h2 class="section-title" style="text-align: left; margin-top: 0;">Come siamo nati</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-label); margin-bottom: 20px;">
-          JUNA è nata nel 2000 per portare innovazione e sostenibilità nel mercato energetico. Sviluppiamo
+          <?=$COMPANY["nome_commerciale"] ?> è nata nel 2000 per portare innovazione e sostenibilità nel mercato energetico. Sviluppiamo
           impianti di produzione di energia da fonti rinnovabili con standard altissimi.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-label);">
@@ -119,43 +113,13 @@
       </div>
     </div>
   </section>
-
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-            alt="JUNA" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 JUNA. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
 <script src="cb.js"></script>
 </body>
 
 </html>
+
+<?php 
+
+include __DIR__ . '/footer.php';
+
+?>
