@@ -1,6 +1,16 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Energia per il tuo futuro';
+
+// Dati dell'OPERATORE ENERGETICO (fornitore di cui il sito è partner/rivenditore).
+// Calcolati qui perché footer.php — che li usa per la riga legale — è incluso solo
+// a fine pagina. Tutto agnostico: nome e logo arrivano dall'API ($OPERATORE), così
+// hero-badge e sezione partner restano corretti anche se l'operatore cambia.
+$operatoreNome     = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
+$operatoreLogo     = $OPERATORE['logo_url']; // variante per sfondo chiaro (sezione)
+$operatoreLogoDark = $OPERATORE['logo2_url'] !== '' ? $OPERATORE['logo2_url'] : $OPERATORE['logo_url']; // sfondo scuro (hero)
+$haOperatore       = $operatoreNome !== '' || $operatoreLogo !== '';
+
 include __DIR__ . '/header.php';
 ?>
 
@@ -16,6 +26,17 @@ include __DIR__ . '/header.php';
           <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
           <a href="contatti.php" class="btn-secondary">Parla con noi</a>
         </div>
+
+<?php if ($haOperatore) { ?>
+        <div class="hero-partner" style="display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; padding: 8px 18px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; backdrop-filter: blur(4px);">
+          <span style="color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.3px;">Fornitore ufficiale</span>
+<?php if ($operatoreLogoDark !== '') { ?>
+          <img src="<?= $operatoreLogoDark ?>" alt="<?= $operatoreNome ?>" style="height: 26px; width: auto;">
+<?php } else { ?>
+          <strong style="color: #fff; font-size: 16px;"><?= $operatoreNome ?></strong>
+<?php } ?>
+        </div>
+<?php } ?>
       </div>
     </div>
     <div class="hero-wave">
@@ -50,10 +71,34 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
+<?php if ($haOperatore) { ?>
+  <section class="partner-section" style="padding: 100px 20px; background: var(--bg-cream);">
+    <div class="container" style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 280px; display: flex; justify-content: center;">
+        <div style="background: #fff; padding: 48px 56px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; width: 100%;">
+<?php if ($operatoreLogo !== '') { ?>
+          <img src="<?= $operatoreLogo ?>" alt="<?= $operatoreNome ?>" style="max-width: 100%; max-height: 100px; width: auto; height: auto;">
+<?php } else { ?>
+          <span style="font-size: 40px; font-weight: 800; color: var(--text-dark);"><?= $operatoreNome ?></span>
+<?php } ?>
+        </div>
+      </div>
+      <div style="flex: 1.2; min-width: 320px; text-align: left;">
+        <span class="hero-tag" style="display: inline-block; margin-bottom: 16px;">Il nostro partner energetico</span>
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2; color: var(--text-dark);">In collaborazione con <span style="color: var(--primary);"><?= $operatoreNome ?></span></h2>
+        <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 28px 0;">
+          Affidiamo le tue forniture di luce e gas a <?= $operatoreNome ?>, un operatore energetico solido e affidabile. Questa partnership ci permette di offrirti tariffe trasparenti, energia di qualità e un'assistenza sempre al tuo fianco.
+        </p>
+        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Scopri le offerte</a>
+      </div>
+    </div>
+  </section>
+<?php } ?>
+
   <section class="how-it-works-section">
     <div class="hiw-container">
       <div class="hiw-header">
-        <h2 class="section-title">Passa a <?= $brand ?> in 4 semplici passi</h2>
+        <h2 class="section-title">Passa a <?= $brandName ?> in 4 semplici passi</h2>
         <p class="section-sub">Attivare le nostre offerte è veloce e sicuro.</p>
       </div>
 
@@ -81,7 +126,7 @@ include __DIR__ . '/header.php';
   <section class="efficiency-section" style="padding: 100px 20px; background: #fff; overflow: hidden;">
     <div class="container" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1.2; min-width: 400px;">
-        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brand ?> Fotovoltaico: <span style="color: var(--primary);">L'energia del sole</span></h2>
+        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brandName ?> Fotovoltaico: <span style="color: var(--primary);">L'energia del sole</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
           Scegli l'energia del sole: semplice, sostenibile e anche conveniente. Con le nostre soluzioni fotovoltaiche trasformi la tua casa in una centrale di energia pulita e autonoma.
         </p>
@@ -118,7 +163,7 @@ include __DIR__ . '/header.php';
         <div class="tp-review-card">
           <div class="tp-review-stars">★★★★★</div>
           <h5 class="tp-review-title">Finalmente chiarezza!</h5>
-          <p class="tp-review-body">Con <?= $brand ?> ho finalmente capito cosa pago in bolletta. Prezzi onesti e consulenti gentilissimi.</p>
+          <p class="tp-review-body">Con <?= $brandName ?> ho finalmente capito cosa pago in bolletta. Prezzi onesti e consulenti gentilissimi.</p>
           <p class="tp-review-author">Marco R.</p>
         </div>
         <div class="tp-review-card">
@@ -141,11 +186,11 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="team_new.jpg" alt="Il Team <?= $brand ?>"
+        <img src="team_new.jpg" alt="Il Team <?= $brandName ?>"
           style="max-width: 100%; height: auto; border-radius: 50% 70% 50% 50% / 50% 70% 50% 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 0;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brand ?> Clima: Comfort che dura <span style="color: var(--primary);">tutto l'anno</span></h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brandName ?> Clima: Comfort che dura <span style="color: var(--primary);">tutto l'anno</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 32px 0;">
           Con i climatizzatori a pompa di calore riscaldi o raffresca la tua casa a seconda della stagione. Unisci efficienza e tecnologia per gestire il tuo riscaldamento direttamente dallo smartphone.
         </p>

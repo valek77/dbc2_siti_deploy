@@ -23,8 +23,11 @@ $pageHead = <<<'CSS'
   </style>
 CSS;
 
-$ragioneSociale = $company_name !== '' ? $company_name : $brand;
-$emailSupporto = $email_supporto;
+$brandName = $LANDING_PAGE['nome_portale'] !== ''
+    ? $LANDING_PAGE['nome_portale']
+    : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Action Srl');
+$ragioneSociale = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName;
+$emailSupporto = $COMPANY['email_supporto'];
 
 include __DIR__ . '/header.php';
 ?>
@@ -32,10 +35,10 @@ include __DIR__ . '/header.php';
   <main class="legal-content">
     <h1>Condizioni di Utilizzo</h1>
 
-    L’utilizzo del sito web <?= $SITO_WEB ?> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti
+    L’utilizzo del sito web <?= $LANDING_PAGE['url'] ?> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti
     condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di
-    <?= $ragioneSociale ?><?php if ($sede_legale) { ?>, con sede in <?= $sede_legale ?><?php } ?><?php if ($p_iva) { ?>, Partita IVA e Codice Fiscale
-    <?= $p_iva ?><?php } ?> (di seguito, la “Società”).
+    <?= $ragioneSociale ?><?php if ($COMPANY['sede_legale'] !== '') { ?>, con sede in <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?>, Partita IVA e Codice Fiscale
+    <?= $COMPANY['p_iva'] ?><?php } ?> (di seguito, la “Società”).
     <ol>
       <li><strong> Premesse</strong></li>
     </ol>
@@ -49,7 +52,7 @@ include __DIR__ . '/header.php';
     <ol start="2">
       <li><strong> Oggetto del servizio</strong></li>
     </ol>
-    <?= $brand ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte,
+    <?= $brandName ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte,
     preventivi, condizioni economiche e informazioni relative a prodotti e servizi propri o di soggetti terzi, anche
     mediante l’impiego di strumenti algoritmici, motori di calcolo, sistemi software avanzati e modelli linguistici di
     supporto all’interazione (LLM).
@@ -127,7 +130,7 @@ include __DIR__ . '/header.php';
     <ul>
 <?php if ($emailSupporto) { ?>      <li><a href="mailto:<?= $emailSupporto ?>"><?= $emailSupporto ?></a></li>
 <?php } ?>
-<?php if ($pec) { ?>      <li><a href="mailto:<?= $pec ?>"><?= $pec ?></a></li>
+<?php if ($COMPANY['pec'] !== '') { ?>      <li><a href="mailto:<?= $COMPANY['pec'] ?>"><?= $COMPANY['pec'] ?></a></li>
 <?php } ?>
     </ul>
     In caso di reclami relativi a specifici servizi o prodotti, ad esclusione delle categorie (Energia e Telefonia) ,la
