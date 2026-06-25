@@ -1,10 +1,33 @@
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+include __DIR__ . '/header.php';
+
+
+if ($COMPANY['company_name'] !== '') {
+    $resp[] = '<strong>' . $COMPANY['company_name'] . '</strong>';
+}
+if ($COMPANY['sede_legale'] !== '') {
+    $resp[] = 'con sede legale in ' . $COMPANY['sede_legale'];
+}
+if ($COMPANY['p_iva'] !== '') {
+    $resp[] = 'C.F./P.IVA ' . $COMPANY['p_iva'];
+}
+if ($COMPANY['pec'] !== '') {
+    $resp[] = 'PEC ' . $COMPANY['pec'];
+}
+
+$responsabileData = implode(', ', $resp);
+?>
+
 <!doctype html>
 <html lang="it">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Condizioni di Utilizzo — JUNA</title>
+  <title>Condizioni di Utilizzo— <?=$COMPANY["nome_commerciale"] ?></title>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet">
@@ -31,24 +54,13 @@
 
 <body>
 
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png" alt="JUNA" class="logo-img" style="max-height: 32px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
 
   <main class="legal-content">
     <h1>Condizioni di Utilizzo</h1>
 
-    L’utilizzo del sito web www.paragono.it (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti
+    L’utilizzo del sito web <strong><a href="<?= $LANDING_PAGE['url'] ?>"><?= $LANDING_PAGE['url'] ?></a></strong> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti
     condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di
-    Paragono S.R.L., con sede in Viale Luigi Schiavonetti n. 270, 00173 Roma (RM), Partita IVA e Codice Fiscale
-    18411951009, REA CCIAA di Roma n. 1783168 (di seguito, la “Società”).
+    <?= $responsabileData ?> (di seguito, la “Società”).
     <ol>
       <li><strong> Premesse</strong></li>
     </ol>
@@ -139,10 +151,12 @@
     sezione contatti del Sito. Ai fini redazionali, nel presente testo sono richiamati i seguenti indirizzi da
     confermare o aggiornare prima della pubblicazione definitiva:
     <ul>
-      <li><a href="mailto:support@paragono.it">support@paragono.it</a></li>
-      <li><a href="mailto:privacy@paragono.it">privacy@paragono.it</a></li>
-      <li><a href="mailto:sevizioclienti@paragono.it">sevizioclienti@paragono.it</a></li>
-      <li><a href="mailto:hallo@paragono.it">hallo@paragono.it</a></li>
+      <?php if ($COMPANY['email_supporto']) { ?>      <li><a href="<?= $COMPANY['email_supporto'] ?>"><?= $COMPANY['email_supporto'] ?></a></li>
+      <?php } ?>
+      <?php if ($COMPANY['email_dpo'] && $COMPANY['email_dpo'] !== $COMPANY['email_supporto']) { ?>      <li><a href="<?= $COMPANY['email_dpo'] ?>"><?= $COMPANY['email_dpo'] ?></a></li>
+      <?php } ?>
+      <?php if ($COMPANY['pec']) { ?>      <li><a href="<?= $COMPANY['pec'] ?>"><?= $COMPANY['pec'] ?></a></li>
+      <?php } ?>
     </ul>
     In caso di reclami relativi a specifici servizi o prodotti, ad esclusione delle categorie (Energia e Telefonia) ,la
     Società potrà indirizzare l’utente verso il partner competente o che eroga il servizio richiesto.
@@ -165,7 +179,7 @@
     <ol start="11">
       <li><strong> Trattamento dei dati personali</strong></li>
     </ol>
-    Rif: <a href="privacy-policy.html">Informativa Privacy</a>
+    Rif: <a href="privacy-policy.php">Informativa Privacy</a>
     <ol start="12">
       <li><strong> Clausole finali</strong></li>
     </ol>
@@ -177,37 +191,13 @@
     piattaforma.
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png" alt="JUNA" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 JUNA. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
 <script src="cb.js"></script>
 </body>
 
 </html>
+
+<?php 
+
+include __DIR__ . '/footer.php';
+
+?>

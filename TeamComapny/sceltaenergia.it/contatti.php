@@ -1,10 +1,18 @@
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+include __DIR__ . '/header.php';
+?>
+
+
 <!doctype html>
 <html lang="it">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contatti — JUNA</title>
+  <title>Contatti— <?=$COMPANY["nome_commerciale"] ?></title>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet">
@@ -13,18 +21,6 @@
 
 <body>
 
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-          alt="JUNA" class="logo-img" style="max-height: 48px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
 
   <main style="margin-top: 60px; background: #fff;">
     <div style="max-width: 800px; margin: 0 auto; padding: 40px 20px 20px; text-align: center;">
@@ -40,7 +36,7 @@
           <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Un'energia più pulita,
             insieme</h2>
           <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            Scegliere JUNA significa sostenere l'ambiente. Ogni nostro kilowattora proviene al 100% da fonti
+            Scegliere <?=$COMPANY["nome_commerciale"] ?> significa sostenere l'ambiente. Ogni nostro kilowattora proviene al 100% da fonti
             rinnovabili certificate.
           </p>
         </div>
@@ -75,7 +71,7 @@
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.html">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
@@ -117,40 +113,6 @@
     </section>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-            alt="JUNA" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 JUNA. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
 
   <script src="lead-form.js"></script>
 
@@ -158,3 +120,8 @@
 </body>
 
 </html>
+<?php 
+
+include __DIR__ . '/footer.php';
+
+?>
