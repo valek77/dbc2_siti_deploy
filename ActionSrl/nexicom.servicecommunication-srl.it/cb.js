@@ -113,7 +113,7 @@
         <div class="cookie-banner-container">
           <div class="cookie-content">
             <strong>Informativa sui Cookie 🍪</strong>
-            <p>Utilizziamo i cookie tecnici per garantirti la migliore esperienza di navigazione. Maggiori dettagli nella nostra <a href="privacy-policy.php">Informativa Privacy</a>.</p>
+            <p>Utilizziamo i cookie tecnici per garantirti la migliore esperienza di navigazione. Maggiori dettagli nella nostra <a href="cookie-policy.php">Cookie Policy</a>.</p>
           </div>
           <div class="cookie-actions">
             <button class="cookie-btn cookie-btn-primary" id="btn-accept-cookie">Accetta tutto</button>

@@ -2,6 +2,7 @@
 require __DIR__ . '/_config.php';
 $pageTitle = 'Energia per il tuo futuro';
 include __DIR__ . '/header.php';
+
 ?>
 
   <section class="hero">
@@ -12,8 +13,8 @@ include __DIR__ . '/header.php';
           eoliche, idroelettriche e solari.</p>
 
         <div class="hero-actions">
-          <a href="tariffe.html" class="btn-primary">Scopri di più</a>
-          <a href="contatti.html" class="btn-secondary">Contattaci</a>
+          <a href="tariffe.php" class="btn-primary">Scopri di più</a>
+          <a href="contatti.php" class="btn-secondary">Contattaci</a>
         </div>
 
       </div>
@@ -123,7 +124,7 @@ include __DIR__ . '/header.php';
           Con <?=$COMPANY["nome_commerciale"] ?> la trasparenza e l'efficienza sono al primo posto: progettazione e manutenzione di impianti
           energetici a regola d'arte.
         </p>
-        <a href="contatti.html" class="btn-primary" style="display: inline-block;">Scopri di più</a>
+        <a href="contatti.php" class="btn-primary" style="display: inline-block;">Scopri di più</a>
       </div>
     </div>
   </section>
@@ -137,7 +138,7 @@ include __DIR__ . '/header.php';
           Taglia i costi e le emissioni di CO2 con le pompe di calore, i pannelli fotovoltaici e le wallbox.
           Unisci risparmio economico e rispetto per l'ambiente con le nostre soluzioni innovative.
         </p>
-        <a href="tariffe.html" class="btn-primary" style="display: inline-block;">Scopri le soluzioni</a>
+        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Scopri le soluzioni</a>
       </div>
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
         <img src="sustainable_home.png" alt="Casa Sostenibile"
@@ -145,47 +146,12 @@ include __DIR__ . '/header.php';
       </div>
     </div>
   </section>
-
-
-
-
-
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-            alt="JUNA" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 JUNA. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
 <script src="cb.js"></script>
 </body>
 
 </html>
+<?php 
+
+include __DIR__ . '/footer.php';
+
+?>

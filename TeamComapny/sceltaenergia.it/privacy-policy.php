@@ -1,10 +1,16 @@
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Privacy';
+include __DIR__ . '/header.php';
+?>
+
 <!doctype html>
 <html lang="it">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Privacy Policy — JUNA</title>
+  <title>Privacy Policy— <?=$COMPANY["nome_commerciale"] ?></title>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet">
@@ -76,19 +82,6 @@
 
 <body>
 
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-          alt="JUNA" class="logo-img" style="max-height: 32px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="legal-content">
     <h1>INFORMATIVA PER IL TRATTAMENTO DEI DATI PERSONALI</h1>
     <em>Ai sensi dell’art. 13 del Regolamento UE 2016/679</em>
@@ -105,22 +98,22 @@
     <p>I dati personali saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento potrà avvenire con strumenti manuali e automatizzati, nel rispetto delle disposizioni di cui all’art. 32 del GDPR e delle misure di sicurezza tecniche e organizzative adeguate.</p>
     <p>Per qualsiasi informazione o per l’esercizio dei diritti è possibile contattare il Titolare ai seguenti recapiti:</p>
     <ul>
-      <li><strong>DATI DELLA SOCIETÀ - JUNA S.R.L.</strong></li>
-      <li>Partita IVA: 08189841219 - Codice Fiscale: 08189841219</li>
-      <li>Vat Europeo: 08189841219</li>
-      <li>Rag. Sociale: JUNA S.R.L.</li>
-      <li>Indirizzo: VIA GIULIO CESARE 81 - 80017 - MELITO DI NAPOLI (NA)</li>
-      <li>Rea: 939101</li>
-      <li>Email privacy: <a href="mailto:privacy@juna-srls.com">privacy@juna-srls.com</a></li>
-      <li>PEC: <a href="mailto:juna-srls@arubapec.it">juna-srls@arubapec.it</a></li>
+      <li><strong>DATI DELLA SOCIETÀ - <?= $COMPANY['company_name'] ?></strong></li>
+      <li>Partita IVA:  <?= $COMPANY['p_iva'] ?> - Codice Fiscale:  <?= $COMPANY['p_iva'] ?></li>
+      <li>Vat Europeo:  <?= $COMPANY['p_iva'] ?></li>
+      <li>Rag. Sociale:  <?= $COMPANY['company_name'] ?></li>
+      <li>Indirizzo:  <?= $COMPANY['sede_legale'] ?></li>
+      <?php if ($COMPANY['pec']) { ?>   
+      <li>PEC: <a href="mailto:<?= $COMPANY['pec'] ?>"><?= $COMPANY['pec'] ?></a></li>
+<?php } ?>
+
     </ul>
 
     <h2>DATA PROTECTION OFFICER</h2>
     <span class="section-subhead">Art.13, par.1, lett. b</span>
-    <p>Il Titolare ha nominato un Responsabile della Protezione dei Dati (DPO), contattabile al seguente indirizzo:</p>
-    <ul>
-      <li><a href="mailto:dpo@juna-srls.com">dpo@juna-srls.com</a></li>
-    </ul>
+    <p>Qualora previsto dalla normativa vigente, il Titolare potrà designare un Responsabile della Protezione dei Dati (RPD – DPO). I relativi dati di contatto saranno resi disponibili sul sito web o mediante specifica comunicazione all’interessato.</p>
+<?php if ($COMPANY['email_dpo']) { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong> <a href="mailto:<?= $COMPANY['email_dpo'] ?>"><?= $COMPANY['email_dpo'] ?></a></strong>.</p>
+<?php } ?>
 
     <h2>FINALITÀ SPECIFICHE DEL TRATTAMENTO DEI DATI PERSONALI</h2>
     <span class="section-subhead">Art. 13, par.1, lett. C</span>
@@ -205,60 +198,44 @@
     <p>Qualora l’interessato sia iscritto al Registro Pubblico delle Opposizioni, il Titolare si impegna a verificare preventivamente tale iscrizione prima di effettuare comunicazioni telefoniche a fini commerciali.</p>
     <p>Le richieste relative all’esercizio dei diritti possono essere inviate ai seguenti recapiti:</p>
     <ul>
-      <li><a href="mailto:privacy@juna-srls.com">privacy@juna-srls.com</a></li>
-      <li><a href="mailto:dpo@juna-srls.com">dpo@juna-srls.com</a></li>
-      <li><a href="mailto:juna-srls@arubapec.it">juna-srls@arubapec.it</a></li>
+      <?php if ($COMPANY['email_supporto']) { ?>      <li><a href="<?= $COMPANY['email_supporto'] ?>"><?= $COMPANY['email_supporto'] ?></a></li>
+      <?php } ?>
+      <?php if ($COMPANY['email_dpo'] && $COMPANY['email_dpo'] !== $COMPANY['email_supporto']) { ?>      <li><a href="<?= $COMPANY['email_dpo'] ?>"><?= $COMPANY['email_dpo'] ?></a></li>
+      <?php } ?>
+      <?php if ($COMPANY['pec']) { ?>      <li><a href="<?= $COMPANY['pec'] ?>"><?= $COMPANY['pec'] ?></a></li>
+      <?php } ?>
     </ul>
 
     <h2>RECLAMO ALL’AUTORITÀ DI CONTROLLO</h2>
     <p>L’interessato ha il diritto di proporre reclamo all’Autorità Garante per la protezione dei dati personali, ai sensi dell’art. 77 del GDPR, qualora ritenga che il trattamento dei dati violi la normativa vigente.</p>
 
-    <h2>REVOCA DEL CONSENSO</h2>
-    <span class="section-subhead">Art.13, par.2, lett. d</span>
-    <p>L’interessato può revocare in qualsiasi momento il consenso prestato per finalità di marketing o contatto commerciale, senza pregiudicare la liceità del trattamento effettuato prima della revoca.</p>
-    <p>Per esercitare la revoca è possibile scrivere a <a href="mailto:privacy@juna-srls.com">privacy@juna-srls.com</a> o <a href="mailto:dpo@juna-srls.com">dpo@juna-srls.com</a>.</p>
+<h2>REVOCA DEL CONSENSO</h2>
+<span class="section-subhead">Art. 13, par. 2, lett. d</span>
+<p>L’interessato può revocare in qualsiasi momento il consenso prestato per finalità di marketing o contatto commerciale, senza pregiudicare la liceità del trattamento effettuato prima della revoca.</p>
+
+<?php if (!empty($COMPANY['email_supporto'])): ?>
+    <p>
+        Per esercitare la revoca è possibile scrivere a 
+        <a href="mailto:<?= htmlspecialchars($COMPANY['email_supporto']) ?>"><?= htmlspecialchars($COMPANY['email_supporto']) ?></a><?php 
+        if (!empty($COMPANY['email_dpo']) && $COMPANY['email_dpo'] !== $COMPANY['email_supporto']): 
+            ?> o a <a href="mailto:<?= htmlspecialchars($COMPANY['email_dpo']) ?>"><?= htmlspecialchars($COMPANY['email_dpo']) ?></a><?php 
+        endif; 
+        ?>.
+    </p>
+<?php endif; ?>
 
     <h2>AGGIORNAMENTI DELLA PRESENTE INFORMATIVA</h2>
     <p>La presente informativa potrà essere soggetta a modifiche o aggiornamenti, anche in conseguenza di variazioni normative, evoluzioni tecnologiche o aggiornamenti delle policy aziendali nel settore dell’energia e della tutela dei consumatori.</p>
     <p>Gli aggiornamenti saranno resi disponibili mediante pubblicazione sul sito web o tramite altri canali informativi appropriati.</p>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-            alt="JUNA" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 JUNA. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
 <script src="cb.js"></script>
 </body>
 
 </html>
+
+<?php 
+
+include __DIR__ . '/footer.php';
+
+?>

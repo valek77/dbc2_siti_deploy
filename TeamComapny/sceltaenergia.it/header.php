@@ -51,13 +51,13 @@ $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'lo
 
   <header class="main-header">
     <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-          alt="JUNA" class="logo-img" style="max-height: 48px; width: auto;"></a>
+      <a href="index.php" class="logo"
+        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="<?= $LANDING_PAGE['logo_url'] ?>"
+          alt="<?= $COMPANY['nome_commerciale'] ?>" class="logo-img" style="max-height: 48px; width: auto;"></a>
       <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
+        <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
+        <a href="tariffe.php" class="nav-link">Tariffe</a>
+        <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
     </div>
   </header>

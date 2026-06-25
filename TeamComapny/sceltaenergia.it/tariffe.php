@@ -1,10 +1,17 @@
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+include __DIR__ . '/header.php';
+?>
+
 <!doctype html>
 <html lang="it">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Tariffe — JUNA</title>
+  <title>Tariffe— <?=$COMPANY["nome_commerciale"] ?></title>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet">
@@ -12,68 +19,17 @@
 </head>
 
 <body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-          alt="JUNA" class="logo-img" style="max-height: 48px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="container" style="margin-top: 60px;">
     <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
       Le migliori offerte 
       <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="Nuova Corrente" style="height: 40px; width: auto;">
     </h2>
-    <p class="section-sub">In partnership con Nuova Corrente per garantirti il massimo risparmio</p>
+    <p class="section-sub">In partnership con <?=$OPERATORE["nome_marketing"] ?> per garantirti il massimo risparmio</p>
 
     <div class="results-list" id="results"></div>
 
 
   </main>
-
-
-
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-            alt="JUNA" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 JUNA. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
 
   <script>
     const offers = [
@@ -146,7 +102,7 @@
       if (!btn) return;
       const o = offers.find(x => x.id === btn.dataset.offerId);
       if (!o) return;
-      window.location.href = 'contatti.html?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
+      window.location.href = 'contatti.php?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
     });
   </script>
 
@@ -154,3 +110,9 @@
 </body>
 
 </html>
+
+<?php 
+
+include __DIR__ . '/footer.php';
+
+?>

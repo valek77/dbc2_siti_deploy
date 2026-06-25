@@ -74,7 +74,6 @@ define('DEBUG_MODE', false); // METTERE true SOLO per diagnosi: stampa i [DEBUG]
 // --- 1. Lettura variabili (sistema + .env) -------------------------------
 
 $env_file = load_env($SITE_DIR . '/.env');
-
 $API_BASE = rtrim(get_env_var('DBC2_API_BASE', $env_file), '/');
 $TOKEN = get_env_var('DBC2_TOKEN', $env_file);
 $COMPANY_ID = get_env_var('COMPANY_ID', $env_file);
