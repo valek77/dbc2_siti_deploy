@@ -1,30 +1,8 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>JUNA — Energie Rinnovabili</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-          alt="JUNA" class="logo-img" style="max-height: 48px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Energia per il tuo futuro';
+include __DIR__ . '/header.php';
+?>
 
   <section class="hero">
     <div class="hero-wrapper">
@@ -142,7 +120,7 @@
           sorprese in
           bolletta</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Con JUNA la trasparenza e l'efficienza sono al primo posto: progettazione e manutenzione di impianti
+          Con <?=$COMPANY["nome_commerciale"] ?> la trasparenza e l'efficienza sono al primo posto: progettazione e manutenzione di impianti
           energetici a regola d'arte.
         </p>
         <a href="contatti.html" class="btn-primary" style="display: inline-block;">Scopri di più</a>
