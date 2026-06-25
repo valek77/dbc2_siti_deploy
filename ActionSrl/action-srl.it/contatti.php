@@ -277,8 +277,7 @@ include __DIR__ . '/header.php';
 <section class="contact-hero">
   <div class="hero-container">
     <h1>Siamo al <span>tuo fianco</span></h1>
-    <p>Contattaci per ricevere assistenza sulle nostre offerte Luce e Gas o per richiedere un sopralluogo gratuito per
-      Caldaia, Clima e Fotovoltaico.</p>
+    <p>Contattaci per ricevere assistenza sulle nostre offerte Luce e Gas.</p>
   </div>
 </section>
 
@@ -302,7 +301,7 @@ include __DIR__ . '/header.php';
         migliore per rendere la tua casa più efficiente e sostenibile.
       </p>
       <ul class="features-list">
-        <li><span class="check-icon">✓</span> Sopralluogo gratuito per Caldaia e Clima</li>
+        <li><span class="check-icon">✓</span> Analisi per Caldaia e Clima</li>
         <li><span class="check-icon">✓</span> Analisi personalizzata per Fotovoltaico</li>
         <li><span class="check-icon">✓</span> Assistenza dedicata per Luce e Gas</li>
       </ul>
