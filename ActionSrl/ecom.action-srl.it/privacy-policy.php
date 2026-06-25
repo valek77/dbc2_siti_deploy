@@ -105,7 +105,7 @@ $responsabileData = implode(', ', $resp);
     <h2>DATA PROTECTION OFFICER</h2>
     <span class="section-subhead">Art.13, par.1, lett. b</span>
     <p>Qualora previsto dalla normativa vigente, il Titolare potrà designare un Responsabile della Protezione dei Dati (RPD – DPO). I relativi dati di contatto saranno resi disponibili sul sito web o mediante specifica comunicazione all’interessato.</p>
-<?php if ($COMPANY['email_dpo']) { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong><?= $email_dpo ?></strong>.</p>
+<?php if ($COMPANY['email_dpo']) { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong><?= $COMPANY['email_dpo'] ?></strong>.</p>
 <?php } ?>
 
     <h2>FINALITÀ SPECIFICHE DEL TRATTAMENTO DEI DATI PERSONALI</h2>
