@@ -114,7 +114,7 @@
           <div class="cookie-content">
             <strong>Utilizziamo i cookie per migliorare la tua esperienza sul sito. 🍪</strong>
             <p>Puoi accettare tutti i cookie e continuare la navigazione.<br>
-            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="privacy-policy.php">cookie policy</a>.</p>
+            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="cookie-policy.php">cookie policy</a>.</p>
           </div>
           <div class="cookie-actions">
             <button class="cookie-btn cookie-btn-primary" id="btn-accept-cookie">Accetta tutto</button>
