@@ -11,12 +11,12 @@
  *   $pageHead   -> HTML extra da inserire nel <head> (es. <style>) (facoltativo)
  */
 if (!isset($LANDING_PAGE)) {
-    require __DIR__ . '/_config.php';
+  require __DIR__ . '/_config.php';
 }
 // Nome da mostrare: nome portale della landing, con fallback alla ragione sociale.
 $brandName = $LANDING_PAGE['nome_portale'] !== ''
-    ? $LANDING_PAGE['nome_portale']
-    : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Action Srl');
+  ? $LANDING_PAGE['nome_portale']
+  : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Action Srl');
 $pageTitle = isset($pageTitle) ? $pageTitle : $brandName;
 // Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
 $logo = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'logo.png';
@@ -30,9 +30,9 @@ $logo = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'logo.png
   <title><?= e($pageTitle) ?> — <?= $brandName ?></title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-<?php if (!empty($pageHead)) {
+  <?php if (!empty($pageHead)) {
     echo $pageHead;
-} ?>
+  } ?>
 </head>
 
 <body>
@@ -48,7 +48,7 @@ $logo = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'logo.png
         <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
       <div class="header-cta">
-        <a href="contatti.php" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Area Clienti</a>
+        <a href="contatti.php" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Scopri di più</a>
       </div>
     </div>
   </header>
