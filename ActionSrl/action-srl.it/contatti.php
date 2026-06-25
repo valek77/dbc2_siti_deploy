@@ -356,7 +356,7 @@ include __DIR__ . '/header.php';
       <div id="conferma" class="success-alert" hidden>
         <div class="icon">✅</div>
         <strong>Richiesta inviata con successo!</strong>
-        <p>Un nostro consulente ti contatterà al più presto.</p>
+        <p>Un nostro consulente ti contatterà entro 72 ore.</p>
       </div>
     </div>
   </div>
