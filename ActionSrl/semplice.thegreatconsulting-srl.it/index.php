@@ -99,7 +99,7 @@ include __DIR__ . '/header.php';
         <article class="illumia-card border-luce card-bento-2x">
           <div class="illumia-card-left">
             <div class="illumia-badge badge-luce">⚡ LUCE DOMESTICO</div>
-            <h3>Solo Web - Variabile PUN</h3>
+            <h3>PUN Index GME Domestico 386</h3>
             <p class="illumia-sub">Domestico · Prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.</p>
             
             <div class="illumia-price-container">
@@ -107,7 +107,7 @@ include __DIR__ . '/header.php';
               <div class="illumia-price-val">0,055 <span class="illumia-price-unit">€/kWh</span></div>
             </div>
             
-            <a href="contatti.php?offerta=Solo Web - Variabile PUN#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Attiva Ora</a>
+            <a href="contatti.php?offerta=PUN Index GME Domestico 386#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Attiva Ora</a>
           </div>
           
           <div class="illumia-card-right">
@@ -137,7 +137,7 @@ include __DIR__ . '/header.php';
         <article class="illumia-card border-gas card-bento-1x">
           <div class="illumia-badge badge-gas">🔥 GAS DOMESTICO</div>
           <div class="illumia-card-body">
-            <h3>Solo Web - Variabile PSV</h3>
+            <h3>PSV Domestico 386</h3>
             <p class="illumia-sub">Domestico · Prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.</p>
             
             <div class="illumia-price-container">
@@ -152,7 +152,7 @@ include __DIR__ . '/header.php';
               <li><span class="checkmark">✓</span> <b>Corrispettivo annuo:</b> 648 €/PDR/anno</li>
             </ul>
             
-            <a href="contatti.php?offerta=Solo Web - Variabile PSV#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Attiva Ora</a>
+            <a href="contatti.php?offerta=PSV Domestico 386#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Attiva Ora</a>
           </div>
         </article>
 
@@ -160,7 +160,7 @@ include __DIR__ . '/header.php';
         <article class="illumia-card border-combo featured-combo card-bento-3x">
           <div class="illumia-card-left">
             <div class="illumia-badge badge-combo">⚡ LUCE DOMESTICO · LOGICARD</div>
-            <h3>Solo Web - Variabile PUN Logicard Casa</h3>
+            <h3>PUN Index GME Domestico CS 386</h3>
             <p class="illumia-sub">Domestico · Indicizzata al PUN Index GME con carta Logicard Casa (contributo 168 €+IVA/anno).</p>
             
             <div class="illumia-price-container">
@@ -168,7 +168,7 @@ include __DIR__ . '/header.php';
               <div class="illumia-price-val">0,05 <span class="illumia-price-unit">€/kWh</span></div>
             </div>
             
-            <a href="contatti.php?offerta=Solo Web - Variabile PUN Logicard Casa#contatto-form" class="btn-illumia btn-combo" style="margin-top: 24px;">Attiva Combo</a>
+            <a href="contatti.php?offerta=PUN Index GME Domestico CS 386#contatto-form" class="btn-illumia btn-combo" style="margin-top: 24px;">Attiva Combo</a>
           </div>
           
           <div class="illumia-card-right">
@@ -188,7 +188,7 @@ include __DIR__ . '/header.php';
         <article class="illumia-card border-luce card-bento-2x">
           <div class="illumia-card-left">
             <div class="illumia-badge badge-luce">⚡ LUCE DOMESTICO</div>
-            <h3>Solo Web - Variabile PUN</h3>
+            <h3>PUN Index GME Domestico 386</h3>
             <p class="illumia-sub">Domestico · prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.</p>
             
             <div class="illumia-price-container">
@@ -196,7 +196,7 @@ include __DIR__ . '/header.php';
               <div class="illumia-price-val">0,055 <span class="illumia-price-unit">€/kWh</span></div>
             </div>
             
-            <a href="contatti.php?offerta=Solo Web - Variabile PUN#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Richiedi Preventivo</a>
+            <a href="contatti.php?offerta=PUN Index GME Domestico 386#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Richiedi Preventivo</a>
           </div>
           
           <div class="illumia-card-right">
@@ -226,7 +226,7 @@ include __DIR__ . '/header.php';
         <article class="illumia-card border-gas card-bento-1x">
           <div class="illumia-badge badge-gas">🔥 GAS DOMESTICO</div>
           <div class="illumia-card-body">
-            <h3>Solo Web - Variabile PSV</h3>
+            <h3>PSV Domestico 386</h3>
             <p class="illumia-sub">Domestico · prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.</p>
             
             <div class="illumia-price-container">
@@ -241,7 +241,7 @@ include __DIR__ . '/header.php';
               <li><span class="checkmark">✓</span> <b>Corrispettivo annuo:</b> 648 €/PDR/anno</li>
             </ul>
             
-            <a href="contatti.php?offerta=Solo Web - Variabile PSV#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Richiedi Preventivo</a>
+            <a href="contatti.php?offerta=PSV Domestico 386#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Richiedi Preventivo</a>
           </div>
         </article>
 
@@ -249,7 +249,7 @@ include __DIR__ . '/header.php';
         <article class="illumia-card border-combo featured-combo card-bento-3x">
           <div class="illumia-card-left">
             <div class="illumia-badge badge-combo">🔥 GAS DOMESTICO · LOGICARD</div>
-            <h3>Solo Web - Variabile PSV Logicard Casa</h3>
+            <h3>PSV Domestico CS 386</h3>
             <p class="illumia-sub">Domestico · con carta Logicard Casa (contributo 168 €+IVA/anno).</p>
             
             <div class="illumia-price-container">
@@ -257,7 +257,7 @@ include __DIR__ . '/header.php';
               <div class="illumia-price-val">0,42 <span class="illumia-price-unit">€/Smc</span></div>
             </div>
             
-            <a href="contatti.php?offerta=Solo Web - Variabile PSV Logicard Casa#contatto-form" class="btn-illumia btn-combo" style="margin-top: 24px;">Attiva Combo</a>
+            <a href="contatti.php?offerta=PSV Domestico CS 386#contatto-form" class="btn-illumia btn-combo" style="margin-top: 24px;">Attiva Combo</a>
           </div>
           
           <div class="illumia-card-right">
