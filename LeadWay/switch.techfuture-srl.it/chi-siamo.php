@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Chi Siamo';
-$metaDescription = $OPERATORE_ENERGETICO . ' è un team di consulenti energetici specializzati nella vendita di offerte di luce e gas. Scopri la nostra storia e i nostri valori.';
+$metaDescription = $OPERATORE['nome_marketing'] . ' è un team di consulenti energetici specializzati nella vendita di offerte di luce e gas. Scopri la nostra storia e i nostri valori.';
 
 $pageScripts = <<<'JS'
   <script>
@@ -45,7 +45,7 @@ include __DIR__ . '/header.php';
           <h2 class="section-title" style="text-align:left;">Mercato libero, <span class="accent">scelta libera</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:18px; color:var(--muted); line-height:1.75; margin: 0 0 24px;">
-            <?= $OPERATORE_ENERGETICO ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Lavoriamo ogni giorno per portare ai clienti le migliori tariffe disponibili.
+            <?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Lavoriamo ogni giorno per portare ai clienti le migliori tariffe disponibili.
           </p>
           <div class="split-tiles">
             <div class="split-tile">
@@ -144,7 +144,7 @@ include __DIR__ . '/header.php';
           <h2 class="section-title" style="text-align:left;">Come <span class="underline">lavoriamo</span> con te</h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, capiamo consumi e profilo (domestico, uso lavoro, piccola impresa) e solo allora ti proponiamo l'offerta <?= $OPERATORE_ENERGETICO ?> più adatta.
+            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, capiamo consumi e profilo (domestico, uso lavoro, piccola impresa) e solo allora ti proponiamo l'offerta <?= $brandName ?> più adatta.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
             Ci occupiamo di tutta la documentazione, coordiniamo il passaggio con il distributore locale e ti teniamo aggiornato su ogni fase. Il cambio fornitore avviene senza interruzioni alla fornitura.
@@ -159,7 +159,7 @@ include __DIR__ . '/header.php';
   <section class="quote-banner">
     <div class="mark">"</div>
     <h2>Il nostro obiettivo non è chiudere un contratto, ma costruire una relazione di fiducia duratura con ogni cliente che si affida a noi.</h2>
-    <p class="by">— Il Team <?= $OPERATORE_ENERGETICO ?></p>
+    <p class="by">— Il Team <?= $brandName ?></p>
   </section>
 
 <?php include __DIR__ . '/footer.php'; ?>

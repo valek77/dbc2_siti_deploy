@@ -1,10 +1,10 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Luce e Gas';
-$metaDescription = 'Scopri tutte le offerte ' . $OPERATORE_ENERGETICO . ' per luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
+$metaDescription = 'Scopri tutte le offerte ' . $OPERATORE['nome_marketing'] . ' per luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 
 // Nome operatore reso sicuro per l'uso dentro JavaScript (stringa JSON).
-$operatoreJs = json_encode(html_entity_decode($OPERATORE_ENERGETICO, ENT_QUOTES, 'UTF-8'));
+$operatoreJs = json_encode(html_entity_decode($OPERATORE['nome_marketing'], ENT_QUOTES, 'UTF-8'));
 
 // Corpo dello script offerte: nowdoc (<<<'JS') per preservare i template
 // literal ${...} senza che PHP provi a interpolarli. Il nome operatore è
@@ -123,7 +123,7 @@ include __DIR__ . '/header.php';
 
 <section class="page-hero">
   <div class="container">
-    <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte ufficiali <?= $OPERATORE_ENERGETICO ?></span>
+    <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte ufficiali <?= $brandName ?></span>
     <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
     <p>Scegli la massima convenienza per la tua casa. Tutti i nostri canoni sono indicizzati direttamente al prezzo del
       mercato all'ingrosso con spread chiari e costi fissi di commercializzazione trasparenti.</p>
@@ -152,7 +152,7 @@ include __DIR__ . '/header.php';
       * I corrispettivi indicati fanno riferimento al prezzo di borsa all'ingrosso della componente energia (PUN) e
       della materia prima gas (PSV) espressi al netto delle imposte e dell'IVA. I contributi fissi e gli spread al
       consumo inseriti rimangono bloccati per 12 mesi dalla data di attivazione delle forniture. Offerte soggette a
-      condizioni contrattuali <?= $OPERATORE_ENERGETICO ?> S.r.l.
+      condizioni contrattuali <?= $brandName ?> S.r.l.
     </p>
   </div>
 </main>
@@ -162,7 +162,7 @@ include __DIR__ . '/header.php';
     <div class="section-head">
       <span class="eyebrow"><span class="dot"></span> Capire il prezzo</span>
       <h2 class="section-title">Come funzionano <span class="accent">le tariffe</span></h2>
-      <p class="section-sub"><?= $OPERATORE_ENERGETICO ?> offre tariffe variabili indicizzate per farti risparmiare
+      <p class="section-sub"><?= $brandName ?> offre tariffe variabili indicizzate per farti risparmiare
         seguendo l'andamento reale del mercato. Il prezzo finale mensile è composto dall'indice di borsa più un piccolo
         spread al consumo e una quota fissa di commercializzazione.</p>
     </div>

@@ -1,27 +1,33 @@
 <?php
 /**
- * header.php — testata comune a tutte le pagine (BLUE ENERGY / switch.gowin-srl.it).
+ * header.php — testata comune a tutte le pagine.
+ *
+ * Sito DINAMICO su API NUOVA (/landing-pages): brand, logo e dati arrivano dagli
+ * array $LANDING_PAGE / $OPERATORE / $COMPANY popolati da _shared/config.php. I
+ * valori degli array sono GIÀ resi sicuri per l'HTML (stampare con <?= ... ?>).
  *
  * Prima di includerlo, ogni pagina può impostare:
  *   $pageTitle        -> titolo della scheda browser (consigliato)
  *   $metaDescription  -> meta description della pagina (facoltativo)
  *   $pageHead         -> HTML extra nel <head>, es. <style> (facoltativo)
  *
- * Richiede _config.php già incluso (fornisce $brand, $OPERATORE_ENERGETICO,
- * le variabili globali dei campi azienda e gli helper c()/e()).
- *
- * NOTA: il marchio mostrato nel sito è l'operatore energetico (es. "BLUE ENERGY",
- * impostato in .env come OPERATORE_ENERGETICO). I dati legali/contatti del
- * rivenditore arrivano invece dall'API azienda.
+ * NOTA: il marchio mostrato nel sito è l'operatore energetico
+ * ($OPERATORE['nome_marketing']). I dati legali/contatti del rivenditore
+ * arrivano invece da $COMPANY.
  */
-if (!isset($brand)) {
+if (!isset($LANDING_PAGE)) {
   require __DIR__ . '/_config.php';
 }
-$siteBrand = $OPERATORE_ENERGETICO !== '' ? $OPERATORE_ENERGETICO : $brand;
+// Brand visibile: nome marketing dell'operatore energetico (fallback: nome portale, ragione sociale).
+$brandName = isset($brandName) ? $brandName
+  : ($OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing']
+  : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale']
+  : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Switch')));
+$siteBrand = $brandName;
 $pageTitle = isset($pageTitle) ? $pageTitle : $siteBrand;
-// Il logo dell'operatore è un asset statico del sito.
-
-$logo = $logo_url;
+// Logo testata: dalla landing (API), con fallback al logo azienda.
+$logo = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url']
+  : ($COMPANY['logo_url'] !== '' ? $COMPANY['logo_url'] : '');
 
 ?>
 <!doctype html>

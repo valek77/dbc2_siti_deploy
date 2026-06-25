@@ -1,29 +1,36 @@
 <?php
 /**
- * footer.php — piè di pagina comune (BLUE ENERGY / switch.gowin-srl.it).
+ * footer.php — piè di pagina comune a tutte le pagine.
  *
  * Prima di includerlo, ogni pagina può impostare:
  *   $pageScripts -> HTML <script> specifici della pagina (facoltativo)
  *
- * La riga legale (ragione sociale, P.IVA) è costruita dalle variabili globali
- * popolate da _config.php a partire dalla risposta dell'API. Il marchio mostrato
- * è l'operatore energetico ($OPERATORE_ENERGETICO).
+ * La riga legale (ragione sociale, P.IVA) è costruita SOLO dai campi presenti in
+ * $COMPANY (API NUOVA). Il marchio mostrato è l'operatore energetico
+ * ($OPERATORE['nome_marketing']).
  */
 
-if (!isset($brand)) {
+if (!isset($LANDING_PAGE)) {
   require __DIR__ . '/_config.php';
 }
-$logo = $logo2_url;
-$siteBrand = $OPERATORE_ENERGETICO !== '' ? $OPERATORE_ENERGETICO : $brand;
+$brandName = isset($brandName) ? $brandName
+  : ($OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing']
+  : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale']
+  : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Switch')));
+$siteBrand = $brandName;
+// Logo footer (sfondo scuro): logo2 della landing, con fallback.
+$logo = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url']
+  : ($COMPANY['logo2_url'] !== '' ? $COMPANY['logo2_url']
+  : ($LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : ''));
 
-// Riga legale: includo solo le parti effettivamente presenti.
+// Riga legale: includo solo le parti effettivamente presenti nell'API.
 $legalParts = [];
-if ($company_name) {
-  $legalParts[] = 'Ragione Sociale: ' . $company_name;
+if ($COMPANY['company_name'] !== '') {
+  $legalParts[] = 'Ragione Sociale: ' . $COMPANY['company_name'];
 }
-if ($p_iva) {
-  $legalParts[] = 'P.IVA: ' . $p_iva;
-  $legalParts[] = 'Vat Europeo: IT' . $p_iva;
+if ($COMPANY['p_iva'] !== '') {
+  $legalParts[] = 'P.IVA: ' . $COMPANY['p_iva'];
+  $legalParts[] = 'Vat Europeo: IT' . $COMPANY['p_iva'];
 }
 $legalLine = implode(' | ', $legalParts);
 ?>

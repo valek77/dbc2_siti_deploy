@@ -1,12 +1,14 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Contatti';
-$metaDescription = 'Contatta ' . $OPERATORE_ENERGETICO . ' per ricevere una consulenza gratuita sulle offerte di luce e gas. Siamo qui per aiutarti a scegliere la tariffa giusta.';
+$metaDescription = 'Contatta ' . $OPERATORE['nome_marketing'] . ' per ricevere una consulenza gratuita sulle offerte di luce e gas. Siamo qui per aiutarti a scegliere la tariffa giusta.';
 
 // Recapiti dall'API (con fallback ragionevoli se un campo manca).
-$emailContatto = $email_supporto !== '' ? $email_supporto : $pec;
+$emailContatto = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $COMPANY['pec'];
 // href "tel:" con soli numeri e "+" (il valore mostrato resta quello dell'API).
-$telHref = preg_replace('/[^0-9+]/', '', html_entity_decode($telefono, ENT_QUOTES, 'UTF-8'));
+$telHref = preg_replace('/[^0-9+]/', '', html_entity_decode($COMPANY['telefono'], ENT_QUOTES, 'UTF-8'));
+// Nome dell'operatore energetico per il testo del consenso (nome legale, fallback marketing).
+$operatoreConsenso = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
 
 $pageScripts = <<<'JS'
   <script src="lead-form.js"></script>
@@ -52,12 +54,12 @@ include __DIR__ . '/header.php';
                 </svg></div>
               <div>
                 <div class="label">Sede Legale</div>
-                <div class="meta"><?= $company_name ?></div>
+                <div class="meta"><?= $COMPANY['company_name'] ?></div>
                 <div style="font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 4px;">
-                  <?php if ($sede_legale) { ?>   <?= $sede_legale ?><br>
-                  <?php } ?><?php if ($p_iva) { ?> P.IVA: <?= $p_iva ?><br>
-                    C.F.: <?= $p_iva ?><br>
-                    Vat Europeo: IT<?= $p_iva ?>
+                  <?php if ($COMPANY['sede_legale'] !== '') { ?>   <?= $COMPANY['sede_legale'] ?><br>
+                  <?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?> P.IVA: <?= $COMPANY['p_iva'] ?><br>
+                    C.F.: <?= $COMPANY['p_iva'] ?><br>
+                    Vat Europeo: IT<?= $COMPANY['p_iva'] ?>
                   <?php } ?>
                 </div>
               </div>
@@ -73,7 +75,7 @@ include __DIR__ . '/header.php';
                 <div>
                   <div class="label">Contatti Rapidi</div>
                   <div class="meta">Telefono &amp; WhatsApp</div>
-                  <a href="tel:<?= $telHref ?>"><?= $telefono ?></a>
+                  <a href="tel:<?= $telHref ?>"><?= $COMPANY['telefono'] ?></a>
                 </div>
               </div>
             <?php } ?>
@@ -98,7 +100,7 @@ include __DIR__ . '/header.php';
 
         <div class="contact-card-cta" style="margin-top:24px;">
           <div class="label">Offerta del momento</div>
-          <div class="name">NEW <?= $OPERATORE_ENERGETICO ?> LUCE CASA</div>
+          <div class="name">NEW <?= $brandName ?> LUCE CASA</div>
           <div class="price">PUN +€0,03<small> €/kWh</small></div>
           <a class="see-all" href="tariffe.php" style="margin-top:15px;">Vedi tutte le offerte</a>
         </div>
@@ -137,8 +139,8 @@ include __DIR__ . '/header.php';
               </label>
               <label class="consent-label">
                 <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                <span>Richiedo di essere ricontattato da <?= $OPERATORE_ENERGETICO ?>, tramite il partner commerciale
-                  <?= $brand ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia
+                <span>Richiedo di essere ricontattato da <?= $operatoreConsenso ?>, tramite il partner commerciale
+                  <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia
                   elettrica e/o gas.</span>
               </label>
 
