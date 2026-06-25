@@ -48,8 +48,8 @@ include __DIR__ . '/header.php';
 
   <section class="features-section" style="background: #fff; padding: 100px 20px;">
     <div style="max-width: 900px; margin: 0 auto 60px; text-align: center;">
-      <h2 class="section-title" style="font-size: 42px; margin-bottom: 20px; color: var(--text-dark);">I nostri Prodotti e Servizi per la tua Casa</h2>
-      <p class="section-sub" style="font-size: 18px; color: var(--text-secondary);">Ottimizza la tua energia. Controlla i tuoi consumi energetici e scopri come essere più efficiente con i nostri Prodotti e Servizi.</p>
+      <h2 class="section-title" style="font-size: 42px; margin-bottom: 20px; color: var(--text-dark);">I nostri Servizi per la tua Casa</h2>
+      <p class="section-sub" style="font-size: 18px; color: var(--text-secondary);">Ottimizza la tua energia. Tieni sotto controllo i tuoi consumi e scopri come risparmiare con le nostre offerte luce e gas.</p>
     </div>
 
     <div class="features-container">
@@ -126,27 +126,27 @@ include __DIR__ . '/header.php';
   <section class="efficiency-section" style="padding: 100px 20px; background: #fff; overflow: hidden;">
     <div class="container" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1.2; min-width: 400px;">
-        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brandName ?> Fotovoltaico: <span style="color: var(--primary);">L'energia del sole</span></h2>
+        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brandName ?> Luce e Gas: <span style="color: var(--primary);">L'energia che conviene</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          Scegli l'energia del sole: semplice, sostenibile e anche conveniente. Con le nostre soluzioni fotovoltaiche trasformi la tua casa in una centrale di energia pulita e autonoma.
+          Scegli un'energia semplice, trasparente e conveniente. Con le nostre offerte luce e gas paghi solo ciò che consumi, senza costi nascosti né sorprese in bolletta.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 40px;">
-          Il futuro dell'energia è nelle nostre mani. Progettiamo il tuo impianto per garantirti il massimo risparmio, riducendo drasticamente i costi in bolletta.
+          Il futuro dell'energia è nella chiarezza. Ti affianchiamo nella scelta della tariffa più adatta alle tue abitudini, per garantirti il massimo risparmio mese dopo mese.
         </p>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
           <div style="background: var(--bg-cream); padding: 24px; border-radius: 12px; border-left: 4px solid var(--primary);">
-            <h4 style="color: var(--text-dark); margin-bottom: 8px; font-weight: 700;">Tecnologia Top</h4>
-            <p style="font-size: 14px; color: var(--text-secondary);">Pannelli, Batterie, Pompe di calore e Caldaie di ultima generazione.</p>
+            <h4 style="color: var(--text-dark); margin-bottom: 8px; font-weight: 700;">Prezzo Trasparente</h4>
+            <p style="font-size: 14px; color: var(--text-secondary);">Tariffe luce e gas indicizzate ai mercati PUN e PSV, sempre chiare e aggiornate.</p>
           </div>
           <div style="background: var(--bg-cream); padding: 24px; border-radius: 12px; border-left: 4px solid var(--primary);">
-            <h4 style="color: var(--text-dark); margin-bottom: 8px; font-weight: 700;">Impatto Zero</h4>
-            <p style="font-size: 14px; color: var(--text-secondary);">Rateizzazione intelligente basata sul risparmio energetico reale.</p>
+            <h4 style="color: var(--text-dark); margin-bottom: 8px; font-weight: 700;">Energia Verde</h4>
+            <p style="font-size: 14px; color: var(--text-secondary);">Energia elettrica 100% da fonti rinnovabili certificate con Garanzia d'Origine.</p>
           </div>
         </div>
       </div>
       <div style="flex: 1; min-width: 400px;">
-        <img src="efficiency_tech.jpg" alt="Efficienza Tecnologica" style="width: 100%; border-radius: 50% 50% 70% 50% / 50% 50% 70% 50%; box-shadow: 20px 20px 60px rgba(0,0,0,0.1);">
+        <img src="efficiency_tech.jpg" alt="Energia trasparente" style="width: 100%; border-radius: 50% 50% 70% 50% / 50% 50% 70% 50%; box-shadow: 20px 20px 60px rgba(0,0,0,0.1);">
       </div>
     </div>
   </section>
@@ -190,9 +190,9 @@ include __DIR__ . '/header.php';
           style="max-width: 100%; height: auto; border-radius: 50% 70% 50% 50% / 50% 70% 50% 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 0;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brandName ?> Clima: Comfort che dura <span style="color: var(--primary);">tutto l'anno</span></h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brandName ?> al tuo fianco: <span style="color: var(--primary);">assistenza tutto l'anno</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 32px 0;">
-          Con i climatizzatori a pompa di calore riscaldi o raffresca la tua casa a seconda della stagione. Unisci efficienza e tecnologia per gestire il tuo riscaldamento direttamente dallo smartphone.
+          Con il nostro servizio clienti dedicato gestisci forniture, bollette e consumi in totale autonomia. Unisci semplicità e tecnologia per tenere sotto controllo la tua energia direttamente dallo smartphone.
         </p>
         <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Scopri le tariffe</a>
       </div>

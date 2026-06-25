@@ -298,11 +298,11 @@ include __DIR__ . '/header.php';
       <h2 class="section-title">Inizia il tuo percorso con un nostro <span>esperto</span></h2>
       <p>
         Compila il modulo per essere ricontattato da un nostro consulente dedicato. Insieme troveremo la soluzione
-        migliore per rendere la tua casa più efficiente e sostenibile.
+        migliore per la fornitura luce e gas più adatta alle tue esigenze.
       </p>
       <ul class="features-list">
-        <li><span class="check-icon">✓</span> Analisi per Caldaia e Clima</li>
-        <li><span class="check-icon">✓</span> Analisi personalizzata per Fotovoltaico</li>
+        <li><span class="check-icon">✓</span> Analisi e confronto delle tariffe Luce e Gas</li>
+        <li><span class="check-icon">✓</span> Analisi personalizzata dei tuoi consumi</li>
         <li><span class="check-icon">✓</span> Assistenza dedicata per Luce e Gas</li>
       </ul>
     </div>

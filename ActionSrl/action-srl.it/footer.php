@@ -53,7 +53,7 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
         <a href="index.php" class="logo">
           <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo" style="max-height: 45px; width: auto;">
         </a>
-        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
+        <p>Consulenza e offerte trasparenti di luce e gas. Riduciamo le spese delle tue bollette con tariffe chiare e senza sorprese.</p>
       </div>
       <div class="footer-col">
         <h4>Azienda</h4>

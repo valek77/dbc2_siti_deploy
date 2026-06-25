@@ -20,7 +20,7 @@ include __DIR__ . '/header.php';
           Lavoriamo ogni giorno per offrirti le migliori soluzioni energetiche per la tua casa, con un impegno costante verso la sostenibilità e l'innovazione tecnologica.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary);">
-          Dalla fornitura di Luce e Gas all'installazione di Caldaie e Climatizzatori di ultima generazione, siamo il tuo partner di fiducia per un futuro più efficiente e consapevole.
+          Dalla scelta della tariffa luce e gas più adatta alla gestione quotidiana delle tue forniture, siamo il tuo partner di fiducia per un futuro più trasparente e consapevole.
         </p>
       </div>
       <div style="flex: 1; position: relative; height: 500px; min-width: 400px;">
