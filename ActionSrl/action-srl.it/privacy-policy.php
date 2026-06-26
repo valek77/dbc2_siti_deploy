@@ -138,8 +138,7 @@ include __DIR__ . '/header.php';
     <h2>10. Quanto a lungo conserviamo i Suoi dati personali.</h2>
     <p>I Suoi Dati saranno trattati solo per il tempo necessario per le finalità sopra menzionate, come segue:</p>
     <ul>
-      <li>i Dati saranno trattati per dare seguito alla Sua richiesta di ricontatto da parte di un Operatore del Partner Commerciale della Società <strong><?= $partnerCommerciale ?></strong>, nominato Responsabile del Trattamento dei dati personali ex. Art. 28 del Regolamento Europeo n. 679/2016 GDPR fino al momento del ricontatto, e comunque non oltre le 72 ore dal momento della richiesta, a seguito del quale il Titolare, salvo Sua volontà contraria, provvederà alla loro cancellazione;</li>
-      <li>i Dati saranno trattati per svolgere attività di marketing fino alla revoca del Suo consenso e, comunque, non oltre 24 mesi dall’acquisizione dello stesso; in seguito a tale revoca il Titolare cesserà il trattamento in questione e non conserverà ulteriormente i Dati acquisiti esclusivamente per tale finalità; in assenza di revoca, a seguito della cessazione del rapporto contrattuale, il Titolare provvederà a ricordarLe periodicamente quali sono i consensi da Lei prestati e la Sua facoltà di revocarli in ogni momento.</li>
+      <li>I Dati saranno trattati al solo fine di dare seguito alla Sua richiesta di ricontatto da parte di un operatore di <strong><?= $partnerCommerciale ?></strong>, nominata da <strong><?= $titolareNome ?></strong> quale Responsabile del trattamento dei dati personali ai sensi dell'art. 28 del Regolamento (UE) 2016/679 ("GDPR"). Il ricontatto sarà effettuato entro 72 ore dalla richiesta; decorso tale termine, in assenza di ricontatto, il Titolare provvederà, salvo Sua diversa volontà, alla cancellazione dei Suoi dati personali.</li>
     </ul>
 
     <h2>11. Quali sono i Suoi diritti e come può esercitarli.</h2>
