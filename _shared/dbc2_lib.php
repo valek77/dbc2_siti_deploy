@@ -276,6 +276,7 @@ if (!function_exists('dbc2_operatore_fields')) {
             'nome_legale',
             'indirizzo',
             'partita_iva',
+            'email_supporto',
             'logo_url',
             'logo2_url',
             'created_at',

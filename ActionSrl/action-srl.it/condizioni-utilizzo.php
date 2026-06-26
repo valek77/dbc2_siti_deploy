@@ -10,7 +10,7 @@ $ragioneSociale = $COMPANY['company_name'] !== '' ? $COMPANY['company_name']
 $emailContatto  = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $COMPANY['pec'];
 
 $pageTitle = 'Condizioni di Utilizzo';
-$metaDescription = 'Termini e condizioni generali di utilizzo del sito web ' . $nomeOperatore . '.';
+$metaDescription = 'Termini e condizioni generali di utilizzo ';
 
 $pageHead = <<<'CSS'
   <style>
@@ -49,8 +49,7 @@ include __DIR__ . '/header.php';
 
   <main class="privacy-box">
     <h1 style="color:var(--primary); margin:0 0 8px; font-size:28px; line-height:1.3; font-weight:800;">Condizioni di Utilizzo</h1>
-    <p style="font-style:italic; font-size:14px; color:var(--muted); margin:0 0 30px;">Termini e condizioni generali del sito web <?= $nomeOperatore ?></p>
-
+    
     <h2>Premessa</h2>
     <p>L’utilizzo del presente sito web<?php if ($LANDING_PAGE['url'] !== '') { ?> <?= $LANDING_PAGE['url'] ?><?php } ?> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo. Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($COMPANY['sede_legale'] !== '') { ?>, con sede in <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?>, Partita IVA <?= $COMPANY['p_iva'] ?><?php } ?>.</p>
 
