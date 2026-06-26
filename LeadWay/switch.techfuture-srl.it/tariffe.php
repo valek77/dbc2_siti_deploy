@@ -16,43 +16,57 @@ $offersJs = <<<'JS'
     const ICON_GIFT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>';
 
     const offers = [
-      // --- OFFERTE LUCE ---
-      { id: 'switch-luce-zero', category: 'luce', kind: 'luce', tipo: 'Tariffa Luce', top: true,
-        nome: 'Switch Luce Zero Domestico', sub: 'Prezzo Variabile · Solo SDD & Bolletta Web',
-        prezzoRid: 'PUN + €0,033000', unita: '€/kWh', prezzoBoll: 'Commercializzazione: €17,00/mese',
-        note: 'Condizioni valide per 12 mesi dalla data di attivazione della fornitura.',
-        features: ['Indicizzato al PUN mensile', 'Spread al consumo: 0,033000 €/kWh', 'Perdite di rete incluse', 'Quota fissa di commercializzazione: 204€/anno'] },
-      
-      { id: 'tris-luce-green', category: 'luce', kind: 'luce', tipo: 'Tariffa Luce', top: false,
-        nome: 'Tris Luce Green', sub: 'Prezzo Variabile · Energia 100% Rinnovabile',
-        prezzoRid: 'PUN + €0,049500', unita: '€/kWh', prezzoBoll: 'Commercializzazione: €38,15/mese',
-        note: 'Bonus fedeltà di 15€ accreditato ogni 3 mesi (60€ all\'anno totali).',
-        features: ['Indicizzato al PUN mensile', 'Spread al consumo: 0,049500 €/kWh', 'Bonus Fedeltà di 15€ ogni 3 mesi', 'Energia Verde certificata da Garanzia d\'Origine'] },
-      
-      { id: 'family-luce-green', category: 'luce', kind: 'luce', tipo: 'Tariffa Luce', top: false,
-        nome: 'Family Luce Green', sub: 'Prezzo Variabile · Assistenza Casa Inclusa',
-        prezzoRid: 'PUN + €0,049500', unita: '€/kWh', prezzoBoll: 'Commercializzazione: €33,15/mese',
-        note: 'Include il servizio assistenza casa "Stai Sereno Luce" azzerato da relativo sconto.',
-        features: ['Indicizzato al PUN mensile', 'Spread al consumo: 0,049500 €/kWh', 'Assistenza Impianti inclusa nel pacchetto', 'Sconto applicato mensilmente in bolletta'] },
+      // --- LUCE RESIDENZIALE ---
+      { id: 'new-switch-luce-casa', category: 'luce-res', kind: 'luce', tipo: 'Luce Residenziale', top: false,
+        nome: 'NEW SWITCH LUCE CASA', sub: 'Prezzo Variabile · Uso domestico',
+        prezzoRid: 'PUN + €0,03', unita: '€/kWh', prezzoBoll: 'Bollettino: PUN + €0,05/kWh',
+        note: 'Contributo attivazione €30,00 — scontato con 6 mesi di permanenza.',
+        features: ['Indicizzato al PUN mensile', 'RID: spread €0,03/kWh', 'Bollettino: spread €0,05/kWh', 'Nessun intervento tecnico'] },
 
-      // --- OFFERTE GAS ---
-      { id: 'gas-zero', category: 'gas', kind: 'gas', tipo: 'Tariffa Gas', top: true,
-        nome: 'Gas Zero Domestico', sub: 'Prezzo Variabile · Ottimizzazione Costi',
-        prezzoRid: 'PSV + €0,210000', unita: '€/Smc', prezzoBoll: 'Commercializzazione: €17,00/mese',
-        note: 'Tariffa riservata ai clienti domestici con pagamento digitale tramite conto corrente.',
-        features: ['Indicizzato al prezzo di mercato PSV', 'Spread al consumo: 0,210000 €/Smc', 'Quota fissa di commercializzazione: 204€/anno', 'Fatturazione digitale via e-mail'] },
-      
-      { id: 'tris-gas', category: 'gas', kind: 'gas', tipo: 'Tariffa Gas', top: false,
-        nome: 'Tris Gas', sub: 'Prezzo Variabile · Più rimani, più risparmi',
-        prezzoRid: 'PSV + €0,210000', unita: '€/Smc', prezzoBoll: 'Commercializzazione: €38,15/mese',
-        note: 'Premia la tua permanenza con 15€ accreditati direttamente in bolletta ogni 3 mesi.',
-        features: ['Indicizzato al prezzo di mercato PSV', 'Spread al consumo: 0,210000 €/Smc', 'Bonus fedeltà di 15€ ogni 3 mesi', 'Attivabile senza cambi di contatore o interruzioni'] },
-      
-      { id: 'family-gas', category: 'gas', kind: 'gas', tipo: 'Tariffa Gas', top: false,
-        nome: 'Family Gas', sub: 'Prezzo Variabile · Protezione Impianto Domestico',
-        prezzoRid: 'PSV + €0,210000', unita: '€/Smc', prezzoBoll: 'Commercializzazione: €33,15/mese',
-        note: 'Include la polizza di assistenza tecnica "Stai Sereno Gas" completamente abbonata.',
-        features: ['Indicizzato al prezzo di mercato PSV', 'Spread al consumo: 0,210000 €/Smc', 'Servizio Assistenza ai locali incluso', 'Sconto in fattura pari al costo del servizio'] }
+      { id: 'new-switch-luce-lavoro', category: 'luce-res', kind: 'luce', tipo: 'Luce Residenziale', top: false,
+        nome: 'NEW SWITCH LUCE LAVORO', sub: 'Prezzo Variabile · Non domestico',
+        prezzoRid: 'PUN + €0,03', unita: '€/kWh', prezzoBoll: 'Bollettino: PUN + €0,05/kWh',
+        note: 'Contributo attivazione €30,00 — scontato con 6 mesi di permanenza.',
+        features: ['Indicizzato al PUN mensile', 'RID: spread €0,03/kWh', 'Bollettino: spread €0,05/kWh', 'Per uffici e studi professionali'] },
+
+      // --- LUCE PLACET ---
+      { id: 'happy-placet-luce-lavoro', category: 'luce-placet', kind: 'luce', tipo: 'Luce PLACET', top: true,
+        nome: 'HAPPY SWITCH PLACET LUCE LAVORO', sub: 'Spread Bloccato 12 mesi · Non domestico',
+        prezzoRid: 'PUN + €0,18', unita: '€/kWh', prezzoBoll: null,
+        note: 'Contributo attivazione €30,00 · Spread garantito per 12 mesi.',
+        features: ['Spread fisso bloccato 12 mesi', 'PUN + €0,18/kWh (unica modalità)', 'Maggiore certezza di spesa', 'Attivazione €30,00'] },
+
+      { id: 'happy-placet-luce-casa', category: 'luce-placet', kind: 'luce', tipo: 'Luce PLACET', top: true,
+        nome: 'HAPPY SWITCH PLACET LUCE CASA', sub: 'Spread Bloccato 12 mesi · Uso domestico',
+        prezzoRid: 'PUN + €0,18', unita: '€/kWh', prezzoBoll: null,
+        note: 'Contributo attivazione €30,00 · Spread garantito per 12 mesi.',
+        features: ['Spread fisso bloccato 12 mesi', 'PUN + €0,18/kWh (unica modalità)', 'Protezione oscillazioni mercato', 'Attivazione €30,00'] },
+
+      // --- GAS RESIDENZIALE ---
+      { id: 'new-switch-gas-casa', category: 'gas-res', kind: 'gas', tipo: 'Gas Residenziale', top: false,
+        nome: 'NEW SWITCH GAS CASA', sub: 'Prezzo Variabile · Uso domestico',
+        prezzoRid: 'PSV + €0,12', unita: '€/Smc', prezzoBoll: 'Bollettino: PSV + €0,18/Smc',
+        note: 'Contributo attivazione €30,00 — scontato con 6 mesi di permanenza.',
+        features: ['Indicizzato al PSV mensile', 'RID: spread €0,12/Smc', 'Bollettino: spread €0,18/Smc', 'Nessun intervento tecnico'] },
+
+      { id: 'new-switch-gas-lavoro', category: 'gas-res', kind: 'gas', tipo: 'Gas Residenziale', top: false,
+        nome: 'NEW SWITCH GAS LAVORO', sub: 'Prezzo Variabile · Non domestico',
+        prezzoRid: 'PSV + €0,12', unita: '€/Smc', prezzoBoll: 'Bollettino: PSV + €0,18/Smc',
+        note: 'Contributo attivazione €30,00 — scontato con 6 mesi di permanenza.',
+        features: ['Indicizzato al PSV mensile', 'RID: spread €0,12/Smc', 'Bollettino: spread €0,18/Smc', 'Attività e studi professionali'] },
+
+      // --- GAS PLACET ---
+      { id: 'happy-placet-gas-casa', category: 'gas-placet', kind: 'gas', tipo: 'Gas PLACET', top: true,
+        nome: 'HAPPY SWITCH PLACET GAS CASA', sub: 'Spread Bloccato 12 mesi · Uso domestico',
+        prezzoRid: 'PSV + €0,70', unita: '€/Smc', prezzoBoll: null,
+        note: 'Contributo attivazione €30,00 · Spread garantito per 12 mesi.',
+        features: ['Spread fisso bloccato 12 mesi', 'PSV + €0,70/Smc (unica modalità)', 'Prevedibilità dei costi', 'Attivazione €30,00'] },
+
+      { id: 'happy-placet-gas-lavoro', category: 'gas-placet', kind: 'gas', tipo: 'Gas PLACET', top: true,
+        nome: 'HAPPY SWITCH PLACET GAS LAVORO', sub: 'Spread Bloccato 12 mesi · Non domestico',
+        prezzoRid: 'PSV + €0,70', unita: '€/Smc', prezzoBoll: null,
+        note: 'Contributo attivazione €30,00 · Spread garantito per 12 mesi.',
+        features: ['Spread fisso bloccato 12 mesi', 'PSV + €0,70/Smc (unica modalità)', 'Protezione oscillazioni mercato', 'Attivazione €30,00'] }
     ];
 
     function renderCard(o) {
@@ -74,9 +88,9 @@ $offersJs = <<<'JS'
           <p class="offer-type">${o.sub}</p>
 
           <div class="price-block">
-            <div class="price-label">Spread sul consumo</div>
+            <div class="price-label">Prezzo energia</div>
             <div class="price-main">${o.prezzoRid}<span style="font-size:14px; color:var(--muted); margin-left:4px; font-weight:600;">${o.unita}</span></div>
-            <div class="price-alt"><b>${o.prezzoBoll}</b></div>
+            ${o.prezzoBoll ? `<div class="price-alt"><b>${o.prezzoBoll}</b></div>` : `<div class="price-alt" style="color:var(--primary); font-weight:700;">✓ Prezzo unico, spread garantito</div>`}
           </div>
 
           <ul class="offer-features">
@@ -125,8 +139,8 @@ include __DIR__ . '/header.php';
   <div class="container">
     <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte ufficiali <?= $brandName ?></span>
     <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
-    <p>Scegli la massima convenienza per la tua casa. Tutti i nostri canoni sono indicizzati direttamente al prezzo del
-      mercato all'ingrosso con spread chiari e costi fissi di commercializzazione trasparenti.</p>
+    <p>Offerte per uso domestico e professionale, indicizzate al prezzo del mercato all'ingrosso con spread fisso e
+      chiaro. Contributo di attivazione €30,00, scontato con 6 mesi di permanenza.</p>
   </div>
   <div class="wave">
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
@@ -140,8 +154,10 @@ include __DIR__ . '/header.php';
 
     <div class="tab-bar" id="tab-bar">
       <button class="tab-btn active" data-filter="all">Tutte le Offerte</button>
-      <button class="tab-btn" data-filter="luce">Tariffe Luce</button>
-      <button class="tab-btn" data-filter="gas">Tariffe Gas</button>
+      <button class="tab-btn" data-filter="luce-res">Luce Residenziale</button>
+      <button class="tab-btn" data-filter="luce-placet">Luce PLACET</button>
+      <button class="tab-btn" data-filter="gas-res">Gas Residenziale</button>
+      <button class="tab-btn" data-filter="gas-placet">Gas PLACET</button>
     </div>
 
     <div id="offers-grid"
@@ -149,10 +165,10 @@ include __DIR__ . '/header.php';
 
     <p
       style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
-      * I corrispettivi indicati fanno riferimento al prezzo di borsa all'ingrosso della componente energia (PUN) e
-      della materia prima gas (PSV) espressi al netto delle imposte e dell'IVA. I contributi fissi e gli spread al
-      consumo inseriti rimangono bloccati per 12 mesi dalla data di attivazione delle forniture. Offerte soggette a
-      condizioni contrattuali <?= $brandName ?> S.r.l.
+      * I prezzi indicati si riferiscono alle componenti energia (PUN) e gas (PSV), espresse al netto delle imposte e
+      dell'IVA, con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato con permanenza minima
+      di 6 mesi. Con domiciliazione bancaria (RID) si applica lo spread più basso; con bollettino lo spread è
+      maggiorato. Offerte soggette a condizioni contrattuali <?= $brandName ?> S.r.l.
     </p>
   </div>
 </main>
@@ -163,8 +179,8 @@ include __DIR__ . '/header.php';
       <span class="eyebrow"><span class="dot"></span> Capire il prezzo</span>
       <h2 class="section-title">Come funzionano <span class="accent">le tariffe</span></h2>
       <p class="section-sub"><?= $brandName ?> offre tariffe variabili indicizzate per farti risparmiare
-        seguendo l'andamento reale del mercato. Il prezzo finale mensile è composto dall'indice di borsa più un piccolo
-        spread al consumo e una quota fissa di commercializzazione.</p>
+        seguendo l'andamento reale del mercato. Il prezzo finale è dato dall'indice di borsa (PUN o PSV) più uno spread
+        fisso definito in contratto, con il vantaggio dello spread ridotto in caso di domiciliazione bancaria (RID).</p>
     </div>
 
     <div class="features-container">
@@ -191,9 +207,10 @@ include __DIR__ . '/header.php';
             <path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg></div>
-        <h4>Commercializzazione</h4>
-        <p>Una quota mensile fissa indipendente dai volumi consumati, volta a coprire i costi fissi commerciali legati
-          alla gestione burocratica e tecnica del tuo punto di fornitura.</p>
+        <h4>Spread &amp; RID</h4>
+        <p>Lo spread è la quota fissa aggiunta al prezzo di mercato, definita in contratto. Con domiciliazione bancaria
+          (RID) hai lo spread più basso; con bollettino lo spread è maggiorato. Con le offerte PLACET resta bloccato
+          per 12 mesi.</p>
       </div>
     </div>
   </div>
