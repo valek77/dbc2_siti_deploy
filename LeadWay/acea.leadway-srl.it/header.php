@@ -2,18 +2,26 @@
 /**
  * header.php — testata comune a tutte le pagine.
  *
- * Prima di includerlo, ogni pagina può impostare:
- *   $pageTitle  -> titolo specifico della pagina (obbligatorio)
- *   $pageHead   -> HTML extra da inserire nel <head> (es. <style>) (facoltativo)
+ * Sito DINAMICO su API NUOVA (/landing-pages): brand e logo arrivano dagli array
+ * $LANDING_PAGE / $COMPANY popolati da _shared/config.php. I valori degli array
+ * sono GIÀ resi sicuri per l'HTML (stampare con <?= ... ?>, senza e()).
  *
- * Richiede che _config.php sia già stato incluso (fornisce $brand, le
- * variabili globali dei campi azienda e gli helper c()/e()).
+ * Prima di includerlo, ogni pagina può impostare:
+ *   $pageTitle        -> titolo specifico della pagina (facoltativo; default = brand)
+ *   $pageDescription  -> meta description (facoltativo)
+ *   $pageHead         -> HTML extra da inserire nel <head> (es. <style>) (facoltativo)
  */
-if (!isset($brand)) {
+if (!isset($LANDING_PAGE)) {
     require __DIR__ . '/_config.php';
 }
-$pageTitle = isset($pageTitle) ? $pageTitle : $brand;
-$logo = $logo_url !== '' ? $logo_url : 'logo.png';
+// Nome da mostrare: nome portale della landing, con fallback a titolo, ragione sociale, infine letterale.
+$brandName = $LANDING_PAGE['nome_portale'] !== ''
+    ? $LANDING_PAGE['nome_portale']
+    : ($LANDING_PAGE['titolo'] !== ''
+        ? $LANDING_PAGE['titolo']
+        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'LeadWay'));
+// Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
+$logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'logo.png';
 ?>
 <!doctype html>
 <html lang="it">
@@ -21,7 +29,18 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title><?= e($pageTitle) ?> — <?= $brand ?></title>
+  <title><?php
+    if (isset($pageTitle) && $pageTitle !== '') {
+        echo e($pageTitle) . ' — ' . $brandName;
+    } elseif ($LANDING_PAGE['titolo'] !== '') {
+        echo $LANDING_PAGE['titolo'];
+    } else {
+        echo $brandName;
+    }
+?></title>
+<?php if (!empty($pageDescription)) { ?>
+  <meta name="description" content="<?= e($pageDescription) ?>">
+<?php } ?>
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
@@ -36,7 +55,7 @@ $logo = $logo_url !== '' ? $logo_url : 'logo.png';
   <header class="main-header">
     <div class="header-container">
       <a href="index.php" class="logo">
-        <img src="<?= $logo ?>" alt="<?= $brand ?>" class="logo-img">
+        <img src="<?= $logoHeader ?>" alt="<?= $brandName ?>" class="logo-img">
       </a>
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>

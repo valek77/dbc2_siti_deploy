@@ -52,7 +52,7 @@ include __DIR__ . '/header.php';
                 </label>
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da <?= htmlspecialchars($OPERATORE_ENERGETICO) ?>, tramite il partner commerciale <?= htmlspecialchars($brand) ?>, per ricevere informazioni e proposte commerciali relative ai servizi di energia elettrica, gas e telecomunicazioni. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative ai servizi di energia elettrica, gas e telecomunicazioni. *</span>
                 </label>
 
               </div>

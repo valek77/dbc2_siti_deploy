@@ -1,27 +1,28 @@
 <?php
 /**
- * header.php — testata comune a tutte le pagine (BLUE ENERGY / switch.gowin-srl.it).
+ * header.php — testata comune a tutte le pagine (switch.gowin-srl.it).
+ *
+ * Sito DINAMICO su API NUOVA (/landing-pages): brand e logo arrivano dagli array
+ * $LANDING_PAGE / $COMPANY popolati da _shared/config.php. I valori degli array
+ * sono GIÀ resi sicuri per l'HTML (stampare con <?= ... ?>, senza e()).
  *
  * Prima di includerlo, ogni pagina può impostare:
  *   $pageTitle        -> titolo della scheda browser (consigliato)
  *   $metaDescription  -> meta description della pagina (facoltativo)
  *   $pageHead         -> HTML extra nel <head>, es. <style> (facoltativo)
- *
- * Richiede _config.php già incluso (fornisce $brand, $OPERATORE_ENERGETICO,
- * le variabili globali dei campi azienda e gli helper c()/e()).
- *
- * NOTA: il marchio mostrato nel sito è l'operatore energetico (es. "BLUE ENERGY",
- * impostato in .env come OPERATORE_ENERGETICO). I dati legali/contatti del
- * rivenditore arrivano invece dall'API azienda.
  */
-if (!isset($brand)) {
+if (!isset($LANDING_PAGE)) {
   require __DIR__ . '/_config.php';
 }
-$siteBrand = $OPERATORE_ENERGETICO !== '' ? $OPERATORE_ENERGETICO : $brand;
-$pageTitle = isset($pageTitle) ? $pageTitle : $siteBrand;
-// Il logo dell'operatore è un asset statico del sito.
-
-$logo = $logo_url;
+// Nome da mostrare: nome portale della landing, con fallback titolo -> ragione sociale.
+$brandName = $LANDING_PAGE['nome_portale'] !== ''
+    ? $LANDING_PAGE['nome_portale']
+    : ($LANDING_PAGE['titolo'] !== ''
+        ? $LANDING_PAGE['titolo']
+        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Switch'));
+$pageTitle = isset($pageTitle) ? $pageTitle : $brandName;
+// Logo testata: dalla landing se presente, altrimenti il logo dell'azienda.
+$logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : $COMPANY['logo_url'];
 
 ?>
 <!doctype html>
@@ -30,7 +31,7 @@ $logo = $logo_url;
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title><?= e($pageTitle) ?> — <?= $siteBrand ?></title>
+  <title><?= e($pageTitle) ?> — <?= $brandName ?></title>
   <?php if (!empty($metaDescription)) { ?>
     <meta name="description" content="<?= e($metaDescription) ?>">
   <?php } ?>
@@ -49,7 +50,7 @@ $logo = $logo_url;
   <header class="main-header">
     <div class="header-container">
       <a href="index.php" class="logo">
-        <img src="<?= $logo ?>" alt="<?= $siteBrand ?> Logo">
+        <img src="<?= $logoHeader ?>" alt="<?= $brandName ?> Logo">
       </a>
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
