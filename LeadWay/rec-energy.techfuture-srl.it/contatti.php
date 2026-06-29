@@ -76,8 +76,7 @@ $offertaSelezionata = isset($_GET['offerta']) ? $_GET['offerta'] : '';
               <label for="servizio" style="display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #18181B;">Servizio di interesse</label>
               <select id="servizio" name="servizio" style="width: 100%; padding: 14px; border: 1px solid #E4E4E7; border-radius: 12px; font-family: inherit; font-size: 16px; background: #fff;">
                 <option value="Generale">Informazioni Generali</option>
-                <option value="Luce Zero" <?= $offertaSelezionata == 'Luce Zero' ? 'selected' : '' ?>>Luce Zero</option>
-                <option value="Gas Zero" <?= $offertaSelezionata == 'Gas Zero' ? 'selected' : '' ?>>Gas Zero</option>
+                <option value="ReCasa_Luce B13" <?= $offertaSelezionata == 'ReCasa_Luce B13' ? 'selected' : '' ?>>ReCasa_Luce B13</option>
                 <option value="Business" <?= $offertaSelezionata == 'Business' ? 'selected' : '' ?>>Soluzioni Business</option>
               </select>
             </div>

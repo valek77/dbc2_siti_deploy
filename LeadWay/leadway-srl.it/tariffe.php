@@ -23,8 +23,8 @@ include __DIR__ . '/header.php';
 ?>
 
 <main class="container" style="margin-top: 60px;">
-  <h2 class="section-title" style="text-align:center;">Le offerte ufficiali <?= $OPERATORE_ENERGETICO ?></h2>
-  <p class="section-sub">In partnership con <?= $OPERATORE_ENERGETICO ?> per garantirti il massimo risparmio su luce e gas</p>
+  <h2 class="section-title" style="text-align:center;">Le offerte ufficiali <?= $OPERATORE['nome_marketing'] ?></h2>
+  <p class="section-sub">In partnership con <?= $OPERATORE['nome_marketing'] ?> per garantirti il massimo risparmio su luce e gas</p>
 
   <div class="results-list" id="results"></div>
 </main>
