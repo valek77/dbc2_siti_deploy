@@ -52,7 +52,7 @@ include __DIR__ . '/header.php';
     <p style="font-style:italic; font-size:14px; color:var(--muted); margin:0 0 30px;">Termini e condizioni generali del sito web <?= $nomeOperatore ?></p>
 
     <h2>Premessa</h2>
-    <p>L’utilizzo del presente sito web<?php if ($LANDING_PAGE['url'] !== '') { ?> <?= $LANDING_PAGE['url'] ?><?php } ?> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo. Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($COMPANY['sede_legale'] !== '') { ?>, con sede in <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?>, Partita IVA <?= $COMPANY['p_iva'] ?><?php } ?>.</p>
+    <p>L’utilizzo del presente sito web<b><?php if ($LANDING_PAGE['url'] !== '') { ?> <?= $LANDING_PAGE['url'] ?><?php } ?></b> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo. Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($COMPANY['sede_legale'] !== '') { ?>, con sede in <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?>, Partita IVA <?= $COMPANY['p_iva'] ?><?php } ?>.</p>
 
     <h2>Oggetto del servizio</h2>
     <p>Questo sito è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi e informazioni relative a prodotti energetici. Le informazioni hanno natura informativa e orientativa.</p>
