@@ -516,6 +516,14 @@ img, svg { display: block; max-width: 100%; }
 }
 .section-on-dark .section-title { color: #fff; }
 .section-on-dark .section-sub { color: rgba(255,255,255,.78); }
+.section-on-dark .section-title .accent {
+  background: linear-gradient(120deg, #BEF264 0%, #84CC16 60%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.section-on-dark .eyebrow .dot {
+  background: #84CC16;
+  box-shadow: 0 0 0 4px rgba(190,242,100,.2);
+}
 
 /* =========================================================
    Feature cards
@@ -621,12 +629,12 @@ img, svg { display: block; max-width: 100%; }
   display: inline-flex; align-items: center; justify-content: center;
   width: 46px; height: 46px;
   border-radius: 12px;
-  background: var(--grad-accent);
-  color: var(--ink);
+  background: linear-gradient(135deg, #D9F99D 0%, #84CC16 100%);
+  color: #365314;
   font-family: var(--font-display);
   font-weight: 800; font-size: 18px;
   margin-bottom: 20px;
-  box-shadow: 0 12px 24px -8px rgba(132,204,22,.6);
+  box-shadow: 0 12px 24px -8px rgba(132,204,22,.5);
 }
 .hiw-step h5 {
   font-size: 17px; font-weight: 700; color: #fff;
@@ -686,7 +694,7 @@ img, svg { display: block; max-width: 100%; }
 .timeline-dot {
   position: absolute; top: 0;
   width: 24px; height: 24px; border-radius: 50%;
-  background: var(--grad-accent);
+  background: linear-gradient(135deg, #D9F99D 0%, #84CC16 100%);
   border: 4px solid var(--primary-800);
   z-index: 2;
 }
@@ -700,6 +708,18 @@ img, svg { display: block; max-width: 100%; }
   transition: transform .3s var(--ease);
 }
 .timeline-item:hover .timeline-content { transform: translateY(-5px); background: rgba(255,255,255,.08); }
+.timeline-content h5 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 10px;
+}
+.timeline-content p {
+  font-size: 15px;
+  color: rgba(255,255,255,.84);
+  line-height: 1.65;
+  margin: 0;
+}
 .split-tiles {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px;
 }
@@ -1234,7 +1254,7 @@ img, svg { display: block; max-width: 100%; }
 .contact-card-cta .name { font-family: var(--font-display); font-size: 20px; font-weight: 800; margin: 10px 0 16px; }
 .contact-card-cta .price {
   font-family: var(--font-display); font-size: 36px; font-weight: 800;
-  background: var(--grad-accent);
+  background: linear-gradient(120deg, #BEF264 0%, #84CC16 60%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
   letter-spacing: -.02em;
 }
