@@ -10,7 +10,7 @@ include __DIR__ . '/header.php';
       <div class="hero-content">
         <span class="hero-tag">Generiamo Valore</span>
         <h1 id="hero-title">Acceleriamo le vendite e ottimizziamo i processi aziendali.</h1>
-        <p id="hero-text">Affidati a <?= $brand ?> per la gestione in outsourcing di reti vendita, telemarketing e customer care. Qualità e risultati misurabili al tuo servizio.</p>
+        <p id="hero-text">Affidati a <?= $brandName ?> per la gestione in outsourcing di reti vendita, telemarketing e customer care. Qualità e risultati misurabili al tuo servizio.</p>
 
         <div class="hero-actions">
           <a href="tariffe.php" class="btn-primary">Scopri i Servizi</a>
@@ -53,7 +53,7 @@ include __DIR__ . '/header.php';
   <section class="how-it-works-section">
     <div class="hiw-container">
       <div class="hiw-header">
-        <h2 class="section-title">Inizia a crescere con <?= $brand ?> in 4 passi</h2>
+        <h2 class="section-title">Inizia a crescere con <?= $brandName ?> in 4 passi</h2>
         <p class="section-sub">Attivare una campagna con noi è veloce e strategico.</p>
       </div>
 
@@ -119,7 +119,7 @@ include __DIR__ . '/header.php';
         <div class="tp-review-card">
           <div class="tp-review-stars">★★★★★</div>
           <h5 class="tp-review-title">Incremento delle vendite</h5>
-          <p class="tp-review-body">Grazie a <?= $brand ?> abbiamo triplicato i nostri appuntamenti commerciali in meno di due mesi. Staff preparato e reattivo.</p>
+          <p class="tp-review-body">Grazie a <?= $brandName ?> abbiamo triplicato i nostri appuntamenti commerciali in meno di due mesi. Staff preparato e reattivo.</p>
           <p class="tp-review-author">Marco R. - CEO</p>
         </div>
         <div class="tp-review-card">
@@ -142,11 +142,11 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="team_new.jpg" alt="Il Team <?= $brand ?>"
+        <img src="team_new.jpg" alt="Il Team <?= $brandName ?>"
           style="max-width: 100%; height: auto; border-radius: 50% 70% 50% 50% / 50% 70% 50% 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 0;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brand ?> Outsourcing: Risultati che durano <span style="color: var(--primary);">tutto l'anno</span></h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brandName ?> Outsourcing: Risultati che durano <span style="color: var(--primary);">tutto l'anno</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 32px 0;">
           Esternalizza le attività a basso valore aggiunto o i processi complessi al nostro contact center specializzato. Massimizza la produttività del tuo team interno e riduci i costi operativi.
         </p>

@@ -1,97 +1,42 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Offerte Gas e Luce ENGIE';
+// Nome marketing dell'operatore energetico dall'API (fallback nome legale).
+$operatoreNome = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
+$pageTitle = 'Offerte Gas e Luce' . ($operatoreNome !== '' ? ' ' . $operatoreNome : '');
 
 // Script specifico della pagina (catalogo offerte). Restano dati statici:
 // le offerte non fanno parte dell'anagrafica azienda gestita dall'API.
-// Il nome dell'operatore (dal .env) viene passato al JS come costante PROVIDER.
-$operatoreJs = json_encode('ENGIE');
+// Il nome dell'operatore (dall'API) viene passato al JS come costante PROVIDER.
+$operatoreJs = json_encode($operatoreNome);
 $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
   <script>
 const offers = [
       {
-            "nome": "Energia PuntoFisso 12 mesi",
-            "tipo": "Luce",
-            "segmento": "Domestico",
-            "prezzo": "0,1186 €/kWh",
-            "corrispettivo_annuo": "72 €/anno",
-            "sconti": [
-                  "Prezzo bloccato per 1 anno",
-                  "Addebito diretto sul conto corrente",
-                  "Energia elettrica 100% rinnovabile"
-            ],
-            "descrizione": "La tua estate parte con l'energia giusta! Blocca il prezzo di Luce per 12 mesi!",
-            "logicard": false,
-            "id": "off-eng-01"
-      },
-      {
-            "nome": "Taaanta Energia Sera & Relax",
-            "tipo": "Luce",
-            "segmento": "Domestico",
-            "prezzo": "F1: 0,1193 €/kWh, F2: 0,1285 €/kWh, F3: 0,0899 €/kWh",
-            "corrispettivo_annuo": "72 €/anno",
-            "sconti": [
-                  "Prezzo bloccato per 1 anno",
-                  "Addebito diretto sul conto corrente",
-                  "Energia elettrica 100% rinnovabile"
-            ],
-            "descrizione": "30% in meno sul costo della materia prima energia in fascia F3, la sera e nei giorni festivi.",
-            "logicard": false,
-            "id": "off-eng-02"
-      },
-      {
-            "nome": "Taaanta Energia",
-            "tipo": "Luce",
-            "segmento": "Domestico",
-            "prezzo": "PUN + 0 €/kWh",
-            "corrispettivo_annuo": "120 €/anno",
-            "sconti": [
-                  "Prezzo variabile e zero Spread",
-                  "Energia elettrica 100% rinnovabile"
-            ],
-            "descrizione": "Se la tua casa richiede una quantità significativa di energia questa è l'offerta migliore.",
-            "logicard": false,
-            "id": "off-eng-03"
-      },
-      {
             "nome": "Energia VedoChiaro",
             "tipo": "Luce",
             "segmento": "Domestico",
-            "prezzo": "PUN + 0,0198 €/kWh",
-            "corrispettivo_annuo": "84 €/anno",
+            "prezzo": "PUN + 0,008 €/kWh",
+            "corrispettivo_annuo": "59 €/anno",
             "sconti": [
                   "Prezzo variabile",
-                  "Energia elettrica 100% rinnovabile"
+                  "Energia elettrica 100% rinnovabile",
+                  "Perdite di rete incluse"
             ],
-            "descrizione": "Vuoi sapere sempre come cambia il prezzo dell’energia? Segui il mercato energetico!",
+            "descrizione": "Offerta valida fino al 01/07/2026. Vuoi sapere sempre come cambia il prezzo dell’energia? Segui il mercato energetico!",
             "logicard": false,
             "id": "off-eng-04"
       },
       {
-            "nome": "Energia PuntoFisso 12 mesi",
-            "tipo": "Gas",
-            "segmento": "Domestico",
-            "prezzo": "0,4900 €/Smc",
-            "corrispettivo_annuo": "72 €/anno",
-            "sconti": [
-                  "Prezzo bloccato per 1 anno",
-                  "Addebito diretto sul conto corrente"
-            ],
-            "descrizione": "La tua estate parte con l'energia giusta! Blocca il prezzo del Gas per 12 mesi!",
-            "logicard": false,
-            "id": "off-eng-05"
-      },
-      {
             "nome": "Energia VedoChiaro",
             "tipo": "Gas",
             "segmento": "Domestico",
-            "prezzo": "PSV + 0,0680 €/Smc",
-            "corrispettivo_annuo": "84 €/anno",
+            "prezzo": "PSV + 0,03 €/Smc",
+            "corrispettivo_annuo": "59 €/anno",
             "sconti": [
                   "Prezzo variabile",
                   "Gestione online"
             ],
-            "descrizione": "Vuoi sapere sempre come cambia il prezzo del gas? Segui il mercato energetico!",
+            "descrizione": "Offerta valida fino al 01/07/2026. Vuoi sapere sempre come cambia il prezzo del gas? Segui il mercato energetico!",
             "logicard": false,
             "id": "off-eng-06"
       }
@@ -108,7 +53,7 @@ const offers = [
       <div class="offer-card-ribbon" style="background: ${ribbonBg}; color: #fff; padding: 8px; text-align: center; font-weight: 700; font-size: 14px;">${badge}</div>
       <div class="offer-card-body" style="padding: 36px; display:flex; flex-direction:column; flex:1;">
         <div class="offer-card-header" style="margin-bottom: 20px;">
-          <img src="logo.png" alt="ENGIE" style="max-height: 30px; margin-bottom: 12px;">
+          <img src="logo.png" alt="${PROVIDER}" style="max-height: 30px; margin-bottom: 12px;">
           <span class="offer-name" style="font-size: 22px; font-weight: 700; color: var(--text-dark); display:block;">${o.nome}</span>
           <span class="offer-provider" style="color: var(--text-secondary); margin-top: 4px; font-size: 14px;">${PROVIDER} · ${o.segmento}</span>
         </div>
@@ -140,8 +85,8 @@ include __DIR__ . '/header.php';
   <section class="hero"
     style="background: linear-gradient(rgba(15, 17, 24, 0.7), rgba(15, 17, 24, 0.8)), url('tariffe_hero.jpg') center/cover no-repeat; color: #ffffff; padding: 120px 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div class="hero-wrapper" style="max-width: 900px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte <span style="color: var(--accent);">ENGIE</span></h1>
-      <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Scopri le offerte Luce e Gas di ENGIE: soluzioni a prezzo fisso o variabile, 100% energia rinnovabile, pensate per la tua casa.</p>
+      <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte <span style="color: var(--accent);"><?= $operatoreNome ?></span></h1>
+      <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Scopri le offerte Luce e Gas di <?= $operatoreNome ?>: soluzioni a prezzo fisso o variabile, 100% energia rinnovabile, pensate per la tua casa.</p>
     </div>
   </section>
 
@@ -163,7 +108,7 @@ include __DIR__ . '/header.php';
   </section>
 
   <main class="container" style="max-width: 1280px; margin: 60px auto var(--section-padding); padding: 0 20px;">
-    <h2 class="section-title" style="text-align: center; margin-top: 0; font-size: 36px;">Le nostre offerte Luce e Gas ENGIE</h2>
+    <h2 class="section-title" style="text-align: center; margin-top: 0; font-size: 36px;">Le nostre offerte Luce e Gas <?= $operatoreNome ?></h2>
     <p style="text-align:center; color: var(--text-secondary); max-width: 720px; margin: 0 auto 48px; font-size: 18px;">Tutte le offerte sono riservate ai clienti che aderiscono tramite richiesta web. Scegli quella piu adatta a te.</p>
     <div class="results-list" id="results"
       style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: var(--gutter);"></div>
@@ -171,7 +116,7 @@ include __DIR__ . '/header.php';
 
   <p class="price-disclaimer" id="price-disclaimer"
     style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-size: 14px; color: var(--text-muted); text-align: center;">
-    * I corrispettivi indicati si riferiscono alla sola componente Materia Energia e sono al netto di imposte, costi di trasporto e gestione del contatore e oneri di sistema, come stabiliti e aggiornati da ARERA. Prezzo indicizzato (PUN/PSV Index GME) piu spread fisso per 12 mesi. Dati aggiornati secondo le offerte ufficiali ENGIE.
+    * I corrispettivi indicati si riferiscono alla sola componente Materia Energia e sono al netto di imposte, costi di trasporto e gestione del contatore e oneri di sistema, come stabiliti e aggiornati da ARERA. Prezzo indicizzato (PUN/PSV Index GME) piu spread fisso per 12 mesi. Dati aggiornati secondo le offerte ufficiali <?= $operatoreNome ?>.
   </p>
 
 <?php include __DIR__ . '/footer.php'; ?>

@@ -8,7 +8,7 @@ include __DIR__ . '/header.php';
     <div class="hero-wrapper">
       <div class="hero-content">
         <h1>Soluzioni intelligenti per le tue utenze luce, gas e telecomunicazioni</h1>
-        <p><?= $brand ?> offre consulenza mirata, analisi approfondita dei costi e servizi su misura per ottimizzare le spese domestiche e aziendali, assicurandoti sempre le migliori condizioni sul mercato.</p>
+        <p><?= $brandName ?> offre consulenza mirata, analisi approfondita dei costi e servizi su misura per ottimizzare le spese domestiche e aziendali, assicurandoti sempre le migliori condizioni sul mercato.</p>
 
         <div class="hero-actions">
           <a href="tariffe.php" class="btn-primary">Le nostre offerte</a>
@@ -116,7 +116,7 @@ include __DIR__ . '/header.php';
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
         <h2 class="section-title" style="text-align: left; margin-top: 0; color: var(--text-dark);">Strategie efficaci per abbattere i costi</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Con <?= $brand ?> hai al tuo fianco un partner affidabile per l'analisi e la gestione dei tuoi contratti luce, gas e telecomunicazioni. Esaminiamo le tue fatture per farti cogliere le migliori opportunità di risparmio presenti sul mercato.
+          Con <?= $brandName ?> hai al tuo fianco un partner affidabile per l'analisi e la gestione dei tuoi contratti luce, gas e telecomunicazioni. Esaminiamo le tue fatture per farti cogliere le migliori opportunità di risparmio presenti sul mercato.
         </p>
         <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
       </div>

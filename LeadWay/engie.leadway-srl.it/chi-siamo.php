@@ -24,7 +24,7 @@ include __DIR__ . '/header.php';
         </p>
       </div>
       <div style="flex: 1; position: relative; height: 500px; min-width: 400px;">
-        <img src="team_new.jpg" alt="Il Team <?= $brand ?>" class="hero-image-mask" style="border-radius: 300px 0 0 300px; box-shadow: -20px 20px 40px rgba(0,0,0,0.1);">
+        <img src="team_new.jpg" alt="Il Team <?= $brandName ?>" class="hero-image-mask" style="border-radius: 300px 0 0 300px; box-shadow: -20px 20px 40px rgba(0,0,0,0.1);">
       </div>
     </div>
   </section>
@@ -79,7 +79,7 @@ include __DIR__ . '/header.php';
   <section style="padding: 120px 20px; text-align: center; background: #fff;">
     <div style="max-width: 900px; margin: 0 auto;">
       <h2 style="font-size: 42px; color: var(--primary); line-height: 1.3; font-weight: 700; margin-bottom: 40px;">"Il nostro obiettivo non è fornire semplici servizi, ma generare un valore duraturo e misurabile per i nostri partner commerciali."</h2>
-      <p style="font-size: 20px; color: var(--primary); opacity: 0.6;">— Il Team <?= $brand ?></p>
+      <p style="font-size: 20px; color: var(--primary); opacity: 0.6;">— Il Team <?= $brandName ?></p>
     </div>
   </section>
 
