@@ -7,7 +7,7 @@ include __DIR__ . '/header.php';
   <section class="hero" id="hero">
     <div class="hero-text-side">
       <div class="hero-content">
-        <h1 id="hero-title">La tua connessione con <?= $brand ?></h1>
+        <h1 id="hero-title">La tua connessione con <?= $brandName ?></h1>
         <p id="hero-text">Dimentica i costi imprevisti e i call center infiniti. Scegli un partner per le telecomunicazioni e le utenze che ti affianca con un consulente su misura per la tua abitazione o azienda.</p>
 
         <div class="hero-actions">
@@ -24,7 +24,7 @@ include __DIR__ . '/header.php';
   <section class="features-section">
     <div style="max-width: 900px; margin: 0 auto 80px; text-align: center;">
       <h2 class="section-title" style="font-size: 48px; margin-bottom: 20px;">Un consulente sempre al tuo fianco</h2>
-      <p class="section-sub" style="font-size: 20px;">Con <?= $brand ?> sei più di un semplice cliente. Crediamo nel
+      <p class="section-sub" style="font-size: 20px;">Con <?= $brandName ?> sei più di un semplice cliente. Crediamo nel
         rapporto umano e vogliamo ottimizzare le telecomunicazioni e le utenze della tua casa o azienda.</p>
     </div>
 
@@ -89,7 +89,7 @@ include __DIR__ . '/header.php';
           la velocità richiesta, la copertura e le tue abitudini richiedono un'analisi specifica.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--accent); opacity: 0.8; margin-bottom: 40px;">
-          Con <?= $brand ?>, l'ottimizzazione è **su misura**. Individuiamo le migliori offerte di telecomunicazioni e
+          Con <?= $brandName ?>, l'ottimizzazione è **su misura**. Individuiamo le migliori offerte di telecomunicazioni e
           utenze per ridurre i tuoi costi garantendoti prestazioni al top, il tutto con un **consulente dedicato** sempre
           al tuo fianco.
         </p>
@@ -126,7 +126,7 @@ include __DIR__ . '/header.php';
         <div class="tp-review-card">
           <div class="tp-review-stars">★★★★★</div>
           <h5 class="tp-review-title">Finalmente chiarezza!</h5>
-          <p class="tp-review-body">Con <?= $brand ?> ho finalmente capito cosa pago in bolletta. Prezzi onesti e
+          <p class="tp-review-body">Con <?= $brandName ?> ho finalmente capito cosa pago in bolletta. Prezzi onesti e
             consulenti gentilissimi.</p>
           <p class="tp-review-author">Marco R.</p>
         </div>
@@ -153,14 +153,14 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: var(--gutter); flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="team_telecom.png" alt="Il Team <?= $brand ?>"
+        <img src="team_telecom.png" alt="Il Team <?= $brandName ?>"
           style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(4, 8, 50, 0.08);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 40px;">
         <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;">
           Innovazione al servizio del tuo risparmio</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 32px 0;">
-          In <?= $brand ?> monitoriamo costantemente il mercato delle telecomunicazioni e delle utilities.
+          In <?= $brandName ?> monitoriamo costantemente il mercato delle telecomunicazioni e delle utilities.
           Questo ci permette di offrirti tariffe sempre competitive e performanti, senza costi nascosti.
           La nostra missione è semplificare la gestione delle tue utenze.
         </p>

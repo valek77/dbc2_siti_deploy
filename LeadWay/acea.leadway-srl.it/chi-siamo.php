@@ -19,7 +19,7 @@ include __DIR__ . '/header.php';
         <h2 class="section-title" style="text-align: left; font-size: 48px; margin-bottom: 32px;">Connessioni e Persone al
           centro</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--accent); opacity: 0.8; margin-bottom: 24px;">
-          <?= $brand ?> è stata creata da professionisti del mercato delle telecomunicazioni e utilities che volevano un approccio diverso. Al
+          <?= $brandName ?> è stata creata da professionisti del mercato delle telecomunicazioni e utilities che volevano un approccio diverso. Al
           contrario dei colossi senz'anima, noi offriamo supporto vero e consulenza personalizzata.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--accent); opacity: 0.8;">
@@ -28,7 +28,7 @@ include __DIR__ . '/header.php';
         </p>
       </div>
       <div style="flex: 1; position: relative; height: 500px; min-width: 400px;">
-        <img src="team_telecom.png" alt="Il Team <?= $brand ?>" class="hero-image-mask"
+        <img src="team_telecom.png" alt="Il Team <?= $brandName ?>" class="hero-image-mask"
           style="border-radius: 300px 0 0 300px; box-shadow: -20px 20px 40px rgba(0,0,0,0.1);">
       </div>
     </div>
@@ -87,7 +87,7 @@ include __DIR__ . '/header.php';
       <h2 style="font-size: 42px; color: var(--accent); line-height: 1.3; font-weight: 700; margin-bottom: 40px;">"Il
         nostro traguardo finale non è un contratto in più, ma stabilire connessioni autentiche, offrendo reali vantaggi
         a chi ci sceglie."</h2>
-      <p style="font-size: 20px; color: var(--accent); opacity: 0.6;">— La Direzione <?= $brand ?></p>
+      <p style="font-size: 20px; color: var(--accent); opacity: 0.6;">— La Direzione <?= $brandName ?></p>
     </div>
   </section>
 

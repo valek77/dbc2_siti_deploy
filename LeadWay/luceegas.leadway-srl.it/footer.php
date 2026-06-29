@@ -2,42 +2,49 @@
 /**
  * footer.php — piè di pagina comune a tutte le pagine.
  *
+ * Dati legali 100% da API NUOVA: la riga legale è costruita SOLO dai campi
+ * presenti nell'azienda titolare ($COMPANY). Niente dati hardcoded: i campi che
+ * l'API non fornisce (es. R.E.A.) semplicemente non compaiono.
+ *
  * Prima di includerlo, ogni pagina può impostare:
  *   $pageScripts -> HTML <script> specifici della pagina (facoltativo)
- *
- * I dati societari (ragione sociale, sede, P.IVA, capitale, PEC) sono le
- * variabili globali popolate da _config.php a partire dalla risposta dell'API.
  */
-$logo = $logo_url !== '' ? $logo_url : 'logo.png';
+$brandName = isset($brandName) ? $brandName
+    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'LeadWay');
+// Logo footer: logo2 dall'API se presente, altrimenti l'immagine locale.
+$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'logo.png';
 
-// Riga legale: includo solo le parti effettivamente presenti.
+// Riga legale: includo solo le parti effettivamente presenti nell'API.
 $legalParts = [];
-if ($company_name) {
-  $legalParts[] = $company_name;
+if ($COMPANY['company_name'] !== '') {
+  $legalParts[] = $COMPANY['company_name'];
 }
-if ($sede_legale) {
-  $legalParts[] = 'Sede Legale: ' . $sede_legale;
+if ($COMPANY['sede_legale'] !== '') {
+  $legalParts[] = 'Sede Legale: ' . $COMPANY['sede_legale'];
 }
-if ($p_iva) {
-  $legalParts[] = 'P.IVA e C.F.: ' . $p_iva;
+if ($COMPANY['p_iva'] !== '') {
+  $legalParts[] = 'P.IVA e C.F.: ' . $COMPANY['p_iva'];
 }
-if ($capitale_sociale) {
-  $legalParts[] = 'Capitale Sociale ' . $capitale_sociale;
+if ($COMPANY['capitale_sociale'] !== '') {
+  $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale'];
 }
-if ($pec) {
-  $legalParts[] = 'PEC: ' . $pec;
+if ($COMPANY['pec'] !== '') {
+  $legalParts[] = 'PEC: ' . $COMPANY['pec'];
 }
 $legalLine = implode(' &mdash; ', $legalParts);
+
+// Operatore energetico: nome legale (fallback marketing), mostrato solo se presente.
+$operatoreNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
 ?>
 
   <footer class="main-footer">
     <div class="footer-container">
       <div class="footer-brand">
         <a href="index.php" class="logo">
-          <img src="<?= $logo ?>" alt="<?= $brand ?>">
+          <img src="<?= $logoFooter ?>" alt="<?= $brandName ?>">
         </a>
-        <?php if ($OPERATORE_ENERGETICO) { ?>
-          <p>Rivenditore autorizzato <?= $OPERATORE_ENERGETICO ?>.</p>
+        <?php if ($operatoreNome !== '') { ?>
+          <p>Rivenditore autorizzato <?= $operatoreNome ?>.</p>
         <?php } ?>
       </div>
       <div class="footer-links">
