@@ -9,40 +9,58 @@ $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
   <script>
     const offers = [
       {
-        id: 'nc-luce-fisso',
+        id: 'acea-sprint-luce',
         esclusiva: true,
-        nome: 'Luce Acea Fix',
+        nome: 'Acea Energia Sprint Web',
+        sottotitolo: 'LUCE',
         fornitore: PROVIDER,
-        tipo: 'Prezzo bloccato 12 mesi',
-        bollettaMensile: 65.00,
-        bollettaAnnua: 780.00,
-        energiaMensile: 35.00,
-        risparmio: 150.00,
-        features: ['Prezzo bloccato 12 mesi', 'Energia 100% Green', 'Bolletta Web Inclusa']
+        tipo: 'Offerta esclusiva web',
+        bollettaMensile: 8.00,
+        bollettaAnnua: 96.00,
+        risparmio: 0,
+        features: [
+          'PUN Index GME + 0,007000 €/kWh',
+          'Monorario uguale per tutte le ore del giorno',
+          'Corrispettivo annuo 96,00 €/anno',
+          'Prezzi validi per i primi 12 mesi',
+          'Valida fino al 30-09-2026'
+        ]
       },
       {
-        id: 'nc-gas-fisso',
+        id: 'acea-sprint-gas',
         esclusiva: true,
-        nome: 'Gas Acea Fix',
+        nome: 'Acea Energia Sprint Web',
+        sottotitolo: 'GAS',
         fornitore: PROVIDER,
-        tipo: 'Prezzo bloccato 12 mesi',
-        bollettaMensile: 85.00,
-        bollettaAnnua: 1020.00,
-        energiaMensile: 45.00,
-        risparmio: 140.00,
-        features: ['Prezzo bloccato 12 mesi', 'Gas compensazione CO2', 'Bolletta Web Inclusa']
+        tipo: 'Offerta esclusiva web',
+        bollettaMensile: 8.00,
+        bollettaAnnua: 96.00,
+        risparmio: 0,
+        features: [
+          'PSV + 0,043000 €/Smc',
+          'Prezzo valido tutto il giorno',
+          'Corrispettivo annuo 96,00 €/anno',
+          'Prezzi validi per i primi 12 mesi',
+          'Valida fino al 30-09-2026'
+        ]
       },
       {
-        id: 'nc-dual-fisso',
+        id: 'acea-sprint-dual',
         esclusiva: true,
-        nome: 'Luce e Gas Acea Fix',
+        nome: 'Acea Energia Sprint Web',
+        sottotitolo: 'LUCE E GAS',
         fornitore: PROVIDER,
-        tipo: 'Prezzi bloccati 12 mesi',
-        bollettaMensile: 145.00,
-        bollettaAnnua: 1740.00,
-        energiaMensile: 80.00,
-        risparmio: 300.00,
-        features: ['Prezzi bloccati 12 mesi', 'Tutto Online', 'Bolletta Web Inclusa']
+        tipo: 'Offerta esclusiva web',
+        bollettaMensile: 16.00,
+        bollettaAnnua: 192.00,
+        risparmio: 0,
+        features: [
+          'Luce: PUN Index GME + 0,007000 €/kWh',
+          'Gas: PSV + 0,043000 €/Smc',
+          'Corrispettivo annuo 192,00 €/anno',
+          'Prezzi validi per i primi 12 mesi',
+          'Valida fino al 30-09-2026'
+        ]
       }
     ];
 
@@ -51,7 +69,7 @@ $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
     const resultsEl = document.getElementById('results');
     resultsEl.innerHTML = offers.map(o => `
     <article class="offer-card${o.esclusiva ? ' exclusive' : ''}">
-      <div class="offer-card-ribbon">${o.esclusiva ? '⭐ Più scelta' : 'Offerta Standard'}</div>
+      <div class="offer-card-ribbon">${o.esclusiva ? 'OFFERTA ESCLUSIVA WEB' : 'Offerta Standard'}</div>
       <div class="offer-card-body" style="padding: 40px;">
         <div style="margin-bottom: 24px;">
           <img src="logo-acea-energia.png" alt="Logo ${o.fornitore}" style="height: 40px; margin-bottom: 20px;">
@@ -59,14 +77,10 @@ $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
         <div class="offer-card-header" style="margin-bottom: 24px; align-items: flex-start;">
           <div>
             <div class="offer-name-wrap"><span class="offer-name" style="font-size: 26px; font-weight: 800; font-family: var(--font-h); color: var(--accent);">${o.nome}</span></div>
+            ${o.sottotitolo ? `<div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-top: 6px;">${o.sottotitolo}</div>` : ''}
             <div class="offer-provider" style="margin-top: 4px;">${o.fornitore} · ${o.tipo}</div>
           </div>
-          <div class="offer-price-wrap" style="text-align: right;">
-            <div class="offer-price" style="font-size: 36px; font-weight: 800; color: var(--accent);">€${fmt(o.bollettaMensile)}<span class="offer-price-unit" style="font-size: 16px; font-weight: 500;">/mese</span></div>
-            <div class="offer-price-detail" style="font-size: 14px;">€${fmt(o.bollettaAnnua)}/anno</div>
-          </div>
         </div>
-        ${o.risparmio > 0 ? `<div class="offer-saving" style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 8px; font-weight: 600; margin-bottom: 24px; display: inline-block;">Tariffa Ufficiale</div>` : ''}
         <div class="offer-features" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px;">${o.features.map(f => `<span class="offer-tag" style="display: flex; align-items: center; gap: 10px; font-weight: 500; border-radius: 8px; color: var(--text-label); background: #f1f5f9;"><span style="color: var(--accent); font-size: 18px;">✓</span> ${f}</span>`).join('')}</div>
         <button type="button" class="btn-primary" style="width: 100%; border: none; cursor: pointer;" data-offer-id="${o.id}">Attiva ora</button>
       </div>
@@ -112,17 +126,17 @@ include __DIR__ . '/header.php';
         <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 36px;">Ottimizza le tue utenze
         </h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          <?= $brandName ?> va oltre la semplice fornitura di connettività. Il nostro scopo è proteggerti dai costi eccessivi
+          <?= $brandName ?> va oltre la semplice fornitura di energia. Il nostro scopo è proteggerti dai costi eccessivi
           attraverso consigli chiari e costanti sulle tue utenze. Avrai sempre una figura di riferimento a tua disposizione, eliminando
           lo stress dei call center.
         </p>
         <div style="display: flex; gap: 16px;">
           <div class="tag"
             style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
-            Fibra Ultraveloce</div>
+            Luce</div>
           <div class="tag"
             style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
-            Mobile 5G</div>
+            Gas</div>
         </div>
       </div>
       <div style="flex: 0.8; min-width: 300px; display: flex; justify-content: center;">
