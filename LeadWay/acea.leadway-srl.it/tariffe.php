@@ -118,6 +118,71 @@ include __DIR__ . '/header.php';
   </section>
 
   <main class="container" style="max-width: 1280px; margin: var(--section-padding) auto; padding: 0 20px;">
+    <section class="tariffe-fix-section">
+      <div class="tariffe-fix-header">
+        <h2>Acea Energia Fix</h2>
+        <p>Hai tempo fino al 02-07-2026</p>
+      </div>
+
+      <div class="tariffe-fix-grid">
+        <!-- LUCE -->
+        <article class="tariffa-fix-card">
+          <div class="tariffa-fix-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17h8v-2.26C17.81 13.47 19 11.38 19 9a7 7 0 0 0-7-7z"/></svg>
+            <span>Luce</span>
+          </div>
+          <div class="tariffa-fix-content">
+            <div class="tariffa-fix-toggle">
+              <button type="button" class="active">monoraria</button>
+              <button type="button">fasce</button>
+            </div>
+            <p class="tariffa-fix-desc">Adatta se consumi elettricità ogni giorno a qualsiasi ora</p>
+
+            <div class="tariffa-fix-row">
+              <span>Corrispettivo per il consumo</span>
+              <span class="tariffa-fix-price">0,125000€/kWh
+                <svg class="tariffa-fix-info" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              </span>
+            </div>
+            <div class="tariffa-fix-row">
+              <span>
+                <svg class="tariffa-fix-info" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                Fascia F0
+              </span>
+            </div>
+            <div class="tariffa-fix-row">
+              <span>Corrispettivo annuo</span>
+              <span class="tariffa-fix-price">90,00€/anno</span>
+            </div>
+
+            <p class="tariffa-fix-note">Prezzi validi per i primi 12 mesi.</p>
+          </div>
+        </article>
+
+        <!-- GAS -->
+        <article class="tariffa-fix-card">
+          <div class="tariffa-fix-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s-3 3-3 7c0 2 .5 3 1.5 4-1.5-1-2.5-2.5-2.5-5 0-3 2.5-5.5 4-6 1.5.5 4 3 4 6 0 2.5-1 4-2.5 5 1-1 1.5-2 1.5-4 0-3.5-3-7-3-7z"/><path d="M12 22a5 5 0 0 1-5-5c0-2 1.5-3.5 3-5 1 1.5 2 3 2 5a5 5 0 0 1-5 5z"/></svg>
+            <span>Gas</span>
+          </div>
+          <div class="tariffa-fix-content">
+            <p class="tariffa-fix-desc">Prezzo valido tutto il giorno</p>
+
+            <div class="tariffa-fix-row">
+              <span>Corrispettivo per il consumo</span>
+              <span class="tariffa-fix-price">0,520000€/Smc</span>
+            </div>
+            <div class="tariffa-fix-row">
+              <span>Corrispettivo annuo</span>
+              <span class="tariffa-fix-price">90,00€/anno</span>
+            </div>
+
+            <p class="tariffa-fix-note">Prezzi validi per i primi 12 mesi</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <div class="results-list" id="results"
       style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: var(--gutter);"></div>
 
