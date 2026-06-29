@@ -42,63 +42,7 @@ include __DIR__ . '/header.php';
     <div class="contact-grid">
 
       <div class="reveal">
-        <div class="contact-info-card">
-          <h3 style="font-size: 22px; margin: 0 0 24px; color: var(--ink);">Come raggiungerci</h3>
-          <div class="contact-info-list">
-
-            <div class="contact-info-item">
-              <div class="ico"><svg viewBox="0 0 24 24" fill="none">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"
-                    stroke-linejoin="round" />
-                  <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-                </svg></div>
-              <div>
-                <div class="label">Sede Legale</div>
-                <div class="meta"><?= $COMPANY['company_name'] ?></div>
-                <div style="font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 4px;">
-                  <?php if ($COMPANY['sede_legale'] !== '') { ?>   <?= $COMPANY['sede_legale'] ?><br>
-                  <?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?> P.IVA: <?= $COMPANY['p_iva'] ?><br>
-                    C.F.: <?= $COMPANY['p_iva'] ?><br>
-                    Vat Europeo: IT<?= $COMPANY['p_iva'] ?>
-                  <?php } ?>
-                </div>
-              </div>
-            </div>
-
-            <?php if ($telHref) { ?>
-              <div class="contact-info-item">
-                <div class="ico"><svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z"
-                      stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-                  </svg></div>
-                <div>
-                  <div class="label">Contatti Rapidi</div>
-                  <div class="meta">Telefono &amp; WhatsApp</div>
-                  <a href="tel:<?= $telHref ?>"><?= $COMPANY['telefono'] ?></a>
-                </div>
-              </div>
-            <?php } ?>
-
-            <?php if ($emailContatto) { ?>
-              <div class="contact-info-item">
-                <div class="ico"><svg viewBox="0 0 24 24" fill="none">
-                    <path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2z" stroke="currentColor"
-                      stroke-width="2" stroke-linejoin="round" />
-                    <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg></div>
-                <div>
-                  <div class="label">Email</div>
-                  <div class="meta">Informazioni &amp; Assistenza</div>
-                  <a href="mailto:<?= $emailContatto ?>"><?= $emailContatto ?></a>
-                </div>
-              </div>
-            <?php } ?>
-          </div>
-        </div>
-
-        <div class="contact-card-cta" style="margin-top:24px;">
+        <div class="contact-card-cta" style="margin-top:0;">
           <div class="label">Offerta del momento</div>
           <div class="name">NEW <?= $brandName ?> LUCE CASA</div>
           <div class="price">PUN +€0,03<small> €/kWh</small></div>
