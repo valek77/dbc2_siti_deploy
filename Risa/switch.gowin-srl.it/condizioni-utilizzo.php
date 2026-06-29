@@ -1,7 +1,16 @@
 <?php
 require __DIR__ . '/_config.php';
+
+// Dati dinamici dall'API nuova (/landing-pages). Disponibili subito dopo _config.php,
+// prima dell'include di header.php (dove viene impostato $brandName).
+$nomeOperatore  = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing']
+    : ($OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Illumia');
+$ragioneSociale = $COMPANY['company_name'] !== '' ? $COMPANY['company_name']
+    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Action Srl');
+$emailContatto  = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $COMPANY['pec'];
+
 $pageTitle = 'Condizioni di Utilizzo';
-$metaDescription = 'Termini e condizioni generali di utilizzo del sito web ' . $OPERATORE_ENERGETICO . '.';
+$metaDescription = 'Termini e condizioni generali di utilizzo del sito web ' . $nomeOperatore . '.';
 
 $pageHead = <<<'CSS'
   <style>
@@ -26,14 +35,6 @@ $pageHead = <<<'CSS'
       color: var(--ink-3);
       font-size: 17px;
     }
-    .intro-box {
-      background-color: var(--bg-soft);
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      margin-bottom: 40px;
-      font-style: italic;
-    }
     @media (max-width: 768px) {
       .privacy-box {
         margin: 40px 20px 80px;
@@ -43,25 +44,18 @@ $pageHead = <<<'CSS'
   </style>
 CSS;
 
-// Ragione sociale e recapito dai dati API (con fallback).
-$ragioneSociale = $company_name !== '' ? $company_name : $brand;
-$emailContatto = $email_supporto !== '' ? $email_supporto : $pec;
-
 include __DIR__ . '/header.php';
 ?>
 
-  <section style="background: linear-gradient(135deg,#047857 0%,#10B981 100%); padding:100px 20px; text-align:center;">
-    <h1 style="color:#fff; font-size:clamp(36px,5vw,56px); margin:0; font-weight:800;">Condizioni di Utilizzo</h1>
-   
-  </section>
-
   <main class="privacy-box">
-    <div class="intro-box">
-      <p style="margin: 0;">L’utilizzo del presente sito web<?php if ($SITO_WEB) { ?> <?= $SITO_WEB ?><?php } ?> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo. Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($sede_legale) { ?>, con sede in <?= $sede_legale ?><?php } ?><?php if ($p_iva) { ?>, Partita IVA <?= $p_iva ?><?php } ?>.</p>
-    </div>
+    <h1 style="color:var(--primary); margin:0 0 8px; font-size:28px; line-height:1.3; font-weight:800;">Condizioni di Utilizzo</h1>
+    <p style="font-style:italic; font-size:14px; color:var(--muted); margin:0 0 30px;">Termini e condizioni generali del sito web <?= $nomeOperatore ?></p>
+
+    <h2>Premessa</h2>
+    <p>L’utilizzo del presente sito web<b><?php if ($LANDING_PAGE['url'] !== '') { ?> <?= $LANDING_PAGE['url'] ?><?php } ?></b> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo. Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($COMPANY['sede_legale'] !== '') { ?>, con sede in <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?>, Partita IVA <?= $COMPANY['p_iva'] ?><?php } ?>.</p>
 
     <h2>Oggetto del servizio</h2>
-    <p>Questa è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi e informazioni relative a prodotti energetici. Le informazioni hanno natura informativa e orientativa.</p>
+    <p>Questo sito è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi e informazioni relative a prodotti energetici. Le informazioni hanno natura informativa e orientativa.</p>
 
     <h2>Diritti e doveri dell’utente</h2>
     <p>L’utente si impegna a utilizzare il Sito in modo lecito, corretto e conforme alle presenti Condizioni Generali. In particolare, si impegna a non utilizzare il Sito per finalità illecite o fraudolente.</p>

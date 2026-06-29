@@ -1,29 +1,31 @@
 <?php
 /**
- * footer.php — piè di pagina comune (BLUE ENERGY / switch.gowin-srl.it).
+ * footer.php — piè di pagina comune (switch.gowin-srl.it).
+ *
+ * Sito DINAMICO su API NUOVA (/landing-pages): la riga legale è costruita SOLO dai
+ * campi presenti nell'azienda titolare ($COMPANY). Brand e logo dalla landing.
  *
  * Prima di includerlo, ogni pagina può impostare:
  *   $pageScripts -> HTML <script> specifici della pagina (facoltativo)
- *
- * La riga legale (ragione sociale, P.IVA) è costruita dalle variabili globali
- * popolate da _config.php a partire dalla risposta dell'API. Il marchio mostrato
- * è l'operatore energetico ($OPERATORE_ENERGETICO).
  */
 
-if (!isset($brand)) {
+if (!isset($LANDING_PAGE)) {
   require __DIR__ . '/_config.php';
 }
-$logo = $logo2_url;
-$siteBrand = $OPERATORE_ENERGETICO !== '' ? $OPERATORE_ENERGETICO : $brand;
+$brandName = isset($brandName) ? $brandName
+    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale']
+        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Switch'));
+// Logo footer (sfondo scuro): logo2 della landing se presente, altrimenti dell'azienda.
+$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : $COMPANY['logo2_url'];
 
-// Riga legale: includo solo le parti effettivamente presenti.
+// Riga legale: includo solo le parti effettivamente presenti nell'azienda titolare.
 $legalParts = [];
-if ($company_name) {
-  $legalParts[] = 'Ragione Sociale: ' . $company_name;
+if ($COMPANY['company_name'] !== '') {
+  $legalParts[] = 'Ragione Sociale: ' . $COMPANY['company_name'];
 }
-if ($p_iva) {
-  $legalParts[] = 'P.IVA: ' . $p_iva;
-  $legalParts[] = 'Vat Europeo: IT' . $p_iva;
+if ($COMPANY['p_iva'] !== '') {
+  $legalParts[] = 'P.IVA: ' . $COMPANY['p_iva'];
+  $legalParts[] = 'Vat Europeo: IT' . $COMPANY['p_iva'];
 }
 $legalLine = implode(' | ', $legalParts);
 ?>
@@ -32,9 +34,9 @@ $legalLine = implode(' | ', $legalParts);
   <div class="footer-container">
     <div class="footer-brand">
       <a href="index.php" class="logo">
-        <img src="<?= $logo ?>" alt="<?= $siteBrand ?> Logo">
+        <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo">
       </a>
-      <p><?= $siteBrand ?>: prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
+      <p><?= $brandName ?>: prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
     </div>
     <div class="footer-col">
       <h4>Azienda</h4>
@@ -58,7 +60,7 @@ $legalLine = implode(' | ', $legalParts);
     <?php if ($legalLine !== '') { ?>
       <p style="margin-bottom: 8px;"><?= $legalLine ?></p>
     <?php } ?>
-    <p>&copy; <?= date('Y') ?> <?= $siteBrand ?>. Tutti i diritti riservati.</p>
+    <p>&copy; <?= date('Y') ?> <?= $brandName ?>. Tutti i diritti riservati.</p>
   </div>
 </footer>
 
