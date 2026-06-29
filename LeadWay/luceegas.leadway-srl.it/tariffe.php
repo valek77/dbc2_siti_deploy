@@ -21,16 +21,6 @@ include __DIR__ . '/header.php';
   <main class="section" style="padding: 80px 0 40px;">
     <div class="container">
 
-      <!-- Partner Banner -->
-      <div style="background: linear-gradient(135deg, #10B981, #047857); padding: 30px; border-radius: var(--r-xl); margin-bottom: 40px; color: #fff; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; box-shadow: var(--shadow-md);">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
-          <h2 style="margin: 0; font-size: 28px; font-weight: 800;">Servizi e Valore in Partnership con</h2>
-          <img src="semplice.png?v=1" alt="Semplice Gas e Luce" style="height: 60px; background-color: white; padding: 10px; border-radius: 8px; object-fit: contain;">
-        </div>
-        <p style="margin: 0; font-size: 18px; max-width: 800px; opacity: 0.9;">In collaborazione con il nostro partner Semplice Gas e Luce, ti proponiamo le migliori offerte luce e gas per la tua casa. Risparmio garantito, bolletta chiara e trasparenza.</p>
-        <a href="https://www.semplicegaseluce.it/" target="_blank" class="btn-primary" style="background: #fff; color: #047857; font-weight: 700; margin-top: 10px; padding: 12px 24px;">Scopri i dettagli sul sito del partner</a>
-      </div>
-
       <!-- Filtro -->
       <div class="tab-bar" id="tab-bar" style="display:none;">
         <button class="tab-btn active" data-filter="all">Tutte</button>
@@ -82,15 +72,17 @@ include __DIR__ . '/header.php';
 
     const offers = [
       { id: 'luce-casa', category: 'all', kind: 'luce', tipo: 'Luce Casa', top: false,
-        nome: 'OFFERTA LUCE CASA WEB', sub: 'Per la tua casa · Semplice Gas e Luce',
+        nome: 'Offerta Luce Casa Web', sub: 'Per la tua casa',
+        codice: 'Cod. 005229ESVFL01XX00000000ED0426WEB',
         prezzoRid: 'PUN + €0,011', unita: '€/kWh', prezzoBoll: null,
-        note: 'Costi commercializzazione: 120 €/anno',
-        features: ['Bolletta via email', 'Programma Porta un Amico', 'Dispacciamento ARERA'] },
+        note: 'Quota fissa 120,00 €/POD/anno · Prezzi IVA e imposte escluse',
+        features: ['Energia a prezzo indicizzato al PUN medio su tre fasce orarie', 'Spread 0,011 €/kWh, comprensivo delle perdite di rete', 'Corrispettivo dispacciamento (CDISPD) aggiornato da ARERA'] },
       { id: 'gas-casa', category: 'all', kind: 'gas', tipo: 'Gas Casa', top: true,
-        nome: 'OFFERTA GAS CASA WEB', sub: 'Per la tua casa · Semplice Gas e Luce',
+        nome: 'Offerta Gas Casa Web', sub: 'Per la tua casa',
+        codice: 'Cod. 005229GSVML01XX00000000GD0426WEB',
         prezzoRid: 'PSV + €0,09', unita: '€/Smc', prezzoBoll: null,
-        note: 'Costi commercializzazione: 120 €/anno',
-        features: ['Bolletta via email', 'Programma Porta un Amico', 'Addebito diretto'] }
+        note: 'Quota fissa 120,00 €/PDR/anno · Prezzi IVA e imposte escluse',
+        features: ['Prezzo variabile della materia prima indicizzato al PSV mensile', 'Spread 0,09 €/Smc', 'Ultimo valore PSV + Spread: 0,467 €/Smc (febbraio 2026)'] }
     ];
 
     function renderCard(o) {
@@ -108,9 +100,9 @@ include __DIR__ . '/header.php';
           ${o.top ? `<span class="lock">${ICON_LOCK} Spread bloccato</span>` : ''}
         </div>
         <div class="offer-card-body">
-          <img src="semplice.png?v=1" alt="Semplice Gas e Luce" style="height: 40px; margin-bottom: 16px; object-fit: contain;">
           <h3 class="offer-name">${o.nome}</h3>
           <p class="offer-type">${o.sub}</p>
+          <p style="font-size:11px; color:var(--muted); margin:-4px 0 12px; letter-spacing:0.3px; word-break:break-all;">${o.codice}</p>
 
           <div class="price-block">
             <div class="price-label">Prezzo energia · con RID</div>
