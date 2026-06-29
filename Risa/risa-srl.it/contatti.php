@@ -55,10 +55,18 @@ include __DIR__ . '/header.php';
             Richiesta inviata! Un nostro EnergyTeller ti contatterà al più presto.
           </div>
         </div>
-
-      </div>
     </div>
   </section>
 
+  <script>
+    (function () {
+      const privacy = document.querySelector('input[name="consenso_privacy"]');
+      const ricontatto = document.querySelector('input[name="consenso_ricontatto"]');
+      if (privacy && ricontatto) {
+        ricontatto.checked = privacy.checked;
+        privacy.addEventListener('change', function () { ricontatto.checked = privacy.checked; });
+      }
+    })();
+  </script>
   <script src="lead-form.js"></script>
 <?php include __DIR__ . '/footer.php'; ?>
