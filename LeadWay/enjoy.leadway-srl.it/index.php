@@ -1,0 +1,143 @@
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Energie Rinnovabili';
+include __DIR__ . '/header.php';
+?>
+
+  <section class="hero">
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1>Soluzioni intelligenti per risparmiare su luce e gas</h1>
+        <p><?= $brandName ?> ti aiuta ad analizzare consumi, bollette e tariffe energetiche per trovare soluzioni su misura e ridurre davvero la spesa di casa o della tua attivita.</p>
+
+        <div class="hero-actions">
+          <a href="tariffe.php" class="btn-primary">Le nostre offerte</a>
+        </div>
+
+      </div>
+      <div class="hero-image">
+        <img src="consulting_business.png" alt="Consulenza personalizzata per luce, gas e telecomunicazioni" class="mascot-img" style="max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);" />
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2 class="section-title" style="margin-top: 0;">Perché scegliere noi?</h2>
+    <p class="section-sub" style="margin-bottom: 40px;">Tutti i vantaggi del nostro servizio</p>
+    <div class="features-container">
+      <div class="trust-card">
+        <img src="icon_free_new.png" alt="Servizio gratuito" class="trust-mascot" />
+        <h4>Analisi gratuita</h4>
+        <p>Valutiamo la tua situazione energetica senza costi e senza impegno.</p>
+      </div>
+      <div class="trust-card">
+        <img src="icon_call_new.png" alt="Ti richiamiamo noi" class="trust-mascot" />
+        <h4>Consulenza dedicata</h4>
+        <p>Un consulente ti accompagna nella scelta della tariffa luce o gas piu adatta.</p>
+      </div>
+      <div class="trust-card">
+        <img src="icon_nocommit_new.png" alt="Nessun impegno" class="trust-mascot" />
+        <h4>Nessun vincolo</h4>
+        <p>Confronti le proposte energetiche con chiarezza, senza pressioni e senza sorprese.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="how-it-works-section">
+    <div class="hiw-container">
+      <div class="hiw-header">
+        <h2 class="section-title">Risparmiare in bolletta non e mai stato cosi semplice</h2>
+        <p class="section-sub">Un processo chiaro in 4 passaggi</p>
+      </div>
+
+      <div class="hiw-steps">
+        <div class="hiw-step">
+          <div class="hiw-number">1</div>
+          <p>Confronta le offerte luce e gas piu adatte ai tuoi consumi</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">2</div>
+          <p>Tieni a portata di mano una bolletta per una valutazione piu precisa</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">3</div>
+          <p>Lascia i tuoi dati per ricevere una proposta energetica chiara e personalizzata</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">4</div>
+          <p>Ti guidiamo passo dopo passo fino alla scelta della soluzione migliore</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trustpilot-section">
+    <div class="trustpilot-wrapper">
+      <div class="tp-container">
+        <div class="tp-stars">★★★★★</div>
+        <p class="tp-text">Valutato <strong>Eccellente</strong> su <span class="tp-star-logo">★</span> <span
+            class="tp-logo">Trustpilot</span></p>
+        <p class="tp-subtext">Basato su oltre 5.000 recensioni verificate</p>
+      </div>
+      <div class="tp-reviews">
+        <div class="tp-review-card">
+          <div class="tp-review-stars">★★★★★</div>
+          <h5 class="tp-review-title">Servizio impeccabile!</h5>
+          <p class="tp-review-body">Mi hanno aiutato a trovare la tariffa migliore in pochissimo tempo. Davvero
+            competenti
+            e veloci.</p>
+          <p class="tp-review-author">Marco R.</p>
+        </div>
+        <div class="tp-review-card">
+          <div class="tp-review-stars">★★★★★</div>
+          <h5 class="tp-review-title">Risparmio garantito</h5>
+          <p class="tp-review-body">Ero scettica, ma mi hanno fatto risparmiare oltre 200€ all'anno. Una bella sorpresa.
+          </p>
+          <p class="tp-review-author">Giulia F.</p>
+        </div>
+        <div class="tp-review-card">
+          <div class="tp-review-stars">★★★★★</div>
+          <h5 class="tp-review-title">Gentili e preparati</h5>
+          <p class="tp-review-body">Nessun call center aggressivo, solo veri consulenti che ti guidano passo passo con
+            chiarezza.</p>
+          <p class="tp-review-author">Antonio L.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="info-section" style="padding: 80px 20px; background: #ffffff; color: var(--text-dark);">
+    <div class="container"
+      style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+        <img src="about_gcom.png" alt="Consulenza strategica e supporto dedicato"
+          style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
+      </div>
+      <div style="flex: 1.2; min-width: 300px; text-align: left;">
+        <h2 class="section-title" style="text-align: left; margin-top: 0; color: var(--text-dark);">Strategie efficaci per alleggerire la bolletta</h2>
+        <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
+          Con <?= $brandName ?> hai al tuo fianco un partner affidabile per analizzare contratti, consumi e costi di luce e gas. Esaminiamo le tue bollette per individuare le opportunita di risparmio piu adatte al tuo profilo energetico.
+        </p>
+        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sustainability-section" style="padding: 80px 20px; background: #fff;">
+    <div class="container"
+      style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap-reverse;">
+      <div style="flex: 1.2; min-width: 300px; text-align: left;">
+        <h2 class="section-title" style="text-align: left; margin-top: 0;">Supporto energetico costante per casa e impresa</h2>
+        <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
+          Che tu voglia ottimizzare i consumi domestici o migliorare l'efficienza energetica della tua attivita, i nostri professionisti ti aiutano a scegliere offerte luce e gas piu convenienti e sostenibili.
+        </p>
+        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
+      </div>
+      <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+        <img src="hero_gcommunication.png" alt="Supporto costante per famiglie e aziende"
+          style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
+      </div>
+    </div>
+  </section>
+
+<?php include __DIR__ . '/footer.php'; ?>
