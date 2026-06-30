@@ -31,7 +31,7 @@ include __DIR__ . '/header.php';
       </div>
 
       <!-- Griglia offerte -->
-      <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;"></div>
+      <div id="offers-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;"></div>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
         * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread o prezzi fissi indicati. Il fornitore partner è <?= $OPERATORE['nome_legale'] ?>. Le offerte sono soggette alle condizioni contrattuali di <?= $OPERATORE['nome_legale'] ?>.
@@ -77,26 +77,16 @@ include __DIR__ . '/header.php';
     const ICON_LOCK = '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
     const offers = [
-      { id: 'prime-casa-luce', category: 'luce-res', kind: 'luce', tipo: 'Luce Residenziale', top: true,
-        nome: 'Prime Casa Luce', sub: 'Prezzo Variabile indicizzato PUN · Uso domestico',
-        prezzoRid: 'PUN + €0,025', unita: '€/kWh', prezzoBoll: 'PUN + €0,025/kWh',
-        note: 'Corrispettivo annuo fisso: 132€ (11€/mese)',
-        features: ['Fornitore partner: ' + OPERATORE, 'Indicizzato al PUN mensile', 'Spread F1/F2/F3: 0,025 €/kWh', 'Sconto 1€/mese per bolletta web'] },
-      { id: 'b2c-luce', category: 'luce-res', kind: 'luce', tipo: 'Luce Business', top: false,
-        nome: 'B2C Luce', sub: 'Prezzo Fisso 12 mesi · Uso non domestico',
-        prezzoRid: '0,1309', unita: '€/kWh', prezzoBoll: '0,1309 €/kWh',
-        note: 'Commercializzazione 116€/anno + Oneri Amm. 24€/anno',
-        features: ['Fornitore partner: ' + OPERATORE, 'Prezzo fisso per 12 mesi', 'Fascia F1/F2/F3 a 0,1309 €/kWh', 'Sconto 1€/mese per bolletta web'] },
-      { id: 'gas-casa', category: 'gas-res', kind: 'gas', tipo: 'Gas Residenziale', top: false,
-        nome: 'Gas Casa', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'PSV + €0,12', unita: '€/Smc', prezzoBoll: 'PSV + €0,12/Smc',
-        note: 'Attivazione e condizioni ' + OPERATORE,
-        features: ['Fornitore partner: ' + OPERATORE, 'Indicizzato al PSV mensile', 'Bolletta web', 'Nessun intervento tecnico'] },
-      { id: 'gas-lavoro', category: 'gas-res', kind: 'gas', tipo: 'Gas Business', top: false,
-        nome: 'Gas Lavoro', sub: 'Prezzo Variabile · Uso non domestico',
-        prezzoRid: 'PSV + €0,12', unita: '€/Smc', prezzoBoll: 'PSV + €0,12/Smc',
-        note: 'Attivazione e condizioni ' + OPERATORE,
-        features: ['Fornitore partner: ' + OPERATORE, 'Indicizzato al PSV mensile', 'Bolletta web', 'Per studi e piccole attività'] }
+      { id: 'family-luce-tls', category: 'luce-res', kind: 'luce', tipo: 'Luce Residenziale', top: true,
+        nome: 'FAMILY LUCE TLS', sub: 'Mercato Libero · Energia Elettrica · Uso domestico',
+        prezzoRid: 'PUN + €0,055', unita: '€/kWh', quotaFissa: 'Corrispettivo annuo: <b>624 €/POD</b>',
+        note: 'Cod. offerta 025867ESVFL04XX000000426TLSEDPUN · Offerta valida fino al 30/06/2026',
+        features: ['Fornitore partner: ' + OPERATORE, 'Indicizzato al PUN INDEX GME mensile', 'Spread fisso F1/F2/F3: 0,055 €/kWh (perdite di rete incluse)', 'Prezzo bloccato per i primi 12 mesi'] },
+      { id: 'family-gas-tls', category: 'gas-res', kind: 'gas', tipo: 'Gas Residenziale', top: true,
+        nome: 'FAMILY GAS TLS', sub: 'Mercato Libero · Gas Naturale · Uso domestico',
+        prezzoRid: 'PSV + €0,60', unita: '€/Smc', quotaFissa: 'Corrispettivo annuo: <b>696 €/PdR</b>',
+        note: 'Cod. offerta 025867GSVML04XX00000426APSVGDTLS · Offerta valida fino al 30/06/2026',
+        features: ['Fornitore partner: ' + OPERATORE, 'Indicizzato al PSV mensile', 'Maggiorazione M fissa: 0,600 €/Smc', 'Prezzo bloccato per i primi 12 mesi'] }
     ];
 
     function renderCard(o) {
@@ -105,24 +95,22 @@ include __DIR__ . '/header.php';
         ? '--ribbon-color:#C2410C; --ribbon-bg:#FFF7E6; --ribbon-text:#9A3412; --ribbon-border:#FFE5B0;'
         : '';
       return `
-      <article class="offer-card ${o.top ? 'featured' : ''}" data-category="${o.category}" style="${styleVars}">
+      <article class="offer-card ${o.top ? 'featured' : ''}" data-category="${o.category}" style="flex:0 1 360px; max-width:400px; ${styleVars}">
         <div class="offer-ribbon">
           <span class="pill ${warm ? 'warm' : ''}">
             ${o.kind === 'luce' ? ICON_BOLT : ICON_FLAME}
             <span>${o.tipo}</span>
           </span>
-          ${o.top ? `<span class="lock">${ICON_LOCK} Spread bloccato</span>` : ''}
+          ${o.top ? `<span class="lock">${ICON_LOCK} Prezzo bloccato</span>` : ''}
         </div>
         <div class="offer-card-body">
           <h3 class="offer-name">${o.nome}</h3>
           <p class="offer-type">${o.sub}</p>
 
           <div class="price-block">
-            <div class="price-label">Prezzo energia · con RID</div>
+            <div class="price-label">Prezzo materia prima energia</div>
             <div class="price-main">${o.prezzoRid}<span style="font-size:14px; color:var(--muted); margin-left:4px; font-weight:600;">${o.unita}</span></div>
-            ${o.prezzoBoll
-              ? `<div class="price-alt">Bollettino: <b>${o.prezzoBoll}</b></div>`
-              : `<div class="price-locked">${ICON_CHECK} Prezzo unico, spread garantito 12 mesi</div>`}
+            <div class="price-alt">${o.quotaFissa}</div>
           </div>
 
           <ul class="offer-features">
