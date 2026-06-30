@@ -53,9 +53,9 @@ include __DIR__ . '/header.php';
   <p>L’utilizzo del presente sito web <b><?php if ($LANDING_PAGE['url'] !== '') { ?>
         <?= $LANDING_PAGE['url'] ?><?php } ?> </b> (di seguito, il “Sito”) comporta l’accettazione integrale delle
     presenti condizioni generali di utilizzo. Il Sito è di titolarità e proprietà di
-    <strong><?= $ragioneSociale ?></strong><?php if ($COMPANY['sede_legale'] !== '') { ?>, con sede in
-      <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?>, Partita IVA
-      <?= $COMPANY['p_iva'] ?><?php } ?>.</p>
+    <strong><?= $ragioneSociale ?></strong><?php if ($OPERATORE['indirizzo'] !== '') { ?>, con sede in
+      <?= $OPERATORE['indirizzo'] ?><?php } ?><?php if ($OPERATORE['partita_iva'] !== '') { ?>, Partita IVA
+      <?= $OPERATORE['partita_iva'] ?><?php } ?>.</p>
 
   <h2>Oggetto del servizio</h2>
   <p>Questo sito è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte,
