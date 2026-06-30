@@ -33,7 +33,7 @@ include __DIR__ . '/header.php';
       </div>
 
       <!-- Griglia offerte -->
-      <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;"></div>
+      <div id="offers-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; max-width: 760px; margin: 0 auto;"></div>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
         * I prezzi indicati sono riferiti alle componenti energia (PUN INDEX GME) e gas (PSV) con l'aggiunta degli spread fissi indicati, validi per 12 mesi dalla data di attivazione. Al corrispettivo per il consumo si aggiunge il corrispettivo annuo indicato in ciascuna offerta. Pagamento tramite Bonifico Bancario, Bollettino Postale o Addebito su Conto (SDD). Richiesta entro il 30/06/2026. Offerte soggette a condizioni contrattuali <?= $OPERATORE['nome_legale'] ?>. <?= $brandName ?> è rivenditore indipendente autorizzato.
@@ -98,9 +98,9 @@ include __DIR__ . '/header.php';
 
     function renderCard(o) {
       const warm = o.kind === 'gas';
-      const styleVars = warm
-        ? '--ribbon-color:#C2410C; --ribbon-bg:#FFF7E6; --ribbon-text:#9A3412; --ribbon-border:#FFE5B0;'
-        : '';
+      const styleVars = 'flex: 0 1 340px; max-width: 100%;' + (warm
+        ? ' --ribbon-color:#C2410C; --ribbon-bg:#FFF7E6; --ribbon-text:#9A3412; --ribbon-border:#FFE5B0;'
+        : '');
       return `
       <article class="offer-card ${o.top ? 'featured' : ''}" data-category="${o.category}" style="${styleVars}">
         <div class="offer-ribbon">
