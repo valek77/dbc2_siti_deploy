@@ -1,34 +1,18 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Offerte Luce e Gas — Again · Semplice Luce e Gas</title>
-  <meta name="description" content="Tutte le offerte Semplice Luce e Gas disponibili tramite Again. Tariffe luce e gas per uso domestico e professionale con prezzi indicizzati al mercato.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="LOGO_again.png" alt="Again Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Offerte Luce e Gas';
+$_brand = $LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale']
+    : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Again');
+$pageDescription = 'Tutte le offerte ' . $OPERATORE['nome_marketing'] . ' disponibili tramite ' . $_brand . '. Tariffe luce e gas per uso domestico e professionale con prezzi indicizzati al mercato.';
+include __DIR__ . '/header.php';
+?>
 
   <!-- PAGE HERO — foto parco eolico -->
   <section class="page-hero">
     <div class="photo-bg" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80');"></div>
     <div class="photo-overlay"></div>
     <div class="inner">
-      <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Offerte Semplice Luce e Gas</span>
+      <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Offerte <?= $OPERATORE['nome_marketing'] ?></span>
       <h1>Trova la tariffa <span class="hl">giusta per te</span></h1>
       <p>Offerte per uso domestico e professionale. Prezzi indicizzati al mercato con spread fisso. Contributo di attivazione €30,00 (scontato con 6 mesi di permanenza).</p>
     </div>
@@ -47,7 +31,7 @@
       <div class="offers-grid" id="offers-grid"></div>
 
       <p style="font-size:13px; color:var(--muted-2); text-align:center; max-width:900px; margin:56px auto 0; line-height:1.7;">
-        * I prezzi indicati si riferiscono alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Sconto di 1€/mese per domiciliazione (SDD) e 1€/mese per fattura email. Offerte soggette a condizioni contrattuali Semplice Luce &amp; Gas S.r.l. Again è rivenditore indipendente autorizzato.
+        * I prezzi indicati si riferiscono alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Sconto di 1€/mese per domiciliazione (SDD) e 1€/mese per fattura email. Offerte soggette a condizioni contrattuali <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>. <?= $brandName ?> è rivenditore indipendente autorizzato.
       </p>
     </div>
   </section>
@@ -57,7 +41,7 @@
     <div class="container">
       <div class="section-head">
         <span class="eyebrow" style="color:var(--primary-light); justify-content:center;"><span class="dot" style="background:var(--primary-light);"></span> Capire il prezzo</span>
-        <h2 class="section-title" style="color:#fff; text-align:center;">Perché scegliere<br><span style="color:var(--primary-light);">Semplice Luce e Gas</span></h2>
+        <h2 class="section-title" style="color:#fff; text-align:center;">Perché scegliere<br><span style="color:var(--primary-light);"><?= $OPERATORE['nome_marketing'] ?></span></h2>
         <p class="section-sub" style="margin:0 auto 56px; text-align:center;">Prezzi trasparenti indicizzati al mercato all'ingrosso. Il risparmio è garantito dalla gestione digitale e dalla chiarezza contrattuale.</p>
       </div>
       <div class="glossary-grid">
@@ -89,43 +73,25 @@
   <section class="section" style="text-align:center;">
     <div class="container">
       <h2 class="section-title" style="margin-bottom:16px;">Scegli la trasparenza</h2>
-      <p style="font-size:18px; color:var(--muted); max-width:560px; margin:0 auto 36px; line-height:1.7;">Nessun vincolo di durata e nessun costo di recesso. Passa a Semplice Luce e Gas con Again.</p>
-      <a href="contatti.html" class="btn-primary" style="font-size:17px; padding:16px 44px;">Parla con un esperto →</a>
+      <p style="font-size:18px; color:var(--muted); max-width:560px; margin:0 auto 36px; line-height:1.7;">Nessun vincolo di durata e nessun costo di recesso. Passa a <?= $OPERATORE['nome_marketing'] ?> con <?= $brandName ?>.</p>
+      <a href="contatti.php" class="btn-primary" style="font-size:17px; padding:16px 44px;">Parla con un esperto →</a>
     </div>
   </section>
-
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="LOGO_again.png" alt="Again Logo">
-        </a>
-        <p>Rivenditore autorizzato Semplice Luce e Gas.</p>
-      </div>
-      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
-      <div class="footer-col"><h4>Offerte</h4><a href="tariffe.html">Luce Casa</a><a href="tariffe.html">Gas Casa</a></div>
-      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni</a></div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Again srl — P.IVA 10627351215. Tutti i diritti riservati.</span>
-      <span>Rivenditore autorizzato Semplice Luce &amp; Gas S.r.l.</span>
-    </div>
-  </footer>
 
   <script>
     const offers = [
   { id:'placet-luce', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Casa', top:false,
     nome:'PLACET Luce Variabile', tipo:'Prezzo Variabile · Indicizzato PUN',
     rid:'PUN + Spread Fornitore', boll:null,
-    note:'Offerta Semplice Gas e Luce. Prezzo variabile mensile agganciato al PUN. Nessun costo di attivazione o vincolo.',
+    note:'Offerta <?= $OPERATORE['nome_marketing'] ?>. Prezzo variabile mensile agganciato al PUN. Nessun costo di attivazione o vincolo.',
     feats:['Struttura prezzo definita da ARERA','Nessuna interruzione di servizio','Customer Care dedicato','Nessuna spesa di cambio fornitore'] },
   { id:'placet-gas', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Casa', top:false,
     nome:'PLACET Gas Variabile', tipo:'Prezzo Variabile · Indicizzato PSV',
     rid:'PSV + Spread Fornitore', boll:null,
-    note:'Offerta Semplice Gas e Luce. Prezzo variabile mensile agganciato al PSV. Nessun costo di attivazione o vincolo.',
+    note:'Offerta <?= $OPERATORE['nome_marketing'] ?>. Prezzo variabile mensile agganciato al PSV. Nessun costo di attivazione o vincolo.',
     feats:['Struttura prezzo definita da ARERA','Nessuna interruzione di servizio','Customer Care dedicato','Nessuna spesa di cambio fornitore'] },
   { id:'placet-dual', cat:'dual-res', ribbon:'dual-res', tag:'⚡🔥 Luce + Gas', top:true,
-    nome:'PLACET Luce + Gas Variabile', tipo:'Contratti Distinti · Semplice Gas e Luce',
+    nome:'PLACET Luce + Gas Variabile', tipo:'Contratti Distinti · <?= $OPERATORE['nome_marketing'] ?>',
     rid:'PUN/PSV + Spread Fornitore', boll:null,
     note:'Sottoscrivi due contratti PLACET distinti (Luce e Gas) con lo stesso venditore per la massima chiarezza e semplicità.',
     feats:['Luce: PUN + Spread','Gas: PSV + Spread','Condizioni stabilite da ARERA','Nessuna spesa di cambio fornitore']}
@@ -135,7 +101,7 @@
       return `<article class="offer-card" data-cat="${o.cat}">
         <div class="offer-ribbon ${o.ribbon}">${o.tag}${o.top ? ' · Vantaggiosa' : ''}</div>
         <div class="offer-body">
-          <div style="font-size:12px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px;">Semplice Luce e Gas</div>
+          <div style="font-size:12px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px;"><?= $OPERATORE['nome_marketing'] ?></div>
           <div class="offer-name">${o.nome}</div>
           <div class="offer-type">${o.tipo}</div>
           <div class="offer-price-box">
@@ -159,7 +125,7 @@
       const list = f === 'all' ? offers : offers.filter(o => o.cat === f);
       grid.innerHTML = list.map(card).join('');
       grid.querySelectorAll('.offer-cta').forEach(b => b.addEventListener('click', () => {
-        window.location.href = 'contatti.html?offerta=' + encodeURIComponent(b.dataset.name) + '#form';
+        window.location.href = 'contatti.php?offerta=' + encodeURIComponent(b.dataset.name) + '#form';
       }));
     }
 
@@ -173,6 +139,4 @@
 
     render('all');
   </script>
-<script src="cb.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>
