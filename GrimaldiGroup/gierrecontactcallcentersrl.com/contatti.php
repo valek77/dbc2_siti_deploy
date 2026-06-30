@@ -1,36 +1,11 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contatti — GR Contact</title>
-  <meta name="description" content="Contatta GR Contact per ricevere una consulenza gratuita sulle offerte Switch Luce Gas. Siamo qui per aiutarti a scegliere la tariffa giusta.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="gr_logo.png" alt="GR Contact Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary">Richiedi preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$pageDescription = 'Contatta ' . ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'GR Contact')
+    . ' per ricevere una consulenza gratuita sulle offerte ' . $OPERATORE['nome_marketing']
+    . '. Siamo qui per aiutarti a scegliere la tariffa giusta.';
+include __DIR__ . '/header.php';
+?>
 
   <section class="page-hero">
     <div class="container">
@@ -74,13 +49,13 @@
               </div>
               <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.html">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
 
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da Switch Luce e Gas, tramite il partner commerciale GR Contact Call Center , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
                 
               </div>
@@ -107,39 +82,9 @@
     </div>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="gr_logo.png" alt="GR Contact Logo">
-        </a>
-        <p>Rivenditore autorizzato Switch Luce Gas. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce</a>
-        <a href="tariffe.html">Gas</a>
-        <a href="tariffe.html">Offerte PLACET</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>GIERRE CONTACT CALL CENTER S.R.L.</strong> - Via Console Cesario, 3 - 80132 Napoli (NA) - P.IVA/C.F. 09991111213 - REA NA-1072970 - Capitale sociale &euro; 10.000,00 i.v. Tutti i diritti riservati. Rivenditore autorizzato Switch Luce &amp; Gas S.r.l.</p>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script src="lead-form.js"></script>
-
-<script src="cb.js"></script>
-</body>
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>

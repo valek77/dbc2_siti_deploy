@@ -1,50 +1,25 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>GR Contact — Energia Luce e Gas per la tua casa</title>
-  <meta name="description" content="GR Contact è il partner ufficiale Switch Luce Gas. Scopri le migliori offerte luce e gas per casa e azienda con prezzi trasparenti e assistenza dedicata.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="gr_logo.png" alt="GR Contact Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary">Richiedi preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Energia Luce e Gas per la tua casa';
+$pageDescription = ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'GR Contact')
+    . ' è il partner ufficiale ' . $OPERATORE['nome_marketing']
+    . '. Scopri le migliori offerte luce e gas per casa e azienda con prezzi trasparenti e assistenza dedicata.';
+include __DIR__ . '/header.php';
+?>
 
   <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="hero-grid"></div>
     <div class="container">
       <div class="hero-content">
-        <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale Switch Luce Gas</span>
+        <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale <?= $OPERATORE['nome_marketing'] ?></span>
         <h1>Energia <span class="accent">trasparente</span>, bolletta più leggera.</h1>
-        <p class="lede">GR Contact ti guida nel mercato libero con offerte Switch Luce Gas. Prezzi indicizzati al mercato, spread chiari e zero burocrazia per il passaggio.</p>
+        <p class="lede"><?= $brandName ?> ti guida nel mercato libero con offerte <?= $OPERATORE['nome_marketing'] ?>. Prezzi indicizzati al mercato, spread chiari e zero burocrazia per il passaggio.</p>
         <div class="hero-actions">
-          <a href="tariffe.html" class="btn-primary">Scopri le offerte
+          <a href="tariffe.php" class="btn-primary">Scopri le offerte
             <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="contatti.html" class="btn-secondary">Parla con un consulente</a>
+          <a href="contatti.php" class="btn-secondary">Parla con un consulente</a>
         </div>
         <div class="hero-stats">
           <div class="stat"><div class="n">5.000+</div><div class="l">Contratti attivati</div></div>
@@ -90,12 +65,12 @@
   <section class="trust-strip">
     <div class="trust-track">
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Contratti certificati ARERA</span>
-      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore Switch Luce &amp; Gas</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $OPERATORE['nome_marketing'] ?></span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Assistenza multicanale</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 8v6m10-10h-6M8 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg> Nessuna interruzione di fornitura</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Consulenza gratuita</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Contratti certificati ARERA</span>
-      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore Switch Luce &amp; Gas</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $OPERATORE['nome_marketing'] ?></span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Assistenza multicanale</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Consulenza gratuita</span>
     </div>
@@ -107,7 +82,7 @@
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Cosa offriamo</span>
         <h2 class="section-title">Tre servizi, <span class="underline">una sola promessa</span></h2>
-        <p class="section-sub">Siamo rivenditori autorizzati Switch Luce Gas. Scegliamo per te la tariffa giusta e ti seguiamo dalla prima firma alla bolletta.</p>
+        <p class="section-sub">Siamo rivenditori autorizzati <?= $OPERATORE['nome_marketing'] ?>. Scegliamo per te la tariffa giusta e ti seguiamo dalla prima firma alla bolletta.</p>
       </div>
 
       <div class="features-container">
@@ -144,14 +119,14 @@
       <div class="section-head">
         <span class="eyebrow eyebrow-light"><span class="dot"></span> Come funziona</span>
         <h2 class="section-title">Attivi la nuova fornitura <br>in <span class="accent">4 passi semplici</span></h2>
-        <p class="section-sub">Cambiare fornitore con GR Contact è veloce e non richiede alcun intervento tecnico in casa.</p>
+        <p class="section-sub">Cambiare fornitore con <?= $brandName ?> è veloce e non richiede alcun intervento tecnico in casa.</p>
       </div>
 
       <div class="hiw-steps">
         <div class="hiw-step">
           <div class="hiw-num">01</div>
           <h5>Scegli l'offerta</h5>
-          <p>Confronta le tariffe Luce o Gas Switch Luce Gas e individua quella più adatta al tuo profilo.</p>
+          <p>Confronta le tariffe Luce o Gas <?= $OPERATORE['nome_marketing'] ?> e individua quella più adatta al tuo profilo.</p>
         </div>
         <div class="hiw-step">
           <div class="hiw-num">02</div>
@@ -177,13 +152,13 @@
     <div class="container">
       <div class="split">
         <div>
-          <span class="eyebrow"><span class="dot"></span> Perché scegliere GR Contact</span>
+          <span class="eyebrow"><span class="dot"></span> Perché scegliere <?= $brandName ?></span>
           <h2 class="section-title" style="text-align:left;">Risparmio reale, <span class="accent">assistenza vera</span></h2>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 18px;">
             Non siamo un punto vendita anonimo: siamo consulenti energetici. Per ogni cliente troviamo la soluzione più conveniente, senza costi nascosti e senza sorprese in bolletta.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0;">
-            Con Switch Luce Gas puoi scegliere tra offerte a prezzo variabile indicizzato al mercato o offerte PLACET con spread fisso garantito per 12 mesi.
+            Con <?= $OPERATORE['nome_marketing'] ?> puoi scegliere tra offerte a prezzo variabile indicizzato al mercato o offerte PLACET con spread fisso garantito per 12 mesi.
           </p>
 
         </div>
@@ -203,7 +178,7 @@
           <div>
             <div class="stars">★★★★★</div>
             <h3>Valutato eccellente dai nostri clienti</h3>
-            <p>Migliaia di famiglie e imprese hanno scelto GR Contact per il passaggio alle offerte Switch Luce Gas.</p>
+            <p>Migliaia di famiglie e imprese hanno scelto <?= $brandName ?> per il passaggio alle offerte <?= $OPERATORE['nome_marketing'] ?>.</p>
           </div>
           <div class="big">4,9<small>/5</small></div>
         </div>
@@ -259,45 +234,16 @@
       <h2>Bolletta più bassa, energia più chiara.</h2>
       <p>Richiedi una consulenza gratuita. Ti contattiamo entro 24 ore lavorative per trovare insieme la tariffa giusta per te.</p>
       <div class="actions">
-        <a href="tariffe.html" class="btn-primary">Vedi tutte le offerte
+        <a href="tariffe.php" class="btn-primary">Vedi tutte le offerte
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="contatti.html" class="btn-secondary">Contattaci ora</a>
+        <a href="contatti.php" class="btn-secondary">Contattaci ora</a>
       </div>
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="gr_logo.png" alt="GR Contact Logo">
-        </a>
-        <p>Rivenditore autorizzato Switch Luce Gas. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce</a>
-        <a href="tariffe.html">Gas</a>
-        <a href="tariffe.html">Offerte PLACET</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>GIERRE CONTACT CALL CENTER S.R.L.</strong> - Via Console Cesario, 3 - 80132 Napoli (NA) - P.IVA/C.F. 09991111213 - REA NA-1072970 - Capitale sociale &euro; 10.000,00 i.v. Tutti i diritti riservati. Rivenditore autorizzato Switch Luce &amp; Gas S.r.l.</p>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script>
     // Reveal on scroll
     const io = new IntersectionObserver((entries) => {
@@ -305,7 +251,6 @@
     }, { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
-
-<script src="cb.js"></script>
-</body>
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>
