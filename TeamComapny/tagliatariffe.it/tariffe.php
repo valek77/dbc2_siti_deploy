@@ -39,16 +39,14 @@ include __DIR__ . '/header.php';
         <button class="tab-btn active" data-filter="all">Tutte le offerte</button>
         <button class="tab-btn" data-filter="luce-res">⚡ Luce Casa</button>
         <button class="tab-btn" data-filter="gas-res">🔥 Gas Casa</button>
-        <button class="tab-btn" data-filter="luce-biz">⚡ Luce Business</button>
-        <button class="tab-btn" data-filter="gas-biz">🔥 Gas Business</button>
       </div>
 
-      <div class="offers-grid" id="offers-grid"></div>
+      <div class="offers-grid" id="offers-grid" style="max-width: 760px; margin: 0 auto;"></div>
 
       <p style="font-size:13px; color:var(--muted-2); text-align:left; max-width:1100px; margin:56px auto 0; line-height:1.7;">
         * Offerte a prezzo variabile aggiornato mensilmente, valide fino al 10/07/2026. Corrispettivi definiti da <?= $OPERATORE['nome_marketing'] ?>.
-        <strong>Energia elettrica:</strong> Prezzo Luce = PUN Index GME × (1+λ) + Fee, dove λ è il valore delle perdite di rete (10% per le forniture in bassa tensione, come stabilito da ARERA) e la Fee è quella indicata nella tabella corrispettivi. Si applica inoltre il corrispettivo di dispacciamento CDISPD definito da ARERA nel Testo Integrato della Vendita (TIV). Il PUN Index GME è l'indice di cui all'art. 13.3.9 del TIDE, calcolato dal GME come media aritmetica mensile delle quotazioni orarie nel mese di fatturazione in base alle fasce applicate al cliente; in caso di misuratore non telegestito si applica la fee monoraria a tutte le ore. Il valore massimo dell'indice negli ultimi 12 mesi è stato 0,14340 €/kWh (Marzo 2026); tutti i valori sono su www.mercatoelettrico.org.
-        <strong>Gas naturale:</strong> Prezzo Gas = PSV + Fee, dove il PSV è determinato dalla media aritmetica mensile dei prezzi giornalieri "PSV Price Assessment - Day Ahead" pubblicati nell'"European Gas Spot Market Report" da ICIS Heren (con riferimento "PSV Price Assessment - Weekend" per weekend e Bank Holiday), convertito da €/MWh a €/Smc con coefficiente moltiplicativo pari a 0,0107. Il valore massimo dell'indice PSV negli ultimi 12 mesi è stato 0,5577 €/Smc (PCS 0,038520 GJ/Smc, Marzo 2026). I corrispettivi sul consumo sono riferiti a un PCS pari a 0,03852 GJ/Smc e a un coefficiente di conversione C pari a 1 (art. 6 RTDG) e sono suscettibili di adeguamento in proporzione ai valori di PCS approvati da ARERA per l'ambito tariffario del punto di riconsegna.
+        <strong>Energia elettrica:</strong> Prezzo Luce = PUN Index GME × (1+λ) + Fee, dove λ è il valore delle perdite di rete (10% per le forniture in bassa tensione, come stabilito da ARERA) e la Fee è quella indicata nella tabella corrispettivi. Si applica inoltre il corrispettivo di dispacciamento CDISPD definito ed aggiornato mensilmente da ARERA nel Testo Integrato della Vendita (TIV); il valore deliberato per maggio 2026 è pari a 0,019902 €/kWh (comprensivo delle perdite di rete). Il PUN Index GME è la media dei prezzi zonali ponderata per le quantità acquistate in ciascuna zona di mercato, pubblicato e aggiornato mensilmente su www.mercatoelettrico.org. Negli ultimi 12 mesi ha raggiunto un valore unitario massimo pari a 0,14339 €/kWh in fascia F0, 0,14315 €/kWh in F1, 0,15375 €/kWh in F2 e 0,13805 €/kWh in F3, con riferimento al mese di marzo 2026.
+        <strong>Gas naturale:</strong> Prezzo Gas = PSV + Fee, dove il PSV (PSV Day Ahead Heren Mid) corrisponde al prezzo del gas naturale all'ingrosso al Punto di Scambio Virtuale, calcolato mensilmente come media dei prezzi Bid e Offer pubblicati sotto il titolo "PSV PRICE ASSESSMENT" nel report "ICIS Heren European Spot Gas Markets" del più vicino giorno lavorativo secondo il calendario inglese. Negli ultimi 12 mesi ha raggiunto un valore unitario massimo pari a 0,557699 €/Smc, applicato per il periodo marzo 2026. I corrispettivi sul consumo sono riferiti a un PCS pari a 0,03852 GJ/Smc e a un coefficiente di conversione C pari a 1 (art. 6 RTDG) e sono suscettibili di adeguamento in proporzione ai valori di PCS approvati da ARERA per l'ambito tariffario del punto di riconsegna.
         Fasce orarie — F1: lun-ven 8:00-19:00; F2: lun-ven 7:00-8:00 e 19:00-23:00, sab 7:00-23:00; F3: lun-sab 0:00-7:00 e 23:00-24:00, domenica e festivi tutto il giorno.
       </p>
     </div>
@@ -98,26 +96,26 @@ include __DIR__ . '/header.php';
   <script>
     const fornitore = '<?= $OPERATORE['nome_marketing'] ?>';
     const offers = [
-  { id:'smart-flex-luce', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Casa', top:true,
-    nome:fornitore + ' Smart Flex', tipo:'Uso Domestico · Indicizzato PUN',
-    rid:'180 €/POD/anno', consumo:'PUN Index GME + 0,079 €/kWh',
+  { id:'pun-domestico', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Casa', top:true,
+    nome:fornitore + ' PUN Index GME Domestico', tipo:'Uso Domestico · Indicizzato PUN',
+    rid:'456,00 €/POD/anno', consumo:'PUN Index GME + 0,055 €/kWh',
     note:'Prezzo variabile indicizzato al PUN Index GME con fee chiara e corrispettivo annuo fisso. Offerta valida fino al 10/07/2026.',
-    feats:['Prezzo variabile indicizzato al PUN Index GME','Fee monoraria F0: 0,079 €/kWh · bioraria F1 e F2+F3: 0,079 €/kWh','Corrispettivo annuo 180 €/POD','Offerta valida fino al 10/07/2026'] },
-  { id:'smart-flex-gas', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Casa', top:false,
-    nome:fornitore + ' Smart Flex Gas', tipo:'Uso Domestico · Indicizzato PSV',
-    rid:'144 €/PDR/anno', consumo:'PSV + 0,34 €/Smc',
+    feats:['Prezzo variabile indicizzato al PUN Index GME','Fee F1/F2/F3: 0,055 €/kWh','Corrispettivo annuo 456,00 €/POD','Offerta valida fino al 10/07/2026'] },
+  { id:'pun-domestico-cs', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Casa', top:false,
+    nome:fornitore + ' PUN Index GME Domestico CS', tipo:'Uso Domestico · Indicizzato PUN',
+    rid:'456,00 €/POD/anno', consumo:'PUN Index GME + 0,05 €/kWh',
+    note:'Versione con fee sul consumo ridotta. Prezzo variabile indicizzato al PUN Index GME. Offerta valida fino al 10/07/2026.',
+    feats:['Prezzo variabile indicizzato al PUN Index GME','Fee F1/F2/F3: 0,05 €/kWh','Corrispettivo annuo 456,00 €/POD','Offerta valida fino al 10/07/2026'] },
+  { id:'psv-domestico', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Casa', top:false,
+    nome:fornitore + ' PSV Domestico', tipo:'Uso Domestico · Indicizzato PSV',
+    rid:'648,00 €/PDR/anno', consumo:'PSV + 0,45 €/Smc',
     note:'Prezzo variabile indicizzato al PSV con fee chiara e corrispettivo annuo fisso. Offerta valida fino al 10/07/2026.',
-    feats:['Prezzo variabile indicizzato al PSV','Fee sul consumo: 0,34 €/Smc','Corrispettivo annuo 144 €/PDR','Offerta valida fino al 10/07/2026'] },
-  { id:'smart-flex-business-luce', cat:'luce-biz', ribbon:'luce-res', tag:'⚡ Luce Business', top:false,
-    nome:fornitore + ' Smart Flex Business', tipo:'Uso Business · Indicizzato PUN',
-    rid:'192 €/POD/anno', consumo:'PUN Index GME + 0,085 €/kWh',
-    note:'Per usi diversi dal domestico e condomini fino a 10.000 kWh/anno. Offerta valida fino al 10/07/2026.',
-    feats:['Per usi diversi dal domestico e condomini fino a 10.000 kWh/anno','Fee monoraria F0: 0,085 €/kWh · trioraria F1/F2/F3: 0,085 €/kWh','Corrispettivo annuo 192 €/POD','Offerta valida fino al 10/07/2026'] },
-  { id:'smart-flex-business-gas', cat:'gas-biz', ribbon:'gas-res', tag:'🔥 Gas Business', top:false,
-    nome:fornitore + ' Smart Flex Business Gas', tipo:'Uso Business · Indicizzato PSV',
-    rid:'192 €/PDR/anno', consumo:'PSV + 0,44 €/Smc',
-    note:'Per siti ad uso non domestico. Prezzo variabile indicizzato al PSV. Offerta valida fino al 10/07/2026.',
-    feats:['Per siti ad uso non domestico','Fee sul consumo: 0,44 €/Smc','Corrispettivo annuo 192 €/PDR','Offerta valida fino al 10/07/2026'] }
+    feats:['Prezzo variabile indicizzato al PSV','Fee sul consumo: 0,45 €/Smc','Corrispettivo annuo 648,00 €/PDR','Offerta valida fino al 10/07/2026'] },
+  { id:'psv-domestico-cs', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Casa', top:false,
+    nome:fornitore + ' PSV Domestico CS', tipo:'Uso Domestico · Indicizzato PSV',
+    rid:'648,00 €/PDR/anno', consumo:'PSV + 0,42 €/Smc',
+    note:'Versione con fee sul consumo ridotta. Prezzo variabile indicizzato al PSV. Offerta valida fino al 10/07/2026.',
+    feats:['Prezzo variabile indicizzato al PSV','Fee sul consumo: 0,42 €/Smc','Corrispettivo annuo 648,00 €/PDR','Offerta valida fino al 10/07/2026'] }
     ];
 
     function card(o) {
