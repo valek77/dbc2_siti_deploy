@@ -201,7 +201,7 @@ include __DIR__ . '/header.php';
       <h1 style="font-size: clamp(48px, 8vw, 84px); font-weight: 800; line-height: 1.1; margin-bottom: 24px;">Sempre al
         tuo servizio</h1>
       <p style="font-size: 20px; opacity: 0.8; line-height: 1.6;">Scorda le attese interminabili e i centralini. Con
-        <?= $brand ?> hai un punto di riferimento esclusivo e reale.</p>
+        <?= $brandName ?> hai un punto di riferimento esclusivo e reale.</p>
     </div>
   </section>
 
@@ -210,8 +210,8 @@ include __DIR__ . '/header.php';
       <img src="icon_consultant.png" alt="Email">
       <h3>Contattaci via Email</h3>
       <p>Il nostro team di esperti è pronto a rispondere a ogni tua domanda.
-        <?php if (!empty($email_supporto)) { ?><br><strong><?= htmlspecialchars($email_supporto) ?></strong><?php } ?>
-        <?php if (!empty($telefono)) { ?><br><strong><?= htmlspecialchars($telefono) ?></strong><?php } ?>
+        <?php if ($COMPANY['email_supporto'] !== '') { ?><br><strong><?= $COMPANY['email_supporto'] ?></strong><?php } ?>
+        <?php if ($COMPANY['telefono'] !== '') { ?><br><strong><?= $COMPANY['telefono'] ?></strong><?php } ?>
       </p>
     </div>
   </div>
@@ -267,8 +267,8 @@ include __DIR__ . '/header.php';
             </label>
             <label class="consent-label">
               <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-              <span>Richiedo di essere ricontattato da <?= htmlspecialchars($OPERATORE_ENERGETICO) ?>, tramite il
-                partner commerciale <?= htmlspecialchars($brand) ?>, per ricevere informazioni e proposte commerciali
+              <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] ?>, tramite il
+                partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali
                 relative alla fornitura di servizi di telecomunicazione e utenze. *</span>
             </label>
 

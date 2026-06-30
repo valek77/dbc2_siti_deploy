@@ -7,7 +7,7 @@ include __DIR__ . '/header.php';
   <!-- Page hero -->
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte ufficiali <?= $brand ?></span>
+      <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte ufficiali <?= $brandName ?></span>
       <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
       <p>Offerte per uso domestico e professionale. Tutti i prezzi sono indicizzati al mercato con spread fisso e contributo di attivazione di €30,00, scontato con permanenza minima di 6 mesi.</p>
     </div>
@@ -38,7 +38,7 @@ include __DIR__ . '/header.php';
       <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 400px)); gap: 24px; justify-content: center;"></div>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
-        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato per permanenza minima di 6 mesi. Offerte soggette a condizioni contrattuali <?= $brand ?>. <?= $brand ?> è il tuo fornitore di energia.
+        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato per permanenza minima di 6 mesi. Offerte soggette a condizioni contrattuali <?= $brandName ?>. <?= $brandName ?> è il tuo fornitore di energia.
       </p>
     </div>
   </main>
@@ -49,7 +49,7 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Capire il prezzo</span>
         <h2 class="section-title">Come funzionano <span class="accent">le tariffe</span></h2>
-        <p class="section-sub"><?= $brand ?> offre tariffe variabili indicizzate al mercato all'ingrosso. Il prezzo finale è dato dal prezzo di mercato (PUN per la luce, PSV per il gas) più uno spread fisso definito nel contratto.</p>
+        <p class="section-sub"><?= $brandName ?> offre tariffe variabili indicizzate al mercato all'ingrosso. Il prezzo finale è dato dal prezzo di mercato (PUN per la luce, PSV per il gas) più uno spread fisso definito nel contratto.</p>
       </div>
 
       <div class="features-container">
