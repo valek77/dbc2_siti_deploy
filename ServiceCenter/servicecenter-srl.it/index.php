@@ -119,7 +119,7 @@ include __DIR__ . '/header.php';
           sorprese in
           bolletta</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Con <?= $brand ?> la trasparenza e l'efficienza sono al primo posto: ti aiutiamo a scegliere la tariffa migliore per le tue esigenze, offrendoti un servizio di consulenza gratuito e senza impegno.
+          Con <?= $brandName ?> la trasparenza e l'efficienza sono al primo posto: ti aiutiamo a scegliere la tariffa migliore per le tue esigenze, offrendoti un servizio di consulenza gratuito e senza impegno.
         </p>
         <a href="contatti.php" class="btn-primary" style="display: inline-block;">Scopri di più</a>
       </div>
