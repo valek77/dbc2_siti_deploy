@@ -7,7 +7,7 @@ include __DIR__ . '/header.php';
   <main class="container" style="margin-top: 60px;">
     <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
       Le migliori offerte
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Enel_logo_2016.svg" alt="Enel" style="height: 40px; width: auto;">
+      <img src="nuovaCorrente.png" alt="Nuova Corrente" style="height: 40px; width: auto;">
     </h2>
     <p class="section-sub">In partnership con <?= $OPERATORE_ENERGETICO ?> per garantirti il massimo risparmio</p>
 
@@ -19,40 +19,43 @@ include __DIR__ . '/header.php';
   <script>
     const offers = [
       {
-        id: 'nc-luce-fisso',
+        id: 'nc-energy-online',
         esclusiva: true,
-        nome: 'Luce a Prezzo Fisso',
+        nome: '⚡ ENERGY ONLINE',
         fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
-        tipo: 'Prezzo bloccato 3 anni',
-        bollettaMensile: 65.00,
-        bollettaAnnua: 780.00,
-        energiaMensile: 35.00,
-        risparmio: 150.00,
-        features: ['0,149 €/kWh', 'Prezzo bloccato 3 anni', 'Quota fissa 12€/mese', 'Energia 100% Green']
+        tipo: 'Luce',
+        prezzoLabel: 'PUN + 0 €/kWh<br><small>NO SPREAD</small>',
+        bollettaMensile: 0,
+        bollettaAnnua: 0,
+        energiaMensile: 0,
+        risparmio: 0,
+        features: ['Quota fissa: 10,00/8,00 €/POD — bonus dal 4° mese', 'Sconto SDD: 2 €/mese', 'Prezzo indicizzato al PUN mensile', 'Bolletta Total Green', 'Opzione Energia Verde disponibile', 'Attivazione rapida online']
       },
       {
-        id: 'nc-gas-fisso',
+        id: 'nc-gas-online',
         esclusiva: true,
-        nome: 'Gas a Prezzo Fisso',
+        nome: '🔥 GAS ONLINE',
         fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
-        tipo: 'Prezzo bloccato 3 anni',
-        bollettaMensile: 85.00,
-        bollettaAnnua: 1020.00,
-        energiaMensile: 45.00,
-        risparmio: 140.00,
-        features: ['0,700 €/Smc', 'Prezzo bloccato 3 anni', 'Quota fissa 12€/mese', 'Attivazione Gratuita']
+        tipo: 'Gas',
+        prezzoLabel: 'PSV + 0,10 €/Smc',
+        bollettaMensile: 0,
+        bollettaAnnua: 0,
+        energiaMensile: 0,
+        risparmio: 0,
+        features: ['Quota fissa: 10,00/8,00 €/PDR ad emissione — bonus dal 4° mese', 'Contributo al consumo: 0,10 €/Smc (valido 12 mesi)', 'Sconto SDD: 2 €/mese', 'Prezzo indicizzato al PSV mensile', 'Valido 36 mesi', 'Attivazione rapida online']
       },
       {
-        id: 'nc-dual-fisso',
+        id: 'nc-online-dual',
         esclusiva: true,
-        nome: 'Luce e Gas a Prezzo Fisso',
+        nome: '⚡🔥 ONLINE DUAL',
         fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
-        tipo: 'Prezzo bloccato 3 anni',
-        bollettaMensile: 145.00,
-        bollettaAnnua: 1740.00,
-        energiaMensile: 80.00,
-        risparmio: 300.00,
-        features: ['0,149 €/kWh e 0,700 €/Smc', 'Prezzi bloccati 3 anni', 'Tutto Online', 'Zero Vincoli']
+        tipo: 'Luce + Gas',
+        prezzoLabel: 'PUN + 0 €/kWh<br><small>NO SPREAD · PSV + 0,10 €/Smc</small>',
+        bollettaMensile: 0,
+        bollettaAnnua: 0,
+        energiaMensile: 0,
+        risparmio: 0,
+        features: ['Quota fissa: 10,00/8,00 € (POD-PDR) — bonus dal 4° mese', 'Attiva insieme Luce e Gas', 'Un unico referente per entrambe', 'Sconto SDD: 2 €/mese', 'Bolletta Total Green', 'Attivazione rapida online', 'Gestione semplificata']
       }
     ];
 
@@ -65,15 +68,17 @@ include __DIR__ . '/header.php';
       <div class="offer-card-body">
         <div class="offer-card-header">
           <div>
-            <div class="offer-name-wrap"><span class="offer-name">${o.nome}</span><span class="offer-info" title="Dettagli">i</span></div>
+            <div class="offer-name-wrap"><span class="offer-name">${o.nome}</span></div>
             <div class="offer-provider" style="display: flex; align-items: center; gap: 8px;">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Enel_logo_2016.svg" alt="Enel" style="height: 18px; width: auto;">
-              Enel · ${o.tipo}
+              <img src="nuovaCorrente.png" alt="Nuova Corrente" style="height: 18px; width: auto;">
+              Nuova Corrente · ${o.tipo}
             </div>
           </div>
           <div class="offer-price-wrap">
-            <div class="offer-price">€${fmt(o.bollettaMensile)}<span class="offer-price-unit">/mese</span></div>
-            <div class="offer-price-detail">€${fmt(o.bollettaAnnua)}/anno</div>
+            ${o.bollettaMensile > 0
+              ? `<div class="offer-price">€${fmt(o.bollettaMensile)}<span class="offer-price-unit">/mese</span></div>
+                 <div class="offer-price-detail">€${fmt(o.bollettaAnnua)}/anno</div>`
+              : `<div class="offer-price" style="font-size: 22px; line-height: 1.2; text-align: right;">${o.prezzoLabel}</div>`}
           </div>
         </div>
         ${o.risparmio > 0 ? `<div class="offer-saving">Risparmi €${fmt(o.risparmio)}/anno</div>` : ''}
