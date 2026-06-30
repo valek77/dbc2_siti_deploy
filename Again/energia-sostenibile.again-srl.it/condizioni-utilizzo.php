@@ -51,24 +51,24 @@ $pageHead = <<<'CSS'
   </style>
 CSS;
 
-$ragioneSociale = $company_name !== '' ? $company_name : $brand;
-$contattoLegale = $email_supporto !== '' ? $email_supporto : $pec;
-
 include __DIR__ . '/header.php';
+
+$ragioneSociale = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName;
+$contattoLegale = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $COMPANY['pec'];
 ?>
 
   <section style="background: linear-gradient(135deg,#047857 0%,#10B981 100%); padding:100px 20px; text-align:center;">
     <h1 style="color:#fff; font-size:clamp(36px,5vw,56px); margin:0; font-weight:800;">Condizioni di Utilizzo</h1>
-    <p style="color:rgba(255,255,255,0.8); margin:16px 0 0; font-size:18px;">Termini e condizioni generali del sito web <?= $brand ?></p>
+    <p style="color:rgba(255,255,255,0.8); margin:16px 0 0; font-size:18px;">Termini e condizioni generali del sito web <?= $brandName ?></p>
   </section>
 
   <main class="privacy-box">
     <div class="intro-box">
-      <p style="margin: 0;">L’utilizzo del presente sito web (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo. Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($sede_legale) { ?>, con sede in <?= $sede_legale ?><?php } ?><?php if ($p_iva) { ?>, Partita IVA <?= $p_iva ?><?php } ?>.</p>
+      <p style="margin: 0;">L’utilizzo del presente sito web (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo. Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($COMPANY['sede_legale'] !== '') { ?>, con sede in <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?>, Partita IVA <?= $COMPANY['p_iva'] ?><?php } ?>.</p>
     </div>
 
     <h2>Oggetto del servizio</h2>
-    <p><?= $brand ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi e informazioni relative a prodotti energetici. Le informazioni hanno natura informativa e orientativa.</p>
+    <p><?= $brandName ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi e informazioni relative a prodotti energetici. Le informazioni hanno natura informativa e orientativa.</p>
 
     <h2>Diritti e doveri dell’utente</h2>
     <p>L’utente si impegna a utilizzare il Sito in modo lecito, corretto e conforme alle presenti Condizioni Generali. In particolare, si impegna a non utilizzare il Sito per finalità illecite o fraudolente.</p>
