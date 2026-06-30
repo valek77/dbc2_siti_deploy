@@ -1,36 +1,9 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Chi Siamo — Tariffa Giusta</title>
-  <meta name="description" content="Tariffa Giusta è un team di consulenti energetici specializzati nella vendita di offerte di luce e gas. Scopri la nostra storia e i nostri valori.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Tariffa Giusta Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary">Richiedi preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Chi Siamo';
+$pageDescription = 'Tariffa Giusta è un team di consulenti energetici specializzati nella vendita di offerte di luce e gas. Scopri la nostra storia e i nostri valori.';
+include __DIR__ . '/header.php';
+?>
 
   <section class="hero" style="min-height: 500px;">
     <div class="hero-slides">
@@ -61,7 +34,7 @@
           <h2 class="section-title" style="text-align:left;">Mercato libero, <span class="accent">scelta libera</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:18px; color:var(--muted); line-height:1.75; margin: 0 0 24px;">
-            Tariffa Giusta nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Lavoriamo ogni giorno per portare ai clienti le migliori tariffe disponibili.
+            <?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Lavoriamo ogni giorno per portare ai clienti le migliori tariffe disponibili.
           </p>
           <div class="split-tiles">
             <div class="split-tile">
@@ -160,12 +133,12 @@
           <h2 class="section-title" style="text-align:left;">Come <span class="underline">lavoriamo</span> con te</h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, capiamo consumi e profilo (domestico, uso lavoro, piccola impresa) e solo allora ti proponiamo l'offerta Tariffa Giusta più adatta.
+            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, capiamo consumi e profilo (domestico, uso lavoro, piccola impresa) e solo allora ti proponiamo l'offerta <?= $brandName ?> più adatta.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
             Ci occupiamo di tutta la documentazione, coordiniamo il passaggio con il distributore locale e ti teniamo aggiornato su ogni fase. Il cambio fornitore avviene senza interruzioni alla fornitura.
           </p>
-          <a href="contatti.html" class="btn-primary">Parla con un consulente</a>
+          <a href="contatti.php" class="btn-primary">Parla con un consulente</a>
         </div>
       </div>
     </div>
@@ -175,42 +148,11 @@
   <section class="quote-banner">
     <div class="mark">"</div>
     <h2>Il nostro obiettivo non è chiudere un contratto, ma costruire una relazione di fiducia duratura con ogni cliente che si affida a noi.</h2>
-    <p class="by">— Il Team Tariffa Giusta</p>
+    <p class="by">— Il Team <?= $brandName ?></p>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="logo.png" alt="Tariffa Giusta Logo">
-        </a>
-        <p>Rivenditore autorizzato Energia sostenibile.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Offerte</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Luce</a>
-          <a href="tariffe.html">Gas</a>
-          <a href="tariffe.html">Offerte PLACET</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Tariffa Giusta ENERGY. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script>
     // Reveal on scroll
     const io = new IntersectionObserver((entries) => {
@@ -218,6 +160,6 @@
     }, { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
-<script src="cb.js"></script>
-</body>
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>
