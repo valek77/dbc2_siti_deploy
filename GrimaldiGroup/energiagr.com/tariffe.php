@@ -1,34 +1,21 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Offerte Luce e Gas — GR Contact · Switch Luce Gas</title>
-  <meta name="description" content="Tutte le offerte Switch Luce Gas disponibili tramite GR Contact. Tariffe luce e gas per uso domestico e professionale con prezzi indicizzati al mercato.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="gr_logo.png" alt="GR Contact Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$brandName = $LANDING_PAGE['nome_portale'] !== ''
+    ? $LANDING_PAGE['nome_portale']
+    : ($LANDING_PAGE['titolo'] !== ''
+        ? $LANDING_PAGE['titolo']
+        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact'));
+$pageTitle = 'Offerte Luce e Gas';
+$pageDescription = 'Tutte le offerte Switch Luce Gas disponibili tramite ' . $brandName . '. Tariffe luce e gas per uso domestico e professionale con prezzi indicizzati al mercato.';
+include __DIR__ . '/header.php';
+?>
 
   <!-- PAGE HERO — foto parco eolico -->
   <section class="page-hero">
     <div class="photo-bg" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80');"></div>
     <div class="photo-overlay"></div>
     <div class="inner">
-      <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Offerte Switch Luce Gas</span>
+      <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Offerte <?= $OPERATORE['nome_marketing'] ?></span>
       <h1>Trova la tariffa <span class="hl">giusta per te</span></h1>
       <p>Offerte per uso domestico e professionale. Prezzi indicizzati al mercato con spread fisso. Contributo di attivazione €30,00 (scontato con 6 mesi di permanenza).</p>
     </div>
@@ -49,7 +36,7 @@
       <div class="offers-grid" id="offers-grid"></div>
 
       <p style="font-size:13px; color:var(--muted-2); text-align:center; max-width:900px; margin:56px auto 0; line-height:1.7;">
-        * I prezzi indicati si riferiscono alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato con permanenza minima di 6 mesi. Offerte soggette a condizioni contrattuali Switch Luce &amp; Gas S.r.l. GR Contact è rivenditore indipendente autorizzato.
+        * I prezzi indicati si riferiscono alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato con permanenza minima di 6 mesi. Offerte soggette a condizioni contrattuali <?= $OPERATORE['nome_legale'] ?>. <?= $brandName ?> è rivenditore indipendente autorizzato.
       </p>
     </div>
   </section>
@@ -60,7 +47,7 @@
       <div class="section-head">
         <span class="eyebrow" style="color:var(--primary-light); justify-content:center;"><span class="dot" style="background:var(--primary-light);"></span> Capire il prezzo</span>
         <h2 class="section-title" style="color:#fff; text-align:center;">Come funzionano<br><span style="color:var(--primary-light);">le tariffe</span></h2>
-        <p class="section-sub" style="margin:0 auto 56px; text-align:center;">Switch Luce Gas offre tariffe variabili indicizzate al mercato all'ingrosso. Il prezzo finale è dato dal prezzo di mercato più uno spread fisso definito nel contratto.</p>
+        <p class="section-sub" style="margin:0 auto 56px; text-align:center;"><?= $OPERATORE['nome_marketing'] ?> offre tariffe variabili indicizzate al mercato all'ingrosso. Il prezzo finale è dato dal prezzo di mercato più uno spread fisso definito nel contratto.</p>
       </div>
       <div class="glossary-grid">
         <div class="glossary-card">
@@ -92,28 +79,12 @@
     <div class="container">
       <h2 class="section-title" style="margin-bottom:16px;">Non sai quale offerta fa per te?</h2>
       <p style="font-size:18px; color:var(--muted); max-width:560px; margin:0 auto 36px; line-height:1.7;">Contattaci: analizziamo la tua bolletta attuale e ti consigliamo la tariffa più adatta gratuitamente.</p>
-      <a href="contatti.html" class="btn-primary" style="font-size:17px; padding:16px 44px;">Consulenza gratuita →</a>
+      <a href="contatti.php" class="btn-primary" style="font-size:17px; padding:16px 44px;">Consulenza gratuita →</a>
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="gr_logo.png" alt="GR Contact Logo">
-        </a>
-        <p>Rivenditore autorizzato Switch Luce Gas.</p>
-      </div>
-      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
-      <div class="footer-col"><h4>Offerte</h4><a href="tariffe.html">Luce Residenziale</a><a href="tariffe.html">Gas Residenziale</a><a href="tariffe.html">PLACET</a></div>
-      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a></div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 GR Contact. Tutti i diritti riservati.</span>
-      <span>Rivenditore autorizzato Switch Luce &amp; Gas S.r.l.</span>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script>
     const offers = [
       { id:'nlc', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Residenziale', top:false,
@@ -185,7 +156,7 @@
       const list = f === 'all' ? offers : offers.filter(o => o.cat === f);
       grid.innerHTML = list.map(card).join('');
       grid.querySelectorAll('.offer-cta').forEach(b => b.addEventListener('click', () => {
-        window.location.href = 'contatti.html?offerta=' + encodeURIComponent(b.dataset.name) + '#form';
+        window.location.href = 'contatti.php?offerta=' + encodeURIComponent(b.dataset.name) + '#form';
       }));
     }
 
@@ -199,6 +170,6 @@
 
     render('all');
   </script>
-<script src="cb.js"></script>
-</body>
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>

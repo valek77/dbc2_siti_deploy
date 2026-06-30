@@ -1,27 +1,14 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Chi Siamo — GR Contact</title>
-  <meta name="description" content="GR Contact è un team di consulenti energetici specializzati nelle offerte Switch Luce Gas. Scopri la nostra storia, i nostri valori e il nostro approccio.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="gr_logo.png" alt="GR Contact Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$brandName = $LANDING_PAGE['nome_portale'] !== ''
+    ? $LANDING_PAGE['nome_portale']
+    : ($LANDING_PAGE['titolo'] !== ''
+        ? $LANDING_PAGE['titolo']
+        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact'));
+$pageTitle = 'Chi Siamo';
+$pageDescription = $brandName . ' è un team di consulenti energetici specializzati nelle offerte Switch Luce Gas. Scopri la nostra storia, i nostri valori e il nostro approccio.';
+include __DIR__ . '/header.php';
+?>
 
   <!-- HERO — foto città/grattacieli -->
   <section class="page-hero">
@@ -42,15 +29,15 @@
           <span class="eyebrow"><span class="dot"></span> La nostra missione</span>
           <h2 class="section-title">Mercato libero,<br><span class="hl">scelta libera</span></h2>
           <div class="divider-line"></div>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;">GR Contact nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Siamo rivenditori autorizzati Switch Luce Gas e lavoriamo ogni giorno per portare ai nostri clienti le migliori tariffe disponibili.</p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;"><?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Siamo rivenditori autorizzati <?= $OPERATORE['nome_legale'] ?> e lavoriamo ogni giorno per portare ai nostri clienti le migliori tariffe disponibili.</p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 36px;">Il mercato energetico italiano può sembrare complesso, tra PUN, PSV, spread e offerte PLACET. Il nostro lavoro è decifrarlo per te, guidandoti nella scelta della tariffa più adatta, senza sorprese in bolletta.</p>
-          <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
+          <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
         </div>
         <div class="split-img">
-          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Team GR Contact al lavoro" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Team <?= $brandName ?> al lavoro" loading="lazy">
           <div class="badge">
             <div class="label">Partner ufficiale</div>
-            <div class="val">Switch Luce Gas</div>
+            <div class="val"><?= $OPERATORE['nome_marketing'] ?></div>
           </div>
         </div>
       </div>
@@ -105,10 +92,10 @@
           <div class="divider-line"></div>
           <p style="font-size:17px; color:rgba(255,255,255,.75); line-height:1.75; margin:0 0 20px;">Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, capiamo i tuoi consumi e il tuo profilo — domestico, uso lavoro, piccola impresa — e solo allora ti proponiamo l'offerta più adatta.</p>
           <p style="font-size:17px; color:rgba(255,255,255,.75); line-height:1.75; margin:0 0 36px;">Ci occupiamo di tutta la documentazione, coordiniamo il passaggio con il distributore locale e ti teniamo aggiornato su ogni fase. Il cambio fornitore avviene senza interruzioni alla fornitura.</p>
-          <a href="contatti.html" class="btn-primary">Parla con un consulente</a>
+          <a href="contatti.php" class="btn-primary">Parla con un consulente</a>
         </div>
         <div class="split-img" style="border-radius:var(--r-2xl); overflow:hidden; aspect-ratio:4/3;">
-          <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=80" alt="Consulente GR Contact con cliente" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=80" alt="Consulente <?= $brandName ?> con cliente" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
         </div>
       </div>
     </div>
@@ -119,7 +106,7 @@
     <div class="container" style="max-width:800px;">
       <div style="font-size:64px; color:var(--primary); line-height:1; margin-bottom:24px; font-family:var(--font-display);">"</div>
       <h2 style="font-size:clamp(24px,3.5vw,34px); color:var(--ink); font-weight:700; line-height:1.4; margin:0 0 32px;">Il nostro obiettivo non è chiudere un contratto, ma costruire una relazione di fiducia duratura con ogni cliente che si affida a noi.</h2>
-      <div style="font-family:var(--font-display); font-weight:700; color:var(--primary); font-size:16px;">— Il Team GR Contact</div>
+      <div style="font-family:var(--font-display); font-weight:700; color:var(--primary); font-size:16px;">— Il Team <?= $brandName ?></div>
     </div>
   </section>
 
@@ -130,27 +117,8 @@
     <div class="container" style="text-align:center; position:relative; z-index:2;">
       <h2 style="font-family:var(--font-display); font-size:clamp(30px,5vw,50px); font-weight:800; color:#fff; margin:0 0 20px;">Pronto a risparmiare?</h2>
       <p style="font-size:18px; color:rgba(255,255,255,.8); margin:0 auto 36px; max-width:520px; line-height:1.6;">Inizia con una consulenza gratuita. Analizziamo insieme la tua situazione senza impegno.</p>
-      <a href="contatti.html" class="btn-primary" style="font-size:17px; padding:16px 44px;">Contattaci ora →</a>
+      <a href="contatti.php" class="btn-primary" style="font-size:17px; padding:16px 44px;">Contattaci ora →</a>
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="gr_logo.png" alt="GR Contact Logo">
-        </a>
-        <p>Rivenditore autorizzato Switch Luce Gas. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
-      <div class="footer-col"><h4>Offerte</h4><a href="tariffe.html">Luce Residenziale</a><a href="tariffe.html">Gas Residenziale</a><a href="tariffe.html">PLACET</a></div>
-      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a></div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 GR Contact. Tutti i diritti riservati.</span>
-      <span>Rivenditore autorizzato Switch Luce &amp; Gas S.r.l.</span>
-    </div>
-  </footer>
-<script src="cb.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

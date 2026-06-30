@@ -1,27 +1,14 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contatti — GR Contact</title>
-  <meta name="description" content="Contatta GR Contact per una consulenza gratuita sulle offerte Switch Luce Gas. Rispondiamo entro 24 ore lavorative.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="gr_logo.png" alt="GR Contact Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <a href="contatti.html" class="btn-header">Consulenza gratuita</a>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$brandName = $LANDING_PAGE['nome_portale'] !== ''
+    ? $LANDING_PAGE['nome_portale']
+    : ($LANDING_PAGE['titolo'] !== ''
+        ? $LANDING_PAGE['titolo']
+        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact'));
+$pageTitle = 'Contatti';
+$pageDescription = 'Contatta ' . $brandName . ' per una consulenza gratuita sulle offerte Switch Luce Gas. Rispondiamo entro 24 ore lavorative.';
+include __DIR__ . '/header.php';
+?>
 
   <!-- HERO -->
   <section class="page-hero">
@@ -45,7 +32,7 @@
             <div class="name">NEW SWITCH LUCE CASA</div>
             <div class="price">PUN +€0,03<small> €/kWh</small></div>
             <div class="note">con domiciliazione bancaria (RID)</div>
-            <a href="tariffe.html" class="link">
+            <a href="tariffe.php" class="link">
               Vedi tutte le offerte
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -57,7 +44,7 @@
           <h3>Richiedi una consulenza gratuita</h3>
           <p class="sub">Compila il form e un nostro consulente ti contatterà entro 24 ore lavorative.</p>
 
-            <form id="leadForm" action="http://localhost:8000/api/lead" method="POST" novalidate>
+            <form id="leadForm" method="POST" novalidate>
               <div class="form-group">
                 <label class="form-label" for="fNome">Nome e Cognome *</label>
                 <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>
@@ -79,13 +66,13 @@
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.html">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
 
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da Switch Luce e Gas, tramite il partner commerciale GR Contact Call Center , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
                 
               </div>
@@ -111,25 +98,9 @@
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="gr_logo.png" alt="GR Contact Logo">
-        </a>
-        <p>Rivenditore autorizzato Switch Luce Gas. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-col"><h4>Azienda</h4><a href="chi-siamo.html">Chi siamo</a><a href="tariffe.html">Offerte</a><a href="contatti.html">Contatti</a></div>
-      <div class="footer-col"><h4>Offerte</h4><a href="tariffe.html">Luce Residenziale</a><a href="tariffe.html">Gas Residenziale</a><a href="tariffe.html">PLACET</a></div>
-      <div class="footer-col"><h4>Legale</h4><a href="privacy-policy.html">Privacy Policy</a><a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a></div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 GR Contact. Tutti i diritti riservati.</span>
-      <span>Rivenditore autorizzato Switch Luce &amp; Gas S.r.l.</span>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script src="lead-form.js"></script>
-<script src="cb.js"></script>
-</body>
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>
