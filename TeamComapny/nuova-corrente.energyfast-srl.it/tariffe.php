@@ -9,7 +9,7 @@ include __DIR__ . '/header.php';
       Le migliori offerte
       <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Enel_logo_2016.svg" alt="Enel" style="height: 40px; width: auto;">
     </h2>
-    <p class="section-sub">In partnership con <?= $OPERATORE_ENERGETICO ?> per garantirti il massimo risparmio</p>
+    <p class="section-sub">In partnership con <?= $OPERATORE['nome_marketing'] ?> per garantirti il massimo risparmio</p>
 
     <div class="results-list" id="results"></div>
 
@@ -22,7 +22,7 @@ include __DIR__ . '/header.php';
         id: 'nc-luce-fisso',
         esclusiva: true,
         nome: 'Luce a Prezzo Fisso',
-        fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
+        fornitore: <?= json_encode($OPERATORE['nome_marketing']) ?>,
         tipo: 'Prezzo bloccato 3 anni',
         bollettaMensile: 65.00,
         bollettaAnnua: 780.00,
@@ -34,7 +34,7 @@ include __DIR__ . '/header.php';
         id: 'nc-gas-fisso',
         esclusiva: true,
         nome: 'Gas a Prezzo Fisso',
-        fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
+        fornitore: <?= json_encode($OPERATORE['nome_marketing']) ?>,
         tipo: 'Prezzo bloccato 3 anni',
         bollettaMensile: 85.00,
         bollettaAnnua: 1020.00,
@@ -46,7 +46,7 @@ include __DIR__ . '/header.php';
         id: 'nc-dual-fisso',
         esclusiva: true,
         nome: 'Luce e Gas a Prezzo Fisso',
-        fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
+        fornitore: <?= json_encode($OPERATORE['nome_marketing']) ?>,
         tipo: 'Prezzo bloccato 3 anni',
         bollettaMensile: 145.00,
         bollettaAnnua: 1740.00,

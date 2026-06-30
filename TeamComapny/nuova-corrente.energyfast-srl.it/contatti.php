@@ -18,7 +18,7 @@ include __DIR__ . '/header.php';
         <div style="flex: 1; min-width: 300px;">
           <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Siamo pronti ad aiutarti</h2>
           <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            Scegliere <?= $brand ?> significa ottimizzare le tue spese affidandoti a veri professionisti. Inviaci una richiesta per ricevere una consulenza senza impegno.
+            Scegliere <?= $brandName ?> significa ottimizzare le tue spese affidandoti a veri professionisti. Inviaci una richiesta per ricevere una consulenza senza impegno.
           </p>
         </div>
         <div style="flex: 0.8; min-width: 200px; display: flex; justify-content: center;">
@@ -56,7 +56,7 @@ include __DIR__ . '/header.php';
                 </label>
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da <?= $OPERATORE_ENERGETICO ?>, tramite il partner commerciale <?= $brand ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
               </div>
 
