@@ -1,28 +1,34 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Tariffe';
+
+// Nome marketing dell'operatore (dall'API) per claim/badge. Passato al JS come costante PROVIDER.
+$operatoreMarketing = $OPERATORE['nome_marketing'];
+$operatoreJs = json_encode(html_entity_decode($operatoreMarketing, ENT_QUOTES, 'UTF-8'));
+
 include __DIR__ . '/header.php';
 ?>
 
   <main class="container" style="margin-top: 60px;">
     <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
       Le migliori offerte
-      <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="<?= $OPERATORE_ENERGETICO ?>" style="height: 40px; width: auto;">
+      <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="<?= $operatoreMarketing ?>" style="height: 40px; width: auto;">
     </h2>
-    <p class="section-sub">In partnership con <?= $OPERATORE_ENERGETICO ?> per garantirti il massimo risparmio</p>
+    <p class="section-sub">In partnership con <?= $operatoreMarketing ?> per garantirti il massimo risparmio</p>
 
     <div class="results-list" id="results"></div>
 
 
   </main>
 
+  <script>const PROVIDER = <?= $operatoreJs ?>;</script>
   <script>
     const offers = [
       {
         id: 'nc-energy-online',
         esclusiva: true,
         nome: 'Energy Online Luce',
-        fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
+        fornitore: PROVIDER,
         tipo: 'PUN + 0€ Spread',
         bollettaMensile: 74.50,
         bollettaAnnua: 894.00,
@@ -34,7 +40,7 @@ include __DIR__ . '/header.php';
         id: 'nc-gas-online',
         esclusiva: true,
         nome: 'Gas Online',
-        fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
+        fornitore: PROVIDER,
         tipo: 'PSV + 0.10€ Spread',
         bollettaMensile: 88.00,
         bollettaAnnua: 1056.00,
@@ -46,7 +52,7 @@ include __DIR__ . '/header.php';
         id: 'nc-dual-online',
         esclusiva: true,
         nome: 'Dual Online (Luce + Gas)',
-        fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
+        fornitore: PROVIDER,
         tipo: 'Prezzo Indicizzato',
         bollettaMensile: 158.00,
         bollettaAnnua: 1896.00,

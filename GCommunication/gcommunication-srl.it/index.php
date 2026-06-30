@@ -116,7 +116,7 @@ include __DIR__ . '/header.php';
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
         <h2 class="section-title" style="text-align: left; margin-top: 0; color: var(--text-dark);">Ottimizza i costi con la giusta strategia</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Con <?= $brand ?> hai un partner affidabile per l'analisi e la gestione dei contratti luce, gas e telecomunicazioni. Analizziamo le fatture e selezioniamo per te le migliori opportunità.
+          Con <?= $brandName ?> hai un partner affidabile per l'analisi e la gestione dei contratti luce, gas e telecomunicazioni. Analizziamo le fatture e selezioniamo per te le migliori opportunità.
         </p>
         <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
       </div>
