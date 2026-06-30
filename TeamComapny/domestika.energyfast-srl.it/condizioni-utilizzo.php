@@ -43,29 +43,29 @@ $pageHead = <<<'CSS'
   </style>
 CSS;
 
-// Ragione sociale del Titolare (ragione sociale se presente, altrimenti brand).
-$ragioneSociale = $company_name !== '' ? $company_name : $brand;
-$emailDpo = $email_dpo !== '' ? $email_dpo : $email_supporto;
+// Ragione sociale del Titolare (ragione sociale se presente, altrimenti nome portale).
+$ragioneSociale = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $LANDING_PAGE['nome_portale'];
+$emailDpo = $COMPANY['email_dpo'] !== '' ? $COMPANY['email_dpo'] : $COMPANY['email_supporto'];
 
 include __DIR__ . '/header.php';
 ?>
 
   <section style="background: linear-gradient(135deg,#003F9A 0%,#0057C8 100%); padding:80px 20px; text-align:center;">
     <h1 style="color:#fff; font-size:clamp(32px,5vw,52px); margin:0; font-weight:800;">Condizioni di Utilizzo</h1>
-    <p style="color:rgba(255,255,255,0.8); margin:16px 0 0; font-size:17px;">Termini e condizioni generali del sito web <?= $brand ?></p>
+    <p style="color:rgba(255,255,255,0.8); margin:16px 0 0; font-size:17px;">Termini e condizioni generali del sito web <?= $brandName ?></p>
   </section>
 
   <main class="privacy-content" style="max-width: 920px; margin: 100px auto 140px; padding: 0 40px; line-height: 1.8; color: var(--text-secondary); font-size: 17px;">
 
     <div class="intro-box">
-      <p style="margin: 0;">L’utilizzo del sito web <strong><?= $SITO_WEB ?></strong> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($sede_legale) { ?>, con sede in <?= $sede_legale ?><?php } ?><?php if ($p_iva) { ?>, Partita IVA e Codice Fiscale <?= $p_iva ?><?php } ?> (di seguito, la “Società”).</p>
+      <p style="margin: 0;">L’utilizzo del sito web <strong><?= $LANDING_PAGE['url'] ?></strong> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($COMPANY['sede_legale']) { ?>, con sede in <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva']) { ?>, Partita IVA e Codice Fiscale <?= $COMPANY['p_iva'] ?><?php } ?> (di seguito, la “Società”).</p>
     </div>
 
     <h2>Premesse</h2>
     <p>Le presenti Condizioni Generali disciplinano l’accesso, la navigazione e l’utilizzo del Sito, nonché dei servizi informativi, di comparazione, analisi, assistenza digitale e richiesta di preventivo eventualmente resi disponibili attraverso il Sito. La Società si riserva il diritto di modificare, aggiornare o integrare in qualsiasi momento le presenti Condizioni Generali, per esigenze operative, tecniche, commerciali o per adeguamento normativo. Le modifiche avranno efficacia dalla data di pubblicazione sul Sito.</p>
 
     <h2>Oggetto del servizio</h2>
-    <p><?= $brand ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi, condizioni economiche e informazioni relative a prodotti e servizi propri o di soggetti terzi, anche mediante l’impiego di strumenti algoritmici, motori di calcolo, sistemi software avanzati e modelli linguistici di supporto all’interazione (LLM). Le informazioni, le simulazioni, i risultati di comparazione e gli eventuali contenuti generati o rielaborati tramite strumenti automatizzati hanno natura informativa e orientativa, salvo diverso accordo scritto o diversa specifica indicazione presente sul Sito. Per determinate categorie di prodotti o servizi, il Sito può consentire l’inoltro di richieste verso partner commerciali, operatori, intermediari. In tali ipotesi, il relativo servizio potrà essere disciplinato da condizioni specifiche, da documentazione dedicata e da informative privacy rese dai rispettivi titolari del trattamento.</p>
+    <p><?= $brandName ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte, preventivi, condizioni economiche e informazioni relative a prodotti e servizi propri o di soggetti terzi, anche mediante l’impiego di strumenti algoritmici, motori di calcolo, sistemi software avanzati e modelli linguistici di supporto all’interazione (LLM). Le informazioni, le simulazioni, i risultati di comparazione e gli eventuali contenuti generati o rielaborati tramite strumenti automatizzati hanno natura informativa e orientativa, salvo diverso accordo scritto o diversa specifica indicazione presente sul Sito. Per determinate categorie di prodotti o servizi, il Sito può consentire l’inoltro di richieste verso partner commerciali, operatori, intermediari. In tali ipotesi, il relativo servizio potrà essere disciplinato da condizioni specifiche, da documentazione dedicata e da informative privacy rese dai rispettivi titolari del trattamento.</p>
 
     <h2>Registrazione, area riservata e servizi continuativi</h2>
     <p>L’accesso ad alcune funzionalità del Sito può richiedere la registrazione dell’utente e la creazione di un’area riservata, ad esclusione delle categorie (Energia e Telefonia). L’utente si impegna pertanto a fornire dati completi, corretti e aggiornati, nonché a custodire con diligenza le proprie credenziali di accesso. Laddove previsto, la registrazione potrà consentire la memorizzazione delle richieste effettuate, la gestione dei preventivi, la ricezione di aggiornamenti relativi alle comparazioni richieste, nonché l’accesso a servizi di supporto connessi all’utilizzo della piattaforma nello specifico settore. L’utente potrà richiedere la disattivazione del proprio account o l’interruzione dei servizi collegati all’area riservata secondo le modalità indicate sul Sito o scrivendo agli indirizzi di contatto della Società.</p>
@@ -92,11 +92,11 @@ include __DIR__ . '/header.php';
     <h2>Comunicazioni</h2>
     <p>Per comunicazioni, segnalazioni o richieste di assistenza, l’utente potrà utilizzare i recapiti indicati nella sezione contatti del Sito. Ai fini redazionali, si richiamano i seguenti indirizzi:</p>
     <ul class="contact-list">
-<?php if ($email_supporto) { ?>      <li><?= $email_supporto ?></li>
+<?php if ($COMPANY['email_supporto']) { ?>      <li><?= $COMPANY['email_supporto'] ?></li>
 <?php } ?>
-<?php if ($emailDpo && $emailDpo !== $email_supporto) { ?>      <li><?= $emailDpo ?></li>
+<?php if ($emailDpo && $emailDpo !== $COMPANY['email_supporto']) { ?>      <li><?= $emailDpo ?></li>
 <?php } ?>
-<?php if ($pec) { ?>      <li><?= $pec ?></li>
+<?php if ($COMPANY['pec']) { ?>      <li><?= $COMPANY['pec'] ?></li>
 <?php } ?>
     </ul>
     <p>In caso di reclami relativi a specifici servizi o prodotti, ad esclusione delle categorie (Energia e Telefonia), la Società potrà indirizzare l’utente verso il partner competente o che eroga il servizio richiesto.</p>

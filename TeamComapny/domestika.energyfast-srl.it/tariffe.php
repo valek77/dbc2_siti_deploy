@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Luce e Gas';
-$pageDescription = 'Scopri tutte le offerte ' . $OPERATORE_ENERGETICO . ' disponibili tramite ' . $brand . ': tariffe luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
+$pageDescription = 'Scopri tutte le offerte ' . $OPERATORE['nome_marketing'] . ' disponibili tramite ' . $LANDING_PAGE['nome_portale'] . ': tariffe luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -9,11 +9,11 @@ include __DIR__ . '/header.php';
   <section class="page-hero">
     <div class="container">
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 12px; width: fit-content;">
-        <img src="logo-domestika.png" alt="<?= $OPERATORE_ENERGETICO ?>" style="height: 28px; filter: brightness(0) invert(1);">
+        <img src="logo-domestika.png" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 28px; filter: brightness(0) invert(1);">
         <span style="color: #fff; font-weight: 600; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase;">Partner Ufficiale</span>
       </div>
       <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
-      <p>Offerte per uso domestico e professionale. Tutti i prezzi sono indicizzati al mercato con spread fisso e contributo di attivazione di €30,00, scontato con permanenza minima di 6 mesi.</p>
+      <p>Offerte Luce e Gas per uso domestico nel Mercato Libero. Prezzi indicizzati al mercato (PUN INDEX GME per la luce, PSV per il gas) con spread fisso per 12 mesi. Richiesta entro il 30/06/2026.</p>
     </div>
     <div class="wave">
       <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
@@ -28,17 +28,15 @@ include __DIR__ . '/header.php';
       <!-- Filtro -->
       <div class="tab-bar" id="tab-bar">
         <button class="tab-btn active" data-filter="all">Tutte</button>
-        <button class="tab-btn" data-filter="luce-res">Luce Residenziale</button>
-        <button class="tab-btn" data-filter="luce-placet">Luce PLACET</button>
-        <button class="tab-btn" data-filter="gas-res">Gas Residenziale</button>
-        <button class="tab-btn" data-filter="gas-placet">Gas PLACET</button>
+        <button class="tab-btn" data-filter="luce">Luce</button>
+        <button class="tab-btn" data-filter="gas">Gas</button>
       </div>
 
       <!-- Griglia offerte -->
       <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;"></div>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
-        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato per permanenza minima di 6 mesi. Offerte soggette a condizioni contrattuali <?= $OPERATORE_ENERGETICO ?>. <?= $brand ?> è rivenditore indipendente autorizzato.
+        * I prezzi indicati sono riferiti alle componenti energia (PUN INDEX GME) e gas (PSV) con l'aggiunta degli spread fissi indicati, validi per 12 mesi dalla data di attivazione. Al corrispettivo per il consumo si aggiunge il corrispettivo annuo indicato in ciascuna offerta. Pagamento tramite Bonifico Bancario, Bollettino Postale o Addebito su Conto (SDD). Richiesta entro il 30/06/2026. Offerte soggette a condizioni contrattuali <?= $OPERATORE['nome_legale'] ?>. <?= $brandName ?> è rivenditore indipendente autorizzato.
       </p>
     </div>
   </main>
@@ -49,7 +47,7 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Capire il prezzo</span>
         <h2 class="section-title">Come funzionano <span class="underline">le tariffe</span></h2>
-        <p class="section-sub"><?= $OPERATORE_ENERGETICO ?> offre tariffe variabili indicizzate al mercato all'ingrosso. Il prezzo finale è dato dal prezzo di mercato (PUN per la luce, PSV per il gas) più uno spread fisso definito nel contratto.</p>
+        <p class="section-sub"><?= $OPERATORE['nome_marketing'] ?> offre tariffe variabili indicizzate al mercato all'ingrosso. Il prezzo finale è dato dal prezzo di mercato (PUN per la luce, PSV per il gas) più uno spread fisso definito nel contratto.</p>
       </div>
 
       <div class="glossary-grid">
@@ -66,7 +64,7 @@ include __DIR__ . '/header.php';
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h4>Spread</h4>
-          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto. Con PLACET è bloccata per 12 mesi.</p>
+          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto e bloccata per 12 mesi dalla data di attivazione.</p>
         </div>
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg></div>
@@ -84,26 +82,18 @@ include __DIR__ . '/header.php';
     const ICON_LOCK = '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
     const offers = [
-      { id: 'prima-casa-luce', category: 'luce-res', kind: 'luce', tipo: 'Luce Residenziale', top: true,
-        nome: 'PRIMA CASA LUCE', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'PUN + €0,025', unita: '€/kWh', prezzoBoll: 'PUN + €0,035/kWh',
-        note: 'Costi fissi: €11,00/mese. Spread bloccato per 12 mesi.',
-        features: ['Indicizzato al PUN mensile', 'Spread bloccato 12 mesi', 'Perdite di rete incluse', 'Nessun intervento tecnico'] },
-      { id: 'prima-casa-gas', category: 'gas-res', kind: 'gas', tipo: 'Gas Residenziale', top: true,
-        nome: 'PRIMA CASA GAS', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'PSV + €0,25', unita: '€/Smc', prezzoBoll: 'PSV + €0,30/Smc',
-        note: 'Costi fissi: €11,00/mese. Include componente CCR.',
-        features: ['Indicizzato al PSV mensile', 'Componente CCR inclusa', 'Attivazione rapida', 'Zero burocrazia'] },
-      { id: 'domestika-placet-luce-casa', category: 'luce-placet', kind: 'luce', tipo: 'Luce PLACET', top: false,
-        nome: 'DOMESTIKA PLACET LUCE CASA', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'PUN + €0,030', unita: '€/kWh', prezzoBoll: null,
-        note: 'Costi fissi: €10,00/mese. Condizioni PLACET.',
-        features: ['Indicizzato al PUN mensile', 'Costi fissi: 120€/anno', 'Condizioni equiparate tutela', 'Trasparenza totale'] },
-      { id: 'domestika-placet-gas-casa', category: 'gas-placet', kind: 'gas', tipo: 'Gas PLACET', top: false,
-        nome: 'DOMESTIKA PLACET GAS CASA', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'TTF + €0,200', unita: '€/Smc', prezzoBoll: null,
-        note: 'Costi fissi: €10,00/mese. Indice PFOR (TTF).',
-        features: ['Indicizzato al TTF mensile', 'Costi fissi: 120€/anno', 'Prezzi trasparenti', 'Gestione semplificata'] }
+      { id: 'family-luce-tls', category: 'luce', kind: 'luce', tipo: 'Luce Mercato Libero', top: true,
+        nome: 'FAMILY LUCE TLS', sub: 'Mercato Libero · Uso domestico in Bassa Tensione',
+        codice: '027274ESVFL04XX000000426TLSEDPUN',
+        prezzoRid: 'PUN INDEX GME + €0,055', unita: '€/kWh', prezzoBoll: null,
+        note: 'Corrispettivo annuo 624,00 €/POD/anno. Prezzi fissi per 12 mesi dall\'attivazione. Richiesta entro il 30/06/2026.',
+        features: ['Prezzo unico F1·F2·F3: +0,055 €/kWh', 'Indicizzato al PUN INDEX GME mensile', 'Corrispettivo annuo fisso 624,00 €/POD', 'Perdite di rete incluse'] },
+      { id: 'domestico-gas-tls', category: 'gas', kind: 'gas', tipo: 'Gas Mercato Libero', top: true,
+        nome: 'DOMESTICO GAS TLS', sub: 'Mercato Libero · Uso domestico',
+        codice: '027274GSVML04XX000000426IDXGGTLS',
+        prezzoRid: 'PSV + €0,45', unita: '€/Smc', prezzoBoll: null,
+        note: 'Corrispettivo annuo 672,00 €/PdR/anno. Prezzi validi 12 mesi dall\'attivazione. Richiesta entro il 30/06/2026.',
+        features: ['Componente M fissa: +0,450 €/Smc', 'Indicizzato al PSV mensile', 'Corrispettivo annuo fisso 672,00 €/PdR', 'Attivazione rapida, zero burocrazia'] }
     ];
 
     function renderCard(o) {
@@ -122,11 +112,12 @@ include __DIR__ . '/header.php';
         </div>
         <div class="offer-card-body">
           <div class="partner-badge">
-            <img src="logo-domestika.png" alt="Domestika Energia" class="partner-logo">
+            <img src="logo-domestika.png" alt="<?= $OPERATORE['nome_marketing'] ?>" class="partner-logo">
             <span class="kind-badge">${o.tipo}</span>
           </div>
           <h3 class="offer-name">${o.nome}</h3>
           <p class="offer-type">${o.sub}</p>
+          ${o.codice ? `<p class="offer-code" style="font-size:11px; color:var(--muted); letter-spacing:0.03em; margin:-4px 0 0; word-break:break-all;">Codice offerta: <b>${o.codice}</b></p>` : ''}
 
           <div class="price-block">
             <div class="price-label">Prezzo energia · con RID</div>

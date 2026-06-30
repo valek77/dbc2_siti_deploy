@@ -2,27 +2,34 @@
 /**
  * footer.php — piè di pagina comune a tutte le pagine.
  *
+ * Dati legali 100% da API NUOVA: la riga legale è costruita SOLO dai campi
+ * presenti nell'azienda titolare ($COMPANY). I valori sono GIÀ resi sicuri per
+ * l'HTML (stampare con <?= ... ?>, senza e()).
+ *
  * Prima di includerlo, ogni pagina può impostare:
  *   $pageScripts -> HTML <script> specifici della pagina (facoltativo)
- *
- * I dati societari (ragione sociale, sede, P.IVA, telefono) sono le variabili
- * globali popolate da _config.php a partire dalla risposta dell'API.
  */
-$logo = $logo_url !== '' ? $logo_url : 'lctarde.png';
+$brandName = isset($brandName) ? $brandName
+    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Domestika');
+// Logo footer: logo2 dall'API se presente, altrimenti l'immagine locale del brand.
+$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'lctarde.png';
+
+// Nome operatore energetico (legale, con fallback al nome marketing) per il blocco rivenditore.
+$operatoreNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
 
 // Riga legale del footer: includo solo le parti effettivamente presenti.
 $legalParts = [];
-if ($company_name) {
-  $legalParts[] = $company_name;
+if ($COMPANY['company_name'] !== '') {
+  $legalParts[] = $COMPANY['company_name'];
 }
-if ($sede_legale) {
-  $legalParts[] = 'Sede Legale: ' . $sede_legale;
+if ($COMPANY['sede_legale'] !== '') {
+  $legalParts[] = 'Sede Legale: ' . $COMPANY['sede_legale'];
 }
-if ($p_iva) {
-  $legalParts[] = 'P.IVA e C.F.: ' . $p_iva;
+if ($COMPANY['p_iva'] !== '') {
+  $legalParts[] = 'P.IVA e C.F.: ' . $COMPANY['p_iva'];
 }
-if ($telefono) {
-  $legalParts[] = 'Tel. ' . $telefono;
+if ($COMPANY['telefono'] !== '') {
+  $legalParts[] = 'Tel. ' . $COMPANY['telefono'];
 }
 $legalLine = implode(' - ', $legalParts);
 ?>
@@ -31,9 +38,9 @@ $legalLine = implode(' - ', $legalParts);
     <div class="footer-container">
       <div class="footer-brand">
         <a href="index.php" class="logo">
-          <img src="<?= $logo ?>" alt="<?= $brand ?> Logo">
+          <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo">
         </a>
-        <p>Rivenditore autorizzato <?= $OPERATORE_ENERGETICO ?>. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
+        <p><?php if ($operatoreNome !== '') { ?>Rivenditore autorizzato <?= $operatoreNome ?>. <?php } ?>Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
       </div>
       <div class="footer-col">
         <h4>Azienda</h4>
@@ -45,7 +52,7 @@ $legalLine = implode(' - ', $legalParts);
         <h4>Servizi</h4>
         <a href="tariffe.php">Luce</a>
         <a href="tariffe.php">Gas</a>
-        <a href="tariffe.php">Offerte PLACET</a>
+        <a href="tariffe.php">Tutte le offerte</a>
       </div>
       <div class="footer-col">
         <h4>Legale</h4>
@@ -54,7 +61,7 @@ $legalLine = implode(' - ', $legalParts);
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.<?php if ($OPERATORE_ENERGETICO) { ?> Rivenditore autorizzato <?= $OPERATORE_ENERGETICO ?>.<?php } ?></p>
+      <p>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.<?php if ($operatoreNome !== '') { ?> Rivenditore autorizzato <?= $operatoreNome ?>.<?php } ?></p>
     </div>
   </footer>
 
