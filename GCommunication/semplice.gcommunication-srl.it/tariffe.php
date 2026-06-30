@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Gas e Luce';
+$pageHead = '<style>@media (max-width: 760px) { #results { grid-template-columns: 1fr !important; } }</style>';
 
 // Script specifico della pagina (catalogo offerte). Restano dati statici:
 // le offerte non fanno parte dell'anagrafica azienda gestita dall'API.
@@ -131,7 +132,7 @@ include __DIR__ . '/header.php';
     <h2 class="section-title" style="text-align: center; margin-top: 0; font-size: 36px;">Le nostre offerte Luce e Gas</h2>
     <p style="text-align:center; color: var(--text-secondary); max-width: 720px; margin: 0 auto 48px; font-size: 18px;">Tutte le offerte sono riservate ai clienti che aderiscono tramite richiesta web. Scegli quella piu adatta a te.</p>
     <div class="results-list" id="results"
-      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: var(--gutter);"></div>
+      style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); max-width: 880px; margin: 0 auto;"></div>
   </main>
 
   <p class="price-disclaimer" id="price-disclaimer"
