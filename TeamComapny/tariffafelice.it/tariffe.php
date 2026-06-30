@@ -1,31 +1,8 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Tariffe — Tariffa Felice</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="TariffaFelice_logo.png" alt="TEAM" class="logo-img">
-
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Tariffe';
+include __DIR__ . '/header.php';
+?>
 
   <section class="hero"
     style="background: linear-gradient(rgba(4, 8, 50, 0.7), rgba(4, 8, 50, 0.7)), url('tariffe_hero.png') center/cover no-repeat; color: #ffffff; padding: var(--section-padding) 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
@@ -35,10 +12,10 @@
         style="display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.1); padding: 8px 16px; border-radius: 100px; margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.2);">
         <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Official
           Partner</span>
-        <img src="logo-dark.png" alt="Energia Locale" style="height: 24px; filter: brightness(0) invert(1);">
+        <img src="logo-dark.png" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; filter: brightness(0) invert(1);">
       </div>
       <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Luce e Gas in
-        partnership con Energia Locale</h1>
+        partnership con <?= $OPERATORE['nome_marketing'] ?></h1>
       <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Verrai affiancato da un
         consulente personale che ti guiderà verso la scelta del miglior contratto energetico — e non sarai mai
         abbandonato!</p>
@@ -54,7 +31,7 @@
         <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 36px;">Smettila di sprecare energia
         </h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          Tariffa Felice non è una semplice azienda energetica. La nostra missione è liberarti dall'incubo delle bollette
+          <?= $brandName ?> non è una semplice azienda energetica. La nostra missione è liberarti dall'incubo delle bollette
           attraverso una consulenza continua e trasparente. Il tuo consulente sarà sempre al tuo fianco, pronto a
           risolvere ogni dubbio senza passare dai call center.
         </p>
@@ -77,7 +54,7 @@
   <p class="price-disclaimer" id="price-disclaimer"
     style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-size: 14px; color: var(--text-muted); text-align: center;">
     * Stime basate su profilo medio. Importi soggetti a variazioni in base a consumo, zona e potenza. Dati aggiornati
-    secondo il portale ufficiale Tariffa Felice in partnership con Energia Locale.
+    secondo il portale ufficiale <?= $brandName ?> in partnership con <?= $OPERATORE['nome_marketing'] ?>.
   </p>
 
   <section class="info-section"
@@ -112,41 +89,18 @@
   </section>
 
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="TariffaFelice_logo.png" alt="TEAM" class="logo-img">
-
-        </a>
-        <p>Rivenditore autorizzato Energia Locale. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Tariffa Felice. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
+<?php
+// Lo script offerte usa template literal JS (${...}); va passato come nowdoc per evitare
+// interpolazione PHP. Il nome dell'operatore arriva dall'API tramite la const FORNITORE.
+$fornitore = json_encode($OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale']);
+$pageScripts = "  <script>const FORNITORE = $fornitore;</script>\n" . <<<'HTML'
   <script>
     const offers = [
       {
         id: 'black-luce',
         esclusiva: true,
         nome: 'BLACK LUCE',
-        fornitore: 'Energia Locale',
+        fornitore: FORNITORE,
         tipo: 'PUN + Spread 0,018',
         bollettaMensile: 58.44,
         bollettaAnnua: 701.28,
@@ -163,7 +117,7 @@
         id: 'black-gas',
         esclusiva: true,
         nome: 'BLACK GAS',
-        fornitore: 'Energia Locale',
+        fornitore: FORNITORE,
         tipo: 'PSV + Spread 0,13',
         bollettaMensile: 58.91,
         bollettaAnnua: 706.92,
@@ -180,7 +134,7 @@
         id: 'black-dual',
         esclusiva: false,
         nome: 'BLACK LUCE & GAS',
-        fornitore: 'Energia Locale',
+        fornitore: FORNITORE,
         tipo: 'Combo Variabile',
         bollettaMensile: 117.35,
         bollettaAnnua: 1408.20,
@@ -226,11 +180,9 @@
       if (!btn) return;
       const o = offers.find(x => x.id === btn.dataset.offerId);
       if (!o) return;
-      window.location.href = 'contatti.html?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
+      window.location.href = 'contatti.php?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
     });
   </script>
-
-  <script src="cb.js"></script>
-</body>
-
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>

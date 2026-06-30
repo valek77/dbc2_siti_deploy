@@ -1,42 +1,18 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Tariffa Felice — Energia per il tuo futuro</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="TariffaFelice_logo.png" alt="TEAM" class="logo-img">
-
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+include __DIR__ . '/header.php';
+?>
 
   <section class="hero" id="hero">
     <div class="hero-text-side">
       <div class="hero-content">
-        <h1 id="hero-title">Entra anche tu in Tariffa Felice</h1>
+        <h1 id="hero-title">Entra anche tu in <?= $brandName ?></h1>
         <p id="hero-text">Dì basta ai costi nascosti e a un'assistenza clienti scadente. Il primo fornitore che ti
           affida un consulente dedicato per la tua casa.</p>
 
         <div class="hero-actions">
-          <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
-          <a href="contatti.html" class="btn-secondary">Parla con noi</a>
+          <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
+          <a href="contatti.php" class="btn-secondary">Parla con noi</a>
         </div>
       </div>
     </div>
@@ -48,7 +24,7 @@
   <section class="features-section">
     <div style="max-width: 900px; margin: 0 auto 80px; text-align: center;">
       <h2 class="section-title" style="font-size: 48px; margin-bottom: 20px;">Consulenti che ti ascoltano davvero</h2>
-      <p class="section-sub" style="font-size: 20px;">In Tariffa Felice, non sei un numero. Siamo l'unico fornitore che
+      <p class="section-sub" style="font-size: 20px;">In <?= $brandName ?>, non sei un numero. Siamo l'unico fornitore che
         mette al centro il rapporto umano e l'efficienza della tua abitazione.</p>
     </div>
 
@@ -115,7 +91,7 @@
           specifica.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--primary); opacity: 0.8; margin-bottom: 40px;">
-          Con Tariffa Felice, l'efficientamento è **su misura**. Sfruttiamo le migliori tecnologie per trasformare la
+          Con <?= $brandName ?>, l'efficientamento è **su misura**. Sfruttiamo le migliori tecnologie per trasformare la
           tua
           abitazione in una fonte di energia autonoma, con un modello a **impatto economico zero**: l'investimento si
           ripaga interamente attraverso il risparmio generato in bolletta.
@@ -153,7 +129,7 @@
         <div class="tp-review-card">
           <div class="tp-review-stars">★★★★★</div>
           <h5 class="tp-review-title">Finalmente chiarezza!</h5>
-          <p class="tp-review-body">Con Tariffa Felice ho finalmente capito cosa pago in bolletta. Prezzi onesti e
+          <p class="tp-review-body">Con <?= $brandName ?> ho finalmente capito cosa pago in bolletta. Prezzi onesti e
             consulenti gentilissimi.</p>
           <p class="tp-review-author">Marco R.</p>
         </div>
@@ -180,52 +156,21 @@
     <div class="container"
       style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: var(--gutter); flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="team_new.png" alt="Il Team Tariffa Felice"
+        <img src="team_new.png" alt="Il Team <?= $brandName ?>"
           style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(4, 8, 50, 0.08);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 40px;">
         <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;">
           Innovazione al servizio del tuo risparmio</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 32px 0;">
-          In Tariffa Felice utilizziamo le migliori tecnologie per monitorare il mercato energetico in tempo reale.
+          In <?= $brandName ?> utilizziamo le migliori tecnologie per monitorare il mercato energetico in tempo reale.
           Questo
           ci permette di offrirti tariffe sempre competitive, allineate al PUN e al PSV, senza margini di profitto
           gonfiati. La nostra missione è semplificare la tua vita energetica.
         </p>
-        <a href="tariffe.html" class="btn-primary" style="display: inline-block;">Scopri le tariffe</a>
+        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Scopri le tariffe</a>
       </div>
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="TariffaFelice_logo.png" alt="TEAM" class="logo-img">
-
-        </a>
-        <p>Rivenditore autorizzato Energia Locale. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Tariffa Felice. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-  <script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

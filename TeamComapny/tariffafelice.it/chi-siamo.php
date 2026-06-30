@@ -1,31 +1,9 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Chi Siamo — Tariffa Felice</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="TariffaFelice_logo.png" alt="TEAM" class="logo-img">
-
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header> <!-- Hero Section -->
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Chi Siamo';
+include __DIR__ . '/header.php';
+?>
+ <!-- Hero Section -->
   <section class="hero"
     style="background: linear-gradient(rgba(4, 8, 50, 0.5), rgba(4, 8, 50, 0.5)), url('about_landscape.png') center/cover no-repeat; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;">
     <div style="max-width: 900px; padding: 20px;">
@@ -40,7 +18,7 @@
         <h2 class="section-title" style="text-align: left; font-size: 48px; margin-bottom: 32px;">Oltre l'energia, le
           persone</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--primary); opacity: 0.8; margin-bottom: 24px;">
-          Tariffa Felice nasce dalla visione di un gruppo di esperti del settore che volevano cambiare le regole del gioco.
+          <?= $brandName ?> nasce dalla visione di un gruppo di esperti del settore che volevano cambiare le regole del gioco.
           In un mondo dominato da grandi colossi impersonali, abbiamo scelto la strada della vicinanza e della
           consulenza reale.
         </p>
@@ -51,7 +29,7 @@
         </p>
       </div>
       <div style="flex: 1; position: relative; height: 500px; min-width: 400px;">
-        <img src="team_new.png" alt="Il Team Tariffa Felice" class="hero-image-mask"
+        <img src="team_new.png" alt="Il Team <?= $brandName ?>" class="hero-image-mask"
           style="border-radius: 300px 0 0 300px; box-shadow: -20px 20px 40px rgba(0,0,0,0.1);">
       </div>
     </div>
@@ -83,7 +61,7 @@
   <!-- Values Grid -->
   <section class="about-section" style="padding: 120px 20px; background: var(--bg-cream);">
     <div style="max-width: 1280px; margin: 0 auto;">
-      <h2 class="section-title" style="margin-bottom: 80px;">I pilastri di Tariffa Felice</h2>
+      <h2 class="section-title" style="margin-bottom: 80px;">I pilastri di <?= $brandName ?></h2>
       <div class="features-container">
         <div class="trust-card" style="background: #fff;">
           <img src="icon_consultant.png" alt="Consulente" class="trust-mascot">
@@ -110,39 +88,8 @@
       <h2 style="font-size: 42px; color: var(--primary); line-height: 1.3; font-weight: 700; margin-bottom: 40px;">"Il
         nostro obiettivo non è vendere contratti, ma costruire relazioni durature basate sulla fiducia e sul risparmio
         concreto."</h2>
-      <p style="font-size: 20px; color: var(--primary); opacity: 0.6;">— Il Team Tariffa Felice</p>
+      <p style="font-size: 20px; color: var(--primary); opacity: 0.6;">— Il Team <?= $brandName ?></p>
     </div>
   </section>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="TariffaFelice_logo.png" alt="TEAM" class="logo-img">
-
-        </a>
-        <p>Rivenditore autorizzato Energia Locale. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Tariffa Felice. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-  <script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

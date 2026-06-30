@@ -1,14 +1,7 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contatti — Tariffa Felice</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+$pageHead = <<<'CSS'
   <style>
     .contact-hero {
       background: var(--primary);
@@ -196,41 +189,30 @@
       }
     }
   </style>
-</head>
+CSS;
+include __DIR__ . '/header.php';
 
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="TariffaFelice_logo.png" alt="TEAM" class="logo-img">
-
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
+$offertaSelezionata = isset($_GET['offerta']) ? $_GET['offerta'] : '';
+?>
 
   <section class="contact-hero" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
     <div style="max-width: 800px; margin: 0 auto; text-align: center;">
       <h1 style="font-size: clamp(48px, 8vw, 84px); font-weight: 800; line-height: 1.1; margin-bottom: 24px;">Siamo al
         tuo fianco</h1>
-      <p style="font-size: 20px; opacity: 0.8; line-height: 1.6;">Dimentica le lunghe attese e i call center. In Tariffa
-        Felice, ogni cliente ha un volto e un supporto dedicato.</p>
+      <p style="font-size: 20px; opacity: 0.8; line-height: 1.6;">Dimentica le lunghe attese e i call center. In <?= $brandName ?>, ogni cliente ha un volto e un supporto dedicato.</p>
     </div>
   </section>
 
+<?php if ($COMPANY['email_supporto'] !== '') { ?>
   <div class="floating-cards" style="margin-top: -100px; display: flex; justify-content: center;">
     <div class="f-card" style="max-width: 500px; width: 100%;">
       <img src="icon_consultant.png" alt="Email">
       <h3>Contattaci via Email</h3>
-      <p>Il nostro team di esperti è pronto a rispondere a ogni tua domanda.<br><strong>hello@tariffafelice.it</strong>
+      <p>Il nostro team di esperti è pronto a rispondere a ogni tua domanda.<br><strong><a href="mailto:<?= $COMPANY['email_supporto'] ?>" style="color: inherit; text-decoration: none;"><?= $COMPANY['email_supporto'] ?></a></strong>
       </p>
     </div>
   </div>
+<?php } ?>
 
   <section class="form-section">
     <div class="form-grid">
@@ -278,12 +260,12 @@
           <div class="form-group" style="margin-top: 28px;">
             <label class="consent-label" style="margin-top:12px;">
               <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-              <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.html">informativa privacy</a> ai sensi
+              <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi
                 del Regolamento (UE) 2016/679. *</span>
             </label>
             <label class="consent-label">
               <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-              <span>Richiedo di essere ricontattato da Energia Locale, tramite il partner commerciale MasterTree , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+              <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
             </label>
 
           </div>
@@ -310,37 +292,9 @@
 
 
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="TariffaFelice_logo.png" alt="TEAM" class="logo-img">
-
-        </a>
-        <p>Rivenditore autorizzato Energia Locale. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Azienda</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Tariffa Felice. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script src="lead-form.js"></script>
-
-  <script src="cb.js"></script>
-</body>
-
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>
