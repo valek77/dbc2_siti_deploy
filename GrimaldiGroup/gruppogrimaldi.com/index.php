@@ -1,36 +1,8 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Gruppo Grimaldi — Energia Luce e Gas per la tua casa</title>
-  <meta name="description" content="Gruppo Grimaldi ti offre le migliori soluzioni per luce e gas. Scopri le offerte per casa e azienda con prezzi trasparenti e assistenza dedicata.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Gruppo Grimaldi Logo">
-      </a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Offerte</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-      <div class="header-cta">
-        <a href="contatti.html" class="btn-primary">Richiedi preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageDescription = 'Gruppo Grimaldi ti offre le migliori soluzioni per luce e gas. Scopri le offerte per casa e azienda con prezzi trasparenti e assistenza dedicata.';
+include __DIR__ . '/header.php';
+?>
 
   <!-- ===== Hero Slider ===== -->
   <section class="hero">
@@ -40,12 +12,12 @@
           <img src="hero_energy_1.png" class="hero-slide-bg" alt="Energia per la casa">
           <div class="container">
             <div class="hero-content">
-              <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale Sinergy Luce e Gas</span>
+              <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale <?= $OPERATORE['nome_marketing'] ?></span>
               <h1>Energia <span class="accent">trasparente</span>, bolletta più leggera.</h1>
-              <p class="lede">Gruppo Grimaldi ti guida nel mercato libero con offerte trasparenti. Prezzi indicizzati al mercato e zero burocrazia.</p>
+              <p class="lede"><?= $brandName ?> ti guida nel mercato libero con offerte trasparenti. Prezzi indicizzati al mercato e zero burocrazia.</p>
               <div class="hero-actions">
-                <a href="tariffe.html" class="btn-primary">Scopri le offerte</a>
-                <a href="contatti.html" class="btn-secondary">Parla con noi</a>
+                <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
+                <a href="contatti.php" class="btn-secondary">Parla con noi</a>
               </div>
             </div>
           </div>
@@ -58,7 +30,7 @@
               <h1>Il tuo futuro è <span class="accent">sostenibile</span>.</h1>
               <p class="lede">Soluzioni innovative per l'efficientamento energetico della tua casa o della tua azienda.</p>
               <div class="hero-actions">
-                <a href="tariffe.html" class="btn-primary">Vedi soluzioni</a>
+                <a href="tariffe.php" class="btn-primary">Vedi soluzioni</a>
               </div>
             </div>
           </div>
@@ -71,7 +43,7 @@
               <h1>Gestisci la tua <span class="accent">energia</span> con intelligenza.</h1>
               <p class="lede">Monitora i tuoi consumi e risparmia concretamente sulla bolletta ogni mese.</p>
               <div class="hero-actions">
-                <a href="contatti.html" class="btn-primary">Richiedi analisi gratuita</a>
+                <a href="contatti.php" class="btn-primary">Richiedi analisi gratuita</a>
               </div>
             </div>
           </div>
@@ -94,12 +66,12 @@
   <section class="trust-strip">
     <div class="trust-track">
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Contratti certificati ARERA</span>
-      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Partner Sinergy Luce e Gas</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Partner <?= $OPERATORE['nome_marketing'] ?></span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Assistenza multicanale</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 8v6m10-10h-6M8 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg> Nessuna interruzione di fornitura</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Consulenza gratuita</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Contratti certificati ARERA</span>
-      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Partner Sinergy Luce e Gas</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Partner <?= $OPERATORE['nome_marketing'] ?></span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Assistenza multicanale</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Consulenza gratuita</span>
     </div>
@@ -122,7 +94,7 @@
           <div class="stagger-content">
             <h4>Offerte Luce</h4>
             <p>Tariffe variabili indicizzate al PUN e offerte a prezzo fisso bloccato per 12 mesi. Per uso domestico e professionale. Massima trasparenza sui costi e zero interruzioni.</p>
-            <a href="tariffe.html" class="btn-ghost" style="margin-top:20px;">Vedi tariffe luce</a>
+            <a href="tariffe.php" class="btn-ghost" style="margin-top:20px;">Vedi tariffe luce</a>
           </div>
         </article>
 
@@ -133,7 +105,7 @@
           <div class="stagger-content">
             <h4>Offerte Gas</h4>
             <p>Forniture gas con prezzo ancorato al PSV. Soluzioni per casa, lavoro e imprese, con attivazione rapida e senza interventi tecnici in casa.</p>
-            <a href="tariffe.html" class="btn-ghost" style="margin-top:20px;">Vedi tariffe gas</a>
+            <a href="tariffe.php" class="btn-ghost" style="margin-top:20px;">Vedi tariffe gas</a>
           </div>
         </article>
 
@@ -144,7 +116,7 @@
           <div class="stagger-content">
             <h4>Consulenza gratuita</h4>
             <p>Analizziamo la tua bolletta attuale e ti proponiamo l'offerta più conveniente in pochi minuti. Senza impegno, senza costi nascosti e con un consulente dedicato.</p>
-            <a href="contatti.html" class="btn-ghost" style="margin-top:20px;">Analizza la mia bolletta</a>
+            <a href="contatti.php" class="btn-ghost" style="margin-top:20px;">Analizza la mia bolletta</a>
           </div>
         </article>
       </div>
@@ -157,7 +129,7 @@
       <div class="section-head">
         <span class="eyebrow eyebrow-light"><span class="dot"></span> Come funziona</span>
         <h2 class="section-title">Attivi la nuova fornitura <br>in <span class="accent">4 passi semplici</span></h2>
-        <p class="section-sub">Cambiare fornitore e passare a Sinergy Luce e Gas è veloce e non richiede alcun intervento tecnico in casa.</p>
+        <p class="section-sub">Cambiare fornitore e passare a <?= $OPERATORE['nome_marketing'] ?> è veloce e non richiede alcun intervento tecnico in casa.</p>
       </div>
 
       <div class="timeline">
@@ -166,7 +138,7 @@
           <div class="timeline-content">
             <div class="hiw-num" style="margin-bottom:10px;">01</div>
             <h5>Scegli l'offerta</h5>
-            <p>Confronta le tariffe Luce o Gas di Sinergy e individua quella più adatta al tuo profilo.</p>
+            <p>Confronta le tariffe Luce o Gas di <?= $OPERATORE['nome_marketing'] ?> e individua quella più adatta al tuo profilo.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
@@ -206,15 +178,15 @@
         </div>
 
         <div class="reveal">
-          <span class="eyebrow"><span class="dot"></span> Perché scegliere Gruppo Grimaldi</span>
+          <span class="eyebrow"><span class="dot"></span> Perché scegliere <?= $brandName ?></span>
           <h2 class="section-title" style="text-align:left;">Risparmio reale, <span class="accent">assistenza vera</span></h2>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 18px;">
             Non siamo un punto vendita anonimo: siamo consulenti energetici. Per ogni cliente troviamo la soluzione più conveniente, senza costi nascosti e senza sorprese in bolletta.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 24px;">
-            Con il nostro partner Sinergy Luce e Gas puoi scegliere tra offerte a prezzo variabile indicizzato al mercato o offerte a prezzo fisso garantito per 12 mesi.
+            Con il nostro partner <?= $OPERATORE['nome_marketing'] ?> puoi scegliere tra offerte a prezzo variabile indicizzato al mercato o offerte a prezzo fisso garantito per 12 mesi.
           </p>
-          <a href="chi-siamo.html" class="btn-ghost">Scopri di più su di noi</a>
+          <a href="chi-siamo.php" class="btn-ghost">Scopri di più su di noi</a>
         </div>
       </div>
     </div>
@@ -284,45 +256,16 @@
       <h2>Bolletta più bassa, energia più chiara.</h2>
       <p>Richiedi una consulenza gratuita. Ti contattiamo entro 24 ore lavorative per trovare insieme la tariffa giusta per te.</p>
       <div class="actions">
-        <a href="tariffe.html" class="btn-primary">Vedi tutte le offerte
+        <a href="tariffe.php" class="btn-primary">Vedi tutte le offerte
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="contatti.html" class="btn-secondary">Contattaci ora</a>
+        <a href="contatti.php" class="btn-secondary">Contattaci ora</a>
       </div>
     </div>
   </section>
 
-    <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="logo.png" alt="Gruppo Grimaldi Logo">
-        </a>
-        <p>Partner ufficiale Sinergy Luce e Gas.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.html">Chi Siamo</a>
-        <a href="tariffe.html">Offerte</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.html">Luce</a>
-        <a href="tariffe.html">Gas</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p style="margin-bottom: 8px;">Ragione Sociale: GRIMALDI GROUP S.R.L. | P.IVA: 07764771213 | Vat Europeo: IT07764771213</p>
-      <p>&copy; 2026 Gruppo Grimaldi. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script>
     // Hero Slider
     let currentSlide = 0;
@@ -359,7 +302,6 @@
     }, { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
-
-<script src="cb.js"></script>
-</body>
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>
