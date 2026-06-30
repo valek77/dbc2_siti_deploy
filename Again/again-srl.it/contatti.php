@@ -1,30 +1,8 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contatti — AGAIN sistema</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png"
-          alt="AGAIN sistema" class="logo-img" style="max-height: 48px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Contatti';
+include __DIR__ . '/header.php';
+?>
 
   <main style="margin-top: 60px; background: #fff;">
     <div style="max-width: 800px; margin: 0 auto; padding: 40px 20px 20px; text-align: center;">
@@ -39,7 +17,7 @@
         <div style="flex: 1; min-width: 300px;">
           <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Connessi all'innovazione</h2>
           <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            Affidati ad AGAIN sistema per una fornitura elettrica e gas all'avanguardia. Mettiti in contatto con i nostri specialisti per una consulenza energetica personalizzata.
+            Affidati ad <?= $brandName ?> per una fornitura elettrica e gas all'avanguardia. Mettiti in contatto con i nostri specialisti per una consulenza energetica personalizzata.
           </p>
         </div>
         <div style="flex: 0.8; min-width: 200px; display: flex; justify-content: center;">
@@ -73,11 +51,11 @@
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.html">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da Nuova Corrente, tramite il partner commerciale Again Srl , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
               </div>
 
@@ -107,51 +85,16 @@
           <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Evoluzione Energetica
           </h2>
           <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            In AGAIN sistema andiamo oltre la semplice fornitura: guidiamo i nostri clienti in un percorso di efficienza e ottimizzazione delle risorse. Scegli un'energia su misura, progettata per il futuro.
+            In <?= $brandName ?> andiamo oltre la semplice fornitura: guidiamo i nostri clienti in un percorso di efficienza e ottimizzazione delle risorse. Scegli un'energia su misura, progettata per il futuro.
           </p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png"
-            alt="AGAIN sistema" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 AGAIN sistema. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = <<<'HTML'
   <script src="lead-form.js"></script>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>

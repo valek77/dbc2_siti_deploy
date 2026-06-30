@@ -1,40 +1,18 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AGAIN sistema — Energie Rinnovabili</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png"
-          alt="AGAIN sistema" class="logo-img" style="max-height: 48px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageDescription = 'Energie rinnovabili, efficienza e risparmio per la tua casa o azienda. Tariffe trasparenti e assistenza dedicata.';
+include __DIR__ . '/header.php';
+?>
 
   <section class="hero">
     <div class="hero-wrapper">
       <div class="hero-content">
         <h1>L'Energia del Futuro, Oggi</h1>
-        <p>AGAIN sistema guida la transizione ecologica con soluzioni avanzate per l'energia rinnovabile. Efficienza, risparmio e sostenibilità per la tua casa o azienda.</p>
+        <p><?= $brandName ?> guida la transizione ecologica con soluzioni avanzate per l'energia rinnovabile. Efficienza, risparmio e sostenibilità per la tua casa o azienda.</p>
 
         <div class="hero-actions">
-          <a href="tariffe.html" class="btn-primary">Scopri di più</a>
-          <a href="contatti.html" class="btn-secondary">Contattaci</a>
+          <a href="tariffe.php" class="btn-primary">Scopri di più</a>
+          <a href="contatti.php" class="btn-secondary">Contattaci</a>
         </div>
 
       </div>
@@ -45,7 +23,7 @@
   </section>
 
   <section class="features-section">
-    <h2 class="section-title" style="margin-top: 0;">Il Vantaggio AGAIN sistema</h2>
+    <h2 class="section-title" style="margin-top: 0;">Il Vantaggio <?= $brandName ?></h2>
     <p class="section-sub" style="margin-bottom: 40px;">Tecnologia e convenienza al tuo servizio</p>
     <div class="features-container">
       <div class="trust-card">
@@ -139,9 +117,9 @@
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
         <h2 class="section-title" style="text-align: left; margin-top: 0; color: var(--text-dark);">Trasparenza e Innovazione</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Dimentica i costi nascosti. Con AGAIN sistema, gestisci la tua energia in modo intelligente e tieni sempre sotto controllo i consumi, grazie a un approccio basato sulle più moderne tecnologie green.
+          Dimentica i costi nascosti. Con <?= $brandName ?>, gestisci la tua energia in modo intelligente e tieni sempre sotto controllo i consumi, grazie a un approccio basato sulle più moderne tecnologie green.
         </p>
-        <a href="contatti.html" class="btn-primary" style="display: inline-block;">Scopri di più</a>
+        <a href="contatti.php" class="btn-primary" style="display: inline-block;">Scopri di più</a>
       </div>
     </div>
   </section>
@@ -152,9 +130,9 @@
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
         <h2 class="section-title" style="text-align: left; margin-top: 0;">Energia 100% Green</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          In AGAIN sistema crediamo in un futuro a zero emissioni. Le nostre forniture provengono unicamente da fonti rinnovabili certificate per garantire il massimo rispetto dell'ambiente.
+          In <?= $brandName ?> crediamo in un futuro a zero emissioni. Le nostre forniture provengono unicamente da fonti rinnovabili certificate per garantire il massimo rispetto dell'ambiente.
         </p>
-        <a href="tariffe.html" class="btn-primary" style="display: inline-block;">Scopri le soluzioni</a>
+        <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Scopri le soluzioni</a>
       </div>
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
         <img src="sustainable_home.png" alt="Casa Sostenibile"
@@ -167,42 +145,4 @@
 
 
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png"
-            alt="AGAIN sistema" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 AGAIN sistema. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

@@ -1,37 +1,17 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Tariffe — AGAIN sistema</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png"
-          alt="AGAIN sistema" class="logo-img" style="max-height: 48px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Tariffe';
+include __DIR__ . '/header.php';
+// Nome dell'operatore energetico (claim/partnership): marketing con fallback al legale.
+$operatoreMkt = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : ($OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Nuova Corrente');
+?>
 
   <main class="container" style="margin-top: 60px;">
     <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
-      Le migliori offerte 
-      <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="Nuova Corrente" style="height: 40px; width: auto;">
+      Le migliori offerte
+      <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="<?= $operatoreMkt ?>" style="height: 40px; width: auto;">
     </h2>
-    <p class="section-sub">In partnership con Nuova Corrente per garantirti il massimo risparmio</p>
+    <p class="section-sub">In partnership con <?= $operatoreMkt ?> per garantirti il massimo risparmio</p>
 
     <div class="results-list" id="results"></div>
 
@@ -40,48 +20,17 @@
 
 
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png"
-            alt="AGAIN sistema" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 AGAIN sistema. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
+<?php
+$pageScripts = '
+  <script>const OPERATORE_NOME = ' . json_encode($operatoreMkt) . ';</script>
+' . <<<'HTML'
   <script>
     const offers = [
       {
         id: 'nc-energy-online',
         esclusiva: true,
         nome: 'Energy Online Luce',
-        fornitore: 'Nuova Corrente',
+        fornitore: OPERATORE_NOME,
         tipo: 'PUN + 0€ Spread',
         bollettaMensile: 74.50,
         bollettaAnnua: 894.00,
@@ -93,7 +42,7 @@
         id: 'nc-gas-online',
         esclusiva: true,
         nome: 'Gas Online',
-        fornitore: 'Nuova Corrente',
+        fornitore: OPERATORE_NOME,
         tipo: 'PSV + 0.10€ Spread',
         bollettaMensile: 88.00,
         bollettaAnnua: 1056.00,
@@ -105,7 +54,7 @@
         id: 'nc-dual-online',
         esclusiva: true,
         nome: 'Dual Online (Luce + Gas)',
-        fornitore: 'Nuova Corrente',
+        fornitore: OPERATORE_NOME,
         tipo: 'Prezzo Indicizzato',
         bollettaMensile: 158.00,
         bollettaAnnua: 1896.00,
@@ -126,7 +75,7 @@
           <div>
             <div class="offer-name-wrap"><span class="offer-name">${o.nome}</span><span class="offer-info" title="Dettagli">i</span></div>
             <div class="offer-provider" style="display: flex; align-items: center; gap: 8px;">
-              <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="Nuova Corrente" style="height: 18px; width: auto;">
+              <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="${OPERATORE_NOME}" style="height: 18px; width: auto;">
               ${o.fornitore} · ${o.tipo}
             </div>
           </div>
@@ -146,11 +95,9 @@
       if (!btn) return;
       const o = offers.find(x => x.id === btn.dataset.offerId);
       if (!o) return;
-      window.location.href = 'contatti.html?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
+      window.location.href = 'contatti.php?offerta=' + encodeURIComponent(o.nome + ' (' + o.fornitore + ')') + '#contatto-form';
     });
   </script>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
+HTML;
+include __DIR__ . '/footer.php';
+?>

@@ -1,14 +1,7 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Condizioni di Utilizzo — AGAIN sistema</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Condizioni di Utilizzo';
+$pageHead = <<<'CSS'
   <style>
     .legal-content {
       padding: 80px 20px;
@@ -27,28 +20,17 @@
       line-height: 1.3;
     }
   </style>
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png" alt="AGAIN sistema" class="logo-img" style="max-height: 32px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
+CSS;
+include __DIR__ . '/header.php';
+?>
 
   <main class="legal-content">
     <h1>Condizioni di Utilizzo</h1>
 
-    L’utilizzo del sito web www.again-srl.it (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti
+    L’utilizzo del sito web <?= $LANDING_PAGE['url'] !== '' ? $LANDING_PAGE['url'] : 'www.again-srl.it' ?> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti
     condizioni generali di utilizzo (di seguito, le “Condizioni Generali”). Il Sito è di titolarità e proprietà di
-    AGAIN sistema, con Sede legale in NAPOLI (NA) VIA PASQUALE FRUSTACI 10 CAP 80142, Partita IVA e Codice Fiscale
-    10627351215, REA NA - 1120103 (di seguito, la “Società”).
+    <?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?><?php if ($COMPANY['sede_legale'] !== '') { ?>, con Sede legale in <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?>, Partita IVA e Codice Fiscale
+    <?= $COMPANY['p_iva'] ?><?php } ?>, REA NA - 1120103 (di seguito, la “Società”).
     <ol>
       <li><strong> Premesse</strong></li>
     </ol>
@@ -62,7 +44,7 @@
     <ol start="2">
       <li><strong> Oggetto del servizio</strong></li>
     </ol>
-    Paragono.it è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte,
+    <?= $brandName ?> è una piattaforma digitale che consente agli utenti di consultare, confrontare e analizzare offerte,
     preventivi, condizioni economiche e informazioni relative a prodotti e servizi propri o di soggetti terzi, anche
     mediante l’impiego di strumenti algoritmici, motori di calcolo, sistemi software avanzati e modelli linguistici di
     supporto all’interazione (LLM).
@@ -126,7 +108,7 @@
     </ol>
     Il Sito, la sua struttura, il software, i contenuti, i database, i testi, i layout, le grafiche, i marchi, i segni
     distintivi, le immagini, i flussi conversazionali, i modelli organizzativi e ogni altro elemento presente o reso
-    disponibile attraverso il Sito sono di proprietà della Società AGAIN sistema o dei rispettivi titolari dei diritti
+    disponibile attraverso il Sito sono di proprietà della Società <?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?> o dei rispettivi titolari dei diritti
     e sono protetti dalla normativa vigente in materia di proprietà intellettuale e industriale.
 
     È fatto divieto di copiare, estrarre, riprodurre, distribuire, modificare, decompilare, disassemblare, tradurre,
@@ -138,9 +120,11 @@
     Per comunicazioni, segnalazioni o richieste di assistenza, l’utente potrà utilizzare i recapiti indicati nella
     sezione contatti del Sito. Ai fini redazionali, nel presente testo sono richiamati i seguenti indirizzi da
     confermare o aggiornare prima della pubblicazione definitiva:
+<?php if ($COMPANY['pec'] !== '') { ?>
     <ul>
-      <li><a href="mailto:giclaf@pec.it">giclaf@pec.it</a></li>
+      <li><a href="mailto:<?= $COMPANY['pec'] ?>"><?= $COMPANY['pec'] ?></a></li>
     </ul>
+<?php } ?>
     In caso di reclami relativi a specifici servizi o prodotti, ad esclusione delle categorie (Energia e Telefonia) ,la
     Società potrà indirizzare l’utente verso il partner competente o che eroga il servizio richiesto.
     <ol start="9">
@@ -162,7 +146,7 @@
     <ol start="11">
       <li><strong> Trattamento dei dati personali</strong></li>
     </ol>
-    Rif: <a href="privacy-policy.html">Informativa Privacy</a>
+    Rif: <a href="privacy-policy.php">Informativa Privacy</a>
     <ol start="12">
       <li><strong> Clausole finali</strong></li>
     </ol>
@@ -174,37 +158,4 @@
     piattaforma.
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png" alt="AGAIN sistema" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 AGAIN sistema. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>

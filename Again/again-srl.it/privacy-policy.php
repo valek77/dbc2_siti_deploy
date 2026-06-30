@@ -1,14 +1,7 @@
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Privacy Policy — AGAIN sistema</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
+<?php
+require __DIR__ . '/_config.php';
+$pageTitle = 'Privacy Policy';
+$pageHead = <<<'CSS'
   <style>
     .legal-content {
       padding: 80px 20px;
@@ -72,22 +65,9 @@
       margin-bottom: 10px;
     }
   </style>
-</head>
-
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo"
-        style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png"
-          alt="AGAIN sistema" class="logo-img" style="max-height: 32px; width: auto;"></a>
-      <nav class="nav-links">
-        <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
-        <a href="tariffe.html" class="nav-link">Tariffe</a>
-        <a href="contatti.html" class="nav-link">Contatti</a>
-      </nav>
-    </div>
-  </header>
+CSS;
+include __DIR__ . '/header.php';
+?>
 
   <main class="legal-content">
     <h1>INFORMATIVA PER IL TRATTAMENTO DEI DATI PERSONALI</h1>
@@ -105,14 +85,21 @@
     <p>I dati personali saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento potrà avvenire con strumenti manuali e automatizzati, nel rispetto delle disposizioni di cui all’art. 32 del GDPR e delle misure di sicurezza tecniche e organizzative adeguate.</p>
     <p>Per qualsiasi informazione o per l’esercizio dei diritti è possibile contattare il Titolare ai seguenti recapiti:</p>
     <ul>
-      <li><strong>DATI DELLA SOCIETÀ - AGAIN sistema</strong></li>
-      <li>Partita IVA: 10627351215 - Codice Fiscale: 10627351215</li>
-      <li>Vat Europeo: IT10627351215</li>
-      <li>Rag. Sociale: AGAIN sistema</li>
-      <li>Indirizzo Sede legale: NAPOLI (NA) VIA PASQUALE FRUSTACI 10 CAP 80142</li>
+      <li><strong>DATI DELLA SOCIETÀ - <?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?></strong></li>
+<?php if ($COMPANY['p_iva'] !== '') { ?>
+      <li>Partita IVA: <?= $COMPANY['p_iva'] ?> - Codice Fiscale: <?= $COMPANY['p_iva'] ?></li>
+<?php } ?>
+<?php if ($COMPANY['company_name'] !== '') { ?>
+      <li>Rag. Sociale: <?= $COMPANY['company_name'] ?></li>
+<?php } ?>
+<?php if ($COMPANY['sede_legale'] !== '') { ?>
+      <li>Indirizzo Sede legale: <?= $COMPANY['sede_legale'] ?></li>
+<?php } ?>
       <li>Rea: NA - 1120103</li>
       <li>Email privacy: <a href="mailto:privacy@again-srl.it">privacy@again-srl.it</a></li>
-      <li>PEC: <a href="mailto:giclaf@pec.it">giclaf@pec.it</a></li>
+<?php if ($COMPANY['pec'] !== '') { ?>
+      <li>PEC: <a href="mailto:<?= $COMPANY['pec'] ?>"><?= $COMPANY['pec'] ?></a></li>
+<?php } ?>
     </ul>
 
     <h2>DATA PROTECTION OFFICER</h2>
@@ -207,7 +194,9 @@
     <ul>
       <li>Email privacy: <a href="mailto:privacy@again-srl.it">privacy@again-srl.it</a></li>
       <li>DPO: <a href="mailto:dpo@again-srl.it">dpo@again-srl.it</a></li>
-      <li>PEC: <a href="mailto:giclaf@pec.it">giclaf@pec.it</a></li>
+<?php if ($COMPANY['pec'] !== '') { ?>
+      <li>PEC: <a href="mailto:<?= $COMPANY['pec'] ?>"><?= $COMPANY['pec'] ?></a></li>
+<?php } ?>
     </ul>
 
     <h2>RECLAMO ALL’AUTORITÀ DI CONTROLLO</h2>
@@ -223,42 +212,4 @@
     <p>Gli aggiornamenti saranno resi disponibili mediante pubblicazione sul sito web o tramite altri canali informativi appropriati.</p>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="LOGO_again.png"
-            alt="AGAIN sistema" class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato Nuova Corrente. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Chi Siamo</h4>
-          <a href="chi-siamo.html">Chi Siamo</a>
-          <a href="tariffe.html">Tariffe</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Servizi</h4>
-          <a href="tariffe.html">Confronta Offerte Luce</a>
-          <a href="tariffe.html">Soluzioni Sostenibili</a>
-
-        </div>
-        <div class="footer-col">
-          <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.html">Condizioni di Utilizzo</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 AGAIN sistema. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
+<?php include __DIR__ . '/footer.php'; ?>
