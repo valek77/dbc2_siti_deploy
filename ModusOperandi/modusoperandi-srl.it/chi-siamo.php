@@ -1,125 +1,157 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Contatti';
-$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+$pageTitle = 'Chi Siamo';
+$pageDescription = 'Team di consulenti energetici specializzati nelle offerte di luce e gas. Scopri la nostra storia e i nostri valori.';
 include __DIR__ . '/header.php';
 ?>
 
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Chi Siamo— <?=$COMPANY["nome_commerciale"] ?></title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <section class="hero about-hero" style="background: var(--primary); color: #ffffff;">
-    <div class="hero-wrapper" style="gap: 80px; align-items: center;">
-      <div class="hero-content">
-        <h1 class="hero-title" style="color: #ffffff; text-shadow: none;">La nostra missione per un futuro sostenibile
-        </h1>
-        <p class="hero-p" style="color: rgba(255, 255, 255, 0.92);">
-          Siamo un team di esperti appassionati che lavorano ogni giorno per rendere l'energia più semplice, trasparente
-          e verde per tutti.
-        </p>
-        <div class="hero-actions" style="margin-top: 40px;">
-          <a href="tariffe.php" class="btn-primary">Scopri le nostre offerte</a>
-        </div>
-      </div>
-      <div class="hero-image" style="flex: 0 0 35%; display: flex; justify-content: center;">
-        <img src="about_mission.png" alt="La nostra missione" class="hero-img"
-          style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
-      </div>
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow"><span class="dot"></span> Chi siamo</span>
+      <h1>Energia con <span class="accent">competenza</span></h1>
+      <p>Un team di consulenti energetici al tuo fianco per semplificare il mercato libero dell'energia. Vicini, trasparenti, sempre.</p>
+    </div>
+    <div class="wave">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+        <path d="M0,32L120,26.7C240,21,480,11,720,13.3C960,16,1200,32,1320,40L1440,48L1440,70L0,70Z"/>
+      </svg>
     </div>
   </section>
 
-  <section style="padding: 80px 20px; background: #fff;">
-    <div
-      style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: center;">
-      <div>
-        <div style="font-size: 48px; font-weight: 800; color: var(--primary); margin-bottom: 10px;">50k+</div>
-        <div style="font-weight: 600; color: var(--text-label);">Clienti Soddisfatti</div>
-      </div>
-      <div>
-        <div style="font-size: 48px; font-weight: 800; color: var(--primary); margin-bottom: 10px;">100%</div>
-        <div style="font-weight: 600; color: var(--text-label);">Energia Verde</div>
-      </div>
-      <div>
-        <div style="font-size: 48px; font-weight: 800; color: var(--primary); margin-bottom: 10px;">120+</div>
-        <div style="font-weight: 600; color: var(--text-label);">Esperti nel Team</div>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding: 80px 20px; background: #f1f5f9;">
-    <div style="max-width: 1000px; margin: 0 auto;">
-      <h2 class="section-title">I nostri valori</h2>
-      <p class="section-sub">Ciò che ci guida ogni giorno</p>
-
-      <div
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
-        <div
-          style="background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center;">
-          <img src="icon_free_new.png" alt="Trasparenza" style="max-height: 80px; width: auto; margin-bottom: 20px;">
-          <h4 style="color: var(--primary); margin-bottom: 15px; font-size: 20px;">Trasparenza Totale</h4>
-          <p style="color: var(--text-label); line-height: 1.6; text-align: left;">Basta asterischi e costi nascosti. Ti
-            diciamo sempre la
-            verità sulla tua bolletta, garantendo prezzi onesti e stabili nel tempo.</p>
+  <!-- Mission split -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow"><span class="dot"></span> La nostra missione</span>
+          <h2 class="section-title" style="text-align:left;">Mercato libero, <span class="accent">scelta libera</span></h2>
+          <div class="divider-line"></div>
+          <p style="font-size:18px; color:var(--muted); line-height:1.75; margin: 0 0 24px;">
+            <?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Lavoriamo ogni giorno per portare ai clienti le migliori tariffe disponibili.
+          </p>
+          <div class="split-tiles">
+            <div class="split-tile">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+              <div>
+                <h5>Zero rischi</h5>
+                <p>Nessuna interruzione di fornitura.</p>
+              </div>
+            </div>
+            <div class="split-tile warm">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              <div>
+                <h5>Analisi bolletta</h5>
+                <p>Verifichiamo i tuoi consumi reali.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div
-          style="background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center;">
-          <img src="icon_nocommit_new.png" alt="Sostenibilità"
-            style="max-height: 80px; width: auto; margin-bottom: 20px;">
-          <h4 style="color: var(--primary); margin-bottom: 15px; font-size: 20px;">Sostenibilità Vera</h4>
-          <p style="color: var(--text-label); line-height: 1.6; text-align: left;">L'energia che vendiamo proviene solo
-            da fonti
-            rinnovabili. Aiutiamo i nostri clienti a ridurre la propria impronta di carbonio con facilità.</p>
-        </div>
-        <div
-          style="background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center;">
-          <img src="icon_call_new.png" alt="Innovazione" style="max-height: 80px; width: auto; margin-bottom: 20px;">
-          <h4 style="color: var(--primary); margin-bottom: 15px; font-size: 20px;">Innovazione Utile</h4>
-          <p style="color: var(--text-label); line-height: 1.6; text-align: left;">Usiamo la tecnologia per ottimizzare
-            i consumi e
-            offrirti strumenti digitali intuitivi per gestire la tua energia in un click.</p>
+
+        <div class="split-visual reveal">
+          <img src="chi_siamo_team.jpg" alt="Il nostro team di esperti">
         </div>
       </div>
     </div>
   </section>
 
-  <section style="padding: 80px 20px; background: #fff;">
-    <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
-      <div style="flex: 1; min-width: 300px;">
-        <img src="company_origins.png" alt="<?=$COMPANY["nome_commerciale"] ?>"
-          style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-      </div>
-      <div style="flex: 1.5; min-width: 300px;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0;">Come siamo nati</h2>
-        <p style="font-size: 18px; line-height: 1.8; color: var(--text-label); margin-bottom: 20px;">
-          <?=$COMPANY["nome_commerciale"] ?> è nata nel 2000 per portare innovazione e sostenibilità nel mercato energetico. Sviluppiamo
-          impianti di produzione di energia da fonti rinnovabili con standard altissimi.
-        </p>
-        <p style="font-size: 18px; line-height: 1.8; color: var(--text-label);">
-          Oggi siamo orgogliosi di essere un punto di riferimento per cittadini e aziende che vogliono investire nella
-          transizione energetica.
-        </p>
+  <!-- Stats -->
+  <section class="stat-strip">
+    <div class="container">
+      <div class="stat-strip-grid">
+        <div class="stat-item reveal">
+          <div class="n">5.000+</div>
+          <div class="l">Contratti attivati</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="n">24h</div>
+          <div class="l">Risposta garantita</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="n">8</div>
+          <div class="l">Offerte disponibili</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="n">€0</div>
+          <div class="l">Costo consulenza</div>
+        </div>
       </div>
     </div>
   </section>
-<script src="cb.js"></script>
-</body>
 
-</html>
+  <!-- Valori -->
+  <section class="section features">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot"></span> I nostri valori</span>
+        <h2 class="section-title">Tre principi, <span class="underline">ogni giorno</span></h2>
+        <p class="section-sub">Quello che ci guida nel rapporto con i clienti, dalla prima telefonata alla bolletta.</p>
+      </div>
 
-<?php 
+      <div class="features-container">
+        <article class="feature-card reveal">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h4>Trasparenza</h4>
+          <p>Nessun costo nascosto, nessuna sorpresa. Ogni offerta viene spiegata nel dettaglio prima della firma.</p>
+        </article>
 
+        <article class="feature-card reveal">
+          <div class="feature-icon warm"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></div>
+          <h4>Competenza</h4>
+          <p>Consulenti formati e aggiornati sulle normative ARERA e sulle dinamiche del mercato energetico.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h4>Affidabilità</h4>
+          <p>Ti seguiamo in ogni fase: dalla scelta dell'offerta all'attivazione della fornitura.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Come lavoriamo -->
+  <section class="section">
+    <div class="container">
+      <div class="split reverse">
+        <div class="split-visual reveal">
+          <img src="feature_consulenza.jpg" alt="Consulenza dedicata al cliente">
+        </div>
+
+        <div class="reveal">
+          <span class="eyebrow"><span class="dot"></span> Il nostro approccio</span>
+          <h2 class="section-title" style="text-align:left;">Come <span class="underline">lavoriamo</span> con te</h2>
+          <div class="divider-line"></div>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
+            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, capiamo consumi e profilo e solo allora ti proponiamo l'offerta <?= $brandName ?> più adatta.
+          </p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
+            Ci occupiamo di tutta la documentazione, coordiniamo il passaggio con il distributore locale e ti teniamo aggiornato su ogni fase. Il cambio fornitore avviene senza interruzioni.
+          </p>
+          <a href="contatti.php" class="btn-primary">Parla con un consulente
+            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote finale -->
+  <section class="quote-banner">
+    <div class="mark">"</div>
+    <h2>Il nostro obiettivo non è chiudere un contratto, ma costruire una relazione di fiducia duratura con ogni cliente che si affida a noi.</h2>
+    <p class="by">— Il Team <?= $brandName ?></p>
+  </section>
+
+<?php
+$pageScripts = <<<'HTML'
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+HTML;
 include __DIR__ . '/footer.php';
-
 ?>

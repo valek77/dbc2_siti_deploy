@@ -1,54 +1,84 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Contatti';
-$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+$pageDescription = 'Contattaci per ricevere una consulenza gratuita sulle offerte di luce e gas. Siamo qui per aiutarti a scegliere la tariffa giusta.';
+
+$telContatto = $COMPANY['telefono'] ?? '';
+$emailContatto = $COMPANY['email_supporto'] ?? '';
+$pecContatto = $COMPANY['pec'] ?? '';
+
 include __DIR__ . '/header.php';
 ?>
 
-
-<!doctype html>
-<html lang="it">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contatti— <?=$COMPANY["nome_commerciale"] ?></title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-
-  <main style="margin-top: 60px; background: #fff;">
-    <div style="max-width: 800px; margin: 0 auto; padding: 40px 20px 20px; text-align: center;">
-      <h2 class="section-title" style="font-size: 48px; color: var(--text-dark); margin-top: 0;">Contattaci</h2>
-      <p class="section-sub" style="font-size: 20px; color: var(--text-label);">Compila il modulo sottostante per
-        inviarci un messaggio o essere ricontattato</p>
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow"><span class="dot"></span> Contattaci</span>
+      <h1>Parliamo di <span class="accent">energia</span></h1>
+      <p>Richiedi una consulenza gratuita: un nostro esperto ti contatterà nel più breve tempo possibile.</p>
     </div>
+    <div class="wave">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+        <path d="M0,32L120,26.7C240,21,480,11,720,13.3C960,16,1200,32,1320,40L1440,48L1440,70L0,70Z"/>
+      </svg>
+    </div>
+  </section>
 
-    <section class="green-intro"
-      style="padding: 80px 20px; background: var(--primary); margin: 60px 0; color: #ffffff;">
-      <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 300px;">
-          <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Un'energia più pulita,
-            insieme</h2>
-          <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            Scegliere <?=$COMPANY["nome_commerciale"] ?> significa sostenere l'ambiente. Ogni nostro kilowattora proviene al 100% da fonti
-            rinnovabili certificate.
-          </p>
-        </div>
-        <div style="flex: 0.8; min-width: 200px; display: flex; justify-content: center;">
-          <img src="hero_clean_energy.png" alt="Eco Energy"
-            style="max-width: 300px; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-        </div>
-      </div>
-    </section>
+  <main class="section" style="padding: 80px 0 var(--section);">
+    <div class="container">
+      <div class="contact-grid">
 
-    <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;" id="contatto-form">
-      <div class="lead-card">
+        <aside class="reveal">
+          <div class="contact-info-card">
+            <h3 style="margin: 0 0 8px; font-size: 22px; color: var(--ink);">Siamo qui per te</h3>
+            <p style="margin: 0 0 28px; color: var(--muted); font-size: 15px;">Compila il modulo o contattaci direttamente. Ti risponderemo entro 24 ore lavorative.</p>
+            <div class="contact-info-list">
+              <?php if ($telContatto !== '') { ?>
+              <div class="contact-info-item">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+                <div>
+                  <div class="label">Telefono</div>
+                  <a href="tel:<?= preg_replace('/[^0-9+]/', '', $telContatto) ?>"><?= $telContatto ?></a>
+                </div>
+              </div>
+              <?php } ?>
+              <?php if ($emailContatto !== '') { ?>
+              <div class="contact-info-item">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div>
+                  <div class="label">Email</div>
+                  <a href="mailto:<?= $emailContatto ?>"><?= $emailContatto ?></a>
+                </div>
+              </div>
+              <?php } ?>
+              <?php if ($pecContatto !== '') { ?>
+              <div class="contact-info-item">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div>
+                  <div class="label">PEC</div>
+                  <a href="mailto:<?= $pecContatto ?>"><?= $pecContatto ?></a>
+                </div>
+              </div>
+              <?php } ?>
+            </div>
+          </div>
+
+          <div class="contact-card-cta">
+            <div class="label">Vuoi risparmiare subito?</div>
+            <div class="name">Consulenza bolletta gratuita</div>
+            <div class="price">€0<small>senza impegno</small></div>
+            <div class="note">Scopri quanto puoi risparmiare confrontando la tua attuale tariffa.</div>
+            <a href="tariffe.php" class="see-all">Vedi le offerte
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </aside>
+
+        <div id="contatto-form" class="reveal">
+          <div class="contact-form">
+            <h3>Richiedi una consulenza</h3>
+            <p class="sub">Compila il form e ti ricontatteremo entro 24 ore.</p>
+
             <form id="leadForm" method="POST" novalidate>
               <div class="form-group">
                 <label class="form-label" for="fNome">Nome e Cognome *</label>
@@ -69,13 +99,13 @@ include __DIR__ . '/header.php';
               </div>
 
               <div class="form-group" style="margin-top: 28px;">
-                <label class="consent-label">
+                <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
                   <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
-                <label class="consent-label" style="margin-top:12px;">
+                <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da Nuova Corrente, tramite il partner commerciale Juna Srl , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
               </div>
 
@@ -85,43 +115,28 @@ include __DIR__ . '/header.php';
               </button>
             </form>
 
-            <div id="conferma" hidden style="text-align: center; padding: 32px 0; margin-top: 20px; background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: var(--r-md); color: #065F46;">
+            <div id="conferma" hidden style="text-align: center; padding: 32px 0; margin-top: 20px; background: var(--green-50); border: 1px solid var(--green-100); border-radius: var(--r-md); color: var(--green-deep);">
               <div style="font-size: 56px; margin-bottom: 12px;">✅</div>
               <strong style="font-size: 17px;">Richiesta inviata con successo!</strong>
-              <p style="margin: 8px 0 0; font-size: 14.5px;">Un nostro consulente ti contatterà.</p>
+              <p style="margin: 8px 0 0; font-size: 14.5px;">Un nostro consulente ti contatterà entro 24 ore lavorative.</p>
             </div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <section class="green-outro"
-      style="padding: 80px 20px; background: var(--primary); margin: 80px 0 0 0; color: #ffffff;">
-      <div
-        style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap-reverse;">
-        <div style="flex: 0.8; min-width: 200px; display: flex; justify-content: center;">
-          <img src="company_origins.png" alt="Sostenibilità"
-            style="max-width: 300px; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-        </div>
-        <div style="flex: 1; min-width: 300px;">
-          <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">La nostra promessa verde
-          </h2>
-          <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            Non ci limitiamo a vendere energia, promuoviamo un cambiamento reale. Con le nostre soluzioni per il
-            fotovoltaico e la mobilità elettrica, rendiamo la tua vita più sostenibile e conveniente.
-          </p>
-        </div>
-      </div>
-    </section>
   </main>
 
-
+<?php
+$pageScripts = <<<'HTML'
   <script src="lead-form.js"></script>
-
-<script src="cb.js"></script>
-</body>
-
-</html>
-<?php 
-
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+HTML;
 include __DIR__ . '/footer.php';
-
 ?>

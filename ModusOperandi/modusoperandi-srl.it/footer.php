@@ -1,19 +1,20 @@
 <?php
-
 /**
- * footer.php — piè di pagina comune a tutte le pagine (nexicom.locura-srl.it).
+ * footer.php — pie' di pagina comune a tutte le pagine.
  *
- * Dati legali 100% da API NUOVA: la riga legale è costruita SOLO dai campi
+ * Dati legali 100% da API NUOVA: la riga legale e' costruita SOLO dai campi
  * presenti nell'azienda titolare ($COMPANY). Niente dati hardcoded: i campi che
  * l'API non fornisce (es. R.E.A.) semplicemente non compaiono.
  *
- * Prima dell'include ogni pagina può impostare:
+ * Prima dell'include ogni pagina puo' impostare:
  *   $pageScripts -> HTML <script> specifici della pagina (facoltativo)
  */
 $brandName = isset($brandName) ? $brandName
-    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Locura');
-// Logo footer (sfondo scuro): logo2 dall'API se presente, altrimenti l'immagine locale.
-$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'locura-b.png';
+    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Modus Operandi');
+// Logo footer: logo2 dall'API se presente, altrimenti l'immagine locale del brand.
+$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'modusoperandi.png';
+// Operatore energetico (fornitore di cui il sito e' partner/rivenditore).
+$operatoreNome = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
 
 // Riga legale: includo solo le parti effettivamente presenti nell'API.
 $legalParts = [];
@@ -32,52 +33,60 @@ if ($COMPANY['capitale_sociale'] !== '') {
 if ($COMPANY['pec'] !== '') {
     $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
 }
-$legalLine = implode(' - ', $legalParts);
+$legalLine = implode(' — ', $legalParts);
 
-// Dati dell'OPERATORE ENERGETICO (fornitore di cui il sito è partner/rivenditore).
-// Solo i campi presenti nell'API; il nome va nel prefisso, i dettagli a seguire.
-$operatoreNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
-$operatoreDettagli = [];
-if ($OPERATORE['indirizzo'] !== '') {
-    $operatoreDettagli[] = 'Sede: ' . $OPERATORE['indirizzo'];
-}
-if ($OPERATORE['partita_iva'] !== '') {
-    $operatoreDettagli[] = 'P.IVA: ' . $OPERATORE['partita_iva'];
-}
-$operatoreDettagliLine = implode(' - ', $operatoreDettagli);
+$telFooter = $COMPANY['telefono'] ?? '';
+$emailFooter = $COMPANY['email_supporto'] ?? '';
 ?>
 
   <footer class="main-footer">
     <div class="footer-container">
       <div class="footer-brand">
-        <a href="index.php" class="logo"
-          style="display: flex; align-items: center; gap: 10px; color: var(--accent);"><img src="logo.png"
-            alt=" <?= $COMPANY['nome_commerciale'] ?> " class="logo-img" style="max-height: 32px; width: auto; filter: brightness(0) invert(1);"></a>
-        <p>Rivenditore autorizzato  <?= $OPERATORE['nome_marketing'] ?> . Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
+        <a href="index.php" class="logo">
+          <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo">
+        </a>
+        <p>Partner autorizzato<?= $operatoreNome !== '' ? ' ' . $operatoreNome : '' ?>.<br>Consulenza gratuita per la tua fornitura di luce e gas.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h4>Chi Siamo</h4>
+          <h4>Azienda</h4>
           <a href="chi-siamo.php">Chi Siamo</a>
-          <a href="tariffe.php">Tariffe</a>
+          <a href="tariffe.php">Offerte</a>
           <a href="contatti.php">Contatti</a>
         </div>
         <div class="footer-col">
           <h4>Servizi</h4>
-          <a href="tariffe.php">Confronta Offerte Luce</a>
-          <a href="tariffe.php">Soluzioni Sostenibili</a>
-
+          <a href="tariffe.php">Luce</a>
+          <a href="tariffe.php">Gas</a>
+          <a href="tariffe.php">Offerte PLACET</a>
         </div>
         <div class="footer-col">
           <h4>Legale</h4>
-
-          <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
           <a href="privacy-policy.php">Privacy Policy</a>
-
+          <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
+          <a href="cookie-policy.php">Cookie Policy</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contatti</h4>
+          <?php if ($telFooter !== '') { ?>
+          <a href="tel:<?= preg_replace('/[^0-9+]/', '', $telFooter) ?>"><?= $telFooter ?></a>
+          <?php } ?>
+          <?php if ($emailFooter !== '') { ?>
+          <a href="mailto:<?= $emailFooter ?>"><?= $emailFooter ?></a>
+          <?php } ?>
+          <a href="contatti.php" class="btn-primary">Richiedi info</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 <?= $COMPANY['nome_commerciale'] ?> . Tutti i diritti riservati.</p>
+      <p>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : ($brandName . '. ') ?>Tutti i diritti riservati.</p>
     </div>
   </footer>
+
+<?php if (!empty($pageScripts)) {
+    echo $pageScripts;
+} ?>
+<script src="cb.js"></script>
+</body>
+
+</html>

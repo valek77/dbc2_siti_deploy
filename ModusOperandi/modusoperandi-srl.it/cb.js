@@ -20,7 +20,7 @@
         }
         .cookie-banner-container {
           background: #ffffff;
-          box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12);
           padding: 32px 40px;
           width: 100%;
           display: flex;
@@ -36,18 +36,18 @@
         .cookie-content strong {
           display: block;
           font-size: 17px;
-          color: #1e293b;
+          color: #1A1A1A;
           margin-bottom: 8px;
           font-weight: 700;
         }
         .cookie-content p {
           font-size: 14.5px;
           line-height: 1.6;
-          color: #4a5568;
+          color: #555555;
           margin: 0;
         }
         .cookie-content a {
-          color: #059669;
+          color: #009E62;
           text-decoration: underline;
           font-weight: 600;
         }
@@ -59,7 +59,7 @@
         }
         .cookie-btn {
           padding: 14px 24px;
-          border-radius: 12px;
+          border-radius: 999px;
           font-size: 14px;
           font-weight: 700;
           cursor: pointer;
@@ -69,20 +69,20 @@
           font-family: inherit;
         }
         .cookie-btn-primary {
-          background: #059669;
-          color: #fff;
-          box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+          background: #FFCD00;
+          color: #1A1A1A;
+          box-shadow: 0 4px 12px rgba(255, 205, 0, 0.35);
         }
         .cookie-btn-primary:hover {
-          background: #047857;
+          background: #E5B800;
           transform: translateY(-2px);
         }
         .cookie-btn-secondary {
-          background: #f1f5f9;
-          color: #1e293b;
+          background: #F7F4EE;
+          color: #1A1A1A;
         }
         .cookie-btn-secondary:hover {
-          background: #e2e8f0;
+          background: #EFE9DF;
           transform: translateY(-2px);
         }
         @media (max-width: 768px) {
@@ -114,7 +114,7 @@
           <div class="cookie-content">
             <strong>Utilizziamo i cookie per migliorare la tua esperienza sul sito. 🍪</strong>
             <p>Puoi accettare tutti i cookie e continuare la navigazione.<br>
-            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="cookie-policy.html">cookie policy</a>.</p>
+            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="cookie-policy.php">cookie policy</a>.</p>
           </div>
           <div class="cookie-actions">
             <button class="cookie-btn cookie-btn-primary" id="btn-accept-cookie">Accetta tutto</button>
