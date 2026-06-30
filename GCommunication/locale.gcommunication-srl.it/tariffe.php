@@ -3,8 +3,8 @@ require __DIR__ . '/_config.php';
 $pageTitle = 'Tariffe';
 
 // Catalogo offerte: dati statici (non fanno parte dell'anagrafica azienda API).
-// Il nome dell'operatore (dal .env) viene passato al JS come costante PROVIDER.
-$operatoreJs = json_encode(html_entity_decode($OPERATORE_ENERGETICO, ENT_QUOTES, 'UTF-8'));
+// Il nome marketing dell'operatore (dall'API) viene passato al JS come costante PROVIDER.
+$operatoreJs = json_encode(html_entity_decode($OPERATORE['nome_marketing'], ENT_QUOTES, 'UTF-8'));
 $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
   <script>
     const offers = [
@@ -105,10 +105,10 @@ include __DIR__ . '/header.php';
         style="display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.1); padding: 8px 16px; border-radius: 100px; margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.2);">
         <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Official
           Partner</span>
-        <img src="logo-dark.png" alt="<?= $OPERATORE_ENERGETICO ?>" style="height: 24px; filter: brightness(0) invert(1);">
+        <img src="logo-dark.png" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; filter: brightness(0) invert(1);">
       </div>
       <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">L'energia che
-        conviene con <?= $OPERATORE_ENERGETICO ?></h1>
+        conviene con <?= $OPERATORE['nome_marketing'] ?></h1>
       <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Scegli la sicurezza:
         avrai un esperto dedicato per individuare il contratto su misura per te, assicurandoti un supporto continuo nel
         tempo!</p>
@@ -124,7 +124,7 @@ include __DIR__ . '/header.php';
         <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 36px;">Ottimizza le tue utenze
         </h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          <?= $brand ?> va oltre la semplice fornitura di connettività. Il nostro scopo è proteggerti dai costi eccessivi
+          <?= $brandName ?> va oltre la semplice fornitura di connettività. Il nostro scopo è proteggerti dai costi eccessivi
           attraverso consigli chiari e costanti sulle tue utenze. Avrai sempre una figura di riferimento a tua disposizione, eliminando
           lo stress dei call center.
         </p>
@@ -147,7 +147,7 @@ include __DIR__ . '/header.php';
   <p class="price-disclaimer" id="price-disclaimer"
     style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-size: 14px; color: var(--text-muted); text-align: center;">
     * Stime basate su profilo medio. Importi soggetti a variazioni in base a consumo, zona e potenza. Dati aggiornati
-    secondo il portale ufficiale <?= $OPERATORE_ENERGETICO ?>.
+    secondo il portale ufficiale <?= $OPERATORE['nome_marketing'] ?>.
   </p>
 
   <section class="info-section"
