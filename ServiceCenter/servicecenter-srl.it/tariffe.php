@@ -8,10 +8,10 @@ include __DIR__ . '/header.php';
   <h2 class="section-title"
     style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
     Le migliori offerte
-    <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="<?= $OPERATORE_ENERGETICO ?>"
+    <img src="https://nuovacorrente.it/wp-content/uploads/2025/01/logo.png" alt="<?= $OPERATORE['nome_marketing'] ?>"
       style="height: 40px; width: auto;">
   </h2>
-  <p class="section-sub">In partnership con <?= $OPERATORE_ENERGETICO ?> per garantirti il massimo risparmio</p>
+  <p class="section-sub">In partnership con <?= $OPERATORE['nome_marketing'] ?> per garantirti il massimo risparmio</p>
 
   <div class="results-list" id="results"></div>
 
@@ -24,7 +24,7 @@ include __DIR__ . '/header.php';
       id: 'nc-energy-online',
       esclusiva: true,
       nome: 'Energy Online Luce',
-      fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
+      fornitore: <?= json_encode($OPERATORE['nome_marketing']) ?>,
       tipo: 'PUN + 0€ Spread',
       bollettaMensile: 74.50,
       bollettaAnnua: 894.00,
@@ -36,7 +36,7 @@ include __DIR__ . '/header.php';
       id: 'nc-gas-online',
       esclusiva: true,
       nome: 'Gas Online',
-      fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
+      fornitore: <?= json_encode($OPERATORE['nome_marketing']) ?>,
       tipo: 'PSV + 0.10€ Spread',
       bollettaMensile: 88.00,
       bollettaAnnua: 1056.00,
@@ -48,7 +48,7 @@ include __DIR__ . '/header.php';
       id: 'nc-dual-online',
       esclusiva: true,
       nome: 'Dual Online (Luce + Gas)',
-      fornitore: <?= json_encode($OPERATORE_ENERGETICO) ?>,
+      fornitore: <?= json_encode($OPERATORE['nome_marketing']) ?>,
       tipo: 'Prezzo Indicizzato',
       bollettaMensile: 158.00,
       bollettaAnnua: 1896.00,

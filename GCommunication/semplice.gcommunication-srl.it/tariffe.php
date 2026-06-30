@@ -1,167 +1,66 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Gas e Luce';
+$pageHead = '<style>@media (max-width: 760px) { #results { grid-template-columns: 1fr !important; } }</style>';
 
 // Script specifico della pagina (catalogo offerte). Restano dati statici:
 // le offerte non fanno parte dell'anagrafica azienda gestita dall'API.
-// Il nome dell'operatore (dal .env) viene passato al JS come costante PROVIDER.
-$operatoreJs = json_encode(html_entity_decode($OPERATORE_ENERGETICO, ENT_QUOTES, 'UTF-8'));
+// Il nome marketing dell'operatore (dall'API) viene passato al JS come costante PROVIDER.
+$operatoreJs = json_encode(html_entity_decode($OPERATORE['nome_marketing'], ENT_QUOTES, 'UTF-8'));
 $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
   <script>
     const offers = [
       {
-            "nome": "Solo Web - Variabile PUN",
-            "tipo": "Luce",
+            "nome": "PSV Domestico 386",
+            "tipo": "Gas",
             "segmento": "Domestico",
-            "prezzo": "PUN + 0,055 €/kWh",
-            "corrispettivo_annuo": "456 €/POD/anno",
+            "prezzo": "PSV + 0,45 €/Smc",
+            "corrispettivo_annuo": "648,00 €/PDR/anno",
             "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
+                  "Pagamento: addebito SDD, bonifico o bollettino"
             ],
-            "descrizione": "Prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
+            "descrizione": "Indicizzato al PSV Day Ahead (ICIS Heren), aggiornato mensilmente.",
             "logicard": false,
             "id": "off-01"
       },
       {
-            "nome": "Solo Web - AU PUN",
+            "nome": "PUN Index GME Domestico 386",
             "tipo": "Luce",
             "segmento": "Domestico",
-            "prezzo": "PUN + 0,055 €/kWh",
-            "corrispettivo_annuo": "456 €/POD/anno",
+            "prezzo": "PUN Index GME + 0,055 €/kWh",
+            "corrispettivo_annuo": "456,00 €/POD/anno",
             "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
+                  "Pagamento: addebito SDD, bonifico o bollettino"
             ],
-            "descrizione": "Altri usi: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
+            "descrizione": "Indicizzato al PUN Index GME, stesso spread su F1/F2/F3, aggiornato mensilmente.",
             "logicard": false,
             "id": "off-02"
       },
       {
-            "nome": "Solo Web - AU PUN Logicard Casa",
-            "tipo": "Luce",
+            "nome": "PSV Domestico CS 386",
+            "tipo": "Gas",
             "segmento": "Domestico",
-            "prezzo": "PUN + 0,05 €/kWh",
-            "corrispettivo_annuo": "456 €/POD/anno",
+            "prezzo": "PSV + 0,42 €/Smc",
+            "corrispettivo_annuo": "648,00 €/PDR/anno",
             "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
+                  "Pagamento: addebito SDD, bonifico o bollettino"
             ],
-            "descrizione": "Altri usi indicizzata al PUN con carta Logicard Casa (contributo 168 €+IVA/anno).",
-            "logicard": true,
+            "descrizione": "Indicizzato al PSV Day Ahead (ICIS Heren), aggiornato mensilmente.",
+            "logicard": false,
             "id": "off-03"
       },
       {
-            "nome": "Solo Web - Variabile PSV",
-            "tipo": "Gas",
+            "nome": "PUN Index GME Domestico CS 386",
+            "tipo": "Luce",
             "segmento": "Domestico",
-            "prezzo": "PSV + 0,45 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
+            "prezzo": "PUN Index GME + 0,05 €/kWh",
+            "corrispettivo_annuo": "456,00 €/POD/anno",
             "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
+                  "Pagamento: addebito SDD, bonifico o bollettino"
             ],
-            "descrizione": "Prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
+            "descrizione": "Indicizzato al PUN Index GME, stesso spread su F1/F2/F3, aggiornato mensilmente.",
             "logicard": false,
             "id": "off-04"
-      },
-      {
-            "nome": "Solo Web - Variabile PSV Logicard Casa",
-            "tipo": "Gas",
-            "segmento": "Domestico",
-            "prezzo": "PSV + 0,42 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno).",
-            "logicard": true,
-            "id": "off-05"
-      },
-      {
-            "nome": "Solo Web - Variabile AU PSV",
-            "tipo": "Gas",
-            "segmento": "Domestico",
-            "prezzo": "PSV + 0,45 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Altri usi: prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
-            "logicard": false,
-            "id": "off-06"
-      },
-      {
-            "nome": "Solo Web - Variabile AU PSV Logicard Casa",
-            "tipo": "Gas",
-            "segmento": "Domestico",
-            "prezzo": "PSV + 0,42 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Altri usi indicizzata al PSV con carta Logicard Casa (contributo 168 €+IVA/anno).",
-            "logicard": true,
-            "id": "off-07"
-      },
-      {
-            "nome": "Solo Web - PUN Condominio",
-            "tipo": "Luce",
-            "segmento": "Condominio",
-            "prezzo": "PUN + 0,055 €/kWh",
-            "corrispettivo_annuo": "456 €/POD/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Per condomini: prezzo indicizzato al PUN Index GME con spread fisso per 12 mesi.",
-            "logicard": false,
-            "id": "off-08"
-      },
-      {
-            "nome": "Solo Web - PUN Condominio CS",
-            "tipo": "Luce",
-            "segmento": "Condominio",
-            "prezzo": "PUN + 0,05 €/kWh",
-            "corrispettivo_annuo": "456 €/POD/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno).",
-            "logicard": true,
-            "id": "off-09"
-      },
-      {
-            "nome": "Solo Web - PSV Condominio",
-            "tipo": "Gas",
-            "segmento": "Condominio",
-            "prezzo": "PSV + 0,45 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Per condomini: prezzo all'ingrosso indicizzato all'indice PSV Day Ahead, aggiornato mensilmente.",
-            "logicard": false,
-            "id": "off-10"
-      },
-      {
-            "nome": "Solo Web - PSV Condominio CS",
-            "tipo": "Gas",
-            "segmento": "Condominio",
-            "prezzo": "PSV + 0,42 €/Smc",
-            "corrispettivo_annuo": "648 €/PDR/anno",
-            "sconti": [
-                  "1,00 € sconto bolletta via e-mail",
-                  "1,00 € sconto addebito SDD"
-            ],
-            "descrizione": "Per condomini con carta Logicard Casa (contributo 168 €+IVA/anno).",
-            "logicard": true,
-            "id": "off-11"
       }
 ];
 
@@ -207,7 +106,7 @@ include __DIR__ . '/header.php';
   <section class="hero"
     style="background: linear-gradient(rgba(94, 200, 215, 0.4), rgba(94, 200, 215, 0.6)), url('tariffe_hero.jpg') center/cover no-repeat; color: #ffffff; padding: 120px 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div class="hero-wrapper" style="max-width: 900px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte <span style="color: var(--accent);"><?= $OPERATORE_ENERGETICO ?></span></h1>
+      <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte <span style="color: var(--accent);"><?= $OPERATORE['nome_marketing'] ?></span></h1>
       <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Offerte SOLO WEB Luce e Gas a prezzo variabile, indicizzate agli indici di mercato PUN e PSV con spread fisso per 12 mesi.</p>
     </div>
   </section>
@@ -233,12 +132,12 @@ include __DIR__ . '/header.php';
     <h2 class="section-title" style="text-align: center; margin-top: 0; font-size: 36px;">Le nostre offerte Luce e Gas</h2>
     <p style="text-align:center; color: var(--text-secondary); max-width: 720px; margin: 0 auto 48px; font-size: 18px;">Tutte le offerte sono riservate ai clienti che aderiscono tramite richiesta web. Scegli quella piu adatta a te.</p>
     <div class="results-list" id="results"
-      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: var(--gutter);"></div>
+      style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); max-width: 880px; margin: 0 auto;"></div>
   </main>
 
   <p class="price-disclaimer" id="price-disclaimer"
     style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-size: 14px; color: var(--text-muted); text-align: center;">
-    * I corrispettivi indicati si riferiscono alla sola componente Materia Energia e sono al netto di imposte, costi di trasporto e gestione del contatore e oneri di sistema, come stabiliti e aggiornati da ARERA. Prezzo indicizzato (PUN/PSV Index GME) piu spread fisso per 12 mesi. Dati aggiornati secondo le offerte ufficiali di <?= $OPERATORE_ENERGETICO ?>.
+    * I corrispettivi indicati si riferiscono alla sola componente Materia Energia e sono al netto di imposte, costi di trasporto e gestione del contatore e oneri di sistema, come stabiliti e aggiornati da ARERA. Prezzo indicizzato (PUN/PSV Index GME) piu spread fisso per 12 mesi. Dati aggiornati secondo le offerte ufficiali di <?= $OPERATORE['nome_marketing'] ?>.
   </p>
 
 <?php include __DIR__ . '/footer.php'; ?>

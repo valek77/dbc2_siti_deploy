@@ -1,0 +1,257 @@
+<?php
+require __DIR__ . '/_config.php';
+$brandName = $LANDING_PAGE['nome_portale'] !== ''
+    ? $LANDING_PAGE['nome_portale']
+    : ($LANDING_PAGE['titolo'] !== ''
+        ? $LANDING_PAGE['titolo']
+        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact'));
+$pageDescription = $brandName . ' è il partner ufficiale Switch Luce Gas. Risparmia sulla bolletta con offerte chiare, prezzi indicizzati e consulenza gratuita.';
+// Top-bar specifica della home, emessa tra <body> e <header> dal template comune.
+$headerPrefix = <<<'HTML'
+  <!-- ENGIE-LIKE HEADER -->
+  <div style="background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); padding: 8px 24px; display: none;">
+    <!-- Hide on mobile via CSS usually, but we'll leave it simple here -->
+  </div>
+  <div class="top-bar" style="background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); padding: 8px 24px;">
+    <div style="max-width: var(--maxw); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <div style="display: flex; gap: 20px;">
+        <a href="index.php" style="color: var(--primary); font-weight: 700; text-decoration: none;">Casa</a>
+        <a href="#" style="color: inherit; text-decoration: none; transition: color 0.2s;">Business ed Enti</a>
+        <a href="chi-siamo.php" style="color: inherit; text-decoration: none; transition: color 0.2s;">Gruppo GR</a>
+      </div>
+      <div style="display: flex; gap: 20px;">
+        <a href="contatti.php" style="color: inherit; text-decoration: none; transition: color 0.2s;">Contatti</a>
+        <a href="#" style="color: inherit; text-decoration: none; transition: color 0.2s;">Area Clienti</a>
+      </div>
+    </div>
+  </div>
+HTML;
+include __DIR__ . '/header.php';
+?>
+
+  <!-- HERO - ENGIE STYLE -->
+  <section class="section" style="padding-top: 60px; padding-bottom: 60px; background: var(--bg-soft);">
+    <div class="container">
+      <div class="split" style="gap: 40px; align-items: center;">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> <?= $OPERATORE['nome_marketing'] ?></span>
+          <h1 style="font-size: clamp(40px, 5vw, 56px); margin-bottom: 24px; line-height: 1.1; font-family: var(--font-display); font-weight: 800; color: var(--ink);">
+            L'energia giusta per la tua casa,<br><span style="color: var(--primary);">senza sorprese.</span>
+          </h1>
+          <p style="font-size: 18px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; max-width: 500px;">Scopri le nostre offerte a prezzo fisso e indicizzato. Trasparenza, convenienza e un'assistenza sempre al tuo fianco.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
+            <a href="contatti.php" class="btn-outline" style="border: 2px solid var(--primary); color: var(--primary);">Ti chiamiamo noi</a>
+          </div>
+        </div>
+        <div class="split-img" style="border-radius: 20px 80px 20px 20px; box-shadow: var(--shadow-lg);">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Casa confortevole con energia <?= $OPERATORE['nome_marketing'] ?>">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFERTE GRID -->
+  <section class="section" style="padding: 80px 0;">
+    <div class="container">
+      <div class="section-head" style="margin-bottom: 48px; text-align: left;">
+        <h2 class="section-title">Le nostre offerte in evidenza</h2>
+        <p class="section-sub" style="margin: 0; max-width: 600px;">Scegli l'offerta più adatta alle tue abitudini di consumo. Soluzioni flessibili o a prezzo bloccato, pensate per farti risparmiare.</p>
+      </div>
+      <div class="offers-grid">
+        <div class="offer-card">
+          <div class="offer-ribbon luce-res">Offerta Luce</div>
+          <div class="offer-body">
+            <div class="offer-name">NEW SWITCH Luce</div>
+            <div class="offer-type">Prezzo all'ingrosso + spread minimo</div>
+            <div class="offer-price-box">
+              <div class="offer-price-label">PUN + Contributo al consumo</div>
+              <div class="offer-price">€ 0,03<span style="font-size: 16px;">/kWh</span></div>
+              <div class="offer-price-alt">Attivazione €30,00 (scontato con 6 mesi)</div>
+            </div>
+            <ul class="offer-feats">
+              <li>Energia indicizzata al PUN</li>
+              <li>Nessun costo di attivazione</li>
+              <li>Assistenza dedicata in Italia</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <a href="tariffe.php" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px;">Scopri l'offerta</a>
+            </div>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-ribbon gas-res">Offerta Gas</div>
+          <div class="offer-body">
+            <div class="offer-name">NEW SWITCH Gas</div>
+            <div class="offer-type">Prezzo all'ingrosso + spread minimo</div>
+            <div class="offer-price-box">
+              <div class="offer-price-label">PSV + Contributo al consumo</div>
+              <div class="offer-price">€ 0,12<span style="font-size: 16px;">/Smc</span></div>
+              <div class="offer-price-alt">Attivazione €30,00 (scontato con 6 mesi)</div>
+            </div>
+            <ul class="offer-feats">
+              <li>Materia prima indicizzata al PSV</li>
+              <li>Attivazione rapida online</li>
+              <li>Zero burocrazia per il passaggio</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <a href="tariffe.php" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px; background: var(--coral);">Scopri l'offerta</a>
+            </div>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-ribbon luce-placet" style="background: var(--primary-deeper);">Offerta Sicura</div>
+          <div class="offer-body">
+            <div class="offer-name">HAPPY SWITCH PLACET</div>
+            <div class="offer-type">Luce o Gas a condizioni regolate</div>
+            <div class="offer-price-box">
+              <div class="offer-price-label">Spread bloccato per 12 mesi</div>
+              <div class="offer-price" style="font-size: 26px;">Luce +€0,18 · Gas +€0,70</div>
+              <div class="offer-price-alt">Condizioni equiparate alla tutela</div>
+            </div>
+            <ul class="offer-feats">
+              <li>Condizioni contrattuali ARERA</li>
+              <li>Spread fisso e trasparente</li>
+              <li>Sicurezza garantita per 12 mesi</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <a href="tariffe.php" class="btn-outline" style="width: 100%; justify-content: center; padding: 12px; color: var(--ink); border-color: var(--line);">Vedi i dettagli</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI E SOLUZIONI -->
+  <section class="section" style="background: var(--bg-soft); padding: 100px 0;">
+    <div class="container">
+      <div class="split reverse" style="gap: 80px; align-items: center;">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Efficienza Energetica</span>
+          <h2 class="section-title">Soluzioni per aziende<br>ed <span class="hl">Enti Pubblici</span></h2>
+          <div class="divider-line"></div>
+          <p style="font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 24px;">Non solo case. Offriamo consulenza personalizzata e soluzioni di efficienza energetica per imprese di ogni dimensione. Dalla riduzione dei consumi all'ottimizzazione degli impianti.</p>
+          <ul class="offer-feats" style="margin-bottom: 40px;">
+            <li>Analisi gratuita dei consumi aziendali e audit energetico</li>
+            <li>Proposte di decarbonizzazione personalizzate</li>
+            <li>Gestione documentale e supporto per pratiche agevolate</li>
+          </ul>
+          <a href="contatti.php" class="btn-primary">Richiedi una consulenza</a>
+        </div>
+        <div class="split-img" style="border-radius: 20px; box-shadow: var(--shadow-md);">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Soluzioni energetiche per aziende ed enti">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOSTENIBILITA E CERTIFICAZIONI -->
+  <section class="section" style="padding: 100px 0;">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot"></span> Il nostro impegno</span>
+        <h2 class="section-title">Un fornitore affidabile,<br>un'energia per il <span class="ul">futuro</span></h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feat-card" style="text-align: center; padding: 48px 32px;">
+          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">🌿</div>
+          <h4>Transizione Sostenibile</h4>
+          <p style="margin-top: 12px;">Lavoriamo costantemente per offrire opzioni energetiche che riducano l'impatto ambientale e aiutino le famiglie a consumare meglio, con maggiore consapevolezza.</p>
+        </div>
+        <div class="feat-card" style="text-align: center; padding: 48px 32px;">
+          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">🛡️</div>
+          <h4>Certificazione e Sicurezza</h4>
+          <p style="margin-top: 12px;">Tutte le nostre offerte PLACET e i contratti sono rigorosamente conformi alle direttive ARERA per garantirti la massima trasparenza e tutela del consumatore.</p>
+        </div>
+        <div class="feat-card" style="text-align: center; padding: 48px 32px;">
+          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">👥</div>
+          <h4>Assistenza di Qualità</h4>
+          <p style="margin-top: 12px;">Un team dedicato sempre pronto a rispondere. Nessun call center estero o code infinite, solo consulenti esperti e reali a tua completa disposizione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPAZIO CLIENTI (APP/PORTAL PROMO) -->
+  <section class="photo-section" style="padding: 100px 0;">
+    <div class="photo-bg" style="background-image: url('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="photo-overlay"></div>
+    <div class="container">
+      <div class="split" style="gap: 60px; align-items: center;">
+        <div>
+          <span class="eyebrow" style="color: var(--primary-light);"><span class="dot" style="background: var(--primary-light);"></span> Area Personale</span>
+          <h2 style="font-size: clamp(36px, 4vw, 52px); font-family: var(--font-display); font-weight: 800; color: #fff; margin-bottom: 24px; line-height: 1.1;">Hai già un contratto con noi?</h2>
+          <p style="font-size: 19px; color: rgba(255,255,255,.8); margin-bottom: 40px; line-height: 1.6;">Accedi allo Spazio Clienti per monitorare i tuoi consumi, pagare le bollette e gestire la tua fornitura in pochi clic, dove e quando vuoi.</p>
+          <div style="display: flex; gap: 16px;">
+            <a href="#" class="btn-primary" style="background: #fff; color: var(--primary-deeper);">Accedi all'Area Personale</a>
+          </div>
+        </div>
+        <div style="background: rgba(255,255,255,.08); backdrop-filter: blur(12px); padding: 48px; border-radius: var(--r-xl); border: 1px solid rgba(255,255,255,.15); color: #fff; box-shadow: var(--shadow-lg);">
+          <div style="font-size: 32px; margin-bottom: 16px;">📱</div>
+          <h3 style="font-family: var(--font-display); font-size: 26px; margin-bottom: 16px;">Scarica l'App (Prossimamente)</h3>
+          <p style="font-size: 16px; color: rgba(255,255,255,.7); margin-bottom: 32px; line-height: 1.6;">Porta la tua energia sempre con te. Stiamo lavorando a una nuova applicazione mobile per semplificarti ancora di più la vita e la gestione delle tue utenze.</p>
+          <div style="display: flex; gap: 16px;">
+            <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,.4); border-radius: 8px; font-weight: 600; cursor: not-allowed; opacity: 0.7;">App Store</div>
+            <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,.4); border-radius: 8px; font-weight: 600; cursor: not-allowed; opacity: 0.7;">Google Play</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<?php
+// Footer "mega" specifico della home: markup invariato, dati legali dall'API.
+$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'gr_logo.png';
+$operatoreNomeLegale = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
+$legalParts = [];
+if ($COMPANY['company_name'] !== '') { $legalParts[] = '<strong>' . $COMPANY['company_name'] . '</strong>'; }
+if ($COMPANY['sede_legale'] !== '')  { $legalParts[] = 'Sede legale: ' . $COMPANY['sede_legale']; }
+if ($COMPANY['p_iva'] !== '')        { $legalParts[] = 'P.IVA e C.F.: ' . $COMPANY['p_iva']; }
+if ($COMPANY['capitale_sociale'] !== '') { $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale']; }
+if ($COMPANY['pec'] !== '')          { $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '" style="color: rgba(255,255,255,.6);">' . $COMPANY['pec'] . '</a>'; }
+$legalLine = implode(' - ', $legalParts);
+?>
+  <!-- MEGA FOOTER -->
+  <footer class="main-footer" style="background: var(--dark-bg); color: #fff; padding: 100px 0 40px;">
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: 60px;">
+        <div class="footer-brand">
+          <a href="index.php" class="logo" style="margin-bottom: 28px; display: inline-block;">
+            <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo" style="filter: brightness(0) invert(1); height: 48px;">
+          </a>
+          <p style="color: rgba(255,255,255,.6); font-size: 15px; line-height: 1.7; max-width: 320px;">Siamo partner autorizzato<?= $operatoreNomeLegale !== '' ? ' ' . $operatoreNomeLegale : '' ?>. La nostra missione è fornire energia a prezzi chiari, supportata da consulenti reali e disponibili per garantirti sempre la massima trasparenza.</p>
+        </div>
+        <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
+          <h4 style="font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff;">Offerte e Servizi</h4>
+          <a href="tariffe.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Offerte Luce e Gas</a>
+          <a href="tariffe.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Offerte PLACET</a>
+          <a href="chi-siamo.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Consulenza Aziendale</a>
+          <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Efficienza Energetica</a>
+        </div>
+        <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
+          <h4 style="font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff;">Supporto Clienti</h4>
+          <a href="contatti.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Contattaci</a>
+          <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Area Personale</a>
+          <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Domande Frequenti (FAQ)</a>
+          <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Guida alla Bolletta</a>
+        </div>
+        <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
+          <h4 style="font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff;"><?= $brandName ?></h4>
+          <a href="chi-siamo.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Chi Siamo</a>
+          <a href="privacy-policy.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Privacy Policy</a>
+          <a href="condizioni-utilizzo.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Condizioni di Utilizzo</a>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 16px;">
+        <span>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : ($brandName . '. ') ?>Tutti i diritti riservati.</span>
+<?php if ($operatoreNomeLegale !== '') { ?>
+        <span>Rivenditore autorizzato <?= $operatoreNomeLegale ?></span>
+<?php } ?>
+      </div>
+    </div>
+  </footer>
+
+<script src="cb.js"></script>
+</body>
+</html>

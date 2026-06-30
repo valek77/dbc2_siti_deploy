@@ -9,7 +9,7 @@ include __DIR__ . '/header.php';
       Le migliori offerte
       <img src="nuovaCorrente.png" alt="Nuova Corrente" style="height: 40px; width: auto;">
     </h2>
-    <p class="section-sub">In partnership con <?= $OPERATORE_ENERGETICO ?> per garantirti il massimo risparmio</p>
+    <p class="section-sub">In partnership con <?= $OPERATORE['nome_marketing'] ?> per garantirti il massimo risparmio</p>
 
     <div class="results-list" id="results"></div>
 

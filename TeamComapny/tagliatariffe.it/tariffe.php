@@ -27,7 +27,7 @@ include __DIR__ . '/header.php';
         <img src="<?=  $OPERATORE['logo_url'] ?> " alt="<?=  $OPERATORE['nome_marketing'] ?>" style="height: 38px; background: white; padding: 4px 8px; border-radius: 6px; object-fit: contain;">
       </span>
       <h1>Trova la tariffa <span class="hl">giusta per te</span></h1>
-      <p>Offerte per uso domestico e professionale. Prezzi indicizzati al mercato con spread fisso. Contributo di attivazione €30,00 (scontato con 6 mesi di permanenza).</p>
+      <p>Prezzo variabile trasparente, agganciato agli indici di mercato (PUN Index GME per la luce, PSV per il gas), con fee chiara e corrispettivo annuo fisso. Offerte valide fino al 10/07/2026.</p>
     </div>
   </section>
 
@@ -39,12 +39,17 @@ include __DIR__ . '/header.php';
         <button class="tab-btn active" data-filter="all">Tutte le offerte</button>
         <button class="tab-btn" data-filter="luce-res">⚡ Luce Casa</button>
         <button class="tab-btn" data-filter="gas-res">🔥 Gas Casa</button>
+        <button class="tab-btn" data-filter="luce-biz">⚡ Luce Business</button>
+        <button class="tab-btn" data-filter="gas-biz">🔥 Gas Business</button>
       </div>
 
       <div class="offers-grid" id="offers-grid"></div>
 
-      <p style="font-size:13px; color:var(--muted-2); text-align:center; max-width:900px; margin:56px auto 0; line-height:1.7;">
-        * I prezzi indicati si riferiscono alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Sconto di 1€/mese per domiciliazione (SDD) e 1€/mese per fattura email. Offerte soggette a condizioni contrattuali  <?=$OPERATORE["nome_legale"] ?> Sansan è rivenditore indipendente autorizzato.
+      <p style="font-size:13px; color:var(--muted-2); text-align:left; max-width:1100px; margin:56px auto 0; line-height:1.7;">
+        * Offerte a prezzo variabile aggiornato mensilmente, valide fino al 10/07/2026. Corrispettivi definiti da <?= $OPERATORE['nome_marketing'] ?>.
+        <strong>Energia elettrica:</strong> Prezzo Luce = PUN Index GME × (1+λ) + Fee, dove λ è il valore delle perdite di rete (10% per le forniture in bassa tensione, come stabilito da ARERA) e la Fee è quella indicata nella tabella corrispettivi. Si applica inoltre il corrispettivo di dispacciamento CDISPD definito da ARERA nel Testo Integrato della Vendita (TIV). Il PUN Index GME è l'indice di cui all'art. 13.3.9 del TIDE, calcolato dal GME come media aritmetica mensile delle quotazioni orarie nel mese di fatturazione in base alle fasce applicate al cliente; in caso di misuratore non telegestito si applica la fee monoraria a tutte le ore. Il valore massimo dell'indice negli ultimi 12 mesi è stato 0,14340 €/kWh (Marzo 2026); tutti i valori sono su www.mercatoelettrico.org.
+        <strong>Gas naturale:</strong> Prezzo Gas = PSV + Fee, dove il PSV è determinato dalla media aritmetica mensile dei prezzi giornalieri "PSV Price Assessment - Day Ahead" pubblicati nell'"European Gas Spot Market Report" da ICIS Heren (con riferimento "PSV Price Assessment - Weekend" per weekend e Bank Holiday), convertito da €/MWh a €/Smc con coefficiente moltiplicativo pari a 0,0107. Il valore massimo dell'indice PSV negli ultimi 12 mesi è stato 0,5577 €/Smc (PCS 0,038520 GJ/Smc, Marzo 2026). I corrispettivi sul consumo sono riferiti a un PCS pari a 0,03852 GJ/Smc e a un coefficiente di conversione C pari a 1 (art. 6 RTDG) e sono suscettibili di adeguamento in proporzione ai valori di PCS approvati da ARERA per l'ambito tariffario del punto di riconsegna.
+        Fasce orarie — F1: lun-ven 8:00-19:00; F2: lun-ven 7:00-8:00 e 19:00-23:00, sab 7:00-23:00; F3: lun-sab 0:00-7:00 e 23:00-24:00, domenica e festivi tutto il giorno.
       </p>
     </div>
   </section>
@@ -91,22 +96,28 @@ include __DIR__ . '/header.php';
     </div>
   </section>
   <script>
+    const fornitore = '<?= $OPERATORE['nome_marketing'] ?>';
     const offers = [
-  { id:'placet-luce', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Casa', top:false,
-    nome:'PLACET Luce Variabile', tipo:'Prezzo Variabile · Indicizzato PUN',
-    rid:'PUN + Spread Fornitore', boll:null,
-    note:'Offerta  <?=$OPERATORE["nome_marketing"] ?> Prezzo variabile mensile agganciato al PUN. Nessun costo di attivazione o vincolo.',
-    feats:['Struttura prezzo definita da ARERA','Nessuna interruzione di servizio','Customer Care dedicato','Nessuna spesa di cambio fornitore'] },
-  { id:'placet-gas', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Casa', top:false,
-    nome:'PLACET Gas Variabile', tipo:'Prezzo Variabile · Indicizzato PSV',
-    rid:'PSV + Spread Fornitore', boll:null,
-    note:'Offerta  <?=$OPERATORE["nome_marketing"] ?> Prezzo variabile mensile agganciato al PSV. Nessun costo di attivazione o vincolo.',
-    feats:['Struttura prezzo definita da ARERA','Nessuna interruzione di servizio','Customer Care dedicato','Nessuna spesa di cambio fornitore'] },
-  { id:'placet-dual', cat:'dual-res', ribbon:'dual-res', tag:'⚡🔥 Luce + Gas', top:true,
-    nome:'PLACET Luce + Gas Variabile', tipo:'Contratti Distinti ·  <?=$OPERATORE["nome_marketing"] ?>',
-    rid:'PUN/PSV + Spread Fornitore', boll:null,
-    note:'Sottoscrivi due contratti PLACET distinti (Luce e Gas) con lo stesso venditore per la massima chiarezza e semplicità.',
-    feats:['Luce: PUN + Spread','Gas: PSV + Spread','Condizioni stabilite da ARERA','Nessuna spesa di cambio fornitore']}
+  { id:'smart-flex-luce', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Casa', top:true,
+    nome:fornitore + ' Smart Flex', tipo:'Uso Domestico · Indicizzato PUN',
+    rid:'180 €/POD/anno', consumo:'PUN Index GME + 0,079 €/kWh',
+    note:'Prezzo variabile indicizzato al PUN Index GME con fee chiara e corrispettivo annuo fisso. Offerta valida fino al 10/07/2026.',
+    feats:['Prezzo variabile indicizzato al PUN Index GME','Fee monoraria F0: 0,079 €/kWh · bioraria F1 e F2+F3: 0,079 €/kWh','Corrispettivo annuo 180 €/POD','Offerta valida fino al 10/07/2026'] },
+  { id:'smart-flex-gas', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Casa', top:false,
+    nome:fornitore + ' Smart Flex Gas', tipo:'Uso Domestico · Indicizzato PSV',
+    rid:'144 €/PDR/anno', consumo:'PSV + 0,34 €/Smc',
+    note:'Prezzo variabile indicizzato al PSV con fee chiara e corrispettivo annuo fisso. Offerta valida fino al 10/07/2026.',
+    feats:['Prezzo variabile indicizzato al PSV','Fee sul consumo: 0,34 €/Smc','Corrispettivo annuo 144 €/PDR','Offerta valida fino al 10/07/2026'] },
+  { id:'smart-flex-business-luce', cat:'luce-biz', ribbon:'luce-res', tag:'⚡ Luce Business', top:false,
+    nome:fornitore + ' Smart Flex Business', tipo:'Uso Business · Indicizzato PUN',
+    rid:'192 €/POD/anno', consumo:'PUN Index GME + 0,085 €/kWh',
+    note:'Per usi diversi dal domestico e condomini fino a 10.000 kWh/anno. Offerta valida fino al 10/07/2026.',
+    feats:['Per usi diversi dal domestico e condomini fino a 10.000 kWh/anno','Fee monoraria F0: 0,085 €/kWh · trioraria F1/F2/F3: 0,085 €/kWh','Corrispettivo annuo 192 €/POD','Offerta valida fino al 10/07/2026'] },
+  { id:'smart-flex-business-gas', cat:'gas-biz', ribbon:'gas-res', tag:'🔥 Gas Business', top:false,
+    nome:fornitore + ' Smart Flex Business Gas', tipo:'Uso Business · Indicizzato PSV',
+    rid:'192 €/PDR/anno', consumo:'PSV + 0,44 €/Smc',
+    note:'Per siti ad uso non domestico. Prezzo variabile indicizzato al PSV. Offerta valida fino al 10/07/2026.',
+    feats:['Per siti ad uso non domestico','Fee sul consumo: 0,44 €/Smc','Corrispettivo annuo 192 €/PDR','Offerta valida fino al 10/07/2026'] }
     ];
 
     function card(o) {
@@ -118,11 +129,11 @@ include __DIR__ . '/header.php';
           <div class="offer-name">${o.nome}</div>
           <div class="offer-type">${o.tipo}</div>
           <div class="offer-price-box">
-            <div class="offer-price-label">Prezzo materia prima</div>
+            <div class="offer-price-label">Corrispettivo annuo fisso</div>
             <div class="offer-price">${o.rid}</div>
-            <div class="offer-price-alt">Valido per 12 mesi</div>
+            <div class="offer-price-alt">Consumo: ${o.consumo}</div>
           </div>
-          ${o.top ? `<div class="offer-badge">💎 Linea SICURA con Assistenza</div>` : ''}
+          ${o.top ? `<div class="offer-badge">🔥 La più scelta</div>` : ''}
           <ul class="offer-feats">${o.feats.map(f=>`<li>${f}</li>`).join('')}</ul>
           <div class="offer-note">📋 ${o.note}</div>
           <button class="offer-cta" data-name="${o.nome}">Richiedi informazioni</button>

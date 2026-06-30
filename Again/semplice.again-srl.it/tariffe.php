@@ -14,7 +14,7 @@ include __DIR__ . '/header.php';
     <div class="inner">
       <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Offerte <?= $OPERATORE['nome_marketing'] ?></span>
       <h1>Trova la tariffa <span class="hl">giusta per te</span></h1>
-      <p>Offerte per uso domestico e professionale. Prezzi indicizzati al mercato con spread fisso. Contributo di attivazione €30,00 (scontato con 6 mesi di permanenza).</p>
+      <p>Offerte per uso domestico e professionale. Prezzi indicizzati al mercato all'ingrosso (PUN e PSV) con spread fisso bloccato per 12 mesi.</p>
     </div>
   </section>
 
@@ -31,7 +31,7 @@ include __DIR__ . '/header.php';
       <div class="offers-grid" id="offers-grid"></div>
 
       <p style="font-size:13px; color:var(--muted-2); text-align:center; max-width:900px; margin:56px auto 0; line-height:1.7;">
-        * I prezzi indicati si riferiscono alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Sconto di 1€/mese per domiciliazione (SDD) e 1€/mese per fattura email. Offerte soggette a condizioni contrattuali <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>. <?= $brandName ?> è rivenditore indipendente autorizzato.
+        * I prezzi indicati si riferiscono alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati e sono al netto di IVA, imposte, oneri di sistema e costi di trasporto e gestione del contatore stabiliti e aggiornati da ARERA. Condizioni valide 12 mesi con rinnovo automatico. Offerte soggette a condizioni contrattuali <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>. <?= $brandName ?> è rivenditore indipendente autorizzato.
       </p>
     </div>
   </section>
@@ -62,8 +62,8 @@ include __DIR__ . '/header.php';
         </div>
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h4>Linea SICURA</h4>
-          <p>Spread più bassi e assistenza casa Logicard (Europ Assistance) inclusa nel contratto.</p>
+          <h4>Versione CS</h4>
+          <p>Le offerte CS applicano uno spread ridotto sulla materia prima, bloccato e garantito per i primi 12 mesi.</p>
         </div>
       </div>
     </div>
@@ -80,21 +80,26 @@ include __DIR__ . '/header.php';
 
   <script>
     const offers = [
-  { id:'placet-luce', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Casa', top:false,
-    nome:'PLACET Luce Variabile', tipo:'Prezzo Variabile · Indicizzato PUN',
-    rid:'PUN + Spread Fornitore', boll:null,
-    note:'Offerta <?= $OPERATORE['nome_marketing'] ?>. Prezzo variabile mensile agganciato al PUN. Nessun costo di attivazione o vincolo.',
-    feats:['Struttura prezzo definita da ARERA','Nessuna interruzione di servizio','Customer Care dedicato','Nessuna spesa di cambio fornitore'] },
-  { id:'placet-gas', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Casa', top:false,
-    nome:'PLACET Gas Variabile', tipo:'Prezzo Variabile · Indicizzato PSV',
-    rid:'PSV + Spread Fornitore', boll:null,
-    note:'Offerta <?= $OPERATORE['nome_marketing'] ?>. Prezzo variabile mensile agganciato al PSV. Nessun costo di attivazione o vincolo.',
-    feats:['Struttura prezzo definita da ARERA','Nessuna interruzione di servizio','Customer Care dedicato','Nessuna spesa di cambio fornitore'] },
-  { id:'placet-dual', cat:'dual-res', ribbon:'dual-res', tag:'⚡🔥 Luce + Gas', top:true,
-    nome:'PLACET Luce + Gas Variabile', tipo:'Contratti Distinti · <?= $OPERATORE['nome_marketing'] ?>',
-    rid:'PUN/PSV + Spread Fornitore', boll:null,
-    note:'Sottoscrivi due contratti PLACET distinti (Luce e Gas) con lo stesso venditore per la massima chiarezza e semplicità.',
-    feats:['Luce: PUN + Spread','Gas: PSV + Spread','Condizioni stabilite da ARERA','Nessuna spesa di cambio fornitore']}
+  { id:'pun-dom', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Casa', top:false,
+    nome:'PUN Index GME Domestico 386', tipo:'Prezzo Variabile · Indicizzato PUN',
+    rid:'PUN Index GME + 0,055 €/kWh', boll:null,
+    note:'Offerta <?= $OPERATORE['nome_marketing'] ?>. Indicizzato al PUN Index GME, stesso spread su F1/F2/F3, aggiornato mensilmente.',
+    feats:['Corrispettivo annuo: 456,00 €/POD/anno','Spread fisso per 12 mesi','Pagamento: addebito SDD, bonifico o bollettino','Nessuna spesa di cambio fornitore'] },
+  { id:'pun-dom-cs', cat:'luce-res', ribbon:'luce-res', tag:'⚡ Luce Casa', top:false,
+    nome:'PUN Index GME Domestico CS 386', tipo:'Prezzo Variabile · Indicizzato PUN',
+    rid:'PUN Index GME + 0,05 €/kWh', boll:null,
+    note:'Offerta <?= $OPERATORE['nome_marketing'] ?>. Versione CS con spread ridotto, indicizzata al PUN Index GME (F1/F2/F3), aggiornata mensilmente.',
+    feats:['Corrispettivo annuo: 456,00 €/POD/anno','Spread ridotto fisso per 12 mesi','Pagamento: addebito SDD, bonifico o bollettino','Nessuna spesa di cambio fornitore'] },
+  { id:'psv-dom', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Casa', top:false,
+    nome:'PSV Domestico 386', tipo:'Prezzo Variabile · Indicizzato PSV',
+    rid:'PSV + 0,45 €/Smc', boll:null,
+    note:'Offerta <?= $OPERATORE['nome_marketing'] ?>. Indicizzato al PSV Day Ahead (ICIS Heren), aggiornato mensilmente.',
+    feats:['Corrispettivo annuo: 648,00 €/PDR/anno','Spread fisso per 12 mesi','Pagamento: addebito SDD, bonifico o bollettino','Nessuna spesa di cambio fornitore'] },
+  { id:'psv-dom-cs', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Casa', top:false,
+    nome:'PSV Domestico CS 386', tipo:'Prezzo Variabile · Indicizzato PSV',
+    rid:'PSV + 0,42 €/Smc', boll:null,
+    note:'Offerta <?= $OPERATORE['nome_marketing'] ?>. Versione CS con spread ridotto, indicizzata al PSV Day Ahead (ICIS Heren), aggiornata mensilmente.',
+    feats:['Corrispettivo annuo: 648,00 €/PDR/anno','Spread ridotto fisso per 12 mesi','Pagamento: addebito SDD, bonifico o bollettino','Nessuna spesa di cambio fornitore']}
     ];
 
     function card(o) {

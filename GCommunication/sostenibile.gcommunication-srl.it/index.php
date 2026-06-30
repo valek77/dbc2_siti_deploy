@@ -12,9 +12,9 @@ include __DIR__ . '/header.php';
           <img src="hero_multi_1.png" class="hero-slide-bg" alt="Telecomunicazioni e Internet">
           <div class="container">
             <div class="hero-content">
-              <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale <?= $brand ?></span>
+              <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale <?= $brandName ?></span>
               <h1>Energia e Connessioni per il tuo <span class="accent">business</span>.</h1>
-              <p class="lede"><?= $brand ?> ti guida con offerte trasparenti per luce, gas, fibra e telefonia.</p>
+              <p class="lede"><?= $brandName ?> ti guida con offerte trasparenti per luce, gas, fibra e telefonia.</p>
               <div class="hero-actions">
                 <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
                 <a href="contatti.php" class="btn-secondary">Parla con noi</a>
@@ -66,12 +66,12 @@ include __DIR__ . '/header.php';
   <section class="trust-strip">
     <div class="trust-track">
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Servizi Certificati</span>
-      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $brand ?></span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $brandName ?></span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Assistenza multicanale</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 8v6m10-10h-6M8 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg> Nessuna interruzione di servizio</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Consulenza gratuita</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Servizi Certificati</span>
-      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $brand ?></span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $brandName ?></span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Assistenza multicanale</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Consulenza gratuita</span>
     </div>
@@ -129,7 +129,7 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow eyebrow-light"><span class="dot"></span> Come funziona</span>
         <h2 class="section-title">Attivi la nuova fornitura <br>in <span class="accent">4 passi semplici</span></h2>
-        <p class="section-sub">Cambiare fornitore con <?= $brand ?> è veloce e non richiede alcun intervento tecnico in casa.</p>
+        <p class="section-sub">Cambiare fornitore con <?= $brandName ?> è veloce e non richiede alcun intervento tecnico in casa.</p>
       </div>
 
       <div class="timeline">
@@ -138,7 +138,7 @@ include __DIR__ . '/header.php';
           <div class="timeline-content">
             <div class="hiw-num" style="margin-bottom:10px;">01</div>
             <h5>Scegli l'offerta</h5>
-            <p>Confronta le tariffe Fibra o Mobile <?= $brand ?> e individua quella più adatta al tuo profilo.</p>
+            <p>Confronta le tariffe Fibra o Mobile <?= $brandName ?> e individua quella più adatta al tuo profilo.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
@@ -178,13 +178,13 @@ include __DIR__ . '/header.php';
         </div>
 
         <div class="reveal">
-          <span class="eyebrow"><span class="dot"></span> Perché scegliere <?= $brand ?></span>
+          <span class="eyebrow"><span class="dot"></span> Perché scegliere <?= $brandName ?></span>
           <h2 class="section-title" style="text-align:left;">Risparmio reale, <span class="accent">assistenza vera</span></h2>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 18px;">
             Non siamo un punto vendita anonimo: siamo consulenti per i servizi. Per ogni cliente troviamo la soluzione di telecomunicazioni più conveniente, senza costi nascosti.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 24px;">
-            Con <?= $brand ?> puoi scegliere tra offerte internet super veloci e pacchetti voce+dati su misura per il tuo business.
+            Con <?= $brandName ?> puoi scegliere tra offerte internet super veloci e pacchetti voce+dati su misura per il tuo business.
           </p>
           <a href="chi-siamo.php" class="btn-ghost">Scopri di più su di noi</a>
         </div>
@@ -200,7 +200,7 @@ include __DIR__ . '/header.php';
           <div>
             <div class="stars">★★★★★</div>
             <h3>Valutato eccellente dai nostri clienti</h3>
-            <p>Migliaia di famiglie e imprese hanno scelto <?= $brand ?> per le loro telecomunicazioni.</p>
+            <p>Migliaia di famiglie e imprese hanno scelto <?= $brandName ?> per le loro telecomunicazioni.</p>
           </div>
           <div class="big">4,9<small>/5</small></div>
         </div>

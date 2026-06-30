@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Energia Luce e Gas per la tua casa';
-$pageDescription = $brand . ' è il partner ufficiale ' . $OPERATORE_ENERGETICO . '. Scopri le migliori offerte luce e gas per casa e azienda con prezzi trasparenti e assistenza dedicata.';
+$pageDescription = $LANDING_PAGE['nome_portale'] . ' è il partner ufficiale ' . $OPERATORE['nome_marketing'] . '. Scopri le migliori offerte luce e gas per casa e azienda con prezzi trasparenti e assistenza dedicata.';
 
 $pageScripts = <<<'HTML'
   <script>
@@ -62,9 +62,9 @@ include __DIR__ . '/header.php';
         <div class="slide active" style="background-image: url('hero1.png')">
           <div class="container">
             <div class="hero-content">
-              <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale <?= $OPERATORE_ENERGETICO ?></span>
+              <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale <?= $OPERATORE['nome_marketing'] ?></span>
               <h1>Energia <span class="accent">trasparente</span>, bolletta più leggera.</h1>
-              <p class="lede"><?= $brand ?> ti guida nel mercato libero con offerte <?= $OPERATORE_ENERGETICO ?>. Prezzi indicizzati al mercato, spread chiari e zero burocrazia.</p>
+              <p class="lede"><?= $brandName ?> ti guida nel mercato libero con offerte <?= $OPERATORE['nome_marketing'] ?>. Prezzi indicizzati al mercato, spread chiari e zero burocrazia.</p>
               <div class="hero-actions">
                 <a href="tariffe.php" class="btn-primary">Scopri le offerte
                   <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -80,7 +80,7 @@ include __DIR__ . '/header.php';
             <div class="hero-content">
               <span class="eyebrow eyebrow-light"><span class="dot"></span> Futuro Sostenibile</span>
               <h1>Verso un'energia <span class="accent">più pulita</span>.</h1>
-              <p class="lede">Soluzioni innovative per la tua casa. Risparmia rispettando l'ambiente con le tariffe green di <?= $OPERATORE_ENERGETICO ?>.</p>
+              <p class="lede">Soluzioni innovative per la tua casa. Risparmia rispettando l'ambiente con le tariffe green di <?= $OPERATORE['nome_marketing'] ?>.</p>
               <div class="hero-actions">
                 <a href="tariffe.php" class="btn-primary">Vedi tariffe Green
                   <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -124,12 +124,12 @@ include __DIR__ . '/header.php';
   <section class="trust-strip">
     <div class="trust-track">
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Contratti certificati ARERA</span>
-      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $OPERATORE_ENERGETICO ?></span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $OPERATORE['nome_marketing'] ?></span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Assistenza multicanale</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 8v6m10-10h-6M8 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg> Nessuna interruzione di fornitura</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Consulenza gratuita</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Contratti certificati ARERA</span>
-      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $OPERATORE_ENERGETICO ?></span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Fornitore <?= $OPERATORE['nome_marketing'] ?></span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Assistenza multicanale</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Consulenza gratuita</span>
     </div>
@@ -141,7 +141,7 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Cosa offriamo</span>
         <h2 class="section-title">Tre servizi, <span class="underline">una sola promessa</span></h2>
-        <p class="section-sub">Siamo rivenditori autorizzati <?= $OPERATORE_ENERGETICO ?>. Scegliamo per te la tariffa giusta e ti seguiamo dalla prima firma alla bolletta.</p>
+        <p class="section-sub">Siamo rivenditori autorizzati <?= $OPERATORE['nome_marketing'] ?>. Scegliamo per te la tariffa giusta e ti seguiamo dalla prima firma alla bolletta.</p>
       </div>
 
       <div class="features-container">
@@ -150,7 +150,7 @@ include __DIR__ . '/header.php';
             <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </div>
           <h4>Offerte Luce</h4>
-          <p>Tariffe variabili indicizzate al PUN e offerte PLACET con spread bloccato per 12 mesi. Per uso domestico e professionale.</p>
+          <p>Tariffa FAMILY LUCE TLS nel Mercato Libero, indicizzata al PUN INDEX GME con spread fisso bloccato per 12 mesi. Per uso domestico in Bassa Tensione.</p>
         </article>
 
         <article class="feature-card reveal">
@@ -158,7 +158,7 @@ include __DIR__ . '/header.php';
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </div>
           <h4>Offerte Gas</h4>
-          <p>Forniture gas con prezzo ancorato al PSV. Soluzioni per casa, lavoro e imprese, con attivazione rapida e senza interventi tecnici.</p>
+          <p>Tariffa DOMESTICO GAS TLS nel Mercato Libero, con prezzo ancorato al PSV e componente fissa per 12 mesi. Attivazione rapida e senza interventi tecnici.</p>
         </article>
 
         <article class="feature-card reveal">
@@ -178,14 +178,14 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow eyebrow-light"><span class="dot"></span> Come funziona</span>
         <h2 class="section-title">Attivi la nuova fornitura <br>in <span class="accent">4 passi semplici</span></h2>
-        <p class="section-sub">Cambiare fornitore con <?= $brand ?> è veloce e non richiede alcun intervento tecnico in casa.</p>
+        <p class="section-sub">Cambiare fornitore con <?= $brandName ?> è veloce e non richiede alcun intervento tecnico in casa.</p>
       </div>
 
       <div class="hiw-steps">
         <div class="hiw-step">
           <div class="hiw-num">01</div>
           <h5>Scegli l'offerta</h5>
-          <p>Confronta le tariffe Luce o Gas <?= $OPERATORE_ENERGETICO ?> e individua quella più adatta al tuo profilo.</p>
+          <p>Confronta le tariffe Luce o Gas <?= $OPERATORE['nome_marketing'] ?> e individua quella più adatta al tuo profilo.</p>
         </div>
         <div class="hiw-step">
           <div class="hiw-num">02</div>
@@ -211,13 +211,13 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="split">
         <div>
-          <span class="eyebrow"><span class="dot"></span> Perché scegliere <?= $brand ?></span>
+          <span class="eyebrow"><span class="dot"></span> Perché scegliere <?= $brandName ?></span>
           <h2 class="section-title" style="text-align:left;">Risparmio reale, <span class="accent">assistenza vera</span></h2>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 18px;">
             Non siamo un punto vendita anonimo: siamo consulenti energetici. Per ogni cliente troviamo la soluzione più conveniente, senza costi nascosti e senza sorprese in bolletta.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0;">
-            Con <?= $OPERATORE_ENERGETICO ?> puoi scegliere tra offerte a prezzo variabile indicizzato al mercato o offerte PLACET con spread fisso garantito per 12 mesi.
+            Con <?= $OPERATORE['nome_marketing'] ?> scegli offerte a prezzo indicizzato al mercato (PUN INDEX GME e PSV) con spread fisso garantito per 12 mesi dalla data di attivazione.
           </p>
 
         </div>
@@ -237,7 +237,7 @@ include __DIR__ . '/header.php';
           <div>
             <div class="stars">★★★★★</div>
             <h3>Valutato eccellente dai nostri clienti</h3>
-            <p>Migliaia di famiglie e imprese hanno scelto <?= $brand ?> per il passaggio alle offerte <?= $OPERATORE_ENERGETICO ?>.</p>
+            <p>Migliaia di famiglie e imprese hanno scelto <?= $brandName ?> per il passaggio alle offerte <?= $OPERATORE['nome_marketing'] ?>.</p>
           </div>
           <div class="big">4,9<small>/5</small></div>
         </div>

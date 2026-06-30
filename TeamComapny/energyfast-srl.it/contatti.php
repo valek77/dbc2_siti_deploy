@@ -286,8 +286,8 @@ include __DIR__ . '/header.php';
     <img src="icon_consultant.png" alt="Email">
     <h3>Scrivici o chiamaci</h3>
     <p>Siamo operativi tutti i giorni lavorativi per darti le risposte che cerchi in tempo record.
-      <?php if (!empty($email_supporto)) { ?> <br><strong><?= htmlspecialchars($email_supporto) ?></strong><?php } ?>
-      <?php if (!empty($telefono)) { ?> <br><strong><?= htmlspecialchars($telefono) ?></strong><?php } ?>
+      <?php if ($COMPANY['email_supporto'] !== '') { ?> <br><strong><?= $COMPANY['email_supporto'] ?></strong><?php } ?>
+      <?php if ($COMPANY['telefono'] !== '') { ?> <br><strong><?= $COMPANY['telefono'] ?></strong><?php } ?>
     </p>
   </div>
 </div>
@@ -336,8 +336,8 @@ include __DIR__ . '/header.php';
 
           <label class="consent-label">
             <input type="checkbox" name="consenso_ricontatto" required>
-            <span>Richiedo di essere ricontattato da <?= htmlspecialchars($OPERATORE_ENERGETICO) ?>, tramite il partner
-              commerciale <?= htmlspecialchars($brand) ?>, per ricevere informazioni e proposte commerciali relative
+            <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] ?>, tramite il partner
+              commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative
               alla fornitura di energia elettrica e/o gas. *</span>
           </label>
 

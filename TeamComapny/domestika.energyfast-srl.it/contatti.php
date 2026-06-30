@@ -1,11 +1,11 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Contatti';
-$pageDescription = 'Contatta ' . $brand . ' per ricevere una consulenza gratuita sulle offerte ' . $OPERATORE_ENERGETICO . '. Siamo qui per aiutarti a scegliere la tariffa giusta.';
+$pageDescription = 'Contatta ' . $LANDING_PAGE['nome_portale'] . ' per ricevere una consulenza gratuita sulle offerte ' . $OPERATORE['nome_marketing'] . '. Siamo qui per aiutarti a scegliere la tariffa giusta.';
 $pageScripts = '  <script src="lead-form.js"></script>';
 
 // Numero di telefono in sole cifre per il link WhatsApp.
-$telDigits = preg_replace('/\D+/', '', (string) c('telefono'));
+$telDigits = preg_replace('/\D+/', '', (string) $COMPANY['telefono']);
 
 include __DIR__ . '/header.php';
 ?>
@@ -32,24 +32,24 @@ include __DIR__ . '/header.php';
             <h3 style="font-size: 22px; margin: 0 0 24px; color: var(--ink);">Come raggiungerci</h3>
             <div class="contact-info-list">
 
-<?php if ($telefono) { ?>
+<?php if ($COMPANY['telefono']) { ?>
               <div class="contact-info-item">
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
                 <div>
                   <div class="label">Telefono</div>
                    <div class="meta">Consulenza immediata</div>
-                    <a href="tel:<?= $telefono ?>"><?= $telefono ?></a>
+                    <a href="tel:<?= $COMPANY['telefono'] ?>"><?= $COMPANY['telefono'] ?></a>
                 </div>
               </div>
 <?php } ?>
 
-<?php if ($email_supporto) { ?>
+<?php if ($COMPANY['email_supporto']) { ?>
               <div class="contact-info-item">
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div>
                   <div class="label">Email</div>
                    <div class="meta">Scrivici per info</div>
-                   <a href="mailto:<?= $email_supporto ?>"><?= $email_supporto ?></a>
+                   <a href="mailto:<?= $COMPANY['email_supporto'] ?>"><?= $COMPANY['email_supporto'] ?></a>
                 </div>
               </div>
 <?php } ?>
@@ -77,9 +77,9 @@ include __DIR__ . '/header.php';
 
           <div class="contact-card-cta">
             <div class="label">Offerta del momento</div>
-            <div class="name">PRIMA CASA LUCE</div>
-            <div class="price">PUN +€0,025<small> €/kWh</small></div>
-            <div class="note">con domiciliazione bancaria (RID)</div>
+            <div class="name">FAMILY LUCE TLS</div>
+            <div class="price">PUN INDEX GME +€0,055<small> €/kWh</small></div>
+            <div class="note">Mercato Libero · corrispettivo annuo 624,00 €/POD</div>
             <a class="see-all" href="tariffe.php">Vedi tutte le offerte
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -117,7 +117,7 @@ include __DIR__ . '/header.php';
                 </label>
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da <?= $OPERATORE_ENERGETICO ?>, tramite il partner commerciale <?= $brand ?>, per ricevere una proposta commerciale relativa alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere una proposta commerciale relativa alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
 
               </div>

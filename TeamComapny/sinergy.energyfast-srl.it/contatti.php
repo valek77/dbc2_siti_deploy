@@ -1,10 +1,11 @@
 <?php
 require __DIR__ . '/_config.php';
+$brandName = $LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'EnergyFast'));
 $pageTitle = 'Contatti';
-$pageDescription = 'Contatta ' . $brand . ' per ricevere una consulenza gratuita sulle offerte di luce e gas. Siamo qui per aiutarti a scegliere la tariffa giusta.';
+$pageDescription = 'Contatta ' . $brandName . ' per ricevere una consulenza gratuita sulle offerte di luce e gas. Siamo qui per aiutarti a scegliere la tariffa giusta.';
 
 // Recapito email mostrato nella card contatti (assistenza, con fallback alla PEC).
-$emailContatto = $email_supporto !== '' ? $email_supporto : $pec;
+$emailContatto = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $COMPANY['pec'];
 
 include __DIR__ . '/header.php';
 ?>
@@ -35,20 +36,20 @@ include __DIR__ . '/header.php';
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
                 <div>
                   <div class="label">Sede Legale</div>
-                  <div class="meta"><?= $company_name !== '' ? $company_name : $brand ?></div>
-<?php if ($sede_legale || $p_iva) { ?>                  <div style="font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 4px;">
-<?php if ($sede_legale) { ?>                    <?= $sede_legale ?><br>
-<?php } ?><?php if ($p_iva) { ?>                    P.IVA e C.F.: <?= $p_iva ?>
+                  <div class="meta"><?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?></div>
+<?php if ($COMPANY['sede_legale'] || $COMPANY['p_iva']) { ?>                  <div style="font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 4px;">
+<?php if ($COMPANY['sede_legale']) { ?>                    <?= $COMPANY['sede_legale'] ?><br>
+<?php } ?><?php if ($COMPANY['p_iva']) { ?>                    P.IVA e C.F.: <?= $COMPANY['p_iva'] ?>
 <?php } ?>                  </div>
 <?php } ?>                </div>
               </div>
 
-<?php if ($telefono) { ?>              <div class="contact-info-item">
+<?php if ($COMPANY['telefono']) { ?>              <div class="contact-info-item">
                 <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
                 <div>
                   <div class="label">Contatti Rapidi</div>
                   <div class="meta">Telefono &amp; WhatsApp</div>
-                  <a href="tel:<?= $telefono ?>"><?= $telefono ?></a>
+                  <a href="tel:<?= $COMPANY['telefono'] ?>"><?= $COMPANY['telefono'] ?></a>
                 </div>
               </div>
 <?php } ?>
@@ -102,7 +103,7 @@ include __DIR__ . '/header.php';
                 </label>
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da <?= $OPERATORE_ENERGETICO ?>, tramite il partner commerciale <?= $brand ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
               </div>
 

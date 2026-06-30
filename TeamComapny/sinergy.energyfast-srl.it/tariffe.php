@@ -1,16 +1,17 @@
 <?php
 require __DIR__ . '/_config.php';
+$brandName = $LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'EnergyFast'));
 $pageTitle = 'Offerte Luce e Gas';
-$pageDescription = 'Scopri tutte le offerte ' . $brand . ' per luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
+$pageDescription = 'Scopri tutte le offerte ' . $brandName . ' per luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 include __DIR__ . '/header.php';
 ?>
 
   <!-- Page hero -->
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte partner <?= $OPERATORE_ENERGETICO ?></span>
+      <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte partner <?= $OPERATORE['nome_marketing'] ?></span>
       <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
-      <p>Offerte per uso domestico e professionale. Il nostro fornitore partner è <?= $OPERATORE_ENERGETICO ?>, che ti garantisce prezzi trasparenti e condizioni vantaggiose.</p>
+      <p>Offerte per uso domestico e professionale. Il nostro fornitore partner è <?= $OPERATORE['nome_marketing'] ?>, che ti garantisce prezzi trasparenti e condizioni vantaggiose.</p>
     </div>
     <div class="wave">
       <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
@@ -33,7 +34,7 @@ include __DIR__ . '/header.php';
       <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;"></div>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
-        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread o prezzi fissi indicati. Il fornitore partner è <?= $OPERATORE_ENERGETICO ?>. Le offerte sono soggette alle condizioni contrattuali di <?= $OPERATORE_ENERGETICO ?>.
+        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread o prezzi fissi indicati. Il fornitore partner è <?= $OPERATORE['nome_legale'] ?>. Le offerte sono soggette alle condizioni contrattuali di <?= $OPERATORE['nome_legale'] ?>.
       </p>
     </div>
   </main>
@@ -44,7 +45,7 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Capire il prezzo</span>
         <h2 class="section-title">Come funzionano <span class="accent">le tariffe</span></h2>
-        <p class="section-sub">Il fornitore partner <?= $OPERATORE_ENERGETICO ?> offre tariffe variabili indicizzate al mercato all'ingrosso e tariffe a prezzo fisso. Il prezzo finale variabile è dato dal prezzo di mercato (PUN per la luce, PSV per il gas) più uno spread fisso.</p>
+        <p class="section-sub">Il fornitore partner <?= $OPERATORE['nome_marketing'] ?> offre tariffe variabili indicizzate al mercato all'ingrosso e tariffe a prezzo fisso. Il prezzo finale variabile è dato dal prezzo di mercato (PUN per la luce, PSV per il gas) più uno spread fisso.</p>
       </div>
 
       <div class="features-container">
@@ -68,7 +69,7 @@ include __DIR__ . '/header.php';
   </section>
 
   <script>
-    const OPERATORE = <?= json_encode($OPERATORE_ENERGETICO, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
+    const OPERATORE = <?= json_encode($OPERATORE['nome_marketing'], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
 
     const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     const ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';

@@ -8,7 +8,7 @@ include __DIR__ . '/header.php';
     <div class="hero-wrapper">
       <div class="hero-content">
         <h1>Soluzioni avanzate per telecomunicazioni e utilities</h1>
-        <p>GCommunication offre consulenza specializzata, analisi dei costi e servizi su misura per ottimizzare le utenze domestiche e aziendali, garantendoti le migliori condizioni sul mercato.</p>
+        <p><?= $brandName ?> offre consulenza specializzata, analisi dei costi e servizi su misura per ottimizzare le utenze domestiche e aziendali, garantendoti le migliori condizioni sul mercato.</p>
 
         <div class="hero-actions">
           <a href="tariffe.php" class="btn-primary">Le nostre offerte</a>
@@ -16,7 +16,7 @@ include __DIR__ . '/header.php';
 
       </div>
       <div class="hero-image">
-        <img src="hero_gcommunication.png" alt="Consulenza GCommunication" class="mascot-img" style="max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);" />
+        <img src="hero_gcommunication.png" alt="Consulenza <?= $brandName ?>" class="mascot-img" style="max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);" />
       </div>
     </div>
   </section>
@@ -116,7 +116,7 @@ include __DIR__ . '/header.php';
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
         <h2 class="section-title" style="text-align: left; margin-top: 0; color: var(--text-dark);">Ottimizza i costi con la giusta strategia</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Con <?= $brand ?> hai un partner affidabile per l'analisi e la gestione dei contratti luce, gas e telecomunicazioni. Analizziamo le fatture e selezioniamo per te le migliori opportunità.
+          Con <?= $brandName ?> hai un partner affidabile per l'analisi e la gestione dei contratti luce, gas e telecomunicazioni. Analizziamo le fatture e selezioniamo per te le migliori opportunità.
         </p>
         <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
       </div>
@@ -134,7 +134,7 @@ include __DIR__ . '/header.php';
         <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
       </div>
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="about_gcom.png" alt="Team GCommunication"
+        <img src="about_gcom.png" alt="Team <?= $brandName ?>"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
       </div>
     </div>

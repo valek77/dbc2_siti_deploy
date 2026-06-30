@@ -53,7 +53,7 @@ include __DIR__ . '/header.php';
   <section class="how-it-works-section">
     <div class="hiw-container">
       <div class="hiw-header">
-        <h2 class="section-title">Passa a <?= $brand ?> in 4 semplici passi</h2>
+        <h2 class="section-title">Passa a <?= $brandName ?> in 4 semplici passi</h2>
         <p class="section-sub">Attivare le nostre offerte è veloce e sicuro.</p>
       </div>
 
@@ -81,7 +81,7 @@ include __DIR__ . '/header.php';
   <section class="efficiency-section" style="padding: 100px 20px; background: #fff; overflow: hidden;">
     <div class="container" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1.2; min-width: 400px;">
-        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brand ?> Fotovoltaico: <span style="color: var(--primary);">L'energia del sole</span></h2>
+        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brandName ?> Fotovoltaico: <span style="color: var(--primary);">L'energia del sole</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
           Scegli l'energia del sole: semplice, sostenibile e anche conveniente. Con le nostre soluzioni fotovoltaiche trasformi la tua casa in una centrale di energia pulita e autonoma.
         </p>
@@ -118,7 +118,7 @@ include __DIR__ . '/header.php';
         <div class="tp-review-card">
           <div class="tp-review-stars">★★★★★</div>
           <h5 class="tp-review-title">Finalmente chiarezza!</h5>
-          <p class="tp-review-body">Con <?= $brand ?> ho finalmente capito cosa pago in bolletta. Prezzi onesti e consulenti gentilissimi.</p>
+          <p class="tp-review-body">Con <?= $brandName ?> ho finalmente capito cosa pago in bolletta. Prezzi onesti e consulenti gentilissimi.</p>
           <p class="tp-review-author">Marco R.</p>
         </div>
         <div class="tp-review-card">
@@ -141,11 +141,11 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="team_new.jpg" alt="Il Team <?= $brand ?>"
+        <img src="team_new.jpg" alt="Il Team <?= $brandName ?>"
           style="max-width: 100%; height: auto; border-radius: 50% 70% 50% 50% / 50% 70% 50% 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 0;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brand ?> Clima: Comfort che dura <span style="color: var(--primary);">tutto l'anno</span></h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brandName ?> Clima: Comfort che dura <span style="color: var(--primary);">tutto l'anno</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 32px 0;">
           Con i climatizzatori a pompa di calore riscaldi o raffresca la tua casa a seconda della stagione. Unisci efficienza e tecnologia per gestire il tuo riscaldamento direttamente dallo smartphone.
         </p>

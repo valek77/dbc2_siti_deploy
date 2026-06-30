@@ -76,13 +76,13 @@ include __DIR__ . '/header.php';
   <section style="padding: 80px 20px; background: #fff;">
     <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px;">
-        <img src="consulting_business.png" alt="<?= $brand ?>"
+        <img src="consulting_business.png" alt="<?= $brandName ?>"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
       </div>
       <div style="flex: 1.5; min-width: 300px;">
         <h2 class="section-title" style="text-align: left; margin-top: 0;">La nostra storia</h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-label); margin-bottom: 20px;">
-          <?= $brand ?> è nata per affiancare privati e aziende nella scelta delle migliori tariffe di telecomunicazioni e utilities. Selezioniamo le migliori opportunità garantendo i più alti standard di servizio e affidabilità.
+          <?= $brandName ?> è nata per affiancare privati e aziende nella scelta delle migliori tariffe di telecomunicazioni e utilities. Selezioniamo le migliori opportunità garantendo i più alti standard di servizio e affidabilità.
         </p>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-label);">
           Oggi siamo fieri di essere un punto di riferimento strategico per l'ottimizzazione delle spese e il supporto dedicato ai nostri clienti.

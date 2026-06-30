@@ -81,7 +81,7 @@ include __DIR__ . '/header.php';
   <section class="efficiency-section" style="padding: 100px 20px; background: #fff; overflow: hidden;">
     <div class="container" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1.2; min-width: 400px;">
-        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brand ?> Fotovoltaico: <span style="color: var(--primary);">L'energia rinnovabile a casa tua</span></h2>
+        <h2 class="section-title" style="text-align: left; font-size: 48px; line-height: 1.2; margin-bottom: 32px; color: var(--text-dark);"><?= $brandName ?> Fotovoltaico: <span style="color: var(--primary);">L'energia rinnovabile a casa tua</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
           Investire nell'energia solare significa proteggere l'ambiente e abbattere i costi in bolletta a lungo termine.
         </p>
@@ -141,11 +141,11 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="team_new.jpg" alt="Il Team <?= $brand ?>"
+        <img src="team_new.jpg" alt="Il Team <?= $brandName ?>"
           style="max-width: 100%; height: auto; border-radius: 50% 70% 50% 50% / 50% 70% 50% 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 0;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brand ?> Clima: Il comfort ideale in <span style="color: var(--primary);">ogni stagione</span></h2>
+        <h2 class="section-title" style="text-align: left; margin-top: 0; font-size: 42px; line-height: 1.2;"><?= $brandName ?> Clima: Il comfort ideale in <span style="color: var(--primary);">ogni stagione</span></h2>
         <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: 32px 0;">
           Vivi la tua casa al massimo del comfort grazie ai nostri climatizzatori di ultima generazione. Soluzioni ad alta efficienza per rinfrescare l'estate e scaldare l'inverno, ottimizzando i consumi.
         </p>
