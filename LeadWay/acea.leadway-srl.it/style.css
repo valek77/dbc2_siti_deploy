@@ -264,16 +264,16 @@ h1, h2, h3, h4, h5, h6 {
   .hero-wrapper { padding: 0 20px; }
 }
 
-/* ─── Trustpilot ─── */
+/* ─── Trustpilot / Feedaty ─── */
 .trustpilot-section {
   padding: var(--section-padding) 20px;
   background: var(--secondary);
-  color: #fff;
+  color: var(--accent);
 }
 
 .trustpilot-section .section-title,
 .trustpilot-section .section-sub {
-  color: #fff;
+  color: var(--accent);
 }
 
 .trustpilot-wrapper {
@@ -285,11 +285,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tp-container {
-  flex: 0 0 300px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 40px;
+  flex: 0 0 320px;
+  background: #fff;
+  padding: 48px 40px;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(91, 44, 111, 0.08);
+  box-shadow: 0 12px 32px rgba(91, 44, 111, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -299,21 +300,26 @@ h1, h2, h3, h4, h5, h6 {
 
 .tp-stars {
   color: #00b67a;
-  font-size: 32px;
-  margin-bottom: 20px;
+  font-size: 42px;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 .tp-text {
-  font-size: 20px;
-  margin: 0 0 12px;
+  font-size: 24px;
+  margin: 0 0 16px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
-.tp-logo { font-weight: 700; }
+.tp-logo { font-weight: 800; }
 .tp-star-logo { color: #00b67a; }
 
 .tp-subtext {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  color: rgba(91, 44, 111, 0.75);
+  font-weight: 500;
 }
 
 .tp-reviews {
@@ -324,45 +330,50 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tp-review-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: #fff;
   padding: 32px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(91, 44, 111, 0.08);
+  box-shadow: 0 8px 24px rgba(91, 44, 111, 0.08);
   transition: all 0.3s;
 }
 
 .tp-review-card:hover {
-  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(91, 44, 111, 0.12);
 }
 
 .tp-review-stars {
   color: #00b67a;
   font-size: 20px;
+  letter-spacing: 2px;
   margin-bottom: 16px;
 }
 
 .tp-review-title {
   margin: 0 0 12px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--font-h);
+  color: var(--accent);
 }
 
 .tp-review-body {
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(91, 44, 111, 0.85);
   margin-bottom: 20px;
 }
 
 .tp-review-author {
   font-size: 14px;
-  color: var(--yellow);
-  font-weight: 500;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 @media (max-width: 900px) {
   .trustpilot-wrapper { flex-direction: column; }
+  .tp-container { flex: none; width: 100%; }
   .tp-reviews { grid-template-columns: 1fr; }
 }
 
