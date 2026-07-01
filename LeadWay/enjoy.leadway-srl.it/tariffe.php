@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Luce e Gas';
-$pageDescription = 'Le offerte Flexy Gas e Ready Luce 24 di Enjoy Energy per clienti domestici sul Mercato Libero.';
+$pageDescription = 'Le offerte Enjoy Energy per luce, gas e PLACET: tariffe fisse, variabili e offerte obbligatorie per legge per clienti domestici sul Mercato Libero.';
 $pageHead = <<<'CSS'
 <style>
   /* ─── Hero tariffe ─── */
@@ -55,6 +55,7 @@ $pageHead = <<<'CSS'
   }
   .o-top.luce { background: linear-gradient(135deg, #1f2937 0%, #111111 100%); }
   .o-top.gas  { background: linear-gradient(135deg, #FF9233 0%, #FF7A00 100%); }
+  .o-top.placet { background: linear-gradient(135deg, #0f766e 0%, #115e59 100%); }
   .o-top .kind { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 16px; font-family: var(--font-h); }
   .o-top .kind svg { width: 22px; height: 22px; }
   .o-top .badge {
@@ -85,6 +86,14 @@ $pageHead = <<<'CSS'
     font-size: 13px; font-weight: 700; color: #15803d;
   }
   .o-price .locked svg { width: 16px; height: 16px; }
+
+  .o-suboffer { padding: 18px 0; border-top: 1px solid var(--border); }
+  .o-suboffer:first-of-type { border-top: none; padding-top: 0; }
+  .o-suboffer h4 { font-family: var(--font-h); font-size: 17px; font-weight: 800; margin: 0 0 8px; color: var(--text-dark); }
+  .o-suboffer p { font-size: 14.5px; line-height: 1.6; color: var(--text-secondary); margin: 0 0 10px; }
+  .o-suboffer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .o-suboffer li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.45; }
+  .o-suboffer li svg { width: 17px; height: 17px; flex: 0 0 17px; color: var(--accent); margin-top: 2px; }
 
   .o-feats { list-style: none; padding: 0; margin: 0 0 26px; display: flex; flex-direction: column; gap: 12px; }
   .o-feats li { display: flex; align-items: flex-start; gap: 11px; font-size: 15px; color: var(--text-secondary); line-height: 1.45; }
@@ -145,14 +154,15 @@ $ICON_BOLT  = '<svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9
 $ICON_FLAME = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
 $ICON_LOCK  = '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 $ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+$ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 ?>
 
   <!-- Hero -->
   <section class="tariffe-hero">
     <div class="inner">
       <span class="eyebrow"><span class="dot"></span> Offerte Mercato Libero</span>
-      <h1>La tariffa giusta per la tua casa, <span class="accent">senza sorprese</span></h1>
-      <p>Offerte luce e gas riservate a clienti domestici. Condizioni trasparenti e spread bloccato per tutta la durata contrattuale.</p>
+      <h1>Le nostre tariffe <span class="accent">per luce e gas</span></h1>
+      <p>Offerte per clienti domestici: tariffe fisse, variabili e offerte PLACET obbligatorie per legge. Scegli la soluzione più adatta alle tue esigenze.</p>
 <?php if ($OPERATORE['nome_marketing'] !== '') { ?>
       <div class="partner">
         <span class="lbl"><?= $LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : $COMPANY['company_name'] ?> è partner ufficiale di</span>
@@ -166,90 +176,122 @@ $ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6
   <div class="offers-wrap">
     <div class="offers-grid">
 
-      <!-- Flexy Gas -->
+      <!-- Luce -->
       <article class="o-card">
-        <div class="o-top gas">
-          <span class="kind"><?= $ICON_FLAME ?> Gas · Domestico</span>
-          <span class="badge"><?= $ICON_LOCK ?> Spread bloccato 12 mesi</span>
+        <div class="o-top luce">
+          <span class="kind"><?= $ICON_BOLT ?> Luce · Domestico</span>
+          <span class="badge"><?= $ICON_LOCK ?> Fissa e variabile</span>
         </div>
         <div class="o-body">
-          <span class="o-code">034939GSVML01XXDWFLEXYWGW0626W1X</span>
-          <h3 class="o-name">Flexy Gas</h3>
-          <p class="o-meta">Cliente uso domestico · Mercato Libero indicizzato · Sottoscrivibile fino al 15/07/2026</p>
+          <h3 class="o-name">Offerte Luce</h3>
+          <p class="o-meta">Per utenze domestiche in bassa tensione sul Mercato Libero.</p>
 
-          <div class="o-price">
-            <div class="lab">Corrispettivo per il consumo</div>
-            <div class="val">PSV + 0,89<span class="unit">€/Smc</span></div>
-            <div class="locked"><?= $ICON_CHECK ?> Spread fisso per i primi 12 mesi</div>
+          <div class="o-suboffer">
+            <h4>Enjoy Forever · Tariffa Variabile</h4>
+            <p>Prezzo componente energia indicizzato al PUN (Prezzo Unico Nazionale), con l'aggiunta di un contributo al consumo (spread/alfa).</p>
+            <ul>
+              <li><?= $ICON_CHECK ?><span>Disponibile in versione <strong>Monoraria</strong> o <strong>Multioraria</strong> (F1, F2, F3)</span></li>
+              <li><?= $ICON_CHECK ?><span>Quota fissa mensile di commercializzazione indipendente dal consumo</span></li>
+              <li><?= $ICON_CHECK ?><span>Prezzo che segue l'andamento mensile del mercato all'ingrosso</span></li>
+            </ul>
           </div>
 
-          <ul class="o-feats">
-            <li><?= $ICON_CHECK ?><span>Corrispettivo annuo: <strong>588,00 €/PDR/anno</strong></span></li>
-            <li><?= $ICON_CHECK ?><span>Indicizzato al PSV Day Ahead (ICIS Heren), aggiornato mensilmente</span></li>
-            <li><?= $ICON_CHECK ?><span>Pagamento: addebito in conto corrente (SDD)</span></li>
-          </ul>
+          <div class="o-suboffer">
+            <h4>Ready Luce 24 · Tariffa Fissa</h4>
+            <p>Prezzo della componente energia bloccato per kWh, solitamente per 12 o 24 mesi.</p>
+            <ul>
+              <li><?= $ICON_CHECK ?><span>Prezzo fisso per il consumo per tutta la durata contrattuale</span></li>
+              <li><?= $ICON_CHECK ?><span>Quota fissa mensile di commercializzazione indipendente dal consumo</span></li>
+              <li><?= $ICON_CHECK ?><span>Ideale per chi cerca stabilità e nessuna sorpresa in bolletta</span></li>
+            </ul>
+          </div>
 
-          <a class="o-cta" href="contatti.php?offerta=FLEXY_GAS#contatto-form">Richiedi attivazione <?= $ICON_ARROW ?></a>
+          <a class="o-cta" href="contatti.php?offerta=LUCE#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
 
           <details class="cte-details">
             <summary>Condizioni Tecnico Economiche (CTE)</summary>
             <div class="cte-body">
-              <p>Offerta per il Mercato Libero indicizzata riservata a clienti uso domestico. Le presenti Condizioni Tecnico Economiche (CTE) disciplinano, unitamente alle Condizioni Generali di Contratto (CGC) e alla Proposta di Adesione (PDA), le condizioni di fornitura di gas naturale presso il punto di riconsegna (PDR).</p>
-              <p>Le presenti CTE sono riservate a Clienti finali titolari di PDR ad uso Domestico che abbiano deciso di acquistare gas naturale sul Mercato Libero e scelgano quale modalit&agrave; di pagamento l'addebito in conto corrente. L'attivazione &egrave; condizionata all'esito positivo delle verifiche sull'assenza di precedenti morosit&agrave; e alla valutazione sull'affidabilit&agrave; creditizia del Cliente.</p>
-              <h5>Voci di spesa per la vendita di gas naturale</h5>
-              <table class="cte-rate-table">
-                <tr><th>Corrispettivo per il consumo (primi 12 mesi)</th><td>PSV + 0,89 €/Smc</td></tr>
-                <tr><th>Corrispettivo annuo di commercializzazione</th><td>588,00 €/PDR/anno</td></tr>
-              </table>
-              <p><strong>Caratteristiche dell'indice PSV.</strong> Il PSV (PSV Day Ahead Heren Mid) corrisponde al prezzo del gas naturale all'ingrosso al Punto di Scambio Virtuale ed &egrave; calcolato mensilmente come media dei prezzi Bid e Offer pubblicati sotto il titolo &laquo;PSV PRICE ASSESSMENT&raquo; nel report &laquo;ICIS Heren European Spot Gas Markets&raquo; del pi&ugrave; vicino giorno lavorativo secondo il calendario inglese. Il valore massimo dell'indice PSV negli ultimi 12 mesi &egrave; 0,557699 €/Smc (riferito al mese di marzo 2026). Lo spread indicato rappresenta i costi per la spesa della materia prima non coperti dall'indice ed &egrave; liberamente definito dal Fornitore, fisso e invariabile per l'intera durata del Contratto.</p>
-              <p>Le presenti condizioni economiche sono valide per 12 mesi a decorrere dalla data di attivazione della fornitura. In caso di switch, la data di attivazione coincide con la data effettiva di switch. Alla scadenza, le condizioni si intenderanno rinnovate per ulteriori periodi di uguale durata, fatta salva la possibilit&agrave; per Enjoy Energy S.r.l. di comunicare eventuali variazioni unilaterali nel rispetto delle modalit&agrave; previste dalle CGC e dalla regolazione ARERA.</p>
-              <p>I valori dei corrispettivi sono riferiti al Potere Calorifico Superiore (PCS) pari a 0,03852 GJ/Smc e saranno adeguati in funzione del PCS convenzionale dell'impianto di distribuzione, come determinato da Enjoy Energy secondo le previsioni del TIVG. Per i PdR non dotati di apparecchiatura per la correzione delle misure alle condizioni standard, i volumi saranno adeguati mediante il coefficiente correttivo &laquo;C&raquo; secondo le disposizioni della RTDG e del TIVG.</p>
-              <p>I prezzi sono al netto di IVA e imposte. Eventuali aggiornamenti delle componenti ARERA, nonché eventuali ulteriori componenti valorizzate da ARERA in corso di fornitura, saranno automaticamente recepiti in bolletta.</p>
+              <p>Le offerte luce sono riservate a clienti finali titolari di POD ad uso domestico in bassa tensione che acquistino energia elettrica sul Mercato Libero. L'attivazione è condizionata all'esito positivo delle verifiche di morosità e alla valutazione di affidabilità creditizia.</p>
+              <p>Per la tariffa variabile <strong>Enjoy Forever</strong> il corrispettivo per il consumo è indicizzato al PUN (Prezzo Unico Nazionale), calcolato mensilmente, più un contributo al consumo (spread/alfa) stabilito dal fornitore. La tariffa può essere erogata in forma monoraria o multioraria (F1, F2, F3).</p>
+              <p>Per la tariffa fissa <strong>Ready Luce 24</strong> il corrispettivo per il consumo è bloccato per kWh per la durata contrattuale indicata, solitamente 12 o 24 mesi.</p>
+              <p>Per entrambe le offerte è previsto un costo fisso di commercializzazione mensile indipendente dai consumi. I prezzi sono al netto di IVA e imposte; eventuali aggiornamenti delle componenti ARERA saranno automaticamente recepiti in bolletta.</p>
             </div>
           </details>
         </div>
       </article>
 
-      <!-- Ready Luce 24 -->
+      <!-- Gas -->
       <article class="o-card">
-        <div class="o-top luce">
-          <span class="kind"><?= $ICON_BOLT ?> Luce · Domestico</span>
-          <span class="badge"><?= $ICON_LOCK ?> Prezzo fisso 24 mesi</span>
+        <div class="o-top gas">
+          <span class="kind"><?= $ICON_FLAME ?> Gas · Domestico</span>
+          <span class="badge"><?= $ICON_LOCK ?> Variabile</span>
         </div>
         <div class="o-body">
-          <h3 class="o-name">Ready Luce 24</h3>
-          <p class="o-meta">Cliente uso domestico bassa tensione · Mercato Libero · Sottoscrivibile fino al 15/07/2026</p>
+          <h3 class="o-name">Offerte Gas</h3>
+          <p class="o-meta">Per utenze domestiche con PDR sul Mercato Libero.</p>
 
-          <div class="o-price">
-            <div class="lab">Corrispettivo per il consumo</div>
-            <div class="val">F0 0,27<span class="unit">€/kWh</span></div>
-            <div class="locked"><?= $ICON_CHECK ?> Prezzo fisso per i primi 24 mesi</div>
+          <div class="o-suboffer">
+            <h4>Enjoy Forever Gas / Par 0 Web · Tariffa Variabile</h4>
+            <p>Prezzo componente materia prima indicizzato al PSV (Prezzo di Riferimento del Mercato All'ingrosso Italiano), più un contributo al consumo per Smc.</p>
+            <ul>
+              <li><?= $ICON_CHECK ?><span>Prezzo indicizzato al PSV, aggiornato mensilmente</span></li>
+              <li><?= $ICON_CHECK ?><span>Quota fissa mensile di commercializzazione indipendente dal consumo</span></li>
+              <li><?= $ICON_CHECK ?><span>Trasparenza su spread e componenti di mercato</span></li>
+            </ul>
           </div>
 
-          <ul class="o-feats">
-            <li><?= $ICON_CHECK ?><span>Corrispettivo annuo: <strong>300,00 €/POD/anno</strong></span></li>
-            <li><?= $ICON_CHECK ?><span>Prezzo fisso monorario, comprensivo di perdite di rete</span></li>
-            <li><?= $ICON_CHECK ?><span>Pagamento: addebito in conto corrente (SDD)</span></li>
-          </ul>
-
-          <a class="o-cta" href="contatti.php?offerta=READY_LUCE_24#contatto-form">Richiedi attivazione <?= $ICON_ARROW ?></a>
+          <a class="o-cta" href="contatti.php?offerta=GAS#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
 
           <details class="cte-details">
             <summary>Condizioni Tecnico Economiche (CTE)</summary>
             <div class="cte-body">
-              <p>Offerta per il Mercato Libero riservata a clienti uso domestico bassa tensione. Le presenti Condizioni Tecnico Economiche (CTE) disciplinano, unitamente alle Condizioni Generali di Contratto (CGC) e alla Proposta di Adesione (PDA), le condizioni di fornitura di energia elettrica presso il punto di prelievo (POD).</p>
-              <p>Le presenti CTE sono riservate a Clienti finali titolari di POD ad uso Domestico che abbiano deciso di acquistare energia elettrica sul Mercato Libero e scelgano quale modalit&agrave; di pagamento l'addebito in conto corrente. L'attivazione &egrave; condizionata all'esito positivo delle verifiche sull'assenza di precedenti morosit&agrave; e alla valutazione sull'affidabilit&agrave; creditizia del Cliente.</p>
-              <p><strong>Oneri di recesso anticipato.</strong> Le presenti CTE hanno validit&agrave; 24 mesi dalla data di attivazione. Nel caso in cui il Cliente receda prima dei 24 mesi, Enjoy Energy si riserva di applicare un onere per recesso anticipato proporzionale ai mesi residui, calcolato secondo la formula <strong>12€ × MR</strong> (dove MR = numero di mesi residui fino al termine dei 24 mesi). Onere massimo applicabile: 288€ (12€ × 24 mesi). Tale onere viene applicato in conformit&agrave; al Codice di condotta commerciale e alle disposizioni dell'art. 7, comma 5, del D.Lgs. 210/2021.</p>
-              <h5>Voci di spesa per la vendita di energia elettrica</h5>
-              <table class="cte-rate-table">
-                <tr><th>F0 · Corrispettivo per il consumo (primi 24 mesi)</th><td>0,27 €/kWh</td></tr>
-                <tr><th>Corrispettivo annuo di commercializzazione</th><td>300,00 €/POD/anno</td></tr>
-              </table>
-              <p><strong>Caratteristiche.</strong> Prezzo fisso monorario comprensivo di perdite di rete.</p>
-              <p>Sono inoltre applicate le componenti relative al servizio di vendita: il corrispettivo di dispacciamento CDISPD, a copertura dei costi di dispacciamento per l'energia elettrica all'ingrosso, espresso in centesimi di euro/kWh e aggiornato mensilmente da ARERA, comprensivo delle perdite di rete pari a 0,019902 €/kWh valida dal 1° giugno 2026.</p>
-              <p>Per le utenze in bassa tensione &gt; 16,5 kW e per le utenze in media tensione sar&agrave; conteggiata l'energia reattiva immessa in rete e saranno previste le eventuali penali in caso di superamento delle soglie come stabilito da ARERA con delibera 720/2022/R/eel.</p>
-              <p>Le presenti condizioni economiche sono valide per 24 mesi a decorrere dalla data di attivazione della fornitura. In caso di switch, la data di attivazione coincide con la data effettiva di switch. Alla scadenza, le condizioni si intenderanno rinnovate per ulteriori periodi di uguale durata, fatta salva la possibilit&agrave; per Enjoy Energy S.r.l. di comunicare eventuali variazioni unilaterali nel rispetto delle modalit&agrave; previste dalle CGC e dalla regolazione ARERA.</p>
-              <p>I prezzi sono al netto di IVA e imposte. Eventuali aggiornamenti delle componenti ARERA, nonché eventuali ulteriori componenti valorizzate da ARERA in corso di fornitura, saranno automaticamente recepiti in bolletta.</p>
+              <p>Le offerte gas sono riservate a clienti finali titolari di PDR ad uso domestico che acquistino gas naturale sul Mercato Libero. L'attivazione è condizionata all'esito positivo delle verifiche di morosità e alla valutazione di affidabilità creditizia.</p>
+              <p>Il corrispettivo per il consumo è indicizzato al PSV (Prezzo di Riferimento del Mercato All'ingrosso Italiano), calcolato mensilmente, più un contributo al consumo per Smc (spread/alfa) stabilito dal fornitore.</p>
+              <p>È previsto un costo fisso di commercializzazione mensile indipendente dai consumi. I prezzi sono al netto di IVA e imposte; eventuali aggiornamenti delle componenti ARERA saranno automaticamente recepiti in bolletta.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- PLACET -->
+      <article class="o-card" style="grid-column: 1 / -1;">
+        <div class="o-top placet">
+          <span class="kind"><?= $ICON_SCALE ?> PLACET</span>
+          <span class="badge"><?= $ICON_LOCK ?> Obbligatorie per legge</span>
+        </div>
+        <div class="o-body">
+          <h3 class="o-name">Offerte PLACET</h3>
+          <p class="o-meta">Offerte a Condizioni Economiche di Protezione per luce e gas, definite dall'ARERA.</p>
+
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+            <div class="o-suboffer" style="border-top: none; padding-top: 0;">
+              <h4>PLACET Fissa · Luce e Gas</h4>
+              <p>Prezzo della materia prima bloccato per 12 mesi, con condizioni contrattuali definite dall'ARERA.</p>
+              <ul>
+                <li><?= $ICON_CHECK ?><span>Prezzo fisso per la materia prima per 12 mesi</span></li>
+                <li><?= $ICON_CHECK ?><span>Condizioni definite dall'Autorità di Regolazione</span></li>
+              </ul>
+            </div>
+
+            <div class="o-suboffer" style="border-top: none; padding-top: 0;">
+              <h4>PLACET Variabile · Luce e Gas</h4>
+              <p>Prezzo indicizzato con parametri stabiliti dall'ARERA: PUN per la luce, PSV per il gas.</p>
+              <ul>
+                <li><?= $ICON_CHECK ?><span>Indicizzata al PUN per la luce e al PSV per il gas</span></li>
+                <li><?= $ICON_CHECK ?><span>Parametri di aggiornamento definiti dall'Autorità</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <a class="o-cta" href="contatti.php?offerta=PLACET#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
+
+          <details class="cte-details">
+            <summary>Condizioni Tecnico Economiche (CTE)</summary>
+            <div class="cte-body">
+              <p>Le offerte PLACET (Prezzo Lazzerato a Condizioni di Tutela) sono offerte obbligatorie per legge, proposte dai venditori di ultima istanza e regolate dall'ARERA. Sono destinate ai clienti domestici e alle piccole imprese che ne facciano richiesta.</p>
+              <p>La versione <strong>PLACET Fissa</strong> prevede un prezzo della materia prima bloccato per 12 mesi, con condizioni contrattuali definite dall'Autorità.</p>
+              <p>La versione <strong>PLACET Variabile</strong> prevede un prezzo indicizzato al PUN per la luce e al PSV per il gas, con parametri di aggiornamento stabiliti dall'ARERA.</p>
+              <p>Per il dettaglio completo dei corrispettivi, dei vincoli di accesso e delle modalità di recesso si rimanda alle condizioni contrattuali pubblicate sul sito del fornitore e alle delibere ARERA in materia.</p>
             </div>
           </details>
         </div>
@@ -258,7 +300,7 @@ $ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6
     </div>
 
     <p class="offers-note">
-      Offerte sul Mercato Libero di Enjoy Energy S.r.l., riservate a clienti domestici. I prezzi indicati sono al netto di IVA e imposte; ai corrispettivi si aggiungono gli oneri e i corrispettivi previsti dall'Autorità di Regolazione per Energia Reti e Ambiente (ARERA). Per il dettaglio completo consulta le CTE di ciascuna offerta.
+      <strong>Nota di trasparenza:</strong> per verificare i valori numerici esatti dei centesimi di euro (sconti commerciali inclusi, spread precisi e quote fisse mensili aggiornate al mese in corso), ti invitiamo a consultare direttamente i box riassuntivi sul sito del fornitore o a scaricare la "Scheda di Confrontabilità" e le "Condizioni Economiche" in PDF. Offerte sul Mercato Libero e PLACET di Enjoy Energy S.r.l.; i prezzi sono al netto di IVA e imposte.
     </p>
   </div>
 
@@ -270,24 +312,24 @@ $ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6
     </div>
     <div class="grid">
       <div class="g-card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-        <h4>Prezzo Fisso (Luce)</h4>
-        <p>Il corrispettivo per il consumo è stabilito contrattualmente e resta invariato per tutta la durata dell'offerta, indipendentemente dalle oscillazioni del mercato all'ingrosso.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h4>PUN · Prezzo Unico Nazionale</h4>
+        <p>È il prezzo di riferimento all'ingrosso dell'energia elettrica in Italia. Nelle tariffe variabili determina la componente energia aggiornata mensilmente.</p>
       </div>
       <div class="g-card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
-        <h4>Prezzo PSV (Gas)</h4>
+        <h4>PSV · Prezzo del Gas</h4>
         <p>Il Punto di Scambio Virtuale è il prezzo all'ingrosso di riferimento del gas naturale in Italia. L'indice è aggiornato mensilmente e segue le dinamiche reali del mercato.</p>
       </div>
       <div class="g-card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h4>Spread di Fornitura</h4>
-        <p>La quota aggiunta al prezzo del mercato all'ingrosso a copertura dei costi di commercializzazione. Nelle offerte Enjoy Energy resta bloccata per tutta la durata contrattuale.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h4>Prezzo Fisso</h4>
+        <p>Il corrispettivo per il consumo è stabilito contrattualmente e resta invariato per tutta la durata dell'offerta, indipendentemente dalle oscillazioni del mercato all'ingrosso.</p>
       </div>
       <div class="g-card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg></div>
-        <h4>Domiciliazione (SDD)</h4>
-        <p>La domiciliazione bancaria è la modalità di pagamento richiesta per queste offerte: garantisce semplicità di gestione ed elimina il rischio di mancati pagamenti.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Spread / Alfa</h4>
+        <p>La quota aggiunta al prezzo del mercato all'ingrosso a copertura dei costi di commercializzazione e approvvigionamento. Viene definita dal fornitore e può essere fissa per tutta la durata contrattuale.</p>
       </div>
     </div>
   </section>
