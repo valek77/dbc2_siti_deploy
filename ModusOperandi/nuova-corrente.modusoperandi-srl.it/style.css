@@ -1,13 +1,13 @@
 :root {
-  --primary: #D3135A;
-  --secondary: #00A9E0;
-  --accent: #D3135A;
-  --accent-hover: #A50B44;
-  --accent-bg: rgba(211, 19, 90, .06);
-  --accent-border: rgba(211, 19, 90, .15);
-  --accent-shadow: rgba(211, 19, 90, .12);
-  --yellow: #FF7A00;
-  --yellow-hover: #E06A00;
+  --primary: #0000fe;
+  --secondary: #e904ef;
+  --accent: #0000fe;
+  --accent-hover: #0000cc;
+  --accent-bg: rgba(0, 0, 254, .06);
+  --accent-border: rgba(0, 0, 254, .15);
+  --accent-shadow: rgba(0, 0, 254, .12);
+  --yellow: #FFD600;
+  --yellow-hover: #E6C200;
   --text-dark: #1e293b;
   --text-secondary: #64748b;
   --text-muted: #94a3b8;
@@ -79,7 +79,7 @@ body {
 
 /* ─── Hero ─── */
 .hero {
-  background: linear-gradient(135deg, #D3135A 0%, #FF7A00 100%);
+  background: linear-gradient(135deg, #0000fe 0%, #e904ef 100%);
   color: #fff; padding: 56px 20px 80px; text-align: left;
   overflow: hidden;
 }
@@ -129,12 +129,12 @@ body {
 
 .btn-primary {
   background: var(--yellow); color: var(--text-dark);
-  box-shadow: 0 4px 12px rgba(250,204,21,0.3);
+  box-shadow: 0 4px 12px rgba(255,214,0,0.3);
 }
 
 .btn-primary:hover {
   background: var(--yellow-hover);
-  transform: translateY(-2px); box-shadow: 0 6px 16px rgba(250,204,21,0.4);
+  transform: translateY(-2px); box-shadow: 0 6px 16px rgba(255,214,0,0.4);
 }
 
 .btn-secondary {
@@ -345,7 +345,7 @@ body {
   font-weight: 900;
   font-family: var(--font-h);
   margin: 0 auto 24px;
-  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 214, 0, 0.4);
 }
 
 .hiw-step p {
@@ -457,7 +457,7 @@ body {
   color: var(--text-dark); font-weight: 800; cursor: pointer; width: 100%;
 }
 
-.btn-cta:hover, .btn-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(250,204,21,0.3); background: var(--yellow-hover); }
+.btn-cta:hover, .btn-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(255,214,0,0.3); background: var(--yellow-hover); }
 
 .btn-submit { padding: 16px; border-radius: 14px; margin-top: 8px; }
 
