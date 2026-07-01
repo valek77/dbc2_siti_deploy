@@ -51,9 +51,8 @@ $legalLine = implode(' | ', $legalParts);
     </div>
     <div class="footer-col">
       <h4>Servizi</h4>
-      <a href="tariffe.php">Luce</a>
-      <a href="tariffe.php">Gas</a>
-      <a href="tariffe.php">Offerte SWITCH</a>
+      <a href="tariffe.php">Offerte</a>
+      
     </div>
     <div class="footer-col">
       <h4>Legale</h4>
