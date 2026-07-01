@@ -6,7 +6,7 @@ include __DIR__ . '/header.php';
 
   <!-- Hero Section -->
   <section class="hero"
-    style="background: linear-gradient(rgba(4, 8, 50, 0.5), rgba(4, 8, 50, 0.5)), url('about_telecom.png') center/cover no-repeat; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;">
+    style="background: linear-gradient(rgba(4, 8, 50, 0.5), rgba(4, 8, 50, 0.5)), url('back-view-family-hugging-admiring-their-home.jpg') center/cover no-repeat; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;">
     <div style="max-width: 900px; padding: 20px;">
       <h1 style="color: #ffffff; font-size: clamp(48px, 8vw, 84px); margin: 0; font-weight: 800;">Chi Siamo</h1>
     </div>
@@ -28,30 +28,30 @@ include __DIR__ . '/header.php';
         </p>
       </div>
       <div style="flex: 1; position: relative; height: 500px; min-width: 400px;">
-        <img src="team_telecom.png" alt="Il Team <?= $brandName ?>" class="hero-image-mask"
+        <img src="woman-office-working-environment-project.jpg" alt="Team consulenza energia <?= $brandName ?>" class="hero-image-mask"
           style="border-radius: 300px 0 0 300px; box-shadow: -20px 20px 40px rgba(0,0,0,0.1);">
       </div>
     </div>
   </section>
 
   <!-- Stats Ribbon (Eni Style) -->
-  <section style="background: var(--primary); padding: 80px 20px; color: var(--accent);">
+  <section style="background: var(--primary); padding: 80px 20px; color: #ffffff;">
     <div
       style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
       <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--accent); margin-bottom: 8px;">50k+</div>
+        <div style="font-size: 56px; font-weight: 800; color: var(--secondary); margin-bottom: 8px;">50k+</div>
         <p style="font-size: 16px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Famiglie Servite</p>
       </div>
       <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--accent); margin-bottom: 8px;">100%</div>
+        <div style="font-size: 56px; font-weight: 800; color: var(--secondary); margin-bottom: 8px;">100%</div>
         <p style="font-size: 16px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Copertura Nazionale</p>
       </div>
       <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--accent); margin-bottom: 8px;">24h</div>
+        <div style="font-size: 56px; font-weight: 800; color: var(--secondary); margin-bottom: 8px;">24h</div>
         <p style="font-size: 16px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Risposta Rapida</p>
       </div>
       <div>
-        <div style="font-size: 56px; font-weight: 800; color: var(--accent); margin-bottom: 8px;">-15%</div>
+        <div style="font-size: 56px; font-weight: 800; color: var(--secondary); margin-bottom: 8px;">-15%</div>
         <p style="font-size: 16px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Risparmio Medio</p>
       </div>
     </div>
@@ -63,17 +63,17 @@ include __DIR__ . '/header.php';
       <h2 class="section-title" style="margin-bottom: 80px;">I nostri punti di forza</h2>
       <div class="features-container">
         <div class="trust-card" style="background: #fff;">
-          <img src="icon_consultant.png" alt="Consulente" class="trust-mascot">
+          <img src="young-beautiful-woman-holds-her-hand-small-wall-lamp.jpg" alt="Consulente energia" class="trust-mascot">
           <h4>Consulente Dedicato</h4>
           <p>Un professionista esperto, con nome e numero diretto, sempre al tuo fianco per ogni esigenza.</p>
         </div>
         <div class="trust-card" style="background: #fff;">
-          <img src="icon_audit.png" alt="Audit" class="trust-mascot">
+          <img src="hands-lit-light-bulb.jpg" alt="Audit consumi" class="trust-mascot">
           <h4>Analisi Utenze</h4>
           <p>Utilizziamo tecnologie all'avanguardia per analizzare le tue fatture e proporti risparmi reali.</p>
         </div>
         <div class="trust-card" style="background: #fff;">
-          <img src="icon_transparency.png" alt="Trasparenza" class="trust-mascot">
+          <img src="large-light-bulb-restaurant.jpg" alt="Trasparenza offerte energia" class="trust-mascot">
           <h4>Trasparenza Totale</h4>
           <p>I nostri contratti sono semplici, chiari e privi di sorprese. Nessun costo nascosto nelle tue fatture.</p>
         </div>

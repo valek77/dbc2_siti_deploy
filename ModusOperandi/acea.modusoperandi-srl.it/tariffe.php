@@ -81,7 +81,7 @@ $pageScripts = "  <script>const PROVIDER = $operatoreJs;</script>\n" . <<<'JS'
             <div class="offer-provider" style="margin-top: 4px;">${o.fornitore} · ${o.tipo}</div>
           </div>
         </div>
-        <div class="offer-features" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px;">${o.features.map(f => `<span class="offer-tag" style="display: flex; align-items: center; gap: 10px; font-weight: 500; border-radius: 8px; color: var(--text-label); background: #f1f5f9;"><span style="color: var(--accent); font-size: 18px;">✓</span> ${f}</span>`).join('')}</div>
+        <div class="offer-features" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px;">${o.features.map(f => `<span class="offer-tag" style="display: flex; align-items: center; gap: 10px; font-weight: 500; border-radius: 8px; color: var(--text-label); background: rgba(29, 78, 216, 0.08);"><span style="color: var(--accent); font-size: 18px;">✓</span> ${f}</span>`).join('')}</div>
         <button type="button" class="btn-primary" style="width: 100%; border: none; cursor: pointer;" data-offer-id="${o.id}">Attiva ora</button>
       </div>
     </article>`).join('');
@@ -100,7 +100,7 @@ include __DIR__ . '/header.php';
 ?>
 
   <section class="hero"
-    style="background: linear-gradient(rgba(4, 8, 50, 0.7), rgba(4, 8, 50, 0.7)), url('hero_telecom.png') center/cover no-repeat; color: #ffffff; padding: var(--section-padding) 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
+    style="background: linear-gradient(rgba(4, 8, 50, 0.7), rgba(4, 8, 50, 0.7)), url('visualization-energy-flowing-through-power-tower-lines-night-sky-infrastructure-ensuring-transmission-electricity-through-voltage-distribution-cables-3d-render-animation.jpg') center/cover no-repeat; color: #ffffff; padding: var(--section-padding) 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div class="hero-wrapper"
       style="max-width: 900px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
       <div
@@ -205,7 +205,7 @@ include __DIR__ . '/header.php';
         </div>
       </div>
       <div style="flex: 0.8; min-width: 300px; display: flex; justify-content: center;">
-        <img src="services_telecom.png" alt="Risparmio Utenze"
+        <img src="hands-lit-light-bulb.jpg" alt="Analisi offerte e risparmio energetico"
           style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(4, 8, 50, 0.08);">
       </div>
     </div>

@@ -17,7 +17,7 @@ include __DIR__ . '/header.php';
       </div>
     </div>
     <div class="hero-image-side">
-      <img src="hero_telecom.png" alt="Telecom Future" class="hero-image-mask">
+      <img src="visualization-energy-flowing-through-power-tower-lines-night-sky-infrastructure-ensuring-transmission-electricity-through-voltage-distribution-cables-3d-render-animation.jpg" alt="Linee elettriche ad alta tensione di notte" class="hero-image-mask">
     </div>
   </section>
 
@@ -30,18 +30,18 @@ include __DIR__ . '/header.php';
 
     <div class="features-container">
       <div class="trust-card">
-        <img src="icon_consultant.png" alt="Consulente" class="trust-mascot">
+        <img src="woman-office-working-environment-project.jpg" alt="Consulente al lavoro in ufficio" class="trust-mascot">
         <h4>Esperto Dedicato</h4>
         <p>Nessuna attesa telefonica. Avrai a disposizione uno specialista che conosce le tue esigenze e ti guida passo dopo passo verso la tariffa migliore.</p>
       </div>
       <div class="trust-card">
-        <img src="icon_audit.png" alt="Audit" class="trust-mascot">
+        <img src="hands-lit-light-bulb.jpg" alt="Lampadina accesa tra le mani" class="trust-mascot">
         <h4>Analisi Energetica</h4>
         <p>Studiamo le tue esigenze di connessione e consumo per individuare eventuali sprechi e offrirti soluzioni
           ottimali per risparmiare.</p>
       </div>
       <div class="trust-card">
-        <img src="icon_transparency.png" alt="Trasparenza" class="trust-mascot">
+        <img src="large-light-bulb-restaurant.jpg" alt="Grande lampadina in ambiente interno" class="trust-mascot">
         <h4>Tariffe Chiare</h4>
         <p>Costi legati all'andamento del mercato, senza spese extra o brutte sorprese in bolletta. Un approccio diretto
           e trasparente.</p>
@@ -108,7 +108,7 @@ include __DIR__ . '/header.php';
         </div>
       </div>
       <div style="flex: 1; min-width: 400px;">
-        <img src="services_telecom.png" alt="Servizi Telecomunicazioni"
+        <img src="young-beautiful-woman-holds-her-hand-small-wall-lamp.jpg" alt="Donna con lampada da parete accesa"
           style="width: 100%; border-radius: 0 300px 300px 0; box-shadow: 20px 20px 60px rgba(0,0,0,0.1);">
       </div>
     </div>
@@ -153,7 +153,7 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: var(--gutter); flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="team_telecom.png" alt="Il Team <?= $brandName ?>"
+        <img src="back-view-family-hugging-admiring-their-home.jpg" alt="Famiglia che osserva la propria casa"
           style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(4, 8, 50, 0.08);">
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left; padding-left: 40px;">

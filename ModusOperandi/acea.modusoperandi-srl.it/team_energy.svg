@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Team consulenza energia</title>
+  <desc id="desc">Illustrazione vettoriale di consulenti energia con documenti, grafici e simboli di efficienza.</desc>
+  <rect width="1200" height="900" fill="#eff6ff"/>
+  <circle cx="1016" cy="138" r="88" fill="#fde68a"/>
+  <rect x="98" y="144" width="1004" height="640" rx="36" fill="#ffffff" stroke="#dbeafe" stroke-width="8"/>
+  <g transform="translate(130 176)">
+    <rect x="0" y="0" width="944" height="576" rx="28" fill="#f8fbff"/>
+    <g transform="translate(92 108)">
+      <circle cx="120" cy="88" r="58" fill="#f4c7a1"/>
+      <path d="M62 84c8-46 34-74 82-74 40 0 66 18 78 54l-4 24H62Z" fill="#0f3ea8"/>
+      <rect x="56" y="156" width="136" height="164" rx="28" fill="#1d4ed8"/>
+      <rect x="98" y="156" width="52" height="84" rx="18" fill="#ffffff" opacity=".22"/>
+      <rect x="14" y="194" width="56" height="126" rx="28" fill="#1e40af"/>
+      <rect x="178" y="194" width="56" height="126" rx="28" fill="#1e40af"/>
+      <circle cx="364" cy="88" r="58" fill="#e8b38d"/>
+      <path d="M304 88c8-54 40-78 90-78 44 0 72 26 80 64l-6 26H304Z" fill="#facc15"/>
+      <rect x="300" y="156" width="136" height="164" rx="28" fill="#0f3ea8"/>
+      <rect x="258" y="194" width="56" height="126" rx="28" fill="#1d4ed8"/>
+      <rect x="422" y="194" width="56" height="126" rx="28" fill="#1d4ed8"/>
+      <circle cx="608" cy="88" r="58" fill="#f1c59e"/>
+      <path d="M552 88c6-50 34-78 84-78 42 0 70 22 82 58l-6 28H552Z" fill="#0f172a"/>
+      <rect x="544" y="156" width="136" height="164" rx="28" fill="#facc15"/>
+      <rect x="502" y="194" width="56" height="126" rx="28" fill="#eab308"/>
+      <rect x="666" y="194" width="56" height="126" rx="28" fill="#eab308"/>
+    </g>
+    <g transform="translate(644 92)">
+      <rect x="0" y="0" width="214" height="152" rx="22" fill="#eff6ff"/>
+      <rect x="24" y="24" width="82" height="16" rx="8" fill="#93c5fd"/>
+      <rect x="24" y="54" width="130" height="16" rx="8" fill="#bfdbfe"/>
+      <path d="M28 116h44l34-54 30 38 28-20 24 36h38" fill="none" stroke="#0f3ea8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(98 420)">
+      <rect x="0" y="0" width="754" height="92" rx="24" fill="#dbeafe"/>
+      <rect x="34" y="24" width="160" height="18" rx="9" fill="#1d4ed8"/>
+      <rect x="34" y="54" width="110" height="18" rx="9" fill="#93c5fd"/>
+      <circle cx="590" cy="46" r="28" fill="#facc15"/>
+      <path d="m586 28-16 28h18l-10 24 30-34h-18l12-18Z" fill="#0f3ea8"/>
+      <rect x="640" y="22" width="86" height="46" rx="14" fill="#0f3ea8"/>
+      <text x="683" y="52" text-anchor="middle" font-size="20" font-family="Arial, sans-serif" font-weight="700" fill="#fff">Help</text>
+    </g>
+  </g>
+</svg>

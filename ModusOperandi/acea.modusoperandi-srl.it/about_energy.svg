@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Paesaggio energia rinnovabile</title>
+  <desc id="desc">Illustrazione con turbine eoliche, tetti solari, linee elettriche e cielo luminoso.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0f3ea8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1280" cy="172" r="100" fill="#facc15"/>
+  <g fill="#ffffff" opacity=".18">
+    <ellipse cx="350" cy="174" rx="130" ry="42"/>
+    <ellipse cx="468" cy="170" rx="88" ry="28"/>
+    <ellipse cx="1040" cy="238" rx="120" ry="36"/>
+  </g>
+  <path d="M0 616c164-18 320 4 458 64s252 82 438 52 390-92 704-30V900H0Z" fill="#1e40af"/>
+  <path d="M0 708c174 0 318 36 472 86s320 78 510 36 362-114 618-66V900H0Z" fill="#1d4ed8"/>
+  <g transform="translate(180 380)">
+    <rect x="118" y="106" width="16" height="260" rx="8" fill="#dbeafe"/>
+    <circle cx="126" cy="94" r="18" fill="#ffffff"/>
+    <path d="M126 94 42 66A88 88 0 0 1 126 10Z" fill="#eff6ff"/>
+    <path d="M126 94 168 8A88 88 0 0 1 208 84Z" fill="#f8fafc"/>
+    <path d="M126 94 82 176A88 88 0 0 1 42 108Z" fill="#eff6ff"/>
+  </g>
+  <g transform="translate(520 340) scale(1.2)">
+    <rect x="118" y="106" width="16" height="260" rx="8" fill="#dbeafe"/>
+    <circle cx="126" cy="94" r="18" fill="#ffffff"/>
+    <path d="M126 94 42 66A88 88 0 0 1 126 10Z" fill="#eff6ff"/>
+    <path d="M126 94 168 8A88 88 0 0 1 208 84Z" fill="#f8fafc"/>
+    <path d="M126 94 82 176A88 88 0 0 1 42 108Z" fill="#eff6ff"/>
+  </g>
+  <g transform="translate(1016 418)">
+    <path d="M0 114 164 16l164 98v176H0Z" fill="#f8fafc" opacity=".96"/>
+    <path d="M-18 124 164 0l184 124" fill="none" stroke="#facc15" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(58 48) skewX(-18)">
+      <rect x="0" y="0" width="176" height="54" rx="8" fill="#0f172a" opacity=".25"/>
+      <rect x="0" y="0" width="176" height="54" rx="8" fill="#1d4ed8"/>
+      <path d="M44 0v54M88 0v54M132 0v54M0 18h176M0 36h176" stroke="#93c5fd" stroke-width="3"/>
+    </g>
+    <rect x="132" y="164" width="60" height="126" rx="8" fill="#bfdbfe"/>
+  </g>
+  <g transform="translate(154 640)">
+    <path d="M0 88h1292" stroke="#facc15" stroke-width="10" stroke-linecap="round" opacity=".75"/>
+    <circle cx="108" cy="88" r="18" fill="#facc15"/>
+    <circle cx="514" cy="88" r="18" fill="#facc15"/>
+    <circle cx="924" cy="88" r="18" fill="#facc15"/>
+  </g>
+</svg>

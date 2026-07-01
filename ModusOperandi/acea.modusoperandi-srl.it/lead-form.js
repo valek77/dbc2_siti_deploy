@@ -110,7 +110,7 @@
       msgField.value = "Sono interessato all'offerta: " + offer;
     } else {
       const infoMsg = document.createElement('div');
-      infoMsg.style.cssText = 'background:#eef2ff;color:#1e3a8a;padding:12px;border-radius:8px;font-weight:600;margin-bottom:16px;font-size:14px;';
+      infoMsg.style.cssText = 'background:rgba(29,78,216,.08);color:#0f3ea8;padding:12px;border-radius:8px;font-weight:600;margin-bottom:16px;font-size:14px;border:1px solid rgba(29,78,216,.18);';
       infoMsg.textContent = 'Richiesta per: ' + offer;
       form.prepend(infoMsg);
     }

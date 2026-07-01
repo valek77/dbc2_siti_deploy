@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Consulente energia</title>
+  <desc id="desc">Icona vettoriale di consulente con headset e simbolo energia.</desc>
+  <rect width="256" height="256" rx="56" fill="#eff6ff"/>
+  <circle cx="128" cy="94" r="40" fill="#f4c7a1"/>
+  <path d="M88 88c4-34 26-52 56-52 28 0 48 14 56 42l-4 22H88Z" fill="#0f3ea8"/>
+  <path d="M72 180c6-38 34-62 72-62s66 24 72 62v20H72Z" fill="#1d4ed8"/>
+  <path d="M70 118c0-32 26-58 58-58h2c32 0 58 26 58 58" fill="none" stroke="#0f172a" stroke-width="10" stroke-linecap="round"/>
+  <rect x="52" y="120" width="22" height="54" rx="11" fill="#0f172a"/>
+  <rect x="182" y="120" width="22" height="54" rx="11" fill="#0f172a"/>
+  <circle cx="188" cy="186" r="34" fill="#facc15"/>
+  <path d="m184 164-14 24h18l-10 22 30-34h-18l12-12Z" fill="#0f3ea8"/>
+</svg>

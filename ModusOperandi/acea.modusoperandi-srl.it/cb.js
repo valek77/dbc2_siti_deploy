@@ -36,18 +36,18 @@
         .cookie-content strong {
           display: block;
           font-size: 17px;
-          color: #040832; /* var(--primary) */
+          color: #0f172a;
           margin-bottom: 8px;
           font-weight: 700;
         }
         .cookie-content p {
           font-size: 14.5px;
           line-height: 1.6;
-          color: #4a5568;
+          color: #475569;
           margin: 0;
         }
         .cookie-content a {
-          color: #2D63ED;
+          color: #0f3ea8;
           text-decoration: underline;
           font-weight: 600;
         }
@@ -69,20 +69,20 @@
           font-family: inherit;
         }
         .cookie-btn-primary {
-          background: #2D63ED; /* var(--accent) style */
+          background: #0f3ea8;
           color: #fff;
-          box-shadow: 0 4px 12px rgba(45, 99, 237, 0.3);
+          box-shadow: 0 4px 12px rgba(15, 62, 168, 0.3);
         }
         .cookie-btn-primary:hover {
-          background: #1e4bb8;
+          background: #0b2f7d;
           transform: translateY(-2px);
         }
         .cookie-btn-secondary {
-          background: #f1f5f9;
-          color: #040832;
+          background: #fef3c7;
+          color: #0f172a;
         }
         .cookie-btn-secondary:hover {
-          background: #e2e8f0;
+          background: #fde68a;
           transform: translateY(-2px);
         }
         @media (max-width: 768px) {

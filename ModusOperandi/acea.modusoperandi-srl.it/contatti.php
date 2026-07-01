@@ -7,7 +7,7 @@ $pageHead = <<<'CSS'
     .contact-hero {
       background: var(--primary);
       padding: 120px 20px;
-      color: var(--accent);
+      color: #ffffff;
       text-align: center;
     }
 
@@ -207,7 +207,7 @@ include __DIR__ . '/header.php';
 
   <div class="floating-cards" style="margin-top: -100px; display: flex; justify-content: center;">
     <div class="f-card" style="max-width: 500px; width: 100%;">
-      <img src="icon_consultant.png" alt="Email">
+      <img src="woman-office-working-environment-project.jpg" alt="Consulente energia">
       <h3>Contattaci via Email</h3>
       <p>Il nostro team di esperti è pronto a rispondere a ogni tua domanda.
         <?php if ($COMPANY['email_supporto'] !== '') { ?><br><strong><?= $COMPANY['email_supporto'] ?></strong><?php } ?>
@@ -285,7 +285,7 @@ include __DIR__ . '/header.php';
         </form>
 
         <div id="conferma" hidden
-          style="text-align: center; padding: 32px 0; margin-top: 20px; background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: var(--r-md); color: #065F46;">
+          style="text-align: center; padding: 32px 0; margin-top: 20px; background: rgba(29, 78, 216, 0.08); border: 1px solid rgba(29, 78, 216, 0.18); border-radius: var(--r-md); color: var(--accent);">
           <div style="font-size: 56px; margin-bottom: 12px;">✅</div>
           <strong style="font-size: 17px;">Richiesta inviata con successo!</strong>
           <p style="margin: 8px 0 0; font-size: 14.5px;">Un nostro consulente ti contatterà.</p>
