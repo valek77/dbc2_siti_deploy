@@ -176,18 +176,17 @@ $ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 
   <div class="offers-wrap">
     <div class="offers-grid">
 
-      <!-- Luce -->
+      <!-- Luce: Enjoy Forever -->
       <article class="o-card">
         <div class="o-top luce">
           <span class="kind"><?= $ICON_BOLT ?> Luce · Domestico</span>
-          <span class="badge"><?= $ICON_LOCK ?> Fissa e variabile</span>
+          <span class="badge"><?= $ICON_SCALE ?> Variabile</span>
         </div>
         <div class="o-body">
-          <h3 class="o-name">Offerte Luce</h3>
+          <h3 class="o-name">Enjoy Forever · Tariffa Variabile</h3>
           <p class="o-meta">Per utenze domestiche in bassa tensione sul Mercato Libero.</p>
 
           <div class="o-suboffer">
-            <h4>Enjoy Forever · Tariffa Variabile</h4>
             <p>Prezzo componente energia indicizzato al PUN (Prezzo Unico Nazionale), con l'aggiunta di un contributo al consumo (spread/alfa).</p>
             <ul>
               <li><?= $ICON_CHECK ?><span>Disponibile in versione <strong>Monoraria</strong> o <strong>Multioraria</strong> (F1, F2, F3)</span></li>
@@ -196,8 +195,30 @@ $ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 
             </ul>
           </div>
 
+          <a class="o-cta" href="contatti.php?offerta=LUCE-VARIABILE#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
+
+          <details class="cte-details">
+            <summary>Condizioni Tecnico Economiche (CTE)</summary>
+            <div class="cte-body">
+              <p>L'offerta <strong>Enjoy Forever</strong> è riservata a clienti finali titolari di POD ad uso domestico in bassa tensione che acquistino energia elettrica sul Mercato Libero. L'attivazione è condizionata all'esito positivo delle verifiche di morosità e alla valutazione di affidabilità creditizia.</p>
+              <p>Il corrispettivo per il consumo è indicizzato al PUN (Prezzo Unico Nazionale), calcolato mensilmente, più un contributo al consumo (spread/alfa) stabilito dal fornitore. La tariffa può essere erogata in forma monoraria o multioraria (F1, F2, F3).</p>
+              <p>È previsto un costo fisso di commercializzazione mensile indipendente dai consumi. I prezzi sono al netto di IVA e imposte; eventuali aggiornamenti delle componenti ARERA saranno automaticamente recepiti in bolletta.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- Luce: Ready Luce 24 -->
+      <article class="o-card">
+        <div class="o-top luce">
+          <span class="kind"><?= $ICON_BOLT ?> Luce · Domestico</span>
+          <span class="badge"><?= $ICON_LOCK ?> Fissa</span>
+        </div>
+        <div class="o-body">
+          <h3 class="o-name">Ready Luce 24 · Tariffa Fissa</h3>
+          <p class="o-meta">Per utenze domestiche in bassa tensione sul Mercato Libero.</p>
+
           <div class="o-suboffer">
-            <h4>Ready Luce 24 · Tariffa Fissa</h4>
             <p>Prezzo della componente energia bloccato per kWh, solitamente per 12 o 24 mesi.</p>
             <ul>
               <li><?= $ICON_CHECK ?><span>Prezzo fisso per il consumo per tutta la durata contrattuale</span></li>
@@ -206,15 +227,14 @@ $ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 
             </ul>
           </div>
 
-          <a class="o-cta" href="contatti.php?offerta=LUCE#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
+          <a class="o-cta" href="contatti.php?offerta=LUCE-FISSA#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
 
           <details class="cte-details">
             <summary>Condizioni Tecnico Economiche (CTE)</summary>
             <div class="cte-body">
-              <p>Le offerte luce sono riservate a clienti finali titolari di POD ad uso domestico in bassa tensione che acquistino energia elettrica sul Mercato Libero. L'attivazione è condizionata all'esito positivo delle verifiche di morosità e alla valutazione di affidabilità creditizia.</p>
-              <p>Per la tariffa variabile <strong>Enjoy Forever</strong> il corrispettivo per il consumo è indicizzato al PUN (Prezzo Unico Nazionale), calcolato mensilmente, più un contributo al consumo (spread/alfa) stabilito dal fornitore. La tariffa può essere erogata in forma monoraria o multioraria (F1, F2, F3).</p>
-              <p>Per la tariffa fissa <strong>Ready Luce 24</strong> il corrispettivo per il consumo è bloccato per kWh per la durata contrattuale indicata, solitamente 12 o 24 mesi.</p>
-              <p>Per entrambe le offerte è previsto un costo fisso di commercializzazione mensile indipendente dai consumi. I prezzi sono al netto di IVA e imposte; eventuali aggiornamenti delle componenti ARERA saranno automaticamente recepiti in bolletta.</p>
+              <p>L'offerta <strong>Ready Luce 24</strong> è riservata a clienti finali titolari di POD ad uso domestico in bassa tensione che acquistino energia elettrica sul Mercato Libero. L'attivazione è condizionata all'esito positivo delle verifiche di morosità e alla valutazione di affidabilità creditizia.</p>
+              <p>Il corrispettivo per il consumo è bloccato per kWh per la durata contrattuale indicata, solitamente 12 o 24 mesi.</p>
+              <p>È previsto un costo fisso di commercializzazione mensile indipendente dai consumi. I prezzi sono al netto di IVA e imposte; eventuali aggiornamenti delle componenti ARERA saranno automaticamente recepiti in bolletta.</p>
             </div>
           </details>
         </div>
@@ -254,7 +274,7 @@ $ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 
       </article>
 
       <!-- PLACET -->
-      <article class="o-card" style="grid-column: 1 / -1;">
+      <article class="o-card">
         <div class="o-top placet">
           <span class="kind"><?= $ICON_SCALE ?> PLACET</span>
           <span class="badge"><?= $ICON_LOCK ?> Obbligatorie per legge</span>
@@ -263,8 +283,8 @@ $ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 
           <h3 class="o-name">Offerte PLACET</h3>
           <p class="o-meta">Offerte a Condizioni Economiche di Protezione per luce e gas, definite dall'ARERA.</p>
 
-          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
-            <div class="o-suboffer" style="border-top: none; padding-top: 0;">
+          <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+            <div class="o-suboffer" style="flex: 1 1 260px; min-width: 0; border-top: none; padding-top: 0;">
               <h4>PLACET Fissa · Luce e Gas</h4>
               <p>Prezzo della materia prima bloccato per 12 mesi, con condizioni contrattuali definite dall'ARERA.</p>
               <ul>
@@ -273,7 +293,7 @@ $ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 
               </ul>
             </div>
 
-            <div class="o-suboffer" style="border-top: none; padding-top: 0;">
+            <div class="o-suboffer" style="flex: 1 1 260px; min-width: 0; border-top: none; padding-top: 0;">
               <h4>PLACET Variabile · Luce e Gas</h4>
               <p>Prezzo indicizzato con parametri stabiliti dall'ARERA: PUN per la luce, PSV per il gas.</p>
               <ul>
