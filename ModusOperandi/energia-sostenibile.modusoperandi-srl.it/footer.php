@@ -48,6 +48,7 @@ $legalLine = implode(' - ', $legalParts);
         <div class="footer-col">
           <h4>Azienda</h4>
           <a href="chi-siamo.php">Chi siamo</a>
+          <a href="contatti.php">Contatti</a>
      
         </div>
         <div class="footer-col">
