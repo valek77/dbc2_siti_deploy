@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Scenario energetico con pannelli solari e turbine eoliche</title>
+  <desc id="desc">Illustrazione vettoriale di una casa con pannelli solari, turbine eoliche e rete energetica.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#facc15"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <circle cx="930" cy="150" r="88" fill="url(#sun)"/>
+  <g fill="#ffffff" opacity=".8">
+    <ellipse cx="245" cy="158" rx="88" ry="34"/>
+    <ellipse cx="315" cy="156" rx="62" ry="26"/>
+    <ellipse cx="864" cy="255" rx="96" ry="32"/>
+    <ellipse cx="930" cy="248" rx="56" ry="24"/>
+  </g>
+  <path d="M0 560c126-24 207-24 328 20s208 53 314 21 205-40 314-7 171 41 244 24V900H0Z" fill="#bfdbfe"/>
+  <path d="M0 662c153-36 286-18 389 24s200 54 312 24 201-58 320-37 146 29 179 39V900H0Z" fill="#93c5fd"/>
+  <path d="M0 736c167-27 298-3 435 40s250 56 391 28 226-67 374-41V900H0Z" fill="#60a5fa"/>
+  <g transform="translate(184 355)">
+    <rect x="0" y="145" width="320" height="30" rx="8" fill="#475569"/>
+    <g transform="skewX(-16)">
+      <rect x="42" y="56" width="240" height="106" rx="10" fill="url(#panel)" stroke="#0f172a" stroke-width="6"/>
+      <path d="M102 56v106M162 56v106M222 56v106M42 91h240M42 126h240" stroke="#93c5fd" stroke-width="4" opacity=".8"/>
+    </g>
+    <path d="M120 166 146 96M212 166 238 96" stroke="#475569" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(662 230)">
+    <rect x="118" y="136" width="18" height="280" rx="9" fill="#64748b"/>
+    <circle cx="127" cy="126" r="18" fill="#e2e8f0" stroke="#94a3b8" stroke-width="4"/>
+    <path d="M127 126 46 98A86 86 0 0 1 127 40Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="4"/>
+    <path d="M127 126 171 45A86 86 0 0 1 208 114Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="4"/>
+    <path d="M127 126 84 208A86 86 0 0 1 45 137Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="4"/>
+  </g>
+  <g transform="translate(930 286) scale(.8)">
+    <rect x="118" y="136" width="18" height="280" rx="9" fill="#64748b"/>
+    <circle cx="127" cy="126" r="18" fill="#e2e8f0" stroke="#94a3b8" stroke-width="4"/>
+    <path d="M127 126 46 98A86 86 0 0 1 127 40Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="4"/>
+    <path d="M127 126 171 45A86 86 0 0 1 208 114Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="4"/>
+    <path d="M127 126 84 208A86 86 0 0 1 45 137Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="4"/>
+  </g>
+  <g transform="translate(520 470)">
+    <rect x="0" y="120" width="250" height="156" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="6"/>
+    <path d="M-20 128 126 42 270 128" fill="#facc15" stroke="#ca8a04" stroke-width="6" stroke-linejoin="round"/>
+    <rect x="152" y="176" width="54" height="100" rx="6" fill="#93c5fd"/>
+    <rect x="34" y="164" width="72" height="50" rx="6" fill="#dbeafe" stroke="#93c5fd" stroke-width="5"/>
+    <rect x="116" y="164" width="72" height="50" rx="6" fill="#dbeafe" stroke="#93c5fd" stroke-width="5"/>
+    <g transform="translate(32 34) skewX(-18)">
+      <rect x="0" y="0" width="186" height="62" rx="8" fill="url(#panel)" stroke="#0f172a" stroke-width="5"/>
+      <path d="M46 0v62M92 0v62M138 0v62M0 21h186M0 42h186" stroke="#93c5fd" stroke-width="3"/>
+    </g>
+  </g>
+  <g transform="translate(124 480)">
+    <rect x="0" y="0" width="146" height="176" rx="18" fill="#0f3ea8"/>
+    <rect x="18" y="18" width="110" height="94" rx="10" fill="#eff6ff"/>
+    <path d="M36 48h74M36 74h54M36 100h62" stroke="#93c5fd" stroke-width="10" stroke-linecap="round"/>
+    <path d="M50 144h44M50 164h72" stroke="#facc15" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="110" cy="148" r="20" fill="#facc15"/>
+    <path d="m107 134-9 18h12l-7 16 18-22h-12l10-12Z" fill="#0f3ea8"/>
+  </g>
+</svg>
