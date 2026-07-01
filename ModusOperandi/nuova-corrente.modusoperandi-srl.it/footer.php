@@ -53,7 +53,7 @@ $legalLine = implode(' &mdash; ', $legalParts);
         <div class="footer-col">
           <h4>Chi Siamo</h4>
           <a href="chi-siamo.php">Chi Siamo</a>
-          <a href="tariffe.php">Tariffe</a>
+        
           <a href="contatti.php">Contatti</a>
         </div>
         <div class="footer-col">
