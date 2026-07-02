@@ -167,27 +167,6 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
-  <!-- BUSINESS -->
-  <section class="section" style="background: #FAFAFA; padding: 80px 0;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-      <div style="background: #fff; border-radius: 24px; padding: 48px; border: 1px solid #E4E4E7; display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
-        <div style="flex: 1; min-width: 300px;">
-          <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 16px;">Sei un'azienda?</h2>
-          <p style="font-size: 18px; color: #71717A; line-height: 1.6; margin-bottom: 32px;">Le esigenze di un'attività commerciale sono diverse da quelle di una casa. Ecco perché <?= $OPERATORE['nome_marketing'] ?> ha pensato a soluzioni su misura per il mercato Business.</p>
-          <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 12px; color: #3F3F46; font-size: 16px;">
-            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Consulenza energetica dedicata</li>
-            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Tariffe agevolate in base ai consumi reali</li>
-            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Referente unico (EnergyTeller) per la tua impresa</li>
-          </ul>
-          <a href="contatti.php?offerta=Business" class="btn-outline" style="border: 2px solid #18181B; color: #18181B; padding: 14px 32px; border-radius: 99px; text-decoration: none; font-weight: 700; display: inline-block;">Parla con un consulente</a>
-        </div>
-        <div style="flex: 1; min-width: 300px;">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section" style="padding: 60px 20px;">
     <p class="price-disclaimer" id="price-disclaimer" style="max-width: 1000px; margin: 0 auto; font-size: 13px; line-height: 1.7; color: #A1A1AA; text-align: justify;">
       * Offerte nel Mercato Libero riservate ai clienti finali titolari di utenze di tipo Domestico. Le Condizioni Tecnico-Economiche (CTE) prevalgono sulle Condizioni Generali di Fornitura (CGF), ove discordanti, e sono applicabili a condizione che la richiesta sia effettuata entro il 30/06/2026, con invio bollette tramite solo Mail o solo Posta e pagamento mediante le modalità ammesse (Addebito su Conto SDD, Addebito su Carta, PagoPA, Bonifico Bancario o Bollettino Postale, secondo l'offerta). I corrispettivi definiti dal venditore hanno una validità di 12 mesi decorrenti dalla data di attivazione della fornitura.
