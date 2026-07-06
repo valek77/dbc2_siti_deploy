@@ -72,6 +72,8 @@ include __DIR__ . '/header.php';
 // Il «Partner Commerciale / Responsabile del trattamento» è la company (dall'API):
 // nell'informativa Risa contact corrisponde a «Risa contact srl».
 $partner = $COMPANY['company_name'];
+$partnerPiva = $COMPANY['p_iva'];
+$partnerSede = $COMPANY['sede_legale'];
 ?>
 
 <main class="legal-content">
@@ -100,10 +102,10 @@ $partner = $COMPANY['company_name'];
     <h2>5. Per quali finalità e su quali basi trattiamo i Suoi dati personali.</h2>
     <p>Il Titolare tratterà i Dati Personali per le seguenti finalità:</p>
     <p class="section-subhead">a) Per il ricontatto da parte di un Operatore</p>
-    <p>Il Titolare tratterà i Dati Personali per le attività necessarie e connesse al fine di dar seguito alla Sua richiesta di contatto telefonico e di informazioni precontrattuali, da parte di un Operatore del Partner Commerciale della Società <strong><?= $partner ?></strong> nominato Responsabile del Trattamento dei dati personali ex. Art. 28 del Regolamento Europeo n. 679/2016 GDPR. Tale finalità sarà perseguita entro 7 giorni dalla raccolta della richiesta di contatto.</p>
+    <p>Il Titolare tratterà i Dati Personali per le attività necessarie e connesse al fine di dar seguito alla Sua richiesta di contatto telefonico e di informazioni precontrattuali, da parte di un Operatore del Partner Commerciale della Società <strong><?= $partner ?></strong>, P.IVA: <?= $partnerPiva ?>, con sede legale in <?= $partnerSede ?>, nominato Responsabile del Trattamento dei dati personali ex. Art. 28 del Regolamento Europeo n. 679/2016 GDPR. Tale finalità sarà perseguita entro 7 giorni dalla raccolta della richiesta di contatto.</p>
     <p>Questa attività di trattamento è basata sulla necessità di dare esecuzione al contratto di cui l’interessato è parte o a misure precontrattuali adottate su richiesta dello stesso (art. 6, par. 1, lett. b) GDPR).</p>
     <p class="section-subhead">b) Per svolgere attività di marketing</p>
-    <p>Previo Suo espresso e specifico consenso, il Titolare tratterà i Suoi Dati Personali per lo svolgimento di attività di marketing relative a prodotti e servizi del Titolare, anche successivamente al ricontatto effettuato entro 7 giorni. Tali attività comprendono l’invio di comunicazioni che potranno essere effettuate mediante strumenti tradizionali di contatto (es. chiamata con operatore), attraverso social, nonché mediante modalità automatizzate di contatto (es. posta elettronica, sms etc.). Questa attività di trattamento è basata sul Suo consenso (art. 6, par. 1, lett. a) del Regolamento). Si ricorda che resta ferma la possibilità di revocare il consenso al trattamento in ogni momento con comunicazione al Titolare o al DPO ai recapiti sopra indicati o mediante procedura informatizzata di “opt-out”.</p>
+    <p>Previo Suo espresso e specifico consenso, il Titolare tratterà i Suoi Dati Personali per lo svolgimento di attività di marketing relative a prodotti e servizi del Titolare, anche successivamente al ricontatto effettuato entro 7 giorni. Tali attività potranno comprendere l’invio di comunicazioni promozionali e commerciali tramite posta elettronica (e-mail). Questa attività di trattamento è basata sul Suo consenso (art. 6, par. 1, lett. a) del Regolamento). Si ricorda che resta ferma la possibilità di revocare il consenso al trattamento in ogni momento con comunicazione al Titolare o al DPO ai recapiti sopra indicati o mediante procedura informatizzata di “opt-out”.</p>
 
     <h2>6. Natura del conferimento e conseguenze in caso di mancato conferimento.</h2>
     <p>Il conferimento dei dati contrassegnati nel form con un asterisco è necessario per consentire al Titolare di ricontattarla; in caso di mancato conferimento non ci sarà possibile dare seguito alla Sua richiesta.</p>
@@ -121,7 +123,7 @@ $partner = $COMPANY['company_name'];
     <h2>10. Quanto a lungo conserviamo i Suoi dati personali.</h2>
     <p>I Suoi Dati saranno trattati solo per il tempo necessario per le finalità sopra menzionate, come segue:</p>
     <ul>
-      <li>i Dati saranno trattati per dare seguito alla Sua richiesta di ricontatto da parte di un Operatore del Partner Commerciale della Società <strong><?= $partner ?></strong>, nominato Responsabile del Trattamento dei dati personali ex. Art. 28 del Regolamento Europeo n. 679/2016 GDPR fino al momento del ricontatto, e comunque non oltre i 7 giorni dal momento della richiesta, a seguito del quale il Titolare, salvo Sua volontà contraria, provvederà alla loro cancellazione;</li>
+      <li>i Dati saranno trattati per dare seguito alla Sua richiesta di ricontatto da parte di un Operatore del Partner Commerciale della Società <strong><?= $partner ?></strong>, P.IVA: <?= $partnerPiva ?>, con sede legale in <?= $partnerSede ?>, nominato Responsabile del Trattamento dei dati personali ex. Art. 28 del Regolamento Europeo n. 679/2016 GDPR fino al momento del ricontatto, e comunque non oltre i 7 giorni dal momento della richiesta, a seguito del quale il Titolare, salvo Sua volontà contraria, provvederà alla loro cancellazione;</li>
       <li>i Dati saranno trattati per svolgere attività di marketing fino alla revoca del Suo consenso e, comunque, non oltre 24 mesi dall’acquisizione dello stesso; in seguito a tale revoca il Titolare cesserà il trattamento in questione e non conserverà ulteriormente i Dati acquisiti esclusivamente per tale finalità; in assenza di revoca, a seguito della cessazione del rapporto contrattuale, il Titolare provvederà a ricordarLe periodicamente quali sono i consensi da Lei prestati e la Sua facoltà di revocarli in ogni momento.</li>
     </ul>
 
