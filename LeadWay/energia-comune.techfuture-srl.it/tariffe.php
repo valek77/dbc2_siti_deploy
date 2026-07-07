@@ -12,9 +12,7 @@ include __DIR__ . '/header.php';
       <h1 style="font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 800; color: #18181B; margin-bottom: 24px;">
         Le offerte <span style="color: var(--primary);">Family</span> e <span style="color: var(--primary);">Tris</span>,<br>chiare e senza sorprese.
       </h1>
-      <p style="font-size: 19px; color: #71717A; margin-bottom: 0; line-height: 1.6;">
-        Prezzo della componente energia indicizzato all'ingrosso (PUN Index GME o PSV) e corrispettivo annuo fisso e invariabile per 12 mesi. Richiesta entro il 30/06/2026.
-      </p>
+     
     </div>
   </section>
 
@@ -50,12 +48,7 @@ include __DIR__ . '/header.php';
 
             <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 16px; color: #3F3F46; font-size: 16px;">
               <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> <b>Energia 100% green</b></li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Prezzo indicizzato al PUN Index GME</li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Richiesta entro il 30/06/2026</li>
-            </ul>
-
-            <div style="font-size: 12px; color: #A1A1AA; margin-bottom: 24px;">Codice offerta: 028056ESVFL02XX00FAMILYLUCEGREEN</div>
-
+              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Prezzo indicizzato al PUN Index GME</li>            </ul>
             <a href="contatti.php?offerta=Family%20Luce%20Green" class="btn-primary" style="margin-top: auto; display: block; text-align: center; background: var(--primary); color: #fff; padding: 16px; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 16px;">Richiedi Family Luce Green</a>
           </div>
         </div>
@@ -81,12 +74,7 @@ include __DIR__ . '/header.php';
 
             <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 16px; color: #3F3F46; font-size: 16px;">
               <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Prezzo indicizzato al PSV</li>
-              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Corrispettivo annuo fisso per 12 mesi</li>
-              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Richiesta entro il 30/06/2026</li>
-            </ul>
-
-            <div style="font-size: 12px; color: #A1A1AA; margin-bottom: 24px;">Codice offerta: 028056GSVML02XX00000000FAMILYGAS</div>
-
+              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Corrispettivo annuo fisso per 12 mesi</li>            </ul>
             <a href="contatti.php?offerta=Family%20Gas" class="btn-primary" style="margin-top: auto; display: block; text-align: center; background: #D97706; color: #fff; padding: 16px; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 16px;">Richiedi Family Gas</a>
           </div>
         </div>
@@ -122,12 +110,7 @@ include __DIR__ . '/header.php';
 
             <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 16px; color: #3F3F46; font-size: 16px;">
               <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> <b>Energia 100% green</b></li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Prezzo indicizzato al PUN Index GME</li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Richiesta entro il 30/06/2026</li>
-            </ul>
-
-            <div style="font-size: 12px; color: #A1A1AA; margin-bottom: 24px;">Codice offerta: 028056ESVFL02XX0000TRISLUCEGREEN</div>
-
+              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Prezzo indicizzato al PUN Index GME</li>            </ul>
             <a href="contatti.php?offerta=Tris%20Luce%20Green" class="btn-primary" style="margin-top: auto; display: block; text-align: center; background: var(--primary); color: #fff; padding: 16px; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 16px;">Richiedi Tris Luce Green</a>
           </div>
         </div>
@@ -153,12 +136,7 @@ include __DIR__ . '/header.php';
 
             <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 16px; color: #3F3F46; font-size: 16px;">
               <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Prezzo indicizzato al PSV</li>
-              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Corrispettivo annuo fisso per 12 mesi</li>
-              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Richiesta entro il 30/06/2026</li>
-            </ul>
-
-            <div style="font-size: 12px; color: #A1A1AA; margin-bottom: 24px;">Codice offerta: 028056GSVML02XX0000000000TRISGAS</div>
-
+              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Corrispettivo annuo fisso per 12 mesi</li>            </ul>
             <a href="contatti.php?offerta=Tris%20Gas" class="btn-primary" style="margin-top: auto; display: block; text-align: center; background: #D97706; color: #fff; padding: 16px; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 16px;">Richiedi Tris Gas</a>
           </div>
         </div>
@@ -169,7 +147,7 @@ include __DIR__ . '/header.php';
 
   <section class="section" style="padding: 60px 20px;">
     <p class="price-disclaimer" id="price-disclaimer" style="max-width: 1000px; margin: 0 auto; font-size: 13px; line-height: 1.7; color: #A1A1AA; text-align: justify;">
-      * Offerte nel Mercato Libero riservate ai clienti finali titolari di utenze di tipo Domestico. Le Condizioni Tecnico-Economiche (CTE) prevalgono sulle Condizioni Generali di Fornitura (CGF), ove discordanti, e sono applicabili a condizione che la richiesta sia effettuata entro il 30/06/2026, con invio bollette tramite solo Mail o solo Posta e pagamento mediante le modalità ammesse (Addebito su Conto SDD, Addebito su Carta, PagoPA, Bonifico Bancario o Bollettino Postale, secondo l'offerta). I corrispettivi definiti dal venditore hanno una validità di 12 mesi decorrenti dalla data di attivazione della fornitura.
+      * Offerte nel Mercato Libero riservate ai clienti finali titolari di utenze di tipo Domestico. Le Condizioni Tecnico-Economiche (CTE) prevalgono sulle Condizioni Generali di Fornitura (CGF), ove discordanti, e sono applicabili con invio bollette tramite solo Mail o solo Posta e pagamento mediante le modalità ammesse (Addebito su Conto SDD, Addebito su Carta, PagoPA, Bonifico Bancario o Bollettino Postale, secondo l'offerta). I corrispettivi definiti dal venditore hanno una validità di 12 mesi decorrenti dalla data di attivazione della fornitura.
       <strong>Luce Green (Family/Tris):</strong> Corrispettivo per il consumo Fn = PUN Index GME + α (α1 = α2 = α3 = 0,049500 €/kWh, perdite di rete incluse), oltre al corrispettivo annuo fisso (397,80 €/POD/anno Family · 457,80 €/POD/anno Tris). Si applica inoltre il corrispettivo di dispacciamento Cdispd definito da ARERA nel TIV. Il PUN Index GME (Maggio 2026) è stato pari a F1 0,107170 €/kWh, F2 0,131440 €/kWh, F3 0,120810 €/kWh; valori massimi negli ultimi 12 mesi (Marzo 2026): F1 0,143020 €/kWh, F2 0,153910 €/kWh, F3 0,138090 €/kWh.
       <strong>Gas (Family/Tris):</strong> Corrispettivo per il consumo M = PSV + α (α = 0,210000 €/Smc), oltre al corrispettivo annuo fisso (397,80 €/PdR/anno Family · 457,80 €/PdR/anno Tris). L'indice PSV (Maggio 2026) è stato pari a 0,501752 €/Smc; valore massimo negli ultimi 12 mesi: 0,566178 €/Smc (Febbraio 2025).
     </p>

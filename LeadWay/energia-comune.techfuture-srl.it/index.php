@@ -71,48 +71,6 @@ include __DIR__ . '/header.php';
           </div>
         </div>
 
-        <div class="offer-card" style="border: 1px solid #E4E4E7; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #fff;">
-          <div class="offer-ribbon" style="background: #18181B; color: #fff; padding: 12px 20px; font-weight: 700; font-size: 12px; text-transform: uppercase;">Business</div>
-          <div class="offer-body" style="padding: 32px; display: flex; flex-direction: column; flex-grow: 1;">
-            <div style="font-size: 24px; font-weight: 800; margin-bottom: 8px;">Soluzioni Business</div>
-            <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
-            <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
-              <div style="font-size: 11px; text-transform: uppercase; color: #A1A1AA; font-weight: 600; margin-bottom: 8px;">Consulenza personalizzata</div>
-              <div style="font-size: 28px; font-weight: 800; color: #18181B;">Su misura</div>
-              <div style="font-size: 14px; color: #71717A; margin-top: 12px; padding-top: 12px; border-top: 1px solid #E4E4E7;">Per la tua azienda</div>
-            </div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 12px; color: #71717A; font-size: 15px;">
-              <li style="display: flex; gap: 8px;"><span style="color: #18181B;">✓</span> Tariffe agevolate e trasparenti</li>
-              <li style="display: flex; gap: 8px;"><span style="color: #18181B;">✓</span> Analisi gratuita dei consumi aziendali</li>
-              <li style="display: flex; gap: 8px;"><span style="color: #18181B;">✓</span> Assistenza B2B dedicata</li>
-            </ul>
-            <a href="tariffe.php" class="btn-outline" style="margin-top: auto; display: block; text-align: center; border: 2px solid #E4E4E7; color: #18181B; padding: 14px; border-radius: 99px; text-decoration: none; font-weight: 600;">Vedi i dettagli</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVIZI E SOLUZIONI -->
-  <section class="section" style="background: #FAFAFA; padding: 100px 0;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-      <div class="split" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 80px; align-items: center; direction: rtl;">
-        <div style="direction: ltr;">
-          <span class="eyebrow" style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1.5px; display: flex; align-items: center; gap: 8px; margin-bottom: 16px;"><span class="dot" style="width: 6px; height: 6px; background: var(--primary); border-radius: 50%;"></span> Efficienza Energetica</span>
-          <h2 style="font-size: 36px; font-weight: 800; margin-bottom: 24px; line-height: 1.2;">Soluzioni per aziende<br>ed Enti Pubblici</h2>
-          <div style="width: 48px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px;"></div>
-          <p style="font-size: 17px; color: #71717A; line-height: 1.7; margin-bottom: 32px;">Non solo case. Offriamo consulenza personalizzata e soluzioni di efficienza energetica per imprese di ogni dimensione. Dalla riduzione dei consumi all'ottimizzazione degli impianti.</p>
-          <ul style="list-style: none; padding: 0; margin: 0 0 40px; display: flex; flex-direction: column; gap: 12px; color: #71717A; font-size: 16px;">
-            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Analisi gratuita dei consumi aziendali e audit energetico</li>
-            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Proposte di decarbonizzazione personalizzate</li>
-            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Gestione documentale e supporto per pratiche agevolate</li>
-          </ul>
-          <a href="contatti.php" class="btn-primary" style="background: var(--primary); color: #fff; padding: 14px 32px; border-radius: 99px; text-decoration: none; font-weight: 600;">Richiedi una consulenza</a>
-        </div>
-        <div class="split-img" style="direction: ltr; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Soluzioni energetiche per aziende ed enti" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3;">
-        </div>
       </div>
     </div>
   </section>
