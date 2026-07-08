@@ -19,7 +19,7 @@ $operatoreNome = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketin
 // Riga legale: includo solo le parti effettivamente presenti nell'API.
 $legalParts = [];
 if ($COMPANY['company_name'] !== '') {
-    $legalParts[] = 'Ragione Sociale: ' . $COMPANY['company_name'];
+    $legalParts[] =  $COMPANY['company_name'];
 }
 if ($COMPANY['p_iva'] !== '') {
     $legalParts[] = 'P.IVA: ' . $COMPANY['p_iva'];
@@ -62,7 +62,7 @@ $legalLine = implode(' | ', $legalParts);
 <?php if ($legalLine !== '') { ?>
       <p style="margin-bottom: 8px;"><?= $legalLine ?></p>
 <?php } ?>
-      <p>&copy; <?= date('Y') ?> <?= $brandName ?>. Tutti i diritti riservati.</p>
+      <p>&copy; <?= date('Y') ?> <?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?>. Tutti i diritti riservati.</p>
     </div>
   </footer>
 

@@ -109,6 +109,10 @@ $pageScripts .= <<<'HTML'
           ${o.top ? `<span class="lock">${ICON_LOCK} Prezzo bloccato</span>` : ''}
         </div>
         <div class="offer-card-body">
+          <div class="offer-supplier">
+            <span class="offer-supplier-label">Fornitore</span>
+            <img class="offer-supplier-logo" src="sinergy_black.png" alt="Sinergy" loading="lazy">
+          </div>
           <h3 class="offer-name">${o.nome}</h3>
           <p class="offer-type">${o.sub}</p>
 

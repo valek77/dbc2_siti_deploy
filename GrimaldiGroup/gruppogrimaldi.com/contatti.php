@@ -20,16 +20,7 @@ include __DIR__ . '/header.php';
 
   <main class="section" style="padding: 80px 0 var(--section);">
     <div class="container">
-      <div class="contact-grid">
-
-        <div class="reveal">
-          <div class="contact-card-cta">
-            <div class="label">Offerta del momento</div>
-            <div class="name">NEW <?= $brandName ?> LUCE CASA</div>
-            <div class="price">PUN +€0,03<small> €/kWh</small></div>
-            <a class="see-all" href="tariffe.php" style="margin-top:15px;">Vedi tutte le offerte</a>
-          </div>
-        </div>
+      <div class="contact-grid" style="grid-template-columns: 1fr; max-width: 720px; margin: 0 auto;">
 
         <div id="contatto-form" class="reveal">
           <div class="contact-form">
@@ -58,11 +49,11 @@ include __DIR__ . '/header.php';
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                  <span style="font-weight:700;">Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span style="font-weight:700;">Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
     </label>       
               </div>
 
@@ -72,7 +63,7 @@ include __DIR__ . '/header.php';
               </button>
             </form>
 
-            <div id="conferma" hidden style="text-align: center; padding: 32px 0; margin-top: 20px; background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: var(--r-md); color: #065F46;">
+            <div id="conferma" hidden style="text-align: center; padding: 32px 0; margin-top: 20px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--r-md); color: var(--ink);">
               <div style="font-size: 56px; margin-bottom: 12px;">✅</div>
               <strong style="font-size: 17px;">Richiesta inviata con successo!</strong>
               <p style="margin: 8px 0 0; font-size: 14.5px;">Un nostro consulente ti contatterà entro 24 ore lavorative.</p>
