@@ -148,7 +148,6 @@ include __DIR__ . '/header.php';
   <section class="quote-banner">
     <div class="mark">"</div>
     <h2>Il nostro obiettivo non è chiudere un contratto, ma costruire una relazione di fiducia duratura con ogni cliente che si affida a noi.</h2>
-    <p class="by">— Il Team <?= $brandName ?></p>
   </section>
 
 <?php

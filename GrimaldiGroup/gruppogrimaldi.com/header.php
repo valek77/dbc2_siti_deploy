@@ -14,12 +14,13 @@
 if (!isset($LANDING_PAGE)) {
     require __DIR__ . '/_config.php';
 }
-// Nome da mostrare: nome portale della landing, con fallback a titolo / ragione sociale.
-$brandName = $LANDING_PAGE['nome_portale'] !== ''
-    ? $LANDING_PAGE['nome_portale']
+// Nome da mostrare: ragione sociale azienda (fonte affidabile). Il nome_portale
+// dell'API per questo sito arriva ibrido/errato ("SinergyGR"), quindi NON lo usiamo.
+$brandName = $COMPANY['company_name'] !== ''
+    ? $COMPANY['company_name']
     : ($LANDING_PAGE['titolo'] !== ''
         ? $LANDING_PAGE['titolo']
-        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gruppo Grimaldi'));
+        : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Gruppo Grimaldi'));
 // Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
 $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'logo.png';
 ?>
