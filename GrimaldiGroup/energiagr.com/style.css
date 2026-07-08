@@ -711,6 +711,18 @@ h1,h2,h3,h4,h5 {
   flex-direction: column;
   flex-grow: 1;
 }
+.offer-operator {
+  display: flex; align-items: center; justify-content: flex-end; gap: 10px;
+  padding-bottom: 16px; margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.offer-operator span {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted-2);
+}
+.offer-operator img {
+  height: 30px; width: auto; max-width: 130px; object-fit: contain;
+}
 .offer-name {
   font-family: var(--font-display);
   font-size: 18px;

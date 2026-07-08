@@ -76,6 +76,11 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
+  <script>
+    window.OPERATOR_LOGO = <?= json_encode($OPERATORE['logo_url']) ?>;
+    window.OPERATOR_NAME = <?= json_encode($OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale']) ?>;
+  </script>
+
 <?php
 $pageScripts = <<<'HTML'
   <script>
@@ -130,7 +135,7 @@ $pageScripts = <<<'HTML'
     function renderCard(o) {
       const warm = o.kind === 'gas';
       const styleVars = warm
-        ? '--ribbon-color:#C2410C; --ribbon-bg:#FFF7E6; --ribbon-text:#9A3412; --ribbon-border:#FFE5B0;'
+        ? '--ribbon-color:#0C3A63; --ribbon-bg:#E3F1FC; --ribbon-text:#0C3A63; --ribbon-border:#C7E3F8;'
         : '';
       return `
       <article class="offer-card ${o.top ? 'featured' : ''}" data-category="${o.category}" style="${styleVars}">
@@ -142,6 +147,7 @@ $pageScripts = <<<'HTML'
           ${o.top ? `<span class="lock">${ICON_LOCK} Spread bloccato</span>` : ''}
         </div>
         <div class="offer-card-body">
+          ${window.OPERATOR_LOGO ? `<div class="offer-operator"><span>Fornitore</span><img src="${window.OPERATOR_LOGO}" alt="${window.OPERATOR_NAME}" loading="lazy"></div>` : ''}
           <h3 class="offer-name">${o.nome}</h3>
           <p class="offer-type">${o.sub}</p>
 

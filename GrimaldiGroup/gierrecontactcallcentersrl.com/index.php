@@ -34,8 +34,8 @@ include __DIR__ . '/header.php';
           <svg viewBox="0 0 120 120" fill="none">
             <defs>
               <linearGradient id="boltg" x1="0" y1="0" x2="120" y2="120">
-                <stop offset="0" stop-color="#FFD060"/>
-                <stop offset="1" stop-color="#FFA800"/>
+                <stop offset="0" stop-color="#7CC5F0"/>
+                <stop offset="1" stop-color="#2E9BE0"/>
               </linearGradient>
             </defs>
             <path d="M70 14L34 66h26l-10 40 38-50H62l8-42z" fill="url(#boltg)" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linejoin="round"/>

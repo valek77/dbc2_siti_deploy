@@ -83,6 +83,11 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
+  <script>
+    window.OPERATOR_LOGO = <?= json_encode($OPERATORE['logo_url']) ?>;
+    window.OPERATOR_NAME = <?= json_encode($OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale']) ?>;
+  </script>
+
 <?php
 $pageScripts = <<<'HTML'
   <script>
@@ -133,6 +138,7 @@ $pageScripts = <<<'HTML'
       return `<article class="offer-card" data-cat="${o.cat}">
         <div class="offer-ribbon ${o.ribbon}">${o.tag}${o.top ? ' · Spread bloccato' : ''}</div>
         <div class="offer-body">
+          ${window.OPERATOR_LOGO ? `<div class="offer-operator"><span>Fornitore</span><img src="${window.OPERATOR_LOGO}" alt="${window.OPERATOR_NAME}" loading="lazy"></div>` : ''}
           <div class="offer-name">${o.nome}</div>
           <div class="offer-type">${o.tipo}</div>
           <div class="offer-price-box">
