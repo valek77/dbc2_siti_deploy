@@ -51,7 +51,7 @@ $cName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'la societ
     <p>La presente landing page è gestita da <strong><?= $cName ?></strong><?= $cLine ?>, in qualità di partner commerciale del Titolare. Tale società tratta i dati per conto del Titolare quale Responsabile del trattamento ai sensi dell'art. 28 GDPR, limitatamente alla gestione della pagina, alla raccolta delle richieste e al contatto.</p>
 
     <h2>Dati personali trattati</h2>
-    <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: nome, cognome, numero di telefono e indirizzo e-mail … (eventuali ulteriori campi).</p>
+    <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: numero di telefono.</p>
 
     <h2>Finalità del trattamento e base giuridica</h2>
     <p>I dati sono trattati esclusivamente per le seguenti finalità connesse alla pagina:</p>

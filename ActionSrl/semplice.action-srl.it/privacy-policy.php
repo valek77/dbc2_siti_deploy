@@ -38,7 +38,7 @@ include __DIR__ . '/header.php';
     <p>Il DPO è contattabile alla casella e-mail <a href="mailto:dpo@semplicegaseluce.it"><strong>dpo@semplicegaseluce.it</strong></a>.</p>
 
     <h2>Dati personali trattati</h2>
-    <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: nome, cognome, numero di telefono e indirizzo e-mail.</p>
+    <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: numero di telefono.</p>
 
     <h2>Finalità del trattamento e base giuridica</h2>
     <p>I dati sono trattati esclusivamente per le seguenti finalità connesse alla pagina:</p>
