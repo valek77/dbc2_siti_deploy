@@ -6,37 +6,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  /* Brand palette — Orange & Black */
-  --primary:        #F97316;
-  --primary-dark:   #C2410C;
-  --primary-deeper: #000000;
-  --primary-light:  #FED7AA;
-  --primary-xlight: #FFF7ED;
+  /* Brand palette — Steel Blue & Charcoal (GIERRE CONTACT logo) */
+  --primary:        #2C7CB5;
+  --primary-dark:   #1E5C86;
+  --primary-deeper: #143A54;
+  --primary-light:  #9CCAEA;
+  --primary-xlight: #EAF4FB;
 
-  --coral:        #F97316;
-  --coral-dark:   #C2410C;
-  --coral-light:  #FFEDD5;
+  --coral:        #3D3D3D;
+  --coral-dark:   #262626;
+  --coral-light:  #EAECEE;
 
-  --ink:          #000000;
-  --ink-2:        #18181B;
-  --ink-3:        #27272A;
-  --muted:        #71717A;
-  --muted-2:      #A1A1AA;
-  --line:         #E4E4E7;
+  --ink:          #14202B;
+  --ink-2:        #1B2A38;
+  --ink-3:        #27323D;
+  --muted:        #64707A;
+  --muted-2:      #97A2AB;
+  --line:         #E1E7EC;
 
   --bg:           #FFFFFF;
-  --bg-soft:      #FAFAFA;
-  --bg-blue:      #FFF7ED; /* Soft orange instead of blue */
+  --bg-soft:      #F7F9FB;
+  --bg-blue:      #EAF4FB; /* Soft steel-blue tint */
 
   /* Dark section bg */
-  --dark-bg:      #000000;
-  --dark-bg-2:    #111111;
+  --dark-bg:      #12212E;
+  --dark-bg-2:    #1B2E3E;
 
   /* Gradients */
-  --grad-primary: linear-gradient(135deg, #F97316 0%, #EA580C 50%, #C2410C 100%);
-  --grad-coral: linear-gradient(135deg, #F97316 0%, #C2410C 100%);
-  --grad-dark:  linear-gradient(160deg, #000000 0%, #18181B 100%);
-  --grad-hero:  linear-gradient(160deg, rgba(0,0,0,.92) 0%, rgba(24,24,27,.85) 60%, rgba(0,0,0,.95) 100%);
+  --grad-primary: linear-gradient(135deg, #3A8DCA 0%, #2C7CB5 50%, #1E5C86 100%);
+  --grad-coral: linear-gradient(135deg, #4A4A4A 0%, #262626 100%);
+  --grad-dark:  linear-gradient(160deg, #12212E 0%, #1B2E3E 100%);
+  --grad-hero:  linear-gradient(160deg, rgba(18,33,46,.92) 0%, rgba(27,46,62,.85) 60%, rgba(18,33,46,.95) 100%);
 
   /* Typography */
   --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -55,7 +55,7 @@
   --shadow-md:    0 8px 32px rgba(0,0,0,.10);
   --shadow-lg:    0 24px 64px rgba(0,0,0,.14);
   --shadow-primary: 0 16px 48px -8px rgba(42,111,151,.40);
-  --shadow-coral: 0 16px 40px -8px rgba(249,115,22,.40);
+  --shadow-coral: 0 16px 40px -8px rgba(38,38,38,.32);
 
   --gutter: 24px;
   --section: 110px;
@@ -675,8 +675,14 @@ h1,h2,h3,h4,h5 {
 /* ─── OFFER CARDS ─── */
 .offers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 400px));
   gap: 24px;
+  justify-content: center;
+  max-width: 824px;
+  margin-inline: auto;
+}
+@media (max-width: 720px) {
+  .offers-grid { grid-template-columns: minmax(0, 400px); }
 }
 .offer-card {
   background: #fff;
@@ -701,10 +707,8 @@ h1,h2,h3,h4,h5 {
   letter-spacing: 1px;
   color: #fff;
 }
-.offer-ribbon.luce-res  { background: linear-gradient(90deg, #F97316, #EA580C); }
-.offer-ribbon.luce-placet { background: linear-gradient(90deg, #EA580C, #C2410C); }
-.offer-ribbon.gas-res   { background: linear-gradient(90deg, #B45309, #D97706); }
-.offer-ribbon.gas-placet { background: linear-gradient(90deg, #92400E, #B45309); }
+.offer-ribbon.luce-res  { background: linear-gradient(90deg, #3A8DCA, #1E5C86); }
+.offer-ribbon.gas-res   { background: linear-gradient(90deg, #4A4A4A, #262626); }
 .offer-body {
   padding: 28px;
   display: flex;
@@ -988,7 +992,7 @@ h1,h2,h3,h4,h5 {
 }
 .form-input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(249,115,22,.1);
+  box-shadow: 0 0 0 3px rgba(44,124,181,.14);
   background: #fff;
 }
 .form-input.textarea { resize: vertical; min-height: 130px; }
@@ -996,12 +1000,17 @@ h1,h2,h3,h4,h5 {
   display: flex;
   gap: 10px;
   font-size: 13px;
-  color: var(--muted);
+  color: var(--ink-3);
   cursor: pointer;
   line-height: 1.6;
   align-items: flex-start;
 }
 .consent-label input { flex-shrink: 0; margin-top: 3px; accent-color: var(--primary); }
+/* Primo consenso: tutto su una riga (a schermo pieno), va a capo solo su mobile */
+.consent-oneline span { font-size: 12px; white-space: nowrap; }
+@media (max-width: 768px) {
+  .consent-oneline span { font-size: 13px; white-space: normal; }
+}
 
 /* ─── GLOSSARY ─── */
 .glossary-grid {

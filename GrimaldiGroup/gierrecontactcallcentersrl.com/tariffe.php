@@ -28,9 +28,7 @@ include __DIR__ . '/header.php';
       <div class="tab-bar" id="tab-bar">
         <button class="tab-btn active" data-filter="all">Tutte</button>
         <button class="tab-btn" data-filter="luce-res">Luce Residenziale</button>
-        <button class="tab-btn" data-filter="luce-placet">Luce PLACET</button>
         <button class="tab-btn" data-filter="gas-res">Gas Residenziale</button>
-        <button class="tab-btn" data-filter="gas-placet">Gas PLACET</button>
       </div>
 
       <!-- Griglia offerte -->
@@ -65,7 +63,7 @@ include __DIR__ . '/header.php';
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h4>Spread</h4>
-          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto. Con PLACET è bloccata per 12 mesi.</p>
+          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto.</p>
         </div>
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg></div>
@@ -100,16 +98,6 @@ $pageScripts = <<<'HTML'
         prezzoRid: 'PUN + €0,03', unita: '€/kWh', prezzoBoll: 'PUN + €0,05/kWh',
         note: 'Attivazione €30,00 scontata con permanenza minima 6 mesi',
         features: ['Indicizzato al PUN mensile', 'Con RID: spread €0,03/kWh', 'Con Bollettino: spread €0,05/kWh', 'Ideale per piccoli uffici e studi'] },
-      { id: 'happy-switch-placet-luce-lavoro', category: 'luce-placet', kind: 'luce', tipo: 'Luce PLACET', top: true,
-        nome: 'HAPPY SWITCH PLACET LUCE LAVORO', sub: 'Spread bloccato 12 mesi · Non domestico',
-        prezzoRid: 'PUN + €0,18', unita: '€/kWh', prezzoBoll: null,
-        note: 'Attivazione €30,00 · Spread garantito per 12 mesi',
-        features: ['Spread fisso bloccato per 12 mesi', 'PUN + €0,18/kWh (unica modalità)', 'Maggiore certezza di spesa', 'Attivazione €30,00'] },
-      { id: 'happy-switch-placet-luce-casa', category: 'luce-placet', kind: 'luce', tipo: 'Luce PLACET', top: true,
-        nome: 'HAPPY SWITCH PLACET LUCE CASA', sub: 'Spread bloccato 12 mesi · Uso domestico',
-        prezzoRid: 'PUN + €0,18', unita: '€/kWh', prezzoBoll: null,
-        note: 'Attivazione €30,00 · Spread garantito per 12 mesi',
-        features: ['Spread fisso bloccato per 12 mesi', 'PUN + €0,18/kWh (unica modalità)', 'Protezione dalle oscillazioni di mercato', 'Attivazione €30,00'] },
       { id: 'new-switch-gas-casa', category: 'gas-res', kind: 'gas', tipo: 'Gas Residenziale', top: false,
         nome: 'NEW SWITCH GAS CASA', sub: 'Prezzo Variabile · Uso domestico',
         prezzoRid: 'PSV + €0,12', unita: '€/Smc', prezzoBoll: 'PSV + €0,18/Smc',
@@ -119,17 +107,7 @@ $pageScripts = <<<'HTML'
         nome: 'NEW SWITCH GAS LAVORO', sub: 'Prezzo Variabile · Uso non domestico',
         prezzoRid: 'PSV + €0,12', unita: '€/Smc', prezzoBoll: 'PSV + €0,18/Smc',
         note: 'Attivazione €30,00 scontata con permanenza minima 6 mesi',
-        features: ['Indicizzato al PSV mensile', 'Con RID: spread €0,12/Smc', 'Con Bollettino: spread €0,18/Smc', 'Per studi professionali e piccole attività'] },
-      { id: 'happy-switch-placet-gas-casa', category: 'gas-placet', kind: 'gas', tipo: 'Gas PLACET', top: true,
-        nome: 'HAPPY SWITCH PLACET GAS CASA', sub: 'Spread bloccato 12 mesi · Uso domestico',
-        prezzoRid: 'PSV + €0,70', unita: '€/Smc', prezzoBoll: null,
-        note: 'Attivazione €30,00 · Spread garantito per 12 mesi',
-        features: ['Spread fisso bloccato per 12 mesi', 'PSV + €0,70/Smc (unica modalità)', 'Maggiore prevedibilità dei costi', 'Attivazione €30,00'] },
-      { id: 'happy-switch-placet-gas-lavoro', category: 'gas-placet', kind: 'gas', tipo: 'Gas PLACET', top: true,
-        nome: 'HAPPY SWITCH PLACET GAS LAVORO', sub: 'Spread bloccato 12 mesi · Non domestico',
-        prezzoRid: 'PSV + €0,70', unita: '€/Smc', prezzoBoll: null,
-        note: 'Attivazione €30,00 · Spread garantito per 12 mesi',
-        features: ['Spread fisso bloccato per 12 mesi', 'PSV + €0,70/Smc (unica modalità)', 'Protezione dalle oscillazioni di mercato', 'Attivazione €30,00'] }
+        features: ['Indicizzato al PSV mensile', 'Con RID: spread €0,12/Smc', 'Con Bollettino: spread €0,18/Smc', 'Per studi professionali e piccole attività'] }
     ];
 
     function renderCard(o) {

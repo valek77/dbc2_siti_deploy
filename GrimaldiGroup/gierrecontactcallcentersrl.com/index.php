@@ -91,7 +91,7 @@ include __DIR__ . '/header.php';
             <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </div>
           <h4>Offerte Luce</h4>
-          <p>Tariffe variabili indicizzate al PUN e offerte PLACET con spread bloccato per 12 mesi. Per uso domestico e professionale.</p>
+          <p>Tariffe variabili indicizzate al PUN con spread fisso. Per uso domestico e professionale.</p>
         </article>
 
         <article class="feature-card reveal">
@@ -158,7 +158,7 @@ include __DIR__ . '/header.php';
             Non siamo un punto vendita anonimo: siamo consulenti energetici. Per ogni cliente troviamo la soluzione più conveniente, senza costi nascosti e senza sorprese in bolletta.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0;">
-            Con <?= $OPERATORE['nome_marketing'] ?> puoi scegliere tra offerte a prezzo variabile indicizzato al mercato o offerte PLACET con spread fisso garantito per 12 mesi.
+            Con <?= $OPERATORE['nome_marketing'] ?> puoi scegliere tra offerte a prezzo variabile indicizzato al mercato con spread fisso definito nel contratto.
           </p>
 
         </div>

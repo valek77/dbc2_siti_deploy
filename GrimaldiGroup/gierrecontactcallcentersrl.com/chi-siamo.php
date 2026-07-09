@@ -32,7 +32,7 @@ include __DIR__ . '/header.php';
             <?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Siamo rivenditori autorizzati <?= $OPERATORE['nome_marketing'] ?> e lavoriamo ogni giorno per portare ai clienti le migliori tariffe disponibili.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0;">
-            Il mercato energetico italiano può sembrare complesso — tra PUN, PSV, spread e offerte PLACET. Il nostro lavoro è decifrarlo per te, guidandoti nella scelta della tariffa più adatta alle tue esigenze reali, senza sorprese in bolletta.
+            Il mercato energetico italiano può sembrare complesso — tra PUN, PSV e spread. Il nostro lavoro è decifrarlo per te, guidandoti nella scelta della tariffa più adatta alle tue esigenze reali, senza sorprese in bolletta.
           </p>
         </div>
 

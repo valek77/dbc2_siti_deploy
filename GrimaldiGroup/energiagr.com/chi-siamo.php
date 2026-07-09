@@ -30,7 +30,7 @@ include __DIR__ . '/header.php';
           <h2 class="section-title">Mercato libero,<br><span class="hl">scelta libera</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;"><?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Siamo rivenditori autorizzati <?= $OPERATORE['nome_legale'] ?> e lavoriamo ogni giorno per portare ai nostri clienti le migliori tariffe disponibili.</p>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 36px;">Il mercato energetico italiano può sembrare complesso, tra PUN, PSV, spread e offerte PLACET. Il nostro lavoro è decifrarlo per te, guidandoti nella scelta della tariffa più adatta, senza sorprese in bolletta.</p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 36px;">Il mercato energetico italiano può sembrare complesso, tra PUN, PSV e spread. Il nostro lavoro è decifrarlo per te, guidandoti nella scelta della tariffa più adatta, senza sorprese in bolletta.</p>
           <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
         </div>
         <div class="split-img">

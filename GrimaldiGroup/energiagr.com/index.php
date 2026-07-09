@@ -99,26 +99,6 @@ include __DIR__ . '/header.php';
             </div>
           </div>
         </div>
-        <div class="offer-card">
-          <div class="offer-ribbon luce-placet" style="background: var(--primary-deeper);">Offerta Sicura</div>
-          <div class="offer-body">
-            <div class="offer-name">HAPPY SWITCH PLACET</div>
-            <div class="offer-type">Luce o Gas a condizioni regolate</div>
-            <div class="offer-price-box">
-              <div class="offer-price-label">Spread bloccato per 12 mesi</div>
-              <div class="offer-price" style="font-size: 26px;">Luce +€0,18 · Gas +€0,70</div>
-              <div class="offer-price-alt">Condizioni equiparate alla tutela</div>
-            </div>
-            <ul class="offer-feats">
-              <li>Condizioni contrattuali ARERA</li>
-              <li>Spread fisso e trasparente</li>
-              <li>Sicurezza garantita per 12 mesi</li>
-            </ul>
-            <div style="margin-top: auto;">
-              <a href="tariffe.php" class="btn-outline" style="width: 100%; justify-content: center; padding: 12px; color: var(--ink); border-color: var(--line);">Vedi i dettagli</a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -162,7 +142,7 @@ include __DIR__ . '/header.php';
         <div class="feat-card" style="text-align: center; padding: 48px 32px;">
           <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">🛡️</div>
           <h4>Certificazione e Sicurezza</h4>
-          <p style="margin-top: 12px;">Tutte le nostre offerte PLACET e i contratti sono rigorosamente conformi alle direttive ARERA per garantirti la massima trasparenza e tutela del consumatore.</p>
+          <p style="margin-top: 12px;">Tutte le nostre offerte e i contratti sono rigorosamente conformi alle direttive ARERA per garantirti la massima trasparenza e tutela del consumatore.</p>
         </div>
         <div class="feat-card" style="text-align: center; padding: 48px 32px;">
           <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">👥</div>
@@ -225,7 +205,6 @@ $legalLine = implode(' - ', $legalParts);
         <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
           <h4 style="font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff;">Offerte e Servizi</h4>
           <a href="tariffe.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Offerte Luce e Gas</a>
-          <a href="tariffe.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Offerte PLACET</a>
           <a href="chi-siamo.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Consulenza Aziendale</a>
           <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Efficienza Energetica</a>
         </div>

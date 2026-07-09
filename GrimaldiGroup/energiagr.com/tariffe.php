@@ -28,9 +28,7 @@ include __DIR__ . '/header.php';
       <div class="tab-bar" id="tab-bar">
         <button class="tab-btn active" data-filter="all">Tutte le offerte</button>
         <button class="tab-btn" data-filter="luce-res">⚡ Luce Residenziale</button>
-        <button class="tab-btn" data-filter="luce-placet">⚡ Luce PLACET</button>
         <button class="tab-btn" data-filter="gas-res">🔥 Gas Residenziale</button>
-        <button class="tab-btn" data-filter="gas-placet">🔥 Gas PLACET</button>
       </div>
 
       <div class="offers-grid" id="offers-grid"></div>
@@ -63,7 +61,7 @@ include __DIR__ . '/header.php';
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h4>Spread</h4>
-          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto. Con offerte PLACET lo spread è bloccato per 12 mesi.</p>
+          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto.</p>
         </div>
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg></div>
@@ -102,16 +100,6 @@ $pageScripts = <<<'HTML'
         rid:'PUN + €0,03/kWh', boll:'PUN + €0,05/kWh',
         note:'Contributo attivazione €30,00 — scontato con 6 mesi di permanenza',
         feats:['Indicizzato al PUN mensile','RID: spread €0,03/kWh','Bollettino: spread €0,05/kWh','Per uffici e studi professionali'] },
-      { id:'hpll', cat:'luce-placet', ribbon:'luce-placet', tag:'⚡ Luce PLACET', top:true,
-        nome:'HAPPY SWITCH PLACET LUCE LAVORO', tipo:'Spread Bloccato 12 mesi · Non domestico',
-        rid:'PUN + €0,18/kWh', boll:null,
-        note:'Contributo attivazione €30,00 · Spread garantito per 12 mesi',
-        feats:['Spread fisso bloccato 12 mesi','PUN + €0,18/kWh (unica modalità)','Maggiore certezza di spesa','Attivazione €30,00'] },
-      { id:'hplc', cat:'luce-placet', ribbon:'luce-placet', tag:'⚡ Luce PLACET', top:true,
-        nome:'HAPPY SWITCH PLACET LUCE CASA', tipo:'Spread Bloccato 12 mesi · Uso domestico',
-        rid:'PUN + €0,18/kWh', boll:null,
-        note:'Contributo attivazione €30,00 · Spread garantito per 12 mesi',
-        feats:['Spread fisso bloccato 12 mesi','PUN + €0,18/kWh (unica modalità)','Protezione oscillazioni mercato','Attivazione €30,00'] },
       { id:'ngc', cat:'gas-res', ribbon:'gas-res', tag:'🔥 Gas Residenziale', top:false,
         nome:'NEW SWITCH GAS CASA', tipo:'Prezzo Variabile · Uso domestico',
         rid:'PSV + €0,12/Smc', boll:'PSV + €0,18/Smc',
@@ -121,17 +109,7 @@ $pageScripts = <<<'HTML'
         nome:'NEW SWITCH GAS LAVORO', tipo:'Prezzo Variabile · Non domestico',
         rid:'PSV + €0,12/Smc', boll:'PSV + €0,18/Smc',
         note:'Contributo attivazione €30,00 — scontato con 6 mesi di permanenza',
-        feats:['Indicizzato al PSV mensile','RID: spread €0,12/Smc','Bollettino: spread €0,18/Smc','Attività e studi professionali'] },
-      { id:'hpgc', cat:'gas-placet', ribbon:'gas-placet', tag:'🔥 Gas PLACET', top:true,
-        nome:'HAPPY SWITCH PLACET GAS CASA', tipo:'Spread Bloccato 12 mesi · Uso domestico',
-        rid:'PSV + €0,70/Smc', boll:null,
-        note:'Contributo attivazione €30,00 · Spread garantito per 12 mesi',
-        feats:['Spread fisso bloccato 12 mesi','PSV + €0,70/Smc (unica modalità)','Prevedibilità dei costi','Attivazione €30,00'] },
-      { id:'hpgl', cat:'gas-placet', ribbon:'gas-placet', tag:'🔥 Gas PLACET', top:true,
-        nome:'HAPPY SWITCH PLACET GAS LAVORO', tipo:'Spread Bloccato 12 mesi · Non domestico',
-        rid:'PSV + €0,70/Smc', boll:null,
-        note:'Contributo attivazione €30,00 · Spread garantito per 12 mesi',
-        feats:['Spread fisso bloccato 12 mesi','PSV + €0,70/Smc (unica modalità)','Protezione oscillazioni mercato','Attivazione €30,00'] }
+        feats:['Indicizzato al PSV mensile','RID: spread €0,12/Smc','Bollettino: spread €0,18/Smc','Attività e studi professionali'] }
     ];
 
     function card(o) {
