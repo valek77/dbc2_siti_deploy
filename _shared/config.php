@@ -26,6 +26,13 @@
  *      $LANDING_PAGE / $OPERATORE / $COMPANY -> tre array associativi con i dati
  *                   della NUOVA API (landing page, operatore energetico, azienda),
  *                   valori GIÀ PULITI per l'HTML. Vedi sotto "DUE API".
+ *      $OFFERTE   -> lista (0..N) delle offerte della NUOVA API; ogni elemento è
+ *                   un array associativo. ATTENZIONE: i campi testuali (titolo,
+ *                   sottotitolo, footer, caratteristiche, caratteristiche_evidenza)
+ *                   sono FRAMMENTI HTML GREZZI generati dall'API: si emettono
+ *                   direttamente (<?= ?>), NON vanno passati in htmlspecialchars.
+ *                   caratteristiche/caratteristiche_evidenza sono array di stringhe
+ *                   HTML. Con l'API vecchia è sempre [] (lista vuota).
  *      c('chiave')-> valore grezzo di un campo azienda (con eventuale default)
  *      e('testo') -> rende sicuro un testo per l'HTML (per valori NON già puliti)
  *
@@ -164,6 +171,7 @@ if ($LANDING_PAGE_ID !== '') {
 $campi_noti = dbc2_campi_noti();              // chiavi del blocco "company" (e variabili piatte)
 $LANDING_PAGE_FIELDS = dbc2_landing_fields(); // chiavi del blocco "landing_page" (API nuova)
 $OPERATORE_FIELDS = dbc2_operatore_fields();  // chiavi del blocco "operatore_energetico"
+$OFFERTA_FIELDS = dbc2_offerta_fields();      // chiavi di ogni elemento del blocco "offerte"
 
 // dbc2_build_assoc() è definita in _shared/dbc2_lib.php (inclusa sopra).
 
@@ -177,6 +185,10 @@ if ($is_new_shape) {
     $LANDING_PAGE = dbc2_build_assoc($LANDING_PAGE_FIELDS, isset($payload['landing_page']) ? $payload['landing_page'] : []);
     $OPERATORE = dbc2_build_assoc($OPERATORE_FIELDS, isset($payload['operatore_energetico']) ? $payload['operatore_energetico'] : []);
     $COMPANY = dbc2_build_assoc($campi_noti, isset($payload['company']) ? $payload['company'] : []);
+    // Blocco "offerte": lista (0..N) di offerte; i campi testuali sono FRAMMENTI
+    // HTML GREZZI generati dall'API (titolo, sottotitolo, footer, caratteristiche
+    // ...), da emettere direttamente senza escaping. Vedi dbc2_build_offerte().
+    $OFFERTE = dbc2_build_offerte($OFFERTA_FIELDS, isset($payload['offerte']) ? $payload['offerte'] : []);
 } else {
     // API VECCHIA (invariata): popolo il "mondo piatto"; i tre array esistono
     // con tutte le chiavi ma valori vuoti.
@@ -184,6 +196,8 @@ if ($is_new_shape) {
     $LANDING_PAGE = dbc2_build_assoc($LANDING_PAGE_FIELDS, []);
     $OPERATORE = dbc2_build_assoc($OPERATORE_FIELDS, []);
     $COMPANY = dbc2_build_assoc($campi_noti, []);
+    // Nessuna offerta con l'API vecchia: lista vuota (mondo a specchio).
+    $OFFERTE = [];
 }
 
 // --- 5. Variabili "piatte" da $company (popolate SOLO con l'API vecchia) ---

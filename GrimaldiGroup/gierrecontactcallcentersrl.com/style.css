@@ -853,6 +853,9 @@ img, svg { display: block; max-width: 100%; }
   color: rgba(255,255,255,.4);
   font-size: 13px;
 }
+.footer-legal { margin: 0; line-height: 1.9; }
+.footer-legal a { color: rgba(255,255,255,.6); text-decoration: none; }
+.footer-legal a:hover { color: var(--accent); }
 
 /* =========================================================
    Page hero (interior)
@@ -1057,6 +1060,14 @@ img, svg { display: block; max-width: 100%; }
 }
 
 .offer-card .btn-primary { width: 100%; margin-top: auto; }
+
+/* Frammenti HTML grezzi dall'API (offerte): i <p> arrivano senza reset, quindi
+   azzero i margini di default così ereditano lo stile del contenitore. */
+.offer-type > p,
+.offer-features li p,
+.offer-note p { margin: 0; }
+.offer-features li p + p,
+.offer-note p + p { margin-top: 6px; }
 
 /* =========================================================
    Glossary cards (tariffe)

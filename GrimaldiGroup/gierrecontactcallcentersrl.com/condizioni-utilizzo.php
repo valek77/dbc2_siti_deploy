@@ -3,14 +3,11 @@ require __DIR__ . '/_config.php';
 
 // Dati dinamici dall'API nuova (/landing-pages). Disponibili subito dopo _config.php,
 // prima dell'include di header.php (dove viene impostato $brandName).
-$nomeOperatore  = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing']
-    : ($OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Illumia');
-$ragioneSociale = $COMPANY['company_name'] !== '' ? $COMPANY['company_name']
-    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Action Srl');
+$ragioneSociale = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center';
 $emailContatto  = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $COMPANY['pec'];
 
 $pageTitle = 'Condizioni di Utilizzo';
-$metaDescription = 'Termini e condizioni generali di utilizzo del sito web ' . $nomeOperatore . '.';
+$metaDescription = 'Termini e condizioni generali di utilizzo del sito web ' . $ragioneSociale . '.';
 
 $pageHead = <<<'CSS'
   <style>
@@ -49,7 +46,7 @@ include __DIR__ . '/header.php';
 
   <main class="privacy-box">
     <h1 style="color:var(--primary); margin:0 0 8px; font-size:28px; line-height:1.3; font-weight:800;">Condizioni di Utilizzo</h1>
-    <p style="font-style:italic; font-size:14px; color:var(--muted); margin:0 0 30px;">Termini e condizioni generali del sito web <?= $nomeOperatore ?></p>
+    <p style="font-style:italic; font-size:14px; color:var(--muted); margin:0 0 30px;">Termini e condizioni generali del sito web <?= $ragioneSociale ?></p>
 
     <h2>Premessa</h2>
     <p>L’utilizzo del presente sito web<b><?php if ($LANDING_PAGE['url'] !== '') { ?> <?= $LANDING_PAGE['url'] ?><?php } ?></b> (di seguito, il “Sito”) comporta l’accettazione integrale delle presenti condizioni generali di utilizzo. Il Sito è di titolarità e proprietà di <strong><?= $ragioneSociale ?></strong><?php if ($COMPANY['sede_legale'] !== '') { ?>, con sede in <?= $COMPANY['sede_legale'] ?><?php } ?><?php if ($COMPANY['p_iva'] !== '') { ?>, Partita IVA <?= $COMPANY['p_iva'] ?><?php } ?>.</p>

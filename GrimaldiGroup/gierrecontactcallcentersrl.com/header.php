@@ -12,14 +12,15 @@
  *   $pageHead         -> HTML extra nel <head>, es. <style> (facoltativo)
  */
 if (!isset($LANDING_PAGE)) {
-    require __DIR__ . '/_config.php';
+  require __DIR__ . '/_config.php';
 }
-// Nome da mostrare: nome portale della landing, con fallback a titolo / ragione sociale.
-$brandName = $LANDING_PAGE['nome_portale'] !== ''
+// Nome azienda da mostrare: ragione sociale dell'azienda titolare (API $COMPANY),
+// con fallback a nome portale / titolo della landing.
+$brandName = $COMPANY['company_name'] !== ''
+  ? $COMPANY['company_name']
+  : ($LANDING_PAGE['nome_portale'] !== ''
     ? $LANDING_PAGE['nome_portale']
-    : ($LANDING_PAGE['titolo'] !== ''
-        ? $LANDING_PAGE['titolo']
-        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact'));
+    : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
 // Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
 $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'gr_logo.png';
 ?>
@@ -29,25 +30,28 @@ $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'gr
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title><?php
+  <title>
+    <?php
     if (isset($pageTitle) && $pageTitle !== '') {
-        echo e($pageTitle) . ' — ' . $brandName;        // pagine interne: "Titolo pagina — Brand"
+      echo e($pageTitle) . ' — ' . $brandName;        // pagine interne: "Titolo pagina — Brand"
     } elseif ($LANDING_PAGE['titolo'] !== '') {
-        echo $LANDING_PAGE['titolo'];                     // homepage: titolo della landing (gia' pulito per HTML)
+      echo $LANDING_PAGE['titolo'];                     // homepage: titolo della landing (gia' pulito per HTML)
     } else {
-        echo $brandName;
+      echo $brandName;
     }
-?></title>
-<?php if (!empty($pageDescription)) { ?>
-  <meta name="description" content="<?= e($pageDescription) ?>">
-<?php } ?>
+    ?>
+  </title>
+  <?php if (!empty($pageDescription)) { ?>
+    <meta name="description" content="<?= e($pageDescription) ?>">
+  <?php } ?>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-<?php if (!empty($pageHead)) {
+  <?php if (!empty($pageHead)) {
     echo $pageHead;
-} ?>
+  } ?>
 </head>
 
 <body>
@@ -60,11 +64,14 @@ $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'gr
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
         <a href="tariffe.php" class="nav-link">Offerte</a>
-        <a href="contatti.php" class="nav-link">Contatti</a>
+
       </nav>
       <div class="header-cta">
-        <a href="contatti.php" class="btn-primary">Richiedi preventivo
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="contatti.php" class="btn-primary">Scopri le offerte luce e gas
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
         </a>
       </div>
     </div>

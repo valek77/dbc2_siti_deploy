@@ -2,9 +2,23 @@
 require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Luce e Gas';
 $pageDescription = 'Scopri tutte le offerte ' . $OPERATORE['nome_marketing'] . ' disponibili tramite '
-    . ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'GR Contact')
+    . ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center')
     . ': tariffe luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 include __DIR__ . '/header.php';
+
+// --- Icone SVG usate dalle card (checklist + tipologia) ------------------
+$ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+$ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+$ICON_FLAME = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+
+// Tipologie distinte presenti nelle offerte dell'API (per i filtri).
+$tipologie = [];
+foreach ($OFFERTE as $o) {
+    $t = $o['tipologia'];
+    if ($t !== '' && !in_array($t, $tipologie, true)) {
+        $tipologie[] = $t;
+    }
+}
 ?>
 
   <!-- Page hero -->
@@ -24,18 +38,80 @@ include __DIR__ . '/header.php';
   <main class="section" style="padding: 80px 0 40px;">
     <div class="container">
 
-      <!-- Filtro -->
+      <?php if (count($tipologie) > 1): ?>
+      <!-- Filtro (una scheda per tipologia presente nell'API) -->
       <div class="tab-bar" id="tab-bar">
         <button class="tab-btn active" data-filter="all">Tutte</button>
-        <button class="tab-btn" data-filter="luce-res">Luce Residenziale</button>
-        <button class="tab-btn" data-filter="gas-res">Gas Residenziale</button>
+        <?php foreach ($tipologie as $t): ?>
+        <button class="tab-btn" data-filter="<?= e($t) ?>"><?= e(ucfirst($t)) ?></button>
+        <?php endforeach; ?>
+      </div>
+      <?php endif; ?>
+
+      <!-- Griglia offerte (renderizzata lato server dai dati dell'API) -->
+      <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;">
+        <?php if (empty($OFFERTE)): ?>
+        <p style="color: var(--muted);">Nessuna offerta disponibile al momento.</p>
+        <?php else: foreach ($OFFERTE as $o):
+            $tip = strtolower($o['tipologia']);
+            $isGas = ($tip === 'gas');
+            $icon = $isGas ? $ICON_FLAME : $ICON_BOLT;
+            // Variante "gas": palette calda (come la vecchia resa client-side).
+            $styleVars = $isGas
+                ? 'style="--ribbon-color:#0C3A63; --ribbon-bg:#E3F1FC; --ribbon-text:#0C3A63; --ribbon-border:#C7E3F8;"'
+                : '';
+        ?>
+        <article class="offer-card" data-category="<?= e($o['tipologia']) ?>" <?= $styleVars ?>>
+          <div class="offer-ribbon">
+            <span class="pill <?= $isGas ? 'warm' : '' ?>">
+              <?= $icon ?>
+              <span><?= e($o['tipologia']) ?></span>
+            </span>
+          </div>
+          <div class="offer-card-body">
+            <?php if ($OPERATORE['logo_url'] !== ''): ?>
+            <div class="offer-operator">
+              <span>Fornitore</span>
+              <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" loading="lazy">
+            </div>
+            <?php endif; ?>
+
+            <?php /* titolo/sottotitolo: FRAMMENTI HTML grezzi dall'API */ ?>
+            <?= $o['titolo'] ?>
+            <?php if ($o['sottotitolo'] !== ''): ?>
+            <div class="offer-type"><?= $o['sottotitolo'] ?></div>
+            <?php endif; ?>
+
+            <?php if (!empty($o['caratteristiche_evidenza'])): ?>
+            <div class="price-block">
+              <?php foreach ($o['caratteristiche_evidenza'] as $ev) {
+                  echo $ev; // frammento HTML grezzo (price-label / price-main / ...)
+              } ?>
+            </div>
+            <?php endif; ?>
+
+            <?php if (!empty($o['caratteristiche'])): ?>
+            <ul class="offer-features">
+              <?php foreach ($o['caratteristiche'] as $c): ?>
+              <li><?= $ICON_CHECK ?><?= $c ?></li>
+              <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+
+            <?php if ($o['footer'] !== ''): ?>
+            <div class="offer-note"><?= $o['footer'] ?></div>
+            <?php endif; ?>
+
+            <button class="btn-primary" data-offer-id="<?= e($o['id']) ?>" data-name="<?= e($o['nome']) ?>">Richiedi informazioni
+              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </article>
+        <?php endforeach; endif; ?>
       </div>
 
-      <!-- Griglia offerte -->
-      <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;"></div>
-
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
-        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato per permanenza minima di 6 mesi. Offerte soggette a condizioni contrattuali <?= $OPERATORE['nome_legale'] ?>. <?= $brandName ?> è rivenditore indipendente autorizzato.
+        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato per permanenza minima di 6 mesi. Offerte soggette a condizioni contrattuali <?= $OPERATORE['nome_legale'] ?>. <?= $brandName ?> è partner/agenzia commerciale autorizzata indipendente.
       </p>
     </div>
   </main>
@@ -74,104 +150,38 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
-  <script>
-    window.OPERATOR_LOGO = <?= json_encode($OPERATORE['logo_url']) ?>;
-    window.OPERATOR_NAME = <?= json_encode($OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale']) ?>;
-  </script>
-
 <?php
 $pageScripts = <<<'HTML'
   <script>
-    const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-    const ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
-    const ICON_FLAME = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
-    const ICON_LOCK = '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    // Le card sono già nel DOM (render lato server dai dati API): qui gestiamo
+    // solo il filtro per tipologia e il click "Richiedi informazioni".
+    (function () {
+      const cards = Array.from(document.querySelectorAll('#offers-grid .offer-card'));
 
-    const offers = [
-      { id: 'new-switch-luce-casa', category: 'luce-res', kind: 'luce', tipo: 'Luce Residenziale', top: false,
-        nome: 'NEW SWITCH LUCE CASA', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'PUN + €0,03', unita: '€/kWh', prezzoBoll: 'PUN + €0,05/kWh',
-        note: 'Attivazione €30,00 scontata con permanenza minima 6 mesi',
-        features: ['Indicizzato al PUN mensile', 'Con RID: spread €0,03/kWh', 'Con Bollettino: spread €0,05/kWh', 'Nessun intervento tecnico'] },
-      { id: 'new-switch-luce-lavoro', category: 'luce-res', kind: 'luce', tipo: 'Luce Residenziale', top: false,
-        nome: 'NEW SWITCH LUCE LAVORO', sub: 'Prezzo Variabile · Uso non domestico',
-        prezzoRid: 'PUN + €0,03', unita: '€/kWh', prezzoBoll: 'PUN + €0,05/kWh',
-        note: 'Attivazione €30,00 scontata con permanenza minima 6 mesi',
-        features: ['Indicizzato al PUN mensile', 'Con RID: spread €0,03/kWh', 'Con Bollettino: spread €0,05/kWh', 'Ideale per piccoli uffici e studi'] },
-      { id: 'new-switch-gas-casa', category: 'gas-res', kind: 'gas', tipo: 'Gas Residenziale', top: false,
-        nome: 'NEW SWITCH GAS CASA', sub: 'Prezzo Variabile · Uso domestico',
-        prezzoRid: 'PSV + €0,12', unita: '€/Smc', prezzoBoll: 'PSV + €0,18/Smc',
-        note: 'Attivazione €30,00 scontata con permanenza minima 6 mesi',
-        features: ['Indicizzato al PSV mensile', 'Con RID: spread €0,12/Smc', 'Con Bollettino: spread €0,18/Smc', 'Nessun intervento tecnico'] },
-      { id: 'new-switch-gas-lavoro', category: 'gas-res', kind: 'gas', tipo: 'Gas Residenziale', top: false,
-        nome: 'NEW SWITCH GAS LAVORO', sub: 'Prezzo Variabile · Uso non domestico',
-        prezzoRid: 'PSV + €0,12', unita: '€/Smc', prezzoBoll: 'PSV + €0,18/Smc',
-        note: 'Attivazione €30,00 scontata con permanenza minima 6 mesi',
-        features: ['Indicizzato al PSV mensile', 'Con RID: spread €0,12/Smc', 'Con Bollettino: spread €0,18/Smc', 'Per studi professionali e piccole attività'] }
-    ];
+      const tabBar = document.getElementById('tab-bar');
+      if (tabBar) {
+        tabBar.addEventListener('click', function (e) {
+          const btn = e.target.closest('.tab-btn');
+          if (!btn) return;
+          tabBar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const f = btn.dataset.filter;
+          cards.forEach(c => {
+            c.style.display = (f === 'all' || c.dataset.category === f) ? '' : 'none';
+          });
+        });
+      }
 
-    function renderCard(o) {
-      const warm = o.kind === 'gas';
-      const styleVars = warm
-        ? '--ribbon-color:#0C3A63; --ribbon-bg:#E3F1FC; --ribbon-text:#0C3A63; --ribbon-border:#C7E3F8;'
-        : '';
-      return `
-      <article class="offer-card ${o.top ? 'featured' : ''}" data-category="${o.category}" style="${styleVars}">
-        <div class="offer-ribbon">
-          <span class="pill ${warm ? 'warm' : ''}">
-            ${o.kind === 'luce' ? ICON_BOLT : ICON_FLAME}
-            <span>${o.tipo}</span>
-          </span>
-          ${o.top ? `<span class="lock">${ICON_LOCK} Spread bloccato</span>` : ''}
-        </div>
-        <div class="offer-card-body">
-          ${window.OPERATOR_LOGO ? `<div class="offer-operator"><span>Fornitore</span><img src="${window.OPERATOR_LOGO}" alt="${window.OPERATOR_NAME}" loading="lazy"></div>` : ''}
-          <h3 class="offer-name">${o.nome}</h3>
-          <p class="offer-type">${o.sub}</p>
-
-          <div class="price-block">
-            <div class="price-label">Prezzo energia · con RID</div>
-            <div class="price-main">${o.prezzoRid}<span style="font-size:14px; color:var(--muted); margin-left:4px; font-weight:600;">${o.unita}</span></div>
-            ${o.prezzoBoll
-              ? `<div class="price-alt">Bollettino: <b>${o.prezzoBoll}</b></div>`
-              : `<div class="price-locked">${ICON_CHECK} Prezzo unico, spread garantito 12 mesi</div>`}
-          </div>
-
-          <ul class="offer-features">
-            ${o.features.map(f => `<li>${ICON_CHECK}<span>${f}</span></li>`).join('')}
-          </ul>
-
-          <div class="offer-note">${o.note}</div>
-
-          <button class="btn-primary" data-offer="${o.id}" data-name="${o.nome}">Richiedi informazioni
-            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-      </article>`;
-    }
-
-    const grid = document.getElementById('offers-grid');
-
-    function applyFilter(filter) {
-      const filtered = filter === 'all' ? offers : offers.filter(o => o.category === filter);
-      grid.innerHTML = filtered.map(renderCard).join('');
-      grid.querySelectorAll('[data-offer]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const name = btn.dataset.name;
-          window.location.href = 'contatti.php?offerta=' + encodeURIComponent(name) + '#contatto-form';
+      cards.forEach(card => {
+        const btn = card.querySelector('[data-offer-id]');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          // Passo l'ID offerta a contatti.php: preselezione combo + invio a dbc2.
+          const id = btn.dataset.offerId;
+          window.location.href = 'contatti.php?offerta=' + encodeURIComponent(id) + '#contatto-form';
         });
       });
-    }
-
-    document.getElementById('tab-bar').addEventListener('click', e => {
-      const btn = e.target.closest('.tab-btn');
-      if (!btn) return;
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      applyFilter(btn.dataset.filter);
-    });
-
-    applyFilter('all');
+    })();
   </script>
 HTML;
 include __DIR__ . '/footer.php';

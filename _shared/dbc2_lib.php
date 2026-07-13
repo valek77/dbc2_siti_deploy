@@ -284,3 +284,70 @@ if (!function_exists('dbc2_operatore_fields')) {
         ];
     }
 }
+
+if (!function_exists('dbc2_offerta_fields')) {
+    /** Chiavi note di un singolo elemento del blocco "offerte" (API nuova). */
+    function dbc2_offerta_fields()
+    {
+        return [
+            'id',
+            'operatore_energetico_id',
+            'operatore_energetico_nome',
+            'nome',
+            'tipologia',
+            'titolo',
+            'sottotitolo',
+            'caratteristiche',
+            'caratteristiche_evidenza',
+            'footer',
+        ];
+    }
+}
+
+if (!function_exists('dbc2_offerta_list_fields')) {
+    /** Campi di un'offerta che sono LISTE di frammenti HTML (default []). */
+    function dbc2_offerta_list_fields()
+    {
+        return ['caratteristiche', 'caratteristiche_evidenza'];
+    }
+}
+
+if (!function_exists('dbc2_build_offerte')) {
+    /**
+     * Costruisce la LISTA (array a indice numerico) delle offerte dell'API nuova.
+     * ATTENZIONE: i campi testuali delle offerte (titolo, sottotitolo, footer,
+     * caratteristiche...) sono FRAMMENTI HTML già pronti generati lato server
+     * dall'API fidata: si emettono GREZZI con <?= ?> e NON vanno passati in
+     * htmlspecialchars (lo escaping li mostrerebbe come testo con i tag visibili).
+     * Ogni offerta esce con TUTTE le $fields: default [] per i campi-lista
+     * (caratteristiche, caratteristiche_evidenza), '' per gli altri; i null
+     * diventano ''. Se $source non è una lista di array, restituisce [].
+     */
+    function dbc2_build_offerte(array $fields, $source)
+    {
+        $listFields = dbc2_offerta_list_fields();
+        $out = [];
+        if (!is_array($source)) {
+            return $out;
+        }
+        foreach ($source as $item) {
+            if (!is_array($item)) {
+                continue;
+            }
+            $row = [];
+            foreach ($fields as $f) {
+                $row[$f] = in_array($f, $listFields, true) ? [] : '';
+            }
+            // Valori GREZZI (HTML fidato dall'API): null -> '' / [] a seconda del campo.
+            foreach ($item as $k => $v) {
+                if ($v === null) {
+                    $row[$k] = in_array($k, $listFields, true) ? [] : '';
+                } else {
+                    $row[$k] = $v;
+                }
+            }
+            $out[] = $row;
+        }
+        return $out;
+    }
+}

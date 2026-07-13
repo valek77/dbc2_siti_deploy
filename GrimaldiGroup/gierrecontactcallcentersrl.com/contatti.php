@@ -1,10 +1,13 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Contatti';
-$pageDescription = 'Contatta ' . ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'GR Contact')
+$pageDescription = 'Contatta ' . ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center')
     . ' per ricevere una consulenza gratuita sulle offerte ' . $OPERATORE['nome_marketing']
     . '. Siamo qui per aiutarti a scegliere la tariffa giusta.';
 include __DIR__ . '/header.php';
+
+// Offerta eventualmente preselezionata via ?offerta=<id> (link da tariffe.php).
+$preselOffertaId = isset($_GET['offerta']) ? trim((string) $_GET['offerta']) : '';
 ?>
 
   <section class="page-hero">
@@ -30,6 +33,19 @@ include __DIR__ . '/header.php';
             <p class="sub">Compila il form e un nostro consulente ti ricontatterà entro 24 ore lavorative.</p>
 
             <form id="leadForm" method="POST" novalidate>
+              <?php if (!empty($OFFERTE)): ?>
+              <div class="form-group">
+                <label class="form-label" for="fOfferta">Offerta di interesse</label>
+                <select class="form-input" id="fOfferta" name="offerta">
+                  <option value="">Seleziona un'offerta (facoltativo)</option>
+                  <?php foreach ($OFFERTE as $o): ?>
+                  <option value="<?= e($o['id']) ?>"<?= ($preselOffertaId !== '' && (string) $o['id'] === $preselOffertaId) ? ' selected' : '' ?>><?= e($o['nome']) ?></option>
+                  <?php endforeach; ?>
+                </select>
+                <div class="field-error" data-error-for="fOfferta"></div>
+              </div>
+              <?php endif; ?>
+
               <div class="form-group">
                 <label class="form-label" for="fNome">Nome e Cognome *</label>
                 <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>
