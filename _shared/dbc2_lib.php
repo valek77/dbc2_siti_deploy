@@ -312,6 +312,23 @@ if (!function_exists('dbc2_offerta_list_fields')) {
     }
 }
 
+if (!function_exists('dbc2_format_tipologia')) {
+    /**
+     * Formatta il campo "tipologia" di un'offerta per la visualizzazione:
+     * sostituisce gli underscore con spazi e rende maiuscola l'iniziale di ogni
+     * parola. Es: "gas_uso_non_domestico" -> "Gas Uso Non Domestico".
+     * Unicode-aware quando l'estensione mbstring è disponibile.
+     */
+    function dbc2_format_tipologia($value)
+    {
+        $s = str_replace('_', ' ', (string) $value);
+        if (function_exists('mb_convert_case')) {
+            return mb_convert_case($s, MB_TITLE_CASE, 'UTF-8');
+        }
+        return ucwords($s);
+    }
+}
+
 if (!function_exists('dbc2_build_offerte')) {
     /**
      * Costruisce la LISTA (array a indice numerico) delle offerte dell'API nuova.
@@ -345,6 +362,10 @@ if (!function_exists('dbc2_build_offerte')) {
                 } else {
                     $row[$k] = $v;
                 }
+            }
+            // "tipologia": normalizzo per la UI (underscore -> spazi, Title Case).
+            if (is_string($row['tipologia']) && $row['tipologia'] !== '') {
+                $row['tipologia'] = dbc2_format_tipologia($row['tipologia']);
             }
             $out[] = $row;
         }
