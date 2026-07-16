@@ -71,7 +71,7 @@ $preselOffertaId = isset($_GET['offerta']) ? trim((string) $_GET['offerta']) : '
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span style="font-weight:700;">Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span style="font-weight:700;">Richiedo di essere ricontattato da <?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : "" ?>,  per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
                 </label>
                 
               </div>
