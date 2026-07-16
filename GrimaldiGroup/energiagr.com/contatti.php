@@ -1,13 +1,16 @@
 <?php
 require __DIR__ . '/_config.php';
-$brandName = $LANDING_PAGE['nome_portale'] !== ''
-    ? $LANDING_PAGE['nome_portale']
-    : ($LANDING_PAGE['titolo'] !== ''
-        ? $LANDING_PAGE['titolo']
-        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact'));
+$brandName = $COMPANY['company_name'] !== ''
+    ? $COMPANY['company_name']
+    : ($LANDING_PAGE['nome_portale'] !== ''
+        ? $LANDING_PAGE['nome_portale']
+        : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
 $pageTitle = 'Contatti';
-$pageDescription = 'Contatta ' . $brandName . ' per una consulenza gratuita sulle offerte Switch Luce Gas. Rispondiamo entro 24 ore lavorative.';
+$pageDescription = 'Contatta ' . $brandName . ' per una consulenza gratuita sulle offerte ' . $OPERATORE['nome_marketing'] . '. Rispondiamo entro 24 ore lavorative.';
 include __DIR__ . '/header.php';
+
+// Offerta eventualmente preselezionata via ?offerta=<id> (link da tariffe.php).
+$preselOffertaId = isset($_GET['offerta']) ? trim((string) $_GET['offerta']) : '';
 ?>
 
   <!-- HERO -->
@@ -24,27 +27,26 @@ include __DIR__ . '/header.php';
   <!-- CONTACT BODY -->
   <section class="section">
     <div class="container">
-      <div class="contact-wrapper" id="form">
-        <!-- SIDEBAR -->
-        <div class="contact-sidebar">
-          <div class="offer-promo-card">
-            <div class="tag">Offerta del momento</div>
-            <div class="name">NEW SWITCH LUCE CASA</div>
-            <div class="price">PUN +€0,03<small> €/kWh</small></div>
-            <div class="note">con domiciliazione bancaria (RID)</div>
-            <a href="tariffe.php" class="link">
-              Vedi tutte le offerte
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-
+      <div class="contact-wrapper" id="form" style="grid-template-columns: minmax(0, 640px); justify-content: center;">
         <!-- FORM -->
         <div class="contact-form-card">
           <h3>Richiedi una consulenza gratuita</h3>
           <p class="sub">Compila il form e un nostro consulente ti contatterà entro 24 ore lavorative.</p>
 
             <form id="leadForm" method="POST" novalidate>
+              <?php if (!empty($OFFERTE)): ?>
+              <div class="form-group">
+                <label class="form-label" for="fOfferta">Offerta di interesse</label>
+                <select class="form-input" id="fOfferta" name="offerta">
+                  <option value="">Seleziona un'offerta (facoltativo)</option>
+                  <?php foreach ($OFFERTE as $o): ?>
+                  <option value="<?= e($o['id']) ?>"<?= ($preselOffertaId !== '' && (string) $o['id'] === $preselOffertaId) ? ' selected' : '' ?>><?= e($o['nome']) ?></option>
+                  <?php endforeach; ?>
+                </select>
+                <div class="field-error" data-error-for="fOfferta"></div>
+              </div>
+              <?php endif; ?>
+
               <div class="form-group">
                 <label class="form-label" for="fNome">Nome e Cognome *</label>
                 <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>

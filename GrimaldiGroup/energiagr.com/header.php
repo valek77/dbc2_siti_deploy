@@ -15,12 +15,13 @@
 if (!isset($LANDING_PAGE)) {
     require __DIR__ . '/_config.php';
 }
-// Nome da mostrare: nome portale della landing, con fallback a titolo / ragione sociale.
-$brandName = $LANDING_PAGE['nome_portale'] !== ''
-    ? $LANDING_PAGE['nome_portale']
-    : ($LANDING_PAGE['titolo'] !== ''
-        ? $LANDING_PAGE['titolo']
-        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact'));
+// Nome azienda da mostrare: ragione sociale dell'azienda titolare (API $COMPANY),
+// con fallback a nome portale / titolo della landing.
+$brandName = $COMPANY['company_name'] !== ''
+    ? $COMPANY['company_name']
+    : ($LANDING_PAGE['nome_portale'] !== ''
+        ? $LANDING_PAGE['nome_portale']
+        : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
 // Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
 $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'gr_logo.png';
 ?>
@@ -59,8 +60,7 @@ $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'gr
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
         <a href="tariffe.php" class="nav-link">Offerte</a>
-        <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
-      <a href="contatti.php" class="btn-header">Consulenza gratuita</a>
+      <a href="contatti.php" class="btn-header">Scopri le offerte luce e gas</a>
     </div>
   </header>

@@ -1,10 +1,10 @@
 <?php
 require __DIR__ . '/_config.php';
-$brandName = $LANDING_PAGE['nome_portale'] !== ''
-    ? $LANDING_PAGE['nome_portale']
-    : ($LANDING_PAGE['titolo'] !== ''
-        ? $LANDING_PAGE['titolo']
-        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact'));
+$brandName = $COMPANY['company_name'] !== ''
+    ? $COMPANY['company_name']
+    : ($LANDING_PAGE['nome_portale'] !== ''
+        ? $LANDING_PAGE['nome_portale']
+        : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
 $pageTitle = 'Chi Siamo';
 $pageDescription = $brandName . ' è un team di consulenti energetici specializzati nelle offerte Switch Luce Gas. Scopri la nostra storia, i nostri valori e il nostro approccio.';
 include __DIR__ . '/header.php';
@@ -29,7 +29,7 @@ include __DIR__ . '/header.php';
           <span class="eyebrow"><span class="dot"></span> La nostra missione</span>
           <h2 class="section-title">Mercato libero,<br><span class="hl">scelta libera</span></h2>
           <div class="divider-line"></div>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;"><?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Siamo rivenditori autorizzati <?= $OPERATORE['nome_legale'] ?> e lavoriamo ogni giorno per portare ai nostri clienti le migliori tariffe disponibili.</p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;"><?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Siamo partner/agenzia commerciale autorizzata <?= $OPERATORE['nome_legale'] ?> e lavoriamo ogni giorno per portare ai nostri clienti le migliori tariffe disponibili.</p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 36px;">Il mercato energetico italiano può sembrare complesso, tra PUN, PSV e spread. Il nostro lavoro è decifrarlo per te, guidandoti nella scelta della tariffa più adatta, senza sorprese in bolletta.</p>
           <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
         </div>

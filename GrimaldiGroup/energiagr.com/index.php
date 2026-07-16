@@ -1,10 +1,10 @@
 <?php
 require __DIR__ . '/_config.php';
-$brandName = $LANDING_PAGE['nome_portale'] !== ''
-    ? $LANDING_PAGE['nome_portale']
-    : ($LANDING_PAGE['titolo'] !== ''
-        ? $LANDING_PAGE['titolo']
-        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact'));
+$brandName = $COMPANY['company_name'] !== ''
+    ? $COMPANY['company_name']
+    : ($LANDING_PAGE['nome_portale'] !== ''
+        ? $LANDING_PAGE['nome_portale']
+        : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
 $pageDescription = $brandName . ' è il partner ufficiale Switch Luce Gas. Risparmia sulla bolletta con offerte chiare, prezzi indicizzati e consulenza gratuita.';
 // Top-bar specifica della home, emessa tra <body> e <header> dal template comune.
 $headerPrefix = <<<'HTML'
@@ -51,54 +51,33 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
-  <!-- OFFERTE GRID -->
+  <!-- PERCHE SCEGLIERCI -->
   <section class="section" style="padding: 80px 0;">
     <div class="container">
-      <div class="section-head" style="margin-bottom: 48px; text-align: left;">
-        <h2 class="section-title">Le nostre offerte in evidenza</h2>
-        <p class="section-sub" style="margin: 0; max-width: 600px;">Scegli l'offerta più adatta alle tue abitudini di consumo. Soluzioni flessibili o a prezzo bloccato, pensate per farti risparmiare.</p>
+      <div class="section-head" style="margin-bottom: 48px;">
+        <span class="eyebrow"><span class="dot"></span> Perché sceglierci</span>
+        <h2 class="section-title">Energia semplice,<br><span class="hl">senza sorprese</span></h2>
+        <p class="section-sub" style="margin: 0 auto; max-width: 600px;">Ti seguiamo dalla scelta della tariffa all'attivazione, con prezzi chiari e persone reali al tuo fianco.</p>
       </div>
-      <div class="offers-grid">
-        <div class="offer-card">
-          <div class="offer-ribbon luce-res">Offerta Luce</div>
-          <div class="offer-body">
-            <div class="offer-name">NEW SWITCH Luce</div>
-            <div class="offer-type">Prezzo all'ingrosso + spread minimo</div>
-            <div class="offer-price-box">
-              <div class="offer-price-label">PUN + Contributo al consumo</div>
-              <div class="offer-price">€ 0,03<span style="font-size: 16px;">/kWh</span></div>
-              <div class="offer-price-alt">Attivazione €30,00 (scontato con 6 mesi)</div>
-            </div>
-            <ul class="offer-feats">
-              <li>Energia indicizzata al PUN</li>
-              <li>Nessun costo di attivazione</li>
-              <li>Assistenza dedicata in Italia</li>
-            </ul>
-            <div style="margin-top: auto;">
-              <a href="tariffe.php" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px;">Scopri l'offerta</a>
-            </div>
-          </div>
+      <div class="feature-grid">
+        <div class="feat-card" style="text-align: center; padding: 48px 32px;">
+          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">⚡</div>
+          <h4>Prezzi trasparenti</h4>
+          <p style="margin-top: 12px;">Tariffe indicizzate a PUN e PSV con spread chiaro definito in contratto: nessun costo nascosto, nessuna sorpresa in bolletta.</p>
         </div>
-        <div class="offer-card">
-          <div class="offer-ribbon gas-res">Offerta Gas</div>
-          <div class="offer-body">
-            <div class="offer-name">NEW SWITCH Gas</div>
-            <div class="offer-type">Prezzo all'ingrosso + spread minimo</div>
-            <div class="offer-price-box">
-              <div class="offer-price-label">PSV + Contributo al consumo</div>
-              <div class="offer-price">€ 0,12<span style="font-size: 16px;">/Smc</span></div>
-              <div class="offer-price-alt">Attivazione €30,00 (scontato con 6 mesi)</div>
-            </div>
-            <ul class="offer-feats">
-              <li>Materia prima indicizzata al PSV</li>
-              <li>Attivazione rapida online</li>
-              <li>Zero burocrazia per il passaggio</li>
-            </ul>
-            <div style="margin-top: auto;">
-              <a href="tariffe.php" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px; background: var(--coral);">Scopri l'offerta</a>
-            </div>
-          </div>
+        <div class="feat-card" style="text-align: center; padding: 48px 32px;">
+          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">🎧</div>
+          <h4>Assistenza dedicata</h4>
+          <p style="margin-top: 12px;">Consulenti reali in Italia, sempre disponibili. Nessun call center estero: solo persone competenti pronte ad aiutarti.</p>
         </div>
+        <div class="feat-card" style="text-align: center; padding: 48px 32px;">
+          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">✅</div>
+          <h4>Attivazione senza stress</h4>
+          <p style="margin-top: 12px;">Zero burocrazia per il passaggio: gestiamo noi il subentro e ti seguiamo dalla prima firma fino alla bolletta.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="tariffe.php" class="btn-primary">Scopri le offerte luce e gas</a>
       </div>
     </div>
   </section>
@@ -153,44 +132,21 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
-  <!-- SPAZIO CLIENTI (APP/PORTAL PROMO) -->
-  <section class="photo-section" style="padding: 100px 0;">
-    <div class="photo-bg" style="background-image: url('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1600&q=80');"></div>
-    <div class="photo-overlay"></div>
-    <div class="container">
-      <div class="split" style="gap: 60px; align-items: center;">
-        <div>
-          <span class="eyebrow" style="color: var(--primary-light);"><span class="dot" style="background: var(--primary-light);"></span> Area Personale</span>
-          <h2 style="font-size: clamp(36px, 4vw, 52px); font-family: var(--font-display); font-weight: 800; color: #fff; margin-bottom: 24px; line-height: 1.1;">Hai già un contratto con noi?</h2>
-          <p style="font-size: 19px; color: rgba(255,255,255,.8); margin-bottom: 40px; line-height: 1.6;">Accedi allo Spazio Clienti per monitorare i tuoi consumi, pagare le bollette e gestire la tua fornitura in pochi clic, dove e quando vuoi.</p>
-          <div style="display: flex; gap: 16px;">
-            <a href="#" class="btn-primary" style="background: #fff; color: var(--primary-deeper);">Accedi all'Area Personale</a>
-          </div>
-        </div>
-        <div style="background: rgba(255,255,255,.08); backdrop-filter: blur(12px); padding: 48px; border-radius: var(--r-xl); border: 1px solid rgba(255,255,255,.15); color: #fff; box-shadow: var(--shadow-lg);">
-          <div style="font-size: 32px; margin-bottom: 16px;">📱</div>
-          <h3 style="font-family: var(--font-display); font-size: 26px; margin-bottom: 16px;">Scarica l'App (Prossimamente)</h3>
-          <p style="font-size: 16px; color: rgba(255,255,255,.7); margin-bottom: 32px; line-height: 1.6;">Porta la tua energia sempre con te. Stiamo lavorando a una nuova applicazione mobile per semplificarti ancora di più la vita e la gestione delle tue utenze.</p>
-          <div style="display: flex; gap: 16px;">
-            <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,.4); border-radius: 8px; font-weight: 600; cursor: not-allowed; opacity: 0.7;">App Store</div>
-            <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,.4); border-radius: 8px; font-weight: 600; cursor: not-allowed; opacity: 0.7;">Google Play</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 <?php
-// Footer "mega" specifico della home: markup invariato, dati legali dall'API.
+// Footer "mega" specifico della home. Dati legali dell'azienda titolare: valore
+// dall'API ($COMPANY) quando presente, altrimenti valore cablato per i campi NON
+// modellati dall'API (REA, Registro Imprese, socio unico, nominativo DPO).
 $logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'gr_logo.png';
-$operatoreNomeLegale = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
-$legalParts = [];
-if ($COMPANY['company_name'] !== '') { $legalParts[] = '<strong>' . $COMPANY['company_name'] . '</strong>'; }
-if ($COMPANY['sede_legale'] !== '')  { $legalParts[] = 'Sede legale: ' . $COMPANY['sede_legale']; }
-if ($COMPANY['p_iva'] !== '')        { $legalParts[] = 'P.IVA e C.F.: ' . $COMPANY['p_iva']; }
-if ($COMPANY['capitale_sociale'] !== '') { $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale']; }
-if ($COMPANY['pec'] !== '')          { $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '" style="color: rgba(255,255,255,.6);">' . $COMPANY['pec'] . '</a>'; }
-$legalLine = implode(' - ', $legalParts);
+$operatoreMarketing = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
+$coName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact Call Center S.r.l.';
+$coSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
+$coPiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
+$coCapitale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '&euro; 10.000,00';
+$coPec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
+$coDpoEmail = $COMPANY['email_dpo'] !== '' ? $COMPANY['email_dpo'] : 'dpo.fulmine@libero.it';
+$coRea = 'NA-1072970';
+$coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
+$coDpoNome = 'Dott.ssa Maddalena Fulmine';
 ?>
   <!-- MEGA FOOTER -->
   <footer class="main-footer" style="background: var(--dark-bg); color: #fff; padding: 100px 0 40px;">
@@ -200,7 +156,7 @@ $legalLine = implode(' - ', $legalParts);
           <a href="index.php" class="logo" style="margin-bottom: 28px; display: inline-block;">
             <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo" style="filter: brightness(0) invert(1); height: 48px;">
           </a>
-          <p style="color: rgba(255,255,255,.6); font-size: 15px; line-height: 1.7; max-width: 320px;">Siamo partner autorizzato<?= $operatoreNomeLegale !== '' ? ' ' . $operatoreNomeLegale : '' ?>. La nostra missione è fornire energia a prezzi chiari, supportata da consulenti reali e disponibili per garantirti sempre la massima trasparenza.</p>
+          <p style="color: rgba(255,255,255,.6); font-size: 15px; line-height: 1.7; max-width: 320px;">Siamo agenzia commerciale autorizzata<?= $operatoreMarketing !== '' ? ' ' . $operatoreMarketing : '' ?>. La nostra missione è fornire energia a prezzi chiari, supportata da consulenti reali e disponibili per garantirti sempre la massima trasparenza.</p>
         </div>
         <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
           <h4 style="font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff;">Offerte e Servizi</h4>
@@ -211,7 +167,6 @@ $legalLine = implode(' - ', $legalParts);
         <div class="footer-col" style="display: flex; flex-direction: column; gap: 14px;">
           <h4 style="font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff;">Supporto Clienti</h4>
           <a href="contatti.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Contattaci</a>
-          <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Area Personale</a>
           <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Domande Frequenti (FAQ)</a>
           <a href="#" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Guida alla Bolletta</a>
         </div>
@@ -220,13 +175,19 @@ $legalLine = implode(' - ', $legalParts);
           <a href="chi-siamo.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Chi Siamo</a>
           <a href="privacy-policy.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Privacy Policy</a>
           <a href="condizioni-utilizzo.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Condizioni di Utilizzo</a>
+          <a href="trasparenza-commerciale.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Trasparenza commerciale</a>
+          <a href="cookie-policy.php" style="color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: color 0.2s;">Cookie Policy</a>
         </div>
       </div>
-      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 16px;">
-        <span>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : ($brandName . '. ') ?>Tutti i diritti riservati.</span>
-<?php if ($operatoreNomeLegale !== '') { ?>
-        <span>Rivenditore autorizzato <?= $operatoreNomeLegale ?></span>
-<?php } ?>
+      <div class="footer-bottom" style="font-size: 14px; color: rgba(255,255,255,.4);">
+        <p class="footer-legal" style="margin:0; line-height:1.9;">
+          &copy; <?= date('Y') ?> <strong><?= $coName ?></strong><br>
+          Sede legale: <?= $coSede ?><br>
+          C.F. e P.IVA: <?= $coPiva ?> &ndash; REA <?= $coRea ?> &ndash; <?= $coRegImprese ?><br>
+          Capitale sociale: <?= $coCapitale ?> i.v. &ndash; Società a socio unico<br>
+          PEC: <a href="mailto:<?= $coPec ?>" style="color: rgba(255,255,255,.6);"><?= $coPec ?></a><br>
+          DPO/Responsabile della Protezione dei Dati: <?= $coDpoNome ?> &ndash; contatto: <a href="mailto:<?= $coDpoEmail ?>" style="color: rgba(255,255,255,.6);"><?= $coDpoEmail ?></a>
+        </p>
       </div>
     </div>
   </footer>

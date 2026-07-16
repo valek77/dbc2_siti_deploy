@@ -827,6 +827,39 @@ h1,h2,h3,h4,h5 {
 }
 .offer-cta:hover { background: var(--primary-dark); transform: translateY(-1px); }
 
+/* ─── Frammenti HTML grezzi dall'API (offerte rese lato server) ───
+   L'API restituisce titolo/prezzi/caratteristiche come frammenti HTML già
+   pronti; qui li adatto al layout delle card di questo sito. */
+/* titolo: <h3> -> stile come .offer-name */
+.offer-body > h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+/* caratteristiche_evidenza: <h3> (prezzo) + <p> (bollettino) dentro .offer-price-box */
+.offer-price-box > h3 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+}
+.offer-price-box > p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 6px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+/* sottotitolo/footer: azzero i margini dei frammenti grezzi <p>/<div>. */
+.offer-type > *,
+.offer-note > p { margin: 0; }
+/* caratteristiche: l'API emette più <ul class="offer-feats"> da un <li> ciascuno;
+   collasso lo spazio tra liste consecutive lasciando il margine finale. */
+.offer-feats + .offer-feats { margin-top: -14px; }
+
 /* ─── TAB BAR ─── */
 .tab-bar {
   display: flex;
@@ -1095,6 +1128,10 @@ h1,h2,h3,h4,h5 {
   gap: 12px;
   font-size: 13px;
 }
+/* Blocco legale multi-riga nel fondo pagina (ragione sociale, sede, REA, PEC, DPO). */
+.footer-legal { margin: 0; line-height: 1.9; }
+.footer-legal a { color: rgba(255,255,255,.6); text-decoration: none; }
+.footer-legal a:hover { color: var(--primary-light); }
 
 /* ─── Prose pages (privacy / condizioni) ─── */
 .prose {
