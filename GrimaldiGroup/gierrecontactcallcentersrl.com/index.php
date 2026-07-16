@@ -82,7 +82,7 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Cosa offriamo</span>
         <h2 class="section-title">Tre servizi, <span class="underline">una sola promessa</span></h2>
-        <p class="section-sub">Siamo partner/agenzia commerciale autorizzata <?= $OPERATORE['nome_marketing'] ?>. Scegliamo per te la tariffa giusta e ti seguiamo dalla prima firma alla bolletta.</p>
+        <p class="section-sub">Siamo agenzia commerciale autorizzata <?= $OPERATORE['nome_marketing'] ?>. Scegliamo per te la tariffa giusta e ti seguiamo dalla prima firma alla bolletta.</p>
       </div>
 
       <div class="features-container">
