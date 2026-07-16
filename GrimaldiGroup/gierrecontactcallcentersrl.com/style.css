@@ -976,6 +976,12 @@ img, svg { display: block; max-width: 100%; }
   border-radius: var(--r-pill);
   border: 1px solid var(--ribbon-border, var(--primary-100));
 }
+/* Icona a dimensione fissa: senza width/height esplicite l'SVG (solo viewBox)
+   si allarga fino all'altezza della riga flex, ingigantendosi quando la
+   tipologia va a capo su più righe. */
+.offer-ribbon .pill svg {
+  width: 16px; height: 16px; flex: none;
+}
 .offer-ribbon .pill.warm {
   background: #EAF5FD; color: var(--accent-deep); border-color: #C7E3F8;
 }

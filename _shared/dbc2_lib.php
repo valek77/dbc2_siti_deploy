@@ -323,7 +323,7 @@ if (!function_exists('dbc2_format_tipologia')) {
     {
         $s = str_replace('_', ' ', (string) $value);
         if (function_exists('mb_convert_case')) {
-            return mb_convert_case($s, MB_TITLE_CASE, 'UTF-8');
+            return mb_convert_case($s, MB_CASE_TITLE, 'UTF-8');
         }
         return ucwords($s);
     }
