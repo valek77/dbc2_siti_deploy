@@ -47,7 +47,7 @@
           margin: 0;
         }
         .cookie-content a {
-          color: #10B981;
+          color: #00A84A;
           text-decoration: underline;
           font-weight: 600;
         }
@@ -69,12 +69,12 @@
           font-family: inherit;
         }
         .cookie-btn-primary {
-          background: #10B981;
+          background: #00A84A;
           color: #fff;
-          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+          box-shadow: 0 4px 12px rgba(0,168,74, 0.3);
         }
         .cookie-btn-primary:hover {
-          background: #047857;
+          background: #007E38;
           transform: translateY(-2px);
         }
         .cookie-btn-secondary {
@@ -112,12 +112,12 @@
       wrapper.innerHTML = `
         <div class="cookie-banner-container">
           <div class="cookie-content">
-            <strong>Utilizziamo i cookie per migliorare la tua esperienza sul sito. 🍪</strong>
-            <p>Puoi accettare tutti i cookie e continuare la navigazione.<br>
-            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="cookie-policy.php">cookie policy</a>.</p>
+            <strong>Questo sito utilizza esclusivamente cookie tecnici necessari al suo funzionamento. 🍪</strong>
+            <p>Non vengono utilizzati cookie di profilazione, analitici o di terze parti, pertanto non è richiesto alcun consenso.<br>
+            Maggiori dettagli nella nostra <a href="cookie-policy.php">cookie policy</a>.</p>
           </div>
           <div class="cookie-actions">
-            <button class="cookie-btn cookie-btn-primary" id="btn-accept-cookie">Accetta tutto</button>
+            <button class="cookie-btn cookie-btn-primary" id="btn-accept-cookie">Ho capito</button>
           </div>
         </div>
       `;
