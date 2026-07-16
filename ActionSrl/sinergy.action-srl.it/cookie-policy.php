@@ -82,25 +82,25 @@ CSS;
 include __DIR__ . '/header.php';
 ?>
 
-<main class="legal-content">
+  <main class="legal-content">
     <h1>COOKIE POLICY</h1>
-    <em>Informativa sull’uso dei cookie e delle tecnologie di archiviazione locale</em>
+    <em>Informativa sull'uso dei cookie e delle tecnologie di archiviazione locale</em>
     <div class="separator">***</div>
 
-    <p>La presente Cookie Policy illustra le tecnologie utilizzate da questo sito web in relazione ai cookie e agli strumenti di archiviazione locale del browser. Costituisce parte integrante della <a href="privacy-policy.php">Privacy Policy</a>, alla quale si rinvia per le informazioni sul Titolare del trattamento e sull’esercizio dei diritti dell’interessato.</p>
+    <p>La presente Cookie Policy illustra le tecnologie utilizzate da questo sito web in relazione ai cookie e agli strumenti di archiviazione locale del browser. Costituisce parte integrante della <a href="privacy-policy.php">Privacy Policy</a>, alla quale si rinvia per le informazioni sul Titolare del trattamento e sull'esercizio dei diritti dell'interessato.</p>
 
     <h2>CHE COSA SONO I COOKIE</h2>
-    <p>I cookie sono piccoli file di testo che i siti web possono salvare sul dispositivo dell’Utente per memorizzare informazioni relative alla navigazione. Tecnologie similari, come l’archiviazione locale del browser (local storage), consentono di salvare informazioni direttamente sul dispositivo dell’Utente senza che queste vengano trasmesse ad alcun server.</p>
+    <p>I cookie sono piccoli file di testo che i siti web possono salvare sul dispositivo dell'Utente per memorizzare informazioni relative alla navigazione. Tecnologie similari, come l'archiviazione locale del browser (local storage), consentono di salvare informazioni direttamente sul dispositivo dell'Utente senza che queste vengano trasmesse ad alcun server.</p>
 
     <h2>COOKIE UTILIZZATI DA QUESTO SITO</h2>
-    <p>Questo sito è realizzato in modo da ridurre al minimo il trattamento dei dati di navigazione. In particolare, <strong>il sito non installa cookie sul dispositivo dell’Utente</strong>. Più nello specifico, il sito:</p>
+    <p>Questo sito è realizzato in modo da ridurre al minimo il trattamento dei dati di navigazione. In particolare, <strong>il sito non installa cookie sul dispositivo dell'Utente</strong>. Più nello specifico, il sito:</p>
     <ul>
       <li>non utilizza cookie di profilazione;</li>
       <li>non utilizza cookie pubblicitari o di marketing;</li>
       <li>non utilizza cookie analitici o statistici;</li>
       <li>non utilizza cookie di terze parti né strumenti di tracciamento (es. Google Analytics, pixel di social network).</li>
     </ul>
-    <p>L’unico strumento utilizzato è una <strong>voce tecnica salvata nella memoria locale del browser (local storage)</strong>, necessaria a ricordare la scelta espressa dall’Utente in merito al banner informativo sui cookie, così da non riproporlo ad ogni visita. Tale informazione resta esclusivamente sul dispositivo dell’Utente, non viene trasmessa a terzi, non contiene dati personali e non consente alcuna forma di tracciamento o profilazione.</p>
+    <p>L'unico strumento utilizzato è una <strong>voce tecnica salvata nella memoria locale del browser (local storage)</strong>, necessaria a ricordare la scelta espressa dall'Utente in merito al banner informativo sui cookie, così da non riproporlo ad ogni visita. Tale informazione resta esclusivamente sul dispositivo dell'Utente, non viene trasmessa a terzi, non contiene dati personali e non consente alcuna forma di tracciamento o profilazione.</p>
 
     <table class="cookie-table">
       <thead>
@@ -115,19 +115,20 @@ include __DIR__ . '/header.php';
         <tr>
           <td>cookieConsent</td>
           <td>Tecnico — memoria locale (local storage)</td>
-          <td>Ricorda che l’Utente ha già visualizzato il banner informativo sui cookie, evitando di riproporlo ad ogni visita</td>
-          <td>Permanente, fino alla cancellazione manuale da parte dell’Utente</td>
+          <td>Ricorda che l'Utente ha già visualizzato il banner informativo sui cookie, evitando di riproporlo ad ogni visita</td>
+          <td>Permanente, fino alla cancellazione manuale da parte dell'Utente</td>
         </tr>
       </tbody>
     </table>
 
     <h2>GESTIONE E CANCELLAZIONE</h2>
-    <p>Poiché il sito non installa cookie, non è richiesta alcuna configurazione da parte dell’Utente. È comunque possibile rimuovere in qualsiasi momento la voce salvata nella memoria locale cancellando i dati del sito dalle impostazioni del proprio browser (ad esempio dalla funzione “Cancella dati di navigazione” o “Dati dei siti web”). Tale operazione non pregiudica in alcun modo la navigazione: comporterà unicamente la ricomparsa del banner informativo alla visita successiva.</p>
+    <p>Poiché il sito non installa cookie, non è richiesta alcuna configurazione da parte dell'Utente. È comunque possibile rimuovere in qualsiasi momento la voce salvata nella memoria locale cancellando i dati del sito dalle impostazioni del proprio browser (ad esempio dalla funzione "Cancella dati di navigazione" o "Dati dei siti web"). Tale operazione non pregiudica in alcun modo la navigazione: comporterà unicamente la ricomparsa del banner informativo alla visita successiva.</p>
 
     <h2>DATI RACCOLTI TRAMITE I MODULI DI CONTATTO</h2>
-    <p>I dati eventualmente forniti dall’Utente attraverso i moduli di contatto presenti sul sito non sono raccolti mediante cookie e sono trattati esclusivamente secondo quanto indicato nella <a href="privacy-policy.php">Privacy Policy</a>.</p>
+    <p>I dati eventualmente forniti dall'Utente attraverso i moduli di contatto presenti sul sito non sono raccolti mediante cookie e sono trattati esclusivamente secondo quanto indicato nella <a href="privacy-policy.php">Privacy Policy</a>.</p>
 
     <h2>AGGIORNAMENTI DELLA PRESENTE INFORMATIVA</h2>
-    <p>La presente Cookie Policy potrà essere aggiornata qualora il sito dovesse in futuro introdurre nuovi strumenti tecnologici. Eventuali modifiche saranno pubblicate su questa pagina; si invita pertanto l’Utente a consultarla periodicamente.</p>
+    <p>La presente Cookie Policy potrà essere aggiornata qualora il sito dovesse in futuro introdurre nuovi strumenti tecnologici. Eventuali modifiche saranno pubblicate su questa pagina; si invita pertanto l'Utente a consultarla periodicamente.</p>
   </main>
+
 <?php include __DIR__ . '/footer.php'; ?>

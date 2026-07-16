@@ -36,18 +36,18 @@
         .cookie-content strong {
           display: block;
           font-size: 17px;
-          color: #0B1220;
+          color: #484849;
           margin-bottom: 8px;
           font-weight: 700;
         }
         .cookie-content p {
           font-size: 14.5px;
           line-height: 1.6;
-          color: #4a5568;
+          color: #666668;
           margin: 0;
         }
         .cookie-content a {
-          color: #0057C8;
+          color: #484849;
           text-decoration: underline;
           font-weight: 600;
         }
@@ -69,20 +69,20 @@
           font-family: inherit;
         }
         .cookie-btn-primary {
-          background: #0057C8;
+          background: #7AC6D5;
           color: #fff;
-          box-shadow: 0 4px 12px rgba(0, 87, 200, 0.3);
+          box-shadow: 0 4px 12px rgba(72, 72, 73, 0.22);
         }
         .cookie-btn-primary:hover {
-          background: #003F9A;
+          background: #484849;
           transform: translateY(-2px);
         }
         .cookie-btn-secondary {
-          background: #f1f5f9;
-          color: #0B1220;
+          background: #EEF9FB;
+          color: #484849;
         }
         .cookie-btn-secondary:hover {
-          background: #e2e8f0;
+          background: #D8EEF3;
           transform: translateY(-2px);
         }
         @media (max-width: 768px) {
@@ -114,7 +114,7 @@
           <div class="cookie-content">
             <strong>Utilizziamo i cookie per migliorare la tua esperienza sul sito. 🍪</strong>
             <p>Puoi accettare tutti i cookie e continuare la navigazione.<br>
-            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="cookie-policy.php">cookie policy</a>.</p>
+            Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="cookie-policy.html">cookie policy</a>.</p>
           </div>
           <div class="cookie-actions">
             <button class="cookie-btn cookie-btn-primary" id="btn-accept-cookie">Accetta tutto</button>
