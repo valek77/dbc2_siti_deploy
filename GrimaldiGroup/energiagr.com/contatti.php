@@ -30,6 +30,11 @@ $preselOffertaId = isset($_GET['offerta']) ? trim((string) $_GET['offerta']) : '
       <div class="contact-wrapper" id="form" style="grid-template-columns: minmax(0, 640px); justify-content: center;">
         <!-- FORM -->
         <div class="contact-form-card">
+          <?php if ($OPERATORE['logo_url'] !== ''): ?>
+          <div class="switch-operator" style="display:flex; align-items:center; gap:14px; padding:14px 18px; margin-bottom:24px; background: var(--bg-soft); border:1px solid var(--line); border-radius: var(--r-md);">
+            <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" loading="lazy" style="height:34px; width:auto; max-width:130px; object-fit:contain;">
+          </div>
+          <?php endif; ?>
           <h3>Richiedi una consulenza gratuita</h3>
           <p class="sub">Compila il form e un nostro consulente ti contatterà entro 24 ore lavorative.</p>
 
@@ -68,13 +73,13 @@ $preselOffertaId = isset($_GET['offerta']) ? trim((string) $_GET['offerta']) : '
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label consent-oneline" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                  <span style="font-weight:700;">Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                  <span style="font-weight:700;">Dichiaro di aver preso visione dell'<a href="informativa-privacy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
 
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span style="font-weight:700;">Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span style="font-weight:700;">Richiedo di essere ricontattato da <?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : "" ?>,  per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas di <?= $OPERATORE['nome_marketing'] ?> *</span>
                 </label>
                 
               </div>

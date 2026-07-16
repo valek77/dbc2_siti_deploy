@@ -6,26 +6,6 @@ $brandName = $COMPANY['company_name'] !== ''
         ? $LANDING_PAGE['nome_portale']
         : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
 $pageDescription = $brandName . ' è il partner ufficiale Switch Luce Gas. Risparmia sulla bolletta con offerte chiare, prezzi indicizzati e consulenza gratuita.';
-// Top-bar specifica della home, emessa tra <body> e <header> dal template comune.
-$headerPrefix = <<<'HTML'
-  <!-- ENGIE-LIKE HEADER -->
-  <div style="background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); padding: 8px 24px; display: none;">
-    <!-- Hide on mobile via CSS usually, but we'll leave it simple here -->
-  </div>
-  <div class="top-bar" style="background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); padding: 8px 24px;">
-    <div style="max-width: var(--maxw); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-      <div style="display: flex; gap: 20px;">
-        <a href="index.php" style="color: var(--primary); font-weight: 700; text-decoration: none;">Casa</a>
-        <a href="#" style="color: inherit; text-decoration: none; transition: color 0.2s;">Business ed Enti</a>
-        <a href="chi-siamo.php" style="color: inherit; text-decoration: none; transition: color 0.2s;">Gruppo GR</a>
-      </div>
-      <div style="display: flex; gap: 20px;">
-        <a href="contatti.php" style="color: inherit; text-decoration: none; transition: color 0.2s;">Contatti</a>
-        <a href="#" style="color: inherit; text-decoration: none; transition: color 0.2s;">Area Clienti</a>
-      </div>
-    </div>
-  </div>
-HTML;
 include __DIR__ . '/header.php';
 ?>
 
