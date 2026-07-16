@@ -19,6 +19,18 @@ foreach ($OFFERTE as $o) {
         $tipologie[] = $t;
     }
 }
+
+// Card per riga: 3 se il totale è divisibile per 3, altrimenti 2 se divisibile
+// per 2. Se non è divisibile per nessuno dei due, 3 per riga con le card
+// centrate: l'ultima riga "spaiata" resta centrata grazie al layout flex.
+$nOfferte = count($OFFERTE);
+if ($nOfferte % 3 === 0) {
+    $offerCols = 3;
+} elseif ($nOfferte % 2 === 0) {
+    $offerCols = 2;
+} else {
+    $offerCols = 3;
+}
 ?>
 
   <!-- Page hero -->
@@ -49,7 +61,7 @@ foreach ($OFFERTE as $o) {
       <?php endif; ?>
 
       <!-- Griglia offerte (renderizzata lato server dai dati dell'API) -->
-      <div id="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;">
+      <div id="offers-grid" class="offers-grid" style="--offer-cols: <?= $offerCols ?>;">
         <?php if (empty($OFFERTE)): ?>
         <p style="color: var(--muted);">Nessuna offerta disponibile al momento.</p>
         <?php else: foreach ($OFFERTE as $o):

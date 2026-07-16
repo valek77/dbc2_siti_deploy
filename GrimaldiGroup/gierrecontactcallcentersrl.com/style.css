@@ -933,6 +933,24 @@ img, svg { display: block; max-width: 100%; }
   box-shadow: var(--shadow-sm);
 }
 
+/* Griglia offerte: N card per riga (--offer-cols, calcolato lato server dal
+   numero di offerte). Flex + justify-content:center così l'ultima riga
+   "spaiata" (quando il totale non è divisibile) resta centrata. */
+.offers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.offers-grid .offer-card {
+  flex: 0 1 calc((100% - (var(--offer-cols) - 1) * 24px) / var(--offer-cols));
+  min-width: 320px;
+  max-width: 420px;
+}
+@media (max-width: 720px) {
+  .offers-grid .offer-card { flex-basis: 100%; max-width: none; }
+}
+
 .offer-card {
   position: relative;
   background: #fff;
