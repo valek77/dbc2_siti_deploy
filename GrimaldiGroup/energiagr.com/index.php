@@ -14,7 +14,7 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="split" style="gap: 40px; align-items: center;">
         <div>
-          <span class="eyebrow"><span class="dot"></span> <?= $OPERATORE['nome_marketing'] ?></span>
+         
           <h1 style="font-size: clamp(40px, 5vw, 56px); margin-bottom: 24px; line-height: 1.1; font-family: var(--font-display); font-weight: 800; color: var(--ink);">
             L'energia giusta per la tua casa,<br><span style="color: var(--primary);">senza sorprese.</span>
           </h1>
