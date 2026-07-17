@@ -1,207 +1,105 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Privacy Policy';
 
+// Dati del Titolare del trattamento presi dall'API (nessun dato cablato): in
+// questo sito il Titolare e' l'OPERATORE ENERGETICO ($OPERATORE), non l'azienda
+// che gestisce la landing page. I campi non forniti dall'API (es. PEC, DPO)
+// semplicemente non compaiono.
+$titolareNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale']
+    : ($OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : 'l\'operatore energetico');
+// L'API operatore non espone una casella DPO dedicata: per l'esercizio dei
+// diritti si usa l'e-mail di supporto dell'operatore.
+$emailSupporto = $OPERATORE['email_supporto'];
+// Recapiti/estremi del Titolare, aggiunti alla riga solo se presenti nell'API.
+$titolareParts = [];
+if ($OPERATORE['indirizzo'] !== '') {
+    $titolareParts[] = 'con sede in ' . $OPERATORE['indirizzo'];
+}
+if ($OPERATORE['partita_iva'] !== '') {
+    $titolareParts[] = 'C.F./P.IVA ' . $OPERATORE['partita_iva'];
+}
+if ($emailSupporto !== '') {
+    $titolareParts[] = 'e-mail ' . $emailSupporto;
+}
+$titolareExtra = $titolareParts ? ', ' . implode(', ', $titolareParts) : '';
+
+$pageTitle = 'Informativa sul Trattamento dei Dati Personali';
+$pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) per la landing page di ' . $titolareNome . '.';
 $pageHead = <<<'CSS'
-  <style>
-    .legal-content {
-      padding: 80px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.8;
-      color: var(--text-label);
-    }
-
-    .legal-content h1 {
-      color: var(--primary);
-      margin-bottom: 40px;
-      font-size: 32px;
-      text-align: center;
-      line-height: 1.3;
-    }
-
-    .legal-content h2 {
-      color: var(--primary);
-      margin-top: 60px;
-      margin-bottom: 20px;
-      font-size: 20px;
-      text-align: center;
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    .legal-content .section-subhead {
-      text-align: center;
-      font-weight: 800;
-      margin-bottom: 30px;
-      display: block;
-      color: var(--primary);
-    }
-
-    .legal-content p {
-      margin-bottom: 20px;
-      text-align: justify;
-    }
-
-    .legal-content ul,
-    .legal-content ol {
-      margin-bottom: 20px;
-      padding-left: 30px;
-    }
-
-    .legal-content li {
-      margin-bottom: 15px;
-      text-align: justify;
-    }
-
-    .legal-content .separator {
-      text-align: center;
-      font-size: 24px;
-      margin: 40px 0;
-    }
-
-    .legal-content em {
-      display: block;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-  </style>
+<style>
+  .policy-doc { max-width: 820px; margin: 70px auto 110px; padding: 0 24px; }
+  .policy-doc .doc-title {
+    text-align: center; font-size: clamp(22px, 4vw, 30px); font-weight: 800;
+    text-transform: uppercase; letter-spacing: -0.01em; color: var(--ink, #0f172a); margin: 0;
+  }
+  .policy-doc .doc-subtitle {
+    text-align: center; font-style: italic; font-size: 15px; color: var(--muted, #475569); margin: 12px 0 0;
+  }
+  .policy-doc .doc-rule { border: 0; border-top: 2px solid var(--primary, #1e40af); margin: 20px 0 40px; }
+  .policy-doc h2 {
+    color: var(--primary, #1e40af); font-size: 17px; font-weight: 700; margin: 34px 0 12px; letter-spacing: 0.01em;
+  }
+  .policy-doc p { font-size: 15px; line-height: 1.75; text-align: justify; margin: 0 0 14px; color: var(--ink-2, #374151); }
+  .policy-doc ol, .policy-doc ul { font-size: 15px; line-height: 1.75; color: var(--ink-2, #374151); margin: 0 0 14px; padding-left: 24px; }
+  .policy-doc li { margin-bottom: 12px; text-align: justify; }
+  .policy-doc a { color: var(--primary, #1e40af); font-weight: 600; }
+</style>
 CSS;
-
-// Recapiti dall'API (con fallback ragionevoli se un campo manca).
-$emailSupporto = $email_supporto;
-$emailDpo = $email_dpo !== '' ? $email_dpo : $email_supporto;
-// Recapiti del Titolare mostrati inline nella sezione "Titolare del trattamento".
-$contattoTitolare = implode(' / ', array_filter([$emailSupporto, $pec]));
-
 include __DIR__ . '/header.php';
 ?>
 
-  <main class="legal-content">
-    <h1>INFORMATIVA PER IL TRATTAMENTO DEI DATI PERSONALI</h1>
-    <em>Ai sensi dell’art. 13 del Regolamento UE 2016/679</em>
-    <div class="separator">***</div>
+  <main class="policy-doc">
 
-    <p>Gentile Utente,</p>
-    <p>La informiamo che, ai sensi dell’art. 16 del TFUE e dell’art. 8 della Carta dei diritti fondamentali dell’Unione Europea, ogni persona ha diritto alla protezione dei dati di carattere personale che la riguardano, a prescindere dalla nazionalità o residenza. I dati devono essere trattati secondo i principi di liceità, correttezza, trasparenza e minimizzazione, per finalità determinate e sulla base di un fondamento giuridico previsto dalla normativa vigente.</p>
-    <p>La presente informativa ha carattere generico ed esemplificativo ed è destinata ad essere utilizzata nell’ambito di servizi di informazione, comparazione e promozione di offerte nel settore dell’energia (luce e gas), anche mediante siti web, landing page e strumenti digitali di raccolta contatti.</p>
+    <h1 class="doc-title">Informativa sul Trattamento dei Dati Personali</h1>
+    <p class="doc-subtitle">(artt. 13 GDPR 2016/679)</p>
+    <hr class="doc-rule">
 
-    <h2>TITOLARE DEL TRATTAMENTO</h2>
-    <span class="section-subhead">Art. 13, par.1, lett. a</span>
-    <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, il Titolare del trattamento è individuato nel soggetto giuridico che gestisce il sito web o la piattaforma digitale attraverso la quale vengono raccolti i dati personali (di seguito, il “Titolare”).</p>
-    <p>Nello specifico, il Titolare del trattamento è la società <strong><?= $company_name ?></strong>, con sede legale in <strong><?= $sede_legale ?></strong>, Codice Fiscale e Partita IVA <strong><?= $p_iva ?></strong><?php if ($contattoTitolare) { ?>, contattabile all’indirizzo e-mail/PEC <strong><?= $contattoTitolare ?></strong><?php } ?>.</p>
-    <p>Il Titolare fornisce agli interessati le informazioni relative al trattamento dei dati personali effettuato nell’ambito dei servizi offerti online, inclusa la raccolta di richieste di informazioni, preventivi e proposte contrattuali relative a forniture di energia elettrica e gas naturale.</p>
-    <p>I dati personali saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento potrà avvenire con strumenti manuali e automatizzati, nel rispetto delle disposizioni di cui all’art. 32 del GDPR e delle misure di sicurezza tecniche e organizzative adeguate.</p>
+    <h2>Titolare del trattamento</h2>
+    <p>Il Titolare del trattamento è <strong><?= $titolareNome ?></strong><?= $titolareExtra ?>, in persona del legale rapp.te p.t..</p>
 
-    <h2>DATA PROTECTION OFFICER</h2>
-    <span class="section-subhead">Art.13, par.1, lett. b</span>
-    <p>Qualora previsto dalla normativa vigente, il Titolare potrà designare un Responsabile della Protezione dei Dati (RPD – DPO). I relativi dati di contatto saranno resi disponibili sul sito web o mediante specifica comunicazione all’interessato.</p>
-<?php if ($email_dpo) { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong><?= $email_dpo ?></strong>.</p>
-<?php } ?>
+    <h2>Dati personali trattati</h2>
+    <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: numero di telefono.</p>
 
-    <h2>FINALITÀ SPECIFICHE DEL TRATTAMENTO DEI DATI PERSONALI</h2>
-    <span class="section-subhead">Art. 13, par.1, lett. C</span>
-    <p>I dati personali forniti dall’Utente possono essere trattati per le seguenti finalità:</p>
+    <h2>Finalità del trattamento e base giuridica</h2>
+    <p>I dati sono trattati esclusivamente per le seguenti finalità connesse alla pagina:</p>
+    <ol>
+      <li><strong>Riscontro alla tua richiesta di informazioni</strong> inoltrata tramite il form e conseguente contatto telefonico, entro il termine di 30 giorni dall'inoltro della richiesta, per illustrarti i prodotti di fornitura di energia elettrica e gas oggetto del tuo interesse. Base giuridica: esecuzione di misure precontrattuali adottate su tua richiesta (art. 6, par. 1, lett. b, GDPR).</li>
+      <li><strong>Gestione e tracciabilità della richiesta</strong> e conservazione del log di presa visione della presente informativa, al fine di dimostrare la liceità del contatto ai sensi dell'art. 51, comma 8-bis, del Codice del Consumo. Base giuridica: legittimo interesse del Titolare a documentare la conformità e a tutelarsi (art. 6, par. 1, lett. f, GDPR) e adempimento di obblighi di legge (lett. c). I dati di tracciabilità della richiesta saranno conservati per il periodo di validità del contratto e per i 10 anni successivi allo scioglimento del rapporto contrattuale, quale criterio di validità dello stesso.</li>
+      <li><strong>Sicurezza e log di accesso.</strong> Raccolta dei dati di navigazione e dei log tecnici dei naviganti (a titolo esemplificativo: indirizzo IP, data e ora di accesso, pagine visitate, tipo di browser e di dispositivo) per garantire la sicurezza della pagina e dei sistemi, prevenire abusi, usi fraudolenti o accessi non autorizzati e assicurare la corretta erogazione del servizio. Base giuridica: legittimo interesse del Titolare alla sicurezza delle reti e dei sistemi informativi (art. 6, par. 1, lett. f, GDPR; cfr. considerando 49).</li>
+    </ol>
+
+    <h2>Modalità del contatto e disciplina di settore (Decreto Bollette)</h2>
+    <p>La chiamata avviene da numerazione identificabile, entro 30 giorni dall'inoltro della richiesta al Titolare. Ciò è coerente con il nuovo art. 51, comma 8-bis, del Codice del Consumo (introdotto dalla L. 49/2026, c.d. Decreto Bollette), che consente il contatto telefonico per i prodotti di energia elettrica e gas quando il consumatore ne abbia fatto richiesta direttamente al professionista tramite le sue interfacce informatiche.</p>
+
+    <h2>Destinatari dei dati</h2>
+    <p>I dati sono trattati, per conto del Titolare, dalle società di teleselling nominate Responsabili del trattamento ai sensi dell'art. 28 GDPR, che gestiscono la pagina, la raccolta delle richieste, il contatto telefonico e l'eventuale contrattualizzazione, nonché da eventuali sub-responsabili (incluso il fornitore di hosting). L'elenco aggiornato dei responsabili e sub-responsabili è disponibile presso il Titolare e richiedibile al DPO. I dati possono essere comunicati a terzi solo per adempiere a obblighi di legge.</p>
+
+    <h2>Periodo di conservazione</h2>
+    <p>I dati raccolti tramite la pagina sono cancellati entro 30 giorni dall'inoltro della richiesta, in assenza di conclusione del contratto. Qualora a seguito del contatto si concluda un contratto di fornitura, i dati confluiscono nel rapporto contrattuale e sono trattati secondo l'informativa relativa al rapporto di fornitura del Titolare, con i tempi di conservazione previsti dalla normativa di settore.</p>
+
+    <h2>Trasferimenti extra-UE</h2>
+    <p>Non sono previsti trasferimenti dei dati verso Paesi terzi. Ove l'infrastruttura di hosting comportasse trasferimenti extra-UE, saranno adottate adeguate garanzie ai sensi del Capo V del GDPR.</p>
+
+    <h2>Natura del conferimento</h2>
+    <p>Il conferimento dei dati indicati è necessario per dar seguito alla tua richiesta; il mancato conferimento impedisce di riscontrarla e di ricontattarti.</p>
+
+    <h2>Processo decisionale automatizzato</h2>
+    <p>Non è effettuato alcun processo decisionale automatizzato, inclusa la profilazione, di cui all'art. 22 GDPR.</p>
+
+    <h2>Diritti dell'interessato</h2>
+    <p>Puoi esercitare in qualsiasi momento<?php if ($emailSupporto !== '') { ?>, scrivendo a <a href="mailto:<?= $emailSupporto ?>"><?= $emailSupporto ?></a>,<?php } ?> i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
     <ul>
-      <li><strong>Gestione delle richieste di informazioni e preventivi nel settore energia:</strong> consentire all’Utente di richiedere informazioni o ricevere proposte commerciali relative a forniture di energia elettrica e gas, nonché di essere ricontattato da operatori qualificati o partner commerciali per la presentazione di offerte contrattuali.</li>
-      <li><strong>Gestione dei contatti commerciali e precontrattuali:</strong> consentire il ricontatto telefonico o tramite strumenti elettronici da parte del Titolare o di soggetti partner autorizzati, esclusivamente previa acquisizione di un consenso valido, documentabile e verificabile, nel rispetto della normativa vigente in materia di telemarketing e tutela dei consumatori.</li>
-      <li><strong>Adempimento di obblighi normativi e regolatori nel settore energia:</strong> garantire il rispetto delle disposizioni previste dalla normativa nazionale e dalle misure introdotte per la tutela degli utenti nel mercato dell’energia, inclusi gli obblighi di trasparenza, correttezza commerciale e tracciabilità del consenso, anche in relazione alle disposizioni introdotte in materia di contrasto alle pratiche commerciali scorrette e al telemarketing aggressivo.</li>
-      <li><strong>Sicurezza dei sistemi e prevenzione abusi:</strong> garantire il corretto funzionamento del sito, la sicurezza dei sistemi informatici, la prevenzione di utilizzi illeciti o fraudolenti e la tutela dei diritti del Titolare in sede giudiziaria.</li>
-      <li><strong>Analisi delle esigenze energetiche dell’Utente:</strong> consentire all’Utente di fornire informazioni relative alla propria fornitura energetica, anche mediante caricamento volontario di documenti (es. bollette), al fine di ricevere proposte commerciali coerenti con il proprio profilo di consumo.</li>
-      <li><strong>Attività di marketing diretto:</strong> inviare comunicazioni promozionali e informative relative a servizi e offerte nel settore energia, mediante telefono, e-mail, SMS o altri strumenti di comunicazione elettronica, esclusivamente previo consenso espresso dell’interessato.</li>
+      <li>accesso ai dati personali (art. 15 GDPR);</li>
+      <li>rettifica dei dati inesatti o incompleti (art. 16 GDPR);</li>
+      <li>cancellazione dei dati e diritto all'oblio (art. 17 GDPR);</li>
+      <li>limitazione del trattamento (art. 18 GDPR);</li>
+      <li>notifica delle rettifiche, cancellazioni o limitazioni ai destinatari dei dati (art. 19 GDPR);</li>
+      <li>portabilità dei dati (art. 20 GDPR);</li>
+      <li>opposizione al trattamento, in particolare a quello fondato sul legittimo interesse del Titolare, inclusi i log di sicurezza (art. 21 GDPR);</li>
+      <li>non essere sottoposto a una decisione automatizzata, inclusa la profilazione (art. 22 GDPR), fermo restando che il Titolare non effettua tali trattamenti.</li>
     </ul>
+    <p>Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (art. 77 GDPR) e di ricorrere all'autorità giudiziaria.</p>
 
-    <h2>BASE GIURIDICA</h2>
-    <span class="section-subhead">Art. 13, par.1, lett. d</span>
-    <p>Il trattamento dei dati personali si fonda sulle seguenti basi giuridiche:</p>
-    <ul>
-      <li>esecuzione di misure precontrattuali adottate su richiesta dell’interessato, ai sensi dell’art. 6, par. 1, lett. b) del GDPR, per la gestione delle richieste di informazioni, preventivi e contatti commerciali;</li>
-      <li>adempimento di obblighi legali e regolatori, ai sensi dell’art. 6, par. 1, lett. c) del GDPR, con particolare riferimento agli obblighi previsti dalla normativa in materia di servizi energetici, tutela dei consumatori e trasparenza delle comunicazioni commerciali;</li>
-      <li>legittimo interesse del Titolare, ai sensi dell’art. 6, par. 1, lett. f) del GDPR, per garantire la sicurezza dei sistemi, prevenire frodi e difendere i propri diritti;</li>
-      <li>consenso libero, specifico, informato e inequivocabile dell’interessato, ai sensi dell’art. 6, par. 1, lett. a) del GDPR, per le attività di marketing e per il ricontatto commerciale mediante telefono o strumenti automatizzati.</li>
-    </ul>
-    <p>Il consenso prestato dall’Utente è registrato e conservato dal Titolare quale prova dell’avvenuta manifestazione di volontà, in conformità alla normativa vigente.</p>
-
-    <h2>NATURA E CATEGORIA DEI DATI PERSONALI TRATTATI</h2>
-    <p>Il Titolare tratta dati personali comuni degli Utenti, raccolti direttamente presso l’interessato o acquisiti automaticamente durante l’utilizzo del sito o delle landing page e, segnatamente:</p>
-    <ul>
-      <li><strong>Dati di navigazione:</strong> I sistemi informatici acquisiscono automaticamente alcuni dati tecnici necessari al funzionamento del sito, quali indirizzo IP, data e ora della richiesta e altre informazioni relative alla connessione.</li>
-      <li><strong>Dati personali comuni forniti volontariamente dall’Utente:</strong> Il Titolare tratta i dati personali conferiti mediante la compilazione dei moduli online o tramite contatto telefonico. Tali dati possono comprendere: • nome e cognome; • numero di telefono; • indirizzo e-mail; • indirizzo di fornitura; • informazioni relative alla fornitura energetica.</li>
-      <li><strong>Dati relativi alle preferenze e ai consumi energetici:</strong> L’Utente può fornire informazioni relative alle proprie abitudini di consumo energetico, utili per la formulazione di proposte commerciali personalizzate.</li>
-      <li><strong>Dati contenuti nei documenti caricati dall’Utente:</strong> L’Utente può caricare documenti quali bollette o contratti relativi alla fornitura energetica. Tali documenti sono trattati esclusivamente per la valutazione delle condizioni contrattuali e la predisposizione di offerte commerciali.</li>
-      <li><strong>Cookie tecnici:</strong> Il sito utilizza cookie tecnici strettamente necessari al funzionamento della piattaforma e all’erogazione dei servizi richiesti.</li>
-    </ul>
-
-    <h2>MANCATA COMUNICAZIONE DEI DATI PERSONALI E CONSEGUENZE DEL RIFIUTO</h2>
-    <span class="section-subhead">Art. 13, par.2, lett. E</span>
-    <p>Il conferimento dei dati personali per le finalità di richiesta di informazioni, preventivi e contatti commerciali è necessario per consentire l’erogazione dei servizi richiesti dall’Utente.</p>
-    <p>Il conferimento dei dati per finalità di marketing e contatto commerciale è facoltativo e subordinato al rilascio di uno specifico consenso. L’eventuale rifiuto non pregiudica la possibilità di ricevere informazioni di natura non promozionale.</p>
-
-    <h2>MODALITÀ DEL TRATTAMENTO e MISURE TECNICHE E ORGANIZZATIVE</h2>
-    <p>Il trattamento dei dati personali avviene mediante strumenti elettronici e informatici idonei a garantire la sicurezza, l’integrità e la riservatezza dei dati.</p>
-    <p>Il Titolare adotta misure tecniche e organizzative adeguate, tra cui: • sistemi di autenticazione e controllo degli accessi; • registrazione e tracciabilità delle operazioni sui dati; • sistemi di protezione contro accessi non autorizzati; • procedure di gestione delle richieste degli interessati; • sistemi di conservazione delle prove di consenso.</p>
-
-    <h2>DESTINATARI DI DATI PERSONALI</h2>
-    <span class="section-subhead">Art. 13, par.1, lett. e</span>
-    <p>I dati personali non saranno diffusi.</p>
-    <p>I dati personali possono essere comunicati a soggetti terzi operanti nel settore dell’energia elettrica e del gas naturale, quali fornitori di servizi energetici, società partner o intermediari commerciali, esclusivamente per la gestione delle richieste di preventivo e la conclusione di eventuali contratti di fornitura.</p>
-    <p>Tali soggetti trattano i dati in qualità di autonomi titolari o responsabili del trattamento, nel rispetto della normativa vigente.</p>
-    <p>Il Titolare può inoltre comunicare i dati a fornitori di servizi tecnici e informatici necessari per il funzionamento del sito e la gestione delle comunicazioni.</p>
-
-    <h2>TRASFERIMENTO DEI DATI VERSO PAESI TERZI</h2>
-    <p>I dati personali sono trattati prevalentemente all’interno del territorio dell’Unione Europea.</p>
-    <p>Qualora si rendesse necessario trasferire dati verso Paesi terzi, il Titolare adotterà le garanzie previste dal GDPR, quali clausole contrattuali standard o decisioni di adeguatezza della Commissione Europea.</p>
-
-    <h2>DURATA DEL TRATTAMENTO - PERIODO DI CONSERVAZIONE DEI DATI</h2>
-    <span class="section-subhead">Art. 13, par.2, lett. a</span>
-    <p>I dati personali sono conservati per il tempo strettamente necessario al conseguimento delle finalità per le quali sono raccolti e nel rispetto degli obblighi di legge.</p>
-    <p>In particolare:</p>
-    <ul>
-      <li><strong>dati di contatto e richieste di preventivo:</strong> conservati per un periodo massimo di 12 mesi dalla raccolta;</li>
-      <li><strong>dati relativi al consenso al marketing e al contatto commerciale:</strong> conservati fino alla revoca del consenso e comunque per un periodo non superiore a 24 mesi;</li>
-      <li><strong>dati necessari per adempiere ad obblighi normativi o per la gestione di eventuali contenziosi:</strong> conservati per il periodo previsto dalla legge;</li>
-      <li><strong>documenti caricati dall’Utente:</strong> conservati per il tempo necessario alla valutazione della richiesta e successivamente cancellati o anonimizzati.</li>
-    </ul>
-    <p>Decorso il termine di conservazione, i dati saranno cancellati o resi anonimi.</p>
-
-    <h2>LUOGO DI CONSERVAZIONE DEI DATI</h2>
-    <p>I dati personali sono conservati su server e infrastrutture informatiche situati all’interno dell’Unione Europea.</p>
-
-    <h2>DIRITTI DELL’INTERESSATO</h2>
-    <p>L’interessato può esercitare in qualsiasi momento i diritti previsti dagli articoli da 15 a 22 del Regolamento UE 2016/679, tra cui:</p>
-    <ul>
-      <li>diritto di accesso ai dati personali;</li>
-      <li>diritto di rettifica dei dati inesatti;</li>
-      <li>diritto alla cancellazione dei dati;</li>
-      <li>diritto alla limitazione del trattamento;</li>
-      <li>diritto alla portabilità dei dati;</li>
-      <li>diritto di opposizione al trattamento;</li>
-      <li>diritto di revocare il consenso in qualsiasi momento.</li>
-    </ul>
-    <p>L’interessato ha inoltre il diritto di opporsi in qualsiasi momento al trattamento dei propri dati per finalità di marketing diretto e al contatto telefonico per finalità commerciali.</p>
-    <p>Qualora l’interessato sia iscritto al Registro Pubblico delle Opposizioni, il Titolare si impegna a verificare preventivamente tale iscrizione prima di effettuare comunicazioni telefoniche a fini commerciali.</p>
-    <p>Le richieste relative all’esercizio dei diritti possono essere inviate ai seguenti recapiti:</p>
-    <ul>
-<?php if ($emailSupporto) { ?>      <li><?= $emailSupporto ?></li>
-<?php } ?>
-<?php if ($emailDpo && $emailDpo !== $emailSupporto) { ?>      <li><?= $emailDpo ?></li>
-<?php } ?>
-<?php if ($pec) { ?>      <li><?= $pec ?></li>
-<?php } ?>
-    </ul>
-
-    <h2>RECLAMO ALL’AUTORITÀ DI CONTROLLO</h2>
-    <p>L’interessato ha il diritto di proporre reclamo all’Autorità Garante per la protezione dei dati personali, ai sensi dell’art. 77 del GDPR, qualora ritenga che il trattamento dei dati violi la normativa vigente.</p>
-
-    <h2>REVOCA DEL CONSENSO</h2>
-    <span class="section-subhead">Art.13, par.2, lett. d</span>
-    <p>L’interessato può revocare in qualsiasi momento il consenso prestato per finalità di marketing o contatto commerciale, senza pregiudicare la liceità del trattamento effettuato prima della revoca.</p>
-<?php if ($emailSupporto) { ?>    <p>Per esercitare la revoca è possibile scrivere a <?= $emailSupporto ?><?= ($emailDpo && $emailDpo !== $emailSupporto) ? ' o ' . $emailDpo : '' ?>.</p>
-<?php } ?>
-
-    <h2>AGGIORNAMENTI DELLA PRESENTE INFORMATIVA</h2>
-    <p>La presente informativa potrà essere soggetta a modifiche o aggiornamenti, anche in conseguenza di variazioni normative, evoluzioni tecnologiche o aggiornamenti delle policy aziendali nel settore dell’energia e della tutela dei consumatori.</p>
-    <p>Gli aggiornamenti saranno resi disponibili mediante pubblicazione sul sito web o tramite altri canali informativi appropriati.</p>
   </main>
 
 <?php include __DIR__ . '/footer.php'; ?>
