@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageDescription = 'Action ti accompagna nella scelta di offerte luce e gas per casa e impresa, con consulenza energetica chiara e assistenza dedicata.';
+$pageDescription = 'Sinergy Luce e Gas propone offerte luce e gas, soluzioni rinnovabili e supporto continuo per clienti domestici, professionisti e PMI in tutta Italia.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -12,12 +12,12 @@ include __DIR__ . '/header.php';
           <img src="split_home.png" class="hero-slide-bg" alt="Famiglia felice in casa">
           <div class="container">
             <div class="hero-content">
-              <span class="eyebrow eyebrow-light"><span class="dot"></span> Action consulenza energia</span>
-              <h1>Energia <span class="accent">chiara</span>, scelte più semplici.</h1>
-              <p class="lede">Action ti aiuta a valutare le migliori soluzioni luce e gas per casa, ufficio e impresa, con supporto concreto e spiegazioni sempre trasparenti.</p>
+              <span class="eyebrow eyebrow-light"><span class="dot"></span> Sinergy Luce e Gas</span>
+              <h1>Rinnoviamo la tua <span class="accent">energia</span>.</h1>
+              <p class="lede">Sinergy Luce e Gas mette al centro chiarezza, supporto continuo e offerte dedicate a casa, professionisti e PMI, con una presenza attiva su tutto il territorio nazionale.</p>
               <div class="hero-actions">
                 <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
-                <a href="contatti.php" class="btn-secondary">Parla con noi</a>
+                <a href="contatti.php" class="btn-secondary">Contatta Sinergy</a>
               </div>
             </div>
           </div>
@@ -26,9 +26,9 @@ include __DIR__ . '/header.php';
           <img src="hero_energy_2.png" class="hero-slide-bg" alt="Pannelli solari su edificio">
           <div class="container">
             <div class="hero-content">
-              <span class="eyebrow eyebrow-light"><span class="dot"></span> Efficienza e risparmio</span>
-              <h1>Più controllo sui <span class="accent">consumi</span>.</h1>
-              <p class="lede">Con Action trovi consulenza energetica orientata al risparmio, per scegliere offerte coerenti con le tue abitudini e con il tuo budget.</p>
+              <span class="eyebrow eyebrow-light"><span class="dot"></span> Luce, gas e rinnovabili</span>
+              <h1>Ancora più <span class="accent">luce, gas, energia</span>.</h1>
+              <p class="lede">Dalle offerte per la fornitura di energia alle soluzioni per il fotovoltaico, Sinergy amplia i servizi per accompagnarti ogni giorno con proposte chiare e concrete.</p>
               <div class="hero-actions">
                 <a href="tariffe.php" class="btn-primary">Vedi soluzioni</a>
               </div>
@@ -39,11 +39,11 @@ include __DIR__ . '/header.php';
           <img src="feature_consulenza.png" class="hero-slide-bg" alt="Consulenza energia personalizzata">
           <div class="container">
             <div class="hero-content">
-              <span class="eyebrow eyebrow-light"><span class="dot"></span> Supporto dedicato</span>
-              <h1>La tua <span class="accent">energia</span>, seguita meglio.</h1>
-              <p class="lede">Dall'analisi della bolletta alla scelta della tariffa, Action resta al tuo fianco in ogni fase del cambio fornitore.</p>
+              <span class="eyebrow eyebrow-light"><span class="dot"></span> Supporto continuo</span>
+              <h1>Un fornitore che ascolta le tue <span class="accent">esigenze</span>.</h1>
+              <p class="lede">Sinergy punta sulla soddisfazione del cliente con tariffe chiare, supporto costante e una rete di consulenti pronta a seguire ogni fase della fornitura.</p>
               <div class="hero-actions">
-                <a href="contatti.php" class="btn-primary">Richiedi analisi gratuita</a>
+                <a href="contatti.php" class="btn-primary">Richiedi informazioni</a>
               </div>
             </div>
           </div>
@@ -82,18 +82,18 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="split">
         <div class="reveal">
-          <span class="eyebrow"><span class="dot"></span> Consulenza Action</span>
-          <h2 class="section-title" style="text-align:left;">Un punto di riferimento <span class="accent">per luce e gas</span></h2>
+          <span class="eyebrow"><span class="dot"></span> Il mondo Sinergy</span>
+          <h2 class="section-title" style="text-align:left;">Un punto di riferimento <span class="accent">per luce, gas e servizi energia</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:18px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            Action aiuta famiglie, professionisti e imprese a orientarsi nel mercato dell'energia con un approccio semplice: ascolto, analisi della bolletta e proposta chiara.
+            Sinergy Luce e Gas opera nel mercato libero dell'energia elettrica e del gas naturale dal 2017, con l'obiettivo di offrire forniture chiare e un supporto continuo a privati e PMI.
           </p>
           <p style="font-size:18px; color:var(--muted); line-height:1.75; margin: 0 0 28px;">
-            Ti accompagniamo dalla valutazione iniziale fino all'attivazione della nuova fornitura, con assistenza concreta e senza passaggi complicati.
+            Con sede a Verona e una rete di oltre 200 collaboratori, Sinergy lavora ogni giorno per coniugare competenza, vicinanza al cliente e attenzione alle nuove tecnologie.
           </p>
           <div class="hero-actions" style="margin-bottom:0;">
             <a href="contatti.php" class="btn-primary">Richiedi una consulenza</a>
-            <a href="chi-siamo.php" class="btn-ghost">Conosci Action</a>
+            <a href="chi-siamo.php" class="btn-ghost">Conosci Sinergy</a>
           </div>
         </div>
 
@@ -103,28 +103,28 @@ include __DIR__ . '/header.php';
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
               <div>
                 <h5>Lettura bolletta</h5>
-                <p>Analizziamo consumi, potenza e spesa reale prima di suggerire un'offerta.</p>
+                <p>Un supporto utile per capire meglio consumi, condizioni economiche e struttura della fornitura.</p>
               </div>
             </div>
             <div class="split-tile warm">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
               <div>
                 <h5>Soluzioni su misura</h5>
-                <p>Casa, ufficio o impresa: la proposta cambia in base alle tue esigenze.</p>
+                <p>Offerte dedicate a clienti domestici, professionisti e PMI, con percorsi pensati per esigenze diverse.</p>
               </div>
             </div>
             <div class="split-tile">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 8-6-16-3 8H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
               <div>
                 <h5>Attivazione lineare</h5>
-                <p>Seguiamo il cambio fornitore senza interruzioni e senza stress operativo.</p>
+                <p>Procedure chiare e assistenza continua per accompagnarti nell'attivazione della nuova fornitura.</p>
               </div>
             </div>
             <div class="split-tile warm">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7l-8 10-4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
               <div>
                 <h5>Assistenza reale</h5>
-                <p>Restiamo disponibili anche dopo l'attivazione per dubbi e chiarimenti.</p>
+                <p>Il cliente resta al centro, con una rete di consulenti pronta a offrire supporto nel tempo.</p>
               </div>
             </div>
           </div>
@@ -138,20 +138,20 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="stat-strip-grid">
         <div class="stat-item reveal">
-          <div class="n">5.000+</div>
-          <div class="l">Richieste gestite</div>
+          <div class="n">Dal 2017</div>
+          <div class="l">Presenza nel mercato libero</div>
         </div>
         <div class="stat-item reveal">
-          <div class="n">24h</div>
-          <div class="l">Tempo medio di contatto</div>
+          <div class="n">200+</div>
+          <div class="l">Collaboratori sul territorio</div>
         </div>
         <div class="stat-item reveal">
-          <div class="n">Casa + Business</div>
-          <div class="l">Profili seguiti</div>
+          <div class="n">Privati + PMI</div>
+          <div class="l">Clienti serviti</div>
         </div>
         <div class="stat-item reveal">
-          <div class="n">€0</div>
-          <div class="l">Costo della consulenza</div>
+          <div class="n">Verona</div>
+          <div class="l">Sede operativa</div>
         </div>
       </div>
     </div>
@@ -162,8 +162,8 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Cosa offriamo</span>
-        <h2 class="section-title">Servizi pensati per <span class="underline">semplificare</span></h2>
-        <p class="section-sub">Dalla scelta dell'offerta alla gestione della pratica, ogni passaggio viene reso più chiaro e più leggero.</p>
+        <h2 class="section-title">Soluzioni pensate per <span class="underline">energia e continuità</span></h2>
+        <p class="section-sub">Offerte luce e gas, supporto al cliente e tecnologie per l'efficienza: l'offerta Sinergy si sviluppa attorno alle esigenze reali di casa e impresa.</p>
       </div>
 
       <div class="features-staggered">
@@ -173,7 +173,7 @@ include __DIR__ . '/header.php';
           </div>
           <div class="stagger-content">
             <h4>Offerte Luce</h4>
-            <p>Action seleziona offerte luce per clienti domestici e business, con condizioni leggibili, costi chiari e supporto nella scelta tra prezzo fisso e variabile.</p>
+            <p>Sinergy propone offerte luce con condizioni chiare e un supporto commerciale orientato a rendere la scelta più semplice per clienti domestici e business.</p>
             <a href="tariffe.php" class="btn-ghost" style="margin-top:20px;">Vedi tariffe luce</a>
           </div>
         </article>
@@ -184,7 +184,7 @@ include __DIR__ . '/header.php';
           </div>
           <div class="stagger-content">
             <h4>Offerte Gas</h4>
-            <p>Ti guidiamo nella valutazione delle offerte gas per casa e azienda, con consulenza su consumi, spesa attesa e modalità di attivazione senza complicazioni.</p>
+            <p>Le offerte gas sono progettate per unire semplicità, chiarezza contrattuale e assistenza continua durante tutte le fasi della fornitura.</p>
             <a href="tariffe.php" class="btn-ghost" style="margin-top:20px;">Vedi tariffe gas</a>
           </div>
         </article>
@@ -194,9 +194,9 @@ include __DIR__ . '/header.php';
             <img src="feature_consulenza.png" alt="Consulenza energetica personalizzata">
           </div>
           <div class="stagger-content">
-            <h4>Consulenza gratuita</h4>
-            <p>Analizziamo la tua bolletta, leggiamo i consumi reali e ti proponiamo una soluzione coerente con il tuo profilo, senza impegno e con un consulente Action dedicato.</p>
-            <a href="contatti.php" class="btn-ghost" style="margin-top:20px;">Analizza la mia bolletta</a>
+            <h4>Rinnovabili e nuove tecnologie</h4>
+            <p>Sinergy affianca alle forniture anche soluzioni per il fotovoltaico, i sistemi di accumulo, le pompe di calore, le caldaie a condensazione e i climatizzatori.</p>
+            <a href="contatti.php" class="btn-ghost" style="margin-top:20px;">Richiedi informazioni</a>
           </div>
         </article>
       </div>
@@ -206,7 +206,7 @@ include __DIR__ . '/header.php';
   <!-- ===== Quote Break ===== -->
   <section class="quote-banner">
     <div class="mark">"</div>
-    <h2>Per noi una buona consulenza energetica non deve confondere: deve aiutarti a capire, decidere e attivare con serenita.</h2>
+    <h2>Sinergy punta su chiarezza, supporto continuo e sulla capacità di mettere a fuoco le esigenze di ogni cliente.</h2>
   </section>
 
   <!-- ===== How it works ===== -->
@@ -215,7 +215,7 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow eyebrow-light"><span class="dot"></span> Come funziona</span>
         <h2 class="section-title">Attivi la nuova fornitura <br>in <span class="accent">4 passi semplici</span></h2>
-        <p class="section-sub">Con Action il cambio fornitore viene spiegato passo dopo passo, senza interruzioni del servizio e senza interventi tecnici a domicilio.</p>
+        <p class="section-sub">Con Sinergy ogni passaggio viene gestito con chiarezza, dalla scelta dell'offerta fino all'attivazione del servizio.</p>
       </div>
 
       <div class="timeline">
@@ -224,23 +224,23 @@ include __DIR__ . '/header.php';
           <div class="timeline-content">
             <div class="hiw-num" style="margin-bottom:10px;">01</div>
             <h5>Scegli l'offerta</h5>
-            <p>Esaminiamo insieme le offerte luce e gas più adatte alle tue abitudini di consumo e ai tuoi obiettivi di spesa.</p>
+            <p>Valuta le soluzioni luce e gas disponibili e individua quella più coerente con il tuo profilo di consumo.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="hiw-num" style="margin-bottom:10px;">02</div>
-            <h5>Parla con noi</h5>
-            <p>Un consulente Action ti contatta, chiarisce ogni voce dell'offerta e ti supporta nella compilazione della pratica.</p>
+            <h5>Confrontati con Sinergy</h5>
+            <p>Ricevi supporto per comprendere condizioni, documentazione necessaria e modalità di attivazione.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="hiw-num" style="margin-bottom:10px;">03</div>
-            <h5>Invia la bolletta</h5>
-            <p>Raccogliamo i dati necessari, verifichiamo la documentazione e seguiamo per te l'avvio della richiesta.</p>
+            <h5>Completa la richiesta</h5>
+            <p>Invia i dati utili alla pratica e lascia che il team segua l'avanzamento dell'attivazione.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
@@ -248,14 +248,14 @@ include __DIR__ . '/header.php';
           <div class="timeline-content">
             <div class="hiw-num" style="margin-bottom:10px;">04</div>
             <h5>Sei attivo</h5>
-            <p>La nuova fornitura si attiva senza disservizi e con Action disponibile anche dopo il passaggio per ogni chiarimento.</p>
+            <p>La fornitura entra in servizio con il supporto continuo di Sinergy anche dopo l'attivazione.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Split: Perché Action ===== -->
+  <!-- ===== Split: Perché Sinergy ===== -->
   <section class="section">
     <div class="container">
       <div class="split reverse">
@@ -264,27 +264,27 @@ include __DIR__ . '/header.php';
         </div>
 
         <div class="reveal">
-          <span class="eyebrow"><span class="dot"></span> Perché scegliere Action</span>
-          <h2 class="section-title" style="text-align:left;">Più chiarezza, <span class="accent">meno dispersione</span></h2>
+          <span class="eyebrow"><span class="dot"></span> Perché scegliere Sinergy</span>
+          <h2 class="section-title" style="text-align:left;">Più chiarezza, <span class="accent">più continuità</span></h2>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 18px;">
-            Action non si limita a proporti un contratto: analizza il tuo profilo energetico, confronta le opzioni disponibili e ti aiuta a scegliere con maggiore consapevolezza.
+            Sinergy nasce con l'obiettivo di essere molto più di un semplice fornitore: punta a costruire un rapporto basato su chiarezza, affidabilità e vicinanza concreta al cliente.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 24px;">
-            Lavoriamo con un approccio pratico e trasparente, per offrirti supporto sulle forniture luce e gas, sulla lettura della bolletta e sulle opportunita di risparmio concrete.
+            Tariffe chiare e semplici, promozioni dedicate e attenzione alle nuove tecnologie completano un'offerta costruita per accompagnare privati e PMI nel quotidiano.
           </p>
           <div class="split-tiles">
             <div class="split-tile">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
               <div>
-                <h5>Confronto guidato</h5>
-                <p>Ti aiutiamo a leggere le differenze reali tra una proposta e l'altra.</p>
+                <h5>Tariffe chiare</h5>
+                <p>Condizioni leggibili e offerte pensate per aiutarti a scegliere con maggiore consapevolezza.</p>
               </div>
             </div>
             <div class="split-tile warm">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 4.5-3 7.9-7 9-4-1.1-7-4.5-7-9V7l7-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
               <div>
-                <h5>Scelte più sicure</h5>
-                <p>Ogni passaggio viene spiegato in modo comprensibile, senza tecnicismi inutili.</p>
+                <h5>Supporto continuo</h5>
+                <p>Una rete di consulenti e collaboratori che mette al primo posto la soddisfazione del cliente.</p>
               </div>
             </div>
           </div>
@@ -300,48 +300,48 @@ include __DIR__ . '/header.php';
         <div class="rv-panel">
           <div>
             <div class="stars">★★★★★</div>
-            <h3>Apprezzato da chi cerca consulenza chiara</h3>
-            <p>Famiglie, professionisti e aziende si affidano ad Action per orientarsi meglio nel mercato dell'energia.</p>
+            <h3>Energia, supporto e presenza sul territorio</h3>
+            <p>Sinergy opera in tutta Italia e continua a crescere puntando su chiarezza, relazioni solide e attenzione alle esigenze concrete dei clienti.</p>
           </div>
-          <div class="big">4,9<small>/5</small></div>
+          <div class="big">200+<small></small></div>
         </div>
         <div class="rv-cards">
           <div class="rv-card">
             <div class="quote">"</div>
             <div class="stars">★★★★★</div>
-            <h5>Passaggio velocissimo</h5>
-            <p>Ho cambiato fornitore in meno di una settimana. Il consulente mi ha seguito dall'inizio alla fine, senza problemi.</p>
+            <h5>Privati</h5>
+            <p>Offerte e supporto pensati per accompagnare le famiglie nella gestione quotidiana della fornitura luce e gas.</p>
             <div class="author">
-              <div class="avatar">SB</div>
+              <div class="avatar">SI</div>
               <div>
-                <div class="author-name">Simone B.</div>
-                <div class="author-meta">Cliente Luce Casa</div>
+                <div class="author-name">Sinergy</div>
+                <div class="author-meta">Offerte Casa</div>
               </div>
             </div>
           </div>
           <div class="rv-card">
             <div class="quote">"</div>
             <div class="stars">★★★★★</div>
-            <h5>Risparmio concreto</h5>
-            <p>Bolletta ridotta di circa il 15% rispetto al vecchio fornitore. Ottima consulenza e prezzi davvero chiari.</p>
+            <h5>PMI e business</h5>
+            <p>Una proposta commerciale costruita per imprese e professionisti che cercano chiarezza, continuità e un referente affidabile.</p>
             <div class="author">
-              <div class="avatar">LM</div>
+              <div class="avatar">BG</div>
               <div>
-                <div class="author-name">Laura M.</div>
-                <div class="author-meta">Cliente Luce + Gas</div>
+                <div class="author-name">Sinergy</div>
+                <div class="author-meta">Offerte Business</div>
               </div>
             </div>
           </div>
           <div class="rv-card">
             <div class="quote">"</div>
             <div class="stars">★★★★★</div>
-            <h5>Finalmente competenti</h5>
-            <p>Mi hanno spiegato bene le differenze tra RID e bollettino e mi hanno aiutato a scegliere la tariffa più adatta.</p>
+            <h5>Nuove tecnologie</h5>
+            <p>Fotovoltaico, accumulo, pompe di calore e climatizzazione ampliano il perimetro dei servizi dedicati all'energia.</p>
             <div class="author">
-              <div class="avatar">RT</div>
+              <div class="avatar">RE</div>
               <div>
-                <div class="author-name">Roberto T.</div>
-                <div class="author-meta">Cliente Gas Lavoro</div>
+                <div class="author-name">Sinergy</div>
+                <div class="author-meta">Rinnovabili</div>
               </div>
             </div>
           </div>
@@ -354,8 +354,8 @@ include __DIR__ . '/header.php';
   <section class="cta-final">
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Pronto a partire?</span>
-      <h2>Parla con Action e fai chiarezza sulla tua energia.</h2>
-      <p>Richiedi una consulenza gratuita: analizziamo insieme la tua situazione e ti aiutiamo a individuare la soluzione luce o gas piu adatta.</p>
+      <h2>Contatta Sinergy e scopri la soluzione più adatta.</h2>
+      <p>Esplora le offerte disponibili oppure richiedi un contatto per ricevere supporto su forniture luce, gas e servizi dedicati all'energia.</p>
       <div class="actions">
         <a href="tariffe.php" class="btn-primary">Vedi tutte le offerte
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

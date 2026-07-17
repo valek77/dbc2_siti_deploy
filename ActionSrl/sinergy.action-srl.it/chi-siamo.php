@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Chi Siamo';
-$pageDescription = 'Action e una societa specializzata nella consulenza energetica per offerte luce e gas, con un approccio chiaro, pratico e orientato al cliente.';
+$pageDescription = 'Scopri Sinergy Luce e Gas: un operatore attivo dal 2017 nel mercato libero, con sede a Verona, oltre 200 collaboratori e un approccio basato su chiarezza e supporto continuo.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -12,8 +12,8 @@ include __DIR__ . '/header.php';
         <div class="container">
           <div class="hero-content">
             <span class="eyebrow eyebrow-light"><span class="dot"></span> Chi siamo</span>
-            <h1>Action, energia con <span class="accent">competenza</span></h1>
-            <p class="lede">Siamo una societa che opera nel settore energia e accompagna clienti privati e business nella scelta di forniture luce e gas piu consapevoli.</p>
+            <h1>Sinergy, energia con <span class="accent">chiarezza</span></h1>
+            <p class="lede">Sinergy Luce e Gas e un fornitore che punta su chiarezza, supporto continuo e capacita di mettere a fuoco le esigenze di clienti privati e PMI.</p>
           </div>
         </div>
       </div>
@@ -31,24 +31,24 @@ include __DIR__ . '/header.php';
       <div class="split">
         <div class="reveal">
           <span class="eyebrow"><span class="dot"></span> La nostra missione</span>
-          <h2 class="section-title" style="text-align:left;">Energia semplice, <span class="accent">supporto concreto</span></h2>
+          <h2 class="section-title" style="text-align:left;">Energia chiara, <span class="accent">supporto continuo</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:18px; color:var(--muted); line-height:1.75; margin: 0 0 24px;">
-            Action nasce per rendere piu chiaro il mercato dell'energia. Il nostro lavoro consiste nell'ascoltare il cliente, leggere i consumi, spiegare le differenze tra le offerte e accompagnare ogni scelta con attenzione.
+            Sinergy Luce e Gas entra nel libero mercato dell'energia elettrica e del gas naturale nel 2017, con l'intenzione di diventare un punto di riferimento per le forniture dedicate a privati e PMI.
           </p>
           <div class="split-tiles">
             <div class="split-tile">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
               <div>
-                <h5>Analisi bolletta</h5>
-                <p>Studiamo i consumi reali prima di proporre qualsiasi soluzione.</p>
+                <h5>Chiarezza</h5>
+                <p>Tariffe semplici e condizioni leggibili per aiutare il cliente a orientarsi con maggiore sicurezza.</p>
               </div>
             </div>
             <div class="split-tile warm">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
               <div>
-                <h5>Zero rischi</h5>
-                <p>Gestiamo il cambio fornitore senza interruzioni del servizio.</p>
+                <h5>Supporto continuo</h5>
+                <p>La soddisfazione del cliente resta al centro grazie a un'assistenza costante nel tempo.</p>
               </div>
             </div>
           </div>
@@ -66,20 +66,20 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="stat-strip-grid">
         <div class="stat-item reveal">
-          <div class="n">5.000+</div>
-          <div class="l">Contratti attivati</div>
+          <div class="n">2017</div>
+          <div class="l">Ingresso nel mercato libero</div>
         </div>
         <div class="stat-item reveal">
-          <div class="n">24h</div>
-          <div class="l">Risposta garantita</div>
+          <div class="n">200+</div>
+          <div class="l">Collaboratori</div>
         </div>
         <div class="stat-item reveal">
-          <div class="n">8</div>
-          <div class="l">Offerte disponibili</div>
+          <div class="n">Verona</div>
+          <div class="l">Sede aziendale</div>
         </div>
         <div class="stat-item reveal">
-          <div class="n">€0</div>
-          <div class="l">Costo consulenza</div>
+          <div class="n">Italia</div>
+          <div class="l">Operativita nazionale</div>
         </div>
       </div>
     </div>
@@ -91,7 +91,7 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> I nostri valori</span>
         <h2 class="section-title">Tre principi, <span class="underline">ogni giorno</span></h2>
-        <p class="section-sub">I principi che guidano Action nel rapporto con ogni cliente, dal primo contatto fino all'attivazione.</p>
+        <p class="section-sub">I principi che guidano Sinergy nel rapporto con ogni cliente, dal primo contatto fino alla gestione della fornitura.</p>
       </div>
 
       <div class="features-staggered">
@@ -102,7 +102,7 @@ include __DIR__ . '/header.php';
           <div class="stagger-content">
             <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
             <h4>Trasparenza</h4>
-            <p>Spieghiamo condizioni, costi e caratteristiche delle offerte in modo comprensibile, per aiutarti a scegliere senza dubbi e senza sorprese successive.</p>
+            <p>Condizioni chiare, offerte leggibili e un approccio orientato a rendere ogni scelta più consapevole e lineare.</p>
           </div>
         </article>
 
@@ -113,7 +113,17 @@ include __DIR__ . '/header.php';
           <div class="stagger-content">
             <div class="feature-icon warm"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></div>
             <h4>Competenza</h4>
-            <p>Il team Action segue con attenzione l'evoluzione del mercato energia e lavora con metodo, cosi da proporre soluzioni affidabili e coerenti con il profilo del cliente.</p>
+            <p>Lo sviluppo delle competenze interne e l'efficacia dei modelli organizzativi sostengono una crescita costruita con metodo e attenzione al cliente.</p>
+          </div>
+        </article>
+        <article class="stagger-item reveal">
+          <div class="stagger-visual">
+            <img src="hero_energy_2.png" alt="Energia, innovazione e nuove tecnologie">
+          </div>
+          <div class="stagger-content">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 8v6m10-10h-6M8 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></div>
+            <h4>Innovazione</h4>
+            <p>Sinergy mantiene uno sguardo attento verso le nuove tecnologie, ampliando la propria proposta con servizi dedicati all'energia e alle rinnovabili.</p>
           </div>
         </article>
       </div>
@@ -133,12 +143,12 @@ include __DIR__ . '/header.php';
           <h2 class="section-title" style="text-align:left;">Come <span class="underline">lavoriamo</span> con te</h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, comprendiamo abitudini di consumo e obiettivi di spesa, e solo dopo individuiamo la soluzione luce o gas piu adatta.
+            Il punto di forza di Sinergy e nella capacita di mettere al primo posto la soddisfazione del cliente, garantendo supporto continuo e una proposta fondata su tariffe chiare e semplici.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
-            Action segue la documentazione, ti aggiorna sui passaggi operativi e resta disponibile anche dopo l'attivazione, per offrirti continuita e un riferimento chiaro nel tempo.
+            L'azienda opera su tutto il territorio nazionale grazie a una rete di oltre 200 collaboratori e continua a investire in partnership, organizzazione e qualita del servizio.
           </p>
-          <a href="contatti.php" class="btn-primary">Parla con un consulente</a>
+          <a href="contatti.php" class="btn-primary">Parla con Sinergy</a>
         </div>
       </div>
     </div>
@@ -147,7 +157,7 @@ include __DIR__ . '/header.php';
   <!-- Quote finale -->
   <section class="quote-banner">
     <div class="mark">"</div>
-    <h2>L'obiettivo di Action non e solo proporre energia, ma costruire un rapporto di fiducia basato su chiarezza, ascolto e assistenza reale.</h2>
+    <h2>Sinergy nasce per essere molto piu di un semplice fornitore: un riferimento affidabile costruito su chiarezza, supporto e competenza.</h2>
   </section>
 
 <?php

@@ -61,7 +61,6 @@ $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'lo
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
         <a href="tariffe.php" class="nav-link">Offerte</a>
-        <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
       <div class="header-cta">
         <a href="contatti.php" class="btn-primary">Richiedi preventivo
