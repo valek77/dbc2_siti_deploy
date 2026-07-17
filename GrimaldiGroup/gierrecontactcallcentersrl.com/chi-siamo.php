@@ -1,17 +1,16 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Chi Siamo';
-$pageDescription = ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center')
-    . ' è un team di consulenti energetici specializzati nella vendita di offerte ' . $OPERATORE['nome_marketing']
-    . '. Scopri la nostra storia e i nostri valori.';
+$pageDescription = ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact')
+    . ' nasce nel 2012 dal sogno di un giovane imprenditore: diventare leader nei Contact Center per l\'energia e le telecomunicazioni. Oggi 20 sedi in Campania e oltre 1.000 collaboratori.';
 include __DIR__ . '/header.php';
 ?>
 
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Chi siamo</span>
-      <h1>Energia con <span class="accent">competenza</span></h1>
-      <p>Un team di consulenti energetici al tuo fianco per semplificare il mercato libero dell'energia. Vicini, trasparenti, sempre.</p>
+      <h1>Lo sviluppo di un <span class="accent">grande sogno</span></h1>
+      <p>Dal 2012 costruiamo, persona dopo persona, uno dei principali Contact Center per l'energia e le telecomunicazioni. Questa è la nostra storia.</p>
     </div>
     <div class="wave">
       <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
@@ -20,19 +19,19 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
-  <!-- Mission split -->
+  <!-- Storia split -->
   <section class="section">
     <div class="container">
       <div class="split">
         <div>
-          <span class="eyebrow"><span class="dot"></span> La nostra missione</span>
-          <h2 class="section-title" style="text-align:left;">Mercato libero, <span class="accent">scelta libera</span></h2>
+          <span class="eyebrow"><span class="dot"></span> La nostra storia</span>
+          <h2 class="section-title" style="text-align:left;">Un percorso iniziato <span class="accent">nel 2012</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            <?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Siamo agenzia commerciale autorizzata <?= $OPERATORE['nome_marketing'] ?> e lavoriamo ogni giorno per portare ai clienti le migliori tariffe disponibili.
+            Abbiamo intrapreso il nostro percorso nel 2012, grazie all'ambizioso progetto di un giovane imprenditore. Fin dall'inizio abbiamo perseguito un chiaro obiettivo: affermarci come leader nel settore dei Contact Center per l'energia e le telecomunicazioni.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0;">
-            Il mercato energetico italiano può sembrare complesso — tra PUN, PSV e spread. Il nostro lavoro è decifrarlo per te, guidandoti nella scelta della tariffa più adatta alle tue esigenze reali, senza sorprese in bolletta.
+            Partiti con tre uffici a Napoli, abbiamo realizzato una crescita costante che oggi ci vede presenti con 20 sedi distribuite su tutto il territorio campano e oltre 1.000 collaboratori, di cui una parte significativa opera anche in modalità smart working. Un'espansione che testimonia il nostro impegno nel fornire servizi di qualità alle imprese e ai privati.
           </p>
         </div>
 
@@ -47,81 +46,119 @@ include __DIR__ . '/header.php';
   <section class="stat-strip">
     <div class="stat-strip-grid">
       <div class="stat-item">
-        <div class="n">20.000+</div>
-        <div class="l">Contratti attivati</div>
+        <div class="n">2012</div>
+        <div class="l">Anno di nascita</div>
       </div>
       <div class="stat-item">
-        <div class="n">24h</div>
-        <div class="l">Risposta garantita</div>
+        <div class="n">20</div>
+        <div class="l">Sedi in Campania</div>
       </div>
       <div class="stat-item">
-        <div class="n">8</div>
-        <div class="l">Offerte disponibili</div>
+        <div class="n">1.000+</div>
+        <div class="l">Collaboratori</div>
       </div>
       <div class="stat-item">
-        <div class="n">€0</div>
-        <div class="l">Costo consulenza</div>
+        <div class="n">Smart</div>
+        <div class="l">Working diffuso</div>
       </div>
     </div>
   </section>
 
-  <!-- Valori -->
+  <!-- Reparti -->
   <section class="section features">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow"><span class="dot"></span> I nostri valori</span>
-        <h2 class="section-title">Tre principi, <span class="underline">ogni giorno</span></h2>
-        <p class="section-sub">Quello che ci guida nel rapporto con i clienti, dalla prima telefonata alla bolletta del decimo mese.</p>
+        <span class="eyebrow"><span class="dot"></span> I nostri reparti</span>
+        <h2 class="section-title">Persone, ruoli, <span class="underline">risultati</span></h2>
+        <p class="section-sub">Forniamo alle nostre risorse strategia, visione e strumenti concreti per eccellere. Ogni reparto è un tassello del nostro modello operativo.</p>
       </div>
 
       <div class="features-container">
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
-          <h4>Trasparenza</h4>
-          <p>Nessun costo nascosto, nessuna sorpresa. Ogni offerta viene spiegata nel dettaglio prima della firma del contratto.</p>
+          <h4>Responsabile HR</h4>
+          <p>I nostri Responsabili delle Risorse Umane rivestono un ruolo strategico. Attraverso un'attenta gestione del capitale umano individuano e valorizzano i migliori talenti, contribuendo a creare un vantaggio competitivo sostenibile.</p>
         </article>
         <article class="feature-card">
           <div class="feature-icon warm">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h4>Competenza</h4>
-          <p>Consulenti formati e aggiornati continuamente sulle normative ARERA e sulle dinamiche del mercato energetico.</p>
+          <h4>Reparto Teleselling</h4>
+          <p>Ogni progetto di teleselling viene progettato e realizzato su misura. Selezioniamo e formiamo operatori qualificati, che rappresentano un elemento fondamentale del nostro modello operativo.</p>
         </article>
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </div>
-          <h4>Vicinanza</h4>
-          <p>Non spariamo dopo la firma: siamo qui anche dopo l'attivazione, per qualsiasi dubbio sulla bolletta o sul contratto.</p>
+          <h4>Back Office</h4>
+          <p>Il reparto Back Office costituisce il pilastro organizzativo e amministrativo della struttura. Gestisce con efficienza le attività operative, garantendo il corretto supporto ai processi commerciali e la piena realizzazione dei servizi offerti ai clienti.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Come lavoriamo -->
+  <!-- Cultura aziendale -->
   <section class="section">
     <div class="container">
       <div class="split" style="grid-template-columns: 1fr 1.05fr;">
         <div class="split-visual">
-          <img src="feature_consulenza.png" alt="Analisi bolletta e consulenza">
+          <img src="feature_consulenza.png" alt="Il nostro team al lavoro">
         </div>
 
         <div>
-          <span class="eyebrow"><span class="dot"></span> Il nostro approccio</span>
-          <h2 class="section-title" style="text-align:left;">Come <span class="underline">lavoriamo</span> con te</h2>
+          <span class="eyebrow"><span class="dot"></span> La nostra cultura aziendale</span>
+          <h2 class="section-title" style="text-align:left;">Le persone al <span class="underline">centro</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, capiamo consumi e profilo (domestico, uso lavoro, piccola impresa) e solo allora ti proponiamo l'offerta <?= $OPERATORE['nome_marketing'] ?> più adatta.
+            In <?= $brandName ?> le persone rappresentano il fulcro della nostra organizzazione. La nostra cultura si fonda sulla valorizzazione delle risorse umane, sulla formazione continua e sullo sviluppo professionale, anche attraverso soluzioni flessibili come lo smart working.
           </p>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
-            Ci occupiamo di tutta la documentazione, coordiniamo il passaggio con il distributore locale e ti teniamo aggiornato su ogni fase. Il cambio fornitore avviene senza interruzioni alla fornitura.
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0;">
+            Siamo convinti che solo attraverso lo sviluppo e il benessere delle nostre persone sia possibile garantire un servizio eccellente ai clienti e consolidare la nostra posizione sul mercato.
           </p>
-          <a href="contatti.php" class="btn-primary">Parla con un consulente
-            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilastri -->
+  <section class="section features">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot"></span> I nostri pilastri</span>
+        <h2 class="section-title">Quattro principi, <span class="underline">un approccio</span></h2>
+      </div>
+
+      <div class="features-container">
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Sviluppo e Formazione</h4>
+          <p>Investiamo costantemente nella crescita professionale dei collaboratori attraverso programmi di formazione mirati e percorsi di carriera strutturati.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon warm">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Meritocrazia e Rispetto</h4>
+          <p>Promuoviamo un ambiente basato sul riconoscimento del merito, sulla correttezza e sul rispetto reciproco.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="3" stroke="currentColor" stroke-width="2"/><path d="M3 20a6 6 0 0112 0M13 20a6 6 0 018-5.66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Collaborazione</h4>
+          <p>Favoriamo il lavoro di squadra e la sinergia tra i vari reparti per il raggiungimento degli obiettivi comuni.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon warm">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+          </div>
+          <h4>Professionalità e Risultato</h4>
+          <p>Selezioniamo e valorizziamo persone competenti, proattive e orientate al raggiungimento di elevati standard qualitativi.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -129,7 +166,7 @@ include __DIR__ . '/header.php';
   <!-- Quote finale -->
   <section class="quote-banner">
     <div class="mark">"</div>
-    <h2>Il nostro obiettivo non è chiudere un contratto, ma costruire una relazione di fiducia duratura con ogni cliente che si affida a noi.</h2>
+    <h2>Il successo di <?= $brandName ?> nasce dalle persone, dall'impegno e dalla professionalità di chi lavora, ha lavorato o lavorerà con noi.</h2>
     <p class="by">— Il Team <?= $brandName ?></p>
   </section>
 

@@ -6,7 +6,7 @@ $brandName = $COMPANY['company_name'] !== ''
         ? $LANDING_PAGE['nome_portale']
         : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
 $pageTitle = 'Chi Siamo';
-$pageDescription = $brandName . ' è un team di consulenti energetici specializzati nelle offerte Switch Luce Gas. Scopri la nostra storia, i nostri valori e il nostro approccio.';
+$pageDescription = $brandName . ' nasce nel 2012 dal sogno di un giovane imprenditore: diventare leader nei Contact Center per l\'energia e le telecomunicazioni. Oggi 20 sedi in Campania e oltre 1.000 collaboratori.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -16,28 +16,28 @@ include __DIR__ . '/header.php';
     <div class="photo-overlay"></div>
     <div class="inner">
       <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Chi siamo</span>
-      <h1>Energia con <span class="hl">competenza</span></h1>
-      <p>Un team di consulenti al tuo fianco per navigare il mercato libero dell'energia. Semplici, trasparenti, sempre disponibili.</p>
+      <h1>Lo sviluppo di un <span class="hl">grande sogno</span></h1>
+      <p>Dal 2012 costruiamo, persona dopo persona, uno dei principali Contact Center per l'energia e le telecomunicazioni. Questa è la nostra storia.</p>
     </div>
   </section>
 
-  <!-- MISSIONE SPLIT -->
+  <!-- STORIA SPLIT -->
   <section class="section">
     <div class="container">
       <div class="split">
         <div>
-          <span class="eyebrow"><span class="dot"></span> La nostra missione</span>
-          <h2 class="section-title">Mercato libero,<br><span class="hl">scelta libera</span></h2>
+          <span class="eyebrow"><span class="dot"></span> La nostra storia</span>
+          <h2 class="section-title">Un percorso iniziato<br><span class="hl">nel 2012</span></h2>
           <div class="divider-line"></div>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;"><?= $brandName ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Siamo partner/agenzia commerciale autorizzata <?= $OPERATORE['nome_legale'] ?> e lavoriamo ogni giorno per portare ai nostri clienti le migliori tariffe disponibili.</p>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 36px;">Il mercato energetico italiano può sembrare complesso, tra PUN, PSV e spread. Il nostro lavoro è decifrarlo per te, guidandoti nella scelta della tariffa più adatta, senza sorprese in bolletta.</p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;">Abbiamo intrapreso il nostro percorso nel 2012, grazie all'ambizioso progetto di un giovane imprenditore. Fin dall'inizio abbiamo perseguito un chiaro obiettivo: affermarci come leader nel settore dei Contact Center per l'energia e le telecomunicazioni.</p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 36px;">Partiti con tre uffici a Napoli, abbiamo realizzato una crescita costante che oggi ci vede presenti con 20 sedi distribuite su tutto il territorio campano e oltre 1.000 collaboratori, di cui una parte significativa opera anche in modalità smart working. Un'espansione che testimonia il nostro impegno nel fornire servizi di qualità alle imprese e ai privati.</p>
           <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
         </div>
         <div class="split-img">
-          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Team <?= $brandName ?> al lavoro" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Il team <?= $brandName ?> al lavoro" loading="lazy">
           <div class="badge">
-            <div class="label">Partner ufficiale</div>
-            <div class="val"><?= $OPERATORE['nome_marketing'] ?></div>
+            <div class="label">Dal</div>
+            <div class="val">2012</div>
           </div>
         </div>
       </div>
@@ -47,55 +47,69 @@ include __DIR__ . '/header.php';
   <!-- STAT STRIP -->
   <div class="stat-strip">
     <div class="stat-grid">
-      <div class="stat-item"><div class="n">5.000+</div><div class="l">Contratti attivati</div></div>
-      <div class="stat-item"><div class="n">24h</div><div class="l">Risposta garantita</div></div>
-      <div class="stat-item"><div class="n">8</div><div class="l">Offerte disponibili</div></div>
-      <div class="stat-item"><div class="n">€0</div><div class="l">Costo consulenza</div></div>
+      <div class="stat-item"><div class="n">2012</div><div class="l">Anno di nascita</div></div>
+      <div class="stat-item"><div class="n">20</div><div class="l">Sedi in Campania</div></div>
+      <div class="stat-item"><div class="n">1.000+</div><div class="l">Collaboratori</div></div>
+      <div class="stat-item"><div class="n">Smart</div><div class="l">Working diffuso</div></div>
     </div>
   </div>
 
-  <!-- VALORI -->
+  <!-- REPARTI -->
   <section class="section" style="background:var(--bg-soft);">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow"><span class="dot"></span> I nostri valori</span>
-        <h2 class="section-title">Tre principi,<br><span class="ul">ogni giorno</span></h2>
-        <p class="section-sub">Quello che ci guida nel rapporto con i clienti, dalla prima chiamata all'ultima bolletta.</p>
+        <span class="eyebrow"><span class="dot"></span> I nostri reparti</span>
+        <h2 class="section-title">Persone, ruoli,<br><span class="ul">risultati</span></h2>
+        <p class="section-sub">Forniamo alle nostre risorse strategia, visione e strumenti concreti per eccellere. Ogni reparto è un tassello del nostro modello operativo.</p>
       </div>
       <div class="feature-grid">
         <div class="feat-card">
-          <div class="ico">🔍</div>
-          <h4>Trasparenza</h4>
-          <p>Nessun costo nascosto, nessuna sorpresa. Ogni offerta viene spiegata nel dettaglio prima della firma.</p>
+          <div class="ico">👥</div>
+          <h4>Responsabile HR</h4>
+          <p>I nostri Responsabili delle Risorse Umane rivestono un ruolo strategico. Attraverso un'attenta gestione del capitale umano individuano e valorizzano i migliori talenti, contribuendo a creare un vantaggio competitivo sostenibile.</p>
         </div>
         <div class="feat-card">
-          <div class="ico">🎯</div>
-          <h4>Competenza</h4>
-          <p>I nostri consulenti sono formati e aggiornati sulle normative ARERA e sulle dinamiche del mercato energetico italiano.</p>
+          <div class="ico">📞</div>
+          <h4>Reparto Teleselling</h4>
+          <p>Ogni progetto di teleselling viene progettato e realizzato su misura. Selezioniamo e formiamo operatori qualificati, che rappresentano un elemento fondamentale del nostro modello operativo.</p>
         </div>
         <div class="feat-card">
-          <div class="ico">💬</div>
-          <h4>Vicinanza</h4>
-          <p>Non spariamo dopo la firma. Siamo qui anche dopo l'attivazione, per qualsiasi dubbio su bolletta o contratto.</p>
+          <div class="ico">🗂️</div>
+          <h4>Back Office</h4>
+          <p>Il reparto Back Office costituisce il pilastro organizzativo e amministrativo della struttura. Gestisce con efficienza le attività operative, garantendo il corretto supporto ai processi commerciali e la piena realizzazione dei servizi offerti ai clienti.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COME LAVORIAMO — dark split -->
+  <!-- CULTURA AZIENDALE — dark -->
   <section class="dark-section" style="padding: var(--section) 0;">
     <div class="container">
-      <div class="split reverse">
-        <div>
-          <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Il nostro approccio</span>
-          <h2 class="section-title" style="color:#fff;">Come lavoriamo <span style="color:var(--primary-light);">con te</span></h2>
-          <div class="divider-line"></div>
-          <p style="font-size:17px; color:rgba(255,255,255,.75); line-height:1.75; margin:0 0 20px;">Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, capiamo i tuoi consumi e il tuo profilo — domestico, uso lavoro, piccola impresa — e solo allora ti proponiamo l'offerta più adatta.</p>
-          <p style="font-size:17px; color:rgba(255,255,255,.75); line-height:1.75; margin:0 0 36px;">Ci occupiamo di tutta la documentazione, coordiniamo il passaggio con il distributore locale e ti teniamo aggiornato su ogni fase. Il cambio fornitore avviene senza interruzioni alla fornitura.</p>
-          <a href="contatti.php" class="btn-primary">Parla con un consulente</a>
+      <div class="section-head">
+        <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> La nostra cultura aziendale</span>
+        <h2 class="section-title" style="color:#fff;">Le persone al <span style="color:var(--primary-light);">centro</span></h2>
+        <p class="section-sub" style="color:rgba(255,255,255,.75);">In <?= $brandName ?> le persone rappresentano il fulcro della nostra organizzazione. La nostra cultura si fonda sulla valorizzazione delle risorse umane, sulla formazione continua e sullo sviluppo professionale, anche attraverso soluzioni flessibili come lo smart working.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feat-card" style="background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.12);">
+          <div class="ico">📈</div>
+          <h4 style="color:#fff;">Sviluppo e Formazione</h4>
+          <p style="color:rgba(255,255,255,.7);">Investiamo costantemente nella crescita professionale dei collaboratori attraverso programmi di formazione mirati e percorsi di carriera strutturati.</p>
         </div>
-        <div class="split-img" style="border-radius:var(--r-2xl); overflow:hidden; aspect-ratio:4/3;">
-          <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=80" alt="Consulente <?= $brandName ?> con cliente" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        <div class="feat-card" style="background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.12);">
+          <div class="ico">⚖️</div>
+          <h4 style="color:#fff;">Meritocrazia e Rispetto</h4>
+          <p style="color:rgba(255,255,255,.7);">Promuoviamo un ambiente basato sul riconoscimento del merito, sulla correttezza e sul rispetto reciproco.</p>
+        </div>
+        <div class="feat-card" style="background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.12);">
+          <div class="ico">🤝</div>
+          <h4 style="color:#fff;">Collaborazione</h4>
+          <p style="color:rgba(255,255,255,.7);">Favoriamo il lavoro di squadra e la sinergia tra i vari reparti per il raggiungimento degli obiettivi comuni.</p>
+        </div>
+        <div class="feat-card" style="background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.12);">
+          <div class="ico">🎯</div>
+          <h4 style="color:#fff;">Professionalità e Risultato</h4>
+          <p style="color:rgba(255,255,255,.7);">Selezioniamo e valorizziamo persone competenti, proattive e orientate al raggiungimento di elevati standard qualitativi.</p>
         </div>
       </div>
     </div>
@@ -105,7 +119,7 @@ include __DIR__ . '/header.php';
   <section class="section" style="text-align:center;">
     <div class="container" style="max-width:800px;">
       <div style="font-size:64px; color:var(--primary); line-height:1; margin-bottom:24px; font-family:var(--font-display);">"</div>
-      <h2 style="font-size:clamp(24px,3.5vw,34px); color:var(--ink); font-weight:700; line-height:1.4; margin:0 0 32px;">Il nostro obiettivo non è chiudere un contratto, ma costruire una relazione di fiducia duratura con ogni cliente che si affida a noi.</h2>
+      <h2 style="font-size:clamp(24px,3.5vw,34px); color:var(--ink); font-weight:700; line-height:1.4; margin:0 0 32px;">Il successo di <?= $brandName ?> nasce dalle persone, dall'impegno e dalla professionalità di chi lavora, ha lavorato o lavorerà con noi.</h2>
       <div style="font-family:var(--font-display); font-weight:700; color:var(--primary); font-size:16px;">— Il Team <?= $brandName ?></div>
     </div>
   </section>
