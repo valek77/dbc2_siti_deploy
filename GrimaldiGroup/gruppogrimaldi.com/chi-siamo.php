@@ -3,6 +3,8 @@ require __DIR__ . '/_config.php';
 $pageTitle = 'Chi Siamo';
 $pageDescription = 'Gruppo Grimaldi è un\'azienda esperta nel teleselling outbound, specializzata in campagne personalizzate e ad alto valore aggiunto per le imprese. Attivi dal 2012 nel settore Contact Center per energia e telecomunicazioni.';
 include __DIR__ . '/header.php';
+// Ragione sociale dall'API (company_name), mai il nome commerciale.
+$companyName = $COMPANY['company_name'];
 ?>
 
   <section class="hero" style="min-height: 500px;">
@@ -34,7 +36,7 @@ include __DIR__ . '/header.php';
           <h2 class="section-title" style="text-align:left;">Un percorso iniziato <span class="accent">nel 2012</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:18px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            <?= $brandName ?> è un'azienda esperta nel teleselling outbound, specializzata nella realizzazione di campagne personalizzate e ad alto valore aggiunto per le imprese che vogliono incrementare le vendite e rafforzare le relazioni con i propri clienti.
+            <?= $companyName ?> è un'azienda esperta nel teleselling outbound, specializzata nella realizzazione di campagne personalizzate e ad alto valore aggiunto per le imprese che vogliono incrementare le vendite e rafforzare le relazioni con i propri clienti.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 24px;">
             Abbiamo intrapreso il nostro percorso nel 2012 con l'obiettivo di affermarci come realtà di riferimento nel settore del teleselling e dei Contact Center per l'energia e le telecomunicazioni. Forniamo alle nostre risorse strategia, visione e strumenti operativi evoluti per eccellere nel mercato.
@@ -130,7 +132,7 @@ include __DIR__ . '/header.php';
           <h2 class="section-title" style="text-align:left;">Le persone al <span class="underline">centro</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            In <?= $brandName ?> le persone rappresentano il fulcro della nostra organizzazione. La nostra cultura aziendale si fonda sulla valorizzazione delle risorse umane, sulla formazione continua e sullo sviluppo professionale.
+            In <?= $companyName ?> le persone rappresentano il fulcro della nostra organizzazione. La nostra cultura aziendale si fonda sulla valorizzazione delle risorse umane, sulla formazione continua e sullo sviluppo professionale.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0;">
             Siamo convinti che solo attraverso l'eccellenza delle nostre persone e un approccio professionale sia possibile offrire un servizio di qualità superiore ai nostri clienti e consolidare la nostra posizione come azienda esperta nel teleselling.
@@ -176,7 +178,7 @@ include __DIR__ . '/header.php';
   <!-- Quote finale -->
   <section class="quote-banner">
     <div class="mark">"</div>
-    <h2>Il successo di <?= $brandName ?> nasce dalle persone, dall'impegno e dalla professionalità di chi lavora, ha lavorato o lavorerà con noi.</h2>
+    <h2>Il successo di <?= $companyName ?> nasce dalle persone, dall'impegno e dalla professionalità di chi lavora, ha lavorato o lavorerà con noi.</h2>
   </section>
 
 <?php

@@ -478,6 +478,9 @@ img, svg { display: block; max-width: 100%; }
   grid-template-columns: repeat(3, 1fr);
   gap: var(--gutter);
 }
+.features-container.features-2col {
+  grid-template-columns: repeat(2, 1fr);
+}
 .feature-card {
   position: relative;
   background: #fff;
@@ -1348,7 +1351,7 @@ img, svg { display: block; max-width: 100%; }
 }
 
 @media (max-width: 720px) {
-  .features-container { grid-template-columns: 1fr; }
+  .features-container, .features-container.features-2col { grid-template-columns: 1fr; }
   .hiw-steps { grid-template-columns: 1fr; }
   .rv-cards { grid-template-columns: 1fr; }
   .footer-container { grid-template-columns: 1fr; }

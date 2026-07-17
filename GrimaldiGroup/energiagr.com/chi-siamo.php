@@ -5,8 +5,10 @@ $brandName = $COMPANY['company_name'] !== ''
     : ($LANDING_PAGE['nome_portale'] !== ''
         ? $LANDING_PAGE['nome_portale']
         : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
+// Ragione sociale dall'API (company_name), mai il nome commerciale.
+$companyName = $COMPANY['company_name'];
 $pageTitle = 'Chi Siamo';
-$pageDescription = $brandName . ' nasce nel 2012 dal sogno di un giovane imprenditore: diventare leader nei Contact Center per l\'energia e le telecomunicazioni. Oggi 20 sedi in Campania e oltre 1.000 collaboratori.';
+$pageDescription = $companyName . ' nasce nel 2012 dal sogno di un giovane imprenditore: diventare leader nei Contact Center per l\'energia e le telecomunicazioni. Oggi 20 sedi in Campania e oltre 1.000 collaboratori.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -29,12 +31,12 @@ include __DIR__ . '/header.php';
           <span class="eyebrow"><span class="dot"></span> La nostra storia</span>
           <h2 class="section-title">Un percorso iniziato<br><span class="hl">nel 2012</span></h2>
           <div class="divider-line"></div>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;">Abbiamo intrapreso il nostro percorso nel 2012, grazie all'ambizioso progetto di un giovane imprenditore. Fin dall'inizio abbiamo perseguito un chiaro obiettivo: affermarci come leader nel settore dei Contact Center per l'energia e le telecomunicazioni.</p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 20px;"><?= $companyName ?> ha intrapreso il suo percorso nel 2012, grazie all'ambizioso progetto di un giovane imprenditore. Fin dall'inizio abbiamo perseguito un chiaro obiettivo: affermarci come leader nel settore dei Contact Center per l'energia e le telecomunicazioni.</p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:0 0 36px;">Partiti con tre uffici a Napoli, abbiamo realizzato una crescita costante che oggi ci vede presenti con 20 sedi distribuite su tutto il territorio campano e oltre 1.000 collaboratori, di cui una parte significativa opera anche in modalità smart working. Un'espansione che testimonia il nostro impegno nel fornire servizi di qualità alle imprese e ai privati.</p>
           <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
         </div>
         <div class="split-img">
-          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Il team <?= $brandName ?> al lavoro" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Il team <?= $companyName ?> al lavoro" loading="lazy">
           <div class="badge">
             <div class="label">Dal</div>
             <div class="val">2012</div>
@@ -88,9 +90,9 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> La nostra cultura aziendale</span>
         <h2 class="section-title" style="color:#fff;">Le persone al <span style="color:var(--primary-light);">centro</span></h2>
-        <p class="section-sub" style="color:rgba(255,255,255,.75);">In <?= $brandName ?> le persone rappresentano il fulcro della nostra organizzazione. La nostra cultura si fonda sulla valorizzazione delle risorse umane, sulla formazione continua e sullo sviluppo professionale, anche attraverso soluzioni flessibili come lo smart working.</p>
+        <p class="section-sub" style="color:rgba(255,255,255,.75);">In <?= $companyName ?> le persone rappresentano il fulcro della nostra organizzazione. La nostra cultura si fonda sulla valorizzazione delle risorse umane, sulla formazione continua e sullo sviluppo professionale, anche attraverso soluzioni flessibili come lo smart working.</p>
       </div>
-      <div class="feature-grid">
+      <div class="feature-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 820px; margin: 0 auto;">
         <div class="feat-card" style="background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.12);">
           <div class="ico">📈</div>
           <h4 style="color:#fff;">Sviluppo e Formazione</h4>
@@ -119,8 +121,8 @@ include __DIR__ . '/header.php';
   <section class="section" style="text-align:center;">
     <div class="container" style="max-width:800px;">
       <div style="font-size:64px; color:var(--primary); line-height:1; margin-bottom:24px; font-family:var(--font-display);">"</div>
-      <h2 style="font-size:clamp(24px,3.5vw,34px); color:var(--ink); font-weight:700; line-height:1.4; margin:0 0 32px;">Il successo di <?= $brandName ?> nasce dalle persone, dall'impegno e dalla professionalità di chi lavora, ha lavorato o lavorerà con noi.</h2>
-      <div style="font-family:var(--font-display); font-weight:700; color:var(--primary); font-size:16px;">— Il Team <?= $brandName ?></div>
+      <h2 style="font-size:clamp(24px,3.5vw,34px); color:var(--ink); font-weight:700; line-height:1.4; margin:0 0 32px;">Il successo di <?= $companyName ?> nasce dalle persone, dall'impegno e dalla professionalità di chi lavora, ha lavorato o lavorerà con noi.</h2>
+      <div style="font-family:var(--font-display); font-weight:700; color:var(--primary); font-size:16px;">— Il Team <?= $companyName ?></div>
     </div>
   </section>
 

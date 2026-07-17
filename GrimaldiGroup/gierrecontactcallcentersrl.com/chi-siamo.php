@@ -4,6 +4,8 @@ $pageTitle = 'Chi Siamo';
 $pageDescription = ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact')
     . ' nasce nel 2012 dal sogno di un giovane imprenditore: diventare leader nei Contact Center per l\'energia e le telecomunicazioni. Oggi 20 sedi in Campania e oltre 1.000 collaboratori.';
 include __DIR__ . '/header.php';
+// Ragione sociale dall'API (company_name), mai il nome commerciale.
+$companyName = $COMPANY['company_name'];
 ?>
 
   <section class="page-hero">
@@ -28,7 +30,7 @@ include __DIR__ . '/header.php';
           <h2 class="section-title" style="text-align:left;">Un percorso iniziato <span class="accent">nel 2012</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            Abbiamo intrapreso il nostro percorso nel 2012, grazie all'ambizioso progetto di un giovane imprenditore. Fin dall'inizio abbiamo perseguito un chiaro obiettivo: affermarci come leader nel settore dei Contact Center per l'energia e le telecomunicazioni.
+            <?= $companyName ?> ha intrapreso il suo percorso nel 2012, grazie all'ambizioso progetto di un giovane imprenditore. Fin dall'inizio abbiamo perseguito un chiaro obiettivo: affermarci come leader nel settore dei Contact Center per l'energia e le telecomunicazioni.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0;">
             Partiti con tre uffici a Napoli, abbiamo realizzato una crescita costante che oggi ci vede presenti con 20 sedi distribuite su tutto il territorio campano e oltre 1.000 collaboratori, di cui una parte significativa opera anche in modalità smart working. Un'espansione che testimonia il nostro impegno nel fornire servizi di qualità alle imprese e ai privati.
@@ -112,7 +114,7 @@ include __DIR__ . '/header.php';
           <h2 class="section-title" style="text-align:left;">Le persone al <span class="underline">centro</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            In <?= $brandName ?> le persone rappresentano il fulcro della nostra organizzazione. La nostra cultura si fonda sulla valorizzazione delle risorse umane, sulla formazione continua e sullo sviluppo professionale, anche attraverso soluzioni flessibili come lo smart working.
+            In <?= $companyName ?> le persone rappresentano il fulcro della nostra organizzazione. La nostra cultura si fonda sulla valorizzazione delle risorse umane, sulla formazione continua e sullo sviluppo professionale, anche attraverso soluzioni flessibili come lo smart working.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0;">
             Siamo convinti che solo attraverso lo sviluppo e il benessere delle nostre persone sia possibile garantire un servizio eccellente ai clienti e consolidare la nostra posizione sul mercato.
@@ -130,7 +132,7 @@ include __DIR__ . '/header.php';
         <h2 class="section-title">Quattro principi, <span class="underline">un approccio</span></h2>
       </div>
 
-      <div class="features-container">
+      <div class="features-container features-2col">
         <article class="feature-card">
           <div class="feature-icon">
             <svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -166,8 +168,8 @@ include __DIR__ . '/header.php';
   <!-- Quote finale -->
   <section class="quote-banner">
     <div class="mark">"</div>
-    <h2>Il successo di <?= $brandName ?> nasce dalle persone, dall'impegno e dalla professionalità di chi lavora, ha lavorato o lavorerà con noi.</h2>
-    <p class="by">— Il Team <?= $brandName ?></p>
+    <h2>Il successo di <?= $companyName ?> nasce dalle persone, dall'impegno e dalla professionalità di chi lavora, ha lavorato o lavorerà con noi.</h2>
+    <p class="by">— Il Team <?= $companyName ?></p>
   </section>
 
 <?php include __DIR__ . '/footer.php'; ?>
