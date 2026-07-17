@@ -1,19 +1,26 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Chi Siamo';
-$pageDescription = $brand . ' è un team di consulenti energetici specializzati nella vendita di offerte ' . $OPERATORE_ENERGETICO . '. Scopri la nostra storia e i nostri valori.';
+$pageDescription = 'Action e una societa specializzata nella consulenza energetica per offerte luce e gas, con un approccio chiaro, pratico e orientato al cliente.';
 include __DIR__ . '/header.php';
 ?>
 
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow eyebrow-light"><span class="dot"></span> Chi siamo</span>
-      <h1>Energia con <span class="accent">competenza</span></h1>
-      <p>Un team di consulenti energetici al tuo fianco per semplificare il mercato libero dell'energia. Vicini, trasparenti, sempre.</p>
+  <section class="hero" style="min-height: 500px;">
+    <div class="hero-slides">
+      <div class="hero-slide active">
+        <img src="hero_energy_1.png" class="hero-slide-bg" alt="Casa efficiente e comfort energetico">
+        <div class="container">
+          <div class="hero-content">
+            <span class="eyebrow eyebrow-light"><span class="dot"></span> Chi siamo</span>
+            <h1>Action, energia con <span class="accent">competenza</span></h1>
+            <p class="lede">Siamo una societa che opera nel settore energia e accompagna clienti privati e business nella scelta di forniture luce e gas piu consapevoli.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="wave">
-      <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
-        <path d="M0,32L120,26.7C240,21,480,11,720,13.3C960,16,1200,32,1320,40L1440,48L1440,70L0,70Z"/>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40L80,46C160,52,320,64,480,60C640,56,800,36,960,32C1120,28,1280,40,1360,46L1440,52L1440,80L0,80Z"/>
       </svg>
     </div>
   </section>
@@ -22,20 +29,33 @@ include __DIR__ . '/header.php';
   <section class="section">
     <div class="container">
       <div class="split">
-        <div>
+        <div class="reveal">
           <span class="eyebrow"><span class="dot"></span> La nostra missione</span>
-          <h2 class="section-title" style="text-align:left;">Mercato libero, <span class="accent">scelta libera</span></h2>
+          <h2 class="section-title" style="text-align:left;">Energia semplice, <span class="accent">supporto concreto</span></h2>
           <div class="divider-line"></div>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            <?= $brand ?> nasce con un obiettivo preciso: rendere semplice e conveniente il passaggio al mercato libero dell'energia. Siamo rivenditori autorizzati <?= $OPERATORE_ENERGETICO ?> e lavoriamo ogni giorno per portare ai clienti le migliori tariffe disponibili.
+          <p style="font-size:18px; color:var(--muted); line-height:1.75; margin: 0 0 24px;">
+            Action nasce per rendere piu chiaro il mercato dell'energia. Il nostro lavoro consiste nell'ascoltare il cliente, leggere i consumi, spiegare le differenze tra le offerte e accompagnare ogni scelta con attenzione.
           </p>
-          <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0;">
-            Il mercato energetico italiano può sembrare complesso — tra PUN, PSV, spread e offerte PLACET. Il nostro lavoro è decifrarlo per te, guidandoti nella scelta della tariffa più adatta alle tue esigenze reali, senza sorprese in bolletta.
-          </p>
+          <div class="split-tiles">
+            <div class="split-tile">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+              <div>
+                <h5>Analisi bolletta</h5>
+                <p>Studiamo i consumi reali prima di proporre qualsiasi soluzione.</p>
+              </div>
+            </div>
+            <div class="split-tile warm">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+              <div>
+                <h5>Zero rischi</h5>
+                <p>Gestiamo il cambio fornitore senza interruzioni del servizio.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="split-visual">
-          <img src="chi_siamo_lctarde.png" alt="Il nostro team di esperti">
+        <div class="split-visual reveal">
+          <img src="hero_energy_2.png" alt="Impianto fotovoltaico e visione sostenibile">
         </div>
       </div>
     </div>
@@ -43,56 +63,58 @@ include __DIR__ . '/header.php';
 
   <!-- Stats -->
   <section class="stat-strip">
-    <div class="stat-strip-grid">
-      <div class="stat-item">
-        <div class="n">5.000+</div>
-        <div class="l">Contratti attivati</div>
-      </div>
-      <div class="stat-item">
-        <div class="n">24h</div>
-        <div class="l">Risposta garantita</div>
-      </div>
-      <div class="stat-item">
-        <div class="n">8</div>
-        <div class="l">Offerte disponibili</div>
-      </div>
-      <div class="stat-item">
-        <div class="n">€0</div>
-        <div class="l">Costo consulenza</div>
+    <div class="container">
+      <div class="stat-strip-grid">
+        <div class="stat-item reveal">
+          <div class="n">5.000+</div>
+          <div class="l">Contratti attivati</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="n">24h</div>
+          <div class="l">Risposta garantita</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="n">8</div>
+          <div class="l">Offerte disponibili</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="n">€0</div>
+          <div class="l">Costo consulenza</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Valori -->
+  <!-- Valori staggered -->
   <section class="section features">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> I nostri valori</span>
         <h2 class="section-title">Tre principi, <span class="underline">ogni giorno</span></h2>
-        <p class="section-sub">Quello che ci guida nel rapporto con i clienti, dalla prima telefonata alla bolletta del decimo mese.</p>
+        <p class="section-sub">I principi che guidano Action nel rapporto con ogni cliente, dal primo contatto fino all'attivazione.</p>
       </div>
 
-      <div class="features-container">
-        <article class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <div class="features-staggered">
+        <article class="stagger-item reveal">
+          <div class="stagger-visual">
+            <img src="hero_energy_1.png" alt="Casa efficiente e comfort domestico">
           </div>
-          <h4>Trasparenza</h4>
-          <p>Nessun costo nascosto, nessuna sorpresa. Ogni offerta viene spiegata nel dettaglio prima della firma del contratto.</p>
+          <div class="stagger-content">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h4>Trasparenza</h4>
+            <p>Spieghiamo condizioni, costi e caratteristiche delle offerte in modo comprensibile, per aiutarti a scegliere senza dubbi e senza sorprese successive.</p>
+          </div>
         </article>
-        <article class="feature-card">
-          <div class="feature-icon warm">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+
+        <article class="stagger-item reveal">
+          <div class="stagger-visual">
+            <img src="chi_siamo_team.png" alt="Team di consulenza energetica al lavoro">
           </div>
-          <h4>Competenza</h4>
-          <p>Consulenti formati e aggiornati continuamente sulle normative ARERA e sulle dinamiche del mercato energetico.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <div class="stagger-content">
+            <div class="feature-icon warm"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></div>
+            <h4>Competenza</h4>
+            <p>Il team Action segue con attenzione l'evoluzione del mercato energia e lavora con metodo, cosi da proporre soluzioni affidabili e coerenti con il profilo del cliente.</p>
           </div>
-          <h4>Vicinanza</h4>
-          <p>Non spariamo dopo la firma: siamo qui anche dopo l'attivazione, per qualsiasi dubbio sulla bolletta o sul contratto.</p>
         </article>
       </div>
     </div>
@@ -101,24 +123,22 @@ include __DIR__ . '/header.php';
   <!-- Come lavoriamo -->
   <section class="section">
     <div class="container">
-      <div class="split" style="grid-template-columns: 1fr 1.05fr;">
-        <div class="split-visual">
-          <img src="feature_consulenza.png" alt="Analisi bolletta e consulenza">
+      <div class="split reverse">
+        <div class="split-visual reveal">
+          <img src="feature_consulenza.png" alt="Analisi bolletta e consulenza energia">
         </div>
 
-        <div>
+        <div class="reveal">
           <span class="eyebrow"><span class="dot"></span> Il nostro approccio</span>
           <h2 class="section-title" style="text-align:left;">Come <span class="underline">lavoriamo</span> con te</h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, capiamo consumi e profilo (domestico, uso lavoro, piccola impresa) e solo allora ti proponiamo l'offerta <?= $OPERATORE_ENERGETICO ?> più adatta.
+            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, comprendiamo abitudini di consumo e obiettivi di spesa, e solo dopo individuiamo la soluzione luce o gas piu adatta.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
-            Ci occupiamo di tutta la documentazione, coordiniamo il passaggio con il distributore locale e ti teniamo aggiornato su ogni fase. Il cambio fornitore avviene senza interruzioni alla fornitura.
+            Action segue la documentazione, ti aggiorna sui passaggi operativi e resta disponibile anche dopo l'attivazione, per offrirti continuita e un riferimento chiaro nel tempo.
           </p>
-          <a href="contatti.php" class="btn-primary">Parla con un consulente
-            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+          <a href="contatti.php" class="btn-primary">Parla con un consulente</a>
         </div>
       </div>
     </div>
@@ -127,8 +147,18 @@ include __DIR__ . '/header.php';
   <!-- Quote finale -->
   <section class="quote-banner">
     <div class="mark">"</div>
-    <h2>Il nostro obiettivo non è chiudere un contratto, ma costruire una relazione di fiducia duratura con ogni cliente che si affida a noi.</h2>
-    <p class="by">— Il Team <?= $brand ?></p>
+    <h2>L'obiettivo di Action non e solo proporre energia, ma costruire un rapporto di fiducia basato su chiarezza, ascolto e assistenza reale.</h2>
   </section>
 
-<?php include __DIR__ . '/footer.php'; ?>
+<?php
+$pageScripts = <<<'HTML'
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+HTML;
+include __DIR__ . '/footer.php';
+?>
