@@ -34,7 +34,10 @@ if ($nOfferte % 3 === 0) {
 ?>
 
   <!-- Page hero -->
-  <section class="page-hero">
+  <section class="page-hero page-hero-offers">
+    <div class="page-hero-bg">
+      <img src="hero_energy_2.png" alt="" aria-hidden="true">
+    </div>
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte ufficiali <?= $OPERATORE['nome_marketing'] ?></span>
       <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
