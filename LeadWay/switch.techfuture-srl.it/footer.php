@@ -64,7 +64,7 @@ $coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
       &copy; <?= date('Y') ?> <strong><?= $coName ?></strong><br>
       Sede legale: <?= $coSede ?><br>
       C.F. e P.IVA: <?= $coPiva ?> &ndash; REA <?= $coRea ?> &ndash; <?= $coRegImprese ?><br>
-      Capitale sociale: <?= $coCapitale ?> i.v. &ndash; Società a socio unico<br>
+      Capitale sociale: <?= $coCapitale ?> i.v. &ndash;<br>
       PEC: <a href="mailto:<?= $coPec ?>"><?= $coPec ?></a><?php if ($coDpoEmail !== ''): ?><br>
       DPO/Responsabile della Protezione dei Dati &ndash; contatto: <a
         href="mailto:<?= $coDpoEmail ?>"><?= $coDpoEmail ?></a><?php endif; ?>

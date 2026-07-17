@@ -2,57 +2,77 @@
 require __DIR__ . '/_config.php';
 $pageTitle = 'Energia Luce e Gas per la tua casa';
 $pageDescription = ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center')
-    . ' è il partner ufficiale ' . $OPERATORE['nome_marketing']
+    . ' gestisce questo sito come agenzia commerciale autorizzata ' . $OPERATORE['nome_marketing']
     . '. Scopri le migliori offerte luce e gas per casa e azienda con prezzi trasparenti e assistenza dedicata.';
 include __DIR__ . '/header.php';
 ?>
 
   <!-- ===== Hero ===== -->
   <section class="hero">
-    <div class="hero-visual">
-      <div class="hero-slider" data-hero-slider>
-        <div class="hero-slides">
-          <figure class="hero-slide is-active">
-            <img src="split_home.png" alt="Famiglia in casa con comfort energetico">
-          </figure>
-          <figure class="hero-slide">
-            <img src="feature_consulenza.png" alt="Consulenza energetica personalizzata">
-          </figure>
-          <figure class="hero-slide">
-            <img src="hero_energy_2.png" alt="Soluzioni energia per la casa">
-          </figure>
-        </div>
-        <div class="hero-slider-ui">
-          <button type="button" class="hero-nav prev" data-hero-prev aria-label="Slide precedente">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="hero-dots" role="tablist" aria-label="Selezione slide hero">
-            <button type="button" class="hero-dot is-active" data-hero-dot="0" aria-label="Vai alla slide 1"></button>
-            <button type="button" class="hero-dot" data-hero-dot="1" aria-label="Vai alla slide 2"></button>
-            <button type="button" class="hero-dot" data-hero-dot="2" aria-label="Vai alla slide 3"></button>
-          </div>
-          <button type="button" class="hero-nav next" data-hero-next aria-label="Slide successiva">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
     <div class="hero-grid"></div>
     <div class="container">
-      <div class="hero-content">
-        <span class="eyebrow eyebrow-light"><span class="dot"></span> Partner ufficiale <?= $OPERATORE['nome_marketing'] ?></span>
-        <h1>Energia <span class="accent">trasparente</span>, bolletta più leggera.</h1>
-        <p class="lede">Con <?= $brandName ?> trovi offerte luce e gas <?= $OPERATORE['nome_marketing'] ?> chiare, convenienti e pensate per i tuoi consumi. Ti affianchiamo in ogni fase, dalla scelta della tariffa fino all'attivazione.</p>
-        <div class="hero-actions">
-          <a href="tariffe.php" class="btn-primary">Scopri le offerte
-            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="contatti.php" class="btn-secondary">Parla con un consulente</a>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <div class="hero-content">
+            <span class="eyebrow eyebrow-light"><span class="dot"></span> Sito gestito da <?= $brandName ?></span>
+            <h1>Energia <span class="accent">trasparente</span>, bolletta più leggera.</h1>
+            <p class="lede">Con <?= $brandName ?> trovi offerte luce e gas <?= $OPERATORE['nome_marketing'] ?> chiare, convenienti e pensate per i tuoi consumi. Il sito è gestito da <?= $brandName ?>, che opera come agenzia commerciale autorizzata e ti affianca in ogni fase, dalla scelta della tariffa fino all'attivazione.</p>
+            <div class="hero-actions">
+              <a href="tariffe.php" class="btn-primary">Scopri le offerte
+                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="contatti.php" class="btn-secondary">Parla con un consulente</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat"><div class="n">5.000+</div><div class="l">Contratti attivati</div></div>
+              <div class="stat"><div class="n">24h</div><div class="l">Risposta garantita</div></div>
+              <div class="stat"><div class="n">€0</div><div class="l">Costo consulenza</div></div>
+            </div>
+          </div>
         </div>
-        <div class="hero-stats">
-          <div class="stat"><div class="n">5.000+</div><div class="l">Contratti attivati</div></div>
-          <div class="stat"><div class="n">24h</div><div class="l">Risposta garantita</div></div>
-          <div class="stat"><div class="n">€0</div><div class="l">Costo consulenza</div></div>
+        <div class="hero-showcase">
+          <div class="hero-visual-card">
+            <div class="hero-slider" data-hero-slider>
+              <div class="hero-slides">
+                <figure class="hero-slide is-active">
+                  <img src="split_home.png" alt="Famiglia in casa con comfort energetico">
+                </figure>
+                <figure class="hero-slide">
+                  <img src="feature_consulenza.png" alt="Consulenza energetica personalizzata">
+                </figure>
+                <figure class="hero-slide">
+                  <img src="hero_energy_2.png" alt="Soluzioni energia per la casa">
+                </figure>
+              </div>
+              <div class="hero-slider-ui">
+                <button type="button" class="hero-nav prev" data-hero-prev aria-label="Slide precedente">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="hero-dots" role="tablist" aria-label="Selezione slide hero">
+                  <button type="button" class="hero-dot is-active" data-hero-dot="0" aria-label="Vai alla slide 1"></button>
+                  <button type="button" class="hero-dot" data-hero-dot="1" aria-label="Vai alla slide 2"></button>
+                  <button type="button" class="hero-dot" data-hero-dot="2" aria-label="Vai alla slide 3"></button>
+                </div>
+                <button type="button" class="hero-nav next" data-hero-next aria-label="Slide successiva">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="hero-side-cards">
+            <div class="hero-side-card highlight">
+              <span>Contratti certificati ARERA</span>
+              <strong>Consulenza gratuita</strong>
+            </div>
+            <div class="hero-side-card">
+              <span>Fornitore <?= $OPERATORE['nome_marketing'] ?></span>
+              <strong>Assistenza multicanale</strong>
+            </div>
+            <div class="hero-side-card">
+              <span>Nessuna interruzione di fornitura</span>
+              <strong>24h</strong>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -82,42 +102,91 @@ include __DIR__ . '/header.php';
   <!-- ===== Cosa offriamo ===== -->
   <section class="section features">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow"><span class="dot"></span> Cosa offriamo</span>
-        <h2 class="section-title">Tre servizi, <span class="underline">una sola promessa</span></h2>
-        <p class="section-sub">Ti aiutiamo a scegliere l'offerta giusta, a capire davvero cosa stai pagando e ad attivare la fornitura senza complicazioni.</p>
+      <div class="features-intro">
+        <div class="section-head left">
+          <span class="eyebrow"><span class="dot"></span> Cosa offriamo</span>
+          <h2 class="section-title">Tre servizi, <span class="underline">una sola promessa</span></h2>
+          <p class="section-sub">Ti aiutiamo a scegliere l'offerta giusta, a capire davvero cosa stai pagando e ad attivare la fornitura senza complicazioni.</p>
+        </div>
+        <div class="features-summary reveal">
+          <div class="summary-item">
+            <span class="summary-kicker">5.000+</span>
+            <p>Contratti attivati</p>
+          </div>
+          <div class="summary-item">
+            <span class="summary-kicker">24h</span>
+            <p>Risposta garantita</p>
+          </div>
+          <div class="summary-item">
+            <span class="summary-kicker">€0</span>
+            <p>Costo consulenza</p>
+          </div>
+        </div>
       </div>
 
       <div class="features-container">
-        <article class="feature-card reveal">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <article class="feature-card feature-card-spotlight reveal">
+          <div class="feature-card-media">
+            <img src="feature_luce.png" alt="Offerte Luce">
           </div>
-          <h4>Offerte Luce</h4>
-          <p>Soluzioni luce per casa e lavoro con condizioni trasparenti, prezzi chiari e supporto dedicato nella scelta della tariffa.</p>
+          <div class="feature-card-body">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Offerte Luce</h4>
+            <p>Soluzioni luce per casa e lavoro con condizioni trasparenti, prezzi chiari e supporto dedicato nella scelta della tariffa.</p>
+          </div>
         </article>
 
-        <article class="feature-card reveal">
-          <div class="feature-icon warm">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          </div>
-          <h4>Offerte Gas</h4>
-          <p>Offerte gas pensate per privati e professionisti, con attivazione semplice e assistenza completa in ogni fase del passaggio.</p>
-        </article>
+        <div class="feature-stack">
+          <article class="feature-card reveal">
+            <div class="feature-icon warm">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Offerte Gas</h4>
+            <p>Offerte gas pensate per privati e professionisti, con attivazione semplice e assistenza completa in ogni fase del passaggio.</p>
+          </article>
 
-        <article class="feature-card reveal">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          </div>
-          <h4>Consulenza gratuita</h4>
-          <p>Analizziamo i tuoi consumi e ti proponiamo la soluzione più adatta, senza impegno e con un supporto chiaro e concreto.</p>
-        </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Consulenza gratuita</h4>
+            <p>Analizziamo i tuoi consumi e ti proponiamo la soluzione più adatta, senza impegno e con un supporto chiaro e concreto.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== How it works ===== -->
-  <section class="section how-it-works section-on-dark">
+  <section class="section portal-highlight">
+    <div class="container">
+      <div class="split split-portal">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Perché scegliere <?= $brandName ?></span>
+          <h2 class="section-title" style="text-align:left;">Risparmio reale, <span class="accent">assistenza vera</span></h2>
+          <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 18px;">
+            Non ci limitiamo a proporti un'offerta: come <?= $brandName ?> analizziamo la tua situazione e ti aiutiamo a scegliere una soluzione davvero adatta ai tuoi consumi, con condizioni chiare e supporto costante.
+          </p>
+          <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0;">
+            <?= $brandName ?> gestisce questo sito e ti mette a disposizione offerte luce e gas <?= $OPERATORE['nome_marketing'] ?> con prezzi trasparenti e il supporto di un team che resta al tuo fianco anche dopo l'attivazione.
+          </p>
+        </div>
+
+        <div class="split-visual split-visual-portal">
+          <img src="split_home.png" alt="Comfort domestico e risparmio">
+          <div class="split-overlay-card">
+            <span>Assistenza multicanale</span>
+            <strong>Nessuna interruzione di fornitura</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section class="section how-it-works">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow eyebrow-light"><span class="dot"></span> Come funziona</span>
@@ -150,29 +219,6 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
-  <!-- ===== Split: Perché GR ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="split">
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Perché scegliere <?= $brandName ?></span>
-          <h2 class="section-title" style="text-align:left;">Risparmio reale, <span class="accent">assistenza vera</span></h2>
-          <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0 0 18px;">
-            Non ci limitiamo a proporti un'offerta: analizziamo la tua situazione e ti aiutiamo a scegliere una soluzione davvero adatta ai tuoi consumi, con condizioni chiare e supporto costante.
-          </p>
-          <p style="font-size:17px; color:var(--muted); line-height:1.7; margin: 0;">
-            Con <?= $OPERATORE['nome_marketing'] ?> hai accesso a offerte luce e gas con prezzi trasparenti e il supporto di un team che resta al tuo fianco anche dopo l'attivazione.
-          </p>
-
-        </div>
-
-        <div class="split-visual">
-          <img src="split_home.png" alt="Comfort domestico e risparmio">
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== Reviews ===== -->
   <section class="section reviews">
     <div class="container">
@@ -181,7 +227,7 @@ include __DIR__ . '/header.php';
           <div>
             <div class="stars">★★★★★</div>
             <h3>Valutato eccellente dai nostri clienti</h3>
-            <p>Ogni giorno famiglie e professionisti si affidano a <?= $brandName ?> per attivare offerte <?= $OPERATORE['nome_marketing'] ?> in modo semplice e trasparente.</p>
+            <p>Ogni giorno famiglie e professionisti si affidano a <?= $brandName ?>, che gestisce questo sito, per attivare offerte <?= $OPERATORE['nome_marketing'] ?> in modo semplice e trasparente.</p>
           </div>
           <div class="big">4,9<small>/5</small></div>
         </div>
