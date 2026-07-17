@@ -61,10 +61,9 @@ $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'lo
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>
         <a href="tariffe.php" class="nav-link">Offerte</a>
-        <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
       <div class="header-cta">
-        <a href="contatti.php" class="btn-primary">Richiedi preventivo
+        <a href="contatti.php" class="btn-primary">Scopri le offerte luce e gas
           <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>

@@ -13,24 +13,28 @@ $brandName = isset($brandName) ? $brandName
     : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Gruppo Grimaldi');
 // Logo footer (sfondo scuro): logo2 dall'API se presente, altrimenti l'immagine locale.
 $logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'logo.png';
-// Operatore energetico (fornitore di cui il sito e' partner/rivenditore).
+// Operatore energetico (fornitore di cui il sito e' agenzia commerciale).
 $operatoreNome = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
 
-// Riga legale: includo solo le parti effettivamente presenti nell'API.
+// Riga legale: includo solo le parti effettivamente presenti nell'API dell'azienda
+// titolare ($COMPANY). I campi non forniti dall'API (es. R.E.A.) non compaiono.
 $legalParts = [];
 if ($COMPANY['company_name'] !== '') {
-    $legalParts[] =  $COMPANY['company_name'];
+    $legalParts[] = 'Sede legale: ' . $COMPANY['sede_legale'];
 }
 if ($COMPANY['p_iva'] !== '') {
-    $legalParts[] = 'P.IVA: ' . $COMPANY['p_iva'];
+    $legalParts[] = 'C.F. e P.IVA: ' . $COMPANY['p_iva'];
 }
 if ($COMPANY['capitale_sociale'] !== '') {
-    $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale'];
+    $legalParts[] = 'Capitale sociale ' . $COMPANY['capitale_sociale'];
 }
 if ($COMPANY['pec'] !== '') {
     $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
 }
-$legalLine = implode(' | ', $legalParts);
+if ($COMPANY['email_dpo'] !== '') {
+    $legalParts[] = 'DPO: <a href="mailto:' . $COMPANY['email_dpo'] . '">' . $COMPANY['email_dpo'] . '</a>';
+}
+$legalLine = implode(' &ndash; ', $legalParts);
 ?>
 
     <footer class="main-footer">
@@ -39,13 +43,12 @@ $legalLine = implode(' | ', $legalParts);
         <a href="index.php" class="logo">
           <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo">
         </a>
-        <p>Partner ufficiale<?= $operatoreNome !== '' ? ' ' . $operatoreNome : '' ?>.</p>
+        <p>Agenzia commerciale autorizzata<?= $operatoreNome !== '' ? ' ' . $operatoreNome : '' ?>. Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
       </div>
       <div class="footer-col">
         <h4>Azienda</h4>
         <a href="chi-siamo.php">Chi Siamo</a>
         <a href="tariffe.php">Offerte</a>
-        <a href="contatti.php">Contatti</a>
       </div>
       <div class="footer-col">
         <h4>Servizi</h4>
@@ -56,13 +59,14 @@ $legalLine = implode(' | ', $legalParts);
         <h4>Legale</h4>
         <a href="privacy-policy.php">Privacy Policy</a>
         <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
+        <a href="trasparenza-commerciale.php">Trasparenza commerciale</a>
+        <a href="cookie-policy.php">Cookie Policy</a>
       </div>
     </div>
     <div class="footer-bottom">
-<?php if ($legalLine !== '') { ?>
-      <p style="margin-bottom: 8px;"><?= $legalLine ?></p>
-<?php } ?>
-      <p>&copy; <?= date('Y') ?> <?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?>. Tutti i diritti riservati.</p>
+      <p class="footer-legal">
+        &copy; <?= date('Y') ?> <strong><?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?></strong>. Tutti i diritti riservati.<?= $legalLine !== '' ? '<br>' . $legalLine : '' ?>
+      </p>
     </div>
   </footer>
 

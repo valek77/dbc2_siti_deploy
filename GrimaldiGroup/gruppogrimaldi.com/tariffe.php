@@ -3,6 +3,18 @@ require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Luce e Gas';
 $pageDescription = 'Scopri tutte le offerte Gruppo Grimaldi per luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 include __DIR__ . '/header.php';
+
+// Tipologie distinte presenti nelle offerte dell'API (per i filtri lato server).
+$tipologie = [];
+foreach ($OFFERTE as $o) {
+    $t = $o['tipologia'];
+    if ($t !== '' && !in_array($t, $tipologie, true)) {
+        $tipologie[] = $t;
+    }
+}
+// Se l'API non fornisce offerte per questa landing, si usa il fallback statico
+// Sinergy (offerte reali cablate lato client, in coda al file).
+$hasApiOfferte = !empty($OFFERTE);
 ?>
 
   <!-- Page hero -->
@@ -22,18 +34,69 @@ include __DIR__ . '/header.php';
   <main class="section" style="padding: 80px 0 40px;">
     <div class="container">
 
-      <!-- Filtro -->
+      <?php if ($hasApiOfferte): ?>
+      <!-- Filtro (una scheda per tipologia presente nell'API) -->
+      <div class="tab-bar" id="tab-bar">
+        <button class="tab-btn active" data-filter="all">Tutte</button>
+        <?php foreach ($tipologie as $t): ?>
+        <button class="tab-btn" data-filter="<?= e($t) ?>"><?= (stripos($t, 'gas') !== false ? '🔥 ' : '⚡ ') . e($t) ?></button>
+        <?php endforeach; ?>
+      </div>
+
+      <!-- Griglia offerte (renderizzata lato server dai dati dell'API) -->
+      <div class="offers-grid" id="offers-grid">
+        <?php foreach ($OFFERTE as $o):
+            $isGas = (stripos($o['tipologia'], 'gas') !== false);
+        ?>
+        <article class="offer-card" data-cat="<?= e($o['tipologia']) ?>">
+          <div class="offer-ribbon <?= $isGas ? 'gas-res' : 'luce-res' ?>"><?= ($isGas ? '🔥 ' : '⚡ ') . e($o['tipologia']) ?></div>
+          <div class="offer-body">
+            <div class="offer-operator">
+              <span>Fornitore</span>
+              <img src="<?= $OPERATORE['logo_url'] !== '' ? $OPERATORE['logo_url'] : 'sinergy_black.png' ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" loading="lazy">
+            </div>
+
+            <?php /* titolo/sottotitolo: FRAMMENTI HTML grezzi dall'API */ ?>
+            <?= $o['titolo'] ?>
+            <?php if ($o['sottotitolo'] !== ''): ?>
+            <div class="offer-type"><?= $o['sottotitolo'] ?></div>
+            <?php endif; ?>
+
+            <?php if (!empty($o['caratteristiche_evidenza'])): ?>
+            <div class="offer-price-box">
+              <?php foreach ($o['caratteristiche_evidenza'] as $ev) {
+                  echo $ev; // frammento HTML grezzo (h3 prezzo / p bollettino)
+              } ?>
+            </div>
+            <?php endif; ?>
+
+            <?php if (!empty($o['caratteristiche'])): ?>
+            <?php foreach ($o['caratteristiche'] as $c) {
+                echo $c; // frammento HTML grezzo (<ul class="offer-feats"><li>...</li></ul>)
+            } ?>
+            <?php endif; ?>
+
+            <?php if ($o['footer'] !== ''): ?>
+            <div class="offer-note"><?= $o['footer'] ?></div>
+            <?php endif; ?>
+
+            <button class="offer-cta" data-offer-id="<?= e($o['id']) ?>" data-name="<?= e($o['nome']) ?>">Richiedi informazioni</button>
+          </div>
+        </article>
+        <?php endforeach; ?>
+      </div>
+      <?php else: ?>
+      <!-- Fallback: offerte statiche Sinergy (l'API di questa landing non le fornisce) -->
       <div class="tab-bar" id="tab-bar">
         <button class="tab-btn active" data-filter="all">Tutte</button>
         <button class="tab-btn" data-filter="luce-res">Luce Residenziale</button>
         <button class="tab-btn" data-filter="gas-res">Gas Residenziale</button>
       </div>
-
-      <!-- Griglia offerte -->
       <div id="offers-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;"></div>
+      <?php endif; ?>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
-        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread o prezzi fissi indicati. Il fornitore partner è <?= $OPERATORE['nome_marketing'] ?>. Le offerte sono soggette alle condizioni contrattuali di <?= $OPERATORE['nome_marketing'] ?>.
+        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread o prezzi fissi indicati. Il fornitore partner è <?= $OPERATORE['nome_marketing'] ?>. Le offerte sono soggette alle condizioni contrattuali di <?= $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'] ?>. <?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?> è agenzia commerciale autorizzata indipendente.
       </p>
     </div>
   </main>
@@ -68,13 +131,46 @@ include __DIR__ . '/header.php';
   </section>
 
 <?php
-$operatoreJs = json_encode($OPERATORE['nome_marketing']);
-$pageScripts = <<<HTML
+if ($hasApiOfferte) {
+    // Card gia' nel DOM (render lato server): qui solo filtro per tipologia e click CTA.
+    $pageScripts = <<<'HTML'
+  <script>
+    (function () {
+      const cards = Array.from(document.querySelectorAll('#offers-grid .offer-card'));
+      const tabBar = document.getElementById('tab-bar');
+      if (tabBar) {
+        tabBar.addEventListener('click', function (e) {
+          const btn = e.target.closest('.tab-btn');
+          if (!btn) return;
+          tabBar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const f = btn.dataset.filter;
+          cards.forEach(c => {
+            c.style.display = (f === 'all' || c.dataset.cat === f) ? '' : 'none';
+          });
+        });
+      }
+      cards.forEach(card => {
+        const btn = card.querySelector('.offer-cta');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          // Passo l'ID offerta a contatti.php: preselezione combo + invio a dbc2.
+          const id = btn.dataset.offerId;
+          window.location.href = 'contatti.php?offerta=' + encodeURIComponent(id) + '#contatto-form';
+        });
+      });
+    })();
+  </script>
+HTML;
+} else {
+    // Fallback statico: offerte reali Sinergy renderizzate lato client.
+    $operatoreJs = json_encode($OPERATORE['nome_marketing']);
+    $pageScripts = <<<HTML
   <script>
     const OPERATORE_NOME = {$operatoreJs};
   </script>
 HTML;
-$pageScripts .= <<<'HTML'
+    $pageScripts .= <<<'HTML'
   <script>
     const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     const ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
@@ -159,5 +255,6 @@ $pageScripts .= <<<'HTML'
     applyFilter('all');
   </script>
 HTML;
+}
 include __DIR__ . '/footer.php';
 ?>

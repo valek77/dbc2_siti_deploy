@@ -1475,3 +1475,154 @@ img, svg { display: block; max-width: 100%; }
   transform: none;
   box-shadow: none;
 }
+
+/* =========================================================
+   Blocco legale multi-riga nel fondo pagina (solo dati API)
+   ========================================================= */
+.footer-legal { margin: 0; line-height: 1.9; }
+.footer-legal a { color: rgba(255,255,255,.6); text-decoration: none; }
+.footer-legal a:hover { color: var(--accent); }
+
+/* =========================================================
+   Offerte renderizzate lato server dai dati dell'API.
+   Regole SCOPED sotto .offers-grid: la griglia statica di fallback
+   (id="offers-grid" senza classe) continua a usare lo stile esistente.
+   ========================================================= */
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 400px));
+  gap: 24px;
+  justify-content: center;
+  max-width: 824px;
+  margin-inline: auto;
+}
+@media (max-width: 720px) {
+  .offers-grid { grid-template-columns: minmax(0, 400px); }
+}
+.offers-grid .offer-card {
+  background: #fff;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0,0,0,.05);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.offers-grid .offer-card:hover { transform: translateY(-6px); }
+/* Rimuove la barretta accento in cima ereditata da .offer-card::before (statico). */
+.offers-grid .offer-card::before { display: none; }
+.offers-grid .offer-ribbon {
+  padding: 12px 20px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.offers-grid .offer-ribbon.luce-res  { background: linear-gradient(90deg, #4A4A4A, #262626); }
+.offers-grid .offer-ribbon.gas-res   { background: linear-gradient(90deg, #4A4A4A, #262626); }
+.offers-grid .offer-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.offers-grid .offer-operator {
+  display: flex; align-items: center; justify-content: flex-end; gap: 10px;
+  padding-bottom: 16px; margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.offers-grid .offer-operator span {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted);
+}
+.offers-grid .offer-operator img {
+  height: 30px; width: auto; max-width: 130px; object-fit: contain;
+}
+.offers-grid .offer-type {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.offers-grid .offer-price-box {
+  background: var(--bg-soft);
+  border-radius: var(--r-lg);
+  padding: 18px 20px;
+  margin-bottom: 20px;
+}
+.offers-grid .offer-note {
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--bg-soft);
+  border-radius: var(--r-sm);
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.offers-grid .offer-cta {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+  margin-top: auto;
+}
+.offers-grid .offer-cta:hover { transform: translateY(-1px); }
+
+/* Frammenti HTML grezzi dall'API adattati al layout delle card. */
+.offers-grid .offer-body > h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.offers-grid .offer-price-box > h3 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+}
+.offers-grid .offer-price-box > p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 6px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.offers-grid .offer-type > *,
+.offers-grid .offer-note > p { margin: 0; }
+.offers-grid .offer-feats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.offers-grid .offer-feats li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.offers-grid .offer-feats li::before {
+  content: '✓';
+  color: var(--primary);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.offers-grid .offer-feats li p { margin: 0; }

@@ -3,6 +3,9 @@ require __DIR__ . '/_config.php';
 $pageTitle = 'Contatti';
 $pageDescription = 'Contatta Gruppo Grimaldi per ricevere una consulenza gratuita sulle offerte di luce e gas. Siamo qui per aiutarti a scegliere la tariffa giusta.';
 include __DIR__ . '/header.php';
+
+// Offerta eventualmente preselezionata via ?offerta=<id> (link da tariffe.php).
+$preselOffertaId = isset($_GET['offerta']) ? trim((string) $_GET['offerta']) : '';
 ?>
 
   <section class="page-hero">
@@ -24,10 +27,28 @@ include __DIR__ . '/header.php';
 
         <div id="contatto-form" class="reveal">
           <div class="contact-form">
+            <?php if ($OPERATORE['logo_url'] !== ''): ?>
+            <div style="display:flex; justify-content:flex-end; margin-bottom:8px;">
+              <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" loading="lazy" style="height:34px; width:auto; max-width:140px; object-fit:contain;">
+            </div>
+            <?php endif; ?>
             <h3>Richiedi una consulenza</h3>
             <p class="sub">Compila il form e ti ricontatteremo entro 24 ore.</p>
 
             <form id="leadForm" method="POST" novalidate>
+              <?php if (!empty($OFFERTE)): ?>
+              <div class="form-group">
+                <label class="form-label" for="fOfferta">Offerta di interesse</label>
+                <select class="form-input" id="fOfferta" name="offerta">
+                  <option value="">Seleziona un'offerta (facoltativo)</option>
+                  <?php foreach ($OFFERTE as $o): ?>
+                  <option value="<?= e($o['id']) ?>"<?= ($preselOffertaId !== '' && (string) $o['id'] === $preselOffertaId) ? ' selected' : '' ?>><?= e($o['nome']) ?></option>
+                  <?php endforeach; ?>
+                </select>
+                <div class="field-error" data-error-for="fOfferta"></div>
+              </div>
+              <?php endif; ?>
+
               <div class="form-group">
                 <label class="form-label" for="fNome">Nome e Cognome *</label>
                 <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>
@@ -49,7 +70,7 @@ include __DIR__ . '/header.php';
               <div class="form-group" style="margin-top: 28px;">
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
-                  <span style="font-weight:700;">Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
+                  <span style="font-weight:700;">Dichiaro di aver preso visione dell'<a href="informativa-privacy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">

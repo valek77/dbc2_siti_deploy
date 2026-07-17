@@ -8,6 +8,21 @@
   const conferma = document.getElementById('conferma');
   const originalBtnText = btnSubmit ? btnSubmit.textContent : '';
 
+  // Offerta: combo <select id="fOfferta"> se presente, altrimenti ?offerta=<id>.
+  const offerSelect = document.getElementById('fOfferta');
+  const offerParam = new URLSearchParams(window.location.search).get('offerta');
+
+  // Preseleziono la combo dall'URL (fallback lato client: il server lo fa già).
+  if (offerSelect && offerParam && /^\d+$/.test(offerParam.trim())) {
+    offerSelect.value = offerParam.trim();
+  }
+
+  // ID offerta corrente (numerico) al momento dell'invio: prima la combo, poi l'URL.
+  function currentOffertaId() {
+    const raw = (offerSelect && offerSelect.value) ? offerSelect.value : offerParam;
+    return raw && /^\d+$/.test(String(raw).trim()) ? parseInt(String(raw).trim(), 10) : null;
+  }
+
   const validators = {
     fNome: v => v.trim().length >= 2 ? '' : 'Inserisci nome e cognome',
     fTel: v => /^[0-9 +]{8,}$/.test(v.trim()) ? '' : 'Numero non valido',
@@ -76,6 +91,7 @@
         telefono: form.telefono.value.trim().replace(/\D/g, ''),
         ip: ip,
         landing_page_url: window.location.origin,
+        offerta_id: currentOffertaId(),
         data_registrazione: new Date().toISOString(),
         consenso_0: !!(form.consenso_privacy && form.consenso_privacy.checked),
         consenso_1: !!(commercial && commercial.checked),
@@ -102,17 +118,6 @@
     }
   });
 
-  const params = new URLSearchParams(window.location.search);
-  const offer = params.get('offerta');
-  if (offer) {
-    const msgField = document.getElementById('messaggio');
-    if (msgField) {
-      msgField.value = "Sono interessato all'offerta: " + offer;
-    } else {
-      const infoMsg = document.createElement('div');
-      infoMsg.style.cssText = 'background:#eef2ff;color:#1e3a8a;padding:12px;border-radius:8px;font-weight:600;margin-bottom:16px;font-size:14px;';
-      infoMsg.textContent = 'Richiesta per: ' + offer;
-      form.prepend(infoMsg);
-    }
-  }
+  // Nessun banner "Richiesta per: ...": l'offerta è ora visibile e modificabile
+  // nella combo <select id="fOfferta"> (preselezionata dall'ID in query string).
 })();
