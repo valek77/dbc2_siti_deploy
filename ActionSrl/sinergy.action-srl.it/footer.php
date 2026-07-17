@@ -57,19 +57,19 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
       <div class="footer-col">
         <h4>Azienda</h4>
         <a href="chi-siamo.php">Chi siamo</a>
-        <a href="tariffe.php">Offerte</a>
-        <a href="contatti.php">Contatti</a>
+      
+      
       </div>
       <div class="footer-col">
         <h4>Servizi</h4>
-        <a href="tariffe.php">Luce Rinnovabile</a>
-        <a href="tariffe.php">Gas Compensato</a>
-        <a href="tariffe.php">Audit Digitale</a>
+        <a href="tariffe.php">Offerte</a>
+      
       </div>
       <div class="footer-col">
         <h4>Legale</h4>
         <a href="privacy-policy.php">Privacy Policy</a>
         <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
+        <a href="cookie-policy.php">Cookies Policy</a>
       </div>
     </div>
     <div class="footer-bottom">

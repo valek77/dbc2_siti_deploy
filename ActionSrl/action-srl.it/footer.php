@@ -10,10 +10,9 @@
  *   $pageScripts -> HTML <script> specifici della pagina (facoltativo)
  */
 $brandName = isset($brandName) ? $brandName
-    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale']
-        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Action Srl'));
+    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Locura');
 // Logo footer (sfondo scuro): logo2 dall'API se presente, altrimenti l'immagine locale.
-$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'logo_white.png';
+$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'locura-b.png';
 
 // Riga legale: includo solo le parti effettivamente presenti nell'API.
 $legalParts = [];
@@ -30,7 +29,7 @@ if ($COMPANY['capitale_sociale'] !== '') {
     $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale'];
 }
 if ($COMPANY['pec'] !== '') {
-    $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '" style="color: inherit; text-decoration: underline;">' . $COMPANY['pec'] . '</a>';
+    $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
 }
 $legalLine = implode(' - ', $legalParts);
 
@@ -53,30 +52,31 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
         <a href="index.php" class="logo">
           <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo" style="max-height: 45px; width: auto;">
         </a>
-        <p>Consulenza e offerte trasparenti di luce e gas. Riduciamo le spese delle tue bollette con tariffe chiare e senza sorprese.</p>
+        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
       </div>
       <div class="footer-col">
         <h4>Azienda</h4>
         <a href="chi-siamo.php">Chi siamo</a>
-        <a href="tariffe.php">Offerte</a>
-        <a href="contatti.php">Contatti</a>
+      
+      
       </div>
       <div class="footer-col">
         <h4>Servizi</h4>
-        <a href="tariffe.php">Luce Rinnovabile</a>
-        <a href="tariffe.php">Gas Compensato</a>
+        <a href="tariffe.php">Offerte</a>
+      
       </div>
       <div class="footer-col">
         <h4>Legale</h4>
         <a href="privacy-policy.php">Privacy Policy</a>
         <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
+        <a href="cookie-policy.php">Cookies Policy</a>
       </div>
     </div>
     <div class="footer-bottom">
 <?php if ($operatoreNome !== '') { ?>
-      <p style="font-size: 18px;"><strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
+      <p style="font-size: 15px;">Offerte commercializzate in qualità di partner autorizzato di <strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
 <?php } ?>
-      <p style="margin-top: 8px; font-size: 12px; opacity: 0.8; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"><?php if ($COMPANY['logo2_url'] !== '') { ?><img src="<?= $COMPANY['logo2_url'] ?>" alt="<?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?>" style="height: 40px; width: auto; margin-right: 8px;"><?php } ?><span>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</span></p>
+      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"><?php if ($COMPANY['logo2_url'] !== '') { ?><img src="<?= $COMPANY['logo2_url'] ?>" alt="<?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?>" style="height: 56px; width: auto; margin-right: 8px;"><?php } ?><span>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</span></p>
     </div>
   </footer>
 
