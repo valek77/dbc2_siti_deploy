@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
+$operatoreNome = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
+$operatoreLogo = $OPERATORE['logo_url'] !== '' ? $OPERATORE['logo_url'] : $OPERATORE['logo2_url'];
 $pageTitle = 'Offerte Luce e Gas';
 $pageDescription = 'Le offerte luce e gas di Semplice Gas & Luce per clienti domestici: indicizzate a PUN Index GME e PSV, spread bloccato 12 mesi, condizioni tecnico economiche trasparenti.';
 $pageHead = <<<'CSS'
@@ -27,11 +29,10 @@ include __DIR__ . '/header.php';
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Piani Tariffari 100% Sostenibili</span>
       <h1>La tariffa ottimale, <span class="accent">senza sorprese</span></h1>
-      <p>Piani chiari per utenze domestiche e professionali. Tutte le tariffe sono garantite grazie alla nostra solida partnership energetica per offrirti la massima trasparenza contrattuale.</p>
+      <p>Piani chiari per utenze domestiche e professionali. Semplice Gas &amp; Luce propone tariffe trasparenti e condizioni contrattuali chiare.</p>
       
       <div style="margin-top: 32px; display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2);">
-        <span style="font-size: 15px; font-weight: 600; color: #fff;"><?= $brandName ?> è partner ufficiale di</span>
-        <span style="font-size: 17px; font-weight: 800; color: #fff; letter-spacing: 0.5px; text-transform: uppercase;"><?= $OPERATORE['nome_marketing'] ?></span>
+        <span class="operator-hero-label" style="font-size: 15px; font-weight: 600; color: #fff;">Operatore energetico<?php if ($operatoreLogo !== '') { ?><img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?> logo"><?php } ?></span>
       </div>
     </div>
     <div class="wave">
@@ -113,6 +114,7 @@ $ICON_LOCK  = '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16
             <span class="lock"><?= $ICON_LOCK ?> Spread bloccato 12 mesi</span>
           </div>
           <div class="offer-card-body">
+<?php if ($operatoreLogo !== '') { ?><div class="operator-card-logo"><span>Offerta di</span><img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>"></div><?php } ?>
             <h3 class="offer-name"><?= $o['nome'] ?></h3>
             <p class="offer-type">Cliente domestico · Mercato Libero</p>
 

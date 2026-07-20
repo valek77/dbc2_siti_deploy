@@ -29,7 +29,7 @@ if ($COMPANY['capitale_sociale'] !== '') {
     $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale'];
 }
 if ($COMPANY['pec'] !== '') {
-    $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
+    $legalParts[] = 'PEC: <a class="pec-link" href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
 }
 $legalLine = implode(' - ', $legalParts);
 
@@ -45,6 +45,22 @@ if ($OPERATORE['partita_iva'] !== '') {
 }
 $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
 ?>
+
+<style>
+  .main-footer .pec-link {
+    color: #67e8f9;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+  }
+  .main-footer .pec-link:hover,
+  .main-footer .pec-link:focus-visible {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(103, 232, 249, 0.85);
+  }
+</style>
 
   <footer class="main-footer">
     <div class="footer-container">
