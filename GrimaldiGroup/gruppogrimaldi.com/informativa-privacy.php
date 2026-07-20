@@ -95,7 +95,7 @@ include __DIR__ . '/header.php';
     <p>Il ricontatto sarà effettuato da <?= $titolareNome ?> esclusivamente nei limiti della richiesta formulata dall’utente.</p>
     <p>Qualora l’utente manifesti interesse a procedere con un’offerta di <?= $operatore ?>, i dati necessari potranno essere comunicati o resi disponibili a <?= $operatore ?>, che opererà come autonomo Titolare del trattamento per le attività di propria competenza, secondo la relativa informativa privacy.</p>
     <p>Il consenso all’invio di ulteriori comunicazioni commerciali tramite telefono, e-mail, SMS o WhatsApp è facoltativo, separato e revocabile in qualsiasi momento.</p>
-    <p>L’utente potrà esercitare i diritti previsti dagli artt. 15-22 GDPR, nonché revocare il consenso o opporsi a ulteriori contatti commerciali, scrivendo a <?= $titolareNome ?><?= $emailDpo !== '' ? ' oppure al DPO/RPD all’indirizzo: ' . $emailDpo : '' ?>.</p>
+    <p>L’utente potrà esercitare i diritti previsti dagli artt. 15-22 GDPR, nonché revocare il consenso o opporsi a ulteriori contatti commerciali, scrivendo a <?= $titolareNome ?><?= $emailDpo !== '' ? ' oppure al DPO/RPD all’indirizzo: <a href="mailto:' . $emailDpo . '">' . $emailDpo . '</a>' : '' ?>.</p>
 
     <h2>1. Titolare del trattamento</h2>
     <p>Il Titolare del trattamento è:</p>
@@ -104,14 +104,14 @@ include __DIR__ . '/header.php';
 <?php if ($titolareSede !== '') { ?>      Sede legale: <?= $titolareSede ?><br>
 <?php } ?><?php if ($titolarePiva !== '') { ?>      C.F. e P.IVA: <?= $titolarePiva ?><br>
 <?php } ?><?php if ($capitaleSociale !== '') { ?>      Capitale sociale: <?= $capitaleSociale ?><br>
-<?php } ?><?php if ($titolarePec !== '') { ?>      PEC: <?= $titolarePec ?>
+<?php } ?><?php if ($titolarePec !== '') { ?>      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
 <?php } ?>    </p>
 
     <h2>2. Responsabile della Protezione dei Dati / DPO</h2>
 <?php if ($emailDpo !== '') { ?>
     <p><?= $titolareNome ?> ha nominato un Responsabile della Protezione dei Dati / Data Protection Officer.</p>
     <p>
-      E-mail DPO / RPD: <?= $emailDpo ?>
+      E-mail DPO / RPD: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
     </p>
     <p>Il DPO può essere contattato per questioni relative al trattamento dei dati personali e per l’esercizio dei diritti degli interessati.</p>
 <?php } else { ?>

@@ -108,14 +108,14 @@ include __DIR__ . '/header.php';
       REA: <?= $titolareRea ?><br>
       Capitale sociale: <?= $capitaleSociale ?><br>
       Società a socio unico<br>
-      PEC: <?= $titolarePec ?>
+      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
     </p>
 
     <h2>2. Responsabile della Protezione dei Dati / DPO</h2>
     <p><?= $titolareNome ?> ha nominato un Responsabile della Protezione dei Dati / Data Protection Officer.</p>
     <p>
       DPO / RPD: <?= $dpoNome ?><br>
-      E-mail: <?= $emailDpo ?>
+      E-mail: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
     </p>
     <p>Il DPO può essere contattato per questioni relative al trattamento dei dati personali e per l’esercizio dei diritti degli interessati.</p>
 

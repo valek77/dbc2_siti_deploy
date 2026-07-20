@@ -74,9 +74,9 @@ include __DIR__ . '/header.php';
       REA: <?= $titolareRea ?><br>
       Capitale sociale: <?= $capitaleSociale ?><br>
       Società a socio unico<br>
-      PEC: <?= $titolarePec ?><br>
+      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><br>
       DPO / Responsabile della Protezione dei Dati: <?= $dpoNome ?><br>
-      E-mail: <?= $emailDpo ?>
+      E-mail: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
     </p>
     <p><?= $titolareNome ?> opera nel settore dei servizi di contact center, consulenza commerciale, telemarketing, teleselling, gestione di campagne promozionali e commerciali, per conto proprio e per conto terzi.</p>
 
@@ -248,12 +248,12 @@ include __DIR__ . '/header.php';
     <p>Per informazioni relative al sito, alle presenti Condizioni di Utilizzo o alle pagine legali pubblicate, è possibile contattare:</p>
     <p>
       <strong><?= $titolareNome ?></strong><br>
-      PEC: <?= $titolarePec ?>
+      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
     </p>
     <p>Per questioni relative al trattamento dei dati personali / privacy:</p>
     <p>
       DPO / RPD: <?= $dpoNome ?><br>
-      E-mail: <?= $emailDpo ?>
+      E-mail: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
     </p>
 
     <hr>
