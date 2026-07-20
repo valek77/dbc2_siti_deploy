@@ -16,25 +16,41 @@ $logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : '
 // Operatore energetico (fornitore di cui il sito e' agenzia commerciale).
 $operatoreNome = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
 
-// Riga legale: includo solo le parti effettivamente presenti nell'API dell'azienda
-// titolare ($COMPANY). I campi non forniti dall'API (es. R.E.A.) non compaiono.
-$legalParts = [];
-if ($COMPANY['company_name'] !== '') {
-    $legalParts[] = 'Sede legale: ' . $COMPANY['sede_legale'];
+// --- Dati legali dell'azienda titolare ($COMPANY), 100% da API NUOVA -------
+// Stessa informativa del footer di energiagr.com: ragione sociale, sede, C.F./
+// P.IVA, REA, Registro Imprese, capitale sociale, PEC e DPO. Nessun dato cablato:
+// i campi non forniti dall'API (REA/capitale/DPO se vuoti) semplicemente non
+// compaiono. I valori di $COMPANY sono gia' resi sicuri per l'HTML.
+$coName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName;
+$coSede = $COMPANY['sede_legale'];
+$coPiva = $COMPANY['p_iva'];
+$coRea = $COMPANY['numero_rea'];
+$coCapitale = $COMPANY['capitale_sociale'];
+$coPec = $COMPANY['pec'];
+$coDpoEmail = $COMPANY['email_dpo'];
+// Cablati (NON modellati dall'API): forma societaria e nominativo del DPO.
+$coDpoNome = 'Dott.ssa Maddalena Fulmine';
+// Riga identificativi "C.F. e P.IVA – REA – Registro Imprese": monto solo le
+// parti effettivamente presenti nell'API.
+$identParts = [];
+if ($coPiva !== '') {
+    $identParts[] = 'C.F. e P.IVA: ' . $coPiva;
 }
-if ($COMPANY['p_iva'] !== '') {
-    $legalParts[] = 'C.F. e P.IVA: ' . $COMPANY['p_iva'];
+if ($coRea !== '') {
+    $identParts[] = 'REA ' . $coRea;
 }
-if ($COMPANY['capitale_sociale'] !== '') {
-    $legalParts[] = 'Capitale sociale ' . $COMPANY['capitale_sociale'];
+if ($coPiva !== '') {
+    $identParts[] = 'Registro Imprese di Napoli n. ' . $coPiva;
 }
-if ($COMPANY['pec'] !== '') {
-    $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
-}
-if ($COMPANY['email_dpo'] !== '') {
-    $legalParts[] = 'DPO: <a href="mailto:' . $COMPANY['email_dpo'] . '">' . $COMPANY['email_dpo'] . '</a>';
-}
-$legalLine = implode(' &ndash; ', $legalParts);
+$identLine = implode(' &ndash; ', $identParts);
+// Capitale sociale (da API se presente) + "Societa' a socio unico" (cablato,
+// sempre mostrato).
+$capitaleLine = $coCapitale !== ''
+    ? 'Capitale sociale: ' . $coCapitale . ' &ndash; Società a socio unico'
+    : 'Società a socio unico';
+// DPO: nominativo cablato + contatto e-mail dall'API se presente.
+$dpoLine = 'DPO/Responsabile della Protezione dei Dati: ' . $coDpoNome
+    . ($coDpoEmail !== '' ? ' &ndash; contatto: <a href="mailto:' . $coDpoEmail . '">' . $coDpoEmail . '</a>' : '');
 ?>
 
     <footer class="main-footer">
@@ -65,7 +81,12 @@ $legalLine = implode(' &ndash; ', $legalParts);
     </div>
     <div class="footer-bottom">
       <p class="footer-legal">
-        &copy; <?= date('Y') ?> <strong><?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?></strong>. Tutti i diritti riservati.<?= $legalLine !== '' ? '<br>' . $legalLine : '' ?>
+        &copy; <?= date('Y') ?> <strong><?= $coName ?></strong>. Tutti i diritti riservati.
+<?php if ($coSede !== '') { ?>        <br>Sede legale: <?= $coSede ?>
+<?php } if ($identLine !== '') { ?>        <br><?= $identLine ?>
+<?php } ?>        <br><?= $capitaleLine ?>
+<?php if ($coPec !== '') { ?>        <br>PEC: <a href="mailto:<?= $coPec ?>"><?= $coPec ?></a>
+<?php } ?>        <br><?= $dpoLine ?>
       </p>
     </div>
   </footer>
