@@ -96,6 +96,15 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
     </div>
   </footer>
 
+<script>
+    // Reveal on scroll — comune a tutte le pagine
+    (function () {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: .12 });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    })();
+</script>
 <?php if (!empty($pageScripts)) {
     echo $pageScripts;
 } ?>

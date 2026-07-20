@@ -448,12 +448,6 @@ include __DIR__ . '/header.php';
 <?php
 $pageScripts = <<<'HTML'
 <script>
-    // Reveal on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: .12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
     // Semplice Gas & Luce Tab Switcher
     document.querySelectorAll('.illumia-tab').forEach(tab => {
       tab.addEventListener('click', () => {
