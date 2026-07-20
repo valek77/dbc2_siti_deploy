@@ -228,6 +228,7 @@ if (!function_exists('dbc2_campi_noti')) {
             'email_dpo',
             'email_supporto',
             'capitale_sociale',
+            'numero_rea',
             'telefono',
             'logo_url',
             'logo2_url',
