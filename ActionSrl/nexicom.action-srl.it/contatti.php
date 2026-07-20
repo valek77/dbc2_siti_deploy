@@ -1,7 +1,8 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Contatti';
-$pageDescription = 'Mettiti in contatto con Locura per ricevere una consulenza energetica personalizzata. Inizia subito ad abbattere i consumi.';
+$op = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : 'Nexicom';
+$pageDescription = 'Contattaci per un preventivo gratuito sulle offerte luce e gas ' . $op . '. Un consulente ti ricontatta per trovare la fornitura più adatta ai tuoi consumi.';
 include __DIR__ . '/header.php';
 ?>
 

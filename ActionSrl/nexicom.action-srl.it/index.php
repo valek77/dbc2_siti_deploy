@@ -1,13 +1,14 @@
 <?php
 require __DIR__ . '/_config.php';
 // Homepage: NON imposto $pageTitle, così header.php usa il "titolo" della landing.
-$pageDescription = 'Locura ti guida verso una transizione energetica intelligente. Soluzioni luce e gas 100% green, ottimizzazione dei consumi e tariffe trasparenti per casa e impresa.';
 
 // Brand portale + operatore (dinamici da API, con fallback).
 $portal = $LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale']
         : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Locura');
 $op = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : 'Nexicom';
 $opLogo = $OPERATORE['logo_url'] !== '' ? $OPERATORE['logo_url'] : $OPERATORE['logo2_url'];
+
+$pageDescription = $portal . ', partner autorizzato di ' . $op . ' per la fornitura di luce e gas: offerte indicizzate, spread bloccato e tariffe trasparenti per casa e impresa.';
 
 // Offerte reali (solo anteprima — il dettaglio/CTE è in tariffe.php).
 $homeOfferte = [
@@ -229,7 +230,7 @@ include __DIR__ . '/header.php';
         <div class="reveal">
           <span class="nx-kicker">Luce &amp; Gas · Mercato Libero</span>
           <h1>Energia che <em>capisce</em> come vivi.</h1>
-          <p class="lede">Locura analizza i tuoi consumi reali e ti propone tariffe luce e gas indicizzate, trasparenti e calibrate sul tuo profilo. Niente sorprese, solo risparmio misurabile.</p>
+          <p class="lede"><?= $portal ?>, partner autorizzato di <?= $op ?>, ti propone tariffe luce e gas indicizzate, trasparenti e calibrate sul tuo profilo di consumo. Niente sorprese, solo risparmio misurabile.</p>
           <div class="nx-hero-actions">
             <a href="tariffe.php" class="btn-primary">Scopri le offerte
               <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -375,15 +376,15 @@ include __DIR__ . '/header.php';
   <section>
     <div class="nx-feature-row reverse reveal">
       <div class="body">
-        <span class="nx-kicker">Diagnostica avanzata</span>
-        <h2>Audit energetico <em>digitale</em>.</h2>
-        <p>Con algoritmi proprietari analizziamo i dati di prelievo per individuare sfasamenti di potenza, picchi anomali e inefficienze operative — e trasformarli in azioni di risparmio.</p>
+        <span class="nx-kicker">Consulenza dedicata</span>
+        <h2>La tua bolletta, <em>letta bene</em>.</h2>
+        <p>Analizziamo insieme i tuoi consumi e ti aiutiamo a scegliere l'offerta luce e gas <?= $op ?> più adatta, confrontando le fasce di prelievo con i prezzi indicizzati a PUN e PSV.</p>
         <ul>
-          <li><span style="color:var(--primary);font-weight:800;">✓</span> Monitoraggio del carico orario e delle curve di prelievo</li>
-          <li><span style="color:var(--primary);font-weight:800;">✓</span> Rilevamento e rifasamento delle perdite di energia reattiva</li>
-          <li><span style="color:var(--primary);font-weight:800;">✓</span> Reporting mensile con <b>indicatori KPI energetici</b></li>
+          <li><span style="color:var(--primary);font-weight:800;">✓</span> Confronto tra la spesa attuale e le tariffe <?= $op ?></li>
+          <li><span style="color:var(--primary);font-weight:800;">✓</span> Spread bloccato per i primi 12 mesi, senza costi nascosti</li>
+          <li><span style="color:var(--primary);font-weight:800;">✓</span> Gestione completa delle pratiche di attivazione</li>
         </ul>
-        <div style="margin-top:30px;"><a href="contatti.php" class="btn-primary">Richiedi un audit gratuito
+        <div style="margin-top:30px;"><a href="contatti.php" class="btn-primary">Richiedi un preventivo gratuito
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       </div>
       <div class="media"><img src="feature_consulenza.jpg" alt="Dashboard di monitoraggio energetico"></div>
@@ -392,8 +393,8 @@ include __DIR__ . '/header.php';
       <div class="media"><img src="chi_siamo_team.jpg" alt="Team al lavoro"></div>
       <div class="body">
         <span class="nx-kicker" style="color:var(--accent-hi);">Il team</span>
-        <h2>Persone al servizio dell'<em>innovazione</em>.</h2>
-        <p>Tecnici, programmatori ed esperti ambientali con una sola missione: rendere l'energia pulita comprensibile, conveniente e accessibile. Semplifichiamo la burocrazia del mercato libero, tu pensi al resto.</p>
+        <h2>Consulenti al tuo <em>fianco</em>.</h2>
+        <p>Energy specialist dedicati con una sola missione: rendere le offerte <?= $op ?> comprensibili, convenienti e accessibili. Semplifichiamo la burocrazia del mercato libero, tu pensi al resto.</p>
         <div style="margin-top:30px;"><a href="chi-siamo.php" class="nx-link" style="color:#fff;">Scopri la nostra storia
           <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       </div>
