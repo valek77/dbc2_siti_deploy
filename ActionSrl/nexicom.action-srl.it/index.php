@@ -230,7 +230,7 @@ include __DIR__ . '/header.php';
         <div class="reveal">
           <span class="nx-kicker">Luce &amp; Gas · Mercato Libero</span>
           <h1>Energia che <em>capisce</em> come vivi.</h1>
-          <p class="lede"><?= $portal ?>, partner autorizzato di <?= $op ?>, ti propone tariffe luce e gas indicizzate, trasparenti e calibrate sul tuo profilo di consumo. Niente sorprese, solo risparmio misurabile.</p>
+          <p class="lede">Come partner autorizzato di <?= $op ?>, ti proponiamo tariffe luce e gas indicizzate, trasparenti e calibrate sul tuo profilo di consumo. Niente sorprese, solo risparmio misurabile.</p>
           <div class="nx-hero-actions">
             <a href="tariffe.php" class="btn-primary">Scopri le offerte
               <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
