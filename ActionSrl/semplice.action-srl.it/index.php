@@ -1,8 +1,10 @@
 <?php
 require __DIR__ . '/_config.php';
+$operatoreNome = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
+$operatoreLogo = $OPERATORE['logo_url'] !== '' ? $OPERATORE['logo_url'] : $OPERATORE['logo2_url'];
 // Homepage: NON imposto $pageTitle, così header.php usa il "titolo" della landing
 // dall'API ($LANDING_PAGE['titolo'], es. "Offerte Semplice Gas & Luce").
-$pageDescription = 'Locura ti guida verso una transizione energetica intelligente. Scopri soluzioni luce e gas 100% green, ottimizzazione dei consumi e tariffe trasparenti per la tua casa o impresa.';
+$pageDescription = 'Semplice Gas & Luce ti guida verso una transizione energetica intelligente. Scopri soluzioni luce e gas 100% green, ottimizzazione dei consumi e tariffe trasparenti per la tua casa o impresa.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -15,7 +17,7 @@ include __DIR__ . '/header.php';
         <div class="hero-content">
           <span class="eyebrow eyebrow-light"><span class="dot"></span> Concessionario Nazionale per l'Efficienza Energetica</span>
           <h1>La tua transizione verso un'energia <span class="accent">efficiente</span>.</h1>
-          <p class="lede">Locura progetta soluzioni integrate di fornitura Luce e Gas per utenze domestiche e industriali. Uniamo tariffe certificate 100% da fonti rinnovabili, digitalizzazione dei processi e sistemi di monitoraggio energetico per massimizzare il risparmio economico e azzerare l'impronta di carbonio.</p>
+          <p class="lede">Semplice Gas &amp; Luce progetta soluzioni integrate di fornitura Luce e Gas per utenze domestiche e industriali. Uniamo tariffe certificate 100% da fonti rinnovabili, digitalizzazione dei processi e sistemi di monitoraggio energetico per massimizzare il risparmio economico e azzerare l'impronta di carbonio.</p>
           
           <!-- Widget Calcolatore Rapido Integrato -->
           <div class="hero-calculator">
@@ -97,6 +99,7 @@ include __DIR__ . '/header.php';
       <div id="grid-casa" class="illumia-grid bento-grid">
         <!-- Luce Card (Bento 2x Width) -->
         <article class="illumia-card border-luce card-bento-2x">
+<?php if ($operatoreLogo !== '') { ?><div class="operator-card-logo"><span>Offerta di</span><img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>"></div><?php } ?>
           <div class="illumia-card-left">
             <div class="illumia-badge badge-luce">⚡ LUCE DOMESTICO</div>
             <h3>PUN Index GME Domestico 386</h3>
@@ -121,7 +124,7 @@ include __DIR__ . '/header.php';
             <!-- CO2 Calculator Widget -->
             <div class="co2-calculator">
               <h4>Impatto CO₂ Stimato</h4>
-              <p class="co2-sub">Trascina lo slider per stimare la CO₂ evitata all'anno con Locura Luce Verde:</p>
+              <p class="co2-sub">Trascina lo slider per stimare la CO₂ evitata all'anno con Semplice Gas &amp; Luce:</p>
               <div class="co2-control">
                 <input type="range" class="co2-slider" min="1000" max="10000" step="500" value="3000" id="co2-range-casa">
                 <div class="co2-val"><span id="co2-kwh-casa">3000</span> kWh/anno</div>
@@ -135,6 +138,7 @@ include __DIR__ . '/header.php';
 
         <!-- Gas Card (Bento 1x Width) -->
         <article class="illumia-card border-gas card-bento-1x">
+<?php if ($operatoreLogo !== '') { ?><div class="operator-card-logo"><span>Offerta di</span><img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>"></div><?php } ?>
           <div class="illumia-badge badge-gas">🔥 GAS DOMESTICO</div>
           <div class="illumia-card-body">
             <h3>PSV Domestico 386</h3>
@@ -158,6 +162,7 @@ include __DIR__ . '/header.php';
 
         <!-- Luce + Gas Combo Card (Bento 3x Width) -->
         <article class="illumia-card border-combo featured-combo card-bento-3x">
+<?php if ($operatoreLogo !== '') { ?><div class="operator-card-logo"><span>Offerta di</span><img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>"></div><?php } ?>
           <div class="illumia-card-left">
             <div class="illumia-badge badge-combo">⚡ LUCE DOMESTICO · LOGICARD</div>
             <h3>PUN Index GME Domestico CS 386</h3>
@@ -186,6 +191,7 @@ include __DIR__ . '/header.php';
       <div id="grid-business" class="illumia-grid bento-grid" style="display:none;">
         <!-- Luce Card (Bento 2x Width) -->
         <article class="illumia-card border-luce card-bento-2x">
+<?php if ($operatoreLogo !== '') { ?><div class="operator-card-logo"><span>Offerta di</span><img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>"></div><?php } ?>
           <div class="illumia-card-left">
             <div class="illumia-badge badge-luce">⚡ LUCE DOMESTICO</div>
             <h3>PUN Index GME Domestico 386</h3>
@@ -224,6 +230,7 @@ include __DIR__ . '/header.php';
 
         <!-- Gas Card (Bento 1x Width) -->
         <article class="illumia-card border-gas card-bento-1x">
+<?php if ($operatoreLogo !== '') { ?><div class="operator-card-logo"><span>Offerta di</span><img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>"></div><?php } ?>
           <div class="illumia-badge badge-gas">🔥 GAS DOMESTICO</div>
           <div class="illumia-card-body">
             <h3>PSV Domestico 386</h3>
@@ -247,6 +254,7 @@ include __DIR__ . '/header.php';
 
         <!-- Luce + Gas Combo Card (Bento 3x Width) -->
         <article class="illumia-card border-combo featured-combo card-bento-3x">
+<?php if ($operatoreLogo !== '') { ?><div class="operator-card-logo"><span>Offerta di</span><img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>"></div><?php } ?>
           <div class="illumia-card-left">
             <div class="illumia-badge badge-combo">🔥 GAS DOMESTICO · LOGICARD</div>
             <h3>PSV Domestico CS 386</h3>
@@ -279,7 +287,7 @@ include __DIR__ . '/header.php';
   <section class="section how-it-works section-on-dark">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow eyebrow-light"><span class="dot"></span> Il Protocollo Locura</span>
+        <span class="eyebrow eyebrow-light"><span class="dot"></span> Il Protocollo Semplice Gas &amp; Luce</span>
         <h2 class="section-title">La transizione operativa in <br><span class="accent">4 fasi certificate</span></h2>
         <p class="section-sub">Il passaggio alla nostra fornitura avviene in piena conformità con le direttive ARERA, garantendo continuità assoluta del servizio e assenza di modifiche fisiche agli impianti.</p>
       </div>
@@ -309,13 +317,13 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
-  <!-- ===== Perché Locura (Split Block 1) ===== -->
+  <!-- ===== Perché Semplice Gas & Luce (Split Block 1) ===== -->
   <section class="split-block">
     <div class="split-block-content stone-bg reveal">
       <span class="eyebrow"><span class="dot"></span> Consulenza Indipendente</span>
       <h2 class="section-title" style="text-align:left; font-size: clamp(28px, 4vw, 38px); margin: 16px 0 24px;">Ottimizzazione dei costi ed <span class="accent">efficienza d'acquisto</span></h2>
       <p style="font-size:16.5px; color:var(--muted); line-height:1.75; margin: 0 0 20px;">
-        Locura opera come partner strategico per l'efficienza energetica. Evitiamo logiche commerciali standardizzate: ogni profilo viene analizzato singolarmente per proporre tariffe realmente calibrate sul fabbisogno energetico specifico del cliente.
+        Semplice Gas &amp; Luce opera come partner strategico per l'efficienza energetica. Evitiamo logiche commerciali standardizzate: ogni profilo viene analizzato singolarmente per proporre tariffe realmente calibrate sul fabbisogno energetico specifico del cliente.
       </p>
       <p style="font-size:16.5px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
         Grazie all'accesso directo ai mercati all'ingrosso, le nostre formule tariffarie si basano sulla trasparenza assoluta degli indici PUN e PSV, garantendo l'assenza di sovrapprezzi arbitrari e offrendo spread stabili e vantaggiosi.
@@ -353,7 +361,7 @@ include __DIR__ . '/header.php';
       <span class="eyebrow"><span class="dot"></span> Il nostro team</span>
       <h2 class="section-title" style="text-align:left; font-size: clamp(28px, 4vw, 38px); margin: 16px 0 24px;">Persone al servizio <span class="accent">dell'innovazione</span></h2>
       <p style="font-size:16.5px; color:var(--muted); line-height:1.75; margin: 0 0 20px;">
-        Locura è composta da tecnici, programmatori ed esperti ambientali accomunati dalla stessa visione: rendere l'energia pulita comprensibile, conveniente ed accessibile a tutti.
+        Semplice Gas &amp; Luce è composta da tecnici, programmatori ed esperti ambientali accomunati dalla stessa visione: rendere l'energia pulita comprensibile, conveniente ed accessibile a tutti.
       </p>
       <p style="font-size:16.5px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
         Lavoriamo ogni giorno per semplificare la burocrazia del mercato energetico e garantire che ogni kilowattora consumato provenga da fonti sostenibili certificate.
@@ -361,7 +369,7 @@ include __DIR__ . '/header.php';
       <a href="chi-siamo.php" class="btn-primary" style="align-self: flex-start; padding: 14px 28px;">Scopri la nostra storia</a>
     </div>
     <div class="split-block-image reveal">
-      <img src="chi_siamo_team.jpg" alt="Collaborative team at Locura working on clean energy technologies">
+      <img src="chi_siamo_team.jpg" alt="Team di Semplice Gas &amp; Luce al lavoro su tecnologie energetiche pulite">
     </div>
   </section>
 
@@ -408,7 +416,7 @@ include __DIR__ . '/header.php';
             <div class="quote">"</div>
             <div class="stars">★★★★★</div>
             <h5>Fornitura 100% pulita</h5>
-            <p>Passare all'energia rinnovabile era un mio obiettivo. Locura ha reso il percorso facilissimo e vantaggioso.</p>
+            <p>Passare all'energia rinnovabile era un mio obiettivo. Semplice Gas &amp; Luce ha reso il percorso facilissimo e vantaggioso.</p>
             <div class="author">
               <div class="avatar">FR</div>
               <div>

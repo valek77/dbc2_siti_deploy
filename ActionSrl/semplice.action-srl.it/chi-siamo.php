@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Chi Siamo';
-$pageDescription = 'Locura è un team di consulenti e specialisti della transizione ecologica ed energetica. Scopri i nostri valori e la nostra visione.';
+$pageDescription = 'Semplice Gas & Luce è un team di consulenti e specialisti della transizione ecologica ed energetica. Scopri i nostri valori e la nostra visione.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -24,14 +24,14 @@ include __DIR__ . '/header.php';
       <span class="eyebrow"><span class="dot"></span> La nostra visione</span>
       <h2 class="section-title" style="text-align:left; font-size: clamp(28px, 4vw, 38px); margin: 16px 0 24px;">Sostenibilità democratica, <span class="accent">senza complicazioni</span></h2>
       <p style="font-size:16.5px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-        Locura nasce con l'intento di abbattere le barriere del mercato libero dell'energia. Vogliamo rendere la transizione ecologica ed energetica un'opportunità di sviluppo concreta, trasparente ed economicamente vantaggiosa sia per le famiglie sia per il tessuto industriale.
+        Semplice Gas &amp; Luce nasce con l'intento di abbattere le barriere del mercato libero dell'energia. Vogliamo rendere la transizione ecologica ed energetica un'opportunità di sviluppo concreta, trasparente ed economicamente vantaggiosa sia per le famiglie sia per il tessuto industriale.
       </p>
       <p style="font-size:16.5px; color:var(--muted); line-height:1.75; margin: 0;">
         Non ci limitiamo a vendere contratti: studiamo le fluttuazioni dei prezzi e analizziamo i consumi reali dei clienti. Questo ci permette di proporre opzioni basate su PUN e PSV con spread minimi e stabili, garantendo la massima linearità ed eliminando rincari speculativi.
       </p>
     </div>
     <div class="split-block-image reveal">
-      <img src="chi_siamo_team.jpg" alt="Locura team collaborating over clean tech projects in office">
+      <img src="chi_siamo_team.jpg" alt="Team di Semplice Gas &amp; Luce impegnato in progetti di tecnologie pulite">
     </div>
   </section>
 
@@ -117,7 +117,7 @@ include __DIR__ . '/header.php';
   <section class="quote-banner">
     <div class="mark">"</div>
     <h2>Il progresso ecologico ha valore solo se genera un beneficio reale per le persone e le imprese che scelgono di sostenerlo ogni giorno.</h2>
-    <p class="by">— Il Team Locura</p>
+    <p class="by">— Il Team Semplice Gas &amp; Luce</p>
   </section>
 
 <?php include __DIR__ . '/footer.php'; ?>

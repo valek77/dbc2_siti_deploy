@@ -1622,6 +1622,62 @@ img, svg { display: block; max-width: 100%; height: auto; }
   margin: 0 0 6px;
   letter-spacing: -0.02em;
 }
+
+.operator-card-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
+  margin: -8px 0 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.operator-card-logo span {
+  color: var(--muted-2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.operator-card-logo img {
+  display: block;
+  width: auto;
+  max-width: 150px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.illumia-card > .operator-card-logo {
+  grid-column: 1 / -1;
+}
+
+.offer-card .operator-card-logo {
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+}
+
+.operator-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.operator-hero-label img {
+  width: auto;
+  height: 28px;
+  max-width: 125px;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .operator-card-logo img {
+    max-width: 125px;
+    height: 30px;
+  }
+}
 .illumia-sub {
   font-size: 13.5px;
   color: var(--muted);
@@ -1806,6 +1862,348 @@ img, svg { display: block; max-width: 100%; height: auto; }
   }
   .split-block-content {
     padding: 48px 24px;
+  }
+}
+
+/* =========================================================
+   Final visual polish — rhythm, spacing and responsive balance
+   ========================================================= */
+:root {
+  --section: 104px;
+  --gutter: 24px;
+}
+
+.main-header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-ghost,
+.calc-input-group button {
+  border-radius: 12px !important;
+}
+
+.eyebrow,
+.offer-ribbon .pill,
+.offer-ribbon .lock {
+  border-radius: 999px !important;
+}
+
+.hero {
+  min-height: 700px;
+  padding: 76px 0 84px;
+}
+
+.hero-grid-split {
+  gap: 64px;
+}
+
+.hero-calculator {
+  border-radius: 18px !important;
+  padding: 18px;
+  margin-bottom: 28px;
+}
+
+.hero-actions {
+  margin-bottom: 36px;
+}
+
+.trust-strip {
+  padding: 18px 0;
+}
+
+.features,
+.reviews,
+.glossary {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.section-head {
+  margin-bottom: 48px;
+}
+
+.feature-card,
+.rv-card,
+.glossary-card,
+.offer-card,
+.rv-panel,
+.split-block,
+.price-block {
+  border-radius: 18px !important;
+}
+
+.feature-card,
+.glossary-card {
+  padding: 32px 30px;
+}
+
+.how-it-works {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.hiw-step {
+  border-radius: 16px !important;
+  padding: 30px 26px;
+}
+
+.split-block {
+  width: min(1440px, calc(100% - 32px));
+  margin: 16px auto;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(9, 13, 22, .06);
+}
+
+.split-block-content {
+  padding: clamp(42px, 5vw, 72px);
+}
+
+.split-block-image {
+  min-height: 420px;
+}
+
+.reviews-grid {
+  gap: 24px;
+}
+
+.rv-panel {
+  padding: 40px 32px;
+}
+
+.rv-card {
+  padding: 30px 26px;
+}
+
+.cta-final {
+  padding: 92px 0;
+}
+
+.page-hero {
+  padding: 92px 32px 118px;
+}
+
+body:has(.offer-card) > main.section {
+  padding-top: 64px !important;
+  padding-bottom: 56px !important;
+}
+
+.offer-ribbon {
+  padding: 26px 26px 10px;
+  flex-wrap: wrap;
+}
+
+.offer-card-body {
+  padding: 10px 26px 28px;
+}
+
+.price-block {
+  padding: 18px;
+}
+
+.stat-strip {
+  padding: 64px 32px;
+}
+
+.quote-banner {
+  padding: 88px 32px;
+}
+
+@media (max-width: 992px) {
+  .hero {
+    min-height: auto;
+    padding: 64px 0 72px;
+  }
+
+  .hero-grid-split {
+    gap: 34px;
+  }
+
+  .split-block {
+    width: calc(100% - 24px);
+    margin: 12px auto;
+  }
+
+  .split-block-image {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root { --section: 76px; }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .main-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .header-container {
+    gap: 14px;
+  }
+
+  .header-cta .btn-primary {
+    padding: 9px 12px;
+  }
+
+  .hero {
+    padding-top: 48px;
+    padding-bottom: 58px;
+  }
+
+  .hero p.lede,
+  .section-sub,
+  .page-hero p {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+  }
+
+  .features,
+  .reviews,
+  .glossary,
+  .how-it-works {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .section-head {
+    margin-bottom: 34px;
+  }
+
+  .split-block-content {
+    padding: 40px 24px;
+  }
+
+  .split-block-image {
+    min-height: 280px;
+  }
+
+  .page-hero {
+    padding: 64px 20px 100px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(38px, 11vw, 56px);
+  }
+
+  .stat-strip {
+    padding: 52px 20px;
+  }
+
+  .stat-item .n {
+    font-size: 42px;
+  }
+
+  .quote-banner {
+    padding: 68px 20px;
+  }
+}
+
+/* =========================================================
+   Contact page refinement
+   ========================================================= */
+.contact-grid {
+  grid-template-columns: minmax(280px, .78fr) minmax(0, 1.42fr);
+  gap: 36px;
+  align-items: stretch;
+}
+
+.contact-info-card,
+.contact-form {
+  border-radius: 20px !important;
+  box-shadow: 0 16px 42px rgba(9, 13, 22, .07);
+}
+
+.contact-info-card {
+  height: 100%;
+  padding: 30px 26px;
+  background: linear-gradient(145deg, #ffffff 0%, #f5f8ff 100%);
+}
+
+.contact-info-list {
+  gap: 14px;
+}
+
+.contact-info-item {
+  padding: 16px 14px;
+  border: 1px solid rgba(203, 213, 225, .75);
+  border-radius: 14px !important;
+  background: rgba(255,255,255,.78);
+  transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.contact-info-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(30, 64, 175, .28);
+  box-shadow: 0 10px 24px rgba(30, 64, 175, .08);
+}
+
+.contact-info-item .ico {
+  border-radius: 12px !important;
+}
+
+.contact-energy-image {
+  margin-top: 6px;
+  overflow: hidden;
+  border-radius: 14px !important;
+  border: 1px solid rgba(203, 213, 225, .75);
+  aspect-ratio: 16 / 8;
+}
+
+.contact-energy-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .45s var(--ease);
+}
+
+.contact-energy-image:hover img {
+  transform: scale(1.04);
+}
+
+.contact-form {
+  padding: clamp(30px, 4vw, 48px);
+}
+
+.contact-form .sub {
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .contact-info-card {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info-card,
+  .contact-form {
+    padding: 24px 20px;
+  }
+
+  .contact-info-item {
+    padding: 14px 12px;
   }
 }
 /* ===== Modernist Split Hero ===== */
