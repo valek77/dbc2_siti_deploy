@@ -117,7 +117,6 @@ include __DIR__ . '/header.php';
   <section class="quote-banner">
     <div class="mark">"</div>
     <h2>Il progresso ecologico ha valore solo se genera un beneficio reale per le persone e le imprese che scelgono di sostenerlo ogni giorno.</h2>
-    <p class="by">— Il Team Locura</p>
   </section>
 
 <?php include __DIR__ . '/footer.php'; ?>

@@ -23,42 +23,6 @@ include __DIR__ . '/header.php';
       <div class="contact-grid">
 
         <div>
-          <div class="contact-info-card">
-            <h3 style="font-size: 20px; margin: 0 0 24px; color: var(--ink);">Canali di contatto</h3>
-            <div class="contact-info-list">
-
-<?php if ($COMPANY['telefono'] !== '') { ?>
-              <div class="contact-info-item">
-                <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V20a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 13.18 19.79 19.79 0 011.92 4.55 2 2 0 013.92 2.5h3.08a2 2 0 012 1.72c.13.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L8.09 10.5a16 16 0 006 6l1.37-1.15a2 2 0 012.11-.45c.9.33 1.84.56 2.8.69a2 2 0 011.72 2.03z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
-                <div>
-                  <div class="label">Telefono Diretto</div>
-                   <div class="meta">Lunedì - Venerdì 9:00 - 18:00</div>
-                   <a href="tel:<?= $COMPANY['telefono'] ?>"><?= $COMPANY['telefono'] ?></a>
-                </div>
-              </div>
-<?php } ?>
-
-<?php if ($COMPANY['email_supporto'] !== '') { ?>
-              <div class="contact-info-item">
-                <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                <div>
-                  <div class="label">Email Ufficiale</div>
-                   <div class="meta">Risposta rapida</div>
-                   <a href="mailto:<?= $COMPANY['email_supporto'] ?>"><?= $COMPANY['email_supporto'] ?></a>
-                </div>
-              </div>
-<?php } ?>
-
-              <div class="contact-info-item">
-                <div class="ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                <div>
-                  <div class="label">Orari Operativi</div>
-                  <div class="meta" style="line-height:1.6;">Lun–Ven: 9:00 – 18:00<br>Sabato: 9:00 – 13:00</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="contact-card-cta">
             <div class="label">Offerta in evidenza</div>
             <div class="name">Luce PUN Index GME Domestico 386</div>

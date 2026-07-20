@@ -7,6 +7,7 @@ $pageDescription = 'Locura ti guida verso una transizione energetica intelligent
 $portal = $LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale']
         : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Locura');
 $op = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : 'Nexicom';
+$opLogo = $OPERATORE['logo_url'] !== '' ? $OPERATORE['logo_url'] : $OPERATORE['logo2_url'];
 
 // Offerte reali (solo anteprima — il dettaglio/CTE è in tariffe.php).
 $homeOfferte = [
@@ -320,6 +321,9 @@ include __DIR__ . '/header.php';
         $href = 'contatti.php?offerta=' . rawurlencode($o['code']) . '#contatto-form';
 ?>
         <a class="nx-ticket <?= $isLuce ? 'luce' : 'gas' ?> reveal" href="<?= $href ?>">
+<?php if ($opLogo !== '') { ?>
+          <div class="nx-ticket-brand"><img src="<?= e($opLogo) ?>" alt="<?= e($op) ?>" loading="lazy"></div>
+<?php } ?>
           <div class="row">
             <span class="tipo"><?= $o['tipo'] ?> · Domestico</span>
             <span class="code"><?= $o['code'] ?></span>
@@ -385,7 +389,7 @@ include __DIR__ . '/header.php';
       <div class="media"><img src="feature_consulenza.jpg" alt="Dashboard di monitoraggio energetico"></div>
     </div>
     <div class="nx-feature-row dark reveal">
-      <div class="media"><img src="chi_siamo_team.jpg" alt="Il team Locura al lavoro"></div>
+      <div class="media"><img src="chi_siamo_team.jpg" alt="Team al lavoro"></div>
       <div class="body">
         <span class="nx-kicker" style="color:var(--accent-hi);">Il team</span>
         <h2>Persone al servizio dell'<em>innovazione</em>.</h2>
@@ -401,7 +405,6 @@ include __DIR__ . '/header.php';
     <div class="nx-wrap reveal">
       <div class="mark">&ldquo;</div>
       <blockquote>Il progresso ecologico ha valore solo se genera un beneficio reale per chi sceglie di sostenerlo, ogni giorno.</blockquote>
-      <div class="by">— Il Team Locura</div>
     </div>
   </section>
 

@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
+$operatoreNome = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
+$operatoreLogo = $OPERATORE['logo_url'] !== '' ? $OPERATORE['logo_url'] : $OPERATORE['logo2_url'];
 $pageTitle = 'Offerte Luce e Gas';
 $pageDescription = 'Le offerte luce e gas Nexicom per clienti domestici: indicizzate a PUN Index GME e PSV, spread bloccato 12 mesi, condizioni tecnico economiche trasparenti.';
 $pageHead = <<<'CSS'
@@ -33,7 +35,9 @@ include __DIR__ . '/header.php';
 <?php if ($OPERATORE['nome_marketing'] !== '') { ?>
       <div style="margin-top: 32px; display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2);">
         <span style="font-size: 15px; font-weight: 600; color: #fff;"><?= $LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : $COMPANY['company_name'] ?> è partner ufficiale di</span>
-        <span style="font-size: 17px; font-weight: 800; color: #fff; letter-spacing: 0.5px; text-transform: uppercase;"><?= $OPERATORE['nome_marketing'] ?></span>
+<?php if ($operatoreLogo !== '') { ?>
+        <img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>" loading="lazy" style="height:34px; width:auto; max-width:180px; object-fit:contain;">
+<?php } ?>
       </div>
 <?php } ?>
     </div>
@@ -118,6 +122,11 @@ $ICON_LOCK  = '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16
           $href = 'contatti.php?offerta=' . rawurlencode($o['codice']) . '#contatto-form';
 ?>
         <article class="offer-card"<?= $isGas ? ' style="--ribbon-color:#d97706; --ribbon-bg:#fef3c7; --ribbon-text:#b45309; --ribbon-border:#fde68a;"' : '' ?>>
+<?php if ($operatoreLogo !== '') { ?>
+          <div style="display:flex; align-items:center; justify-content:center; min-height:72px; padding:16px 24px 12px; background:#fff;">
+            <img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>" loading="lazy" style="height:52px; width:auto; max-width:240px; object-fit:contain;">
+          </div>
+<?php } ?>
           <div class="offer-ribbon">
             <span class="pill <?= $isGas ? 'warm' : '' ?>"><?= $isGas ? $ICON_FLAME : $ICON_BOLT ?><span><?= $o['tipo'] ?> · Domestico</span></span>
             <span class="lock"><?= $ICON_LOCK ?> Spread bloccato 12 mesi</span>
