@@ -1,7 +1,16 @@
 <?php
 require __DIR__ . '/_config.php';
+
+// Brand commerciale dell'operatore (nome_marketing "DOMESTIKA" -> "Domestika");
+// fallback prudente. I valori di $OPERATORE sono gia' HTML-safe.
+$brand = $OPERATORE['nome_marketing'] !== ''
+    ? ucfirst(mb_strtolower($OPERATORE['nome_marketing'], 'UTF-8'))
+    : 'Domestika';
+// Ragione sociale dell'operatore, citata dove serve il soggetto giuridico.
+$ragioneSociale = $OPERATORE['nome_legale'];
+
 $pageTitle = 'Chi Siamo';
-$pageDescription = 'Action e una societa specializzata nella consulenza energetica per offerte luce e gas, con un approccio chiaro, pratico e orientato al cliente.';
+$pageDescription = $brand . ' e la nuova azienda luce e gas che mette al primo posto il risparmio in bolletta: prezzi bloccati 12 mesi, chiarezza sui costi e zero sorprese.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -12,8 +21,8 @@ include __DIR__ . '/header.php';
         <div class="container">
           <div class="hero-content">
             <span class="eyebrow eyebrow-light"><span class="dot"></span> Chi siamo</span>
-            <h1>Action, energia con <span class="accent">competenza</span></h1>
-            <p class="lede">Siamo una societa che opera nel settore energia e accompagna clienti privati e business nella scelta di forniture luce e gas piu consapevoli.</p>
+            <h1><?= $brand ?>, il risparmio e di <span class="accent">casa</span></h1>
+            <p class="lede"><?= $brand ?> e la nuova azienda luce e gas che mette al primo posto il tuo risparmio in bolletta. Marchio commerciale di <?= $ragioneSociale ?>, iscritta al registro degli operatori ARERA, portiamo energia nelle case con prezzi chiari e senza sorprese.</p>
           </div>
         </div>
       </div>
@@ -31,24 +40,24 @@ include __DIR__ . '/header.php';
       <div class="split">
         <div class="reveal">
           <span class="eyebrow"><span class="dot"></span> La nostra missione</span>
-          <h2 class="section-title" style="text-align:left;">Energia semplice, <span class="accent">supporto concreto</span></h2>
+          <h2 class="section-title" style="text-align:left;">Energia semplice, <span class="accent">risparmio concreto</span></h2>
           <div class="divider-line"></div>
           <p style="font-size:18px; color:var(--muted); line-height:1.75; margin: 0 0 24px;">
-            Action nasce per rendere piu chiaro il mercato dell'energia. Il nostro lavoro consiste nell'ascoltare il cliente, leggere i consumi, spiegare le differenze tra le offerte e accompagnare ogni scelta con attenzione.
+            <?= $brand ?> nasce per mettere al primo posto il tuo risparmio in bolletta. Attivare una nuova fornitura di luce e gas e facile e gratuito: tariffe competitive, condizioni trasparenti e nessun costo nascosto, perche l'energia deve essere prima di tutto chiara.
           </p>
           <div class="split-tiles">
             <div class="split-tile">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
               <div>
-                <h5>Analisi bolletta</h5>
-                <p>Studiamo i consumi reali prima di proporre qualsiasi soluzione.</p>
+                <h5>Prezzi bloccati 12 mesi</h5>
+                <p>Il prezzo che scegli resta fisso per 12 mesi dall'attivazione.</p>
               </div>
             </div>
             <div class="split-tile warm">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
               <div>
-                <h5>Zero rischi</h5>
-                <p>Gestiamo il cambio fornitore senza interruzioni del servizio.</p>
+                <h5>Zero sorprese</h5>
+                <p>Costi chiari fin dall'inizio, senza addebiti inattesi in bolletta.</p>
               </div>
             </div>
           </div>
@@ -66,20 +75,20 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="stat-strip-grid">
         <div class="stat-item reveal">
-          <div class="n">5.000+</div>
-          <div class="l">Contratti attivati</div>
+          <div class="n">12 mesi</div>
+          <div class="l">Prezzo bloccato</div>
         </div>
         <div class="stat-item reveal">
-          <div class="n">24h</div>
-          <div class="l">Risposta garantita</div>
+          <div class="n">Zero</div>
+          <div class="l">Sorprese in bolletta</div>
         </div>
         <div class="stat-item reveal">
-          <div class="n">8</div>
-          <div class="l">Offerte disponibili</div>
+          <div class="n">100%</div>
+          <div class="l">Chiarezza sui costi</div>
         </div>
         <div class="stat-item reveal">
-          <div class="n">€0</div>
-          <div class="l">Costo consulenza</div>
+          <div class="n">Gratis</div>
+          <div class="l">Attivazione fornitura</div>
         </div>
       </div>
     </div>
@@ -91,7 +100,7 @@ include __DIR__ . '/header.php';
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> I nostri valori</span>
         <h2 class="section-title">Tre principi, <span class="underline">ogni giorno</span></h2>
-        <p class="section-sub">I principi che guidano Action nel rapporto con ogni cliente, dal primo contatto fino all'attivazione.</p>
+        <p class="section-sub">Semplicita, velocita e convenienza guidano <?= $brand ?> nel rapporto con ogni cliente, dalla richiesta fino all'attivazione della fornitura.</p>
       </div>
 
       <div class="features-staggered">
@@ -101,19 +110,30 @@ include __DIR__ . '/header.php';
           </div>
           <div class="stagger-content">
             <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-            <h4>Trasparenza</h4>
-            <p>Spieghiamo condizioni, costi e caratteristiche delle offerte in modo comprensibile, per aiutarti a scegliere senza dubbi e senza sorprese successive.</p>
+            <h4>Semplicita</h4>
+            <p>Attivare una nuova fornitura di luce e gas con <?= $brand ?> e facile e gratuito: nessuna pratica complicata, ti accompagniamo passo dopo passo.</p>
           </div>
         </article>
 
         <article class="stagger-item reveal">
           <div class="stagger-visual">
-            <img src="chi_siamo_team.png" alt="Team di consulenza energetica al lavoro">
+            <img src="chi_siamo_team.png" alt="Assistenza clienti Domestika al lavoro">
           </div>
           <div class="stagger-content">
             <div class="feature-icon warm"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></div>
-            <h4>Competenza</h4>
-            <p>Il team Action segue con attenzione l'evoluzione del mercato energia e lavora con metodo, cosi da proporre soluzioni affidabili e coerenti con il profilo del cliente.</p>
+            <h4>Velocita</h4>
+            <p>Ottieni tutte le informazioni sulla nostra offerta con pochi click e ricevi un'assistenza immediata quando ne hai bisogno.</p>
+          </div>
+        </article>
+
+        <article class="stagger-item reveal">
+          <div class="stagger-visual">
+            <img src="split_home.png" alt="Il risparmio a casa con Domestika">
+          </div>
+          <div class="stagger-content">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+            <h4>Convenienza</h4>
+            <p>Tariffe competitive, chiarezza sui costi e prezzi bloccati 12 mesi: una soluzione all'insegna del risparmio, perche il risparmio e di casa.</p>
           </div>
         </article>
       </div>
@@ -130,13 +150,13 @@ include __DIR__ . '/header.php';
 
         <div class="reveal">
           <span class="eyebrow"><span class="dot"></span> Il nostro approccio</span>
-          <h2 class="section-title" style="text-align:left;">Come <span class="underline">lavoriamo</span> con te</h2>
+          <h2 class="section-title" style="text-align:left;">La <span class="underline">casa</span> al centro</h2>
           <div class="divider-line"></div>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 18px;">
-            Il nostro processo parte sempre dall'ascolto. Analizziamo la tua bolletta attuale, comprendiamo abitudini di consumo e obiettivi di spesa, e solo dopo individuiamo la soluzione luce o gas piu adatta.
+            Per noi la casa e molto piu di un luogo fisico: e dove vive la tua famiglia, ogni giorno. Per questo <?= $brand ?> porta energia sempre e comunque, senza compromessi e al massimo della potenza.
           </p>
           <p style="font-size:17px; color:var(--muted); line-height:1.75; margin: 0 0 32px;">
-            Action segue la documentazione, ti aggiorna sui passaggi operativi e resta disponibile anche dopo l'attivazione, per offrirti continuita e un riferimento chiaro nel tempo.
+            Scegliere <?= $brand ?> significa attivazione facile e gratuita, prezzi bloccati per 12 mesi e un'assistenza pronta ad aiutarti. Nessuna sorpresa in bolletta, solo chiarezza dal primo giorno.
           </p>
           <a href="contatti.php" class="btn-primary">Parla con un consulente</a>
         </div>
@@ -147,7 +167,7 @@ include __DIR__ . '/header.php';
   <!-- Quote finale -->
   <section class="quote-banner">
     <div class="mark">"</div>
-    <h2>L'obiettivo di Action non e solo proporre energia, ma costruire un rapporto di fiducia basato su chiarezza, ascolto e assistenza reale.</h2>
+    <h2>Con <?= $brand ?> l'energia e semplice, veloce e conveniente: perche il risparmio e di casa.</h2>
   </section>
 
 <?php
