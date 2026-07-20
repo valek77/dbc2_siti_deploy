@@ -107,7 +107,7 @@ include __DIR__ . '/header.php';
       <li>specificare il marchio del venditore di energia/gas per conto del quale viene effettuata la proposta commerciale;</li>
       <li>mostrare un numero di telefono richiamabile o appartenente ai prefissi identificativi nazionali stabiliti dalle Autorità.</li>
     </ul>
-    <p>In conformità al Codice di condotta per attività di telemarketing e teleselling, l’utente può opporsi in qualsiasi momento al contatto e richiedere l’iscrizione nella nostra Black List interna per non essere più ricontattato.</p>
+    <p>In conformità al <a href="https://www.odmtelemarketing.it/" target="_blank" rel="noopener">Codice di condotta per attività di telemarketing e teleselling</a>, l’utente può opporsi in qualsiasi momento al contatto e richiedere l’iscrizione nella nostra Black List interna per non essere più ricontattato.</p>
 
     <h2>Registro Pubblico delle Opposizioni</h2>
     <p><?= $ragioneSociale ?> si impegna a rispettare le disposizioni applicabili in materia di Registro Pubblico delle Opposizioni e a gestire le richieste di opposizione, cancellazione o limitazione dei contatti commerciali secondo le procedure aziendali adottate.</p>
