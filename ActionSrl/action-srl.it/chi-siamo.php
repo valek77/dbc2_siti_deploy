@@ -1,11 +1,13 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Chi Siamo';
+$operatoreNome = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : ($OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Illumia');
+$brandName = $operatoreNome;
 include __DIR__ . '/header.php';
 ?>
 
   <!-- Hero Section -->
-  <section class="hero" style="background: linear-gradient(rgba(94, 200, 215, 0.4), rgba(94, 200, 215, 0.6)), url('about_landscape.jpg') center/cover no-repeat; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;">
+  <section class="hero" style="background: url('hero_new.jpg') center/cover no-repeat; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;">
     <div style="max-width: 900px; padding: 20px;">
       <h1 style="color: #ffffff; font-size: clamp(48px, 8vw, 84px); margin: 0; font-weight: 800;">La nostra <span style="color: var(--accent);">passione</span></h1>
     </div>

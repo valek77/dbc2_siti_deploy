@@ -6,16 +6,41 @@ $pageHead = <<<'CSS'
   <style>
     /* Hero Section */
     .contact-hero {
-      min-height: 400px; 
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
       display: flex; 
       align-items: center; 
       justify-content: center; 
-      background: var(--bg-cream); 
+      background: linear-gradient(135deg, #eef1f4 0%, #f8f9fa 100%);
       color: var(--text-dark);
       padding: 120px 20px 140px;
       text-align: center;
     }
+    .contact-hero::before,
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .contact-hero::before {
+      width: 360px;
+      height: 360px;
+      top: -210px;
+      left: -100px;
+      background: rgba(198, 40, 40, 0.1);
+    }
+    .contact-hero::after {
+      width: 300px;
+      height: 300px;
+      right: -90px;
+      bottom: -190px;
+      border: 54px solid rgba(198, 40, 40, 0.08);
+    }
     .hero-container {
+      position: relative;
+      z-index: 1;
       max-width: 800px; 
       margin: 0 auto;
     }
@@ -47,17 +72,29 @@ $pageHead = <<<'CSS'
       z-index: 10;
     }
     .f-card {
+      position: relative;
+      overflow: hidden;
       background: #fff;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 42px 40px 38px;
+      border-radius: 20px;
+      box-shadow: 0 18px 42px rgba(33, 37, 41, 0.09);
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      border: 1px solid rgba(198, 40, 40, 0.14);
+    }
+    .f-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), #ef5350);
     }
     .f-card:hover { 
-      transform: translateY(-5px); 
-      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      transform: translateY(-7px);
+      box-shadow: 0 24px 52px rgba(33, 37, 41, 0.13);
+      border-color: rgba(198, 40, 40, 0.35);
     }
     .f-card h3 { 
       color: var(--text-dark); 
@@ -76,14 +113,18 @@ $pageHead = <<<'CSS'
       margin-top: 4px;
     }
     .f-card img { 
-      width: 48px; 
-      height: auto;
+      width: 76px;
+      height: 76px;
+      padding: 8px;
+      border-radius: 22px;
+      background: var(--accent-bg);
+      border: 1px solid rgba(198, 40, 40, 0.12);
     }
 
     /* Layout Sezione Form */
     .form-section {
-      padding: 120px 20px;
-      background: #fff;
+      padding: 116px 20px 128px;
+      background: linear-gradient(180deg, #fff 0%, #f7f8fa 100%);
     }
     .form-grid {
       max-width: 1280px;
@@ -102,11 +143,21 @@ $pageHead = <<<'CSS'
 
     /* Testo descrittivo */
     .form-text .section-title {
+      position: relative;
       text-align: left; 
       font-size: clamp(32px, 4vw, 42px); 
       margin-bottom: 24px; 
       color: var(--text-dark);
       line-height: 1.2;
+    }
+    .form-text .section-title::after {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 4px;
+      margin-top: 24px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--primary), #ef5350);
     }
     .form-text .section-title span {
       color: var(--primary);
@@ -136,13 +187,34 @@ $pageHead = <<<'CSS'
       color: var(--primary); 
       font-size: 22px;
       line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--accent-bg);
     }
 
     /* Form UI Elements */
     .form-container {
-      background: var(--bg-cream);
-      padding: 50px;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      padding: 52px;
+      border: 1px solid rgba(198, 40, 40, 0.12);
       border-radius: 24px;
+      box-shadow: 0 18px 48px rgba(33, 37, 41, 0.09);
+    }
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), #ef5350);
     }
     @media (max-width: 576px) {
       .form-container { padding: 30px 20px; }
@@ -171,7 +243,7 @@ $pageHead = <<<'CSS'
     }
     .form-input:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 0, 0, 0), 0.1); /* fallback generico se non hai la variabile rgb */
+      box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.12);
     }
     .form-input::placeholder {
       color: #a0a0a0;

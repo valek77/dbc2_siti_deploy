@@ -14,12 +14,14 @@ if (!isset($LANDING_PAGE)) {
   require __DIR__ . '/_config.php';
 }
 // Nome da mostrare: nome portale della landing, con fallback alla ragione sociale.
-$brandName = $LANDING_PAGE['nome_portale'] !== ''
-  ? $LANDING_PAGE['nome_portale']
-  : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Action Srl');
+$brandName = isset($brandName) && $brandName !== ''
+  ? $brandName
+  : ($LANDING_PAGE['nome_portale'] !== ''
+    ? $LANDING_PAGE['nome_portale']
+    : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Illumia'));
 $pageTitle = isset($pageTitle) ? $pageTitle : $brandName;
-// Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
-$logo = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'logo.png';
+// Logo testata: arriva dall'operatore energetico tramite l'API.
+$logo = $OPERATORE['logo_url'];
 ?>
 <!doctype html>
 <html lang="it">
@@ -40,7 +42,11 @@ $logo = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'logo.png
   <header class="main-header">
     <div class="header-container">
       <a href="index.php" class="logo">
-        <img src="<?= $logo ?>" alt="<?= $brandName ?>" class="logo-img">
+        <?php if ($logo !== '') { ?>
+          <img src="<?= $logo ?>" alt="<?= $brandName ?>" class="logo-img">
+        <?php } else { ?>
+          <span><?= $brandName ?></span>
+        <?php } ?>
       </a>
       <nav class="nav-links">
         <a href="chi-siamo.php" class="nav-link">Chi Siamo</a>

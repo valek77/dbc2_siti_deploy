@@ -6,10 +6,11 @@ $pageTitle = 'Energia per il tuo futuro';
 // Calcolati qui perché footer.php — che li usa per la riga legale — è incluso solo
 // a fine pagina. Tutto agnostico: nome e logo arrivano dall'API ($OPERATORE), così
 // hero-badge e sezione partner restano corretti anche se l'operatore cambia.
-$operatoreNome     = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
+$operatoreNome     = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : ($OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Illumia');
 $operatoreLogo     = $OPERATORE['logo_url']; // variante per sfondo chiaro (sezione)
 $operatoreLogoDark = $OPERATORE['logo2_url'] !== '' ? $OPERATORE['logo2_url'] : $OPERATORE['logo_url']; // sfondo scuro (hero)
 $haOperatore       = $operatoreNome !== '' || $operatoreLogo !== '';
+$brandName         = $operatoreNome;
 
 include __DIR__ . '/header.php';
 ?>
@@ -46,25 +47,35 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
-  <section class="features-section" style="background: #fff; padding: 100px 20px;">
-    <div style="max-width: 900px; margin: 0 auto 60px; text-align: center;">
-      <h2 class="section-title" style="font-size: 42px; margin-bottom: 20px; color: var(--text-dark);">I nostri Servizi per la tua Casa</h2>
-      <p class="section-sub" style="font-size: 18px; color: var(--text-secondary);">Ottimizza la tua energia. Tieni sotto controllo i tuoi consumi e scopri come risparmiare con le nostre offerte luce e gas.</p>
+  <section class="features-section services-section">
+    <div class="services-intro">
+      <span class="services-eyebrow">Il nostro supporto</span>
+      <h2 class="section-title services-title">I nostri Servizi per la tua Casa</h2>
+      <p class="section-sub services-subtitle">Ottimizza la tua energia. Tieni sotto controllo i tuoi consumi e scopri come risparmiare con le nostre offerte luce e gas.</p>
     </div>
 
     <div class="features-container">
       <div class="trust-card">
+        <span class="trust-card-kicker">Trasparenza</span>
+        <div class="trust-icon-wrap">
         <img src="icon_transparency.png" alt="Trasparenza" class="trust-mascot">
+        </div>
         <h4>Trasparenza Energetica</h4>
         <p>Tariffe luce e gas chiare e prive di sorprese. Paghi solo l'energia che consumi, con la massima trasparenza.</p>
       </div>
       <div class="trust-card">
+        <span class="trust-card-kicker">Consulente</span>
+        <div class="trust-icon-wrap">
         <img src="icon_consultant.png" alt="Consulente" class="trust-mascot">
+        </div>
         <h4>Consulenza Dedicata</h4>
         <p>Un esperto di energia sempre al tuo fianco per guidarti nella scelta delle migliori tariffe e soluzioni.</p>
       </div>
       <div class="trust-card">
+        <span class="trust-card-kicker">Audit Energetico</span>
+        <div class="trust-icon-wrap">
         <img src="icon_audit.png" alt="Audit Energetico" class="trust-mascot">
+        </div>
         <h4>Audit dei Consumi</h4>
         <p>Analizziamo gratuitamente i tuoi consumi per eliminare gli sprechi e abbattere i costi in bolletta.</p>
       </div>

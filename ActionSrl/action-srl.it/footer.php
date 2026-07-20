@@ -11,8 +11,8 @@
  */
 $brandName = isset($brandName) ? $brandName
     : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Locura');
-// Logo footer (sfondo scuro): logo2 dall'API se presente, altrimenti l'immagine locale.
-$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'locura-b.png';
+// Logo footer: usa la variante per sfondo scuro dell'operatore fornita dall'API.
+$logoFooter = $OPERATORE['logo2_url'] !== '' ? $OPERATORE['logo2_url'] : $OPERATORE['logo_url'];
 
 // Riga legale: includo solo le parti effettivamente presenti nell'API.
 $legalParts = [];
@@ -50,7 +50,11 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
     <div class="footer-container">
       <div class="footer-brand">
         <a href="index.php" class="logo">
-          <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo" style="max-height: 45px; width: auto;">
+          <?php if ($logoFooter !== '') { ?>
+            <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo" style="max-height: 45px; width: auto;">
+          <?php } else { ?>
+            <span><?= $brandName ?></span>
+          <?php } ?>
         </a>
         <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
       </div>

@@ -1,6 +1,12 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Tariffe ' . $OPERATORE['nome_marketing'];
+$brandName = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : 'Illumia';
+$operatoreLogo = $OPERATORE['logo_url'];
+$operatoreLogoDark = $OPERATORE['logo2_url'] !== '' ? $OPERATORE['logo2_url'] : $operatoreLogo;
+$operatoreLogoMarkup = $operatoreLogo !== ''
+  ? '<img src="' . $operatoreLogo . '" alt="' . $brandName . '" style="display: block; width: 130px; height: 62px; object-fit: contain; object-position: left center; margin-bottom: 16px;">'
+  : '<strong style="display: block; margin-bottom: 16px; font-size: 24px; color: var(--text-dark);">' . $brandName . '</strong>';
 
 $pageHead = <<<'CSS'
   <style>
@@ -22,8 +28,13 @@ include __DIR__ . '/header.php';
 ?>
 
   <section class="hero"
-    style="background: linear-gradient(rgba(94, 200, 215, 0.4), rgba(94, 200, 215, 0.6)), url('tariffe_hero.jpg') center/cover no-repeat; color: #ffffff; padding: 120px 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
+    style="background: url('tariffe_hero.jpg') center/cover no-repeat; color: #ffffff; padding: 120px 20px; height: auto; min-height: 400px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div class="hero-wrapper" style="max-width: 900px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <?php if ($operatoreLogoDark !== '') { ?>
+        <img src="<?= $operatoreLogoDark ?>" alt="<?= $brandName ?>" style="width: min(240px, 70vw); height: auto; margin-bottom: 24px;">
+      <?php } else { ?>
+        <strong style="font-size: clamp(28px, 5vw, 44px); margin-bottom: 24px; color: #fff;"><?= $brandName ?></strong>
+      <?php } ?>
       <h1 style="font-size: clamp(40px, 6vw, 64px); margin: 0 0 24px; max-width: 800px; font-weight: 800;">Offerte <span style="color: var(--accent);"><?= $OPERATORE['nome_marketing'] ?> Smart Flex</span></h1>
       <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 700px;">Prezzo variabile trasparente, agganciato agli indici di mercato (PUN Index GME per la luce, PSV per il gas), con fee chiara e corrispettivo annuo fisso. Offerte valide fino al 10/07/2026.</p>
     </div>
@@ -49,7 +60,11 @@ include __DIR__ . '/header.php';
             style="background: var(--accent-bg); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-weight: 600;">
             Luce e Gas · Casa e Business</div>
         </div>
-        <img src="<?= $OPERATORE['logo_url'] !== '' ? $OPERATORE['logo_url'] : 'illumia_logo.png' ?>" alt="<?= $OPERATORE['nome_marketing'] ?> Logo" style="max-width: 200px; height: auto;">
+        <?php if ($operatoreLogo !== '') { ?>
+          <img src="<?= $operatoreLogo ?>" alt="<?= $brandName ?>" style="max-width: 200px; height: auto;">
+        <?php } else { ?>
+          <strong style="font-size: 28px; color: var(--text-dark);"><?= $brandName ?></strong>
+        <?php } ?>
       </div>
       <div style="flex: 0.8; min-width: 300px; display: flex; justify-content: center;">
         <img src="hero_new.jpg" alt="Risparmio <?= $OPERATORE['nome_marketing'] ?>"
@@ -68,6 +83,7 @@ include __DIR__ . '/header.php';
 
   <script>
     const fornitore = '<?= $OPERATORE['nome_marketing'] ?>';
+    const operatoreLogoMarkup = <?= json_encode($operatoreLogoMarkup, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
     const offers = [
       {
         id: 'smart-flex-luce',
@@ -137,6 +153,7 @@ include __DIR__ . '/header.php';
       <div class="offer-card-ribbon" style="background: ${o.esclusiva ? 'var(--primary)' : 'var(--secondary)'}; color: #fff; padding: 8px; text-align: center; font-weight: 700; font-size: 14px;">${o.esclusiva ? '🔥 La più scelta' : o.categoria}</div>
       <div class="offer-card-body" style="padding: 40px; display: flex; flex-direction: column; flex: 1;">
         <div class="offer-card-header" style="margin-bottom: 24px;">
+          ${operatoreLogoMarkup}
           <div class="offer-name-wrap"><span class="offer-name" style="font-size: 24px; font-weight: 700; color: var(--text-dark);">${o.nome}</span></div>
           <div class="offer-provider" style="color: var(--text-secondary); margin-top: 4px; font-size: 14px;">${fornitore} · ${o.tipo} · ${o.categoria}</div>
         </div>
