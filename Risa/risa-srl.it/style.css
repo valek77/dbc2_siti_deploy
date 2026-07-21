@@ -583,6 +583,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   color: rgba(255, 255, 255, 0.5);
   font-size: 14px;
+  overflow-wrap: break-word;
 }
 
 .footer-bottom a {
