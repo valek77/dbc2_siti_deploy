@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageDescription = 'Scopri le soluzioni Action per luce, gas e consulenza energetica: offerte chiare per casa, professionisti e imprese.';
+$pageDescription = 'Scopri le soluzioni Domestika Energia per luce, gas e consulenza energetica: offerte chiare per casa, professionisti e imprese.';
 include __DIR__ . '/header.php';
 ?>
 
@@ -58,7 +58,7 @@ include __DIR__ . '/header.php';
   <section class="section pl-services">
     <div class="container">
       <div class="pl-section-intro pl-centered">
-        <span class="eyebrow"><span class="dot"></span> Scopri Action</span>
+        <span class="eyebrow"><span class="dot"></span> Scopri Domestika Energia</span>
         <h2>Soluzioni pensate<br><em>per te.</em></h2>
         <p>Ti aiutiamo a scegliere, attivare e gestire la tua energia con un supporto sempre presente.</p>
       </div>
@@ -73,12 +73,12 @@ include __DIR__ . '/header.php';
   <section class="pl-story">
     <div class="container pl-story-layout">
       <div class="pl-story-copy">
-        <span class="eyebrow"><span class="dot"></span> Perché Action</span>
+        <span class="eyebrow"><span class="dot"></span> Perché Domestika Energia</span>
         <h2>Più tempo per ciò che conta.<br><em>All'energia pensiamo noi.</em></h2>
         <p>Non devi essere un esperto per scegliere bene. Ascoltiamo le tue esigenze, analizziamo i consumi e traduciamo ogni voce in parole semplici.</p>
-        <a class="btn-dark" href="chi-siamo.php">Conosci Action <span>→</span></a>
+        <a class="btn-dark" href="chi-siamo.php">Conosci Domestika Energia <span>→</span></a>
       </div>
-      <div class="pl-story-image"><img src="chi_siamo_team.png" alt="Il team Action al tuo fianco"><div class="pl-story-note"><strong>Il tuo consulente,</strong><br>sempre al tuo fianco.</div></div>
+      <div class="pl-story-image"><img src="chi_siamo_team.png" alt="Il team Domestika Energia al tuo fianco"><div class="pl-story-note"><strong>Il tuo consulente,</strong><br>sempre al tuo fianco.</div></div>
     </div>
   </section>
 

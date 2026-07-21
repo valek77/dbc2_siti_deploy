@@ -16,11 +16,13 @@ if (!isset($LANDING_PAGE)) {
 }
 // Nome da mostrare: ragione sociale azienda (fonte affidabile). Il nome_portale
 // dell'API per questo sito arriva ibrido/errato ("SinergyGR"), quindi NON lo usiamo.
-$brandName = $COMPANY['company_name'] !== ''
-    ? $COMPANY['company_name']
-    : ($LANDING_PAGE['titolo'] !== ''
-        ? $LANDING_PAGE['titolo']
-        : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Gruppo Grimaldi'));
+if (!isset($brandName) || $brandName === '') {
+    $brandName = $COMPANY['company_name'] !== ''
+        ? $COMPANY['company_name']
+        : ($LANDING_PAGE['titolo'] !== ''
+            ? $LANDING_PAGE['titolo']
+            : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Gruppo Grimaldi'));
+}
 // Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
 $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'logo.png';
 ?>

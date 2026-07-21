@@ -1,11 +1,10 @@
 <?php
 require __DIR__ . '/_config.php';
 
-// Brand commerciale dell'operatore (nome_marketing "DOMESTIKA" -> "Domestika");
+// Brand commerciale dell'operatore.
 // fallback prudente. I valori di $OPERATORE sono gia' HTML-safe.
-$brand = $OPERATORE['nome_marketing'] !== ''
-    ? ucfirst(mb_strtolower($OPERATORE['nome_marketing'], 'UTF-8'))
-    : 'Domestika';
+$brand = 'Domestika Energia';
+$brandName = $brand;
 // Ragione sociale dell'operatore, citata dove serve il soggetto giuridico.
 $ragioneSociale = $OPERATORE['nome_legale'];
 
