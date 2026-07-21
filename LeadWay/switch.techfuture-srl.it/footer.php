@@ -27,7 +27,7 @@ $coCapitale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale']
 $coPec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
 $coDpoEmail = $COMPANY['email_dpo'];
 // Campi NON modellati dall'API -> cablati.
-$coRea = 'NA-1130210';
+$coRea = $COMPANY['numero_rea'];
 $coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
 ?>
 
