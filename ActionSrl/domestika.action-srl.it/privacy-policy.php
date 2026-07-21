@@ -7,9 +7,12 @@ require __DIR__ . '/_config.php';
 // semplicemente non compaiono.
 $titolareNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale']
     : ($OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : 'l\'operatore energetico');
-// L'API operatore non espone una casella DPO dedicata: per l'esercizio dei
-// diritti si usa l'e-mail di supporto dell'operatore.
+// DPO dell'operatore: se l'API espone una casella dedicata la si usa per la
+// sezione DPO e per l'esercizio dei diritti; in mancanza si ricade sull'e-mail
+// di supporto dell'operatore.
 $emailSupporto = $OPERATORE['email_supporto'];
+$emailDpo      = $OPERATORE['email_dpo'];
+$emailDiritti  = $emailDpo !== '' ? $emailDpo : $emailSupporto;
 // Recapiti/estremi del Titolare, aggiunti alla riga solo se presenti nell'API.
 $titolareParts = [];
 if ($OPERATORE['indirizzo'] !== '') {
@@ -17,6 +20,15 @@ if ($OPERATORE['indirizzo'] !== '') {
 }
 if ($OPERATORE['partita_iva'] !== '') {
     $titolareParts[] = 'C.F./P.IVA ' . $OPERATORE['partita_iva'];
+}
+if ($OPERATORE['numero_rea'] !== '') {
+    $titolareParts[] = 'REA ' . $OPERATORE['numero_rea'];
+}
+if ($OPERATORE['capitale_sociale'] !== '') {
+    $titolareParts[] = 'capitale sociale ' . $OPERATORE['capitale_sociale'];
+}
+if ($OPERATORE['pec'] !== '') {
+    $titolareParts[] = 'PEC ' . $OPERATORE['pec'];
 }
 if ($emailSupporto !== '') {
     $titolareParts[] = 'e-mail ' . $emailSupporto;
@@ -57,6 +69,10 @@ include __DIR__ . '/header.php';
     <h2>Titolare del trattamento</h2>
     <p>Il Titolare del trattamento è <strong><?= $titolareNome ?></strong><?= $titolareExtra ?>, in persona del legale rapp.te p.t..</p>
 
+<?php if ($emailDpo !== '') { ?>
+    <h2>Responsabile della protezione dei dati (DPO)</h2>
+    <p>Il DPO è contattabile alla casella e-mail <a href="mailto:<?= $emailDpo ?>"><strong><?= $emailDpo ?></strong></a>.</p>
+<?php } ?>
     <h2>Dati personali trattati</h2>
     <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: numero di telefono.</p>
 
@@ -87,7 +103,7 @@ include __DIR__ . '/header.php';
     <p>Non è effettuato alcun processo decisionale automatizzato, inclusa la profilazione, di cui all'art. 22 GDPR.</p>
 
     <h2>Diritti dell'interessato</h2>
-    <p>Puoi esercitare in qualsiasi momento<?php if ($emailSupporto !== '') { ?>, scrivendo a <a href="mailto:<?= $emailSupporto ?>"><?= $emailSupporto ?></a>,<?php } ?> i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
+    <p>Puoi esercitare in qualsiasi momento<?php if ($emailDiritti !== '') { ?>, scrivendo a <a href="mailto:<?= $emailDiritti ?>"><?= $emailDiritti ?></a>,<?php } ?> i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
     <ul>
       <li>accesso ai dati personali (art. 15 GDPR);</li>
       <li>rettifica dei dati inesatti o incompleti (art. 16 GDPR);</li>

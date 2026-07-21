@@ -1,5 +1,20 @@
 <?php
 require __DIR__ . '/_config.php';
+
+// Titolare del trattamento = OPERATORE ENERGETICO ($OPERATORE). I dati vengono
+// dall'API NUOVA; se un campo non è (ancora) valorizzato si ricade sui valori
+// legali storici di questo sito, così l'informativa non perde mai PEC/REA/DPO.
+$titNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Semplice Gas &amp; Luce S.p.A.';
+$titParts = [];
+$titParts[] = 'con sede legale in ' . ($OPERATORE['indirizzo'] !== '' ? $OPERATORE['indirizzo'] : 'Via San Quintino 3, 10121 Torino (TO)');
+$titParts[] = 'C.F./P.IVA e n. Registro Imprese ' . ($OPERATORE['partita_iva'] !== '' ? $OPERATORE['partita_iva'] : '11796930011');
+$titParts[] = 'REA ' . ($OPERATORE['numero_rea'] !== '' ? $OPERATORE['numero_rea'] : 'TO-1241415');
+if ($OPERATORE['capitale_sociale'] !== '') { $titParts[] = 'capitale sociale ' . $OPERATORE['capitale_sociale']; }
+$titParts[] = 'e-mail ' . ($OPERATORE['email_supporto'] !== '' ? $OPERATORE['email_supporto'] : 'partner@semplicegaseluce.it');
+$titParts[] = 'PEC ' . ($OPERATORE['pec'] !== '' ? $OPERATORE['pec'] : 'semplicegaseluce@pec.it');
+$titExtra = ', ' . implode(', ', $titParts);
+$emailDpo = $OPERATORE['email_dpo'] !== '' ? $OPERATORE['email_dpo'] : 'dpo@semplicegaseluce.it';
+
 $pageTitle = 'Informativa sul Trattamento dei Dati Personali';
 $pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) per la landing page di Semplice Gas & Luce S.p.A.';
 $pageHead = <<<'CSS'
@@ -32,10 +47,10 @@ include __DIR__ . '/header.php';
     <hr class="doc-rule">
 
     <h2>Titolare del trattamento</h2>
-    <p>Il Titolare del trattamento è <strong>Semplice Gas &amp; Luce S.p.A.</strong>, con sede legale in Via San Quintino 3, 10121 Torino (TO), C.F./P.IVA e n. Registro Imprese 11796930011, REA TO-1241415, e-mail partner@semplicegaseluce.it, PEC semplicegaseluce@pec.it, in persona del legale rapp.te p.t..</p>
+    <p>Il Titolare del trattamento è <strong><?= $titNome ?></strong><?= $titExtra ?>, in persona del legale rapp.te p.t..</p>
 
     <h2>Responsabile della protezione dei dati (DPO)</h2>
-    <p>Il DPO è contattabile alla casella e-mail <a href="mailto:dpo@semplicegaseluce.it"><strong>dpo@semplicegaseluce.it</strong></a>.</p>
+    <p>Il DPO è contattabile alla casella e-mail <a href="mailto:<?= $emailDpo ?>"><strong><?= $emailDpo ?></strong></a>.</p>
 
     <h2>Dati personali trattati</h2>
     <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: numero di telefono.</p>
@@ -67,7 +82,7 @@ include __DIR__ . '/header.php';
     <p>Non è effettuato alcun processo decisionale automatizzato, inclusa la profilazione, di cui all'art. 22 GDPR.</p>
 
     <h2>Diritti dell'interessato</h2>
-    <p>Puoi esercitare in qualsiasi momento, scrivendo a <a href="mailto:dpo@semplicegaseluce.it">dpo@semplicegaseluce.it</a>, i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
+    <p>Puoi esercitare in qualsiasi momento, scrivendo a <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>, i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
     <ul>
       <li>accesso ai dati personali (art. 15 GDPR);</li>
       <li>rettifica dei dati inesatti o incompleti (art. 16 GDPR);</li>

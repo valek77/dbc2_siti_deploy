@@ -1,7 +1,22 @@
 <?php
 require __DIR__ . '/_config.php';
+
+// Titolare del trattamento = OPERATORE ENERGETICO ($OPERATORE). I dati vengono
+// dall'API NUOVA; se un campo non è (ancora) valorizzato si ricade sui valori
+// legali storici di questo sito, così l'informativa non perde mai PEC/REA/DPO.
+$titNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Nexicom S.p.A.';
+$titParts = [];
+$titParts[] = 'con sede legale in ' . ($OPERATORE['indirizzo'] !== '' ? $OPERATORE['indirizzo'] : 'Via Volturno 5, 20900 Monza (MB)');
+$titParts[] = 'C.F./P.IVA e n. Registro Imprese ' . ($OPERATORE['partita_iva'] !== '' ? $OPERATORE['partita_iva'] : '10555170967');
+$titParts[] = 'REA ' . ($OPERATORE['numero_rea'] !== '' ? $OPERATORE['numero_rea'] : 'MB - 2773097');
+if ($OPERATORE['capitale_sociale'] !== '') { $titParts[] = 'capitale sociale ' . $OPERATORE['capitale_sociale']; }
+$titParts[] = 'e-mail ' . ($OPERATORE['email_supporto'] !== '' ? $OPERATORE['email_supporto'] : 'partner@nexicom.it');
+$titParts[] = 'PEC ' . ($OPERATORE['pec'] !== '' ? $OPERATORE['pec'] : 'nexicomspa@pec.nexicom.it');
+$titExtra = ', ' . implode(', ', $titParts);
+$emailDpo = $OPERATORE['email_dpo'] !== '' ? $OPERATORE['email_dpo'] : 'dpo@nexicom.it';
+
 $pageTitle = 'Informativa sul Trattamento dei Dati Personali';
-$pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) per la landing page di Nexicom S.p.A.';
+$pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) per la landing page di ' . $titNome . '.';
 $pageHead = <<<'CSS'
 <style>
   .policy-doc { max-width: 820px; margin: 70px auto 110px; padding: 0 24px; }
@@ -32,10 +47,10 @@ include __DIR__ . '/header.php';
     <hr class="doc-rule">
 
     <h2>Titolare del trattamento</h2>
-    <p>Il Titolare del trattamento è <strong>Nexicom S.p.A.</strong>, con sede legale in Via Volturno 5, 20900 Monza (MB), C.F./P.IVA e n. Registro Imprese 10555170967, REA MB - 2773097, e-mail partner@nexicom.it, PEC nexicomspa@pec.nexicom.it, in persona del legale rapp.te p.t..</p>
+    <p>Il Titolare del trattamento è <strong><?= $titNome ?></strong><?= $titExtra ?>, in persona del legale rapp.te p.t..</p>
 
     <h2>Responsabile della protezione dei dati (DPO)</h2>
-    <p>Il DPO è contattabile alla casella e-mail <a href="mailto:dpo@nexicom.it"><strong>dpo@nexicom.it</strong></a>.</p>
+    <p>Il DPO è contattabile alla casella e-mail <a href="mailto:<?= $emailDpo ?>"><strong><?= $emailDpo ?></strong></a>.</p>
 
 <?php
 // Identificazione della società che gestisce la landing (partner commerciale / Responsabile ex art. 28),
@@ -80,7 +95,7 @@ $cName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'la societ
     <p>Non è effettuato alcun processo decisionale automatizzato, inclusa la profilazione, di cui all'art. 22 GDPR.</p>
 
     <h2>Diritti dell'interessato</h2>
-    <p>Puoi esercitare in qualsiasi momento, scrivendo a <a href="mailto:dpo@nexicom.it">dpo@nexicom.it</a>, i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
+    <p>Puoi esercitare in qualsiasi momento, scrivendo a <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>, i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
     <ul>
       <li>accesso ai dati personali (art. 15 GDPR);</li>
       <li>rettifica dei dati inesatti o incompleti (art. 16 GDPR);</li>
