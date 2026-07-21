@@ -14,7 +14,8 @@ $pageDescription = $brand . ' e la nuova azienda luce e gas che mette al primo p
 include __DIR__ . '/header.php';
 ?>
 
-  <section class="hero" style="min-height: 500px;">
+<main class="pl-about-page">
+  <section class="hero pl-about-hero" style="min-height: 500px;">
     <div class="hero-slides">
       <div class="hero-slide active">
         <img src="hero_energy_1.png" class="hero-slide-bg" alt="Casa efficiente e comfort energetico">
@@ -169,6 +170,8 @@ include __DIR__ . '/header.php';
     <div class="mark">"</div>
     <h2>Con <?= $brand ?> l'energia e semplice, veloce e conveniente: perche il risparmio e di casa.</h2>
   </section>
+
+</main>
 
 <?php
 $pageScripts = <<<'HTML'
