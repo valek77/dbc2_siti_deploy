@@ -13,7 +13,7 @@ $coCapitale     = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_socia
 $coPec          = $COMPANY['pec']              !== '' ? $COMPANY['pec']              : 'gierrecontactcallcentersrl@pec.it';
 $coDpoEmail     = $COMPANY['email_dpo'];
 // Campi NON modellati dall'API -> cablati.
-$coRea       = 'NA-1130210';
+$coRea = $COMPANY['numero_rea'] !== '' ? $COMPANY['numero_rea'] : 'NA-1072970';
 $dataAgg     = '09/07/2026';
 
 $pageTitle = 'Trasparenza commerciale';

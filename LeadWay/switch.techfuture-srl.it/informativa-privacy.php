@@ -76,7 +76,7 @@ $titolarePec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcent
 // Capitale sociale: campo API se presente, altrimenti valore camerale del documento.
 $capitaleSociale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '€ 10.000,00 i.v.';
 // Dati camerali NON esposti dall'API (dal documento fornito dal cliente).
-$titolareRea = 'NA-1130210';
+$titolareRea = $COMPANY['numero_rea'] !== '' ? $COMPANY['numero_rea'] : 'NA-1072970';
 
 // --- DPO: email dall'API ---
 $emailDpo = $COMPANY['email_dpo'];
