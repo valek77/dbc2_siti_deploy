@@ -77,6 +77,12 @@ $pageHead = <<<'CSS'
       font-weight: 700;
       color: var(--primary);
     }
+
+    .legal-content a {
+      color: var(--accent);
+      text-decoration: underline;
+      font-weight: 600;
+    }
   </style>
 CSS;
 include __DIR__ . '/header.php';

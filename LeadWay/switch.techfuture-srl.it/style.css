@@ -1170,8 +1170,8 @@ img, svg { display: block; max-width: 100%; }
   font-size: 13px;
 }
 .footer-legal { margin: 0; line-height: 1.9; }
-.footer-legal a { color: rgba(255,255,255,.6); text-decoration: none; }
-.footer-legal a:hover { color: var(--accent); }
+.footer-legal a { color: var(--accent); text-decoration: underline; }
+.footer-legal a:hover { color: var(--accent-hi); }
 
 /* =========================================================
    Page hero (interior)

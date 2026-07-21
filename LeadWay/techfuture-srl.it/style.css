@@ -936,6 +936,11 @@ img, svg { display: block; max-width: 100%; height: auto; }
   font-size: 12.5px;
   line-height: 1.6;
 }
+.footer-bottom a {
+  color: var(--accent-hi);
+  text-decoration: underline;
+}
+.footer-bottom a:hover { color: #fff; }
 
 /* =========================================================
    Interior page hero

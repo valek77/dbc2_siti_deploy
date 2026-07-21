@@ -960,6 +960,18 @@ img, svg { display: block; max-width: 100%; }
   color: rgba(255,255,255,.4);
   font-size: 13px;
 }
+.footer-bottom a {
+  color: var(--accent-hi);
+  text-decoration: underline;
+}
+.footer-bottom a:hover { color: var(--accent); }
+
+/* Link nelle pagine legali/informative: sempre visibili e cliccabili */
+.legal-content a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+.legal-content a:hover { color: var(--primary-700); }
 
 /* =========================================================
    Page hero (interior)

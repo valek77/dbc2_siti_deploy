@@ -65,14 +65,23 @@ $pageHead = <<<'CSS'
       text-align: center;
       margin-bottom: 10px;
     }
+
+    .legal-content a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
   </style>
 CSS;
 
 // Recapiti dall'API (con fallback ragionevoli se un campo manca).
 $emailSupporto = $COMPANY['email_supporto'];
 $emailDpo = $COMPANY['email_dpo'] !== '' ? $COMPANY['email_dpo'] : $COMPANY['email_supporto'];
+// Helper: rende un indirizzo e-mail/PEC cliccabile (mailto).
+$mailtoLink = function ($addr) {
+  return '<a href="mailto:' . $addr . '">' . $addr . '</a>';
+};
 // Recapiti del Titolare mostrati inline nella sezione "Titolare del trattamento".
-$contattoTitolare = implode(' / ', array_filter([$emailSupporto, $COMPANY['pec']]));
+$contattoTitolare = implode(' / ', array_map($mailtoLink, array_filter([$emailSupporto, $COMPANY['pec']])));
 
 include __DIR__ . '/header.php';
 ?>
@@ -96,7 +105,7 @@ include __DIR__ . '/header.php';
     <h2>DATA PROTECTION OFFICER</h2>
     <span class="section-subhead">Art.13, par.1, lett. b</span>
     <p>Qualora previsto dalla normativa vigente, il Titolare potrà designare un Responsabile della Protezione dei Dati (RPD – DPO). I relativi dati di contatto saranno resi disponibili sul sito web o mediante specifica comunicazione all’interessato.</p>
-<?php if ($COMPANY['email_dpo'] !== '') { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong><?= $COMPANY['email_dpo'] ?></strong>.</p>
+<?php if ($COMPANY['email_dpo'] !== '') { ?>    <p>I dati di contatto del Responsabile della Protezione dei Dati (DPO), ove nominato, sono i seguenti: <strong><?= $mailtoLink($COMPANY['email_dpo']) ?></strong>.</p>
 <?php } ?>
 
     <h2>FINALITÀ SPECIFICHE DEL TRATTAMENTO DEI DATI PERSONALI</h2>
@@ -182,11 +191,11 @@ include __DIR__ . '/header.php';
     <p>Qualora l’interessato sia iscritto al Registro Pubblico delle Opposizioni, il Titolare si impegna a verificare preventivamente tale iscrizione prima di effettuare comunicazioni telefoniche a fini commerciali.</p>
     <p>Le richieste relative all’esercizio dei diritti possono essere inviate ai seguenti recapiti:</p>
     <ul>
-<?php if ($emailSupporto) { ?>      <li><?= $emailSupporto ?></li>
+<?php if ($emailSupporto) { ?>      <li><?= $mailtoLink($emailSupporto) ?></li>
 <?php } ?>
-<?php if ($emailDpo && $emailDpo !== $emailSupporto) { ?>      <li><?= $emailDpo ?></li>
+<?php if ($emailDpo && $emailDpo !== $emailSupporto) { ?>      <li><?= $mailtoLink($emailDpo) ?></li>
 <?php } ?>
-<?php if ($COMPANY['pec'] !== '') { ?>      <li><?= $COMPANY['pec'] ?></li>
+<?php if ($COMPANY['pec'] !== '') { ?>      <li><?= $mailtoLink($COMPANY['pec']) ?></li>
 <?php } ?>
     </ul>
 
@@ -196,7 +205,7 @@ include __DIR__ . '/header.php';
     <h2>REVOCA DEL CONSENSO</h2>
     <span class="section-subhead">Art.13, par.2, lett. d</span>
     <p>L’interessato può revocare in qualsiasi momento il consenso prestato per finalità di marketing o contatto commerciale, senza pregiudicare la liceità del trattamento effettuato prima della revoca.</p>
-<?php if ($emailSupporto) { ?>    <p>Per esercitare la revoca è possibile scrivere a <?= $emailSupporto ?><?= ($emailDpo && $emailDpo !== $emailSupporto) ? ' o ' . $emailDpo : '' ?>.</p>
+<?php if ($emailSupporto) { ?>    <p>Per esercitare la revoca è possibile scrivere a <?= $mailtoLink($emailSupporto) ?><?= ($emailDpo && $emailDpo !== $emailSupporto) ? ' o ' . $mailtoLink($emailDpo) : '' ?>.</p>
 <?php } ?>
 
     <h2>AGGIORNAMENTI DELLA PRESENTE INFORMATIVA</h2>
