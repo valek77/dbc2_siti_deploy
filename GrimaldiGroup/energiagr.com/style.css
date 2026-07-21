@@ -78,6 +78,20 @@ body {
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
+/* Link ben riconoscibili nelle pagine legali/informative */
+.legal-content a,
+.privacy-box a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+}
+.legal-content a:hover,
+.privacy-box a:hover {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
 h1,h2,h3,h4,h5 {
   font-family: var(--font-display);
   font-weight: 800;

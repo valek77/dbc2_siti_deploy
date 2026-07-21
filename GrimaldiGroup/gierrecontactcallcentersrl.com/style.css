@@ -93,6 +93,20 @@ h1, h2, h3, h4, h5, h6 {
 
 a { color: inherit; }
 
+/* Link ben riconoscibili nelle pagine legali/informative */
+.legal-content a,
+.privacy-box a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+}
+.legal-content a:hover,
+.privacy-box a:hover {
+  color: var(--primary-700);
+  text-decoration: none;
+}
+
 img, svg { display: block; max-width: 100%; }
 
 ::selection { background: var(--primary); color: #fff; }
