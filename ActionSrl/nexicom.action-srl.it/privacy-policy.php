@@ -10,8 +10,10 @@ $titParts[] = 'con sede legale in ' . ($OPERATORE['indirizzo'] !== '' ? $OPERATO
 $titParts[] = 'C.F./P.IVA e n. Registro Imprese ' . ($OPERATORE['partita_iva'] !== '' ? $OPERATORE['partita_iva'] : '11796930011');
 $titParts[] = 'REA ' . ($OPERATORE['numero_rea'] !== '' ? $OPERATORE['numero_rea'] : 'TO-1241415');
 if ($OPERATORE['capitale_sociale'] !== '') { $titParts[] = 'capitale sociale ' . $OPERATORE['capitale_sociale']; }
-$titParts[] = 'e-mail ' . ($OPERATORE['email_supporto'] !== '' ? $OPERATORE['email_supporto'] : 'partner@semplicegaseluce.it');
-$titParts[] = 'PEC ' . ($OPERATORE['pec'] !== '' ? $OPERATORE['pec'] : 'semplicegaseluce@pec.it');
+$emailSupporto = $OPERATORE['email_supporto'] !== '' ? $OPERATORE['email_supporto'] : 'partner@semplicegaseluce.it';
+$pecTit = $OPERATORE['pec'] !== '' ? $OPERATORE['pec'] : 'semplicegaseluce@pec.it';
+$titParts[] = 'e-mail <a href="mailto:' . $emailSupporto . '">' . $emailSupporto . '</a>';
+$titParts[] = 'PEC <a href="mailto:' . $pecTit . '">' . $pecTit . '</a>';
 $titExtra = ', ' . implode(', ', $titParts);
 $emailDpo = $OPERATORE['email_dpo'] !== '' ? $OPERATORE['email_dpo'] : 'dpo@semplicegaseluce.it';
 
