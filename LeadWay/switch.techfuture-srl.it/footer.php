@@ -53,7 +53,7 @@ $coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
     </div>
     <div class="footer-col">
       <h4>Legale</h4>
-      <a href="informativa-privacy.php">Privacy Policy</a>
+      <a href="privacy-policy.php">Privacy Policy</a>
       <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
       <a href="trasparenza-commerciale.php">Trasparenza commerciale</a>
       <a href="cookie-policy.php">Cookie Policy</a>
