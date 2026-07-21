@@ -558,6 +558,11 @@ body {
   font-size: 14px;
 }
 
+.footer-bottom a {
+  color: var(--yellow);
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;

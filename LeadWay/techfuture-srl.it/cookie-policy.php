@@ -45,6 +45,12 @@ $pageHead = <<<'CSS'
       text-align: justify;
     }
 
+    .legal-content a {
+      color: var(--primary);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
     .legal-content .separator {
       text-align: center;
       font-size: 24px;

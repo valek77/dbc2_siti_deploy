@@ -93,6 +93,10 @@ h1, h2, h3, h4, h5, h6 {
 
 a { color: inherit; }
 
+/* Link nei contenuti legali/privacy: visibili con colore accent e sottolineatura */
+.legal-content a,
+.privacy-box a { color: var(--primary); text-decoration: underline; }
+
 img, svg { display: block; max-width: 100%; }
 
 ::selection { background: var(--primary); color: #fff; }

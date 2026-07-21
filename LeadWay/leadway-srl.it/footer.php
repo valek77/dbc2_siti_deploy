@@ -33,7 +33,7 @@ if ($COMPANY['capitale_sociale'] !== '') {
   $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale'];
 }
 if ($COMPANY['pec'] !== '') {
-  $legalParts[] = 'PEC: ' . $COMPANY['pec'];
+  $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
 }
 $legalLine = implode(' &mdash; ', $legalParts);
 ?>

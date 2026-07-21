@@ -210,8 +210,8 @@ include __DIR__ . '/header.php';
       <img src="icon_consultant.png" alt="Email">
       <h3>Contattaci via Email</h3>
       <p>Il nostro team di esperti è pronto a rispondere a ogni tua domanda.
-        <?php if ($COMPANY['email_supporto'] !== '') { ?><br><strong><?= $COMPANY['email_supporto'] ?></strong><?php } ?>
-        <?php if ($COMPANY['telefono'] !== '') { ?><br><strong><?= $COMPANY['telefono'] ?></strong><?php } ?>
+        <?php if ($COMPANY['email_supporto'] !== '') { ?><br><strong><a href="mailto:<?= $COMPANY['email_supporto'] ?>" style="color:var(--accent);text-decoration:underline;"><?= $COMPANY['email_supporto'] ?></a></strong><?php } ?>
+        <?php if ($COMPANY['telefono'] !== '') { ?><br><strong><a href="tel:<?= $COMPANY['telefono'] ?>" style="color:var(--accent);text-decoration:underline;"><?= $COMPANY['telefono'] ?></a></strong><?php } ?>
       </p>
     </div>
   </div>
