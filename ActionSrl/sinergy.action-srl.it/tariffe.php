@@ -26,7 +26,7 @@ if ($nOfferte % 3 === 0) {
 }
 ?>
 
-  <section class="page-hero">
+  <section class="page-hero offers-page-hero">
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte ufficiali <?= $OPERATORE['nome_marketing'] ?></span>
       <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
@@ -39,7 +39,7 @@ if ($nOfferte % 3 === 0) {
     </div>
   </section>
 
-  <main class="section" style="padding: 80px 0 40px;">
+  <main class="section offers-main" style="padding: 80px 0 40px;">
     <div class="container">
 
       <?php if (count($tipologie) > 1): ?>
@@ -121,7 +121,7 @@ if ($nOfferte % 3 === 0) {
     </div>
   </main>
 
-  <section class="section glossary">
+  <section class="section glossary offers-glossary">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Capire il prezzo</span>

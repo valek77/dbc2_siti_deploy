@@ -5,7 +5,7 @@ $pageDescription = 'Scopri Sinergy Luce e Gas: un operatore attivo dal 2017 nel 
 include __DIR__ . '/header.php';
 ?>
 
-  <section class="hero" style="min-height: 500px;">
+  <section class="hero about-hero" style="min-height: 500px;">
     <div class="hero-slides">
       <div class="hero-slide active">
         <img src="hero_energy_1.png" class="hero-slide-bg" alt="Casa efficiente e comfort energetico">
@@ -26,7 +26,7 @@ include __DIR__ . '/header.php';
   </section>
 
   <!-- Mission split -->
-  <section class="section">
+  <section class="section about-mission">
     <div class="container">
       <div class="split">
         <div class="reveal">
@@ -86,7 +86,7 @@ include __DIR__ . '/header.php';
   </section>
 
   <!-- Valori staggered -->
-  <section class="section features">
+  <section class="section features about-values">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> I nostri valori</span>
@@ -131,7 +131,7 @@ include __DIR__ . '/header.php';
   </section>
 
   <!-- Come lavoriamo -->
-  <section class="section">
+  <section class="section about-approach">
     <div class="container">
       <div class="split reverse">
         <div class="split-visual reveal">
@@ -155,7 +155,7 @@ include __DIR__ . '/header.php';
   </section>
 
   <!-- Quote finale -->
-  <section class="quote-banner">
+  <section class="quote-banner about-quote">
     <div class="mark">"</div>
     <h2>Sinergy nasce per essere molto piu di un semplice fornitore: un riferimento affidabile costruito su chiarezza, supporto e competenza.</h2>
   </section>

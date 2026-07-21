@@ -15,7 +15,7 @@ $showConsensoCommerciale = $isEnabled($LANDING_PAGE['mostra_consenso_1']);
 $showConsensoMarketing = $isEnabled($LANDING_PAGE['mostra_consenso_2']);
 ?>
 
-  <section class="page-hero">
+  <section class="page-hero contact-page-hero">
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Contattaci</span>
       <h1>Parliamo di <span class="accent">energia</span></h1>
@@ -28,7 +28,7 @@ $showConsensoMarketing = $isEnabled($LANDING_PAGE['mostra_consenso_2']);
     </div>
   </section>
 
-  <main class="section" style="padding: 80px 0 var(--section);">
+  <main class="section contact-main" style="padding: 80px 0 var(--section);">
     <div class="container">
       <div class="contact-grid" style="grid-template-columns: 1fr; max-width: 720px; margin: 0 auto;">
 
