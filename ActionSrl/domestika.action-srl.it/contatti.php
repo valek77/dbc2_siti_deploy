@@ -46,22 +46,25 @@ $operatoreNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 
               </div>
               <?php endif; ?>
 
+              <input id="fNome" name="nome" type="hidden" value="--">
+              <input id="fEmail" name="email" type="hidden" value="">
+              <!-- Campi Nome/Email nascosti su richiesta. Per ripristinarli, elimina i due input hidden sopra e ripristina il markup seguente (Email va dopo il campo Telefono):
               <div class="form-group">
                 <label class="form-label" for="fNome">Nome e Cognome *</label>
                 <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>
                 <div class="field-error" data-error-for="fNome"></div>
               </div>
+              <div class="form-group">
+                <label class="form-label" for="fEmail">Email</label>
+                <input class="form-input" id="fEmail" name="email" type="email" placeholder="mario.rossi@email.it">
+                <div class="field-error" data-error-for="fEmail"></div>
+              </div>
+              -->
 
               <div class="form-group">
                 <label class="form-label" for="fTel">Telefono *</label>
                 <input class="form-input" id="fTel" name="telefono" type="tel" placeholder="333 1234567" required pattern="[0-9 +]{8,}">
                 <div class="field-error" data-error-for="fTel"></div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="fEmail">Email</label>
-                <input class="form-input" id="fEmail" name="email" type="email" placeholder="mario.rossi@email.it">
-                <div class="field-error" data-error-for="fEmail"></div>
               </div>
 
 <?php /* Consensi: mostrati solo se abilitati nella landing dall'API.
