@@ -100,7 +100,7 @@ include __DIR__ . '/header.php';
     <p>Il ricontatto sarà effettuato da <?= $titolareNome ?> esclusivamente nei limiti della richiesta formulata dall’utente.</p>
     <p>Qualora l’utente manifesti interesse a procedere con un’offerta di <?= $switch ?>, i dati necessari potranno essere comunicati o resi disponibili a <?= $switch ?>, che opererà come autonomo Titolare del trattamento per le attività di propria competenza, secondo la relativa informativa privacy.</p>
     <p>Il consenso all’invio di ulteriori comunicazioni commerciali tramite telefono, e-mail, SMS o WhatsApp è facoltativo, separato e revocabile in qualsiasi momento.</p>
-    <p>L’utente potrà esercitare i diritti previsti dagli artt. 15-22 GDPR, nonché revocare il consenso o opporsi a ulteriori contatti commerciali, scrivendo a <?= $titolareNome ?> oppure al DPO/RPD all’indirizzo: <?= $emailDpo ?>.</p>
+    <p>L’utente potrà esercitare i diritti previsti dagli artt. 15-22 GDPR, nonché revocare il consenso o opporsi a ulteriori contatti commerciali, scrivendo a <?= $titolareNome ?> oppure al DPO/RPD all’indirizzo: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>.</p>
 
     <h2>1. Titolare del trattamento</h2>
     <p>Il Titolare del trattamento è:</p>
@@ -112,7 +112,7 @@ include __DIR__ . '/header.php';
       REA: <?= $titolareRea ?><br>
       Capitale sociale: <?= $capitaleSociale ?><br>
       Società a socio unico<br>
-      PEC: <?= $titolarePec ?>
+      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
     </p>
 
     <h2>1-bis. Ruoli privacy nelle diverse fasi</h2>
@@ -127,7 +127,7 @@ include __DIR__ . '/header.php';
     <p><?= $titolareNome ?> ha nominato un Responsabile della Protezione dei Dati / Data Protection Officer.</p>
     <p>
 <?php if ($emailDpo !== ''): ?>      DPO / RPD<br>
-      E-mail: <?= $emailDpo ?>
+      E-mail: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
 <?php endif; ?>    </p>
     <p>Il DPO può essere contattato per questioni relative al trattamento dei dati personali e per l’esercizio dei diritti degli interessati.</p>
 
