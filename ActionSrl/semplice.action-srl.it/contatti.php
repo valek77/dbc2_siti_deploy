@@ -7,7 +7,6 @@ include __DIR__ . '/header.php';
 
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow eyebrow-light"><span class="dot"></span> Consulenza Gratuita</span>
       <h1>Parliamo del tuo <span class="accent">risparmio</span></h1>
       <p>Richiedi un'analisi energetica senza impegno. Un nostro energy manager al più presto per identificare l'opzione ideale in base al tuo profilo di consumo.</p>
     </div>

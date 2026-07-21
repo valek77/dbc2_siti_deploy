@@ -202,7 +202,7 @@ include __DIR__ . '/header.php';
               <div class="illumia-price-val">0,055 <span class="illumia-price-unit">€/kWh</span></div>
             </div>
             
-            <a href="contatti.php?offerta=PUN Index GME Domestico 386#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Richiedi Preventivo</a>
+            <a href="contatti.php?offerta=PUN Index GME Domestico 386#contatto-form" class="btn-illumia btn-luce" style="margin-top: 24px;">Voglio essere ricontattato</a>
           </div>
           
           <div class="illumia-card-right">
@@ -248,7 +248,7 @@ include __DIR__ . '/header.php';
               <li><span class="checkmark">✓</span> <b>Corrispettivo annuo:</b> 648 €/PDR/anno</li>
             </ul>
             
-            <a href="contatti.php?offerta=PSV Domestico 386#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Richiedi Preventivo</a>
+            <a href="contatti.php?offerta=PSV Domestico 386#contatto-form" class="btn-illumia btn-gas" style="margin-top: auto;">Voglio essere ricontattato</a>
           </div>
         </article>
 

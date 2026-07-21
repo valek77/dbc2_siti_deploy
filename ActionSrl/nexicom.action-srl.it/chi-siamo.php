@@ -111,7 +111,7 @@ $pageDescription = $op . ' è un\'azienda specializzata nella filiera commercial
         La fornitura viene quindi attivata da <?= $op ?>, che gestisce contratto e bolletta. Non dovrai fare altro che attendere lo switch, senza interruzioni di servizio né interventi tecnici in casa.
       </p>
       <a href="contatti.php" class="btn-secondary" style="align-self: flex-start; padding: 14px 28px; background:#ffffff; color:var(--primary); font-weight:700;">
-        Richiedi un preventivo gratuito
+        Voglio essere ricontattato
         <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>

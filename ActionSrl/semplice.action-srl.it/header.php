@@ -60,7 +60,7 @@ $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'lo
         <a href="contatti.php" class="nav-link">Contatti</a>
       </nav>
       <div class="header-cta">
-        <a href="contatti.php" class="btn-primary">Ottieni un preventivo
+        <a href="contatti.php" class="btn-primary">Voglio essere ricontattato
           <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>

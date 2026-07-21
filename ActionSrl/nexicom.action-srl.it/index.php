@@ -384,7 +384,7 @@ include __DIR__ . '/header.php';
           <li><span style="color:var(--primary);font-weight:800;">✓</span> Spread bloccato per i primi 12 mesi, senza costi nascosti</li>
           <li><span style="color:var(--primary);font-weight:800;">✓</span> Gestione completa delle pratiche di attivazione</li>
         </ul>
-        <div style="margin-top:30px;"><a href="contatti.php" class="btn-primary">Richiedi un preventivo gratuito
+        <div style="margin-top:30px;"><a href="contatti.php" class="btn-primary">Voglio essere ricontattato
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       </div>
       <div class="media"><img src="feature_consulenza.jpg" alt="Dashboard di monitoraggio energetico"></div>
