@@ -60,7 +60,7 @@ include __DIR__ . '/header.php';
     <p style="font-style:italic; font-size:14px; color:var(--muted); margin:0 0 30px;">Termini e condizioni generali del sito web <?= $ragioneSociale ?></p>
 
     <h2>1. Premessa</h2>
-    <p>Le presenti Condizioni di Utilizzo disciplinano l’accesso, la navigazione e l’utilizzo del sito internet e delle relative pagine, landing page, form di contatto e contenuti informativi riconducibili a <?= $titolareNome ?>, anche attraverso il servizio commerciale GrEnergy.</p>
+    <p>Le presenti Condizioni di Utilizzo disciplinano l’accesso, la navigazione e l’utilizzo del sito internet e delle relative pagine, landing page, form di contatto e contenuti informativi riconducibili a <?= $titolareNome ?></p>
     <p>L’accesso e l’utilizzo del sito comportano l’accettazione delle presenti condizioni. L’utente che non intenda accettarle è invitato a non utilizzare il sito e a non trasmettere richieste tramite i form disponibili.</p>
 
     <h2>2. Gestore del sito</h2>
