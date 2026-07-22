@@ -4,19 +4,21 @@ require __DIR__ . '/_config.php';
 // Titolare del trattamento = OPERATORE ENERGETICO ($OPERATORE). I dati vengono
 // dall'API NUOVA; se un campo non è (ancora) valorizzato si ricade sui valori
 // legali storici di questo sito, così l'informativa non perde mai PEC/REA/DPO.
-$titNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Nexicom S.p.A.';
+$titNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Semplice Gas &amp; Luce S.p.A.';
 $titParts = [];
-$titParts[] = 'con sede legale in ' . ($OPERATORE['indirizzo'] !== '' ? $OPERATORE['indirizzo'] : 'Via Volturno 5, 20900 Monza (MB)');
-$titParts[] = 'C.F./P.IVA e n. Registro Imprese ' . ($OPERATORE['partita_iva'] !== '' ? $OPERATORE['partita_iva'] : '10555170967');
-$titParts[] = 'REA ' . ($OPERATORE['numero_rea'] !== '' ? $OPERATORE['numero_rea'] : 'MB - 2773097');
+$titParts[] = 'con sede legale in ' . ($OPERATORE['indirizzo'] !== '' ? $OPERATORE['indirizzo'] : 'Via San Quintino 3, 10121 Torino (TO)');
+$titParts[] = 'C.F./P.IVA e n. Registro Imprese ' . ($OPERATORE['partita_iva'] !== '' ? $OPERATORE['partita_iva'] : '11796930011');
+$titParts[] = 'REA ' . ($OPERATORE['numero_rea'] !== '' ? $OPERATORE['numero_rea'] : 'TO-1241415');
 if ($OPERATORE['capitale_sociale'] !== '') { $titParts[] = 'capitale sociale ' . $OPERATORE['capitale_sociale']; }
-$titParts[] = 'e-mail ' . ($OPERATORE['email_supporto'] !== '' ? $OPERATORE['email_supporto'] : 'partner@nexicom.it');
-$titParts[] = 'PEC ' . ($OPERATORE['pec'] !== '' ? $OPERATORE['pec'] : 'nexicomspa@pec.nexicom.it');
+$emailSupporto = $OPERATORE['email_supporto'] !== '' ? $OPERATORE['email_supporto'] : 'partner@semplicegaseluce.it';
+$pecTit = $OPERATORE['pec'] !== '' ? $OPERATORE['pec'] : 'semplicegaseluce@pec.it';
+$titParts[] = 'e-mail <a href="mailto:' . $emailSupporto . '">' . $emailSupporto . '</a>';
+$titParts[] = 'PEC <a href="mailto:' . $pecTit . '">' . $pecTit . '</a>';
 $titExtra = ', ' . implode(', ', $titParts);
-$emailDpo = $OPERATORE['email_dpo'] !== '' ? $OPERATORE['email_dpo'] : 'dpo@nexicom.it';
+$emailDpo = $OPERATORE['email_dpo'] !== '' ? $OPERATORE['email_dpo'] : 'dpo@semplicegaseluce.it';
 
 $pageTitle = 'Informativa sul Trattamento dei Dati Personali';
-$pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) per la landing page di ' . $titNome . '.';
+$pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) per la landing page di Semplice Gas & Luce S.p.A.';
 $pageHead = <<<'CSS'
 <style>
   .policy-doc { max-width: 820px; margin: 70px auto 110px; padding: 0 24px; }
@@ -27,14 +29,14 @@ $pageHead = <<<'CSS'
   .policy-doc .doc-subtitle {
     text-align: center; font-style: italic; font-size: 15px; color: var(--muted, #475569); margin: 12px 0 0;
   }
-  .policy-doc .doc-rule { border: 0; border-top: 2px solid var(--primary, #0d9488); margin: 20px 0 40px; }
+  .policy-doc .doc-rule { border: 0; border-top: 2px solid var(--primary, #1e40af); margin: 20px 0 40px; }
   .policy-doc h2 {
-    color: var(--primary, #0d9488); font-size: 17px; font-weight: 700; margin: 34px 0 12px; letter-spacing: 0.01em;
+    color: var(--primary, #1e40af); font-size: 17px; font-weight: 700; margin: 34px 0 12px; letter-spacing: 0.01em;
   }
   .policy-doc p { font-size: 15px; line-height: 1.75; text-align: justify; margin: 0 0 14px; color: var(--ink-2, #374151); }
   .policy-doc ol, .policy-doc ul { font-size: 15px; line-height: 1.75; color: var(--ink-2, #374151); margin: 0 0 14px; padding-left: 24px; }
   .policy-doc li { margin-bottom: 12px; text-align: justify; }
-  .policy-doc a { color: var(--primary, #0d9488); font-weight: 600; }
+  .policy-doc a { color: var(--primary, #1e40af); font-weight: 600; }
 </style>
 CSS;
 include __DIR__ . '/header.php';
@@ -51,19 +53,6 @@ include __DIR__ . '/header.php';
 
     <h2>Responsabile della protezione dei dati (DPO)</h2>
     <p>Il DPO è contattabile alla casella e-mail <a href="mailto:<?= $emailDpo ?>"><strong><?= $emailDpo ?></strong></a>.</p>
-
-<?php
-// Identificazione della società che gestisce la landing (partner commerciale / Responsabile ex art. 28),
-// con i dati azienda dall'API ($COMPANY). Costruisco solo le parti effettivamente presenti.
-$cParts = [];
-if ($COMPANY['sede_legale'] !== '') { $cParts[] = 'con sede legale in ' . $COMPANY['sede_legale']; }
-if ($COMPANY['p_iva'] !== '')       { $cParts[] = 'C.F./P.IVA ' . $COMPANY['p_iva']; }
-if ($COMPANY['pec'] !== '')         { $cParts[] = 'PEC <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>'; }
-$cLine = $cParts ? ', ' . implode(', ', $cParts) : '';
-$cName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'la società partner';
-?>
-    <h2>Gestore della pagina e Responsabile del trattamento</h2>
-    <p>La presente landing page è gestita da <strong><?= $cName ?></strong><?= $cLine ?>, in qualità di partner commerciale del Titolare. Tale società tratta i dati per conto del Titolare quale Responsabile del trattamento ai sensi dell'art. 28 GDPR, limitatamente alla gestione della pagina, alla raccolta delle richieste e al contatto.</p>
 
     <h2>Dati personali trattati</h2>
     <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: numero di telefono.</p>
