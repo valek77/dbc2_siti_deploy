@@ -129,7 +129,7 @@ if ($nOfferte % 3 === 0) {
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Capire il prezzo</span>
         <h2 class="section-title">Come funzionano <span class="underline">le tariffe</span></h2>
-        <p class="section-sub"><?= $OPERATORE['nome_marketing'] ?> propone offerte luce e gas con condizioni definite dall'API landing-pages. <?= $nomeCompany ?> ti aiuta a leggere le componenti di prezzo e a capire quale soluzione sia più adatta al tuo profilo.</p>
+        <p class="section-sub"><?= $OPERATORE['nome_marketing'] ?> propone offerte luce e gas con condizioni chiare e trasparenti. <?= $nomeCompany ?> ti aiuta a leggere le componenti di prezzo e a capire quale soluzione sia più adatta al tuo profilo.</p>
       </div>
 
       <div class="glossary-grid">
