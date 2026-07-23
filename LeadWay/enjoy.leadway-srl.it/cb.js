@@ -47,7 +47,7 @@
           margin: 0;
         }
         .cookie-content a {
-          color: #FF7A00;
+          color: #9f207c;
           text-decoration: underline;
           font-weight: 600;
         }
@@ -69,12 +69,12 @@
           font-family: inherit;
         }
         .cookie-btn-primary {
-          background: #FF7A00;
+          background: #9f207c;
           color: #fff;
-          box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3);
+          box-shadow: 0 4px 12px rgba(159, 32, 124, 0.3);
         }
         .cookie-btn-primary:hover {
-          background: #E56E00;
+          background: #821a65;
           transform: translateY(-2px);
         }
         .cookie-btn-secondary {

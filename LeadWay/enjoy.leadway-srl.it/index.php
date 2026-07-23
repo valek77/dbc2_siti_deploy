@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/_config.php';
+$brandName = 'Leadway';
 $pageTitle = 'Energie Rinnovabili';
 include __DIR__ . '/header.php';
 ?>

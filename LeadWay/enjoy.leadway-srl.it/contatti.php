@@ -82,7 +82,7 @@ $preselOffertaId = isset($_GET['offerta']) ? trim((string) $_GET['offerta']) : '
               </button>
             </form>
 
-            <div id="conferma" hidden style="text-align: center; padding: 32px 0; margin-top: 20px; background: #FFF4E8; border: 1px solid rgba(255,122,0,0.25); border-radius: var(--radius-md); color: #111111;">
+            <div id="conferma" hidden style="text-align: center; padding: 32px 0; margin-top: 20px; background: #f9eaf4; border: 1px solid rgba(159,32,124,0.25); border-radius: var(--radius-md); color: #111111;">
               <div style="font-size: 56px; margin-bottom: 12px;">✅</div>
               <strong style="font-size: 17px;">Richiesta inviata con successo!</strong>
               <p style="margin: 8px 0 0; font-size: 14.5px;">Un nostro consulente ti contatterà.</p>

@@ -1,18 +1,18 @@
 :root {
-  --primary: #FF7A00;
+  --primary: #9f207c;
   --secondary: #111111;
-  --accent: #FF7A00;
-  --accent-hover: #E56E00;
-  --accent-bg: #FFF4E8;
-  --accent-border: rgba(255, 122, 0, 0.18);
-  --accent-shadow: rgba(255, 122, 0, 0.16);
-  --accent-shadow-strong: rgba(255, 122, 0, 0.28);
-  --yellow: #FF7A00;
-  --yellow-hover: #E56E00;
-  --orange-soft: rgba(255, 122, 0, 0.10);
-  --orange-soft-strong: rgba(255, 122, 0, 0.18);
-  --grad-blue: linear-gradient(135deg, #FF7A00 0%, #111111 100%);
-  --grad-yellow: linear-gradient(135deg, #FFB066 0%, #FF7A00 100%);
+  --accent: #9f207c;
+  --accent-hover: #821a65;
+  --accent-bg: #f9eaf4;
+  --accent-border: rgba(159, 32, 124, 0.18);
+  --accent-shadow: rgba(159, 32, 124, 0.16);
+  --accent-shadow-strong: rgba(159, 32, 124, 0.28);
+  --yellow: #9f207c;
+  --yellow-hover: #821a65;
+  --orange-soft: rgba(159, 32, 124, 0.10);
+  --orange-soft-strong: rgba(159, 32, 124, 0.18);
+  --grad-blue: linear-gradient(135deg, #9f207c 0%, #111111 100%);
+  --grad-yellow: linear-gradient(135deg, #d978b5 0%, #9f207c 100%);
   --text-dark: #111111;
   --text-secondary: #333333;
   --text-muted: #666666;
@@ -84,7 +84,7 @@ body {
 
 /* ─── Hero ─── */
 .hero {
-  background: linear-gradient(135deg, #111111 0%, #FF7A00 100%);
+  background: linear-gradient(135deg, #111111 0%, #9f207c 100%);
   color: #fff; padding: 56px 20px 80px; text-align: left;
   overflow: hidden;
 }
@@ -133,13 +133,13 @@ body {
 }
 
 .btn-primary {
-  background: var(--yellow); color: var(--text-dark);
+  background: var(--yellow); color: #ffffff;
   box-shadow: 0 4px 12px var(--accent-shadow-strong);
 }
 
 .btn-primary:hover {
   background: var(--yellow-hover);
-  transform: translateY(-2px); box-shadow: 0 6px 16px rgba(255, 122, 0, 0.36);
+  transform: translateY(-2px); box-shadow: 0 6px 16px rgba(159, 32, 124, 0.36);
 }
 
 .btn-primary.btn-contrast {
@@ -363,7 +363,7 @@ body {
   font-weight: 900;
   font-family: var(--font-h);
   margin: 0 auto 24px;
-  box-shadow: 0 4px 15px rgba(255, 122, 0, 0.32);
+  box-shadow: 0 4px 15px rgba(159, 32, 124, 0.32);
 }
 
 .hiw-step p {
@@ -410,7 +410,7 @@ body {
 }
 
 .offer-card-ribbon {
-  background: linear-gradient(135deg, #111111, #FF7A00); color: #fff;
+  background: linear-gradient(135deg, #111111, #9f207c); color: #fff;
   font-size: 11px; font-weight: 700; padding: 6px 14px; text-align: center;
 }
 
@@ -472,10 +472,10 @@ body {
 
 .btn-cta, .btn-submit {
   border: none; background: var(--yellow);
-  color: var(--text-dark); font-weight: 800; cursor: pointer; width: 100%;
+  color: #ffffff; font-weight: 800; cursor: pointer; width: 100%;
 }
 
-.btn-cta:hover, .btn-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(255, 122, 0, 0.30); background: var(--yellow-hover); }
+.btn-cta:hover, .btn-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(159, 32, 124, 0.30); background: var(--yellow-hover); }
 
 .btn-submit { padding: 16px; border-radius: 14px; margin-top: 8px; }
 

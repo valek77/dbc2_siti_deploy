@@ -6,7 +6,7 @@ $pageHead = <<<'CSS'
 <style>
   /* ─── Hero tariffe ─── */
   .tariffe-hero {
-    background: linear-gradient(135deg, #111111 0%, #FF7A00 100%);
+    background: linear-gradient(135deg, #111111 0%, #9f207c 100%);
     color: #fff; padding: 64px 20px 110px; text-align: center; position: relative;
     overflow: hidden;
   }
@@ -27,7 +27,8 @@ $pageHead = <<<'CSS'
     font-family: var(--font-h); font-size: clamp(34px, 5.5vw, 54px); font-weight: 800;
     line-height: 1.12; margin: 0 0 16px; text-shadow: 0 2px 6px rgba(0,0,0,0.15);
   }
-  .tariffe-hero h1 .accent { color: #FFD9B3; }
+  .tariffe-hero h1 .accent { color: #e6a6d0; }
+  .tariffe-hero .title-logo { display: inline-block; max-width: 150px; max-height: 48px; width: auto; height: auto; margin: 0 8px; vertical-align: middle; object-fit: contain; }
   .tariffe-hero p { font-size: 20px; line-height: 1.55; opacity: .95; margin: 0 auto; max-width: 600px; }
   .tariffe-hero .partner {
     margin-top: 28px; display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap;
@@ -36,6 +37,7 @@ $pageHead = <<<'CSS'
   }
   .tariffe-hero .partner .lbl { font-size: 15px; font-weight: 600; }
   .tariffe-hero .partner .op { font-size: 17px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; }
+  .tariffe-hero .partner .operator-logo { display: block; max-width: 120px; max-height: 34px; width: auto; height: auto; object-fit: contain; }
 
   /* ─── Griglia offerte ─── */
   .offers-wrap { max-width: 1040px; margin: -64px auto 0; padding: 0 20px; position: relative; z-index: 2; }
@@ -47,17 +49,18 @@ $pageHead = <<<'CSS'
     box-shadow: 0 24px 60px rgba(17,17,17,0.12); border: 1px solid var(--border);
     transition: transform .25s ease, box-shadow .25s ease;
   }
-  .o-card:hover { transform: translateY(-6px); box-shadow: 0 32px 70px rgba(255,122,0,0.20); }
+  .o-card:hover { transform: translateY(-6px); box-shadow: 0 32px 70px rgba(159,32,124,0.20); }
 
   .o-top {
     padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
     color: #fff;
   }
   .o-top.luce { background: linear-gradient(135deg, #1f2937 0%, #111111 100%); }
-  .o-top.gas  { background: linear-gradient(135deg, #FF9233 0%, #FF7A00 100%); }
+  .o-top.gas  { background: linear-gradient(135deg, #c65a9e 0%, #9f207c 100%); }
   .o-top.placet { background: linear-gradient(135deg, #0f766e 0%, #115e59 100%); }
   .o-top .kind { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 16px; font-family: var(--font-h); }
   .o-top .kind svg { width: 22px; height: 22px; }
+  .o-top .card-logo { display: block; max-width: 92px; max-height: 28px; width: auto; height: auto; object-fit: contain; }
   .o-top .badge {
     font-size: 11.5px; font-weight: 700; background: rgba(255,255,255,0.2);
     padding: 6px 12px; border-radius: 100px; display: inline-flex; align-items: center; gap: 6px;
@@ -101,11 +104,11 @@ $pageHead = <<<'CSS'
 
   .o-cta {
     display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-    background: var(--yellow); color: var(--text-dark); font-family: var(--font-h);
+    background: var(--yellow); color: #ffffff; font-family: var(--font-h);
     font-weight: 800; font-size: 17px; text-decoration: none; padding: 15px 24px;
     border-radius: 100px; transition: all .2s; box-shadow: 0 4px 14px var(--accent-shadow-strong);
   }
-  .o-cta:hover { background: var(--yellow-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,122,0,0.36); }
+  .o-cta:hover { background: var(--yellow-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(159,32,124,0.36); }
   .o-cta svg { width: 16px; height: 16px; }
 
   /* ─── Dettaglio CTE ─── */
@@ -161,12 +164,21 @@ $ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 
   <section class="tariffe-hero">
     <div class="inner">
       <span class="eyebrow"><span class="dot"></span> Offerte Mercato Libero</span>
-      <h1>Le nostre tariffe <span class="accent">per luce e gas</span></h1>
+      <h1>Le nostre tariffe
+        <?php if ($OPERATORE['logo_url'] !== '') { ?>
+          <img class="title-logo" src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>">
+        <?php } ?>
+        <span class="accent">per luce e gas</span>
+      </h1>
       <p>Offerte per clienti domestici: tariffe fisse, variabili e offerte PLACET obbligatorie per legge. Scegli la soluzione più adatta alle tue esigenze.</p>
 <?php if ($OPERATORE['nome_marketing'] !== '') { ?>
       <div class="partner">
-        <span class="lbl"><?= $LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : $COMPANY['company_name'] ?> è partner ufficiale di</span>
-        <span class="op"><?= $OPERATORE['nome_marketing'] ?></span>
+        <span class="lbl">partner ufficiale</span>
+        <?php if ($OPERATORE['logo_url'] !== '') { ?>
+          <img class="operator-logo" src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>">
+        <?php } else { ?>
+          <span class="op"><?= $OPERATORE['nome_marketing'] ?></span>
+        <?php } ?>
       </div>
 <?php } ?>
     </div>
@@ -187,6 +199,9 @@ $ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 
       <article class="o-card" data-category="<?= e($o['tipologia']) ?>">
         <div class="o-top <?= $topClass ?>">
           <span class="kind"><?= $icon ?> <?= e(dbc2_format_tipologia($o['tipologia'])) ?></span>
+          <?php if ($OPERATORE['logo_url'] !== '') { ?>
+            <img class="card-logo" src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>">
+          <?php } ?>
         </div>
         <div class="o-body">
           <?= $o['titolo'] ?>

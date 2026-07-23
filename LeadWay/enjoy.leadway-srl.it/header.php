@@ -14,11 +14,13 @@ if (!isset($LANDING_PAGE)) {
     require __DIR__ . '/_config.php';
 }
 // Nome da mostrare: nome portale della landing, con fallback a titolo, ragione sociale, infine letterale.
-$brandName = $LANDING_PAGE['nome_portale'] !== ''
-    ? $LANDING_PAGE['nome_portale']
-    : ($LANDING_PAGE['titolo'] !== ''
-        ? $LANDING_PAGE['titolo']
-        : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'LeadWay'));
+if (!isset($brandName)) {
+    $brandName = $LANDING_PAGE['nome_portale'] !== ''
+        ? $LANDING_PAGE['nome_portale']
+        : ($LANDING_PAGE['titolo'] !== ''
+            ? $LANDING_PAGE['titolo']
+            : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'LeadWay'));
+}
 // Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
 $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'logo.png';
 $pageTitle = isset($pageTitle) ? $pageTitle : $brandName;

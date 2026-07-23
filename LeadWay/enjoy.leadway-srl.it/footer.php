@@ -29,6 +29,9 @@ if ($COMPANY['sede_legale'] !== '') {
 if ($COMPANY['p_iva'] !== '') {
   $legalParts[] = 'P.IVA e C.F.: ' . $COMPANY['p_iva'];
 }
+if ($COMPANY['numero_rea'] !== '') {
+  $legalParts[] = 'R.E.A.: ' . $COMPANY['numero_rea'];
+}
 if ($COMPANY['capitale_sociale'] !== '') {
   $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale'];
 }
