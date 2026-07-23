@@ -1,13 +1,13 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageDescription = 'Scopri le soluzioni Enjoy per luce, gas e consulenza energetica: offerte chiare per casa, professionisti e imprese.';
+$pageDescription = 'Scopri le soluzioni Tech Future per luce, gas e consulenza energetica: offerte chiare per casa, professionisti e imprese.';
 include __DIR__ . '/header.php';
 ?>
 
 <main class="pl-home">
   <section class="pl-hero">
     <div class="pl-hero-copy">
-      <span class="eyebrow eyebrow-light"><span class="dot"></span> Enjoy, energia semplice ogni giorno</span>
+      <span class="eyebrow eyebrow-light"><span class="dot"></span> Tech Future, energia semplice ogni giorno</span>
       <h1>La scelta giusta per la tua<br><em>energia.</em></h1>
       <p>Offerte luce e gas, consulenza e assistenza in un unico posto. Trova la soluzione più adatta a casa o al tuo business.</p>
       <div class="pl-hero-actions">
@@ -58,7 +58,7 @@ include __DIR__ . '/header.php';
   <section class="section pl-services">
     <div class="container">
       <div class="pl-section-intro pl-centered">
-        <span class="eyebrow"><span class="dot"></span> Scopri Enjoy</span>
+        <span class="eyebrow"><span class="dot"></span> Scopri Tech Future</span>
         <h2>Soluzioni pensate<br><em>per te.</em></h2>
         <p>Ti aiutiamo a scegliere, attivare e gestire la tua energia con un supporto sempre presente.</p>
       </div>
@@ -73,12 +73,12 @@ include __DIR__ . '/header.php';
   <section class="pl-story">
     <div class="container pl-story-layout">
       <div class="pl-story-copy">
-        <span class="eyebrow"><span class="dot"></span> Perché Enjoy</span>
+        <span class="eyebrow"><span class="dot"></span> Perché Tech Future</span>
         <h2>Più tempo per ciò che conta.<br><em>All'energia pensiamo noi.</em></h2>
         <p>Non devi essere un esperto per scegliere bene. Ascoltiamo le tue esigenze, analizziamo i consumi e traduciamo ogni voce in parole semplici.</p>
-        <a class="btn-dark" href="chi-siamo.php">Conosci Enjoy <span>→</span></a>
+        <a class="btn-dark" href="chi-siamo.php">Conosci Tech Future <span>→</span></a>
       </div>
-      <div class="pl-story-image"><img src="chi_siamo_team.png" alt="Il team Enjoy al tuo fianco"><div class="pl-story-note"><strong>Il tuo consulente,</strong><br>sempre al tuo fianco.</div></div>
+      <div class="pl-story-image"><img src="chi_siamo_team.png" alt="Il team Tech Future al tuo fianco"><div class="pl-story-note"><strong>Il tuo consulente,</strong><br>sempre al tuo fianco.</div></div>
     </div>
   </section>
 

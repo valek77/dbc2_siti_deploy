@@ -1,9 +1,9 @@
 <?php
 require __DIR__ . '/_config.php';
 
-// Brand dell'operatore energetico Enjoy.
+// Brand dell'operatore energetico Tech Future.
 // I valori di $OPERATORE sono gia' HTML-safe.
-$brand = 'Enjoy';
+$brand = 'Tech Future';
 $brandName = $brand;
 // Ragione sociale dell'operatore, citata dove serve il soggetto giuridico.
 $ragioneSociale = $OPERATORE['nome_legale'];
@@ -117,7 +117,7 @@ include __DIR__ . '/header.php';
 
         <article class="stagger-item reveal">
           <div class="stagger-visual">
-          <img src="chi_siamo_team.png" alt="Il team Enjoy al lavoro con i clienti">
+          <img src="chi_siamo_team.png" alt="Il team Tech Future al lavoro con i clienti">
           </div>
           <div class="stagger-content">
             <div class="feature-icon warm"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></div>
@@ -128,7 +128,7 @@ include __DIR__ . '/header.php';
 
         <article class="stagger-item reveal">
           <div class="stagger-visual">
-          <img src="split_home.png" alt="Il risparmio energetico a casa con Enjoy">
+          <img src="split_home.png" alt="Il risparmio energetico a casa con Tech Future">
           </div>
           <div class="stagger-content">
             <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
