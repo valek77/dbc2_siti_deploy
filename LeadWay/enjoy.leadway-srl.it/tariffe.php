@@ -172,150 +172,46 @@ $ICON_SCALE = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 
     </div>
   </section>
 
-  <!-- Offerte -->
+  <!-- Offerte (dinamiche da API landing-pages) -->
   <div class="offers-wrap">
     <div class="offers-grid">
 
-      <!-- Luce: Enjoy Forever -->
-      <article class="o-card">
-        <div class="o-top luce">
-          <span class="kind"><?= $ICON_BOLT ?> Luce · Domestico</span>
-          <span class="badge"><?= $ICON_SCALE ?> Variabile</span>
+      <?php if (empty($OFFERTE)): ?>
+      <p class="offers-note" style="grid-column: 1 / -1;">Nessuna offerta disponibile al momento.</p>
+      <?php else: foreach ($OFFERTE as $o):
+          $tip = strtolower($o['tipologia']);
+          $isGas = (strpos($tip, 'gas') === 0);
+          $topClass = $isGas ? 'gas' : 'luce';
+          $icon = $isGas ? $ICON_FLAME : $ICON_BOLT;
+      ?>
+      <article class="o-card" data-category="<?= e($o['tipologia']) ?>">
+        <div class="o-top <?= $topClass ?>">
+          <span class="kind"><?= $icon ?> <?= e(dbc2_format_tipologia($o['tipologia'])) ?></span>
         </div>
         <div class="o-body">
-          <h3 class="o-name">Enjoy Forever · Tariffa Variabile</h3>
-          <p class="o-meta">Per utenze domestiche in bassa tensione sul Mercato Libero.</p>
+          <?= $o['titolo'] ?>
+          <?php if ($o['sottotitolo'] !== ''): ?>
+          <p class="o-meta"><?= $o['sottotitolo'] ?></p>
+          <?php endif; ?>
 
-          <div class="o-suboffer">
-            <p>Prezzo componente energia indicizzato al PUN (Prezzo Unico Nazionale), con l'aggiunta di un contributo al consumo (spread/alfa).</p>
-            <ul>
-              <li><?= $ICON_CHECK ?><span>Disponibile in versione <strong>Monoraria</strong> o <strong>Multioraria</strong> (F1, F2, F3)</span></li>
-              <li><?= $ICON_CHECK ?><span>Quota fissa mensile di commercializzazione indipendente dal consumo</span></li>
-              <li><?= $ICON_CHECK ?><span>Prezzo che segue l'andamento mensile del mercato all'ingrosso</span></li>
-            </ul>
-          </div>
+          <?php foreach ($o['caratteristiche_evidenza'] as $ev) { echo $ev; } ?>
 
-          <a class="o-cta" href="contatti.php?offerta=LUCE-VARIABILE#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
+          <?php if (!empty($o['caratteristiche'])): ?>
+          <ul class="o-feats">
+            <?php foreach ($o['caratteristiche'] as $c): ?>
+            <li><?= $ICON_CHECK ?><span><?= $c ?></span></li>
+            <?php endforeach; ?>
+          </ul>
+          <?php endif; ?>
 
-          <details class="cte-details">
-            <summary>Condizioni Tecnico Economiche (CTE)</summary>
-            <div class="cte-body">
-              <p>L'offerta <strong>Enjoy Forever</strong> è riservata a clienti finali titolari di POD ad uso domestico in bassa tensione che acquistino energia elettrica sul Mercato Libero. L'attivazione è condizionata all'esito positivo delle verifiche di morosità e alla valutazione di affidabilità creditizia.</p>
-              <p>Il corrispettivo per il consumo è indicizzato al PUN (Prezzo Unico Nazionale), calcolato mensilmente, più un contributo al consumo (spread/alfa) stabilito dal fornitore. La tariffa può essere erogata in forma monoraria o multioraria (F1, F2, F3).</p>
-              <p>È previsto un costo fisso di commercializzazione mensile indipendente dai consumi. I prezzi sono al netto di IVA e imposte; eventuali aggiornamenti delle componenti ARERA saranno automaticamente recepiti in bolletta.</p>
-            </div>
-          </details>
+          <a class="o-cta" href="contatti.php?offerta=<?= e($o['id']) ?>#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
+
+          <?php if ($o['footer'] !== ''): ?>
+          <div class="cte-body" style="margin-top: 16px;"><?= $o['footer'] ?></div>
+          <?php endif; ?>
         </div>
       </article>
-
-      <!-- Luce: Ready Luce 24 -->
-      <article class="o-card">
-        <div class="o-top luce">
-          <span class="kind"><?= $ICON_BOLT ?> Luce · Domestico</span>
-          <span class="badge"><?= $ICON_LOCK ?> Fissa</span>
-        </div>
-        <div class="o-body">
-          <h3 class="o-name">Ready Luce 24 · Tariffa Fissa</h3>
-          <p class="o-meta">Per utenze domestiche in bassa tensione sul Mercato Libero.</p>
-
-          <div class="o-suboffer">
-            <p>Prezzo della componente energia bloccato per kWh, solitamente per 12 o 24 mesi.</p>
-            <ul>
-              <li><?= $ICON_CHECK ?><span>Prezzo fisso per il consumo per tutta la durata contrattuale</span></li>
-              <li><?= $ICON_CHECK ?><span>Quota fissa mensile di commercializzazione indipendente dal consumo</span></li>
-              <li><?= $ICON_CHECK ?><span>Ideale per chi cerca stabilità e nessuna sorpresa in bolletta</span></li>
-            </ul>
-          </div>
-
-          <a class="o-cta" href="contatti.php?offerta=LUCE-FISSA#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
-
-          <details class="cte-details">
-            <summary>Condizioni Tecnico Economiche (CTE)</summary>
-            <div class="cte-body">
-              <p>L'offerta <strong>Ready Luce 24</strong> è riservata a clienti finali titolari di POD ad uso domestico in bassa tensione che acquistino energia elettrica sul Mercato Libero. L'attivazione è condizionata all'esito positivo delle verifiche di morosità e alla valutazione di affidabilità creditizia.</p>
-              <p>Il corrispettivo per il consumo è bloccato per kWh per la durata contrattuale indicata, solitamente 12 o 24 mesi.</p>
-              <p>È previsto un costo fisso di commercializzazione mensile indipendente dai consumi. I prezzi sono al netto di IVA e imposte; eventuali aggiornamenti delle componenti ARERA saranno automaticamente recepiti in bolletta.</p>
-            </div>
-          </details>
-        </div>
-      </article>
-
-      <!-- Gas -->
-      <article class="o-card">
-        <div class="o-top gas">
-          <span class="kind"><?= $ICON_FLAME ?> Gas · Domestico</span>
-          <span class="badge"><?= $ICON_LOCK ?> Variabile</span>
-        </div>
-        <div class="o-body">
-          <h3 class="o-name">Offerte Gas</h3>
-          <p class="o-meta">Per utenze domestiche con PDR sul Mercato Libero.</p>
-
-          <div class="o-suboffer">
-            <h4>Enjoy Forever Gas / Par 0 Web · Tariffa Variabile</h4>
-            <p>Prezzo componente materia prima indicizzato al PSV (Prezzo di Riferimento del Mercato All'ingrosso Italiano), più un contributo al consumo per Smc.</p>
-            <ul>
-              <li><?= $ICON_CHECK ?><span>Prezzo indicizzato al PSV, aggiornato mensilmente</span></li>
-              <li><?= $ICON_CHECK ?><span>Quota fissa mensile di commercializzazione indipendente dal consumo</span></li>
-              <li><?= $ICON_CHECK ?><span>Trasparenza su spread e componenti di mercato</span></li>
-            </ul>
-          </div>
-
-          <a class="o-cta" href="contatti.php?offerta=GAS#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
-
-          <details class="cte-details">
-            <summary>Condizioni Tecnico Economiche (CTE)</summary>
-            <div class="cte-body">
-              <p>Le offerte gas sono riservate a clienti finali titolari di PDR ad uso domestico che acquistino gas naturale sul Mercato Libero. L'attivazione è condizionata all'esito positivo delle verifiche di morosità e alla valutazione di affidabilità creditizia.</p>
-              <p>Il corrispettivo per il consumo è indicizzato al PSV (Prezzo di Riferimento del Mercato All'ingrosso Italiano), calcolato mensilmente, più un contributo al consumo per Smc (spread/alfa) stabilito dal fornitore.</p>
-              <p>È previsto un costo fisso di commercializzazione mensile indipendente dai consumi. I prezzi sono al netto di IVA e imposte; eventuali aggiornamenti delle componenti ARERA saranno automaticamente recepiti in bolletta.</p>
-            </div>
-          </details>
-        </div>
-      </article>
-
-      <!-- PLACET -->
-      <article class="o-card">
-        <div class="o-top placet">
-          <span class="kind"><?= $ICON_SCALE ?> PLACET</span>
-          <span class="badge"><?= $ICON_LOCK ?> Obbligatorie per legge</span>
-        </div>
-        <div class="o-body">
-          <h3 class="o-name">Offerte PLACET</h3>
-          <p class="o-meta">Offerte a Condizioni Economiche di Protezione per luce e gas, definite dall'ARERA.</p>
-
-          <div style="display: flex; flex-wrap: wrap; gap: 24px;">
-            <div class="o-suboffer" style="flex: 1 1 260px; min-width: 0; border-top: none; padding-top: 0;">
-              <h4>PLACET Fissa · Luce e Gas</h4>
-              <p>Prezzo della materia prima bloccato per 12 mesi, con condizioni contrattuali definite dall'ARERA.</p>
-              <ul>
-                <li><?= $ICON_CHECK ?><span>Prezzo fisso per la materia prima per 12 mesi</span></li>
-                <li><?= $ICON_CHECK ?><span>Condizioni definite dall'Autorità di Regolazione</span></li>
-              </ul>
-            </div>
-
-            <div class="o-suboffer" style="flex: 1 1 260px; min-width: 0; border-top: none; padding-top: 0;">
-              <h4>PLACET Variabile · Luce e Gas</h4>
-              <p>Prezzo indicizzato con parametri stabiliti dall'ARERA: PUN per la luce, PSV per il gas.</p>
-              <ul>
-                <li><?= $ICON_CHECK ?><span>Indicizzata al PUN per la luce e al PSV per il gas</span></li>
-                <li><?= $ICON_CHECK ?><span>Parametri di aggiornamento definiti dall'Autorità</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <a class="o-cta" href="contatti.php?offerta=PLACET#contatto-form">Richiedi informazioni <?= $ICON_ARROW ?></a>
-
-          <details class="cte-details">
-            <summary>Condizioni Tecnico Economiche (CTE)</summary>
-            <div class="cte-body">
-              <p>Le offerte PLACET (Prezzo Lazzerato a Condizioni di Tutela) sono offerte obbligatorie per legge, proposte dai venditori di ultima istanza e regolate dall'ARERA. Sono destinate ai clienti domestici e alle piccole imprese che ne facciano richiesta.</p>
-              <p>La versione <strong>PLACET Fissa</strong> prevede un prezzo della materia prima bloccato per 12 mesi, con condizioni contrattuali definite dall'Autorità.</p>
-              <p>La versione <strong>PLACET Variabile</strong> prevede un prezzo indicizzato al PUN per la luce e al PSV per il gas, con parametri di aggiornamento stabiliti dall'ARERA.</p>
-              <p>Per il dettaglio completo dei corrispettivi, dei vincoli di accesso e delle modalità di recesso si rimanda alle condizioni contrattuali pubblicate sul sito del fornitore e alle delibere ARERA in materia.</p>
-            </div>
-          </details>
-        </div>
-      </article>
+      <?php endforeach; endif; ?>
 
     </div>
 
