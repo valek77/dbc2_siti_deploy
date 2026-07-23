@@ -1,7 +1,10 @@
 <?php
 require __DIR__ . '/_config.php';
+// Nome company dall'API (/landing-pages), con fallback in cascata.
+$nomeCompany = $COMPANY['company_name'] !== '' ? $COMPANY['company_name']
+    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : $OPERATORE['nome_marketing']);
 $pageTitle = 'Offerte Luce e Gas';
-$pageDescription = 'Scopri tutte le offerte ' . $OPERATORE['nome_marketing'] . ' disponibili tramite Action: tariffe luce e gas per uso residenziale e professionale, con prezzi chiari e condizioni trasparenti.';
+$pageDescription = 'Scopri tutte le offerte ' . $OPERATORE['nome_marketing'] . ' disponibili tramite ' . $nomeCompany . ': tariffe luce e gas per uso residenziale e professionale, con prezzi chiari e condizioni trasparenti.';
 include __DIR__ . '/header.php';
 
 $ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -30,7 +33,7 @@ if ($nOfferte % 3 === 0) {
     <div class="container">
       <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte ufficiali <?= $OPERATORE['nome_marketing'] ?></span>
       <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
-      <p>Action ti accompagna nella scelta delle offerte luce e gas per casa e impresa, con condizioni leggibili e consulenza dedicata in ogni fase.</p>
+      <p><?= $nomeCompany ?> ti accompagna nella scelta delle offerte luce e gas per casa e impresa, con condizioni leggibili e consulenza dedicata in ogni fase.</p>
     </div>
     <div class="wave">
       <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
@@ -126,7 +129,7 @@ if ($nOfferte % 3 === 0) {
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Capire il prezzo</span>
         <h2 class="section-title">Come funzionano <span class="underline">le tariffe</span></h2>
-        <p class="section-sub"><?= $OPERATORE['nome_marketing'] ?> propone offerte luce e gas con condizioni definite dall'API landing-pages. Action ti aiuta a leggere le componenti di prezzo e a capire quale soluzione sia più adatta al tuo profilo.</p>
+        <p class="section-sub"><?= $OPERATORE['nome_marketing'] ?> propone offerte luce e gas con condizioni definite dall'API landing-pages. <?= $nomeCompany ?> ti aiuta a leggere le componenti di prezzo e a capire quale soluzione sia più adatta al tuo profilo.</p>
       </div>
 
       <div class="glossary-grid">
@@ -147,7 +150,7 @@ if ($nOfferte % 3 === 0) {
         </div>
         <div class="glossary-card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg></div>
-          <h4>Supporto Action</h4>
+          <h4>Supporto <?= $nomeCompany ?></h4>
           <p>Ti aiutiamo a leggere le voci più importanti dell'offerta e a capire come si adattano ai tuoi consumi reali.</p>
         </div>
       </div>

@@ -318,7 +318,7 @@ img, svg { display: block; max-width: 100%; }
 }
 
 /* =========================================================
-   Home redesign — portal editoriale Action
+   Home redesign — portal editoriale
    ========================================================= */
 .pl-home { --red-soft: #EAFBFF; --red-warm: #F4FCFD; --red-highlight: #C9F2F8; }
 .pl-home { overflow: hidden; background: #fff; color: var(--ink); }
