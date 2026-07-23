@@ -1213,6 +1213,8 @@ img, svg { display: block; max-width: 100%; }
 }
 .offer-operator img {
   height: 30px; width: auto; max-width: 130px; object-fit: contain;
+  background: var(--ink); padding: 6px 10px; border-radius: 8px;
+  box-sizing: content-box;
 }
 
 .offer-supplier {

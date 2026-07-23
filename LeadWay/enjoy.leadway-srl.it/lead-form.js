@@ -70,6 +70,9 @@
       const ip = await getClientIp();
       const commercial = getCommercialConsent();
       const emailValue = form.email && form.email.value.trim();
+      // L'API /api/lead attende offerta_id (intero) tra le offerte della landing.
+      const selOfferta = form.offerta;
+      const offertaId = selOfferta && selOfferta.value ? parseInt(selOfferta.value, 10) : null;
       const payload = {
         nome_cognome: form.nome.value.trim(),
         email: emailValue || null,
@@ -77,6 +80,7 @@
         ip: ip,
         landing_page_url: window.location.origin,
         data_registrazione: new Date().toISOString(),
+        offerta_id: offertaId,
         consenso_0: !!(form.consenso_privacy && form.consenso_privacy.checked),
         consenso_1: !!(commercial && commercial.checked),
         consenso_2: !!(form.consenso_marketing && form.consenso_marketing.checked)
@@ -101,18 +105,4 @@
       alert('Errore invio.');
     }
   });
-
-  const params = new URLSearchParams(window.location.search);
-  const offer = params.get('offerta');
-  if (offer) {
-    const msgField = document.getElementById('messaggio');
-    if (msgField) {
-      msgField.value = "Sono interessato all'offerta: " + offer;
-    } else {
-      const infoMsg = document.createElement('div');
-      infoMsg.style.cssText = 'background:#FFF4E8;color:#111111;padding:12px;border-radius:8px;font-weight:600;margin-bottom:16px;font-size:14px;border:1px solid rgba(255,122,0,0.25);';
-      infoMsg.textContent = 'Richiesta per: ' + offer;
-      form.prepend(infoMsg);
-    }
-  }
 })();
