@@ -7,7 +7,7 @@ require __DIR__ . '/_config.php';
 $titolareNome = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact Call Center S.r.l.';
 $titolareSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
 $titolarePiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
-$titolarePec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
+$titolarePec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : ($LANDING_PAGE['pec'] !== '' ? $LANDING_PAGE['pec'] : 'efficexsrls@pec.it');
 $capitaleSociale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '€ 10.000,00 i.v.';
 // Dati camerali NON esposti dall'API (dal documento fornito dal cliente).
 $titolareRea = $COMPANY['numero_rea'] !== '' ? $COMPANY['numero_rea'] : 'NA-1072970';
@@ -73,7 +73,7 @@ include __DIR__ . '/header.php';
       REA: <?= $titolareRea ?><br>
       Capitale sociale: <?= $capitaleSociale ?><br>
       Società a socio unico<br>
-      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><br>
+      <?php if ($titolarePec !== ''): ?>PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><br><?php endif; ?>
 <?php if ($emailDpo !== ''): ?>      DPO / Responsabile della Protezione dei Dati<br>
       E-mail: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
 <?php endif; ?>    </p>
@@ -247,7 +247,7 @@ include __DIR__ . '/header.php';
     <p>Per informazioni relative al sito, alle presenti Condizioni di Utilizzo o alle pagine legali pubblicate, è possibile contattare:</p>
     <p>
       <strong><?= $titolareNome ?></strong><br>
-      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
+      <?php if ($titolarePec !== ''): ?>PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><?php endif; ?>
     </p>
     <p>Per questioni relative al trattamento dei dati personali / privacy:</p>
     <p>
