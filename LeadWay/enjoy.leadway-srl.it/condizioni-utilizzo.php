@@ -6,7 +6,7 @@ require __DIR__ . '/_config.php';
 $nomeOperatore  = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing']
     : ($OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Illumia');
 $ragioneSociale = $COMPANY['company_name'] !== '' ? $COMPANY['company_name']
-    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Action Srl');
+    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'LeadWay Srl');
 $emailContatto  = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $COMPANY['pec'];
 
 $pageTitle = 'Condizioni di Utilizzo';
