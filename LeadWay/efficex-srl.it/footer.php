@@ -24,7 +24,7 @@ $coName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre C
 $coSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
 $coPiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
 $coCapitale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '&euro; 10.000,00';
-$coPec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
+$coPec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : ($LANDING_PAGE['pec'] !== '' ? $LANDING_PAGE['pec'] : 'efficexsrls@pec.it');
 $coDpoEmail = $COMPANY['email_dpo'];
 // Campi NON modellati dall'API -> cablati.
 $coRea = $COMPANY['numero_rea'];
@@ -65,7 +65,7 @@ $coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
       Sede legale: <?= $coSede ?><br>
       C.F. e P.IVA: <?= $coPiva ?> &ndash; REA <?= $coRea ?> &ndash; <?= $coRegImprese ?><br>
       Capitale sociale: <?= $coCapitale ?> i.v. &ndash;<br>
-      PEC: <a href="mailto:<?= $coPec ?>"><?= $coPec ?></a><?php if ($coDpoEmail !== ''): ?><br>
+      <?php if ($coPec !== ''): ?>PEC: <a href="mailto:<?= $coPec ?>"><?= $coPec ?></a><?php endif; ?><?php if ($coDpoEmail !== ''): ?><br>
       DPO/Responsabile della Protezione dei Dati &ndash; contatto: <a
         href="mailto:<?= $coDpoEmail ?>"><?= $coDpoEmail ?></a><?php endif; ?>
     </p>

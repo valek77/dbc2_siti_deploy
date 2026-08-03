@@ -72,7 +72,7 @@ CSS;
 $titolareNome = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact Call Center S.r.l.';
 $titolareSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
 $titolarePiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
-$titolarePec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
+$titolarePec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : ($LANDING_PAGE['pec'] !== '' ? $LANDING_PAGE['pec'] : 'efficexsrls@pec.it');
 // Capitale sociale: campo API se presente, altrimenti valore camerale del documento.
 $capitaleSociale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '€ 10.000,00 i.v.';
 // Dati camerali NON esposti dall'API (dal documento fornito dal cliente).
@@ -112,7 +112,7 @@ include __DIR__ . '/header.php';
       REA: <?= $titolareRea ?><br>
       Capitale sociale: <?= $capitaleSociale ?><br>
       Società a socio unico<br>
-      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
+      <?php if ($titolarePec !== ''): ?>PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><?php endif; ?>
     </p>
 
     <h2>1-bis. Ruoli privacy nelle diverse fasi</h2>
