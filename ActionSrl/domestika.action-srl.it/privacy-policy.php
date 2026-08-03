@@ -1,42 +1,8 @@
 <?php
 require __DIR__ . '/_config.php';
 
-// Dati del Titolare del trattamento presi dall'API (nessun dato cablato): in
-// questo sito il Titolare e' l'OPERATORE ENERGETICO ($OPERATORE), non l'azienda
-// che gestisce la landing page. I campi non forniti dall'API (es. PEC, DPO)
-// semplicemente non compaiono.
-$titolareNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale']
-    : ($OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : 'l\'operatore energetico');
-// DPO dell'operatore: se l'API espone una casella dedicata la si usa per la
-// sezione DPO e per l'esercizio dei diritti; in mancanza si ricade sull'e-mail
-// di supporto dell'operatore.
-$emailSupporto = $OPERATORE['email_supporto'];
-$emailDpo      = $OPERATORE['email_dpo'];
-$emailDiritti  = $emailDpo !== '' ? $emailDpo : $emailSupporto;
-// Recapiti/estremi del Titolare, aggiunti alla riga solo se presenti nell'API.
-$titolareParts = [];
-if ($OPERATORE['indirizzo'] !== '') {
-    $titolareParts[] = 'con sede in ' . $OPERATORE['indirizzo'];
-}
-if ($OPERATORE['partita_iva'] !== '') {
-    $titolareParts[] = 'C.F./P.IVA ' . $OPERATORE['partita_iva'];
-}
-if ($OPERATORE['numero_rea'] !== '') {
-    $titolareParts[] = 'REA ' . $OPERATORE['numero_rea'];
-}
-if ($OPERATORE['capitale_sociale'] !== '') {
-    $titolareParts[] = 'capitale sociale ' . $OPERATORE['capitale_sociale'];
-}
-if ($OPERATORE['pec'] !== '') {
-    $titolareParts[] = 'PEC ' . $OPERATORE['pec'];
-}
-if ($emailSupporto !== '') {
-    $titolareParts[] = 'e-mail ' . $emailSupporto;
-}
-$titolareExtra = $titolareParts ? ', ' . implode(', ', $titolareParts) : '';
-
 $pageTitle = 'Informativa sul Trattamento dei Dati Personali';
-$pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) per la landing page di ' . $titolareNome . '.';
+$pageDescription = 'Informativa sul trattamento dei dati personali (artt. 13 GDPR 2016/679) di Verona Service S.r.l., proprietaria del marchio "Domestika Energia".';
 $pageHead = <<<'CSS'
 <style>
   .policy-doc { max-width: 820px; margin: 70px auto 110px; padding: 0 24px; }
@@ -67,54 +33,42 @@ include __DIR__ . '/header.php';
     <hr class="doc-rule">
 
     <h2>Titolare del trattamento</h2>
-    <p>Il Titolare del trattamento è <strong><?= $titolareNome ?></strong><?= $titolareExtra ?>, in persona del legale rapp.te p.t..</p>
+    <p>Titolare del Trattamento del Sito è Verona Service S.r.l. società proprietaria del marchio &ldquo;Domestika Energia&rdquo;, P.IVA 03064630233, con sede legale in Via A. Saffi 2/D, 37123 - Verona (VR), in persona del Legale Rappresentante pro tempore (&ldquo;Domestika&rdquo; o &ldquo;Titolare&rdquo;).</p>
 
-<?php if ($emailDpo !== '') { ?>
-    <h2>Responsabile della protezione dei dati (DPO)</h2>
-    <p>Il DPO è contattabile alla casella e-mail <a href="mailto:<?= $emailDpo ?>"><strong><?= $emailDpo ?></strong></a>.</p>
-<?php } ?>
-    <h2>Dati personali trattati</h2>
-    <p>Tramite il form della pagina sono raccolti i seguenti dati, da te direttamente comunicati: numero di telefono.</p>
-
-    <h2>Finalità del trattamento e base giuridica</h2>
-    <p>I dati sono trattati esclusivamente per le seguenti finalità connesse alla pagina:</p>
-    <ol>
-      <li><strong>Riscontro alla tua richiesta di informazioni</strong> inoltrata tramite il form e conseguente contatto telefonico, entro il termine di 30 giorni dall'inoltro della richiesta, per illustrarti i prodotti di fornitura di energia elettrica e gas oggetto del tuo interesse. Base giuridica: esecuzione di misure precontrattuali adottate su tua richiesta (art. 6, par. 1, lett. b, GDPR).</li>
-      <li><strong>Gestione e tracciabilità della richiesta</strong> e conservazione del log di presa visione della presente informativa, al fine di dimostrare la liceità del contatto ai sensi dell'art. 51, comma 8-bis, del Codice del Consumo. Base giuridica: legittimo interesse del Titolare a documentare la conformità e a tutelarsi (art. 6, par. 1, lett. f, GDPR) e adempimento di obblighi di legge (lett. c). I dati di tracciabilità della richiesta saranno conservati per il periodo di validità del contratto e per i 10 anni successivi allo scioglimento del rapporto contrattuale, quale criterio di validità dello stesso.</li>
-      <li><strong>Sicurezza e log di accesso.</strong> Raccolta dei dati di navigazione e dei log tecnici dei naviganti (a titolo esemplificativo: indirizzo IP, data e ora di accesso, pagine visitate, tipo di browser e di dispositivo) per garantire la sicurezza della pagina e dei sistemi, prevenire abusi, usi fraudolenti o accessi non autorizzati e assicurare la corretta erogazione del servizio. Base giuridica: legittimo interesse del Titolare alla sicurezza delle reti e dei sistemi informativi (art. 6, par. 1, lett. f, GDPR; cfr. considerando 49).</li>
-    </ol>
-
-    <h2>Modalità del contatto e disciplina di settore (Decreto Bollette)</h2>
-    <p>La chiamata avviene da numerazione identificabile, entro 30 giorni dall'inoltro della richiesta al Titolare. Ciò è coerente con il nuovo art. 51, comma 8-bis, del Codice del Consumo (introdotto dalla L. 49/2026, c.d. Decreto Bollette), che consente il contatto telefonico per i prodotti di energia elettrica e gas quando il consumatore ne abbia fatto richiesta direttamente al professionista tramite le sue interfacce informatiche.</p>
-
-    <h2>Destinatari dei dati</h2>
-    <p>I dati sono trattati, per conto del Titolare, dalle società di teleselling nominate Responsabili del trattamento ai sensi dell'art. 28 GDPR, che gestiscono la pagina, la raccolta delle richieste, il contatto telefonico e l'eventuale contrattualizzazione, nonché da eventuali sub-responsabili (incluso il fornitore di hosting). L'elenco aggiornato dei responsabili e sub-responsabili è disponibile presso il Titolare e richiedibile al DPO. I dati possono essere comunicati a terzi solo per adempiere a obblighi di legge.</p>
-
-    <h2>Periodo di conservazione</h2>
-    <p>I dati raccolti tramite la pagina sono cancellati entro 30 giorni dall'inoltro della richiesta, in assenza di conclusione del contratto. Qualora a seguito del contatto si concluda un contratto di fornitura, i dati confluiscono nel rapporto contrattuale e sono trattati secondo l'informativa relativa al rapporto di fornitura del Titolare, con i tempi di conservazione previsti dalla normativa di settore.</p>
-
-    <h2>Trasferimenti extra-UE</h2>
-    <p>Non sono previsti trasferimenti dei dati verso Paesi terzi. Ove l'infrastruttura di hosting comportasse trasferimenti extra-UE, saranno adottate adeguate garanzie ai sensi del Capo V del GDPR.</p>
-
-    <h2>Natura del conferimento</h2>
-    <p>Il conferimento dei dati indicati è necessario per dar seguito alla tua richiesta; il mancato conferimento impedisce di riscontrarla e di ricontattarti.</p>
-
-    <h2>Processo decisionale automatizzato</h2>
-    <p>Non è effettuato alcun processo decisionale automatizzato, inclusa la profilazione, di cui all'art. 22 GDPR.</p>
-
-    <h2>Diritti dell'interessato</h2>
-    <p>Puoi esercitare in qualsiasi momento<?php if ($emailDiritti !== '') { ?>, scrivendo a <a href="mailto:<?= $emailDiritti ?>"><?= $emailDiritti ?></a>,<?php } ?> i seguenti diritti previsti dagli artt. 15-22 del GDPR:</p>
+    <h2>Dati di contatto del Titolare</h2>
+    <p>Il Titolare del trattamento è contattabile ai seguenti recapiti:</p>
     <ul>
-      <li>accesso ai dati personali (art. 15 GDPR);</li>
-      <li>rettifica dei dati inesatti o incompleti (art. 16 GDPR);</li>
-      <li>cancellazione dei dati e diritto all'oblio (art. 17 GDPR);</li>
-      <li>limitazione del trattamento (art. 18 GDPR);</li>
-      <li>notifica delle rettifiche, cancellazioni o limitazioni ai destinatari dei dati (art. 19 GDPR);</li>
-      <li>portabilità dei dati (art. 20 GDPR);</li>
-      <li>opposizione al trattamento, in particolare a quello fondato sul legittimo interesse del Titolare, inclusi i log di sicurezza (art. 21 GDPR);</li>
-      <li>non essere sottoposto a una decisione automatizzata, inclusa la profilazione (art. 22 GDPR), fermo restando che il Titolare non effettua tali trattamenti.</li>
+      <li>Indirizzo: Via A. Saffi 2/D, 37123 - Verona (VR)</li>
+      <li>E-mail: <a href="mailto:privacy@domestikaenergia.com">privacy@domestikaenergia.com</a></li>
+      <li>Telefono: 045 2456030</li>
     </ul>
-    <p>Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (art. 77 GDPR) e di ricorrere all'autorità giudiziaria.</p>
+    <p>Il Titolare ha provveduto a nominare un Responsabile della Protezione dei Dati (&ldquo;DPO&rdquo;) contattabile all'indirizzo: <a href="mailto:dpo@domestikaenergia.com">dpo@domestikaenergia.com</a> per qualunque informazione inerente al trattamento dei Dati Personali da parte del Titolare.</p>
+    <p>Qualora non fosse possibile identificare correttamente la richiesta, il servizio privacy potrà eventualmente richiedere informazioni aggiuntive al solo fine di identificare correttamente l'identità dell'interessato.</p>
+
+    <h2>Tipologia di dato personale trattato</h2>
+    <p>Ai fini del trattamento, verranno trattati i seguenti dati personali: nome, cognome e numero di telefono.</p>
+
+    <h2>Oggetto del trattamento</h2>
+    <p>I Dati Personali trattati, volontariamente forniti in occasione della compilazione del modulo di richiesta, verranno utilizzati per fornire le informazioni richieste sulle offerte e/o i contratti.</p>
+
+    <h2>Finalità e base giuridica del trattamento</h2>
+    <p>Il Titolare tratta i Dati Personali per le seguenti finalità:</p>
+    <ul>
+      <li>Rispondere alle richieste dei clienti pervenute su questo Sito mediante i form di contatto. I dati saranno trattati per dare seguito alle richieste. La base giuridica per il Trattamento dei dati è l'esecuzione di un contratto o di misure precontrattuali ai sensi dell'art. 6, par. 1, lett. b), GDPR;</li>
+      <li>Legittimo interesse del Titolare del trattamento necessario per accertare, esercitare o difendere un diritto, sia in sede giudiziale, amministrativa che in sede stragiudiziale ai sensi dell'art. 6, par. 1 lett. f), GDPR.</li>
+    </ul>
+    <p>Il conferimento dei dati richiesti è obbligatorio per finalità precontrattuali e contrattuali. In assenza di tali informazioni, non sarà possibile procedere con il compimento la richiesta.</p>
+    <p>La informiamo che i dati personali rilasciati non saranno in alcun modo sottoposti a profilazione né ad alcun processo decisionale esclusivamente automatizzato.</p>
+
+    <h2>Conservazione dati</h2>
+    <p>In relazione alle finalità precedentemente definite il Titolare tratterrà i dati personali nei seguenti termini: per finalità precontrattuali/contrattuali fino a 2 anni dall'invio della richiesta; per finalità di legittimo interesse per il tempo strettamente necessario all'esecuzione di tale finalità.</p>
+
+    <h2>Ambito di comunicazione dei dati personali</h2>
+    <p>I Dati sono trattati presso le sedi operative del Titolare ed in ogni altro luogo in cui le parti coinvolte nel trattamento siano localizzate. I Dati Personali dell'Utente potrebbero essere trasferiti in un paese diverso da quello in cui l'Interessato si trova. Qualora abbia luogo uno dei trasferimenti appena descritti, l'Utente può chiedere informazioni al Titolare contattandolo agli estremi riportati in apertura.</p>
+    <p>Oltre al Titolare, in alcuni casi, potrebbero avere accesso ai Dati altri soggetti coinvolti nell'organizzazione di questo Sito Web (personale amministrativo, commerciale, marketing, legali, amministratori di sistema) ovvero soggetti esterni (come fornitori di servizi tecnici terzi, hosting provider, società informatiche, agenzie di comunicazione) nominati anche, se necessario, Responsabili del Trattamento da parte del Titolare. L'elenco aggiornato dei Responsabili potrà sempre essere richiesto al Titolare del Trattamento.</p>
+
+    <h2>Diritti degli interessati</h2>
+    <p>L'interessato ha il diritto di chiedere al Titolare del trattamento l'accesso ai Suoi dati personali ovvero la rettifica ovvero la cancellazione degli stessi o la limitazione del trattamento che la riguardano, ovvero ha diritto di opporsi al loro trattamento, oltre al diritto di richiedere la portabilità degli stessi, così come previsto dagli artt. 15-21 del GDPR. La richiesta può essere fatta, ai recapiti sopraindicati, a mezzo mail o raccomandata con oggetto: &ldquo;richiesta da parte dell'interessato&rdquo; specificando nella richiesta il diritto che l'interessato voglia esercitare (cancellazione, rettifica, portabilità, oblio), unitamente ad un valido indirizzo di posta elettronica/PEC al quale recapitare il riscontro. Il Titolare del trattamento o, chiunque dallo stesso incaricato, procederà a soddisfare la richiesta entro 30 giorni dalla data di ricevimento. Qualora la risposta fosse complessa, il tempo potrebbe allungarsi ad ulteriori 30 giorni, previa tempestiva comunicazione allo stesso interessato. Qualora ritenga opportuno far valere i suoi diritti, ha facoltà di proporre reclamo all'autorità di controllo competente, corrispondente al Garante per la Protezione dei Dati Personali, con sede in Piazza Venezia 11, Roma.</p>
 
   </main>
 
