@@ -3,17 +3,16 @@ require __DIR__ . '/_config.php';
 
 // Dati dinamici dall'API nuova (/landing-pages). Disponibili subito dopo _config.php,
 // prima dell'include di header.php (dove viene impostato $brandName).
-// REGOLA: usa il valore dall'API ($COMPANY) quando presente; per i campi NON
-// modellati dall'API (REA, Registro Imprese e socio unico) usa
-// il valore cablato. I valori di $COMPANY sono gia' resi sicuri per l'HTML.
+// REGOLA: usa il valore dall'API ($COMPANY) quando presente. I valori di
+// $COMPANY sono gia' resi sicuri per l'HTML.
 $ragioneSociale = $COMPANY['company_name']     !== '' ? $COMPANY['company_name']     : 'Gierre Contact Call Center S.r.l.';
 $coSede         = $COMPANY['sede_legale']      !== '' ? $COMPANY['sede_legale']      : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
 $coPiva         = $COMPANY['p_iva']            !== '' ? $COMPANY['p_iva']            : '09991111213';
 $coCapitale     = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '&euro; 10.000,00';
 $coPec          = $COMPANY['pec']              !== '' ? $COMPANY['pec']              : 'gierrecontactcallcentersrl@pec.it';
 $coDpoEmail     = $COMPANY['email_dpo'];
-// Campi NON modellati dall'API -> cablati.
-$coRea       = 'NA-1072970';
+// REA: SOLO dall'API. Se assente non compare.
+$coRea       = $COMPANY['numero_rea'];
 $dataAgg     = '09/07/2026';
 
 $pageTitle = 'Trasparenza commerciale';
@@ -136,8 +135,8 @@ include __DIR__ . '/header.php';
       Sede legale: <?= $coSede ?><br>
       C.F. e P.IVA: <?= $coPiva ?><br>
       Registro Imprese di Napoli n. <?= $coPiva ?><br>
-      REA: <?= $coRea ?><br>
-      Capitale sociale: <?= $coCapitale ?> i.v.<br>
+      <?php if ($coRea !== '') { ?>REA: <?= $coRea ?><br>
+      <?php } ?>Capitale sociale: <?= $coCapitale ?> i.v.<br>
       PEC: <a href="mailto:<?= $coPec ?>"><?= $coPec ?></a><?php if ($coDpoEmail !== '') { ?><br>
       DPO / Responsabile della Protezione dei Dati: <a href="mailto:<?= $coDpoEmail ?>"><?= $coDpoEmail ?></a><?php } ?>
     </div>

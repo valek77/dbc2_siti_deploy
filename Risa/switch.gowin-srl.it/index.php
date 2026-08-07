@@ -133,7 +133,8 @@ $coPiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
 $coCapitale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '&euro; 10.000,00';
 $coPec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
 $coDpoEmail = $COMPANY['email_dpo'];
-$coRea = 'NA-1072970';
+// REA: SOLO dall'API. Se assente non compare.
+$coRea = $COMPANY['numero_rea'];
 $coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
 ?>
   <!-- MEGA FOOTER -->
@@ -168,7 +169,7 @@ $coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
         <p class="footer-legal" style="margin:0; line-height:1.9;">
           &copy; <?= date('Y') ?> <strong><?= $coName ?></strong><br>
           Sede legale: <?= $coSede ?><br>
-          C.F. e P.IVA: <?= $coPiva ?> &ndash; REA <?= $coRea ?> &ndash; <?= $coRegImprese ?><br>
+          C.F. e P.IVA: <?= $coPiva ?><?php if ($coRea !== '') { ?> &ndash; REA <?= $coRea ?><?php } ?> &ndash; <?= $coRegImprese ?><br>
           Capitale sociale: <?= $coCapitale ?> i.v. &ndash; Società a socio unico<br>
           PEC: <a href="mailto:<?= $coPec ?>" style="color: rgba(255,255,255,.6);"><?= $coPec ?></a><?php if ($coDpoEmail !== '') { ?><br>
           DPO / Responsabile della Protezione dei Dati: <a href="mailto:<?= $coDpoEmail ?>" style="color: rgba(255,255,255,.6);"><?= $coDpoEmail ?></a><?php } ?>

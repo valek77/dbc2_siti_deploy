@@ -20,17 +20,16 @@ $logoFooter = $LANDING_PAGE['logo2_url'] !== ''
 $operatoreMarketing = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
 
 // --- Dati legali dell'azienda titolare per il fondo pagina ------------------
-// REGOLA: usa il valore dall'API ($COMPANY) quando presente; per i campi NON
-// modellati dall'API (REA, Registro Imprese e socio unico) usa
-// il valore cablato. I valori di $COMPANY sono gia' resi sicuri per l'HTML.
+// REGOLA: usa il valore dall'API ($COMPANY) quando presente. I valori di
+// $COMPANY sono gia' resi sicuri per l'HTML.
 $coName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact Call Center S.r.l.';
 $coSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
 $coPiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
 $coCapitale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '&euro; 10.000,00';
 $coPec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
 $coDpoEmail = $COMPANY['email_dpo'];
-// Campi NON modellati dall'API -> cablati.
-$coRea = 'NA-1072970';
+// REA: SOLO dall'API. Se assente non compare.
+$coRea = $COMPANY['numero_rea'];
 $coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
 ?>
 
@@ -50,7 +49,7 @@ $coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
       <p class="footer-legal">
         &copy; <?= date('Y') ?> <strong><?= $coName ?></strong><br>
         Sede legale: <?= $coSede ?><br>
-        C.F. e P.IVA: <?= $coPiva ?> &ndash; REA <?= $coRea ?> &ndash; <?= $coRegImprese ?><br>
+        C.F. e P.IVA: <?= $coPiva ?><?php if ($coRea !== '') { ?> &ndash; REA <?= $coRea ?><?php } ?> &ndash; <?= $coRegImprese ?><br>
         Capitale sociale: <?= $coCapitale ?> i.v. &ndash;<br>
         PEC: <a href="mailto:<?= $coPec ?>"><?= $coPec ?></a><?php if ($coDpoEmail !== '') { ?><br>
         DPO / Responsabile della Protezione dei Dati: <a href="mailto:<?= $coDpoEmail ?>"><?= $coDpoEmail ?></a><?php } ?>

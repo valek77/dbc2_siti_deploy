@@ -75,8 +75,8 @@ $titolarePiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
 $titolarePec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
 // Capitale sociale: campo API se presente, altrimenti valore camerale del documento.
 $capitaleSociale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '€ 10.000,00 i.v.';
-// Dati camerali NON esposti dall'API (dal documento fornito dal cliente).
-$titolareRea = 'NA-1072970';
+// REA: SOLO dall'API. Se assente non compare.
+$titolareRea = $COMPANY['numero_rea'];
 $emailDpo = $COMPANY['email_dpo'];
 
 // --- Venditore finale / operatore energetico: dati dall'API ($OPERATORE) --
@@ -107,8 +107,8 @@ include __DIR__ . '/header.php';
       Sede legale: <?= $titolareSede ?><br>
       C.F. e P.IVA: <?= $titolarePiva ?><br>
       Registro Imprese di Napoli n. <?= $titolarePiva ?><br>
-      REA: <?= $titolareRea ?><br>
-      Capitale sociale: <?= $capitaleSociale ?><br>
+      <?php if ($titolareRea !== '') { ?>REA: <?= $titolareRea ?><br>
+      <?php } ?>Capitale sociale: <?= $capitaleSociale ?><br>
       Società a socio unico<br>
       PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
     </p>
