@@ -4,7 +4,7 @@ $pageTitle = 'Tariffe';
 include __DIR__ . '/header.php';
 ?>
 
-  <main class="container" style="margin-top: 60px;">
+  <main class="container tariffs-page" style="margin-top: 60px;">
     <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
       Le migliori offerte
       <img src="nuovaCorrente.png" alt="Nuova Corrente" style="height: 40px; width: auto;">

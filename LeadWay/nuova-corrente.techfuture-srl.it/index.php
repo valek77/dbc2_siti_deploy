@@ -7,8 +7,8 @@ include __DIR__ . '/header.php';
   <section class="hero">
     <div class="hero-wrapper">
       <div class="hero-content">
-        <h1>Soluzioni avanzate per telecomunicazioni e utilities</h1>
-        <p><?= $brandName ?> offre consulenza specializzata, analisi dei costi e servizi su misura per ottimizzare le utenze domestiche e aziendali, garantendoti le migliori condizioni sul mercato.</p>
+<h1>Energia più semplice, conveniente e sostenibile</h1>
+        <p>Tech Future ti affianca nella scelta delle soluzioni energetiche più adatte, aiutandoti a ridurre i costi e a gestire le tue utenze con maggiore consapevolezza.</p>
 
         <div class="hero-actions">
           <a href="tariffe.php" class="btn-primary">Le nostre offerte</a>
@@ -16,14 +16,14 @@ include __DIR__ . '/header.php';
 
       </div>
       <div class="hero-image">
-        <img src="hero_gcommunication.png" alt="Consulenza <?= $brandName ?>" class="mascot-img" style="max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);" />
+        <img src="energy-hero.png" alt="Consulenza Tech Future" class="mascot-img" style="max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);" />
       </div>
     </div>
   </section>
 
   <section class="features-section">
-    <h2 class="section-title" style="margin-top: 0;">Perché scegliere noi?</h2>
-    <p class="section-sub" style="margin-bottom: 40px;">Tutti i vantaggi del nostro servizio</p>
+<h2 class="section-title" style="margin-top: 0;">Perché affidarti a noi?</h2>
+<p class="section-sub" style="margin-bottom: 40px;">Un supporto concreto per consumare meglio</p>
     <div class="features-container">
       <div class="trust-card">
         <img src="icon_free_new.png" alt="Servizio gratuito" class="trust-mascot" />
@@ -47,8 +47,8 @@ include __DIR__ . '/header.php';
   <section class="how-it-works-section">
     <div class="hiw-container">
       <div class="hiw-header">
-        <h2 class="section-title">Ottimizzare i costi non è mai stato così semplice</h2>
-        <p class="section-sub">Un processo chiaro in 4 passaggi</p>
+<h2 class="section-title">Ridurre i costi energetici è più semplice</h2>
+<p class="section-sub">Ti guidiamo passo dopo passo</p>
       </div>
 
       <div class="hiw-steps">
@@ -110,13 +110,13 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="consulting_business.png" alt="Consulenza strategica"
+        <img src="energy-consulting.png" alt="Consulenza strategica"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
       </div>
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0; color: var(--text-dark);">Ottimizza i costi con la giusta strategia</h2>
+<h2 class="section-title" style="text-align: left; margin-top: 0; color: var(--text-dark);">Trova la soluzione energetica giusta per te</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Con <?= $brandName ?> hai un partner affidabile per l'analisi e la gestione dei contratti luce, gas e telecomunicazioni. Analizziamo le fatture e selezioniamo per te le migliori opportunità.
+          Con Tech Future puoi leggere meglio i tuoi consumi, confrontare le alternative e scegliere proposte trasparenti per luce, gas e servizi connessi.
         </p>
         <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
       </div>
@@ -127,14 +127,14 @@ include __DIR__ . '/header.php';
     <div class="container"
       style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap-reverse;">
       <div style="flex: 1.2; min-width: 300px; text-align: left;">
-        <h2 class="section-title" style="text-align: left; margin-top: 0;">Un supporto dedicato per te e il tuo business</h2>
+<h2 class="section-title" style="text-align: left; margin-top: 0;">Un partner per la tua efficienza energetica</h2>
         <p style="font-size: 18px; line-height: 1.6; color: var(--text-label); margin-bottom: 32px;">
-          Che tu sia un'azienda in cerca di maggiore efficienza per le comunicazioni o un privato interessato al risparmio energetico, i nostri esperti sono sempre pronti a guidarti con serietà e trasparenza verso la soluzione migliore.
+          Per la casa o per l'azienda, Tech Future mette a tua disposizione competenza e chiarezza per migliorare l'efficienza e affrontare il mercato dell'energia con più serenità.
         </p>
         <a href="tariffe.php" class="btn-primary" style="display: inline-block;">Le nostre offerte</a>
       </div>
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="about_gcom.png" alt="Team <?= $brandName ?>"
+        <img src="energy-home.png" alt="Team Tech Future"
           style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
       </div>
     </div>

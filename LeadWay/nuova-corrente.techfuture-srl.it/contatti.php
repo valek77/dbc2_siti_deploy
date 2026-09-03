@@ -7,22 +7,22 @@ include __DIR__ . '/header.php';
 
   <main style="margin-top: 60px; background: #fff;">
     <div style="max-width: 800px; margin: 0 auto; padding: 40px 20px 20px; text-align: center;">
-      <h2 class="section-title" style="font-size: 48px; color: var(--text-dark); margin-top: 0;">Contattaci</h2>
+<h2 class="section-title" style="font-size: 48px; color: var(--text-dark); margin-top: 0;">Parla con Tech Future</h2>
       <p class="section-sub" style="font-size: 20px; color: var(--text-label);">Compila il modulo sottostante per
-        inviarci un messaggio o essere ricontattato</p>
+        raccontarci le tue esigenze e ricevere un supporto personalizzato</p>
     </div>
 
     <section class="green-intro"
       style="padding: 80px 20px; background: var(--primary); margin: 60px 0; color: #ffffff;">
       <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 300px;">
-          <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Siamo pronti ad aiutarti</h2>
+<h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Mettiamo energia nelle tue scelte</h2>
           <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            Scegliere <?= $brandName ?> significa ottimizzare le tue spese affidandoti a veri professionisti. Inviaci una richiesta per ricevere una consulenza senza impegno.
+            Con Tech Future puoi capire meglio i tuoi consumi e valutare alternative più efficienti. Scrivici per ricevere una consulenza chiara e senza impegno.
           </p>
         </div>
         <div style="flex: 0.8; min-width: 200px; display: flex; justify-content: center;">
-          <img src="consulting_business.png" alt="Consulenza"
+          <img src="energy-consulting.png" alt="Consulenza"
             style="max-width: 300px; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
         </div>
       </div>
@@ -68,8 +68,8 @@ include __DIR__ . '/header.php';
 
             <div id="conferma" hidden style="text-align: center; padding: 32px 0; margin-top: 20px; background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: var(--r-md); color: #065F46;">
               <div style="font-size: 56px; margin-bottom: 12px;">✅</div>
-              <strong style="font-size: 17px;">Richiesta inviata con successo!</strong>
-              <p style="margin: 8px 0 0; font-size: 14.5px;">Un nostro consulente ti contatterà.</p>
+<strong style="font-size: 17px;">Richiesta ricevuta con successo!</strong>
+<p style="margin: 8px 0 0; font-size: 14.5px;">Un consulente Tech Future ti contatterà al più presto.</p>
             </div>
       </div>
     </div>
@@ -79,13 +79,13 @@ include __DIR__ . '/header.php';
       <div
         style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap-reverse;">
         <div style="flex: 0.8; min-width: 200px; display: flex; justify-content: center;">
-          <img src="about_gcom.png" alt="Consulenza"
+          <img src="energy-home.png" alt="Consulenza"
             style="max-width: 300px; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
         </div>
         <div style="flex: 1; min-width: 300px;">
-          <h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Il nostro impegno verso di te</h2>
+<h2 class="section-title" style="text-align: left; margin-top: 0; color: #ffffff;">Il nostro supporto, sempre al tuo fianco</h2>
           <p style="font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.92);">
-            Non ci limitiamo a offrirti un contratto, costruiamo con te una partnership duratura. Analizziamo le tue necessità e selezioniamo sul mercato le migliori soluzioni per le tue utenze aziendali e domestiche.
+            Non ti proponiamo una soluzione standard: ascoltiamo le tue necessità, analizziamo le utenze e costruiamo insieme un percorso energetico più efficiente per casa e azienda.
           </p>
         </div>
       </div>

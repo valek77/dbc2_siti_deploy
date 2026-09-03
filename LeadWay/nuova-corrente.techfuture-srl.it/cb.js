@@ -106,6 +106,15 @@
         }
       `;
       document.head.appendChild(style);
+      style.textContent += `
+        .cookie-banner-wrapper .cookie-btn-primary {
+          background: linear-gradient(102deg, #078f68, #25a9d6) !important;
+          border-color: #078f68 !important;
+          color: #ffffff !important;
+        }
+        .cookie-banner-wrapper a { color: #167da4 !important; }
+        .cookie-banner-wrapper { border-color: rgba(37, 169, 214, .28) !important; }
+      `;
 
       const wrapper = document.createElement('div');
       wrapper.className = 'cookie-banner-wrapper';
