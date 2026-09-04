@@ -1456,3 +1456,185 @@ img, svg { display: block; max-width: 100%; }
   transform: none;
   box-shadow: none;
 }
+
+/* ─── Global palette override: magenta brand + accessible yellow CTAs ─── */
+:root {
+  --primary: #ff13a6;
+  --primary-600: #d40083;
+  --primary-700: #b0006d;
+  --primary-800: #850052;
+  --primary-50: #fff0fa;
+  --primary-100: #ffc7e9;
+  --accent: #ff13a6;
+  --accent-hover: #c9007d;
+  --accent-deep: #a60068;
+  --accent-bg: #fff0fa;
+  --yellow: #ffd21f;
+  --yellow-hover: #e6b800;
+  --grad-yellow: linear-gradient(135deg, #ffe45c 0%, #ffd21f 100%);
+  --grad-accent: linear-gradient(135deg, #ff13a6 0%, #c9007d 100%);
+  --grad-magenta: linear-gradient(135deg, #ff13a6 0%, #a60068 100%);
+  --grad-primary: linear-gradient(135deg, #241322 0%, #4b1238 58%, #190d18 100%);
+  --grad-blue: linear-gradient(135deg, #241322 0%, #35122b 60%, #190d18 100%);
+  --grad-aurora: linear-gradient(135deg, #241322 0%, #4b1238 58%, #190d18 100%);
+  --accent-hi: #ff8bd2;
+  --secondary: #19131b;
+}
+
+/* Hero: dark surface guarantees readable white copy and pink accents. */
+.hero,
+.hero-section,
+[class*="hero"] {
+  --hero-bg: #19131b;
+}
+.hero,
+.hero-section {
+  background-color: var(--hero-bg);
+  color: #fff;
+}
+.hero h1,
+.hero h2,
+.hero p,
+.hero .hero__title,
+.hero .hero__subtitle,
+.hero .hero__text,
+.hero-section h1,
+.hero-section h2,
+.hero-section p {
+  color: #fff;
+}
+.hero h1 span,
+.hero h1 .accent,
+.hero .hero__title strong,
+.hero-section h1 span,
+.hero-section h1 .accent {
+  color: #ff13a6;
+  -webkit-text-fill-color: #ff13a6;
+}
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(12, 8, 14, .88) 0%, rgba(25, 12, 23, .68) 100%);
+}
+
+/* Yellow is reserved for actionable controls; dark text keeps contrast high. */
+.btn-primary,
+.btn-cta,
+.btn-submit,
+.btn-header,
+.btn-coral,
+.btn-luce,
+.btn-gas,
+.btn-combo,
+.about-btn-new,
+.offer-cta,
+.pl-final-cta,
+.cta-final a,
+.contact-card-cta a.see-all,
+.header-cta .btn-primary {
+  background: #ffd21f !important;
+  background-image: none !important;
+  color: #21151d !important;
+  border-color: #ffd21f !important;
+  text-shadow: none !important;
+}
+.btn-primary:hover,
+.btn-cta:hover,
+.btn-submit:hover:not(:disabled),
+.btn-header:hover,
+.btn-coral:hover,
+.btn-luce:hover,
+.btn-gas:hover,
+.btn-combo:hover,
+.about-btn-new:hover,
+.offer-cta:hover,
+.pl-final-cta:hover,
+.cta-final a:hover,
+.contact-card-cta a.see-all:hover,
+.header-cta .btn-primary:hover {
+  background: #e6b800 !important;
+  color: #21151d !important;
+}
+.hero-tag,
+.eyebrow,
+.badge,
+[class*="hero"] .tag {
+  border-color: #ff13a6;
+}
+/* Step titles: readable on the original section surfaces. */
+.how-it-works .hiw-step h3,
+.how-it-works .hiw-step h4,
+.how-it-works .hiw-step h5,
+.how-it-works .hiw-step h6,
+.how-it-works .step-title {
+  color: #fff !important;
+}
+.how-it-works .hiw-step strong,
+.how-it-works .hiw-step span,
+.how-it-works .hiw-step .step-title {
+  color: #fff !important;
+}
+.how-it-works .timeline-content h5 {
+  color: #ffd21f !important;
+}
+/* Uniforme delle card offerte: logo contenuto e categorie allineate. */
+#offers-grid {
+  grid-template-columns: repeat(2, minmax(380px, 1fr)) !important;
+  align-items: stretch;
+}
+
+.offer-card {
+  min-width: 0;
+  min-height: 100%;
+}
+
+.offer-ribbon {
+  min-height: 76px;
+}
+
+.offer-ribbon .pill {
+  width: max-content;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.offer-ribbon .pill svg,
+.offer-ribbon .lock svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+.offer-operator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 42px;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.offer-operator img {
+  display: block;
+  width: auto;
+  height: 28px;
+  max-width: 112px;
+  object-fit: contain;
+}
+
+@media (max-width: 820px) {
+  #offers-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+.offer-name {
+  min-height: 52px;
+}
+
+.offer-type {
+  min-height: 42px;
+}

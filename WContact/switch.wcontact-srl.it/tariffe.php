@@ -3,8 +3,19 @@ require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Luce e Gas';
 $metaDescription = 'Scopri tutte le offerte ' . $OPERATORE['nome_marketing'] . ' per luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 
+$tipologie = [];
+foreach ($OFFERTE as $o) {
+    if ($o['tipologia'] !== '' && !in_array($o['tipologia'], $tipologie, true)) {
+        $tipologie[] = $o['tipologia'];
+    }
+}
+
 // Nome operatore reso sicuro per l'uso dentro JavaScript (stringa JSON).
 $operatoreJs = json_encode(html_entity_decode($OPERATORE['nome_marketing'], ENT_QUOTES, 'UTF-8'));
+$operatoreLogoJs = json_encode([
+    'url' => html_entity_decode($OPERATORE['logo_url'], ENT_QUOTES, 'UTF-8'),
+    'nome' => html_entity_decode($OPERATORE['nome_marketing'], ENT_QUOTES, 'UTF-8'),
+], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 
 // Corpo dello script offerte: nowdoc (<<<'JS') per preservare i template
 // literal ${...} senza che PHP provi a interpolarli. Il nome operatore è
@@ -14,6 +25,19 @@ $offersJs = <<<'JS'
     const ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
     const ICON_FLAME = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
     const ICON_GIFT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>';
+
+    // I contenuti editoriali dell'API possono contenere tag diversi: nelle
+    // card li rendiamo testo semplice per mantenere tipografia e spaziatura uniformi.
+    function cardText(value) {
+      const el = document.createElement('div');
+      el.innerHTML = String(value || '');
+      return (el.textContent || el.innerText || '').replace(/\s+/g, ' ').trim();
+    }
+    function cardHtml(value) {
+      return cardText(value).replace(/[&<>"']/g, function (char) {
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char];
+      });
+    }
 
     const offers = [
       // --- LUCE RESIDENZIALE ---
@@ -84,22 +108,23 @@ $offersJs = <<<'JS'
           ${o.top ? `<span class="lock">${ICON_GIFT} Consigliata</span>` : ''}
         </div>
         <div class="offer-card-body">
-          <h3 class="offer-name">${o.nome}</h3>
-          <p class="offer-type">${o.sub}</p>
+          ${OP_LOGO.url ? `<div class="offer-operator"><span>Fornitore</span><img src="${OP_LOGO.url}" alt="${OP_LOGO.nome}" loading="lazy"></div>` : ''}
+          <h3 class="offer-name">${cardHtml(o.nome)}</h3>
+          <p class="offer-type">${cardHtml(o.sub)}</p>
 
           <div class="price-block">
             <div class="price-label">Prezzo energia</div>
-            <div class="price-main">${o.prezzoRid}<span style="font-size:14px; color:var(--muted); margin-left:4px; font-weight:600;">${o.unita}</span></div>
+            <div class="price-main">${cardHtml(o.prezzoRid)}<span style="font-size:14px; color:var(--muted); margin-left:4px; font-weight:600;">${cardHtml(o.unita)}</span></div>
             ${o.prezzoBoll ? `<div class="price-alt"><b>${o.prezzoBoll}</b></div>` : `<div class="price-alt" style="color:var(--primary); font-weight:700;">✓ Prezzo unico, spread garantito</div>`}
           </div>
 
           <ul class="offer-features">
-            ${o.features.map(f => `<li>${ICON_CHECK}<span>${f}</span></li>`).join('')}
+            ${o.features.map(f => `<li>${ICON_CHECK}<span>${cardHtml(f)}</span></li>`).join('')}
           </ul>
 
-          <div class="offer-note">${o.note}</div>
+          <div class="offer-note">${cardHtml(o.note)}</div>
 
-          <button class="btn-primary" data-offer="${o.id}" data-name="${o.nome}">Richiedi informazioni
+          <button class="btn-primary" data-offer="${o.id}">Richiedi informazioni
             <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
@@ -114,7 +139,7 @@ $offersJs = <<<'JS'
       grid.querySelectorAll('[data-offer]').forEach(btn => {
         btn.addEventListener('click', () => {
           const name = btn.dataset.name;
-          window.location.href = 'contatti.php?offerta=' + encodeURIComponent(name) + '#contatto-form';
+          window.location.href = 'contatti.php?offerta=' + encodeURIComponent(btn.dataset.offer) + '#contatto-form';
         });
       });
     }
@@ -130,7 +155,34 @@ $offersJs = <<<'JS'
     applyFilter('all');
 JS;
 
-$pageScripts = "  <script>\n    const OP = {$operatoreJs};\n" . $offersJs . "\n  </script>";
+// Sostituisco la lista demo con quella restituita dall'API. I frammenti HTML
+// delle offerte sono generati e sanificati dal backend Datalia.
+$apiOffers = [];
+foreach ($OFFERTE as $o) {
+    $tipologia = $o['tipologia'];
+    $apiOffers[] = [
+        'id' => (string) $o['id'],
+        'category' => strtolower(str_replace(' ', '-', $tipologia)),
+        'kind' => stripos($tipologia, 'gas') !== false ? 'gas' : 'luce',
+        'tipo' => $tipologia,
+        'top' => false,
+        'nome' => $o['nome'],
+        'sub' => $o['sottotitolo'],
+        'prezzoRid' => implode(' ', $o['caratteristiche_evidenza']),
+        'unita' => '',
+        'prezzoBoll' => null,
+        'note' => $o['footer'],
+        'features' => $o['caratteristiche'],
+    ];
+}
+$offersJs = preg_replace(
+    '/const offers = \[.*?\n    \];/s',
+    'const offers = ' . json_encode($apiOffers, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';',
+    $offersJs,
+    1
+);
+
+$pageScripts = "  <script>\n    const OP = {$operatoreJs};\n    const OP_LOGO = {$operatoreLogoJs};\n" . $offersJs . "\n  </script>";
 
 include __DIR__ . '/header.php';
 ?>
@@ -154,10 +206,9 @@ include __DIR__ . '/header.php';
 
     <div class="tab-bar" id="tab-bar">
       <button class="tab-btn active" data-filter="all">Tutte le Offerte</button>
-      <button class="tab-btn" data-filter="luce-res">Luce Residenziale</button>
-      <button class="tab-btn" data-filter="luce-placet">Luce PLACET</button>
-      <button class="tab-btn" data-filter="gas-res">Gas Residenziale</button>
-      <button class="tab-btn" data-filter="gas-placet">Gas PLACET</button>
+      <?php foreach ($tipologie as $tipologia): ?>
+      <button class="tab-btn" data-filter="<?= e(strtolower(str_replace(' ', '-', $tipologia))) ?>"><?= e($tipologia) ?></button>
+      <?php endforeach; ?>
     </div>
 
     <div id="offers-grid"

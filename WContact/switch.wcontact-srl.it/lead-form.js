@@ -8,6 +8,19 @@
   const conferma = document.getElementById('conferma');
   const originalBtnText = btnSubmit ? btnSubmit.textContent : '';
 
+  // Offerta: combo <select id="fOfferta"> se presente, altrimenti ?offerta=<id>.
+  const offerSelect = document.getElementById('fOfferta');
+  const offerParam = new URLSearchParams(window.location.search).get('offerta');
+
+  if (offerSelect && offerParam && /^\d+$/.test(offerParam.trim())) {
+    offerSelect.value = offerParam.trim();
+  }
+
+  function currentOffertaId() {
+    const raw = (offerSelect && offerSelect.value) ? offerSelect.value : offerParam;
+    return raw && /^\d+$/.test(String(raw).trim()) ? parseInt(String(raw).trim(), 10) : null;
+  }
+
   const validators = {
     fNome: v => v.trim().length >= 2 ? '' : 'Inserisci nome e cognome',
     fTel: v => /^[0-9 +]{8,}$/.test(v.trim()) ? '' : 'Numero non valido',
@@ -76,6 +89,7 @@
         telefono: form.telefono.value.trim().replace(/\D/g, ''),
         ip: ip,
         landing_page_url: window.location.origin,
+        offerta_id: currentOffertaId(),
         data_registrazione: new Date().toISOString(),
         consenso_0: !!(form.consenso_privacy && form.consenso_privacy.checked),
         consenso_1: !!(commercial && commercial.checked),
