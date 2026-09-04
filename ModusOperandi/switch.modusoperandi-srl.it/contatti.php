@@ -3,6 +3,9 @@ require __DIR__ . '/_config.php';
 $pageTitle = 'Contatti';
 $metaDescription = 'Contatta ' . $OPERATORE['nome_marketing'] . ' per ricevere una consulenza gratuita sulle offerte di luce e gas. Siamo qui per aiutarti a scegliere la tariffa giusta.';
 
+// Offerta eventualmente preselezionata dal link presente nelle card di tariffe.php.
+$preselOffertaId = isset($_GET['offerta']) ? trim((string) $_GET['offerta']) : '';
+
 // Recapiti dall'API (con fallback ragionevoli se un campo manca).
 $emailContatto = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $COMPANY['pec'];
 // href "tel:" con soli numeri e "+" (il valore mostrato resta quello dell'API).
@@ -112,6 +115,19 @@ include __DIR__ . '/header.php';
           <p class="sub">Compila il form e ti ricontatteremo entro 24 ore.</p>
 
           <form id="leadForm" method="POST" novalidate>
+            <?php if (!empty($OFFERTE)): ?>
+            <div class="form-group">
+              <label class="form-label" for="fOfferta">Offerta di interesse</label>
+              <select class="form-input" id="fOfferta" name="offerta">
+                <option value="">Seleziona un'offerta (facoltativo)</option>
+                <?php foreach ($OFFERTE as $o): ?>
+                <option value="<?= e($o['id']) ?>"<?= ($preselOffertaId !== '' && (string) $o['id'] === $preselOffertaId) ? ' selected' : '' ?>><?= e($o['nome']) ?></option>
+                <?php endforeach; ?>
+              </select>
+              <div class="field-error" data-error-for="fOfferta"></div>
+            </div>
+            <?php endif; ?>
+
             <div class="form-group">
               <label class="form-label" for="fNome">Nome e Cognome *</label>
               <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>
