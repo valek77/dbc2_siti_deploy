@@ -13,6 +13,16 @@ $telHref = preg_replace('/[^0-9+]/', '', html_entity_decode($COMPANY['telefono']
 // Nome dell'operatore energetico per il testo del consenso (nome legale, fallback marketing).
 $operatoreConsenso = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
 
+// Riquadro laterale alimentato dalla stessa lista offerte mostrata in tariffe.php.
+$offertaInEvidenza = null;
+foreach ($OFFERTE as $offerta) {
+  if ($offerta['tipologia'] !== '' && stripos($offerta['tipologia'], 'gas') === false) {
+    $offertaInEvidenza = $offerta;
+    break;
+  }
+}
+$offertaInEvidenza = $offertaInEvidenza ?: ($OFFERTE[0] ?? null);
+
 $pageScripts = <<<'JS'
   <script src="lead-form.js"></script>
   <script>
@@ -101,12 +111,14 @@ include __DIR__ . '/header.php';
           </div>
         </div>
 
+        <?php if ($offertaInEvidenza): ?>
         <div class="contact-card-cta" style="margin-top:24px;">
           <div class="label">Offerta del momento</div>
-          <div class="name">NEW <?= $brandName ?> LUCE CASA</div>
-          <div class="price">PUN +€0,03<small> €/kWh</small></div>
+          <div class="name"><?= $offertaInEvidenza['titolo'] !== '' ? $offertaInEvidenza['titolo'] : e($offertaInEvidenza['nome']) ?></div>
+          <?php if (!empty($offertaInEvidenza['caratteristiche_evidenza'])): ?><div class="price"><?= $offertaInEvidenza['caratteristiche_evidenza'][0] ?></div><?php endif; ?>
           <a class="see-all" href="tariffe.php" style="margin-top:15px;">Vedi tutte le offerte</a>
         </div>
+        <?php endif; ?>
       </div>
 
       <div id="contatto-form" class="reveal">
