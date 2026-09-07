@@ -1147,6 +1147,89 @@ img, svg { display: block; max-width: 100%; }
 
 .offer-card .btn-primary { width: 100%; margin-top: auto; }
 
+/* Offerte API: tre card allineate e tipografia uniforme anche quando
+   l'API restituisce titoli/prezzi con tag HTML differenti. */
+.api-offers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+.api-offers-grid .offer-card {
+  min-width: 0;
+  max-width: none;
+}
+.api-offer-title {
+  min-height: 52px;
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 6px;
+}
+.api-offer-title > * {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+.api-offers-grid .offer-type {
+  min-height: 42px;
+}
+.api-offers-grid .offer-type > * {
+  margin: 0;
+  font: inherit;
+}
+.api-offers-grid .offer-features > p {
+  position: relative;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--ink-3);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.api-offers-grid .offer-features > p::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: .55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+.api-offers-grid .price-main > *,
+.api-offers-grid .price-block > p,
+.api-offers-grid .price-block > h1,
+.api-offers-grid .price-block > h2,
+.api-offers-grid .price-block > h3,
+.api-offers-grid .price-block > h4 {
+  margin: 0;
+  color: inherit;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+.api-offers-grid .price-block > p,
+.api-offers-grid .price-block > h1,
+.api-offers-grid .price-block > h2,
+.api-offers-grid .price-block > h3,
+.api-offers-grid .price-block > h4 {
+  color: var(--primary);
+}
+
+@media (max-width: 1024px) {
+  .api-offers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .api-offers-grid { grid-template-columns: 1fr; }
+}
+
 /* =========================================================
    Glossary cards (tariffe)
    ========================================================= */

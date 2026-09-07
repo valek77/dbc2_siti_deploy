@@ -4,6 +4,15 @@ $brandName = $LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'
 $pageTitle = 'Offerte Luce e Gas';
 $pageDescription = 'Scopri tutte le offerte ' . $brandName . ' per luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 include __DIR__ . '/header.php';
+
+$tipologie = [];
+foreach ($OFFERTE as $o) {
+    $tipologia = $o['tipologia'];
+    if ($tipologia !== '' && !in_array($tipologia, $tipologie, true)) {
+        $tipologie[] = $tipologia;
+    }
+}
+$hasApiOfferte = !empty($OFFERTE);
 ?>
 
   <!-- Page hero -->
@@ -23,15 +32,63 @@ include __DIR__ . '/header.php';
   <main class="section" style="padding: 80px 0 40px;">
     <div class="container">
 
-      <!-- Filtro -->
+      <?php if ($hasApiOfferte): ?>
+      <!-- Filtro offerte API -->
+      <div class="tab-bar" id="tab-bar">
+        <button class="tab-btn active" data-filter="all">Tutte</button>
+        <?php foreach ($tipologie as $tipologia): ?>
+        <button class="tab-btn" data-filter="<?= e($tipologia) ?>"><?= stripos($tipologia, 'gas') !== false ? '🔥 ' : '⚡ ' ?><?= e($tipologia) ?></button>
+        <?php endforeach; ?>
+      </div>
+
+      <!-- Griglia offerte API -->
+      <div id="offers-grid" class="api-offers-grid">
+        <?php foreach ($OFFERTE as $o):
+            $isGas = stripos($o['tipologia'], 'gas') !== false;
+        ?>
+        <article class="offer-card" data-category="<?= e($o['tipologia']) ?>">
+          <div class="offer-ribbon">
+            <span class="pill <?= $isGas ? 'warm' : '' ?>"><?= $isGas ? '🔥 ' : '⚡ ' ?><?= e($o['tipologia']) ?></span>
+          </div>
+          <div class="offer-card-body">
+            <div class="api-offer-title"><?= $o['titolo'] ?></div>
+            <?php if ($o['sottotitolo'] !== ''): ?>
+            <div class="offer-type"><?= $o['sottotitolo'] ?></div>
+            <?php endif; ?>
+
+            <?php if (!empty($o['caratteristiche_evidenza'])): ?>
+            <div class="price-block">
+              <?php foreach ($o['caratteristiche_evidenza'] as $evidenza) echo $evidenza; ?>
+            </div>
+            <?php endif; ?>
+
+            <?php if (!empty($o['caratteristiche'])): ?>
+            <div class="offer-features">
+              <?php foreach ($o['caratteristiche'] as $caratteristica) echo $caratteristica; ?>
+            </div>
+            <?php endif; ?>
+
+            <?php if ($o['footer'] !== ''): ?>
+            <div class="offer-note"><?= $o['footer'] ?></div>
+            <?php endif; ?>
+
+            <button class="btn-primary" data-offer-id="<?= e($o['id']) ?>">Richiedi informazioni
+              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </article>
+        <?php endforeach; ?>
+      </div>
+      <?php else: ?>
+      <!-- Fallback offerte statiche -->
       <div class="tab-bar" id="tab-bar">
         <button class="tab-btn active" data-filter="all">Tutte</button>
         <button class="tab-btn" data-filter="luce-res">Luce Residenziale</button>
         <button class="tab-btn" data-filter="gas-res">Gas Residenziale</button>
       </div>
 
-      <!-- Griglia offerte -->
       <div id="offers-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;"></div>
+      <?php endif; ?>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
         * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread o prezzi fissi indicati. Il fornitore partner è <?= $OPERATORE['nome_legale'] ?>. Le offerte sono soggette alle condizioni contrattuali di <?= $OPERATORE['nome_legale'] ?>.
@@ -68,6 +125,33 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
+<?php if ($hasApiOfferte): ?>
+  <script>
+    (function () {
+      const cards = Array.from(document.querySelectorAll('#offers-grid .offer-card'));
+      const tabBar = document.getElementById('tab-bar');
+      if (tabBar) {
+        tabBar.addEventListener('click', e => {
+          const btn = e.target.closest('.tab-btn');
+          if (!btn) return;
+          tabBar.querySelectorAll('.tab-btn').forEach(item => item.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          cards.forEach(card => {
+            card.style.display = filter === 'all' || card.dataset.category === filter ? '' : 'none';
+          });
+        });
+      }
+      cards.forEach(card => {
+        const btn = card.querySelector('[data-offer-id]');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          window.location.href = 'contatti.php?offerta=' + encodeURIComponent(btn.dataset.offerId) + '#contatto-form';
+        });
+      });
+    })();
+  </script>
+<?php else: ?>
   <script>
     const OPERATORE = <?= json_encode($OPERATORE['nome_marketing'], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
 
@@ -149,5 +233,6 @@ include __DIR__ . '/header.php';
 
     applyFilter('all');
   </script>
+<?php endif; ?>
 
 <?php include __DIR__ . '/footer.php'; ?>

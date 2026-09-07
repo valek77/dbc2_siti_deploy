@@ -6,6 +6,7 @@ $pageDescription = 'Contatta ' . $brandName . ' per ricevere una consulenza grat
 
 // Recapito email mostrato nella card contatti (assistenza, con fallback alla PEC).
 $emailContatto = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $COMPANY['pec'];
+$preselOffertaId = isset($_GET['offerta']) ? trim((string) $_GET['offerta']) : '';
 
 include __DIR__ . '/header.php';
 ?>
@@ -78,6 +79,19 @@ include __DIR__ . '/header.php';
             <p class="sub">Compila il form e ti ricontatteremo entro 24 ore.</p>
 
             <form id="leadForm" method="POST" novalidate>
+              <?php if (!empty($OFFERTE)): ?>
+              <div class="form-group">
+                <label class="form-label" for="fOfferta">Offerta di interesse</label>
+                <select class="form-input" id="fOfferta" name="offerta">
+                  <option value="">Seleziona un'offerta (facoltativo)</option>
+                  <?php foreach ($OFFERTE as $o): ?>
+                  <option value="<?= e($o['id']) ?>"<?= ($preselOffertaId !== '' && (string) $o['id'] === $preselOffertaId) ? ' selected' : '' ?>><?= e($o['nome']) ?></option>
+                  <?php endforeach; ?>
+                </select>
+                <div class="field-error" data-error-for="fOfferta"></div>
+              </div>
+              <?php endif; ?>
+
               <div class="form-group">
                 <label class="form-label" for="fNome">Nome e Cognome *</label>
                 <input class="form-input" id="fNome" name="nome" type="text" placeholder="Mario Rossi" required>
