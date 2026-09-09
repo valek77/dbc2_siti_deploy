@@ -94,6 +94,7 @@
         ip: ip,
         landing_page_url: window.location.origin,
         offerta_id: currentOffertaId(),
+        user_agent: navigator.userAgent,
         data_registrazione: new Date().toISOString(),
         consenso_0: !!(form.consenso_privacy && form.consenso_privacy.checked),
         consenso_1: !!(commercial && commercial.checked),

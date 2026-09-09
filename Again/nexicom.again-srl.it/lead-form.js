@@ -80,6 +80,7 @@
         telefono: form.telefono.value.trim().replace(/\D/g, ''),
         ip: ip,
         landing_page_url: window.location.origin,
+        user_agent: navigator.userAgent,
         data_registrazione: new Date().toISOString(),
         offerta_id: Number.isInteger(selectedOffer) ? selectedOffer : null,
         consenso_0: !!(form.consenso_privacy && form.consenso_privacy.checked),
