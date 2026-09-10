@@ -112,7 +112,7 @@
       wrapper.innerHTML = `
         <div class="cookie-banner-container">
           <div class="cookie-content">
-            <strong>Utilizziamo i cookie per migliorare la tua esperienza sul sito. 🍪</strong>
+            <strong>Utilizziamo i cookie per migliorare la tua esperienza sul sito.</strong>
             <p>Puoi accettare tutti i cookie e continuare la navigazione.<br>
             Trovi tutte le informazioni sui cookie utilizzati nella nostra <a href="cookie-policy.html">cookie policy</a>.</p>
           </div>

@@ -1504,14 +1504,17 @@ img, svg { display: block; max-width: 100%; }
    ========================================================= */
 .offers-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 400px));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
   justify-content: center;
-  max-width: 824px;
+  max-width: 1200px;
   margin-inline: auto;
 }
 @media (max-width: 720px) {
   .offers-grid { grid-template-columns: minmax(0, 400px); }
+}
+.offers-grid .offer-card {
+  min-width: 0;
 }
 .offers-grid .offer-card {
   background: #fff;
@@ -1523,29 +1526,65 @@ img, svg { display: block; max-width: 100%; }
   display: flex;
   flex-direction: column;
 }
-.offers-grid .offer-card:hover { transform: translateY(-6px); }
+.offers-grid .offer-card {
+  border-color: #e7e1e5;
+  box-shadow: 0 14px 34px -22px rgba(33, 21, 29, .42);
+}
+.offers-grid .offer-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 19, 166, .35);
+  box-shadow: 0 24px 44px -24px rgba(33, 21, 29, .48);
+}
 /* Rimuove la barretta accento in cima ereditata da .offer-card::before (statico). */
 .offers-grid .offer-card::before { display: none; }
 .offers-grid .offer-ribbon {
-  padding: 12px 20px;
+  min-height: 54px;
+  box-sizing: border-box;
+  padding: 14px 22px;
   font-family: var(--font-display);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #fff;
+  background: linear-gradient(135deg, #2d252b 0%, #171317 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
-.offers-grid .offer-ribbon.luce-res  { background: linear-gradient(90deg, #4A4A4A, #262626); }
-.offers-grid .offer-ribbon.gas-res   { background: linear-gradient(90deg, #4A4A4A, #262626); }
+.offers-grid .offer-ribbon.luce-res,
+.offers-grid .offer-ribbon.gas-res { background: linear-gradient(135deg, #2d252b 0%, #171317 100%); }
+.offers-grid .offer-ribbon .pill {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  letter-spacing: .1em;
+}
+.offers-grid .offer-ribbon .pill svg { width: 16px; height: 16px; }
+.offers-grid .offer-ribbon .lock {
+  padding: 5px 9px;
+  color: #21151d;
+  background: var(--yellow);
+  border: 0;
+  font-size: 10px;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+.offers-grid .offer-ribbon .lock svg { width: 14px; height: 14px; }
 .offers-grid .offer-body {
-  padding: 28px;
+  padding: 28px 30px 30px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
+.offers-grid .offer-card-body {
+  padding: 28px 30px 30px;
+}
 .offers-grid .offer-operator {
-  display: flex; align-items: center; justify-content: flex-end; gap: 10px;
-  padding-bottom: 16px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding-bottom: 18px; margin-bottom: 22px;
   border-bottom: 1px solid var(--line);
 }
 .offers-grid .offer-operator span {
@@ -1553,18 +1592,22 @@ img, svg { display: block; max-width: 100%; }
   color: var(--muted);
 }
 .offers-grid .offer-operator img {
-  height: 30px; width: auto; max-width: 130px; object-fit: contain;
+  height: 28px; width: auto; max-width: 132px; object-fit: contain;
 }
+.offers-grid .offer-body > h3 { font-size: 21px; line-height: 1.18; letter-spacing: -.025em; }
 .offers-grid .offer-type {
   font-size: 13px;
   color: var(--muted);
-  margin-bottom: 20px;
+  line-height: 1.5;
+  margin-bottom: 22px;
 }
 .offers-grid .offer-price-box {
-  background: var(--bg-soft);
+  background: linear-gradient(135deg, #fff6fc 0%, #fff 100%);
   border-radius: var(--r-lg);
-  padding: 18px 20px;
+  padding: 20px 22px;
   margin-bottom: 20px;
+  border: 1px solid #ffd3ed;
+  box-shadow: inset 3px 0 0 var(--primary);
 }
 .offers-grid .offer-note {
   font-size: 12px;
@@ -1578,6 +1621,7 @@ img, svg { display: block; max-width: 100%; }
 .offers-grid .offer-cta {
   display: block;
   width: 100%;
+  min-height: 50px;
   padding: 14px;
   background: var(--primary);
   color: #fff;
@@ -1590,13 +1634,14 @@ img, svg { display: block; max-width: 100%; }
   cursor: pointer;
   transition: background .2s, transform .2s;
   margin-top: auto;
+  box-shadow: 0 10px 18px -12px rgba(255, 19, 166, .9);
 }
 .offers-grid .offer-cta:hover { transform: translateY(-1px); }
 
 /* Frammenti HTML grezzi dall'API adattati al layout delle card. */
 .offers-grid .offer-body > h3 {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 800;
   color: var(--ink);
   margin: 0 0 6px;
@@ -1636,26 +1681,53 @@ img, svg { display: block; max-width: 100%; }
 .offers-grid .offer-feats {
   list-style: none;
   padding: 0;
-  margin: 0 0 16px;
+  margin: 2px 0 22px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .offers-grid .offer-feats li {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   font-size: 14px;
-  color: var(--muted);
+  line-height: 1.45;
+  color: var(--ink-3);
 }
 .offers-grid .offer-feats li::before {
   content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  margin-top: 0;
+  border-radius: 50%;
+  background: var(--primary-50);
   color: var(--primary);
   font-weight: 700;
   flex-shrink: 0;
-  margin-top: 1px;
 }
 .offers-grid .offer-feats li p { margin: 0; }
+
+/* Stessa rifinitura per le offerte statiche renderizzate lato client. */
+.offers-grid .offer-card-body .offer-supplier {
+  justify-content: space-between;
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+}
+.offers-grid .offer-card-body .offer-name {
+  font-size: 21px;
+  line-height: 1.18;
+}
+.offers-grid .offer-card-body .price-block {
+  background: linear-gradient(135deg, #fff6fc 0%, #fff 100%);
+  border-color: #ffd3ed;
+  box-shadow: inset 3px 0 0 var(--primary);
+}
+.offers-grid .offer-card-body .offer-features {
+  gap: 10px;
+}
 
 /* ─── Global palette override: magenta brand + accessible yellow CTAs ─── */
 :root {
@@ -1838,7 +1910,7 @@ img, svg { display: block; max-width: 100%; }
   display: flex;
   align-items: flex-start;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 21px;
   line-height: 1.2;
   font-weight: 800;
   color: var(--ink);

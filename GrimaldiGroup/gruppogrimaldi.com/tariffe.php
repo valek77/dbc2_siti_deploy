@@ -4,6 +4,12 @@ $pageTitle = 'Offerte Luce e Gas';
 $pageDescription = 'Scopri tutte le offerte Gruppo Grimaldi per luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 include __DIR__ . '/header.php';
 
+// I frammenti testuali delle offerte possono contenere emoji provenienti dall'API.
+// Le rimuoviamo per mantenere una comunicazione uniforme e istituzionale.
+function clean_offer_html(string $html): string {
+    return preg_replace('/[\x{1F1E6}-\x{1F1FF}\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}\x{FE0E}\x{FE0F}\x{200D}]/u', '', $html) ?? $html;
+}
+
 // Tipologie distinte presenti nelle offerte dell'API (per i filtri lato server).
 $tipologie = [];
 foreach ($OFFERTE as $o) {
@@ -39,7 +45,7 @@ $hasApiOfferte = !empty($OFFERTE);
       <div class="tab-bar" id="tab-bar">
         <button class="tab-btn active" data-filter="all">Tutte</button>
         <?php foreach ($tipologie as $t): ?>
-        <button class="tab-btn" data-filter="<?= e($t) ?>"><?= (stripos($t, 'gas') !== false ? '🔥 ' : '⚡ ') . e($t) ?></button>
+        <button class="tab-btn" data-filter="<?= e($t) ?>"><?= e($t) ?></button>
         <?php endforeach; ?>
       </div>
 
@@ -49,7 +55,7 @@ $hasApiOfferte = !empty($OFFERTE);
             $isGas = (stripos($o['tipologia'], 'gas') !== false);
         ?>
         <article class="offer-card" data-cat="<?= e($o['tipologia']) ?>">
-          <div class="offer-ribbon <?= $isGas ? 'gas-res' : 'luce-res' ?>"><?= ($isGas ? '🔥 ' : '⚡ ') . e($o['tipologia']) ?></div>
+          <div class="offer-ribbon <?= $isGas ? 'gas-res' : 'luce-res' ?>"><?= e($o['tipologia']) ?></div>
           <div class="offer-body">
             <div class="offer-operator">
               <span>Fornitore</span>
@@ -57,27 +63,27 @@ $hasApiOfferte = !empty($OFFERTE);
             </div>
 
             <?php /* titolo/sottotitolo: FRAMMENTI HTML grezzi dall'API */ ?>
-            <?= $o['titolo'] ?>
+            <?= clean_offer_html($o['titolo']) ?>
             <?php if ($o['sottotitolo'] !== ''): ?>
-            <div class="offer-type"><?= $o['sottotitolo'] ?></div>
+            <div class="offer-type"><?= clean_offer_html($o['sottotitolo']) ?></div>
             <?php endif; ?>
 
             <?php if (!empty($o['caratteristiche_evidenza'])): ?>
             <div class="offer-price-box">
               <?php foreach ($o['caratteristiche_evidenza'] as $ev) {
-                  echo $ev; // frammento HTML grezzo (h3 prezzo / p bollettino)
+                  echo clean_offer_html($ev); // frammento HTML grezzo (h3 prezzo / p bollettino)
               } ?>
             </div>
             <?php endif; ?>
 
             <?php if (!empty($o['caratteristiche'])): ?>
             <?php foreach ($o['caratteristiche'] as $c) {
-                echo $c; // frammento HTML grezzo (<ul class="offer-feats"><li>...</li></ul>)
+                echo clean_offer_html($c); // frammento HTML grezzo (<ul class="offer-feats"><li>...</li></ul>)
             } ?>
             <?php endif; ?>
 
             <?php if ($o['footer'] !== ''): ?>
-            <div class="offer-note"><?= $o['footer'] ?></div>
+            <div class="offer-note"><?= clean_offer_html($o['footer']) ?></div>
             <?php endif; ?>
 
             <button class="offer-cta" data-offer-id="<?= e($o['id']) ?>" data-name="<?= e($o['nome']) ?>">Richiedi informazioni</button>
@@ -92,7 +98,7 @@ $hasApiOfferte = !empty($OFFERTE);
         <button class="tab-btn" data-filter="luce-res">Luce Residenziale</button>
         <button class="tab-btn" data-filter="gas-res">Gas Residenziale</button>
       </div>
-      <div id="offers-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;"></div>
+      <div class="offers-grid" id="offers-grid"></div>
       <?php endif; ?>
 
       <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
