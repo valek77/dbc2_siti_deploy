@@ -5,55 +5,81 @@ $brandName = $COMPANY['company_name'] !== ''
     : ($LANDING_PAGE['nome_portale'] !== ''
         ? $LANDING_PAGE['nome_portale']
         : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
-$pageDescription = $brandName . ' è il partner ufficiale Switch Luce Gas. Risparmia sulla bolletta con offerte chiare, prezzi indicizzati e consulenza gratuita.';
+$pageDescription = $brandName . ' offre consulenza e supporto per aiutarti a orientarti nel mondo dell\'energia e scegliere le soluzioni più adatte alle tue esigenze.';
 include __DIR__ . '/header.php';
 ?>
 
-  <!-- HERO - ENGIE STYLE -->
-  <section class="section" style="padding-top: 60px; padding-bottom: 60px; background: var(--bg-soft);">
+<style>
+  .home-page .home-hero { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--bg-soft), #fff); }
+  .home-page .home-hero::before { content: ''; position: absolute; width: 420px; height: 420px; border: 1px solid rgba(44,124,181,.12); border-radius: 50%; right: -120px; top: -180px; }
+  .home-page .home-hero .container { position: relative; z-index: 1; }
+  .home-page .home-hero h1 { max-width: 650px; }
+  .home-page .home-hero .split-img { border-radius: 28px 90px 28px 28px; box-shadow: var(--shadow-lg); transform: rotate(1deg); }
+  .home-page .home-hero .split-img:hover { transform: rotate(0); }
+  .home-page .feature-grid .feat-card { height: 100%; }
+  .home-page .feat-card .ico svg { width: 32px; height: 32px; display: block; }
+  .home-page .feat-card .ico { color: var(--primary); }
+  .home-page .feat-card:hover .ico { background: var(--primary) !important; color: #fff; }
+  .home-page .home-benefits .feat-card { border-top: 4px solid var(--primary); }
+  .home-page .home-sustainability { position: relative; overflow: hidden; }
+  .home-page .home-sustainability::after { content: ''; position: absolute; width: 280px; height: 280px; border: 1px solid rgba(44,124,181,.12); border-radius: 50%; left: -120px; bottom: -150px; }
+  .home-page .sustainability-banner { position: relative; min-height: 300px; margin-top: 56px; padding: 52px; border-radius: var(--r-2xl); overflow: hidden; display: flex; align-items: center; }
+  .home-page .sustainability-banner .photo-bg { position: absolute; inset: 0; background: url('home-sostenibilita.png') center/cover; }
+  .home-page .sustainability-banner .photo-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,39,56,.94), rgba(13,39,56,.3)); }
+  .home-page .sustainability-banner .content { position: relative; z-index: 1; max-width: 510px; color: #fff; }
+  .home-page .sustainability-banner h3 { font-size: clamp(26px, 3vw, 38px); margin-bottom: 14px; }
+  .home-page .sustainability-banner p { color: rgba(255,255,255,.78); margin: 0; line-height: 1.7; }
+  @media (max-width: 900px) { .home-page .home-hero .split-img { transform: none; } }
+  @media (max-width: 600px) { .home-page .sustainability-banner { padding: 32px 24px; } }
+</style>
+
+<main class="home-page">
+
+  <!-- HERO -->
+  <section class="section home-hero" style="padding-top: 88px; padding-bottom: 88px;">
     <div class="container">
       <div class="split" style="gap: 40px; align-items: center;">
         <div>
          
           <h1 style="font-size: clamp(40px, 5vw, 56px); margin-bottom: 24px; line-height: 1.1; font-family: var(--font-display); font-weight: 800; color: var(--ink);">
-            L'energia giusta per la tua casa,<br><span style="color: var(--primary);">senza sorprese.</span>
+            Scegliere l'energia<br><span style="color: var(--primary);">può essere semplice.</span>
           </h1>
-          <p style="font-size: 18px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; max-width: 500px;">Scopri le nostre offerte a prezzo fisso e indicizzato. Trasparenza, convenienza e un'assistenza sempre al tuo fianco.</p>
+          <p style="font-size: 18px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; max-width: 500px;">Ti aiutiamo a comprendere le possibilità disponibili e a trovare una soluzione in linea con le tue abitudini, con informazioni chiare e supporto dedicato.</p>
           <div style="display: flex; gap: 16px; flex-wrap: wrap;">
             <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
             <a href="contatti.php" class="btn-outline" style="border: 2px solid var(--primary); color: var(--primary);">Ti chiamiamo noi</a>
           </div>
         </div>
         <div class="split-img" style="border-radius: 20px 80px 20px 20px; box-shadow: var(--shadow-lg);">
-          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Casa confortevole con energia <?= $OPERATORE['nome_marketing'] ?>">
+          <img src="home-hero.png" alt="Famiglia in una casa efficiente dal punto di vista energetico">
         </div>
       </div>
     </div>
   </section>
 
   <!-- PERCHE SCEGLIERCI -->
-  <section class="section" style="padding: 80px 0;">
+  <section class="section home-benefits" style="padding: 96px 0;">
     <div class="container">
       <div class="section-head" style="margin-bottom: 48px;">
-        <span class="eyebrow"><span class="dot"></span> Perché sceglierci</span>
-        <h2 class="section-title">Energia semplice,<br><span class="hl">senza sorprese</span></h2>
-        <p class="section-sub" style="margin: 0 auto; max-width: 600px;">Ti seguiamo dalla scelta della tariffa all'attivazione, con prezzi chiari e persone reali al tuo fianco.</p>
+        <span class="eyebrow"><span class="dot"></span> Il nostro modo di lavorare</span>
+        <h2 class="section-title">Chiarezza, ascolto,<br><span class="hl">attenzione alle persone</span></h2>
+        <p class="section-sub" style="margin: 0 auto; max-width: 600px;">Mettiamo competenza e disponibilità al servizio di chi vuole affrontare le proprie scelte energetiche con maggiore consapevolezza.</p>
       </div>
       <div class="feature-grid">
         <div class="feat-card" style="text-align: center; padding: 48px 32px;">
-          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">⚡</div>
-          <h4>Prezzi trasparenti</h4>
-          <p style="margin-top: 12px;">Tariffe indicizzate a PUN e PSV con spread chiaro definito in contratto: nessun costo nascosto, nessuna sorpresa in bolletta.</p>
+          <div class="ico" style="margin: 0 auto 24px; background: transparent;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h4>Informazioni chiare</h4>
+          <p style="margin-top: 12px;">Spieghiamo le soluzioni in modo semplice, così puoi valutare ogni possibilità con maggiore serenità.</p>
         </div>
         <div class="feat-card" style="text-align: center; padding: 48px 32px;">
-          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">🎧</div>
-          <h4>Assistenza dedicata</h4>
-          <p style="margin-top: 12px;">Consulenti reali in Italia, sempre disponibili. Nessun call center estero: solo persone competenti pronte ad aiutarti.</p>
+          <div class="ico" style="margin: 0 auto 24px; background: transparent;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg></div>
+          <h4>Supporto dedicato</h4>
+          <p style="margin-top: 12px;">Puoi contare su un team pronto ad ascoltare le tue domande e accompagnarti durante il percorso.</p>
         </div>
         <div class="feat-card" style="text-align: center; padding: 48px 32px;">
-          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">✅</div>
-          <h4>Attivazione senza stress</h4>
-          <p style="margin-top: 12px;">Zero burocrazia per il passaggio: gestiamo noi il subentro e ti seguiamo dalla prima firma fino alla bolletta.</p>
+          <div class="ico" style="margin: 0 auto 24px; background: transparent;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h4>Un percorso ordinato</h4>
+          <p style="margin-top: 12px;">Seguiamo ogni fase con attenzione per rendere l'esperienza più lineare, comprensibile e senza complicazioni inutili.</p>
         </div>
       </div>
       <div style="text-align: center; margin-top: 48px;">
@@ -67,50 +93,60 @@ include __DIR__ . '/header.php';
     <div class="container">
       <div class="split reverse" style="gap: 80px; align-items: center;">
         <div>
-          <span class="eyebrow"><span class="dot"></span> Efficienza Energetica</span>
-          <h2 class="section-title">Soluzioni per aziende<br>ed <span class="hl">Enti Pubblici</span></h2>
+          <span class="eyebrow"><span class="dot"></span> Per privati e imprese</span>
+          <h2 class="section-title">Un supporto concreto<br>per le tue <span class="hl">esigenze</span></h2>
           <div class="divider-line"></div>
-          <p style="font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 24px;">Non solo case. Offriamo consulenza personalizzata e soluzioni di efficienza energetica per imprese di ogni dimensione. Dalla riduzione dei consumi all'ottimizzazione degli impianti.</p>
+          <p style="font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 24px;">Ogni situazione merita un'attenzione diversa. Per questo partiamo dal dialogo e costruiamo un orientamento adatto a famiglie, professionisti e attività che vogliono gestire meglio i propri consumi.</p>
           <ul class="offer-feats" style="margin-bottom: 40px;">
-            <li>Analisi gratuita dei consumi aziendali e audit energetico</li>
-            <li>Proposte di decarbonizzazione personalizzate</li>
-            <li>Gestione documentale e supporto per pratiche agevolate</li>
+            <li>Ascolto delle esigenze e delle abitudini di consumo</li>
+            <li>Confronto tra le possibilità disponibili</li>
+            <li>Supporto chiaro prima e dopo la scelta</li>
           </ul>
           <a href="contatti.php" class="btn-primary">Richiedi una consulenza</a>
         </div>
         <div class="split-img" style="border-radius: 20px; box-shadow: var(--shadow-md);">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Soluzioni energetiche per aziende ed enti">
+          <img src="home-consulenza.png" alt="Consulenti e clienti durante un incontro sull'energia">
+        </div>
+      </div>
+      <div class="sustainability-banner">
+        <div class="photo-bg"></div>
+        <div class="photo-overlay"></div>
+        <div class="content">
+          <h3>Un modo più consapevole di guardare all'energia</h3>
+          <p>Ogni scelta può diventare un passo verso un uso più attento delle risorse. Ti aiutiamo a orientarti con semplicità.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SOSTENIBILITA E CERTIFICAZIONI -->
-  <section class="section" style="padding: 100px 0;">
+  <section class="section home-sustainability" style="padding: 100px 0;">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow"><span class="dot"></span> Il nostro impegno</span>
-        <h2 class="section-title">Un fornitore affidabile,<br>un'energia per il <span class="ul">futuro</span></h2>
+        <h2 class="section-title">Pensare oggi<br>all'energia del <span class="ul">domani</span></h2>
       </div>
       <div class="feature-grid">
         <div class="feat-card" style="text-align: center; padding: 48px 32px;">
-          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">🌿</div>
-          <h4>Transizione Sostenibile</h4>
-          <p style="margin-top: 12px;">Lavoriamo costantemente per offrire opzioni energetiche che riducano l'impatto ambientale e aiutino le famiglie a consumare meglio, con maggiore consapevolezza.</p>
+          <div class="ico" style="margin: 0 auto 24px; background: transparent;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-7.5 0-13 3.5-13 9.5C7 17.5 10 20 14 20c5 0 6-7 6-16z"/><path d="M4 20c2-4 5-7 10-9"/></svg></div>
+          <h4>Consapevolezza</h4>
+          <p style="margin-top: 12px;">Promuoviamo un approccio più attento all'energia e alle conseguenze delle scelte quotidiane.</p>
         </div>
         <div class="feat-card" style="text-align: center; padding: 48px 32px;">
-          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">🛡️</div>
-          <h4>Certificazione e Sicurezza</h4>
-          <p style="margin-top: 12px;">Tutte le nostre offerte e i contratti sono rigorosamente conformi alle direttive ARERA per garantirti la massima trasparenza e tutela del consumatore.</p>
+          <div class="ico" style="margin: 0 auto 24px; background: transparent;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h4>Affidabilità</h4>
+          <p style="margin-top: 12px;">Costruiamo relazioni corrette e trasparenti, con attenzione alle informazioni e ai passaggi che accompagnano ogni scelta.</p>
         </div>
         <div class="feat-card" style="text-align: center; padding: 48px 32px;">
-          <div class="ico" style="margin: 0 auto 24px; font-size: 36px; background: transparent;">👥</div>
-          <h4>Assistenza di Qualità</h4>
-          <p style="margin-top: 12px;">Un team dedicato sempre pronto a rispondere. Nessun call center estero o code infinite, solo consulenti esperti e reali a tua completa disposizione.</p>
+          <div class="ico" style="margin: 0 auto 24px; background: transparent;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+          <h4>Vicini nel tempo</h4>
+          <p style="margin-top: 12px;">Rimaniamo disponibili per chiarimenti e supporto anche dopo il primo contatto.</p>
         </div>
       </div>
     </div>
   </section>
+
+</main>
 
 <?php
 // Footer "mega" specifico della home. Dati legali dell'azienda titolare: valore

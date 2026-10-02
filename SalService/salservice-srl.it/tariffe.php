@@ -18,7 +18,37 @@ foreach ($OFFERTE as $o) {
         $tipologie[] = $t;
     }
 }
+
+// I frammenti delle offerte arrivano dall'API e possono contenere emoji.
+// Le rimuoviamo prima della visualizzazione per mantenere una grafica uniforme.
+$stripOfferEmoji = static function ($value): string {
+    return preg_replace('/[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}\x{FE0F}\x{200D}]/u', '', (string) $value) ?? (string) $value;
+};
 ?>
+
+<style>
+  .offers-page .offers-grid { max-width: 920px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+  .offers-page .offer-card { border: 1px solid rgba(44,124,181,.12); box-shadow: 0 12px 36px rgba(20,58,84,.1); }
+  .offers-page .offer-card:hover { transform: translateY(-8px); box-shadow: 0 22px 52px rgba(20,58,84,.18); }
+  .offers-page .offer-ribbon { display: flex; align-items: center; gap: 10px; padding: 15px 22px; }
+  .offers-page .offer-ribbon::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.9); box-shadow: 0 0 0 5px rgba(255,255,255,.14); }
+  .offers-page .offer-body { padding: 30px; }
+  .offers-page .offer-price-box { border: 1px solid rgba(44,124,181,.14); background: linear-gradient(135deg, var(--primary-xlight), #fff); box-shadow: inset 0 1px 0 rgba(255,255,255,.8); }
+  .offers-page .offer-feats { padding: 14px 16px; border-radius: var(--r-md); background: #fbfcfd; border: 1px solid var(--line); }
+  .offers-page .offer-body .offer-feats { list-style: disc; padding-left: 36px; }
+  .offers-page .offer-body .offer-feats li { display: list-item; }
+  .offers-page .offer-body .offer-feats li::before { content: none; }
+  .offers-page .offer-body > p:not(.offer-type) { position: relative; margin: 0 0 12px; padding-left: 22px; color: var(--muted); line-height: 1.6; }
+  .offers-page .offer-body > p:not(.offer-type)::before { content: '•'; position: absolute; left: 4px; top: 0; color: var(--primary); font-size: 22px; font-weight: 800; line-height: 1.35; }
+  .offers-page .offer-cta { margin-top: 12px; box-shadow: 0 8px 20px rgba(44,124,181,.2); }
+  .offers-page .tab-bar { padding: 7px; border-radius: var(--r-pill); background: var(--bg-soft); border: 1px solid var(--line); gap: 6px; }
+  .offers-page .tab-btn { border-radius: var(--r-pill); }
+  .offers-page .tab-mark { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--primary); vertical-align: 1px; }
+  .offers-page .tab-mark.gas { background: var(--coral); }
+  @media (max-width: 720px) { .offers-page .offers-grid { grid-template-columns: minmax(0, 400px); } .offers-page .tab-bar { border-radius: var(--r-lg); flex-wrap: wrap; } }
+</style>
+
+<main class="offers-page">
 
   <!-- PAGE HERO — foto parco eolico -->
   <section class="page-hero">
@@ -40,7 +70,7 @@ foreach ($OFFERTE as $o) {
       <div class="tab-bar" id="tab-bar">
         <button class="tab-btn active" data-filter="all">Tutte le offerte</button>
         <?php foreach ($tipologie as $t): ?>
-        <button class="tab-btn" data-filter="<?= e($t) ?>"><?= (stripos($t, 'gas') !== false ? '🔥 ' : '⚡ ') . e($t) ?></button>
+        <button class="tab-btn" data-filter="<?= e($t) ?>"><span class="tab-mark <?= stripos($t, 'gas') !== false ? 'gas' : '' ?>"></span><?= e($t) ?></button>
         <?php endforeach; ?>
       </div>
       <?php endif; ?>
@@ -53,7 +83,7 @@ foreach ($OFFERTE as $o) {
             $isGas = (stripos($o['tipologia'], 'gas') !== false);
         ?>
         <article class="offer-card" data-cat="<?= e($o['tipologia']) ?>">
-          <div class="offer-ribbon <?= $isGas ? 'gas-res' : 'luce-res' ?>"><?= ($isGas ? '🔥 ' : '⚡ ') . e($o['tipologia']) ?></div>
+          <div class="offer-ribbon <?= $isGas ? 'gas-res' : 'luce-res' ?>"><?= e($o['tipologia']) ?></div>
           <div class="offer-body">
             <?php if ($OPERATORE['logo_url'] !== ''): ?>
             <div class="offer-operator">
@@ -63,27 +93,27 @@ foreach ($OFFERTE as $o) {
             <?php endif; ?>
 
             <?php /* titolo/sottotitolo: FRAMMENTI HTML grezzi dall'API */ ?>
-            <?= $o['titolo'] ?>
+            <?= $stripOfferEmoji($o['titolo']) ?>
             <?php if ($o['sottotitolo'] !== ''): ?>
-            <div class="offer-type"><?= $o['sottotitolo'] ?></div>
+            <div class="offer-type"><?= $stripOfferEmoji($o['sottotitolo']) ?></div>
             <?php endif; ?>
 
             <?php if (!empty($o['caratteristiche_evidenza'])): ?>
             <div class="offer-price-box">
               <?php foreach ($o['caratteristiche_evidenza'] as $ev) {
-                  echo $ev; // frammento HTML grezzo (h3 prezzo / p bollettino)
+                  echo $stripOfferEmoji($ev); // frammento HTML grezzo (h3 prezzo / p bollettino)
               } ?>
             </div>
             <?php endif; ?>
 
             <?php if (!empty($o['caratteristiche'])): ?>
             <?php foreach ($o['caratteristiche'] as $c) {
-                echo $c; // frammento HTML grezzo (<ul class="offer-feats"><li>...</li></ul>)
+                echo $stripOfferEmoji($c); // frammento HTML grezzo (<ul class="offer-feats"><li>...</li></ul>)
             } ?>
             <?php endif; ?>
 
             <?php if ($o['footer'] !== ''): ?>
-            <div class="offer-note"><?= $o['footer'] ?></div>
+            <div class="offer-note"><?= $stripOfferEmoji($o['footer']) ?></div>
             <?php endif; ?>
 
             <button class="offer-cta" data-offer-id="<?= e($o['id']) ?>" data-name="<?= e($o['nome']) ?>">Richiedi informazioni</button>
@@ -139,6 +169,8 @@ foreach ($OFFERTE as $o) {
       <a href="contatti.php" class="btn-primary" style="font-size:17px; padding:16px 44px;">Consulenza gratuita →</a>
     </div>
   </section>
+
+</main>
 
 <?php
 $pageScripts = <<<'HTML'
