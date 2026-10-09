@@ -85,7 +85,6 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
         <h4>Legale</h4>
         <a href="privacy-policy.php">Privacy Policy</a>
         <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
-        <a href="cookie-policy.php">Cookies Policy</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -108,7 +107,6 @@ $operatoreDettagliLine = implode(' - ', $operatoreDettagli);
 <?php if (!empty($pageScripts)) {
     echo $pageScripts;
 } ?>
-<script src="cb.js"></script>
 </body>
 
 </html>
