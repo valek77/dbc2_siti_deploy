@@ -1,87 +1,80 @@
 <?php
 /**
- * footer.php — piè di pagina comune a tutte le pagine (nexicom.locura-srl.it).
+ * footer.php — pie' di pagina comune a tutte le pagine (gierrecontactcallcentersrl.com).
  *
- * Dati legali 100% da API NUOVA: la riga legale è costruita SOLO dai campi
- * presenti nell'azienda titolare ($COMPANY). Niente dati hardcoded: i campi che
- * l'API non fornisce (es. R.E.A.) semplicemente non compaiono.
+ * Dati legali 100% da API NUOVA: la riga legale e' costruita SOLO dai campi
+ * presenti nell'azienda titolare ($COMPANY). I campi NON modellati dall'API
+ * (es. R.E.A.) restano come testo editoriale statico.
  *
- * Prima dell'include ogni pagina può impostare:
+ * Prima dell'include ogni pagina puo' impostare:
  *   $pageScripts -> HTML <script> specifici della pagina (facoltativo)
  */
 $brandName = isset($brandName) ? $brandName
-    : ($LANDING_PAGE['nome_portale'] !== '' ? $LANDING_PAGE['nome_portale'] : 'Locura');
-// Logo footer (sfondo scuro): logo2 dall'API se presente, altrimenti l'immagine locale.
-$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'locura-b.png';
+  : ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center');
+// Logo footer: logo2 dall'API se presente, altrimenti l'immagine locale del brand.
+$logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'gr_logo.png';
+// Operatore energetico (fornitore di cui il sito e' agenzia commerciale).
+$operatoreMarketing = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
 
-// Riga legale: includo solo le parti effettivamente presenti nell'API.
-$legalParts = [];
-if ($COMPANY['company_name'] !== '') {
-    $legalParts[] = '<strong>' . $COMPANY['company_name'] . '</strong>';
-}
-if ($COMPANY['sede_legale'] !== '') {
-    $legalParts[] = 'Sede legale: ' . $COMPANY['sede_legale'];
-}
-if ($COMPANY['p_iva'] !== '') {
-    $legalParts[] = 'P.IVA e C.F.: ' . $COMPANY['p_iva'];
-}
-if ($COMPANY['capitale_sociale'] !== '') {
-    $legalParts[] = 'Capitale Sociale ' . $COMPANY['capitale_sociale'];
-}
-if ($COMPANY['pec'] !== '') {
-    $legalParts[] = 'PEC: <a href="mailto:' . $COMPANY['pec'] . '">' . $COMPANY['pec'] . '</a>';
-}
-$legalLine = implode(' - ', $legalParts);
-
-// Dati dell'OPERATORE ENERGETICO (fornitore di cui il sito è partner/rivenditore).
-// Solo i campi presenti nell'API; il nome va nel prefisso, i dettagli a seguire.
-$operatoreNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : $OPERATORE['nome_marketing'];
-$operatoreDettagli = [];
-if ($OPERATORE['indirizzo'] !== '') {
-    $operatoreDettagli[] = 'Sede: ' . $OPERATORE['indirizzo'];
-}
-if ($OPERATORE['partita_iva'] !== '') {
-    $operatoreDettagli[] = 'P.IVA: ' . $OPERATORE['partita_iva'];
-}
-$operatoreDettagliLine = implode(' - ', $operatoreDettagli);
+// --- Dati legali dell'azienda titolare per il fondo pagina ------------------
+// REGOLA: usa il valore dall'API ($COMPANY) quando presente; per i campi NON
+// modellati dall'API (REA, Registro Imprese, socio unico, nominativo DPO) usa
+// il valore cablato. I valori di $COMPANY sono gia' resi sicuri per l'HTML.
+$coName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact Call Center S.r.l.';
+$coSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
+$coPiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
+$coCapitale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '&euro; 10.000,00';
+$coPec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
+$coDpoEmail = $COMPANY['email_dpo'] !== '' ? $COMPANY['email_dpo'] : 'dpo.fulmine@libero.it';
+// Campi NON modellati dall'API -> cablati.
+$coRea = 'NA-1072970';
+$coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
+$coDpoNome = 'Dott.ssa Maddalena Fulmine';
 ?>
 
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.php" class="logo">
-          <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo" style="max-height: 45px; width: auto;">
-        </a>
-        <p>Consulenza e soluzioni per l'efficienza energetica. Promuoviamo l'energia rinnovabile e riduciamo le spese delle bollette con tariffe trasparenti.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Azienda</h4>
-        <a href="chi-siamo.php">Chi siamo</a>
-        <a href="tariffe.php">Offerte</a>
-        <a href="contatti.php">Contatti</a>
-      </div>
-      <div class="footer-col">
-        <h4>Servizi</h4>
-        <a href="tariffe.php">Luce Rinnovabile</a>
-        <a href="tariffe.php">Gas Compensato</a>
-        <a href="tariffe.php">Audit Digitale</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legale</h4>
-        <a href="privacy-policy.php">Privacy Policy</a>
-        <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
-      </div>
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <a href="index.php" class="logo">
+        <img src="<?= $logoFooter ?>" alt="<?= $brandName ?> Logo">
+      </a>
+      <p>Agenzia commerciale autorizzata<?= $operatoreMarketing !== '' ? ' ' . $operatoreMarketing : '' ?>.
+        Prezzi trasparenti, assistenza dedicata e attivazione senza stress.</p>
     </div>
-    <div class="footer-bottom">
-<?php if ($operatoreNome !== '') { ?>
-      <p style="font-size: 15px;">Offerte commercializzate in qualità di partner autorizzato di <strong><?= $operatoreNome ?></strong><?= $operatoreDettagliLine !== '' ? ' &mdash; ' . $operatoreDettagliLine : '' ?>.</p>
-<?php } ?>
-      <p style="margin-top: 8px; font-size: 13px; opacity: 0.8; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"><?php if ($COMPANY['logo2_url'] !== '') { ?><img src="<?= $COMPANY['logo2_url'] ?>" alt="<?= $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : $brandName ?>" style="height: 56px; width: auto; margin-right: 8px;"><?php } ?><span>&copy; <?= date('Y') ?> <?= $legalLine !== '' ? $legalLine . '. ' : '' ?>Tutti i diritti riservati.</span></p>
+    <div class="footer-col">
+      <h4>Azienda</h4>
+      <a href="chi-siamo.php">Chi siamo</a>
+      <a href="tariffe.php">Offerte</a>
+
     </div>
-  </footer>
+    <div class="footer-col">
+      <h4>Servizi</h4>
+      <a href="tariffe.php">Luce</a>
+      <a href="tariffe.php">Gas</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legale</h4>
+      <a href="privacy-policy.php">Privacy Policy</a>
+      <a href="condizioni-utilizzo.php">Condizioni di Utilizzo</a>
+      <a href="trasparenza-commerciale.php">Trasparenza commerciale</a>
+      <a href="cookie-policy.php">Cookie Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-legal">
+      &copy; <?= date('Y') ?> <strong><?= $coName ?></strong><br>
+      Sede legale: <?= $coSede ?><br>
+      C.F. e P.IVA: <?= $coPiva ?> &ndash; REA <?= $coRea ?> &ndash; <?= $coRegImprese ?><br>
+      Capitale sociale: <?= $coCapitale ?> i.v. &ndash; Società a socio unico<br>
+      PEC: <a href="mailto:<?= $coPec ?>"><?= $coPec ?></a><br>
+      DPO/Responsabile della Protezione dei Dati: <?= $coDpoNome ?> &ndash; contatto: <a
+        href="mailto:<?= $coDpoEmail ?>"><?= $coDpoEmail ?></a>
+    </p>
+  </div>
+</footer>
 
 <?php if (!empty($pageScripts)) {
-    echo $pageScripts;
+  echo $pageScripts;
 } ?>
 <script src="cb.js"></script>
 </body>

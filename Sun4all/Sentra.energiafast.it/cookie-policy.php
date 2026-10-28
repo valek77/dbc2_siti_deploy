@@ -82,7 +82,7 @@ CSS;
 include __DIR__ . '/header.php';
 ?>
 
-<main class="legal-content">
+  <main class="legal-content">
     <h1>COOKIE POLICY</h1>
     <em>Informativa sull’uso dei cookie e delle tecnologie di archiviazione locale</em>
     <div class="separator">***</div>
@@ -130,4 +130,5 @@ include __DIR__ . '/header.php';
     <h2>AGGIORNAMENTI DELLA PRESENTE INFORMATIVA</h2>
     <p>La presente Cookie Policy potrà essere aggiornata qualora il sito dovesse in futuro introdurre nuovi strumenti tecnologici. Eventuali modifiche saranno pubblicate su questa pagina; si invita pertanto l’Utente a consultarla periodicamente.</p>
   </main>
+
 <?php include __DIR__ . '/footer.php'; ?>

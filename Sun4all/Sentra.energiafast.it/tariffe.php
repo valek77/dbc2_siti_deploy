@@ -1,157 +1,197 @@
 <?php
 require __DIR__ . '/_config.php';
-$pageTitle = 'Tariffe ' . $OPERATORE['nome_marketing'];
+$pageTitle = 'Offerte Luce e Gas';
+$pageDescription = 'Scopri tutte le offerte ' . $OPERATORE['nome_marketing'] . ' disponibili tramite '
+    . ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center')
+    . ': tariffe luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 include __DIR__ . '/header.php';
+
+// --- Icone SVG usate dalle card (checklist + tipologia) ------------------
+$ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+$ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+$ICON_FLAME = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+
+// Tipologie distinte presenti nelle offerte dell'API (per i filtri).
+$tipologie = [];
+foreach ($OFFERTE as $o) {
+    $t = $o['tipologia'];
+    if ($t !== '' && !in_array($t, $tipologie, true)) {
+        $tipologie[] = $t;
+    }
+}
+
+// Card per riga: 3 se il totale è divisibile per 3, altrimenti 2 se divisibile
+// per 2. Se non è divisibile per nessuno dei due, 3 per riga con le card
+// centrate: l'ultima riga "spaiata" resta centrata grazie al layout flex.
+$nOfferte = count($OFFERTE);
+if ($nOfferte % 3 === 0) {
+    $offerCols = 3;
+} elseif ($nOfferte % 2 === 0) {
+    $offerCols = 2;
+} else {
+    $offerCols = 3;
+}
 ?>
 
-  <section class="hero-page" style="background: #FAFAFA; padding: 120px 24px 80px; text-align: center;">
-    <div class="container" style="max-width: 800px; margin: 0 auto;">
-      <div style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 12px; color: #71717A; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">
-        Partner Ufficiale <img src="<?= $OPERATORE['logo_url'] ?>" style="height: 20px; width: auto; object-fit: contain; filter: brightness(0);" alt="<?= $OPERATORE['nome_marketing'] ?>">
-      </div>
-      <h1 style="font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 800; color: #18181B; margin-bottom: 24px;">
-        Le offerte <span style="color: var(--primary);">Family</span> e <span style="color: var(--primary);">Tris</span>,<br>chiare e senza sorprese.
-      </h1>
-    
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow eyebrow-light"><span class="dot"></span> Offerte ufficiali <?= $OPERATORE['nome_marketing'] ?></span>
+      <h1>Trova la tariffa <span class="accent">giusta per te</span></h1>
+      <p>Offerte per uso domestico e professionale. Tutti i prezzi sono indicizzati al mercato con spread fisso e contributo di attivazione di €30,00, scontato con permanenza minima di 6 mesi.</p>
+    </div>
+    <div class="wave">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+        <path d="M0,32L120,26.7C240,21,480,11,720,13.3C960,16,1200,32,1320,40L1440,48L1440,70L0,70Z"/>
+      </svg>
     </div>
   </section>
 
-  <section class="section" style="padding: 60px 0 100px;">
-    <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 24px;">
+  <main class="section" style="padding: 80px 0 40px;">
+    <div class="container">
 
-      <!-- ===================== FAMILY ===================== -->
-      <div style="text-align: center; margin-bottom: 12px;">
-        <span style="display: inline-block; background: var(--primary); color: #fff; padding: 8px 20px; border-radius: 99px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Offerte Family</span>
+      <?php if (count($tipologie) > 1): ?>
+      <!-- Filtro (una scheda per tipologia presente nell'API) -->
+      <div class="tab-bar" id="tab-bar">
+        <button class="tab-btn active" data-filter="all">Tutte</button>
+        <?php foreach ($tipologie as $t): ?>
+        <button class="tab-btn" data-filter="<?= e($t) ?>"><?= e(ucfirst($t)) ?></button>
+        <?php endforeach; ?>
       </div>
-      <h2 style="text-align: center; font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: #18181B; margin-bottom: 40px;">La scelta Family</h2>
+      <?php endif; ?>
 
-      <div class="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; margin-bottom: 80px;">
-
-        <!-- FAMILY LUCE GREEN -->
-        <div class="offer-card" style="border: 1px solid #E4E4E7; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-          <div class="offer-ribbon" style="background: var(--primary); color: #fff; padding: 12px 24px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Energia Elettrica · 100% Green</div>
-          <div class="offer-body" style="padding: 40px; display: flex; flex-direction: column; flex-grow: 1;">
-            <div style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Family Luce Green</div>
-            <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
-
-            <div style="background: #FAFAFA; border-radius: 16px; padding: 24px; margin-bottom: 32px; border: 1px solid #F4F4F5;">
-              <div style="font-size: 12px; text-transform: uppercase; color: #71717A; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">Corrispettivo per il consumo (F1/F2/F3)</div>
-              <div style="font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 4px;">€ 0,049500<span style="font-size: 16px; color: #71717A;">/kWh</span></div>
-              <div style="font-size: 14px; color: #A1A1AA; font-weight: 500;">+ PUN Index GME</div>
-
-              <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #E4E4E7;">
-                <div style="font-size: 12px; text-transform: uppercase; color: #71717A; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">Corrispettivo annuo</div>
-                <div style="font-size: 24px; font-weight: 800; color: #18181B;">397,80 €<span style="font-size: 14px; color: #71717A;">/POD/anno</span></div>
-                <div style="font-size: 13px; color: #A1A1AA;">Fisso e invariabile per 12 mesi</div>
-              </div>
-            </div>
-
-            <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 16px; color: #3F3F46; font-size: 16px;">
-              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> <b>Energia 100% green</b></li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Prezzo indicizzato al PUN Index GME</li>            </ul>
-            <a href="contatti.php?offerta=Family%20Luce%20Green" class="btn-primary" style="margin-top: auto; display: block; text-align: center; background: var(--primary); color: #fff; padding: 16px; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 16px;">Richiedi Family Luce Green</a>
+      <!-- Griglia offerte (renderizzata lato server dai dati dell'API) -->
+      <div id="offers-grid" class="offers-grid" style="--offer-cols: <?= $offerCols ?>;">
+        <?php if (empty($OFFERTE)): ?>
+        <p style="color: var(--muted);">Nessuna offerta disponibile al momento.</p>
+        <?php else: foreach ($OFFERTE as $o):
+            $tip = strtolower($o['tipologia']);
+            $isGas = ($tip === 'gas');
+            $icon = $isGas ? $ICON_FLAME : $ICON_BOLT;
+            $offerName = $o['nome'] !== '' ? $o['nome'] : ('Offerta ' . ucfirst($o['tipologia']));
+            $styleVars = '';
+        ?>
+        <article class="offer-card <?= $isGas ? 'offer-card--gas' : 'offer-card--luce' ?>" data-category="<?= e($o['tipologia']) ?>" <?= $styleVars ?>>
+          <div class="offer-ribbon">
+            <span class="pill <?= $isGas ? 'warm' : '' ?>">
+              <?= $icon ?>
+              <span><?= e($o['tipologia']) ?></span>
+            </span>
           </div>
-        </div>
-
-        <!-- FAMILY GAS -->
-        <div class="offer-card" style="border: 1px solid #E4E4E7; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-          <div class="offer-ribbon" style="background: #D97706; color: #fff; padding: 12px 24px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Gas Naturale</div>
-          <div class="offer-body" style="padding: 40px; display: flex; flex-direction: column; flex-grow: 1;">
-            <div style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Family Gas</div>
-            <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
-
-            <div style="background: #FAFAFA; border-radius: 16px; padding: 24px; margin-bottom: 32px; border: 1px solid #F4F4F5;">
-              <div style="font-size: 12px; text-transform: uppercase; color: #71717A; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">Corrispettivo per il consumo (M)</div>
-              <div style="font-size: 32px; font-weight: 800; color: #D97706; margin-bottom: 4px;">€ 0,210000<span style="font-size: 16px; color: #71717A;">/Smc</span></div>
-              <div style="font-size: 14px; color: #A1A1AA; font-weight: 500;">+ Indice PSV</div>
-
-              <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #E4E4E7;">
-                <div style="font-size: 12px; text-transform: uppercase; color: #71717A; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">Corrispettivo annuo</div>
-                <div style="font-size: 24px; font-weight: 800; color: #18181B;">397,80 €<span style="font-size: 14px; color: #71717A;">/PdR/anno</span></div>
-                <div style="font-size: 13px; color: #A1A1AA;">Fisso e invariabile per 12 mesi</div>
-              </div>
+          <div class="offer-card-body">
+            <?php if ($OPERATORE['logo_url'] !== ''): ?>
+            <div class="offer-operator">
+              <span>Fornitore</span>
+              <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" loading="lazy">
             </div>
+            <?php endif; ?>
 
-            <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 16px; color: #3F3F46; font-size: 16px;">
-              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Prezzo indicizzato al PSV</li>
-              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Corrispettivo annuo fisso per 12 mesi</li>            </ul>
-            <a href="contatti.php?offerta=Family%20Gas" class="btn-primary" style="margin-top: auto; display: block; text-align: center; background: #D97706; color: #fff; padding: 16px; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 16px;">Richiedi Family Gas</a>
+            <h3 class="offer-name"><?= e($offerName) ?></h3>
+            <?php if ($o['sottotitolo'] !== ''): ?>
+            <div class="offer-type"><?= $o['sottotitolo'] ?></div>
+            <?php endif; ?>
+
+            <?php if (!empty($o['caratteristiche_evidenza'])): ?>
+            <div class="price-block">
+              <?php foreach ($o['caratteristiche_evidenza'] as $ev) {
+                  echo $ev; // frammento HTML grezzo (price-label / price-main / ...)
+              } ?>
+            </div>
+            <?php endif; ?>
+
+            <?php if (!empty($o['caratteristiche'])): ?>
+            <ul class="offer-features">
+              <?php foreach ($o['caratteristiche'] as $c): ?>
+              <li><?= $ICON_CHECK ?><?= $c ?></li>
+              <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+
+            <?php if ($o['footer'] !== ''): ?>
+            <div class="offer-note"><?= $o['footer'] ?></div>
+            <?php endif; ?>
+
+            <button class="btn-primary" data-offer-id="<?= e($o['id']) ?>" data-name="<?= e($offerName) ?>">Richiedi informazioni
+              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
-        </div>
-
+        </article>
+        <?php endforeach; endif; ?>
       </div>
 
-      <!-- ===================== TRIS ===================== -->
-      <div style="text-align: center; margin-bottom: 12px;">
-        <span style="display: inline-block; background: #18181B; color: #fff; padding: 8px 20px; border-radius: 99px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Offerte Tris</span>
+      <p style="font-size: 13px; color: var(--muted); text-align: center; max-width: 900px; margin: 60px auto 0; line-height: 1.6;">
+        * I prezzi indicati sono riferiti alle componenti energia (PUN) e gas (PSV) con l'aggiunta degli spread indicati. Contributo di attivazione €30,00, scontato per permanenza minima di 6 mesi. Offerte soggette a condizioni contrattuali <?= $OPERATORE['nome_legale'] ?>. <?= $brandName ?> è agenzia commerciale autorizzata indipendente.
+      </p>
+    </div>
+  </main>
+
+  <!-- Glossary -->
+  <section class="section glossary">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot"></span> Capire il prezzo</span>
+        <h2 class="section-title">Come funzionano <span class="underline">le tariffe</span></h2>
+        <p class="section-sub"><?= $OPERATORE['nome_marketing'] ?> offre tariffe variabili indicizzate al mercato all'ingrosso. Il prezzo finale è dato dal prezzo di mercato (PUN per la luce, PSV per il gas) più uno spread fisso definito nel contratto.</p>
       </div>
-      <h2 style="text-align: center; font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: #18181B; margin-bottom: 40px;">La scelta Tris</h2>
 
-      <div class="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px;">
-
-        <!-- TRIS LUCE GREEN -->
-        <div class="offer-card" style="border: 1px solid #E4E4E7; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-          <div class="offer-ribbon" style="background: var(--primary); color: #fff; padding: 12px 24px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Energia Elettrica · 100% Green</div>
-          <div class="offer-body" style="padding: 40px; display: flex; flex-direction: column; flex-grow: 1;">
-            <div style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Tris Luce Green</div>
-            <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
-
-            <div style="background: #FAFAFA; border-radius: 16px; padding: 24px; margin-bottom: 32px; border: 1px solid #F4F4F5;">
-              <div style="font-size: 12px; text-transform: uppercase; color: #71717A; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">Corrispettivo per il consumo (F1/F2/F3)</div>
-              <div style="font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 4px;">€ 0,049500<span style="font-size: 16px; color: #71717A;">/kWh</span></div>
-              <div style="font-size: 14px; color: #A1A1AA; font-weight: 500;">+ PUN Index GME</div>
-
-              <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #E4E4E7;">
-                <div style="font-size: 12px; text-transform: uppercase; color: #71717A; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">Corrispettivo annuo</div>
-                <div style="font-size: 24px; font-weight: 800; color: #18181B;">457,80 €<span style="font-size: 14px; color: #71717A;">/POD/anno</span></div>
-                <div style="font-size: 13px; color: #A1A1AA;">Fisso e invariabile per 12 mesi</div>
-              </div>
-            </div>
-
-            <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 16px; color: #3F3F46; font-size: 16px;">
-              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> <b>Energia 100% green</b></li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Prezzo indicizzato al PUN Index GME</li>            </ul>
-            <a href="contatti.php?offerta=Tris%20Luce%20Green" class="btn-primary" style="margin-top: auto; display: block; text-align: center; background: var(--primary); color: #fff; padding: 16px; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 16px;">Richiedi Tris Luce Green</a>
-          </div>
+      <div class="glossary-grid">
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h4>PUN (Luce)</h4>
+          <p>Prezzo Unico Nazionale: la componente energia elettrica sul mercato all'ingrosso italiano, aggiornata ogni mese.</p>
         </div>
-
-        <!-- TRIS GAS -->
-        <div class="offer-card" style="border: 1px solid #E4E4E7; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-          <div class="offer-ribbon" style="background: #D97706; color: #fff; padding: 12px 24px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Gas Naturale</div>
-          <div class="offer-body" style="padding: 40px; display: flex; flex-direction: column; flex-grow: 1;">
-            <div style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Tris Gas</div>
-            <img src="<?= $OPERATORE['logo_url'] ?>" alt="<?= $OPERATORE['nome_marketing'] ?>" style="height: 24px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 32px; filter: brightness(0); align-self: flex-start;">
-
-            <div style="background: #FAFAFA; border-radius: 16px; padding: 24px; margin-bottom: 32px; border: 1px solid #F4F4F5;">
-              <div style="font-size: 12px; text-transform: uppercase; color: #71717A; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">Corrispettivo per il consumo (M)</div>
-              <div style="font-size: 32px; font-weight: 800; color: #D97706; margin-bottom: 4px;">€ 0,210000<span style="font-size: 16px; color: #71717A;">/Smc</span></div>
-              <div style="font-size: 14px; color: #A1A1AA; font-weight: 500;">+ Indice PSV</div>
-
-              <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #E4E4E7;">
-                <div style="font-size: 12px; text-transform: uppercase; color: #71717A; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">Corrispettivo annuo</div>
-                <div style="font-size: 24px; font-weight: 800; color: #18181B;">457,80 €<span style="font-size: 14px; color: #71717A;">/PdR/anno</span></div>
-                <div style="font-size: 13px; color: #A1A1AA;">Fisso e invariabile per 12 mesi</div>
-              </div>
-            </div>
-
-            <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 16px; color: #3F3F46; font-size: 16px;">
-              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Prezzo indicizzato al PSV</li>
-              <li style="display: flex; gap: 12px;"><span style="color: #D97706; font-weight: 800;">✓</span> Corrispettivo annuo fisso per 12 mesi</li>            </ul>
-            <a href="contatti.php?offerta=Tris%20Gas" class="btn-primary" style="margin-top: auto; display: block; text-align: center; background: #D97706; color: #fff; padding: 16px; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 16px;">Richiedi Tris Gas</a>
-          </div>
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5 0 1010 0c0-2-1-3.5-2-5 0 1.5-1 2-2 2 0-2 1-4-1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h4>PSV (Gas)</h4>
+          <p>Punto di Scambio Virtuale: il prezzo di riferimento del gas naturale sul mercato italiano, aggiornato mensilmente.</p>
         </div>
-
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4>Spread</h4>
+          <p>Quota fissa aggiunta al prezzo di mercato, definita in contratto.</p>
+        </div>
+        <div class="glossary-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg></div>
+          <h4>RID vs Bollettino</h4>
+          <p>Con domiciliazione bancaria (RID) hai lo spread più basso. Con bollettino si applica uno spread maggiorato.</p>
+        </div>
       </div>
     </div>
   </section>
 
+<?php
+$pageScripts = <<<'HTML'
+  <script>
+    // Le card sono già nel DOM (render lato server dai dati API): qui gestiamo
+    // solo il filtro per tipologia e il click "Richiedi informazioni".
+    (function () {
+      const cards = Array.from(document.querySelectorAll('#offers-grid .offer-card'));
 
-  <section class="section" style="padding: 60px 20px;">
-    <p class="price-disclaimer" id="price-disclaimer" style="max-width: 1000px; margin: 0 auto; font-size: 13px; line-height: 1.7; color: #A1A1AA; text-align: justify;">
-      * Offerte nel Mercato Libero riservate ai clienti finali titolari di utenze di tipo Domestico. Le Condizioni Tecnico-Economiche (CTE) prevalgono sulle Condizioni Generali di Fornitura (CGF), ove discordanti, e sono applicabili con invio bollette tramite solo Mail o solo Posta e pagamento mediante le modalità ammesse (Addebito su Conto SDD, Addebito su Carta, PagoPA, Bonifico Bancario o Bollettino Postale, secondo l'offerta). I corrispettivi definiti dal venditore hanno una validità di 12 mesi decorrenti dalla data di attivazione della fornitura.
-      <strong>Luce Green (Family/Tris):</strong> Corrispettivo per il consumo Fn = PUN Index GME + α (α1 = α2 = α3 = 0,049500 €/kWh, perdite di rete incluse), oltre al corrispettivo annuo fisso (397,80 €/POD/anno Family · 457,80 €/POD/anno Tris). Si applica inoltre il corrispettivo di dispacciamento Cdispd definito da ARERA nel TIV. Il PUN Index GME (Maggio 2026) è stato pari a F1 0,107170 €/kWh, F2 0,131440 €/kWh, F3 0,120810 €/kWh; valori massimi negli ultimi 12 mesi (Marzo 2026): F1 0,143020 €/kWh, F2 0,153910 €/kWh, F3 0,138090 €/kWh.
-      <strong>Gas (Family/Tris):</strong> Corrispettivo per il consumo M = PSV + α (α = 0,210000 €/Smc), oltre al corrispettivo annuo fisso (397,80 €/PdR/anno Family · 457,80 €/PdR/anno Tris). L'indice PSV (Maggio 2026) è stato pari a 0,501752 €/Smc; valore massimo negli ultimi 12 mesi: 0,566178 €/Smc (Febbraio 2025).
-    </p>
-  </section>
+      const tabBar = document.getElementById('tab-bar');
+      if (tabBar) {
+        tabBar.addEventListener('click', function (e) {
+          const btn = e.target.closest('.tab-btn');
+          if (!btn) return;
+          tabBar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const f = btn.dataset.filter;
+          cards.forEach(c => {
+            c.style.display = (f === 'all' || c.dataset.category === f) ? '' : 'none';
+          });
+        });
+      }
 
-<?php include __DIR__ . '/footer.php'; ?>
+      cards.forEach(card => {
+        const btn = card.querySelector('[data-offer-id]');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          // Passo l'ID offerta a contatti.php: preselezione combo + invio a dbc2.
+          const id = btn.dataset.offerId;
+          window.location.href = 'contatti.php?offerta=' + encodeURIComponent(id) + '#contatto-form';
+        });
+      });
+    })();
+  </script>
+HTML;
+include __DIR__ . '/footer.php';
+?>

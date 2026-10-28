@@ -1,67 +1,17 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Chi Siamo';
+$pageDescription = ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact') . ' è una realtà fatta di persone, competenza e attenzione al cliente.';
 include __DIR__ . '/header.php';
+$companyName = $COMPANY['company_name'];
 ?>
 
-  <section class="hero-page" style="background: #FAFAFA; padding: 120px 24px 80px; text-align: center;">
-    <div class="container" style="max-width: 800px; margin: 0 auto;">
-      <span class="eyebrow" style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; display: inline-block;">
-        La nostra missione
-      </span>
-      <h1 style="font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 800; color: #18181B; margin-bottom: 24px;">
-        Un riferimento vero.<br>Non un robot.
-      </h1>
-      <p style="font-size: 19px; color: #71717A; margin-bottom: 0; line-height: 1.6;">
-        Siamo il tuo fornitore di fiducia per l'energia. Crediamo nella trasparenza totale e nel valore del supporto umano.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" style="padding: 100px 0;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-      <div class="split" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 80px; align-items: center;">
-        <div>
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-        </div>
-        <div>
-          <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 24px; line-height: 1.2;">Capisci cosa firmi.<br>Capisci cosa paghi.</h2>
-          <div style="width: 48px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px;"></div>
-          <p style="font-size: 17px; color: #71717A; line-height: 1.7; margin-bottom: 24px;">
-            Nel mercato dell'energia c'è molta confusione. Noi abbiamo deciso di fare il contrario: semplificare tutto. Prezzi, bolletta e componenti diventano finalmente leggibili.
-          </p>
-          <p style="font-size: 17px; color: #71717A; line-height: 1.7; margin-bottom: 32px;">
-            Inoltre, non ti abbandoniamo dopo la firma. Il tuo EnergyTeller ti spiega l'offerta, i costi e le condizioni prima di farti scegliere, e resta a tua disposizione per qualsiasi dubbio futuro.
-          </p>
-          <a href="contatti.php" class="btn-primary" style="background: var(--primary); color: #fff; padding: 14px 32px; border-radius: 99px; text-decoration: none; font-weight: 600; display: inline-block;">Parla con noi</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background: #FAFAFA; padding: 100px 0;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-      <div class="section-head" style="text-align: center; margin-bottom: 64px;">
-        <h2 style="font-size: 36px; font-weight: 800; line-height: 1.2;">I nostri valori</h2>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
-        <div style="background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #E4E4E7; text-align: center;">
-          <div style="font-size: 40px; margin-bottom: 20px;">💡</div>
-          <h4 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">Trasparenza</h4>
-          <p style="color: #71717A; line-height: 1.6;">Nessun costo nascosto. Quello che vedi è quello che paghi, con spread chiari sui prezzi all'ingrosso.</p>
-        </div>
-        <div style="background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #E4E4E7; text-align: center;">
-          <div style="font-size: 40px; margin-bottom: 20px;">🤝</div>
-          <h4 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">Supporto Umano</h4>
-          <p style="color: #71717A; line-height: 1.6;">L'EnergyTeller è una persona vera, non un call center robotizzato, pronta a rispondere a tutte le tue domande.</p>
-        </div>
-        <div style="background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #E4E4E7; text-align: center;">
-          <div style="font-size: 40px; margin-bottom: 20px;">⚡</div>
-          <h4 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">Semplicità</h4>
-          <p style="color: #71717A; line-height: 1.6;">Semplifichiamo il mondo dell'energia, dall'attivazione rapida online alla bolletta chiara da leggere.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<main class="about-redesign">
+  <section class="about-intro"><div class="container about-intro-grid"><div class="about-intro-copy"><span class="eyebrow"><span class="dot"></span> Chi siamo</span><h1>Persone preparate,<br><span>relazioni vere.</span></h1><p>Dal 2012 lavoriamo per rendere più semplici le scelte di chi cerca un servizio energetico affidabile.</p><a class="btn-primary" href="contatti.php">Conosciamoci <span>→</span></a></div><div class="about-intro-image"><img src="energy-team.png" alt="Il team di <?= $companyName ?> riunito in ufficio"><div class="about-image-label"><strong>20+</strong><span>sedi, una squadra</span></div></div></div></section>
+  <section class="about-numbers"><div class="container about-numbers-grid"><div><strong>2012</strong><span>anno di nascita</span></div><div><strong>20</strong><span>sedi in Campania</span></div><div><strong>1.000+</strong><span>collaboratori</span></div><div><strong>24/7</strong><span>attenzione alle persone</span></div></div></section>
+  <section class="about-story-new section"><div class="container about-story-grid"><div class="about-story-image"><img src="energy-consulenza.png" alt="Consulente che accompagna una famiglia nella scelta dell'energia"><div class="about-quote"><span>“</span><p>La fiducia nasce dalle cose fatte bene, insieme.</p></div></div><div class="about-story-copy"><span class="eyebrow"><span class="dot"></span> Il nostro percorso</span><h2>Cresciamo con<br><span>chi ci sceglie.</span></h2><p><?= $companyName ?> è nata con l'obiettivo di costruire un'organizzazione competente e attenta alle persone. Dai primi tre uffici a Napoli abbiamo sviluppato una realtà solida, senza perdere il valore del rapporto diretto.</p><p>Oggi mettiamo esperienza e professionalità al servizio di famiglie e imprese, aiutandole a orientarsi nel mondo dell'energia con maggiore consapevolezza.</p><div class="about-signature"><span></span><strong>Il team <?= $companyName ?></strong></div></div></div></section>
+  <section class="about-values section"><div class="container"><div class="redesign-heading redesign-heading--center"><span class="eyebrow"><span class="dot"></span> Il nostro modo di lavorare</span><h2>Il nostro lavoro parte<br><span>dalle persone.</span></h2></div><div class="about-values-grid"><article><span class="value-number">01</span><h3>Ascolto</h3><p>Facciamo domande, raccogliamo bisogni e costruiamo risposte davvero utili.</p></article><article><span class="value-number">02</span><h3>Chiarezza</h3><p>Ogni informazione deve essere comprensibile, così ogni scelta diventa più consapevole.</p></article><article><span class="value-number">03</span><h3>Responsabilità</h3><p>Formiamo le nostre persone e lavoriamo con cura, dall'inizio alla fine del percorso.</p></article></div></div></section>
+  <section class="about-cta"><div class="container"><div><span class="eyebrow eyebrow-light"><span class="dot"></span> Siamo qui per ascoltarti</span><h2>Parliamo del tuo<br><span>prossimo passo.</span></h2></div><a class="btn-primary" href="contatti.php">Scrivici <span>→</span></a></div></section>
+</main>
 
 <?php include __DIR__ . '/footer.php'; ?>
