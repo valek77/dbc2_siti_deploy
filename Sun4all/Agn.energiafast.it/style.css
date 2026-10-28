@@ -1257,3 +1257,131 @@ h1,h2,h3,h4,h5 {
   transform: none;
   box-shadow: none;
 }
+
+/* =========================================================
+   Layout editoriale 2026 — home e chi siamo
+   ========================================================= */
+
+/* HOME: hero scuro, composizione asimmetrica e blocchi più netti */
+.home-page { background: var(--bg-soft); }
+.home-page .home-hero {
+  background: var(--dark-bg) !important;
+  color: #fff;
+  padding-top: 112px !important;
+  padding-bottom: 112px !important;
+}
+.home-page .home-hero::before {
+  width: 640px;
+  height: 640px;
+  right: -180px;
+  top: -270px;
+  border-color: rgba(156,202,234,.18);
+}
+.home-page .home-hero::after {
+  content: 'ENERGY / CARE / FUTURE';
+  position: absolute;
+  left: 24px;
+  bottom: 28px;
+  color: rgba(255,255,255,.34);
+  font: 700 11px/1 var(--font-display);
+  letter-spacing: .22em;
+}
+.home-page .home-hero .split {
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+  gap: 76px;
+}
+.home-page .home-hero h1 {
+  color: #fff !important;
+  font-size: clamp(44px, 6.2vw, 76px) !important;
+  letter-spacing: -.055em;
+  max-width: 720px;
+}
+.home-page .home-hero h1 span { color: var(--primary-light) !important; }
+.home-page .home-hero p { color: rgba(255,255,255,.72) !important; max-width: 560px !important; }
+.home-page .home-hero .btn-outline { border-color: rgba(255,255,255,.45) !important; color: #fff !important; }
+.home-page .home-hero .split-img {
+  aspect-ratio: 4 / 3;
+  border-radius: 180px 22px 22px 22px !important;
+  border: 8px solid rgba(255,255,255,.12);
+  box-shadow: 0 28px 80px rgba(0,0,0,.28) !important;
+  transform: rotate(2deg) !important;
+}
+.home-page .home-hero .split-img img { object-position: 72% center; }
+.home-page .home-benefits { background: #fff; }
+.home-page .home-benefits .section-head { text-align: left; max-width: 760px; }
+.home-page .home-benefits .section-sub { margin-left: 0; }
+.home-page .home-benefits .feature-grid { grid-template-columns: repeat(3, 1fr); gap: 0; }
+.home-page .home-benefits .feat-card {
+  border-radius: 0;
+  border: 1px solid var(--line);
+  border-top: 0;
+  box-shadow: none;
+  padding: 42px 32px !important;
+}
+.home-page .home-benefits .feat-card:first-child { border-left: 0; }
+.home-page .home-benefits .feat-card:last-child { border-right: 0; }
+.home-page .home-benefits .feat-card:hover { transform: none; box-shadow: none; background: var(--bg-soft); }
+.home-page .home-benefits .feat-card .ico { margin-left: 0 !important; }
+.home-page .home-sustainability { background: #fff; }
+
+/* CHI SIAMO: pagina più narrativa, con hero panoramico e fascia dati */
+.about-page { background: var(--bg-soft); }
+.about-page .page-hero {
+  min-height: 620px !important;
+  display: flex;
+  align-items: flex-end;
+  background: var(--dark-bg);
+}
+.about-page .page-hero .photo-bg { background-position: 68% center !important; }
+.about-page .page-hero .photo-overlay {
+  background: linear-gradient(90deg, rgba(13,39,56,.98) 0%, rgba(13,39,56,.82) 45%, rgba(13,39,56,.18) 100%) !important;
+}
+.about-page .page-hero .inner { width: 100%; padding-top: 160px !important; padding-bottom: 92px !important; }
+.about-page .page-hero h1 {
+  font-size: clamp(48px, 7vw, 88px) !important;
+  letter-spacing: -.06em;
+  max-width: 760px !important;
+}
+.about-page .page-hero p { max-width: 530px !important; color: rgba(255,255,255,.76) !important; }
+.about-page > section.section:first-of-type {
+  background: #fff !important;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.about-page > section.section:first-of-type .split { grid-template-columns: .9fr 1.1fr; gap: 96px; }
+.about-page > section.section:first-of-type .split-img {
+  order: -1;
+  border-radius: 18px !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border: 1px solid var(--line);
+  padding: 12px;
+  background: var(--bg-soft);
+}
+.about-page > section.section:first-of-type .split-img img { border-radius: 10px; }
+.about-page .stat-strip { background: var(--primary) !important; padding: 46px 24px !important; }
+.about-page .stat-strip::before { border-color: rgba(255,255,255,.18); }
+.about-page .stat-item .n { color: #fff !important; font-size: clamp(24px, 2.8vw, 38px) !important; }
+.about-page .stat-item .l { color: rgba(255,255,255,.78); }
+.about-page .feature-grid { gap: 16px; }
+.about-page .feat-card { border-radius: 12px; box-shadow: none; border-color: var(--line); }
+.about-page .feat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.about-page .dark-section { background: var(--dark-bg) !important; }
+
+@media (max-width: 900px) {
+  .home-page .home-hero .split { grid-template-columns: 1fr; gap: 48px; }
+  .home-page .home-hero .split-img { max-width: 560px; width: 100%; margin: 0 auto; }
+  .home-page .home-benefits .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-page > section.section:first-of-type .split { grid-template-columns: 1fr; gap: 48px; }
+  .about-page > section.section:first-of-type .split-img { order: 0; max-width: 620px; width: 100%; margin: 0 auto; }
+}
+@media (max-width: 600px) {
+  .home-page .home-hero { padding-top: 76px !important; padding-bottom: 88px !important; }
+  .home-page .home-hero::after { left: 20px; font-size: 9px; }
+  .home-page .home-hero .split-img { border-radius: 100px 16px 16px 16px !important; }
+  .home-page .home-benefits .feature-grid { grid-template-columns: 1fr; }
+  .home-page .home-benefits .feat-card { border: 1px solid var(--line); border-bottom: 0; }
+  .home-page .home-benefits .feat-card:last-child { border-bottom: 1px solid var(--line); }
+  .about-page .page-hero { min-height: 570px !important; }
+  .about-page .page-hero .inner { padding-bottom: 68px !important; }
+}
