@@ -88,8 +88,7 @@ if ($nOfferte % 3 === 0) {
             </div>
             <?php endif; ?>
 
-            <?php /* titolo/sottotitolo: FRAMMENTI HTML grezzi dall'API */ ?>
-            <?= $o['titolo'] ?>
+            <h3 class="offer-name"><?= e($o['nome']) ?></h3>
             <?php if ($o['sottotitolo'] !== ''): ?>
             <div class="offer-type"><?= $o['sottotitolo'] ?></div>
             <?php endif; ?>
