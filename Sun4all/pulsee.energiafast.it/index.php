@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Luce e gas, con più chiarezza';
-$pageDescription = ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center')
+$pageDescription = $COMPANY['company_name']
     . ' è il partner ufficiale ' . $OPERATORE['nome_marketing']
     . '. Scopri offerte luce e gas per casa e azienda, con condizioni trasparenti e assistenza dedicata.';
 include __DIR__ . '/header.php';
@@ -43,13 +43,13 @@ include __DIR__ . '/header.php';
         </div>
 
         <div class="bolt-card bolt-1">
-          <img src="hero_energy_1.png" alt="Home Energy Comfort">
+          <img src="hero_energy_1.webp" alt="Home Energy Comfort">
         </div>
         <div class="bolt-card bolt-2">
-          <img src="hero_energy_2.png" alt="Solar Panels Renewable Energy">
+          <img src="hero_energy_2.webp" alt="Solar Panels Renewable Energy">
         </div>
         <div class="bolt-card bolt-3">
-          <img src="hero_energy_3.png" alt="Smart Energy Management">
+          <img src="hero_energy_3.webp" alt="Smart Energy Management">
         </div>
       </div>
     </div>
@@ -164,7 +164,7 @@ include __DIR__ . '/header.php';
         </div>
 
         <div class="split-visual">
-          <img src="split_home.png" alt="Comfort domestico e risparmio">
+          <img src="split_home.webp" alt="Comfort domestico e risparmio">
         </div>
       </div>
     </div>

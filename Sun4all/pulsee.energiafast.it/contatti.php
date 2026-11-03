@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Contatti';
-$pageDescription = 'Contatta ' . ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center')
+$pageDescription = 'Contatta ' . $COMPANY['company_name']
     . ' per ricevere una consulenza gratuita sulle offerte ' . $OPERATORE['nome_marketing']
     . '. Siamo qui per aiutarti a scegliere la tariffa giusta.';
 include __DIR__ . '/header.php';

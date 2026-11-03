@@ -3,18 +3,13 @@ require __DIR__ . '/_config.php';
 
 // Dati dinamici dall'API nuova (/landing-pages). Disponibili subito dopo _config.php,
 // prima dell'include di header.php (dove viene impostato $brandName).
-// REGOLA: usa il valore dall'API ($COMPANY) quando presente; per i campi NON
-// modellati dall'API (REA, Registro Imprese, socio unico, nominativo DPO) usa
-// il valore cablato. I valori di $COMPANY sono gia' resi sicuri per l'HTML.
-$ragioneSociale = $COMPANY['company_name']     !== '' ? $COMPANY['company_name']     : 'Gierre Contact Call Center S.r.l.';
-$coSede         = $COMPANY['sede_legale']      !== '' ? $COMPANY['sede_legale']      : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
-$coPiva         = $COMPANY['p_iva']            !== '' ? $COMPANY['p_iva']            : '09991111213';
-$coCapitale     = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '&euro; 10.000,00';
-$coPec          = $COMPANY['pec']              !== '' ? $COMPANY['pec']              : 'gierrecontactcallcentersrl@pec.it';
-$coDpoEmail     = $COMPANY['email_dpo']        !== '' ? $COMPANY['email_dpo']        : 'dpo.fulmine@libero.it';
-// Campi NON modellati dall'API -> cablati.
-$coRea       = 'NA-1072970';
-$coDpoNome   = 'Dott.ssa Maddalena Fulmine';
+$ragioneSociale = $COMPANY['company_name'];
+$coSede         = $COMPANY['sede_legale'];
+$coPiva         = $COMPANY['p_iva'];
+$coCapitale     = $COMPANY['capitale_sociale'];
+$coPec          = $COMPANY['pec'];
+$coDpoEmail     = $COMPANY['email_dpo'];
+$coRea          = $COMPANY['numero_rea'];
 $dataAgg     = '09/07/2026';
 
 $pageTitle = 'Trasparenza commerciale';
@@ -133,15 +128,13 @@ include __DIR__ . '/header.php';
     <h2>Dati societari</h2>
     <p>Il sito è gestito da:</p>
     <div class="data-card">
-      <strong><?= $ragioneSociale ?></strong> — Società a socio unico<br>
-      Sede legale: <?= $coSede ?><br>
-      C.F. e P.IVA: <?= $coPiva ?><br>
-      Registro Imprese di Napoli n. <?= $coPiva ?><br>
-      REA: <?= $coRea ?><br>
-      Capitale sociale: <?= $coCapitale ?> i.v.<br>
-      PEC: <a href="mailto:<?= $coPec ?>"><?= $coPec ?></a><br>
-      DPO / Responsabile della Protezione dei Dati: <?= $coDpoNome ?><br>
-      E-mail: <a href="mailto:<?= $coDpoEmail ?>"><?= $coDpoEmail ?></a>
+      <strong><?= $ragioneSociale ?></strong><br>
+      <?php if ($coSede !== ''): ?>Sede legale: <?= $coSede ?><br><?php endif; ?>
+      <?php if ($coPiva !== ''): ?>C.F. e P.IVA: <?= $coPiva ?><br><?php endif; ?>
+      <?php if ($coRea !== ''): ?>REA: <?= $coRea ?><br><?php endif; ?>
+      <?php if ($coCapitale !== ''): ?>Capitale sociale: &euro; <?= $coCapitale ?> i.v.<br><?php endif; ?>
+      <?php if ($coPec !== ''): ?>PEC: <a href="mailto:<?= $coPec ?>"><?= $coPec ?></a><br><?php endif; ?>
+      <?php if ($coDpoEmail !== ''): ?>DPO/RPD: <a href="mailto:<?= $coDpoEmail ?>"><?= $coDpoEmail ?></a><?php endif; ?>
     </div>
 
     <h2>Aggiornamento della pagina</h2>

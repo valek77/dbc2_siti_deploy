@@ -4,7 +4,7 @@ $brandName = $COMPANY['company_name'] !== ''
     ? $COMPANY['company_name']
     : ($LANDING_PAGE['nome_portale'] !== ''
         ? $LANDING_PAGE['nome_portale']
-        : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
+        : $LANDING_PAGE['titolo']);
 $pageTitle = 'Contatti';
 $pageDescription = 'Contatta ' . $brandName . ' per una consulenza gratuita sulle offerte ' . $OPERATORE['nome_marketing'] . '. Rispondiamo entro 24 ore lavorative.';
 include __DIR__ . '/header.php';

@@ -4,7 +4,7 @@ $brandName = $COMPANY['company_name'] !== ''
     ? $COMPANY['company_name']
     : ($LANDING_PAGE['nome_portale'] !== ''
         ? $LANDING_PAGE['nome_portale']
-        : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
+        : $LANDING_PAGE['titolo']);
 $pageTitle = 'Offerte Luce e Gas';
 $pageDescription = 'Tutte le offerte ' . $OPERATORE['nome_marketing'] . ' disponibili tramite ' . $brandName . '. Tariffe luce e gas per uso domestico e professionale con prezzi indicizzati al mercato.';
 include __DIR__ . '/header.php';

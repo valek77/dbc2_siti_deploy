@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/_config.php';
 $pageTitle = 'Chi Siamo';
-$pageDescription = ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact')
+$pageDescription = $COMPANY['company_name']
     . ' nasce nel 2012 dal progetto di un giovane imprenditore e cresce nel settore dei Contact Center per energia e telecomunicazioni. Oggi conta 20 sedi in Campania e oltre 1.000 collaboratori.';
 include __DIR__ . '/header.php';
 // Ragione sociale dall'API (company_name), mai il nome commerciale.
@@ -38,7 +38,7 @@ $companyName = $COMPANY['company_name'];
         </div>
 
         <div class="split-visual">
-          <img src="chi_siamo_team.png" alt="Il nostro team di esperti">
+          <img src="chi_siamo_team.webp" alt="Il nostro team di esperti">
         </div>
       </div>
     </div>
@@ -106,7 +106,7 @@ $companyName = $COMPANY['company_name'];
     <div class="container">
       <div class="split" style="grid-template-columns: 1fr 1.05fr;">
         <div class="split-visual">
-          <img src="feature_consulenza.png" alt="Il nostro team al lavoro">
+          <img src="feature_consulenza.webp" alt="Il nostro team al lavoro">
         </div>
 
         <div>

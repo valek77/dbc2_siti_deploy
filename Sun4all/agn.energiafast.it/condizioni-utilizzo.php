@@ -4,16 +4,14 @@ require __DIR__ . '/_config.php';
 // Dati dinamici dall'API nuova (/landing-pages). Disponibili subito dopo _config.php,
 // prima dell'include di header.php (dove viene impostato $brandName).
 // --- Gestore del sito / Titolare: dati dall'API azienda ($COMPANY) --------
-$titolareNome = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact Call Center S.r.l.';
-$titolareSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
-$titolarePiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
-$titolarePec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
-$capitaleSociale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '€ 10.000,00 i.v.';
-// Dati camerali NON esposti dall'API (dal documento fornito dal cliente).
-$titolareRea = 'NA-1072970';
+$titolareNome = $COMPANY['company_name'];
+$titolareSede = $COMPANY['sede_legale'];
+$titolarePiva = $COMPANY['p_iva'];
+$titolarePec = $COMPANY['pec'];
+$capitaleSociale = $COMPANY['capitale_sociale'];
+$titolareRea = $COMPANY['numero_rea'];
 // DPO: email dall'API con fallback al recapito indicato nel documento.
-$emailDpo = $COMPANY['email_dpo'] !== '' ? $COMPANY['email_dpo'] : 'dpo.fulmine@libero.it';
-$dpoNome = 'Dott.ssa Maddalena Fulmine';
+$emailDpo = $COMPANY['email_dpo'];
 
 $ragioneSociale = $titolareNome;
 $emailContatto  = $COMPANY['email_supporto'] !== '' ? $COMPANY['email_supporto'] : $titolarePec;
@@ -61,7 +59,7 @@ include __DIR__ . '/header.php';
     <p style="font-style:italic; font-size:14px; color:var(--muted); margin:0 0 30px;">Termini e condizioni generali del sito web <?= $ragioneSociale ?></p>
 
     <h2>1. Premessa</h2>
-    <p>Le presenti Condizioni di Utilizzo disciplinano l’accesso, la navigazione e l’utilizzo del sito internet e delle relative pagine, landing page, form di contatto e contenuti informativi riconducibili a <?= $titolareNome ?>, anche attraverso il servizio commerciale GrEnergy.</p>
+    <p>Le presenti Condizioni di Utilizzo disciplinano l’accesso, la navigazione e l’utilizzo del sito internet e delle relative pagine, landing page, form di contatto e contenuti informativi riconducibili a <?= $titolareNome ?>, anche attraverso il servizio commerciale <?= $LANDING_PAGE['nome_portale'] ?>.</p>
     <p>L’accesso e l’utilizzo del sito comportano l’accettazione delle presenti condizioni. L’utente che non intenda accettarle è invitato a non utilizzare il sito e a non trasmettere richieste tramite i form disponibili.</p>
 
     <h2>2. Gestore del sito</h2>
@@ -70,13 +68,10 @@ include __DIR__ . '/header.php';
       <strong><?= $titolareNome ?></strong><br>
       Sede legale: <?= $titolareSede ?><br>
       C.F. e P.IVA: <?= $titolarePiva ?><br>
-      Registro Imprese di Napoli n. <?= $titolarePiva ?><br>
-      REA: <?= $titolareRea ?><br>
-      Capitale sociale: <?= $capitaleSociale ?><br>
-      Società a socio unico<br>
-      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><br>
-      DPO / Responsabile della Protezione dei Dati: <?= $dpoNome ?><br>
-      E-mail: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
+<?php if ($titolareRea !== ''): ?>      REA: <?= $titolareRea ?><br><?php endif; ?>
+<?php if ($capitaleSociale !== ''): ?>      Capitale sociale: <?= $capitaleSociale ?><br><?php endif; ?>
+<?php if ($titolarePec !== ''): ?>      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><br><?php endif; ?>
+<?php if ($emailDpo !== ''): ?>      DPO / Responsabile della Protezione dei Dati: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a><?php endif; ?>
     </p>
     <p><?= $titolareNome ?> opera nel settore dei servizi di contact center, consulenza commerciale, telemarketing, teleselling, gestione di campagne promozionali e commerciali, per conto proprio e per conto terzi.</p>
 
@@ -248,13 +243,14 @@ include __DIR__ . '/header.php';
     <p>Per informazioni relative al sito, alle presenti Condizioni di Utilizzo o alle pagine legali pubblicate, è possibile contattare:</p>
     <p>
       <strong><?= $titolareNome ?></strong><br>
-      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
+<?php if ($titolarePec !== ''): ?>      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><?php endif; ?>
     </p>
-    <p>Per questioni relative al trattamento dei dati personali / privacy:</p>
+<?php if ($emailDpo !== ''): ?>    <p>Per questioni relative al trattamento dei dati personali / privacy:</p>
     <p>
-      DPO / RPD: <?= $dpoNome ?><br>
+      DPO / RPD<br>
       E-mail: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
     </p>
+<?php endif; ?>
 
     <hr>
     <p style="font-size: 14px; color: var(--muted); text-align: center;">Ultimo aggiornamento: 09/07/2026</p>

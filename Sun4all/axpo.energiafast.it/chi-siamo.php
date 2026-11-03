@@ -4,7 +4,7 @@ $brandName = $COMPANY['company_name'] !== ''
     ? $COMPANY['company_name']
     : ($LANDING_PAGE['nome_portale'] !== ''
         ? $LANDING_PAGE['nome_portale']
-        : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
+        : $LANDING_PAGE['titolo']);
 // Ragione sociale dall'API (company_name), mai il nome commerciale.
 $companyName = $COMPANY['company_name'];
 $pageTitle = 'Chi Siamo';
@@ -43,7 +43,7 @@ include __DIR__ . '/header.php';
 
   <!-- HERO — foto città/grattacieli -->
   <section class="page-hero">
-    <div class="photo-bg" style="background-image: url('chi-siamo-hero.png');"></div>
+    <div class="photo-bg" style="background-image: url('chi-siamo-hero.webp');"></div>
     <div class="photo-overlay"></div>
     <div class="inner">
       <span class="eyebrow" style="color:var(--primary-light);"><span class="dot" style="background:var(--primary-light);"></span> Chi siamo</span>
@@ -65,7 +65,7 @@ include __DIR__ . '/header.php';
           <a href="tariffe.php" class="btn-primary">Scopri le offerte</a>
         </div>
         <div class="split-img">
-          <img src="chi-siamo-team.png" alt="Consulenza energetica per una famiglia" loading="lazy">
+          <img src="chi-siamo-team.webp" alt="Consulenza energetica per una famiglia" loading="lazy">
           <div class="badge">
             <div class="label">Il nostro</div>
             <div class="val">metodo</div>
@@ -157,7 +157,7 @@ include __DIR__ . '/header.php';
 
   <!-- FOTO background / CTA -->
   <section class="photo-section" style="padding: var(--section) 0;">
-    <div class="photo-bg" style="background-image: url('chi-siamo-energy.png');"></div>
+    <div class="photo-bg" style="background-image: url('chi-siamo-energy.webp');"></div>
     <div class="photo-overlay"></div>
     <div class="container" style="text-align:center; position:relative; z-index:2;">
       <h2 style="font-family:var(--font-display); font-size:clamp(30px,5vw,50px); font-weight:800; color:#fff; margin:0 0 20px;">Parliamo delle tue esigenze</h2>

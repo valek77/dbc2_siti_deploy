@@ -2,7 +2,7 @@
 require __DIR__ . '/_config.php';
 $pageTitle = 'Offerte Luce e Gas';
 $pageDescription = 'Scopri tutte le offerte ' . $OPERATORE['nome_marketing'] . ' disponibili tramite '
-    . ($COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'GR Contact Call Center')
+    . $COMPANY['company_name']
     . ': tariffe luce e gas per uso residenziale e professionale, con prezzi chiari e spread trasparenti.';
 include __DIR__ . '/header.php';
 

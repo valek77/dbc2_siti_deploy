@@ -69,19 +69,17 @@ $pageHead = <<<'CSS'
 CSS;
 
 // --- Titolare del trattamento: dati dall'API azienda ($COMPANY) -----------
-$titolareNome = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact Call Center S.r.l.';
-$titolareSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
-$titolarePiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
-$titolarePec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
+$titolareNome = $COMPANY['company_name'];
+$titolareSede = $COMPANY['sede_legale'];
+$titolarePiva = $COMPANY['p_iva'];
+$titolarePec = $COMPANY['pec'];
 $emailSupporto = $COMPANY['email_supporto'];
 // Capitale sociale: campo API se presente, altrimenti valore camerale del documento.
-$capitaleSociale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '€ 10.000,00 i.v.';
-// Dati camerali NON esposti dall'API (dal documento fornito dal cliente).
-$titolareRea = 'NA-1072970';
+$capitaleSociale = $COMPANY['capitale_sociale'];
+$titolareRea = $COMPANY['numero_rea'];
 
 // --- DPO: email dall'API con fallback al recapito indicato nel documento ---
-$emailDpo = $COMPANY['email_dpo'] !== '' ? $COMPANY['email_dpo'] : 'dpo.fulmine@libero.it';
-$dpoNome = 'Dott.ssa Maddalena Fulmine';
+$emailDpo = $COMPANY['email_dpo'];
 
 // --- Venditore finale / operatore energetico: dati dall'API ($OPERATORE) --
 // Nel documento è "Switch Luce & Gas S.r.l.": qui usiamo la ragione sociale
@@ -104,20 +102,20 @@ include __DIR__ . '/header.php';
       <strong><?= $titolareNome ?></strong><br>
       Sede legale: <?= $titolareSede ?><br>
       C.F. e P.IVA: <?= $titolarePiva ?><br>
-      Registro Imprese di Napoli n. <?= $titolarePiva ?><br>
-      REA: <?= $titolareRea ?><br>
-      Capitale sociale: <?= $capitaleSociale ?><br>
-      Società a socio unico<br>
-      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
+<?php if ($titolareRea !== ''): ?>      REA: <?= $titolareRea ?><br><?php endif; ?>
+<?php if ($capitaleSociale !== ''): ?>      Capitale sociale: <?= $capitaleSociale ?><br><?php endif; ?>
+<?php if ($titolarePec !== ''): ?>      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><?php endif; ?>
     </p>
 
+<?php if ($emailDpo !== ''): ?>
     <h2>2. Responsabile della Protezione dei Dati / DPO</h2>
     <p><?= $titolareNome ?> ha nominato un Responsabile della Protezione dei Dati / Data Protection Officer.</p>
     <p>
-      DPO / RPD: <?= $dpoNome ?><br>
+      DPO / RPD<br>
       E-mail: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
     </p>
     <p>Il DPO può essere contattato per questioni relative al trattamento dei dati personali e per l’esercizio dei diritti degli interessati.</p>
+<?php endif; ?>
 
     <h2>3. Ruoli privacy</h2>
     <p><?= $titolareNome ?> opera come Titolare del trattamento e tratta i dati per gestire la richiesta dell’utente, fornire informazioni, svolgere una prima consulenza commerciale e ricontattare l’utente nei casi consentiti dalla normativa vigente.</p>
@@ -244,7 +242,7 @@ include __DIR__ . '/header.php';
       <li>diritto alla portabilità dei dati, ove applicabile;</li>
       <li>diritto di revocare il consenso prestato, senza pregiudicare la liceità del trattamento effettuato prima della revoca.</li>
     </ul>
-    <p>Le richieste possono essere inviate al Titolare ai recapiti indicati nella presente informativa oppure al DPO.</p>
+    <p>Le richieste possono essere inviate al Titolare ai recapiti indicati nella presente informativa<?php if ($emailDpo !== ''): ?> oppure al DPO<?php endif; ?>.</p>
 
     <h2>14. Diritto di opposizione ai contatti commerciali</h2>
     <p>L’utente può opporsi in qualsiasi momento alla ricezione di ulteriori contatti commerciali.</p>

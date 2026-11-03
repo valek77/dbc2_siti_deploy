@@ -4,7 +4,7 @@ $brandName = $COMPANY['company_name'] !== ''
     ? $COMPANY['company_name']
     : ($LANDING_PAGE['nome_portale'] !== ''
         ? $LANDING_PAGE['nome_portale']
-        : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
+        : $LANDING_PAGE['titolo']);
 $pageDescription = $brandName . ' offre consulenza e supporto per aiutarti a orientarti nel mondo dell\'energia e scegliere le soluzioni più adatte alle tue esigenze.';
 include __DIR__ . '/header.php';
 ?>
@@ -24,7 +24,7 @@ include __DIR__ . '/header.php';
   .home-page .home-sustainability { position: relative; overflow: hidden; }
   .home-page .home-sustainability::after { content: ''; position: absolute; width: 280px; height: 280px; border: 1px solid rgba(254,57,93,.18); border-radius: 50%; left: -120px; bottom: -150px; }
   .home-page .sustainability-banner { position: relative; min-height: 300px; margin-top: 56px; padding: 52px; border-radius: var(--r-2xl); overflow: hidden; display: flex; align-items: center; }
-  .home-page .sustainability-banner .photo-bg { position: absolute; inset: 0; background: url('home-sostenibilita.png') center/cover; }
+  .home-page .sustainability-banner .photo-bg { position: absolute; inset: 0; background: url('home-sostenibilita.webp') center/cover; }
   .home-page .sustainability-banner .photo-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,39,56,.94), rgba(13,39,56,.3)); }
   .home-page .sustainability-banner .content { position: relative; z-index: 1; max-width: 510px; color: #fff; }
   .home-page .sustainability-banner h3 { font-size: clamp(26px, 3vw, 38px); margin-bottom: 14px; }
@@ -51,7 +51,7 @@ include __DIR__ . '/header.php';
           </div>
         </div>
         <div class="split-img" style="border-radius: 20px 80px 20px 20px; box-shadow: var(--shadow-lg);">
-          <img src="home-hero.png" alt="Famiglia in una casa efficiente dal punto di vista energetico">
+          <img src="home-hero.webp" alt="Famiglia in una casa efficiente dal punto di vista energetico">
         </div>
       </div>
     </div>
@@ -105,7 +105,7 @@ include __DIR__ . '/header.php';
           <a href="contatti.php" class="btn-primary">Richiedi una consulenza</a>
         </div>
         <div class="split-img" style="border-radius: 20px; box-shadow: var(--shadow-md);">
-          <img src="home-consulenza.png" alt="Consulenti e clienti durante un incontro sull'energia">
+          <img src="home-consulenza.webp" alt="Consulenti e clienti durante un incontro sull'energia">
         </div>
       </div>
       <div class="sustainability-banner">
@@ -149,20 +149,16 @@ include __DIR__ . '/header.php';
 </main>
 
 <?php
-// Footer "mega" specifico della home. Dati legali dell'azienda titolare: valore
-// dall'API ($COMPANY) quando presente, altrimenti valore cablato per i campi NON
-// modellati dall'API (REA, Registro Imprese, socio unico, nominativo DPO).
+// Footer "mega" specifico della home: tutti i dati legali provengono dall'API.
 $logoFooter = $LANDING_PAGE['logo2_url'] !== '' ? $LANDING_PAGE['logo2_url'] : 'gr_logo.png';
 $operatoreMarketing = $OPERATORE['nome_marketing'] !== '' ? $OPERATORE['nome_marketing'] : $OPERATORE['nome_legale'];
-$coName = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact Call Center S.r.l.';
-$coSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
-$coPiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
-$coCapitale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '&euro; 10.000,00';
-$coPec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
-$coDpoEmail = $COMPANY['email_dpo'] !== '' ? $COMPANY['email_dpo'] : 'dpo.fulmine@libero.it';
-$coRea = 'NA-1072970';
-$coRegImprese = 'Registro Imprese di Napoli n. ' . $coPiva;
-$coDpoNome = 'Dott.ssa Maddalena Fulmine';
+$coName = $COMPANY['company_name'];
+$coSede = $COMPANY['sede_legale'];
+$coPiva = $COMPANY['p_iva'];
+$coCapitale = $COMPANY['capitale_sociale'];
+$coPec = $COMPANY['pec'];
+$coDpoEmail = $COMPANY['email_dpo'];
+$coRea = $COMPANY['numero_rea'];
 ?>
   <!-- MEGA FOOTER -->
   <footer class="main-footer" style="background: var(--dark-bg); color: #fff; padding: 100px 0 40px;">
@@ -195,11 +191,12 @@ $coDpoNome = 'Dott.ssa Maddalena Fulmine';
       <div class="footer-bottom" style="font-size: 14px; color: rgba(255,255,255,.4);">
         <p class="footer-legal" style="margin:0; line-height:1.9;">
           &copy; <?= date('Y') ?> <strong><?= $coName ?></strong><br>
-          Sede legale: <?= $coSede ?><br>
-          C.F. e P.IVA: <?= $coPiva ?> &ndash; REA <?= $coRea ?> &ndash; <?= $coRegImprese ?><br>
-          Capitale sociale: <?= $coCapitale ?> i.v. &ndash; Società a socio unico<br>
-          PEC: <a href="mailto:<?= $coPec ?>" style="color: rgba(255,255,255,.6);"><?= $coPec ?></a><br>
-          DPO/Responsabile della Protezione dei Dati: <?= $coDpoNome ?> &ndash; contatto: <a href="mailto:<?= $coDpoEmail ?>" style="color: rgba(255,255,255,.6);"><?= $coDpoEmail ?></a>
+          <?php if ($coSede !== ''): ?>Sede legale: <?= $coSede ?><br><?php endif; ?>
+          <?php if ($coPiva !== ''): ?>C.F. e P.IVA: <?= $coPiva ?><br><?php endif; ?>
+          <?php if ($coRea !== ''): ?>REA: <?= $coRea ?><br><?php endif; ?>
+          <?php if ($coCapitale !== ''): ?>Capitale sociale: &euro; <?= $coCapitale ?> i.v.<br><?php endif; ?>
+          <?php if ($coPec !== ''): ?>PEC: <a href="mailto:<?= $coPec ?>" style="color: rgba(255,255,255,.6);"><?= $coPec ?></a><br><?php endif; ?>
+          <?php if ($coDpoEmail !== ''): ?>DPO/RPD: <a href="mailto:<?= $coDpoEmail ?>" style="color: rgba(255,255,255,.6);"><?= $coDpoEmail ?></a><?php endif; ?>
         </p>
       </div>
     </div>

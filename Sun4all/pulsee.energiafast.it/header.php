@@ -1,6 +1,6 @@
 <?php
 /**
- * header.php — testata comune a tutte le pagine (gierrecontactcallcentersrl.com).
+ * header.php — testata comune a tutte le pagine.
  *
  * Sito DINAMICO su API NUOVA (/landing-pages): brand e logo arrivano dagli array
  * $LANDING_PAGE / $COMPANY popolati da _shared/config.php. I valori degli array
@@ -20,7 +20,7 @@ $brandName = $COMPANY['company_name'] !== ''
   ? $COMPANY['company_name']
   : ($LANDING_PAGE['nome_portale'] !== ''
     ? $LANDING_PAGE['nome_portale']
-    : ($LANDING_PAGE['titolo'] !== '' ? $LANDING_PAGE['titolo'] : 'GR Contact Call Center'));
+    : $LANDING_PAGE['titolo']);
 // Logo testata: dall'API se presente, altrimenti l'immagine locale del brand.
 $logoHeader = $LANDING_PAGE['logo_url'] !== '' ? $LANDING_PAGE['logo_url'] : 'gr_logo.png';
 ?>

@@ -69,24 +69,19 @@ $pageHead = <<<'CSS'
 CSS;
 
 // --- Titolare del trattamento: dati dall'API azienda ($COMPANY) -----------
-$titolareNome = $COMPANY['company_name'] !== '' ? $COMPANY['company_name'] : 'Gierre Contact Call Center S.r.l.';
-$titolareSede = $COMPANY['sede_legale'] !== '' ? $COMPANY['sede_legale'] : 'Via Console Cesario n. 3, 80132 Napoli (NA)';
-$titolarePiva = $COMPANY['p_iva'] !== '' ? $COMPANY['p_iva'] : '09991111213';
-$titolarePec = $COMPANY['pec'] !== '' ? $COMPANY['pec'] : 'gierrecontactcallcentersrl@pec.it';
+$titolareNome = $COMPANY['company_name'];
+$titolareSede = $COMPANY['sede_legale'];
+$titolarePiva = $COMPANY['p_iva'];
+$titolarePec = $COMPANY['pec'];
 $emailSupporto = $COMPANY['email_supporto'];
-// Capitale sociale: campo API se presente, altrimenti valore camerale del documento.
-$capitaleSociale = $COMPANY['capitale_sociale'] !== '' ? $COMPANY['capitale_sociale'] : '€ 10.000,00 i.v.';
-// Dati camerali NON esposti dall'API (dal documento fornito dal cliente).
-$titolareRea = 'NA-1072970';
+$capitaleSociale = $COMPANY['capitale_sociale'];
+$titolareRea = $COMPANY['numero_rea'];
 
-// --- DPO: email dall'API con fallback al recapito indicato nel documento ---
-$emailDpo = $COMPANY['email_dpo'] !== '' ? $COMPANY['email_dpo'] : 'dpo.fulmine@libero.it';
-$dpoNome = 'Dott.ssa Maddalena Fulmine';
+$emailDpo = $COMPANY['email_dpo'];
 
 // --- Venditore finale / operatore energetico: dati dall'API ($OPERATORE) --
-// Nel documento è "Switch Luce & Gas S.r.l.": qui usiamo la ragione sociale
-// restituita dall'API dell'operatore energetico, con fallback prudenziale.
-$switch = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 'Switch Luce & Gas S.r.l.';
+// Ragione sociale restituita dall'API dell'operatore energetico.
+$switch = $OPERATORE['nome_legale'];
 
 include __DIR__ . '/header.php';
 ?>
@@ -102,29 +97,27 @@ include __DIR__ . '/header.php';
     <p>Il Titolare del trattamento è:</p>
     <p>
       <strong><?= $titolareNome ?></strong><br>
-      Sede legale: <?= $titolareSede ?><br>
-      C.F. e P.IVA: <?= $titolarePiva ?><br>
-      Registro Imprese di Napoli n. <?= $titolarePiva ?><br>
-      REA: <?= $titolareRea ?><br>
-      Capitale sociale: <?= $capitaleSociale ?><br>
-      Società a socio unico<br>
-      PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a>
+      <?php if ($titolareSede !== ''): ?>Sede legale: <?= $titolareSede ?><br><?php endif; ?>
+      <?php if ($titolarePiva !== ''): ?>C.F. e P.IVA: <?= $titolarePiva ?><br><?php endif; ?>
+      <?php if ($titolareRea !== ''): ?>REA: <?= $titolareRea ?><br><?php endif; ?>
+      <?php if ($capitaleSociale !== ''): ?>Capitale sociale: &euro; <?= $capitaleSociale ?> i.v.<br><?php endif; ?>
+      <?php if ($titolarePec !== ''): ?>PEC: <a href="mailto:<?= $titolarePec ?>"><?= $titolarePec ?></a><?php endif; ?>
     </p>
 
-    <h2>2. Responsabile della Protezione dei Dati / DPO</h2>
+    <?php if ($emailDpo !== ''): ?><h2>2. Responsabile della Protezione dei Dati / DPO</h2>
     <p><?= $titolareNome ?> ha nominato un Responsabile della Protezione dei Dati / Data Protection Officer.</p>
     <p>
-      DPO / RPD: <?= $dpoNome ?><br>
       E-mail: <a href="mailto:<?= $emailDpo ?>"><?= $emailDpo ?></a>
     </p>
     <p>Il DPO può essere contattato per questioni relative al trattamento dei dati personali e per l’esercizio dei diritti degli interessati.</p>
+    <?php endif; ?>
 
     <h2>3. Ruoli privacy</h2>
     <p><?= $titolareNome ?> opera come Titolare del trattamento e tratta i dati per gestire la richiesta dell’utente, fornire informazioni, svolgere una prima consulenza commerciale e ricontattare l’utente nei casi consentiti dalla normativa vigente.</p>
-    <p>Quando l’utente manifesta interesse per un’offerta riferibile a <?= $switch ?> o chiede di procedere alla valutazione o sottoscrizione di una proposta contrattuale con <?= $switch ?>, i dati necessari possono essere trattati nell’ambito della fase commerciale e contrattuale di competenza di Switch.</p>
+    <p>Quando l’utente manifesta interesse per un’offerta riferibile a <?= $switch ?> o chiede di procedere alla valutazione o sottoscrizione di una proposta contrattuale con <?= $switch ?>, i dati necessari possono essere trattati nell’ambito della fase commerciale e contrattuale di competenza di <?= $switch ?>.</p>
     <p>In tale fase <?= $switch ?> opera come Titolare del trattamento per le attività connesse alla proposta commerciale, alla verifica dei dati, alla gestione della richiesta contrattuale, alla conclusione del contratto, alla gestione della fornitura e agli adempimenti successivi di propria competenza.</p>
     <p>Per le attività svolte per conto di <?= $switch ?>, <?= $titolareNome ?> opera come Responsabile del trattamento ai sensi dell’art. 28 GDPR, secondo le istruzioni ricevute da <?= $switch ?> e nei limiti delle attività affidate.</p>
-    <p>L’utente riceverà o potrà consultare anche l’informativa privacy di <?= $switch ?>, relativa ai trattamenti effettuati da Switch in qualità di Titolare del trattamento.</p>
+    <p>L’utente riceverà o potrà consultare anche l’informativa privacy di <?= $switch ?>, relativa ai trattamenti effettuati dal venditore in qualità di Titolare del trattamento.</p>
 
     <h2>4. Dati personali trattati</h2>
     <p>A seconda dell’utilizzo del sito e dei servizi richiesti, potranno essere trattati i seguenti dati personali:</p>
