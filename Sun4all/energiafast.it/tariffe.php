@@ -92,7 +92,7 @@ $ICON_FLAME = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5
 <?php } else { foreach ($OFFERTE as $offerta) {
       $isGas = strpos(strtolower($offerta['tipologia']), 'gas') === 0;
       $icon = $isGas ? $ICON_FLAME : $ICON_BOLT;
-      $offertaNome = trim(strip_tags((string) ($offerta['titolo'] !== '' ? $offerta['titolo'] : $offerta['nome'])));
+      $offertaNome = trim(strip_tags((string) $offerta['nome']));
       $offertaNome = $offertaNome !== '' ? $offertaNome : 'Offerta ' . dbc2_format_tipologia($offerta['tipologia']);
 ?>
       <article class="offer-card" data-category="<?= e($offerta['tipologia']) ?>">
@@ -100,7 +100,7 @@ $ICON_FLAME = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2s-5 6-5 11a5 5
         <div class="offer-card-body">
 <?php if ($operatoreLogo !== '') { ?><div class="offer-operator"><span>Fornitore</span><img src="<?= e($operatoreLogo) ?>" alt="<?= e($operatoreNome) ?>" loading="lazy"></div>
 <?php } elseif ($operatoreNome !== '') { ?><div class="offer-supplier"><span class="offer-supplier-label">Fornitore</span><strong><?= e($operatoreNome) ?></strong></div><?php } ?>
-<?php if ($offerta['titolo'] !== '') { ?><div class="offer-api-title"><?= $offerta['titolo'] ?></div><?php } else { ?><h3 class="offer-name"><?= e($offertaNome) ?></h3><?php } ?>
+          <h3 class="offer-name"><?= e($offertaNome) ?></h3>
 <?php if ($offerta['sottotitolo'] !== '') { ?><div class="offer-api-subtitle"><?= $offerta['sottotitolo'] ?></div><?php } ?>
 <?php if (!empty($offerta['caratteristiche_evidenza'])) { ?><div class="price-block"><?php foreach ($offerta['caratteristiche_evidenza'] as $evidenza) { echo $evidenza; } ?></div><?php } ?>
 <?php if (!empty($offerta['caratteristiche'])) { ?><ul class="offer-features"><?php foreach ($offerta['caratteristiche'] as $caratteristica) { ?><li><?= $ICON_CHECK ?><span><?= $caratteristica ?></span></li><?php } ?></ul><?php } ?>

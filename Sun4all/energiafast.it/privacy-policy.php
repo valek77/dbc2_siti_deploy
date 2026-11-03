@@ -73,6 +73,13 @@ $emailSupporto = $COMPANY['email_supporto'];
 $emailDpo = $COMPANY['email_dpo'] !== '' ? $COMPANY['email_dpo'] : $COMPANY['email_supporto'];
 // Recapiti del Titolare mostrati inline nella sezione "Titolare del trattamento".
 $contattoTitolare = implode(' / ', array_filter([$emailSupporto, $COMPANY['pec']]));
+$datiRegistrazione = [];
+if ($COMPANY['numero_rea'] !== '') {
+  $datiRegistrazione[] = 'REA <strong>' . $COMPANY['numero_rea'] . '</strong>';
+}
+if ($COMPANY['capitale_sociale'] !== '') {
+  $datiRegistrazione[] = 'capitale sociale <strong>' . $COMPANY['capitale_sociale'] . '</strong>';
+}
 
 include __DIR__ . '/header.php';
 ?>
@@ -89,7 +96,7 @@ include __DIR__ . '/header.php';
     <h2>TITOLARE DEL TRATTAMENTO</h2>
     <span class="section-subhead">Art. 13, par.1, lett. a</span>
     <p>Conformemente a quanto previsto dal Regolamento UE 2016/679, il Titolare del trattamento è individuato nel soggetto giuridico che gestisce il sito web o la piattaforma digitale attraverso la quale vengono raccolti i dati personali (di seguito, il “Titolare”).</p>
-    <p>Nello specifico, il Titolare del trattamento è la società <strong><?= $COMPANY['company_name'] ?></strong>, con sede legale in <strong><?= $COMPANY['sede_legale'] ?></strong>, Codice Fiscale e Partita IVA <strong><?= $COMPANY['p_iva'] ?></strong><?php if ($contattoTitolare) { ?>, contattabile all’indirizzo e-mail/PEC <strong><?= $contattoTitolare ?></strong><?php } ?>.</p>
+    <p>Nello specifico, il Titolare del trattamento è la società <strong><?= $COMPANY['company_name'] ?></strong>, con sede legale in <strong><?= $COMPANY['sede_legale'] ?></strong>, Codice Fiscale e Partita IVA <strong><?= $COMPANY['p_iva'] ?></strong><?php if (!empty($datiRegistrazione)) { ?>, <?= implode(', ', $datiRegistrazione) ?><?php } ?><?php if ($contattoTitolare) { ?>, contattabile all’indirizzo e-mail/PEC <strong><?= $contattoTitolare ?></strong><?php } ?>.</p>
     <p>Il Titolare fornisce agli interessati le informazioni relative al trattamento dei dati personali effettuato nell’ambito dei servizi offerti online, inclusa la raccolta di richieste di informazioni, preventivi e proposte contrattuali relative a forniture di energia elettrica e gas naturale.</p>
     <p>I dati personali saranno trattati secondo i principi di liceità, correttezza, trasparenza, sicurezza e riservatezza. Il trattamento potrà avvenire con strumenti manuali e automatizzati, nel rispetto delle disposizioni di cui all’art. 32 del GDPR e delle misure di sicurezza tecniche e organizzative adeguate.</p>
 
