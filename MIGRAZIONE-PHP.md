@@ -92,6 +92,7 @@ Copiare nella cartella del sito, adattando dove serve:
 | `_config.php` | **Stub di 2 righe** (vedi sotto), uguale per ogni sito. La logica vera è in `_shared/config.php`. |
 | `header.php`  | Testata + menu. Brand e logo da `$LANDING_PAGE`/`$COMPANY`. Imposta `$brandName`. |
 | `footer.php`  | Footer + riga legale costruita SOLO dai campi presenti in `$COMPANY`. |
+| `lead.php`    | **Stub proxy del form contatti** (identico per ogni sito): `$SITE_DIR = __DIR__; require dirname(__DIR__, 2) . '/_shared/lead_proxy.php';`. Aggiunge il token Sanctum e inoltra a `/api/lead` (vedi §4). |
 
 > **Cuore condiviso.** La logica (lettura `.env`, scelta API, chiamata, cache,
 > esposizione variabili) vive in **un solo file**: `_shared/config.php` alla root del
@@ -260,7 +261,12 @@ ridisegnato: rispettare il contratto (vedi `CLAUDE.md` › "Key shared behavior"
 - Facoltativo: gatare la visibilità dei consensi con
   `$LANDING_PAGE['mostra_consenso_0|1|2']`.
 
-`lead-form.js` si copia invariato. `cb.js` si copia ma **il colore accento è hardcoded**:
+**Invio tramite proxy.** `POST /api/lead` richiede il token Sanctum (`DBC2_TOKEN`), che non può
+stare nel browser: `lead-form.js` invia a `const ENDPOINT_URL = 'lead.php';` (relativo) e lo
+stub `lead.php` del sito (→ `_shared/lead_proxy.php`) aggiunge `Authorization: Bearer` e inoltra,
+restituendo status e body dell'API. Mai chiamare `https://dbc2.datalia.it/api/lead` dal JS.
+
+`lead-form.js` si copia dal pilota (già puntato a `lead.php`). `cb.js` si copia ma **il colore accento è hardcoded**:
 allineare i valori esadecimali del fallback (gradiente del pulsante "Accetta" e relative
 `box-shadow`) ai colori del brand del sito (in `style.css`, `--primary` / `--accent`), e
 aggiornare il link `privacy-policy.html` → `.php` al suo interno.

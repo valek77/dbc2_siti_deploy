@@ -1,5 +1,5 @@
 (function () {
-  const ENDPOINT_URL = 'https://dbc2.datalia.it/api/lead';
+  const ENDPOINT_URL = 'lead.php';
 
   const form = document.getElementById('leadForm') || document.getElementById('contatto-form');
   if (!form) return;

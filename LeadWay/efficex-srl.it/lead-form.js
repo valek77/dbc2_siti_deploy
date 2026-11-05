@@ -1,5 +1,5 @@
 (function () {
-  const ENDPOINT_URL = 'https://dbc2.datalia.it/api/lead';
+  const ENDPOINT_URL = 'lead.php';
 
   //const ENDPOINT_URL = 'http://localhost:8000/api/lead';
 

@@ -113,7 +113,9 @@ In breve: **una pagina pensata per il mondo piatto** funziona con `COMPANY_ID`;
   quel file.
 - **Token lato server**: metti `DBC2_TOKEN` nel `.env` **oppure** come variabile
   di sistema (PHP-FPM `env[]`, Apache `SetEnv`/`envvars`). Vedi i commenti in
-  testa a `config.php`.
+  testa a `config.php`. Lo stesso token serve anche al **proxy del form contatti**
+  (`lead.php` → `_shared/lead_proxy.php` → `POST {DBC2_API_BASE}/lead`): l'API `/lead`
+  richiede il Bearer, quindi il browser non la chiama mai direttamente.
 - **Debug**: in `config.php` metti `DEBUG_MODE = true` solo per diagnosi (stampa
   righe `[DEBUG]` in pagina, inclusa quale API viene usata).
 

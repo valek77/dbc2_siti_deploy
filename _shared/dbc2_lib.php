@@ -153,6 +153,58 @@ if (!function_exists('dbc2_api_get')) {
     }
 }
 
+if (!function_exists('dbc2_api_post')) {
+    /**
+     * POST JSON autenticata (Bearer) verso $url. Restituisce [status, body]:
+     * il body NON viene scartato sugli errori (serve inoltrare al browser, ad
+     * esempio, i 422 di validazione). status = 0 se la richiesta non è partita.
+     * Usata dal proxy del form contatti (_shared/lead_proxy.php).
+     */
+    function dbc2_api_post($url, $token, $jsonBody)
+    {
+        $headers = [
+            'Authorization: Bearer ' . $token,
+            'Accept: application/json',
+            'Content-Type: application/json',
+        ];
+
+        if (function_exists('curl_init')) {
+            $ch = curl_init($url);
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => $jsonBody,
+                CURLOPT_TIMEOUT => 10,
+                CURLOPT_HTTPHEADER => $headers,
+            ]);
+            $body = curl_exec($ch);
+            $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            if (curl_errno($ch)) {
+                error_log('dbc2_api_post cURL: ' . curl_error($ch));
+            }
+            curl_close($ch);
+            return [$body === false ? 0 : $code, $body === false ? '' : (string) $body];
+        }
+
+        // Fallback: file_get_contents con stream context
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => implode("\r\n", $headers) . "\r\n",
+                'content' => $jsonBody,
+                'timeout' => 10,
+                'ignore_errors' => true, // leggo il body anche sui 4xx/5xx
+            ],
+        ]);
+        $body = @file_get_contents($url, false, $context);
+        $code = 0;
+        if (isset($http_response_header[0]) && preg_match('#\s(\d{3})\s?#', $http_response_header[0], $m)) {
+            $code = (int) $m[1];
+        }
+        return [$code, $body === false ? '' : (string) $body];
+    }
+}
+
 if (!function_exists('fetch_company')) {
     /**
      * API VECCHIA (DEPRECATA, ma ANCORA ATTIVA): GET /companies/{COMPANY_ID}.

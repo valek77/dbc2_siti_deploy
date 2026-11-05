@@ -342,11 +342,20 @@ class Audit
         if (!preg_match('/name="consenso_(ricontatto|commerciale)"/', $h)) {
             $this->add($s['dir'], 'E', 'ERROR', 'E-consent', "Form contatti: manca il consenso commerciale (consenso_ricontatto/consenso_commerciale).", $page);
         }
-        // Endpoint: nell'action del form OPPURE chiamato via fetch da lead-form.js.
+        // Endpoint: /api/lead richiede il token Sanctum, quindi il browser deve
+        // passare dal proxy lato server "lead.php" (stub -> _shared/lead_proxy.php).
         $leadJs = is_file($s['abs'] . '/lead-form.js') ? $this->read($s['abs'] . '/lead-form.js') : null;
-        $hasEndpoint = strpos($h, 'api/lead') !== false || ($leadJs !== null && strpos($leadJs, 'api/lead') !== false);
-        if (!$hasEndpoint) {
-            $this->add($s['dir'], 'E', 'ERROR', 'E-action', "Né il form né lead-form.js puntano all'endpoint dbc2.datalia.it/api/lead.", $page);
+        // Ignoro le righe commentate (es. "//const ENDPOINT_URL = 'http://localhost...'").
+        $leadJsCode = $leadJs !== null ? preg_replace('#^\s*//.*$#m', '', $leadJs) : '';
+        $direct = '#https?://[^\'"\s]*/api/lead\b#';
+        if (preg_match($direct, $h) || preg_match($direct, $leadJsCode)) {
+            $this->add($s['dir'], 'E', 'ERROR', 'E-action',
+                "Il form chiama /api/lead direttamente dal browser: senza token Sanctum riceve 401. Usare 'lead.php' (proxy).", $page);
+        } elseif (strpos($h, 'lead.php') === false && strpos($leadJsCode, 'lead.php') === false) {
+            $this->add($s['dir'], 'E', 'ERROR', 'E-action', "Né il form né lead-form.js puntano al proxy lead.php.", $page);
+        }
+        if (!is_file($s['abs'] . '/lead.php')) {
+            $this->add($s['dir'], 'E', 'ERROR', 'E-proxy', "Manca lo stub lead.php (proxy verso /api/lead con token): il form NON invia.", $page);
         }
         if ($leadJs === null) {
             $this->add($s['dir'], 'E', 'ERROR', 'E-js', "Manca lead-form.js (gestione invio form).", $page);

@@ -33,7 +33,7 @@ Many ActionSrl sites exist in three near-identical copies: `action-srl.it`, `sem
 
 These two scripts are copied (not shared) into every site, so changes to logic must be applied per-site or fanned out across all copies:
 
-- **`lead-form.js`** — handles the contact form (included only by `contatti.html`). It POSTs JSON to `https://dbc2.datalia.it/api/lead`. The DOM contract is fixed across sites:
+- **`lead-form.js`** — handles the contact form (included only by `contatti.html`). It POSTs JSON to the **relative `lead.php`** (per-site stub → `_shared/lead_proxy.php`), which adds the Sanctum token (`DBC2_TOKEN`, server-side only) and forwards to `{DBC2_API_BASE}/lead`. `/api/lead` requires the token, so **never call it directly from the browser** and never put the token in JS. Every site with a contact form needs the `lead.php` stub. The DOM contract is fixed across sites:
   - Field IDs: `fNome`, `fTel`, `fEmail`; submit button `btnSubmit`; confirmation element `conferma`.
   - Input `name`s: `nome`, `telefono`, `email`.
   - Consent checkboxes: `consenso_privacy` (required) + a "commercial" consent that may be named `consenso_ricontatto` **or** `consenso_commerciale` (the script accepts either) + optional `consenso_marketing`.

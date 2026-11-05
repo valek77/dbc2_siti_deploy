@@ -62,7 +62,7 @@ pre-commit o in una GitHub Action.
 | **B** Dati legali | P.IVA **etichettate** coerenti fra le pagine e col canonico + **check digit** valido; PEC/REA/capitale coerenti; ragione sociale canonica presente. |
 | **C** Consenso/brand | nel testo consenso "ricontattato da **X** … partner commerciale **Y**": X == operatore e Y == azienda del canonico. |
 | **D** Link & asset | link/asset relativi esistenti su disco; ancore `#id` esistenti; (in PHP) link `.html` interni = residuo. |
-| **E** Form | contratto DOM del form contatti (`fNome/fTel/fEmail/btnSubmit/conferma`, name, consensi); endpoint `api/lead` presente nel form o in `lead-form.js`; `lead-form.js` presente. |
+| **E** Form | contratto DOM del form contatti (`fNome/fTel/fEmail/btnSubmit/conferma`, name, consensi); form o `lead-form.js` puntano al proxy `lead.php` (ERROR se chiamano ancora `/api/lead` direttamente: senza token Sanctum → 401); stub `lead.php` presente; `lead-form.js` presente. |
 | **F** Residui PHP | variabili "piatte" API-vecchia in siti API-nuova (stampano vuoto); link `.html` interni; con `--lint`, errori di sintassi `php -l`. |
 | **R** Refusi/contenuto | **consenso fra le copie** (frasi consenso difformi dalla maggioranza = refuso); placeholder/`TODO`/`lorem`; mojibake da encoding; parole doppie; **drift** di `lead-form.js` fra i siti (fix non propagato). |
 
