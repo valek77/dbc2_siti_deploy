@@ -70,13 +70,13 @@ $operatoreNome = $OPERATORE['nome_legale'] !== '' ? $OPERATORE['nome_legale'] : 
 <?php /* Consensi: mostrati solo se abilitati nella landing dall'API.
          mostra_consenso_0 = privacy, _1 = commerciale (ricontatto), _2 = marketing. */ ?>
               <div class="form-group" style="margin-top: 28px;">
-<?php if ($LANDING_PAGE['mostra_consenso_0'] !== '') { ?>
+<?php if ($LANDING_PAGE['mostra_consenso_1'] !== '') { ?>
                 <label class="consent-label" style="margin-top:12px;">
                   <input type="checkbox" name="consenso_privacy" required style="flex-shrink:0;margin-top:3px;">
                   <span style="font-weight:700;">Dichiaro di aver preso visione dell'<a href="privacy-policy.php">informativa privacy</a> ai sensi del Regolamento (UE) 2016/679. *</span>
                 </label>
 <?php } ?>
-<?php if ($LANDING_PAGE['mostra_consenso_1'] !== '') { ?>
+<?php if ($LANDING_PAGE['mostra_consenso_0'] !== '') { ?>
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
                   <span style="font-weight:700;">Richiedo di essere ricontattato da <?= $operatoreNome ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?>, per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>

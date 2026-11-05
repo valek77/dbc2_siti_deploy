@@ -101,16 +101,31 @@ $OPERATORE_ENERGETICO = htmlspecialchars(get_env_var('OPERATORE_ENERGETICO', $en
  * che effettua la chiamata (es. fetch_company o fetch_landing).
  * Comportamento: cache fresca -> file; scaduta/assente -> chiama API e salva;
  * API fallita -> ultima copia (anche "vecchia"); nulla -> array vuoto.
+ * $isValid (facoltativa) dice se una copia in cache appartiene alla risorsa
+ * configurata ORA (es. stesso LANDING_PAGE_ID): una cache scritta prima di un
+ * cambio di ID nel .env viene ignorata, sia da fresca sia come fallback, così il
+ * sito non mostra mai i dati legali di un'altra landing/azienda.
  */
-function dbc2_load_cached(callable $fetch)
+function dbc2_load_cached(callable $fetch, $isValid = null)
 {
+    $cacheOk = function ($data) use ($isValid) {
+        if (!is_array($data)) {
+            return false;
+        }
+        if (is_callable($isValid) && !$isValid($data)) {
+            log_debug("Cache di un'altra risorsa (ID diverso dal .env): ignorata.");
+            return false;
+        }
+        return true;
+    };
+
     $cacheFresh = is_file(CACHE_FILE) && (time() - filemtime(CACHE_FILE) < CACHE_TTL);
 
     // Cache valida e recente: usala senza chiamare l'API.
     if ($cacheFresh) {
         log_debug("Cache valida: caricamento da file.");
         $cached = json_decode((string) @file_get_contents(CACHE_FILE), true);
-        if (is_array($cached)) {
+        if ($cacheOk($cached)) {
             return $cached;
         }
     }
@@ -128,7 +143,7 @@ function dbc2_load_cached(callable $fetch)
     if (is_file(CACHE_FILE)) {
         log_debug("API fallita: uso la cache scaduta come fallback.");
         $stale = json_decode((string) @file_get_contents(CACHE_FILE), true);
-        if (is_array($stale)) {
+        if ($cacheOk($stale)) {
             return $stale;
         }
     }
@@ -156,11 +171,17 @@ if ($LANDING_PAGE_ID !== '') {
     log_debug("Uso API NUOVA (/landing-pages), LANDING_PAGE_ID=" . $LANDING_PAGE_ID);
     $payload = dbc2_load_cached(function () use ($API_BASE, $TOKEN, $LANDING_PAGE_ID) {
         return fetch_landing($API_BASE, $TOKEN, $LANDING_PAGE_ID);
+    }, function ($data) use ($LANDING_PAGE_ID) {
+        // La cache deve essere della landing configurata nel .env.
+        return isset($data['landing_page']['id']) && (string) $data['landing_page']['id'] === (string) $LANDING_PAGE_ID;
     });
 } else {
     log_debug("Uso API VECCHIA (/companies), COMPANY_ID=" . $COMPANY_ID);
     $payload = dbc2_load_cached(function () use ($API_BASE, $TOKEN, $COMPANY_ID) {
         return fetch_company($API_BASE, $TOKEN, $COMPANY_ID);
+    }, function ($data) use ($COMPANY_ID) {
+        // La cache deve essere dell'azienda configurata nel .env.
+        return isset($data['id']) && (string) $data['id'] === (string) $COMPANY_ID;
     });
 }
 

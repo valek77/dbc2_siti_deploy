@@ -155,9 +155,10 @@ if (!function_exists('dbc2_api_get')) {
 
 if (!function_exists('dbc2_api_post')) {
     /**
-     * POST JSON autenticata (Bearer) verso $url. Restituisce [status, body]:
+     * POST JSON autenticata (Bearer) verso $url. Restituisce [status, body, retryAfter]:
      * il body NON viene scartato sugli errori (serve inoltrare al browser, ad
-     * esempio, i 422 di validazione). status = 0 se la richiesta non è partita.
+     * esempio, i 422 di validazione). status = 0 se la richiesta non è partita
+     * o è andata in timeout. retryAfter = header Retry-After ('' se assente).
      * Usata dal proxy del form contatti (_shared/lead_proxy.php).
      */
     function dbc2_api_post($url, $token, $jsonBody)
@@ -167,6 +168,7 @@ if (!function_exists('dbc2_api_post')) {
             'Accept: application/json',
             'Content-Type: application/json',
         ];
+        $retryAfter = '';
 
         if (function_exists('curl_init')) {
             $ch = curl_init($url);
@@ -174,8 +176,14 @@ if (!function_exists('dbc2_api_post')) {
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
                 CURLOPT_POSTFIELDS => $jsonBody,
-                CURLOPT_TIMEOUT => 10,
+                CURLOPT_TIMEOUT => 15,
                 CURLOPT_HTTPHEADER => $headers,
+                CURLOPT_HEADERFUNCTION => function ($ch, $line) use (&$retryAfter) {
+                    if (stripos($line, 'Retry-After:') === 0) {
+                        $retryAfter = trim(substr($line, 12));
+                    }
+                    return strlen($line);
+                },
             ]);
             $body = curl_exec($ch);
             $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -183,7 +191,7 @@ if (!function_exists('dbc2_api_post')) {
                 error_log('dbc2_api_post cURL: ' . curl_error($ch));
             }
             curl_close($ch);
-            return [$body === false ? 0 : $code, $body === false ? '' : (string) $body];
+            return [$body === false ? 0 : $code, $body === false ? '' : (string) $body, $retryAfter];
         }
 
         // Fallback: file_get_contents con stream context
@@ -192,16 +200,22 @@ if (!function_exists('dbc2_api_post')) {
                 'method' => 'POST',
                 'header' => implode("\r\n", $headers) . "\r\n",
                 'content' => $jsonBody,
-                'timeout' => 10,
+                'timeout' => 15,
                 'ignore_errors' => true, // leggo il body anche sui 4xx/5xx
             ],
         ]);
         $body = @file_get_contents($url, false, $context);
         $code = 0;
-        if (isset($http_response_header[0]) && preg_match('#\s(\d{3})\s?#', $http_response_header[0], $m)) {
+        $respHeaders = isset($http_response_header) ? $http_response_header : [];
+        if (isset($respHeaders[0]) && preg_match('#\s(\d{3})\s?#', $respHeaders[0], $m)) {
             $code = (int) $m[1];
         }
-        return [$code, $body === false ? '' : (string) $body];
+        foreach ($respHeaders as $line) {
+            if (stripos($line, 'Retry-After:') === 0) {
+                $retryAfter = trim(substr($line, 12));
+            }
+        }
+        return [$code, $body === false ? '' : (string) $body, $retryAfter];
     }
 }
 

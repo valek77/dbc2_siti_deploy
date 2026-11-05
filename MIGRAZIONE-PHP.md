@@ -258,13 +258,19 @@ ridisegnato: rispettare il contratto (vedi `CLAUDE.md` › "Key shared behavior"
   + `consenso_marketing` (facoltativo).
 - Nei testi dei consensi usare `<?= $OPERATORE['nome_legale'] ?>` (operatore),
   `<?= $COMPANY['company_name'] ?>` (partner commerciale) e `<?= $brandName ?>`.
-- Facoltativo: gatare la visibilità dei consensi con
-  `$LANDING_PAGE['mostra_consenso_0|1|2']`.
+- Facoltativo: gatare la visibilità dei consensi con `$LANDING_PAGE['mostra_consenso_N']`.
+  **Numerazione (guida API DBContatti):** `0` = ricontatto (`consenso_ricontatto`),
+  `1` = privacy (`consenso_privacy`), `2` = marketing (`consenso_marketing`).
+  Se una landing nasconde un consenso, `lead-form.js` deve trattarlo come non obbligatorio
+  (`(!el || el.checked)`).
 
 **Invio tramite proxy.** `POST /api/lead` richiede il token Sanctum (`DBC2_TOKEN`), che non può
 stare nel browser: `lead-form.js` invia a `const ENDPOINT_URL = 'lead.php';` (relativo) e lo
 stub `lead.php` del sito (→ `_shared/lead_proxy.php`) aggiunge `Authorization: Bearer` e inoltra,
-restituendo status e body dell'API. Mai chiamare `https://dbc2.datalia.it/api/lead` dal JS.
+restituendo status e body dell'API. Mai chiamare `https://dbc2.datalia.it/api/lead` dal JS. Il proxy imposta lato server `ip`
+(`REMOTE_ADDR`, oppure l'header indicato in `DBC2_IP_HEADER` se il sito è dietro un nostro
+CDN/proxy), `user_agent` e `landing_page_url` (= `landing_page.url` in cache), inoltra solo i
+campi previsti e non ripete mai un invio (ogni `201` fa partire un SMS).
 
 `lead-form.js` si copia dal pilota (già puntato a `lead.php`). `cb.js` si copia ma **il colore accento è hardcoded**:
 allineare i valori esadecimali del fallback (gradiente del pulsante "Accetta" e relative

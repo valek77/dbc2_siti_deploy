@@ -37,7 +37,9 @@ These two scripts are copied (not shared) into every site, so changes to logic m
   - Field IDs: `fNome`, `fTel`, `fEmail`; submit button `btnSubmit`; confirmation element `conferma`.
   - Input `name`s: `nome`, `telefono`, `email`.
   - Consent checkboxes: `consenso_privacy` (required) + a "commercial" consent that may be named `consenso_ricontatto` **or** `consenso_commerciale` (the script accepts either) + optional `consenso_marketing`.
-  - Payload maps these to `consenso_0` (privacy), `consenso_1` (commercial), `consenso_2` (marketing), plus `nome_cognome`, `email`, `telefono` (digits only), `ip` (from ipify), `landing_page_url`, `data_registrazione`. In the new landing API these indices match the `landing_page.mostra_consenso_0/1/2` flags (0=privacy, 1=commercial, 2=marketing).
+  - Payload maps these (per the DBContatti "Integrazione API Lead" guide) to `consenso_0` (**ricontatto/commercial**), `consenso_1` (**privacy**), `consenso_2` (marketing), plus `nome_cognome`, `email`, `telefono` (Italian mobile, digits only), `offerta_id` (optional). The same indices drive `landing_page.mostra_consenso_0/1/2` (0=ricontatto, 1=privacy, 2=marketing); a consent is required only if shown.
+  - `ip`, `user_agent` and `landing_page_url` are set **server-side** by `lead_proxy.php` (visitor `REMOTE_ADDR` or the trusted header in `DBC2_IP_HEADER`; `HTTP_USER_AGENT`; `landing_page.url` from `.company-cache.json`). The proxy forwards only the documented fields and never retries (every 201 sends an SMS).
+  - Shows a specific message for 422 (e.g. invalid phone) and 429 (rate limit: 30 lead/min per token, 3 per phone/24h).
   - Reads `?offerta=` from the URL to prefill the message / show a banner.
 - **`cb.js`** — self-injecting cookie-consent banner gated on `localStorage.cookieConsent`. Its accent color is hardcoded per site (search the inline `#hexcolor` values when rebranding).
 
