@@ -74,8 +74,10 @@ if (!isset($SITE_DIR)) {
 require_once __DIR__ . '/dbc2_lib.php';
 
 // --- Impostazioni cache e debug ------------------------------------------
-define('CACHE_FILE', $SITE_DIR . '/.company-cache.json');
+// Di norma <sito>/.company-cache.json; se non scrivibile, fallback in tmp (vedi dbc2_cache_file).
+define('CACHE_FILE', dbc2_cache_file($SITE_DIR));
 define('CACHE_TTL', 3600); // secondi (1 ora) prima di richiamare l'API
+define('CACHE_RETRY_AFTER_FAIL', 300); // dopo un errore API, niente nuovi tentativi per 5 minuti
 define('DEBUG_MODE', false); // METTERE true SOLO per diagnosi: stampa i [DEBUG] in pagina
 
 // --- 1. Lettura variabili (sistema + .env) -------------------------------
@@ -130,13 +132,34 @@ function dbc2_load_cached(callable $fetch, $isValid = null)
         }
     }
 
+    // Dopo un errore API recente non ritento a ogni visita (prima ogni pagina
+    // vista con API giù = una chiamata): aspetto CACHE_RETRY_AFTER_FAIL secondi.
+    $failFile = CACHE_FILE . '.fail';
+    $recentFail = is_file($failFile) && (time() - filemtime($failFile) < CACHE_RETRY_AFTER_FAIL);
+
     // Cache assente o scaduta: prova a richiamare l'API.
-    log_debug("Cache assente o scaduta. Tento il recupero dall'API...");
-    $fresh = $fetch();
-    if ($fresh !== null) {
+    $fresh = null;
+    if (!$recentFail) {
+        log_debug("Cache assente o scaduta. Tento il recupero dall'API...");
+        $fresh = $fetch();
+    } else {
+        log_debug("Errore API recente: salto la chiamata e uso il fallback.");
+    }
+    if ($fresh !== null && $cacheOk($fresh)) {
         log_debug("API OK. Aggiorno la cache.");
-        @file_put_contents(CACHE_FILE, json_encode($fresh, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        dbc2_cache_write(CACHE_FILE, $fresh);
+        if (is_file($failFile)) {
+            @unlink($failFile);
+        }
         return $fresh;
+    }
+    if (!$recentFail) {
+        // Fetch fallito (o risposta di un'altra risorsa): segno l'errore.
+        @touch($failFile);
+        error_log('dbc2: chiamata API fallita o risposta non valida per ' . CACHE_FILE);
+        if ($fresh !== null) {
+            return $fresh; // risposta 2xx ma senza l'ID atteso: la mostro, non la salvo
+        }
     }
 
     // API non raggiungibile: usa l'ultima copia salvata, anche se "vecchia".

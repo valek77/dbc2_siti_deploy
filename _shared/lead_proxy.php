@@ -98,7 +98,7 @@ if ($ip === null || filter_var($ip, FILTER_VALIDATE_IP) === false) {
 // URL della landing: quello REGISTRATO (landing_page.url) dalla cache scritta
 // da config.php; in mancanza, l'URL inviato dal browser senza query string.
 $landingUrl = '';
-$cacheFile = $SITE_DIR . '/.company-cache.json';
+$cacheFile = dbc2_cache_file($SITE_DIR); // stesso file usato da config.php
 $LANDING_PAGE_ID = get_env_var('LANDING_PAGE_ID', $env_file);
 if (is_file($cacheFile)) {
     $cache = json_decode((string) @file_get_contents($cacheFile), true);

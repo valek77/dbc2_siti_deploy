@@ -4,6 +4,9 @@
 # Cache locale dei dati azienda scaricati dall'API.
 .company-cache.json
 **/.company-cache.json
+# Marcatore "API fallita di recente" e file temporanei della scrittura atomica.
+**/.company-cache.json.*
+**/.dbc2*
 .claude/
 
 # Cache e report del tool di audit (_shared/audit.php).

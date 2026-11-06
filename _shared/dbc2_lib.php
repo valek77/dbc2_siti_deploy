@@ -92,6 +92,82 @@ if (!function_exists('get_env_var')) {
     }
 }
 
+if (!function_exists('dbc2_cache_file')) {
+    /**
+     * Percorso del file cache del sito. Di norma <cartella sito>/.company-cache.json;
+     * se la cartella NON è scrivibile dall'utente del web server (tipico dopo un
+     * deploy git fatto con un altro utente) ripiega su <tmp>/dbc2-cache/<hash>.json.
+     * Senza questo fallback la scrittura falliva in silenzio e OGNI visita
+     * richiamava l'API. config.php e lead_proxy.php DEVONO usare questa funzione,
+     * così leggono e scrivono lo stesso file.
+     */
+    function dbc2_cache_file($siteDir)
+    {
+        $siteDir = rtrim((string) $siteDir, '/\\');
+        $primary = $siteDir . '/.company-cache.json';
+        if (is_file($primary) ? is_writable($primary) : is_writable($siteDir)) {
+            return $primary;
+        }
+        // Cartella privata per utente: /tmp è condivisa, un altro utente locale
+        // potrebbe pre-crearla e piazzarci un JSON falso (le offerte sono HTML
+        // emesso senza escaping). La uso solo se è nostra, non è un symlink e
+        // nessun altro può leggerla/scriverla; altrimenti resto sul file primario.
+        $uid = function_exists('posix_geteuid') ? posix_geteuid() : null;
+        $dir = rtrim(sys_get_temp_dir(), '/\\') . '/dbc2-cache' . ($uid !== null ? '-' . $uid : '');
+        if (!is_dir($dir)) {
+            @mkdir($dir, 0700, true);
+        }
+        clearstatcache(true, $dir);
+        $st = @lstat($dir);
+        $safe = $st !== false
+            && !is_link($dir)
+            && is_dir($dir)
+            && ($uid === null || $st['uid'] === $uid)
+            && ($uid === null || ($st['mode'] & 0077) === 0);
+        if (!$safe) {
+            error_log('dbc2: cartella cache di fallback ' . $dir . ' non sicura: la ignoro');
+            return $primary;
+        }
+        $fallback = $dir . '/' . md5(realpath($siteDir) ?: $siteDir) . '.json';
+        // Se la copia temporanea non c'è ancora ma esiste quella nella cartella del
+        // sito (es. scritta a mano), la uso in lettura: meglio di niente.
+        if (!is_file($fallback) && is_file($primary)) {
+            return is_writable($dir) ? $fallback : $primary;
+        }
+        return $fallback;
+    }
+}
+
+if (!function_exists('dbc2_cache_write')) {
+    /**
+     * Scrittura ATOMICA della cache (file temporaneo + rename): chi legge in
+     * contemporanea non vede mai un JSON a metà. Gli errori finiscono nel log
+     * PHP invece di essere nascosti. Restituisce true/false.
+     */
+    function dbc2_cache_write($file, $data)
+    {
+        $json = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        // Nome temporaneo imprevedibile, creato in esclusiva (tempnam) nella stessa cartella.
+        $tmp = @tempnam(dirname($file), '.dbc2');
+        if ($tmp === false || realpath(dirname($tmp)) !== realpath(dirname($file))) {
+            if ($tmp !== false) {
+                @unlink($tmp); // tempnam ha ripiegato su un'altra cartella: non va bene per rename
+            }
+            $tmp = false;
+        }
+        if ($json === false || $tmp === false || @file_put_contents($tmp, $json) === false
+            || !@chmod($tmp, 0644) || !@rename($tmp, $file)) {
+            if ($tmp !== false) {
+                @unlink($tmp);
+            }
+            error_log('dbc2: impossibile scrivere la cache ' . $file
+                . ' (cartella scrivibile: ' . (is_writable(dirname($file)) ? 'si' : 'NO') . ')');
+            return false;
+        }
+        return true;
+    }
+}
+
 if (!function_exists('dbc2_api_get')) {
     /**
      * GET autenticata (Bearer) verso $url; restituisce l'array decodificato dal
