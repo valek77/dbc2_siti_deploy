@@ -113,6 +113,12 @@ if (!function_exists('dbc2_cache_file')) {
         // emesso senza escaping). La uso solo se è nostra, non è un symlink e
         // nessun altro può leggerla/scriverla; altrimenti resto sul file primario.
         $uid = function_exists('posix_geteuid') ? posix_geteuid() : null;
+        if ($uid === null && DIRECTORY_SEPARATOR !== '\\') {
+            // Su Linux senza estensione posix non posso verificare il proprietario
+            // della cartella condivisa: niente fallback (fail closed).
+            error_log('dbc2: estensione posix assente, nessun fallback cache in tmp');
+            return $primary;
+        }
         $dir = rtrim(sys_get_temp_dir(), '/\\') . '/dbc2-cache' . ($uid !== null ? '-' . $uid : '');
         if (!is_dir($dir)) {
             @mkdir($dir, 0700, true);
