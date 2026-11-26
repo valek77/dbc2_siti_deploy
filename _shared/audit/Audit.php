@@ -20,7 +20,7 @@ class Audit
 {
     const PAGE_BASENAMES = [
         'index', 'chi-siamo', 'tariffe', 'contatti',
-        'privacy-policy', 'condizioni-utilizzo', 'revoke',
+        'privacy-policy', 'condizioni-utilizzo',
     ];
     // Variabili "piatte" dell'API vecchia: in un sito API-nuova stampano vuoto.
     const FLAT_VARS = [

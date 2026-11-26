@@ -23,7 +23,7 @@ TeamComapny/      sceltaenergia.it, tariffafelice.it, …
 Each site directory is **fully self-contained** and duplicates the same file set:
 `index.html`, `chi-siamo.html`, `tariffe.html`, `contatti.html`, `privacy-policy.html`,
 `condizioni-utilizzo.html`, `style.css`, `cb.js`, `lead-form.js`, plus per-site images.
-Some sites also have `revoke.html` / `revoke.js` (consent-revocation page).
+There is no consent-revocation page on any site (the old `revoke.php`/`revoke.js` pointed at `localhost` and never worked; removed). Consent revocation is handled by email, as described in each privacy policy.
 
 ### Brand variants (ActionSrl)
 

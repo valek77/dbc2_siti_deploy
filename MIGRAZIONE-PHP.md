@@ -179,7 +179,7 @@ le chiavi, anche quando vuote, quindi non si incontrano mai variabili indefinite
 ## 3. Convertire ogni pagina `.html` → `.php`
 
 Per ciascuna pagina (`index`, `chi-siamo`, `tariffe`, `contatti`, `privacy-policy`,
-`condizioni-utilizzo`, ed eventuale `revoke`):
+`condizioni-utilizzo`):
 
 1. **Rinominare** `.html` → `.php`.
 2. **Sostituire** la testata hardcoded (da `<!doctype html>` fino a `</header>`) con il
