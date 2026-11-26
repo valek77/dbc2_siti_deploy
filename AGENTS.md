@@ -42,6 +42,7 @@ These two scripts are copied (not shared) into every site, so changes to logic m
   - Shows a specific message for 422 (e.g. invalid phone) and 429 (rate limit: 30 lead/min per token, 3 per phone/24h).
   - Reads `?offerta=` from the URL to prefill the message / show a banner.
 - **`cb.js`** — self-injecting cookie-consent banner gated on `localStorage.cookieConsent`. Its accent color is hardcoded per site (search the inline `#hexcolor` values when rebranding).
+- **WordPress sites** (not in this repo) use the plugin in `_shared/wordpress/dbc2-elementor-lead/` instead: an Elementor Pro form action that sends the lead server-side to `POST {DBC2_API_BASE}/lead` with the same rules as `lead_proxy.php`. Token in `wp-config.php`, one landing per site. See its `LEGGIMI.md`.
 
 ## Editing conventions
 
