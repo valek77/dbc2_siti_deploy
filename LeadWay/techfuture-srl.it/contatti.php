@@ -71,7 +71,7 @@ include __DIR__ . '/header.php';
 <?php if ($LANDING_PAGE['mostra_consenso_0'] !== '') { ?>
                 <label class="consent-label">
                   <input type="checkbox" name="consenso_ricontatto" required style="flex-shrink:0;margin-top:3px;">
-                  <span>Richiedo di essere ricontattato da <?= $OPERATORE['nome_legale'] ?>, tramite il partner commerciale <?= $COMPANY['company_name'] ?> , per ricevere informazioni e proposte commerciali relative alla fornitura di energia elettrica e/o gas. *</span>
+                  <span>Dichiaro di aver letto l'<a href="privacy-policy.php">informativa privacy</a> relativa al trattamento dei dati inseriti nel presente form e richiedo di essere ricontattato, anche telefonicamente, da <?= $OPERATORE['nome_legale'] ?> e/o da soggetti da essa incaricati, per ricevere informazioni sulle offerte luce e gas di <?= $OPERATORE['nome_legale'] ?> a marchio <?= $OPERATORE['nome_marketing'] ?> e per l'eventuale formulazione di una proposta commerciale. *</span>
                 </label>
 <?php } ?>
 <?php if ($LANDING_PAGE['mostra_consenso_2'] !== '') { ?>
